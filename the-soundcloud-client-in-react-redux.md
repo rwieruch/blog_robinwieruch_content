@@ -8,6 +8,7 @@ keyword = "react redux"
 news_keywords = ["react redux"]
 banner = "img/posts/the-soundcloud-client-in-react-redux/banner.jpg"
 dsq_thread_id = "4902142763"
+contribute = "the-soundcloud-client-in-react-redux.md"
 
 summary = "At the end of this tutorial you can expect to have a running React + Redux app, which consumes the SoundCloud API. You will be able to login with your SoundCloud account, list your latest tracks and listen to them within the browser. Additionally you will learn a lot about tooling with Webpack and Babel."
 +++

@@ -8,6 +8,7 @@ keyword = "mobx react"
 news_keywords = ["mobx react"]
 banner = "img/posts/mobx-react/banner.jpg"
 dsq_thread_id = "4995779072"
+contribute = "mobx-react.md"
 
 summary = "The MobX React: Refactor your application from Redux to MobX tutorial will teach you how to use MobX instead of Redux for state management in React. We will come from a Redux + React seed project and refactor it from Redux to MobX. While we do so, I will explain in detail the concepts behind MobX and the similarities and differences compared to Redux."
 +++
