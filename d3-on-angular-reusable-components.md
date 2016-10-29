@@ -7,7 +7,6 @@ categories = ["Angular", "D3"]
 keyword = "angular d3"
 news_keywords = ["angular d3"]
 banner = "img/posts/d3-on-angular-reusable-components/banner.png"
-dsq_thread_id = "4902143187"
 contribute = "d3-on-angular-reusable-components.md"
 
 summary = "Components become more important these days. In the future you will get to hear more and more about Web Components, which get available in Angular 2.0 as well, to create different reusable components. While you already weave multiple angular directives into each other, there are only a few articles which describe this reusability with d3 directives."

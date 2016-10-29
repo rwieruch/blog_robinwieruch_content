@@ -7,7 +7,6 @@ categories = ["Redux"]
 keyword = "redux observable"
 news_keywords = ["redux observable", "redux rxjs"]
 banner = "img/posts/redux-observable-rxjs/banner.jpg"
-dsq_thread_id = "5063011062"
 contribute = "redux-observable-rxjs.md"
 
 summary = "The tutorial will show you how to use Observables in Redux. Moreover it will give you an entry point into Reactive Programming. Keep in mind that it will only scratch the surface, but maybe afterwards you get the idea and want to give it a shot in some of your projects as well."

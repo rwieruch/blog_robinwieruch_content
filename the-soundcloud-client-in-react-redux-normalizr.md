@@ -7,7 +7,6 @@ categories = ["React", "Redux"]
 keyword = "redux normalizr"
 news_keywords = ["redux normalizr"]
 banner = "img/posts/the-soundcloud-client-in-react-redux-normalizr/banner.jpg"
-dsq_thread_id = "4972919307"
 contribute = "the-soundcloud-client-in-react-redux-normalizr.md"
 
 summary = "The Normalizr in Redux tutorial will teach you how to use normalizr for an improved data management in your Redux store. The library itself will help you to avoid deep nested data structures although the returned data from a server is deeply nested. Additionally it comes for free to enable a manageable single source of truth for data entities in your global store."
