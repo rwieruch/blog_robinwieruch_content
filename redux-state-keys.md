@@ -1,6 +1,6 @@
 +++
 title = "Redux State Keys - Abstract your state in Redux"
-description = "Redux state keys enable a dynamically allocated yet predictable substate. In a rapid development environment it happens quite often. There is no time to plan state structure..."
+description = "Redux state keys enable a dynamically allocated yet predictable substate. In a rapid development environment it happens quite often: There is no time to plan state structure..."
 date = "2015-10-31T13:50:46+02:00"
 tags = ["Redux"]
 categories = ["Redux"]
@@ -9,7 +9,7 @@ news_keywords = ["redux state keys"]
 banner = "img/posts/redux-state-keys/banner.png"
 contribute = "redux-state-keys.md"
 
-summary = "Redux state keys enable a dynamically allocated yet predictable substate. In a rapid development environment it happens quite often. There is no time to plan state structure ahead. There is no time to refactor in favour of abstractions. There is no place to refactor, because you have multiple teams working on feature folders, where every team is relieved to have their owned place."
+summary = "In a rapid development environment it happens quite often: There is no time to plan state structure ahead. There is no time to refactor in favour of abstractions. There is no place to refactor, because you have multiple teams working on feature folders, where every team is relieved to have their owned place. Redux state keys solve that problem. They enable a dynamically allocated yet predictable substate."
 +++
 
 # Redux State Keys - Abstract your state in Redux
@@ -327,7 +327,7 @@ The state key abstraction made it easy to deal with all the shown cases for asyn
 * set a error when request fails and even more store a error message
 * reset loading indicator after fetching
 
-Moreover a button component beneath our list of messages could be responsible to fetch paginated data. Once you click the button, the implemented `fetchMessages` action would get triggered. The button knows about the `nextHref` to pass it to the `fetchMessages` action, since its container component retrieves `nextHref` by using a state key selector `getNextHref(state, 'MESSAGES')`.
+Moreover a button component beneath our list of messages could be responsible to fetch paginated data. Once you click the button, the implemented `fetchMessages` action would get triggered. The button knows about the `nextHref` to pass it to the `fetchMessages` action, since its container component retrieves `nextHref by using a state key selector `getNextHref(state, 'MESSAGES')`.
 
 {{% chapter_header "Primitives vs. Objects" "primitivesVsObjects" %}}
 
