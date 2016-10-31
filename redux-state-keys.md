@@ -1,20 +1,20 @@
 +++
-title = "Redux State Keys - Abstract your state in Redux"
+title = "Redux State Keys - A predictable yet dynamic substate"
 description = "Redux state keys enable a dynamically allocated yet predictable substate. In a rapid development environment it happens quite often: There is no time to plan state structure..."
 date = "2015-10-31T13:50:46+02:00"
 tags = ["Redux"]
 categories = ["Redux"]
 keyword = "redux state keys"
 news_keywords = ["redux state keys"]
-banner = "img/posts/redux-state-keys/banner.png"
+banner = "img/posts/redux-state-keys/banner.jpg"
 contribute = "redux-state-keys.md"
 
 summary = "In a rapid development environment it happens quite often: There is no time to plan state structure ahead. There is no time to refactor in favour of abstractions. There is no place to refactor, because you have multiple teams working on feature folders, where every team is relieved to have their owned place. Redux state keys solve that problem. They enable a dynamically allocated yet predictable substate."
 +++
 
-# Redux State Keys - Abstract your state in Redux
+# Redux State Keys - A predictable yet dynamic substate
 
-{{% image_alt "redux state keys" "/img/posts/redux-state-keys/banner.png" %}}
+{{% image_alt "redux state keys" "/img/posts/redux-state-keys/banner.jpg" %}}
 
 Sometimes I feel it's quite obvious, but I never saw it somewhere written down. The article is my attempt to show you a way to organize your state with **state keys**. I'm using it in my projects, others might already use a similar approach. But nobody advertised it so far.
 
@@ -331,14 +331,13 @@ Moreover a button component beneath our list of messages could be responsible to
 
 {{% chapter_header "Primitives vs. Objects" "primitivesVsObjects" %}}
 
-In our example we only store primitives. But you can apply it for complex objects as well. Imagine a Table component which supports to sort, filter and select. You want to have these states in your global state to keep it accessible from the outside. Now you could register each table component depending on their set of features (select, filter, sort) to different substates with their state key.
+In our example we only store primitives. But you can apply it for complex objects as well. Imagine a Table component which supports to sort, filter and select. You want to have these states in your global state to keep it accessible from the outside. Now you could register each table component depending on their set of features (select, filter, sort) to different substates (groups) with their state key. Not all tables need to support al features.
 
 {{< highlight javascript >}}
 --select
 ----MESSAGES_TABLE
 ----AUTHORS_TABLE
 --filter
-----MESSAGES_TABLE
 ----AUTHORS_TABLE
 --sort
 ----MESSAGES_TABLE
@@ -349,7 +348,7 @@ Now it's fairly easy to keep track of different Tables and their substates. You 
 
 {{% chapter_header "Static vs. Dynamic" "staticVsDynamic" %}}
 
-A static set of state keys describes a finite number of allocated substates. The substate is predictable. On the other hand you may be already used to a dynamic allocation. The following should be familiar to you:
+A static set of state keys describes a finite number of allocated substates. The substate is predictable. On the other hand you may be already used to a dynamic allocation. The following should be familiar to you, especially when you use normalizr:
 
 {{< highlight javascript >}}
 messages: {
