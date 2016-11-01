@@ -33,9 +33,11 @@ Sometimes I feel it's quite obvious, but I never saw it somewhere written down. 
 
 {{% chapter_header "Cluttered State" "clutteredState" %}}
 
-React + Redux developers tend to use feature folders these days. Most of the time they are coupled to a nested reducer and actions and thus they are less accessible from the outside. They still get exposed yet overlooked. I'm advertising feature folders as well, but in larger applications one often ends up with a cluttered state. It happens because the specific domain state is nestded in the feature folders. Without thinking in advance about the nested substate, the state gets easily messy by adding domain unspecific state.
+React + Redux developers tend to use feature folders these days. Most of the time they are coupled to a nested reducer and actions and thus they are less accessible from the outside. They still get exposed yet overlooked. I'm advertising feature folders as well, but in larger applications one often ends up with a cluttered state.
 
-Consider the following example: You want to show error messages when a request fails (1), loading indicators for asynchronous requests (2) and load more buttons to fetch paginated data from your backend (3). Everything happens in different domains like editing an user or showing lists of messages and authors. Your state might look something like the following, where all the things typically nest in domain specific states.
+The cluttered state happens because in feature folders it's fairly easy to mix up specific and unspecifc domain state. Without thinking in advance about the nested substate in a feature folder, the state gets easily messy.
+
+Consider the following example: You want to show error messages when a request fails (1), loading indicators for asynchronous requests (2) and load more buttons to fetch paginated data from your backend (3). Everything happens in different domains like editing an user or showing lists of messages and authors. Your state might look like the following, where all the things typically nest in domain specific states.
 
 {{< highlight javascript >}}
 {
@@ -170,11 +172,15 @@ First define your state keys and second divide them into groups.
 const USER = 'USER';
 const MESSAGES = 'MESSAGES';
 const AUTHORS = 'AUTHORS';
+{{< /highlight >}}
 
+{{< highlight javascript >}}
 // isError group
 const USER_EDIT = 'USER_EDIT';
 const AUTHORS_FETCH = 'AUTHORS_FETCH';
+{{< /highlight >}}
 
+{{< highlight javascript >}}
 // nextHref group
 const MESSAGES = 'MESSAGES';
 const AUTHORS = 'AUTHORS';
@@ -189,20 +195,20 @@ You can have a constants file for each group.
 ----nextHref.js
 {{< /highlight >}}
 
-The constants file for each group is important. It describes a finite number of allocated keys, thus a finite number of substates (C) in a group. Each group itself represents a substate (B) in your global state (A).
+The constants file for each group is important. It describes a finite number of allocated keys, thus a finite number of substates [C] in a group. Each group itself represents a substate [B] in your global state [A].
 
 {{< highlight javascript >}}
---(A) state
-----(B) isLoading
-------(C) USER
-------(C) MESSAGES
-------(C) AUTHORS
-----(B) isError
-------(C) USER_EDIT
-------(C) AUTHORS_FETCH
-----(B) nextHref
-------(C) MESSAGES
-------(C) AUTHORS
+--[A] state
+----[B] isLoading
+------[C] USER
+------[C] MESSAGES
+------[C] AUTHORS
+----[B] isError
+------[C] USER_EDIT
+------[C] AUTHORS_FETCH
+----[B] nextHref
+------[C] MESSAGES
+------[C] AUTHORS
 {{< /highlight >}}
 
 {{% sub_chapter_header "Reducer + Action Abstraction" "reducerActionAbstraction" %}}
@@ -242,9 +248,9 @@ After all you will end up with the following relationship.
 1-Group of Constants (file) : n-State Keys : 1-Reducer
 {{< /highlight >}}
 
-Now one could allocate all stateKeys (USER, MESSAGES, AUTHORS) in the group (substate) isLoading.
+Each group allocates the same payload though. All state keys sharing the same action + reducer pair store the same data model.
 
-Here is one example how you would indicate that a list of messages is loading:
+Now one could allocate all stateKeys (USER, MESSAGES, AUTHORS) in the group (substate) isLoading. Here is one example how you would indicate that a list of messages is loading:
 
 {{< highlight javascript >}}
 // dispatch an action to indicate loading
@@ -286,7 +292,7 @@ function getIsLoading(state, stateKey) {
 }
 {{< /highlight >}}
 
-Additionally a static type checker like [flow](https://flowtype.org/) would be another great benefit. One could register all state keys for specific reducer, actions and selectors. It gives one a very predictable substate container.
+Additionally a static type checker like {{% a_blank "flow" "https://flowtype.org/" %}} would be another great benefit. One could register all state keys for specific reducer, actions and selectors. It gives one a very predictable substate container.
 
 {{% sub_chapter_header "Usage" "usage" %}}
 
@@ -327,11 +333,13 @@ The state key abstraction made it easy to deal with all the shown cases for asyn
 * set a error when request fails and even more store a error message
 * reset loading indicator after fetching
 
-Moreover a button component beneath our list of messages could be responsible to fetch paginated data. Once you click the button, the implemented `fetchMessages` action would get triggered. The button knows about the `nextHref` to pass it to the `fetchMessages` action, since its container component retrieves `nextHref by using a state key selector `getNextHref(state, 'MESSAGES')`.
+Moreover imagine a button component beneath our list of messages, which could be responsible to fetch paginated data. Once you click the button, the implemented `fetchMessages` action would get triggered. The button knows about the `nextHref` to pass it to the `fetchMessages` action, since its container component retrieves `nextHref` by using a state key selector `getNextHref(state, 'MESSAGES')`.
+
+The example shows it only for `MESSAGES`, but you could easily exchange the state key to `AUTHORS` and implement a `fetchAuthors` function. Additionally the pattern scales: Once you want to add a new domain like 'COMMENTS', it's quite simple to add another state key which benefits from the pattern from the beginning.
 
 {{% chapter_header "Primitives vs. Objects" "primitivesVsObjects" %}}
 
-In our example we only store primitives. But you can apply it for complex objects as well. Imagine a Table component which supports to sort, filter and select. You want to have these states in your global state to keep it accessible from the outside. Now you could register each table component depending on their set of features (select, filter, sort) to different substates (groups) with their state key. Not all tables need to support al features.
+In our example we only store primitives. But you can apply it for complex objects as well. Imagine a Table component which supports to sort, filter and select. You want to have these states in your global state to keep it accessible from the outside. Now you could register each table component depending on their set of features (select, filter, sort) to different substates (groups) with their state key. Not all tables need to support all features.
 
 {{< highlight javascript >}}
 --select
@@ -366,14 +374,16 @@ messages: {
 
 {{% chapter_header "Key Takeaways of State Keys" "keyTakeaways" %}}
 
-State keys enable a dynamically allocated yet predictable substate. At the end I want to give you some key takeaways of state keys:
+State keys enable a dynamically allocated yet predictable substate. State keys are used in {{% a_blank "favesound-redux" "https://github.com/rwieruch/favesound-redux" %}} - a real world SoundCloud Client application. They are located in *src/constants*.
+
+At the end I want to give you some key takeaways of state keys:
 
 * they organize abstract state
 * they prevent clutter in domain specific state
 * they define an own domain specific state
 * they remove duplications of reducer and actions
-* they reduce the total amount of code
+* they are scalable: add a new state key which benefits from the available reducer + action pairs immediately
 * they make substate accessible (with selectors) by using a finite number of constants
 * they make feature folder specific state accessible again
 
-State keys are used in {{% a_blank "favesound-redux" "https://github.com/rwieruch/favesound-redux" %}} - a real world SoundCloud Client application. They are located in *src/constants*.
+Even though you can apply the pattern without a library, a very good friend of mine already implemented {{% a_blank "redux-state-keys" "https://github.com/LFDM/redux-state-keys" %}} for you.
