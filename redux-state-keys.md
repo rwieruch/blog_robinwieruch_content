@@ -211,6 +211,26 @@ The constants file for each group is important. It describes a finite number of 
 ------[C] AUTHORS
 {{< /highlight >}}
 
+Once again in JavaScript syntax with some dummy state:
+
+{{< highlight javascript >}}
+/* A */ state : {
+/* B */   isLoading: {
+/* C */     USER: false,
+/* C */     MESSAGES: true,
+/* C */     AUTHORS: false,
+          },
+/* B */   isError: {
+/* C */     USER_EDIT: false,
+/* C */     AUTHORS_FETCH: false,
+          },
+/* B */   nextHref: {
+/* C */     MESSAGES: '/api/messages?offset=200&size=100',
+/* C */     AUTHORS: '/api/authors?offset=50&size=25',
+          },
+        }
+{{< /highlight >}}
+
 {{% sub_chapter_header "Reducer + Action Abstraction" "reducerActionAbstraction" %}}
 
 Now it's time to implement a reducer + action pair for each group. To keep it simple, I show it only for the isLoading group.
