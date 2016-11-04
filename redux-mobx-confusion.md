@@ -1,7 +1,7 @@
 +++
 title = "Redux or MobX: An attempt to dissolve the Confusion"
 description = "Redux or MobX? I used Redux excessively the last year, but spent the recent time with MobX as state management alternative. It seems that an alternative ..."
-date = "2015-09-19T13:50:46+02:00"
+date = "2016-09-19T13:50:46+02:00"
 tags = ["React", "Redux", "MobX"]
 categories = ["React", "Redux", "MobX"]
 keyword = "redux mobx"

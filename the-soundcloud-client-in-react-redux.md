@@ -1,7 +1,7 @@
 +++
 title = "The SoundCloud Client in React + Redux"
 description = "React + Redux: You can expect to have a running React + Redux app, which consumes the SoundCloud API. You will be able to login with your SoundCloud acc..."
-date = "2015-06-11T13:50:46+02:00"
+date = "2016-06-11T13:50:46+02:00"
 tags = ["React", "Redux"]
 categories = ["React", "Redux"]
 keyword = "react redux"

@@ -1,7 +1,7 @@
 +++
 title = "Flow: Type Checking with Flow in React + Redux"
 description = "The Flow: Type Checking with Flow in React + Redux tutorial will teach you how to use Flow in a React + Redux environment. JavaScript as dynamically typed.."
-date = "2015-06-21T13:50:46+02:00"
+date = "2016-06-21T13:50:46+02:00"
 tags = ["Redux"]
 categories = ["Redux"]
 keyword = "redux flow"
