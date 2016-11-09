@@ -12,7 +12,7 @@ contribute = "the-soundcloud-client-in-react-redux-eslint.md"
 summary = "The React ESLint: Code Style like Airbnb in React tutorial will teach you how to setup ESLint in a React + Babel + Webpack environment. In addition to the setup of usual code style rules, you will add React rules to enforce a better code style in your React environment as well. Moreover you will learn how to extend your ESLint rules with existing best practices rules of companies like Airbnb."
 +++
 
-# React ESLint: Code Style like Airbnb in React
+{{% header "React ESLint: Code Style like Airbnb in React" %}}
 
 {{% image_alt "react eslint" "/img/posts/the-soundcloud-client-in-react-redux-eslint/banner.jpg" %}}
 

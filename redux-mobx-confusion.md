@@ -12,7 +12,7 @@ contribute = "redux-mobx-confusion.md"
 summary = "Everyone wants to have state management in an application. But what problem does it solve for us? Most people start with a small application and already introduce a state management library. Everyone is speaking about it, aren't they? But most applications don't need ambitious state management from the beginning. It is even more dangerous, because most people are never going to experience which problems libraries like Redux or MobX solve."
 +++
 
-# Redux or MobX: An attempt to dissolve the Confusion
+{{% header "Redux or MobX: An attempt to dissolve the Confusion" %}}
 
 {{% image_alt "redux mobx" "/img/posts/redux-mobx-confusion/banner.jpg" %}}
 

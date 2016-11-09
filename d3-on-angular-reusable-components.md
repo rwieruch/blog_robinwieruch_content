@@ -12,7 +12,7 @@ contribute = "d3-on-angular-reusable-components.md"
 summary = "Components become more important these days. In the future you will get to hear more and more about Web Components, which get available in Angular 2.0 as well, to create different reusable components. While you already weave multiple angular directives into each other, there are only a few articles which describe this reusability with d3 directives."
 +++
 
-# D3 on Angular: Reusable Components
+{{% header "D3 on Angular: Reusable Components" %}}
 
 {{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "D3 on Angular: Small Multiples with Brushing" "http://www.robinwieruch.de/d3-angular-small-multiples-brushing/" %}}
 

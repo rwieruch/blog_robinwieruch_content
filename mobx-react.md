@@ -12,7 +12,7 @@ contribute = "mobx-react.md"
 summary = "The MobX React: Refactor your application from Redux to MobX tutorial will teach you how to use MobX instead of Redux for state management in React. We will come from a Redux + React seed project and refactor it from Redux to MobX. While we do so, I will explain in detail the concepts behind MobX and the similarities and differences compared to Redux."
 +++
 
-# MobX React: Refactor your application from Redux to MobX
+{{% header "MobX React: Refactor your application from Redux to MobX" %}}
 
 {{% image_alt "mobx react" "/img/posts/mobx-react/banner.jpg" %}}
 

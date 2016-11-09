@@ -12,7 +12,7 @@ contribute = "redux-observable-rxjs.md"
 summary = "The tutorial will show you how to use Observables in Redux. Moreover it will give you an entry point into Reactive Programming. Keep in mind that it will only scratch the surface, but maybe afterwards you get the idea and want to give it a shot in some of your projects as well."
 +++
 
-# Redux Observable RxJS: Going Epic with Reactive Programming
+{{% header "Redux Observable RxJS: Going Epic with Reactive Programming" %}}
 
 {{% image_alt "redux observable" "/img/posts/redux-observable-rxjs/banner.jpg" %}}
 
