@@ -14,7 +14,7 @@ summary = "The Flow: Type Checking with Flow in React + Redux tutorial will teac
 
 {{% header "Flow: Type Checking with Flow in React + Redux" %}}
 
-{{% image_alt "redux flow" "/img/posts/the-soundcloud-client-in-react-redux-flow/banner.jpg" %}}
+{{% pin_it_image "redux flow" "img/posts/the-soundcloud-client-in-react-redux-flow/banner.jpg" %}}
 
 {{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "The SoundCloud Client in React + Redux" "http://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
 

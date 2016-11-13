@@ -14,7 +14,7 @@ summary = "The tutorial will show you how to use Observables in Redux. Moreover 
 
 {{% header "Redux Observable RxJS: Going Epic with Reactive Programming" %}}
 
-{{% image_alt "redux observable" "/img/posts/redux-observable-rxjs/banner.jpg" %}}
+{{% pin_it_image "redux observable" "img/posts/redux-observable-rxjs/banner.jpg" %}}
 
 {{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "The SoundCloud Client in React + Redux" "http://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
 

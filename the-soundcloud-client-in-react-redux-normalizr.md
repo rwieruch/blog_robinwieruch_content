@@ -14,7 +14,7 @@ summary = "The Normalizr in Redux tutorial will teach you how to use normalizr f
 
 {{% header "Redux Normalizr: Improve your State Management" %}}
 
-{{% image_alt "redux normalizr" "/img/posts/the-soundcloud-client-in-react-redux-normalizr/banner.jpg" %}}
+{{% pin_it_image "redux normalizr" "img/posts/the-soundcloud-client-in-react-redux-normalizr/banner.jpg" %}}
 
 {{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "The SoundCloud Client in React + Redux" "http://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
 

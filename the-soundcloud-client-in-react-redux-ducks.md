@@ -14,7 +14,7 @@ summary = "The Redux Ducks: Restructure your Redux App with Ducks tutorial will 
 
 {{% header "Redux Ducks: Restructure your Redux App with Ducks" %}}
 
-{{% image_alt "redux ducks" "/img/posts/the-soundcloud-client-in-react-redux-ducks/banner.jpg" %}}
+{{% pin_it_image "redux ducks" "img/posts/the-soundcloud-client-in-react-redux-ducks/banner.jpg" %}}
 
 {{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "The SoundCloud Client in React + Redux" "http://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
 

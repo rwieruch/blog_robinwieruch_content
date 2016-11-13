@@ -14,7 +14,7 @@ summary = "The React ESLint: Code Style like Airbnb in React tutorial will teach
 
 {{% header "React ESLint: Code Style like Airbnb in React" %}}
 
-{{% image_alt "react eslint" "/img/posts/the-soundcloud-client-in-react-redux-eslint/banner.jpg" %}}
+{{% pin_it_image "react eslint" "img/posts/the-soundcloud-client-in-react-redux-eslint/banner.jpg" %}}
 
 {{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "The SoundCloud Client in React + Redux" "http://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
 

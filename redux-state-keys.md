@@ -14,7 +14,7 @@ summary = "In a rapid development environment it happens quite often: There is n
 
 {{% header "Redux State Keys - A predictable yet dynamic substate" %}}
 
-{{% image_alt "redux state keys" "/img/posts/redux-state-keys/banner.jpg" %}}
+{{% pin_it_image "redux state keys" "img/posts/redux-state-keys/banner.jpg" %}}
 
 Sometimes I feel it's quite obvious, but I never saw it somewhere written down. The article is my attempt to show you a way to organize your state with **state keys**. I'm using it in my projects, others might already use a similar approach. But nobody advertised it so far.
 
