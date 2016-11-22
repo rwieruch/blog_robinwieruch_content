@@ -235,8 +235,9 @@ Once again in JavaScript syntax with some dummy state:
 
 Now it's time to implement a reducer + action pair for each group. To keep it simple, I show it only for the isLoading group.
 
+*reducer.js*
+
 {{< highlight javascript >}}
-// reducer
 export default function(state = {}, action) {
   switch (action.type) {
     case 'SET_IS_LOADING':
@@ -249,8 +250,11 @@ function applyIsLoading(state, action) {
   const { stateKey, isLoading } = action.payload;
   return { ...state, [stateKey]: isLoading };
 }
+{{< /highlight >}}
 
-// action creator
+*action.js*
+
+{{< highlight javascript >}}
 export function setIsLoading(stateKey, isLoading) {
   return {
     type: 'SET_IS_LOADING',
@@ -267,6 +271,8 @@ After all you will end up with the following relationship.
 {{< highlight javascript >}}
 1-Group of Constants (file) : n-State Keys : 1-Reducer
 {{< /highlight >}}
+
+> It seems like we pair one action with one reducer very strictly. But that's not the case. On the one hand you can still keep your reducer accessible for other actions. On the other hand you can use the action in other reducers as well. **Keep your actions as global events and don't use them as local commands.**
 
 Each group allocates the same payload though. All state keys sharing the same action + reducer pair store the same data model.
 
@@ -376,7 +382,7 @@ Now it's fairly easy to keep track of different Tables and their substates. You 
 
 {{% chapter_header "Static vs. Dynamic" "staticVsDynamic" %}}
 
-A static set of state keys describes a finite number of allocated substates. The substate is predictable. On the other hand you may be already used to a dynamic allocation. The following should be familiar to you, especially when you use normalizr:
+A static set of state keys describes a finite number of allocated substates. The substate is predictable. On the other hand you may be already used to a dynamic allocation. The following should be familiar to you, especially when you use {{% a_blank "normalizr" "https://github.com/paularmstrong/normalizr" %}}:
 
 {{< highlight javascript >}}
 messages: {
