@@ -84,7 +84,7 @@ function users(state = initialState, action) {
 { type: 'USER_ADD', user: user };
 {{< /highlight >}}
 
-One would have to `dispatch({ type: 'USER_ADD', user: user }); to add a new user to the global state.
+One would have to `dispatch({ type: 'USER_ADD', user: user });` to add a new user to the global state.
 
 In MobX a store would only manage a substate, but you are able to mutate the state directly. An annotation like `@observable` makes it possible to observe state changes.
 

@@ -733,8 +733,6 @@ import { observer, inject } from 'mobx-react';
 import Stream from './presenter';
 import { CLIENT_ID } from '../../constants/auth';
 import { auth } from '../../actions/auth';
-import userStore from '../../stores/userStore';
-import trackStore from '../../stores/trackStore';
 
 const StreamContainer = inject('userStore', 'trackStore')(observer(({ userStore, trackStore }) => {
   return (
