@@ -3,9 +3,11 @@ title = "The Road to learn React"
 description = "The Road to learn React offers you a foundation before you start to dive into the more advanced React ecosystem. It has more React, but less tooling, less external state management..."
 date = "2016-12-10T13:50:46+02:00"
 tags = ["learn", "react", "redux"]
+categories = ["React"]
 keyword = "learn react redux"
 news_keywords = ["learn react redux"]
 contribute = "the-road-to-learn-react.md"
+banner = "img/posts/the-road-to-learn-react/cover.png"
 type = "promo"
 
 summary = "The Road to learn React offers you a foundation before you start to dive into the more advanced React ecosystem. It has less tooling and less external state management, but more React. It explains general concepts and patterns."
@@ -15,48 +17,64 @@ summary = "The Road to learn React offers you a foundation before you start to d
 
 I love to teach, even though I am no expert. I learn every day and I have the fortune to have great mentors. After all not everyone has the opportunity to learn from mentors and peers. The book is my attempt to give something back which might help people to get started and advance in React.
 
-The following article includes the first chapters of an eBook to learn React. It highly depends on your feedback and contribution. I try my best to teach in the best way possible, but I can only improve with your help. Since I am no native speaker, I will even more need your improvements. You can have a direct impact on [GitHub](https://github.com/rwieruch/blog_robinwieruch_content/blob/master/the-road-to-learn-react.md). Additionally I am keen to hear your honest thoughts on [Twitter](https://twitter.com/rwieruch).
+The following article includes the first chapters of an eBook to learn React. In the future it highly depends on your feedback and contribution. I try my best to teach in the best way possible, but I can only improve with your help. You can have a direct impact on {{% a_blank "GitHub" "https://github.com/rwieruch/the-road-to-learn-react" %}}. Additionally I am keen to hear your honest thoughts on {{% a_blank "Twitter" "https://twitter.com/rwieruch" %}}.
 
 But why me? In the past I have written a larger tutorial to implement a [SoundCloud Client in React + Redux](http://www.robinwieruch.de/the-soundcloud-client-in-react-redux). I never expected the overwhelming reaction. I learned a lot during the process of writing. But even more by getting your honest feedback. It was my first attempt to teach people in programming.
 
 It also taught me to do better. I realized the SoundCloud tutorial is suited for advanced developers. It uses several tools to bootstrap your application and dives pretty quickly into Redux. Still it helped a lot of people to get started. In my opinion it's a great tutorial to get a bigger picture of React + Redux. I use every free minute to improve the material, but it's time consuming. I am going to overhaul it as a whole in the future.
 
-In [the Road to learn React](https://leanpub.com/the-road-to-learn-react) I want to offer a foundation before you start to dive into the more advanced React ecosystem. It has less tooling and less external state management, but more React. It explains general concepts and patterns. Additionally it links to the official documentation, because it's a great reference to learn React. After all I want to give a clear road to learn the React ecosystem. It should provide you a solid foundation before you dive into more advanced topics like Redux.
+{{% package_box "The Road to learn React" "Build a Hacker News Client to learn React. No setup configuration. No tooling. No Redux. Plain React in 90 pages of learning material." "Get the Book" "img/page/cover.png" "https://leanpub.com/the-road-to-learn-react" %}}
+
+In {{% a_blank "the Road to learn React" "https://leanpub.com/the-road-to-learn-react" %}} I want to offer a foundation before you start to dive into the more advanced React ecosystem. It has less tooling and less external state management, but more React. It explains general concepts and patterns. Additionally it links to the official documentation, because it's a great reference to learn React. After all I want to give a clear road to learn the React ecosystem. It should provide you a solid foundation before you dive into more advanced topics like Redux.
 
 {{% chapter_header "FAQ" "faq" %}}
 
-**How do I get updates?** You can [subscribe](http://eepurl.com/caLPjr) or follow me on [Twitter](https://twitter.com/rwieruch) for updates. It keeps me motivated to work on the book as well. Once you have a copy of the book from [Leanpub](https://leanpub.com/the-road-to-learn-react), the book will stay updated.
+**How do I get updates?** You can {{% a_blank "subscribe" "http://eepurl.com/caLPjr" %}} or follow me on {{% a_blank "Twitter" "https://twitter.com/rwieruch" %}} for updates. It keeps me motivated to work on the book as well. Once you have a copy of the book from Leanpub, the book will stay updated.
 
 **Does it cover Redux?** So far it doesn't. The book should give you a solid foundation before you dive into advanced topics like Redux. Still the implementation in the book will show you that you don't need Redux to build a presentable application.
 
-**But why is the book for free?** I have put a lot of effort into this and will do so in the future. My desire is to reach as many people as possible to learn React. Once you have your version of the book, you will automatically get all the updates even though the book might not be for free at some point. I would appreciate each of your social shares for the book.
+**But why is the book for free?** I have put a lot of effort into this and will do so in the future. My desire is to reach as many people as possible. Everyone should be enabled to learn React. Still you can decide to pay something when you can effort it. It's pay as you want. Once you have your version of the book, you will automatically get all the updates. I would appreciate each of your social shares for the book.
 
-**Does the article cover all book chapters?** No. At this time the blog post covers 2 of 4 chapters. Grab your free book on [Leanpub](https://leanpub.com/the-road-to-learn-react) to get all chapters. It has over 90 pages of learning material.
+**Does the article cover all book chapters?** No. At this time the blog post covers 2 of 4 chapters. Grab your book on Leanpub to get all chapters. It has over 90 pages of learning material.
 
-**Can I help to improve it?** Yes! You can have a direct impact with your thoughts and [contribution on GitHub](https://github.com/rwieruch/blog_robinwieruch_content/blob/master/the-road-to-learn-react.md). I don't claim to be an expert nor to write in the best way possible. I would appreciate your help very much.
+**Will you add more chapters in the future?** It depends on the community. If there is an acceptance for the book, I will deliver more chapters. Additionally I would love to hear your thoughts about possible chapters to improve and enrich the learning experience.
 
 {{% chapter_header "What you can expect (so far...)" "expectNow" %}}
 
-* well rounded real world {{% a_blank "Hacker News client in React" "https://intense-refuge-78753.herokuapp.com/" %}}
-* no complicated configurations
-* create-react-app to bootstrap your application
-* efficient lightweight code
-* only React setState as state management (so far...)
-* JavaScript ES6 along the way
-* the React API with setState and lifecycle methods
-* a real world API (Hacker News)
-* advanced interactions
-  * client-sided sorting
-  * client-sided filtering
-  * server-sided searching
-* client-side caching
-* higher order functions and higher order components
-* snapshot test components with Jest
-* unit test components with Enzyme
-* neat libraries along the way
-* exercises and more readings along the way
-* internalize and reinforce your learnings
-* deploy your app to production
+<div class="col-md-12">
+  <div class="col-md-8" style="margin-top: 30px;">
+    <ul>
+      <li>well rounded real world <a target="_blank" href="https://intense-refuge-78753.herokuapp.com/">Hacker News client in React</a></li>
+      <li>no complicated configurations</li>
+      <li>create-react-app to bootstrap your application</li>
+      <li>efficient lightweight code</li>
+      <li>only React setState as state management (so far...)</li>
+      <li>JavaScript ES6 along the way</li>
+      <li>the React API with setState and lifecycle methods</li>
+      <li>a real world API (Hacker News)</li>
+      <li>advanced interactions</li>
+      <ul>
+        <li>client-sided sorting</li>
+        <li>client-sided filtering</li>
+        <li>server-sided searching</li>
+      </ul>
+      <li>client-side caching</li>
+      <li>higher order functions and higher order components</li>
+      <li>snapshot test components with Jest</li>
+      <li>unit test components with Enzyme</li>
+      <li>neat libraries along the way</li>
+      <li>exercises and more readings along the way</li>
+      <li>internalize and reinforce your learnings</li>
+      <li>deploy your app to production</li>
+    <ul>
+  </div>
+
+  <div class="col-md-4">
+    {{% pin_it_image "learn React infographic" "img/posts/the-road-to-learn-react/infographic.png" %}}
+  </div>
+</div>
+
+<div class="clearfix"></div>
 
 {{% chapter_header "What you could expect (in the future...)" "expectLater" %}}
 
@@ -73,11 +91,11 @@ In [the Road to learn React](https://leanpub.com/the-road-to-learn-react) I want
 
 {{% chapter_header "How to read it?" "howToRead" %}}
 
-Are you new to React? That's perfect. I will need your feedback to improve the material to enable everyone to learn React. You can have a direct impact on [GitHub](https://github.com/rwieruch/blog_robinwieruch_content/blob/master/the-road-to-learn-react.md) or give me feedback on [Twitter](https://twitter.com/rwieruch).
-
 In general each chapter will build up on the previous. Each of them will dive into a new learning. Don't rush through the book. You should internalize each step. You could apply your own implementations and read more about the topic. Make yourself comfortable with the learnings before you continue.
 
 After you have read the book you could dive into the [SoundCloud Client in React + Redux](http://www.robinwieruch.de/the-soundcloud-client-in-react-redux). It guides you to implement your own SoundCloud application with a state management library.
+
+I would like to hear your thoughts on [Twitter](https://twitter.com/rwieruch).
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
@@ -1284,6 +1302,6 @@ Again it makes sense to make a break. Internalize the learnings and apply them o
 
 <hr class="section-divider">
 
-That's the last chapter of the book preview. You can read more chapters on [Leanpub](https://leanpub.com/the-road-to-learn-react)! Grab it as long as it is for free - it will stay updated in the future! You can have a look again at the [Table of Contents](#toc) to see what you can expect to find on Leanpub.
+That's the last chapter of the book preview. You can read more chapters on [Leanpub](https://leanpub.com/the-road-to-learn-react)! Grab it and pay as you want - it will stay updated in the future! You can have a look again at the [Table of Contents](#toc) to see what you can expect to find on Leanpub.
 
 I hope you liked it so far! You might want to read again the [FAQ](#faq) to see how you can have a direct impact on the book. I would really appreciate your support on social media and contribution!
