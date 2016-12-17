@@ -592,7 +592,7 @@ export default Stream;
 
 The Stream component is a React ES6 class component. The render shorthand function returns the element. Additionally we retrieve the props from `this` by using ES6 destructuring and providing a default empty list.
 
-ES6 class components provide a slim API. These lifecylce methods can be used to hook into the component lifecycle. For instance you can do things before a component gets rendered with `componentWillMount()` or when it updated with `componentDidUpdate()`. You can read anout all component {{% a_blank "lifecycle methods" "https://facebook.github.io/react/docs/react-component.html" %}}.
+ES6 class components provide a slim API. These lifecycle methods can be used to hook into the component lifecycle. For instance you can do things before a component gets rendered with `componentWillMount()` or when it updated with `componentDidUpdate()`. You can read about all component {{% a_blank "lifecycle methods" "https://facebook.github.io/react/docs/react-component.html" %}}.
 
 {{< highlight javascript >}}
 class Stream extends React.Component {
