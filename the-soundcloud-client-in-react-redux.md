@@ -81,16 +81,19 @@ A list of extensions which can be applied on top of the SoundCloud Client with R
 
 I must say I learned a lot from implementing a project from scratch! It makes totally sense to set up your side project from zero to one without having a boilerplate or seed project. You will learn tons of stuff not only about React + Redux, but also about JavaScript in general and its environment. This tutorial will be learning by doing by understanding each step, like it was for me when I did this whole project, with some helpful explanations. After you have finished this, you should be able to set up your own React + Redux side project to provide another real world project for the community.
 
-> I constantly improve the tutorial. If you run into any problems or see room for improvements, please let me know. You can right away start to improve it on your own on {{% a_blank "GitHub" "https://github.com/rwieruch/blog_robinwieruch_content/blob/master/the-soundcloud-client-in-react-redux.md" %}} or ping me on Twitter or comments below.
+> I constantly improve the tutorial. If you run into any problems or see room for improvements, please let me know. You can right away start to improve it on your own on {{% a_blank "GitHub" "https://github.com/rwieruch/blog_robinwieruch_content/blob/master/the-soundcloud-client-in-react-redux.md" %}}.
 
 The whole tutorial contains a lot of information. I wouldn't suggest to do everything at once when you are still learning React + Redux. Make some breaks between the chapters. Once you build your first React component, don't continue with Redux immediately. Experiment a bit with the code, do some internal state management with React, before you use Redux for state management. Take your time!
+
+Additionally I can recommend to read *The Road to learn React* before you dive into Redux. It teaches React by building a Hacker News App without configuration, toolting and Redux.
+
+{{% package_box "The Road to learn React" "Build a Hacker News Client to learn React. No setup configuration. No tooling. No Redux. Plain React in 90 pages of learning material." "Get the Book" "img/page/cover.png" "http://eepurl.com/caLPjr" %}}
 
 {{% chapter_header "Requirements" "requirements" %}}
 
 Tools and versions I used during the implementation of {{% a_blank "FaveSound" "https://github.com/rwieruch/favesound-redux" %}}:
 
-* terminal (e.g. iTerm)
-* text editor (e.g. Sublime Text)
+* [editor and terminal](http://www.robinwieruch.de/developer-setup/)
 * {{% a_blank "node with npm" "https://nodejs.org/en/" %}}
 
 {{< highlight javascript >}}

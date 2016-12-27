@@ -22,21 +22,19 @@ The following article includes the first chapters of an eBook to learn React. In
 
 It also taught me to do better. I realized the SoundCloud tutorial is suited for advanced developers. It uses several tools to bootstrap your application and dives pretty quickly into Redux. Still it helped a lot of people to get started. In my opinion it's a great tutorial to get a bigger picture of React + Redux. I use every free minute to improve the material, but it's time consuming. I am going to overhaul it as a whole in the future.
 
-{{% package_box "The Road to learn React" "Build a Hacker News Client to learn React. No setup configuration. No tooling. No Redux. Plain React in 90 pages of learning material." "Get the Book" "img/page/cover.png" "http://eepurl.com/caLPjr" %}}
+{{% package_box "The Road to learn React" "Build a Hacker News Client along the way. No setup configuration. No tooling. No Redux. Plain React in 90 pages of learning material. Pay as you want like <strong>2500+ readers</strong>." "Get the Book" "img/page/cover.png" "http://eepurl.com/caLPjr" %}}
 
 In the Road to learn React I want to offer a foundation before you start to dive into the more advanced React ecosystem. It has less tooling and less external state management, but more React. It explains general concepts and patterns. Additionally it links to the official documentation, because it's a great reference to learn React. After all I want to give a clear road to learn the React ecosystem. It should provide you a solid foundation before you dive into more advanced topics like Redux.
 
 {{% chapter_header "FAQ" "faq" %}}
 
-**How do I get updates?** You can {{% a_blank "subscribe" "http://eepurl.com/caLPjr" %}} or follow me on {{% a_blank "Twitter" "https://twitter.com/rwieruch" %}} for updates. It keeps me motivated to work on the book as well. Once you have a copy of the book from Leanpub, the book will stay updated.
+**How do I get updates?** You can {{% a_blank "subscribe" "http://eepurl.com/caLPjr" %}} or follow me on {{% a_blank "Twitter" "https://twitter.com/rwieruch" %}}. It will keep me motivated to work on the book as well. Once you have a copy of the book, it will stay updated. But you have to download the copy again once its updated.
 
-**Does it cover Redux?** So far it doesn't. The book should give you a solid foundation before you dive into advanced topics like Redux. Still the implementation in the book will show you that you don't need Redux to build a presentable application.
+**Does it cover Redux?** It doesn't. The book should give you a solid foundation before you dive into advanced topics like Redux. Still the implementation in the book will show you that you don't need Redux to build a presentable application.
 
 **Why is the book pay as you want?** I have put a lot of effort into this and will do so in the future. My desire is to reach as many people as possible. Everyone should be enabled to learn React. Still you can decide to pay, if you can afford it. When you come from my website to *Get The Book*, you will get a coupon url which allows you to pay what you want.
 
-**What are the reading formats?** Besides of the .pdf, .epub and .mobi format, you could read it in pure markdown on [GitHub](https://github.com/rwieruch/the-road-to-learn-react). In general I recommend to read it on a larger format, otherwise the code snippets will have ugly line breaks.
-
-**Does the article cover all book chapters?** No. At this time the blog post covers 2 of 5 chapters. Grab your book on Leanpub to get all chapters. It has over 100 pages of learning material.
+**Does the article cover all book chapters?** No. At this time the blog post covers 2 of 5 chapters. Grab the book to get all chapters. It has over 100 pages of learning material. Additionally it will stay more updated than the blog post.
 
 **Will you add more chapters in the future?** It depends on the community. If there is an acceptance for the book, I will deliver more chapters. Additionally I would love to hear your thoughts about possible chapters to improve and enrich the learning experience.
 
@@ -125,7 +123,6 @@ I would like to hear your thoughts on [Twitter](https://twitter.com/rwieruch).
   * Loading ...
   * Higher Order Component
   * Advanced Sorting
-* <s>Lift the State</s>
 * {{% a_blank "Going Live!" "http://eepurl.com/caLPjr" %}}
 
 {{% header "Bootstrap your React App" %}}
