@@ -1,6 +1,6 @@
 +++
 title = "Technical Cheatsheet: Development Environment Setup"
-description = "A technical cheatsheet to setup your development environment: Homebrew, Git, Sublime, iTerm2, GitHub..."
+description = "Technical cheatsheet to setup your MAC developer environment with Homebrew, Git, Sublime as Editor, iTerm2 as Terminal / Command Line Tool and GitHub. Setup your development environment to get started..."
 date = "2016-11-09T13:50:46+02:00"
 tags = ["frontend", "developer", "setup"]
 keyword = "frontend developer setup"

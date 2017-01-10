@@ -1,6 +1,6 @@
 +++
 title = "Redux or MobX: An attempt to dissolve the Confusion"
-description = "Redux or MobX? The article will show you the differences between both state management libraries, when to use each and how to learn them. I used both in the last year to give an ..."
+description = "Redux or MobX? The article shows you the differences between both state management libraries used in React. It gives you guidance to learn MobX vs Redux in React JS applications, when to use them and..."
 date = "2016-12-27T13:50:46+02:00"
 tags = ["React", "Redux", "MobX"]
 categories = ["React", "Redux", "MobX"]
@@ -65,7 +65,7 @@ function addAuthor(state, action) {
 }
 {{< /highlight >}}
 
-Last but not least in idiomatic Redux your state is normalized in a database. The entities only **reference each other by id**. That's a best practice, even though not everyone is doing it like that.
+Last but not least in idiomatic Redux your state is normalized like in a database. The entities only **reference each other by id**. That's a best practice, even though not everyone is doing it like that.
 
 {{< highlight javascript >}}
 {

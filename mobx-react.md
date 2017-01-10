@@ -1,6 +1,6 @@
 +++
 title = "MobX React: Refactor your application from Redux to MobX"
-description = "The MobX React: Refactor your application from Redux to MobX tutorial will teach you how to use MobX instead of Redux for state management in React. We will come ..."
+description = "Refactor your React application from Redux to MobX. Use MobX instead of Redux for state management in React JS. Get to know actions, reactions and derivations in MobX and best practices..."
 date = "2016-07-18T13:50:46+02:00"
 tags = ["Redux", "MobX"]
 categories = ["Redux", "MobX"]

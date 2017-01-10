@@ -1,6 +1,6 @@
 +++
 title = "The SoundCloud Client in React + Redux"
-description = "React + Redux: You can expect to have a running React + Redux app, which consumes the SoundCloud API. You will be able to login with your SoundCloud acc..."
+description = "Build a React + Redux SoundCloud Client. It is a huge tutorial where you build an example real world application. Learn React JS and Redux along the way. Consume the SoundCloud API, login and interact..."
 date = "2016-06-11T13:50:46+02:00"
 tags = ["React", "Redux"]
 categories = ["React", "Redux"]
@@ -16,7 +16,7 @@ summary = "At the end of this tutorial you can expect to have a running React + 
 
 {{% pin_it_image "react redux" "img/posts/the-soundcloud-client-in-react-redux/banner.jpg" %}}
 
-In the beginning of 2016 it was time for me to deep dive into the React world. I read tons of articles about React and its environment, especially Redux, so far. Several of my colleagues used it in side projects and on a theoretical level I could participate in the discussions.
+In the beginning of 2016 it was time for me to deep dive into the ReactJs world. I read tons of articles about React and its environment, especially Redux, so far. Several of my colleagues used it in side projects and on a theoretical level I could participate in the discussions.
 
 In my {{% a_blank "company" "https://www.small-improvements.com/" %}} we relied heavily on Angular 1 at this point. Since we are using it in a quite large code base, we know a lot about its flaws. Back in 2015 we already adopted our own flux architecture in the Angular world with the usage of stores and an unidirectional data flow. We were highly aware of the change coming with the React environment.
 
@@ -889,7 +889,7 @@ We won't create anymore tests during this tutorial. As exercise feel free to add
 
 {{% chapter_header "Redux" "redux" %}}
 
-{{% a_blank "Redux" "https://github.com/reactjs/redux" %}} describes itself as predictable state container for JavaScript apps. Most of the time you will see Redux coupled with React used in client side applications. But it's far more than that. Like JavaScript itself is spreading on server side applications or IoT applications, Redux can be used everywhere to have a predictable state container. You will see that Redux is not strictly coupled to React, because it has its own module, while you can install another module to {{% a_blank "connect it to the React world" "https://github.com/reactjs/react-redux" %}}. There exist modules to {{% a_blank "connect Redux to other frameworks" "https://github.com/angular-redux/ng-redux" %}} as well. Moreover the ecosystem around Redux itself is huge. Once you dive into it, you can learn tons of new stuff. Most of the time it is not only just another library: You have to look behind the facade to grasp which problem it will solve for you. Only then you should use it! When you don’t run into that problem, don’t use it. But be curious what is out there and how people get creative in that ecosystem!
+{{% a_blank "Redux" "https://github.com/reactjs/redux" %}} describes itself as predictable state container for JS apps. Most of the time you will see Redux coupled with React used in client side applications. But it's far more than that. Like JavaScript itself is spreading on server side applications or IoT applications, Redux can be used everywhere to have a predictable state container. You will see that Redux is not strictly coupled to React, because it has its own module, while you can install another module to {{% a_blank "connect it to the React world" "https://github.com/reactjs/react-redux" %}}. There exist modules to {{% a_blank "connect Redux to other frameworks" "https://github.com/angular-redux/ng-redux" %}} as well. Moreover the ecosystem around Redux itself is huge. Once you dive into it, you can learn tons of new stuff. Most of the time it is not only just another library: You have to look behind the facade to grasp which problem it will solve for you. Only then you should use it! When you don’t run into that problem, don’t use it. But be curious what is out there and how people get creative in that ecosystem!
 
 At this point I want to show some respect to {{% a_blank "Dan Abramov" "https://twitter.com/dan_abramov" %}}, the inventor of Redux, who is not only providing us with a simple yet mature library to control our state, but also showing a huge contribution in the open source community on a daily basis. Watch his talk from React Europe 2016 where he speaks about {{% a_blank "the journey of Redux" "https://www.youtube.com/watch?v=uvAXVMwHJXU&amp;index=1&amp;list=PLCC436JpVnK09bZeayg-KeLuHfHgc-tDa" %}} and what made Redux successful.
 

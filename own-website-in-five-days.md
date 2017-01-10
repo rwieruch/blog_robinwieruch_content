@@ -1,6 +1,6 @@
 +++
 title = "Technical Cheatsheet: 5 days to your own Website"
-description = "A technical cheatsheet to create and host your own website in five days. You will learn how to use Hugo and DigitalOcean to publish your website..."
+description = "Technical cheatsheet to create and host your own website in five days. You will learn how to use Hugo and DigitalOcean to publish your website online. Hugo is a static website generator to..."
 date = "2016-11-09T13:50:46+02:00"
 tags = ["website"]
 keyword = "website in five days"

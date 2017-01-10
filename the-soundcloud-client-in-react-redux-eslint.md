@@ -1,6 +1,6 @@
 +++
 title = "React ESLint: Code Style like Airbnb in React"
-description = "The React ESLint: Code Style like Airbnb in React tutorial will teach you how to setup ESLint in a React + Babel + Webpack environment. In addition to the.."
+description = "The React ESLint: Code Style like Airbnb in React tutorial will teach you how to setup ESLint in a React JS + Babel + Webpack environment. In addition to the.."
 date = "2016-06-18T13:50:46+02:00"
 tags = ["React"]
 categories = ["React"]
