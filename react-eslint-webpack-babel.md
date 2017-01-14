@@ -1,26 +1,22 @@
 +++
-title = "React ESLint: Code Style like Airbnb in React"
+title = "React ESLint: Code Style like Airbnb in React + Babel + Webpack"
 description = "The React ESLint: Code Style like Airbnb in React tutorial will teach you how to setup ESLint in a React JS + Babel + Webpack environment. In addition to the.."
 date = "2016-06-18T13:50:46+02:00"
 tags = ["React"]
 categories = ["React"]
 keyword = "react eslint"
 news_keywords = ["react eslint"]
-banner = "img/posts/the-soundcloud-client-in-react-redux-eslint/banner.jpg"
-contribute = "the-soundcloud-client-in-react-redux-eslint.md"
+banner = "img/posts/react-eslint-webpack-babel/banner.jpg"
+contribute = "react-eslint-webpack-babel.md"
 
 summary = "The React ESLint: Code Style like Airbnb in React tutorial will teach you how to setup ESLint in a React + Babel + Webpack environment. In addition to the setup of usual code style rules, you will add React rules to enforce a better code style in your React environment as well. Moreover you will learn how to extend your ESLint rules with existing best practices rules of companies like Airbnb."
 +++
 
-{{% header "React ESLint: Code Style like Airbnb in React" %}}
+{{% header "React ESLint: Code Style like Airbnb in React + Babel + Webpack" %}}
 
-{{% pin_it_image "react eslint" "img/posts/the-soundcloud-client-in-react-redux-eslint/banner.jpg" %}}
-
-{{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "The SoundCloud Client in React + Redux" "http://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
+{{% pin_it_image "react eslint" "img/posts/react-eslint-webpack-babel/banner.jpg" %}}
 
 The React ESLint: Code Style like Airbnb in React tutorial will teach you how to setup ESLint in a React + Babel + Webpack environment. In addition to the setup of usual code style rules, you will add React rules to enforce a better code style in your React environment as well. Moreover you will learn how to extend your ESLint rules with existing best practices rules of companies like Airbnb.
-
-{{% build_on_the_soundcloud_client_in_react_redux %}}
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
@@ -30,8 +26,6 @@ The React ESLint: Code Style like Airbnb in React tutorial will teach you how to
 * [ESLint Rules for React](#eslintRulesReact)
 * [Extend ESLint Rules](#eslintExtendRules)
 * [Clean Up](#cleanUp)
-* [Troubleshoot](#troubleshoot)
-* [Final Thoughts](#finalThoughts)
 
 {{% chapter_header "ESLint" "eslint" %}}
 
@@ -119,11 +113,11 @@ Now you can start your app.
 npm start
 {{< /highlight >}}
 
-You might run into Parsing error: `The keyword 'import' is reserved`, which happens because ESLint does not know about ES6 features (like import) yet, which [we enabled via Babel](http://www.robinwieruch.de/the-soundcloud-client-in-react-redux/#babel).
+You might run into Parsing error: `The keyword 'import' is reserved`, which happens because ESLint does not know about ES6 features (like import) yet, which you might have enabled via Babel.
 
 {{% chapter_header "ESLint + Babel" "eslintBabel" %}}
 
-Previously we already installed the {{% a_blank "babel-loader" "https://github.com/babel/babel-loader" %}} to transpile our code with Webpack. Now we can use that loader and pair it with the eslint-loader.
+You might have already installed the {{% a_blank "babel-loader" "https://github.com/babel/babel-loader" %}} to transpile your code with Webpack. Now you can use that loader and pair it with the eslint-loader.
 
 *webpack.config.js*
 
@@ -237,7 +231,7 @@ Let’s add some code style checking for React. Therefore we need to add the {{%
 npm --save-dev install eslint-plugin-react
 {{< /highlight >}}
 
-Now we can use the react plugin and specify our first rule, which says that we have to specify PropTypes for our components.
+Now we can use the react plugin and specify our first rule, which says that we have to specify `PropTypes` for our components.
 
 *.eslintrc*
 
@@ -254,7 +248,7 @@ Now we can use the react plugin and specify our first rule, which says that we h
 }
 {{< /highlight >}}
 
-When you start your app, you might see PropTypes definition errors. You might want to fix them.
+When you start your app, you might see `PropTypes` definition errors. You might want to fix them.
 
 Additionally you can use {{% a_blank "presets" "https://github.com/yannickcr/eslint-plugin-react#user-content-recommended-configuration" %}} which will give you a rule set of recommended React rules. But let’s go one step further by extending our rules.
 
@@ -262,7 +256,7 @@ Additionally you can use {{% a_blank "presets" "https://github.com/yannickcr/esl
 
 Since we don’t want to specify our own rule set every time, there are plenty of best practices rules out there. One of them is the {{% a_blank "Airbnb Style Guide" "https://github.com/airbnb/javascript" %}}. Moreover Airbnb open sourced its own {{% a_blank "ESLint configuration" "https://www.npmjs.com/package/eslint-config-airbnb" %}}.
 
-Some of the required packages we already installed, but some are missing:
+You have to install the required packages.
 
 *From root folder:*
 
@@ -289,7 +283,7 @@ You can see that it is very simple to extend the ESLint rules from someone else.
 
 {{% chapter_header "Clean Up" "cleanUp" %}}
 
-Now we are ready to fix all the ESLint errors in our code base!
+Now you are prepared to fix all the ESLint errors in your code base!
 
 *From root folder:*
 
@@ -322,56 +316,3 @@ But rather than disabling it globally, you can also do it for an area in your co
 ...some code...
 /*eslint-enable no-unused-vars*/
 {{< /highlight >}}
-
-{{% chapter_header "Troubleshoot" "troubleshoot" %}}
-
-You may encounter issues in that tutorial. Here you will find some references how to handle issues.
-
-### Dependencies
-
-In case you want to know which versions npm installed during that tutorial, here a list of all npm packages in my package.json.
-
-*package.json*
-
-{{< highlight javascript >}}
-  "devDependencies": {
-    "babel-core": "^6.9.1",
-    "babel-eslint": "^6.0.4",
-    "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.5.0",
-    "babel-preset-stage-2": "^6.5.0",
-    "chai": "^3.5.0",
-    "enzyme": "^2.3.0",
-    "eslint": "^2.13.0",
-    "eslint-config-airbnb": "^9.0.1",
-    "eslint-loader": "^1.3.0",
-    "eslint-plugin-import": "^1.8.1",
-    "eslint-plugin-jsx-a11y": "^1.5.3",
-    "eslint-plugin-react": "^5.2.2",
-    "exports-loader": "^0.6.3",
-    "imports-loader": "^0.6.5",
-    "jsdom": "^9.2.1",
-    "mocha": "^2.5.3",
-    "react-addons-test-utils": "^15.1.0",
-    "react-hot-loader": "^1.3.0",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
-  },
-  "dependencies": {
-    "react": "^15.1.0",
-    "react-dom": "^15.1.0",
-    "react-redux": "^4.4.5",
-    "react-router": "^2.4.1",
-    "react-router-redux": "^4.0.5",
-    "redux": "^3.5.2",
-    "redux-logger": "^2.6.1",
-    "redux-thunk": "^2.1.0",
-    "soundcloud": "^3.1.2",
-    "whatwg-fetch": "^1.0.0"
-  }
-{{< /highlight >}}
-
-{{% chapter_header "Final Thoughts" "finalThoughts" %}}
-
-{{% look_again_the_soundcloud_client_in_react_redux %}}
