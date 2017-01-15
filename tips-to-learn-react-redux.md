@@ -29,7 +29,6 @@ I am doing React + Redux for quite some time now. My learnings are subjective, b
   * [Presenter and Container Pattern](#presenterContainerPattern)
   * [When to use Container Components](#whenContainerComponents)
   * [Write your first higher order component](#hoc)
-  * [Recompose](#recompose)
   * [Conditional Style](#conditionalStyle)
   * [Animations in React](#animations)
   * [You might not need ...](#youMightNotNeed)
@@ -41,7 +40,6 @@ I am doing React + Redux for quite some time now. My learnings are subjective, b
   * [Keep Your State Flat](#flatState)
   * [Single source of truth](#singleSourceOfTruth)
   * [Selectors](#selectors)
-  * [Dynamic State Keys](#dynamicStateKeys)
   * [Refactor, refactor, refactor](#refactor)
   * [Generators, Sagas, Observables, Epics, ...](#reduxMiddleware)
   * [Learn about implementation details of Redux](#reduxImplementation)
@@ -66,19 +64,23 @@ Let's start with React, before we dive into Redux, testing and more general reco
 
 {{% chapter_header "Avoid Boilerplate Projects" "avoidBoilerplate" %}}
 
-You start to learn React? Avoid boilerplate projects. To learn React is already enough, you shouldn't bother with all the tooling around it. That will come naturally in the future. When you setup your own project from scratch, you will know how the underlying things work. It will maybe lead to your very own boilerplate project.
+You start to learn React? I can recommend to avoid boilerplate projects. It is already tough to learn React. You shouldn't bother with all the tooling around it. Especially when someone else has set up the tooling for you.
 
-I can recommend to use {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}}. It is the official zero-configuration setup by Facebook for React. After a while you may want to dig depper and setup your own project. Then it is about time to get to know the tools around you.
+I can recommend to use {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}}. It is the official zero-configuration setup by Facebook for React.
 
-You can use boilerplate projects as blueprint to experiment how things work. Experiment with the tools in the projects, get to know which problem they might solve for you and use them yourself.
+After a while you may want to dig deeper and setup your own project without create-react-app. Then it is about time to get to know the tools around you. When you setup your own project from scratch, you will get to know how the underlying things work. It will maybe lead to your very own boilerplate project.
+
+You can use boilerplate projects as blueprint to experiment how things work. Experiment with the tools in the projects, get to know which problem they solve for you and use them yourself.
 
 * avoid boilerplate projects
-* use {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}} to learn React
-* when you feel comfortable with React, explore the tools around it
+* use {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}} to [learn React](https://www.robinwieruch.de/the-road-to-learn-react/)
+* when you feel comfortable with React
+  * explore the tools around it
+  * create your own boilerplate project
 
 {{% chapter_header "Learn X before you learn Y" "learnXBeforeY" %}}
 
-The ecosystem around React is huge since React is only a view library. There are a lot of opinions out there how to approach to learn it. The general advice is to learn X before you learn Y. In the following list you will find valuable learnings in React before you start to use another library in the ecoystem:
+The ecosystem around React is huge since React is only a view library. There are a lot of opinions out there how to approach to learn it. The general advice is to learn X before you learn Y. In the following list you will find valuable things to learn in React before you start to use another tool in the ecosystem:
 
 * JSX syntax
 * ReactDOM.render
@@ -89,23 +91,33 @@ The ecosystem around React is huge since React is only a view library. There are
 * composeable components
 * higher order components
 
+The general advice is to learn React properly before you dive into the next topic.
+
 ### When to introduce Redux?
 
-You can scale your React application a while before you run into state management issues. Eventually `setState` will not be sufficient. You will notice that you are dealing with too much internal component state. Then it's about time to introduce a state management library like Redux. But be aware of three things:
+You can scale your React application a while before you run into state management issues. Maybe you never run into those issues, because your app is doing well with React `setState`. But maybe `setState` will not be sufficient eventually. You will notice that you are dealing with too much internal component state. Then it's about time to introduce a state management library like Redux. But be aware of three things:
 
-* [learn React](http://eepurl.com/caLPjr) before you learn Redux
-* read {{% a_blank "You might not need Redux" "https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367" %}}
-* don't replace setState completely with Redux, not everything belongs in the Redux store
+* [learn React](https://www.robinwieruch.de/the-road-to-learn-react/) before you learn Redux
+* read {{% a_blank "You might not need Redux" "https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367" %}} by Dan Abramov
+* avoid to replace setState completely with Redux, not everything belongs in the Redux store
 
 ### What about ES6?
 
-A lot of examples and introductions in React come in ES6 syntax. You can already learn ES6 in other JavaScript projects before using React. Once you advanced in ES6, you will not need libraries like {{% a_blank "ImmutableJs" "https://github.com/facebook/immutable-js" %}} to start writing immutable data structures. You can accomplish it by using pure JavaScript ES6 (which you can do in ES5 as well).
+A lot of examples and introductions in React come in ES6 syntax. Hopefully they teach you ES6 along the way like I do in [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). However you could already learn ES6 in other JavaScript projects before using React. It isn't coupled to React. My recommendations:
 
-I guess there are way more "Learn X before learn Y", but you should always keep in mind: Don't learn everything at once as a beginner.
+* when you come from another JavaScript ecosystem (e.g. Angular)
+  * learn ES6 in your familiar ecosystem where you feel comfortable
+* when you are a beginner in JavaScript
+  * learn React in ES5
+  * or learn ES6 before you learn React
+* when you are advanced in JavaScript
+  * learn React in ES5 but convert your learnings to ES6 along the way
+
+I guess there are way more "Learn X before learn Y", but you should always keep in mind: Don't learn everything at once.
 
 {{% chapter_header "React Component Declarations" "reactComponentDeclarations" %}}
 
-Often people in React are overwhelmed by the three different ways to declare a component. It's worth to have a look into React's component evolution: There are React.createClass, React ES6 class components and functional stateless components. React components evolved from the former one to the latter one.
+Often people in React are overwhelmed by the three different ways to declare a component. It's worth to have a look into React's history of component evolution: There are React.createClass, React ES6 class components and functional stateless components. React components evolved from the former one to the latter one.
 
 {{< highlight javascript >}}
 // React.createClass
@@ -118,15 +130,15 @@ class TodoItem extends React.Component { ... }
 function TodoItem() { ... }
 {{< /highlight >}}
 
-But which component declaration should be used?
+### But which component declaration should be used?
 
-Functional stateless components have no lifecycle methods and thus no state at all. They are only functions, which take state as input and have React elements as output.
+Functional stateless components have no lifecycle methods and thus no state at all. They are only functions that take state as input and have elements as output.
 
 {{< highlight javascript >}}
 (State) => View
 {{< /highlight >}}
 
-Because of that they are the most lightweight building block in your options of components. They don't hold any internal component state and you cannot access the properties of the component by using `this`. A good rule of thumb is to use functional stateless components whenever you can.
+They are the most lightweight component and component declaration. They don't hold any internal component state and you cannot access the properties of the component by using `this`. A good rule of thumb is to use functional stateless components whenever you can.
 
 If you need to access a lifecycle method, need to hold internal state (this.state) or need a component reference (this.ref), it would be the right time to use a React ES6 class component. There you have access to lifecycle methods and the internal state of a component. It will often happen that a functional stateless component of yours will mature to an ES6 class component, because it needs to handle state.
 
@@ -136,54 +148,35 @@ I can recommend to read some very well written blog posts about React component 
 
 {{% chapter_header "Lightweight Functional Stateless Components" "lightweightFunctionalStatelessComponents" %}}
 
-It is absolutely fine to have multiple components side by side for the sake of an improved readability. Consider you want to implement a Table component, you wouldn't want to deep nest multiple `maps` into each other.
+It is absolutely fine to have multiple components side by side. Consider you want to implement a TodoList component.
 
 {{< highlight javascript >}}
-function Table({ list, columns }) {
+function TodoList({ list }) {
   return (
-    <table>
-      { map(list, (item) => {
-          return (
-            <tr>
-              { map(columns, (property) => {
-                return <td>{item[property]}</td>;
-              })}
-            </tr>
-          );
-        })}
-      }
-    </table>
+    <div>
+      {map(list, (item) => <div>{item.name}</div>)}
+    </div>
   );
 }
 {{< /highlight >}}
 
-Rather than that you would want to split it up into multiple functional stateless components.
+Rather than that you could split it up into multiple functional stateless components.
 
 {{< highlight javascript >}}
-function Table({ list, columns }) {
+function TodoList({ list }) {
   return (
-    <table>
-      {map(list, (item) => <Row item={item} columns={columns} />)}
-    </table>
+    <div>
+      {map(list, (item) => <TodoItem item={item} />)}
+    </div>
   );
 }
 
-function Row({ item, columns }) {
-  return (
-    <tr>
-      {map(columns, (property) => <Cell property={property} item={item} />)}
-    </tr>
-  );
-}
-
-function Cell({ item, property }) {
-  return <td>{item[property]}</td>;
+function TodoItem({ item }) {
+  return <div>{item.name}</div>;
 }
 {{< /highlight >}}
 
-Regarding the file structure, you might only want to export the parent Table component. All other child component may be only coupled to the Table and shouldn't be used standalone.
-
-In general with functional stateless components there exists no boilerplate in your component declarations. You should try to keep your components small as well to improve readability and maintainability. Whenever you can use functional stateless components.
+The example is too small to see the immediate benefit. But when you split up your components you support readability, reusability and maintainability. Since functional stateless components have no boilerplate, it is effortless to declare multiple components. You should use lightweight functional stateless components whenever you can.
 
 {{% chapter_header "Concise Functional Stateless Components" "conciseFunctionStatelessComponents" %}}
 
@@ -199,7 +192,19 @@ function Button({ onClick, children }) {
 }
 {{< /highlight >}}
 
-Now you can use ES6 to make it concise. The arrow function without a block omits the return statemenet.
+Now you can use ES6 to make it concise.
+
+{{< highlight javascript >}}
+const Button = ({ onClick, children }) => {
+  return (
+    <button onClick={onClick} type="button">
+      {children}
+    </button>
+  );
+}
+{{< /highlight >}}
+
+The arrow function without a block omits the return statement.
 
 {{< highlight javascript >}}
 const Button = ({ onClick, children }) =>
@@ -208,7 +213,7 @@ const Button = ({ onClick, children }) =>
   </button>
 {{< /highlight >}}
 
-The conversion is especially useful to enforce only to have props as input and an element as output. Nothing in between. Still you could do something in between by using a block body in your arrow function.
+The conversion enforces to only have props as input and an element as output. Nothing in between. Still you could do something in between by using a block body for your arrow function.
 
 {{< highlight javascript >}}
 const Button = ({ onClick, children }) => {
@@ -235,9 +240,9 @@ In presenter components you avoid to have any logic. Keep your components dumb a
 
 In container components you prepare the data and callbacks for your presenter components. Even more you can pass dependencies or business logic to your presenter components to keep them pure. Container components are most of the time ES6 class components which handle events or manage internal state.
 
-In Redux a better name for a Container Component is Connected Component. These components are connected to the Redux store to derive and manipulate state from/in the Redux store.
+In Redux a better name for a Container Component is a Connected Component. These components are connected to the Redux store to derive and manipulate state via the Redux store.
 
-Container components care about how things work. Presenter components care about how things look. You might want to have a more in depth read about the topic by {{% a_blank "Dan Abramaov" "https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.23letl4w2" %}}.
+Container components care about how things work. Presenter components care about how things look. You might want to have a more in depth read about the topic by {{% a_blank "Dan Abramov" "https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.23letl4w2" %}}.
 
 {{% chapter_header "When to use Container Components" "whenContainerComponents" %}}
 
@@ -253,19 +258,15 @@ It's a good rule of thumb in general to stick to presenter components and add on
 
 {{% chapter_header "Write your first higher order component" "hoc" %}}
 
-Imagine you want to display a list of items, but you have to fetch the items asynchronously first. Now you will need a loading indicator to show your pending request. After the request fulfils, you show the list of items. Dan Abramov explains in an {{% a_blank "egghead.io" "https://egghead.io/lessons/javascript-redux-displaying-loading-indicators?course=building-react-applications-with-idiomatic-redux" %}} lesson how this works.
+Imagine you want to display a list of items, but you have to fetch the items asynchronously first. Now you will need a loading indicator to show your pending request. After the request fulfills, you show the list of items. Dan Abramov explains in an {{% a_blank "egghead.io" "https://egghead.io/lessons/javascript-redux-displaying-loading-indicators?course=building-react-applications-with-idiomatic-redux" %}} lesson how this works.
 
 But you could go one step further by introducing your first HOC. A higher order component (HOC) returns a component with enhanced functionality. Your HOC could have the name `withLoadingSpinner` and your component to enhance could be `ListItems`. The enhanced version of the component shows either a loading indicator or the list items.
 
 {{< highlight javascript >}}
 // HOC declaration
 
-import React from 'react';
-import { LoadingSpinner } from '../components/LoadingSpinner';
-import { ListItems } from '../components/ListItems';
-
 function withLoadingSpinner(Component) {
-  return function composedComponent({ isLoading, ...props }) {
+  return function EnhancedComponent({ isLoading, ...props }) {
     if (!isLoading) {
       return <Component { ...props } />;
     }
@@ -274,7 +275,7 @@ function withLoadingSpinner(Component) {
   };
 }
 
-// usage
+// Usage
 
 const ListItemsWithLoadingIndicator = withLoadingSpinner(ListItems);
 
@@ -286,15 +287,13 @@ const ListItemsWithLoadingIndicator = withLoadingSpinner(ListItems);
 
 I use similar HOCs for instance in a {{% a_blank "real world SoundCloud application" "https://github.com/rwieruch/favesound-redux" %}}.
 
-Higher order components are powerful. You should use them, but use them with purpose. Always remember that they might add another {{% a_blank "level of abstraction" "https://www.youtube.com/watch?v=mVVNJKv9esE" %}} which makes it hard for other developers to understand your component hierarchy.
-
-{{% chapter_header "Recompose" "recompose" %}}
+Higher order components are powerful. You should use them with purpose. Always remember that they might add another {{% a_blank "level of abstraction" "https://www.youtube.com/watch?v=mVVNJKv9esE" %}} which makes it hard for other developers to understand your component hierarchy.
 
 {{% a_blank "Recompose" "https://github.com/acdlite/recompose" %}} offers a great range of helpful higher order components. Before you start to implement your own HOC, have a look at recompose. It may already solve your issue. There are a bunch of common HOC use cases out there.
 
 {{% chapter_header "Conditional Style" "conditionalStyle" %}}
 
-Maybe you came across the problem to have conditional classes in your elements.
+Maybe you came across the problem to have conditional classes in your elements. It would look similar to the following:
 
 {{< highlight javascript >}}
 var buttonClasses = ['button'];
@@ -306,7 +305,7 @@ if (isRemoveButton) {
 <button className={buttonClasses.join(' ')} />
 {{< /highlight >}}
 
-A neat little library named {{% a_blank "classnames" "https://github.com/JedWatson/classnames" %}} became relevant for a lot of people. It makes it easier to apply conditional style on elements.
+For that case a neat little library named {{% a_blank "classnames" "https://github.com/JedWatson/classnames" %}} became relevant for a lot of people. It makes it easier to apply conditional style on elements.
 
 {{< highlight javascript >}}
 var buttonClasses = classNames(
@@ -325,13 +324,15 @@ The {{% a_blank "first time when I saw animations in React" "http://chenglou.git
 
 Moreover for most of us only a small part of professional coding time is spend with animations. That's why I experienced something like a recurring learning curve, since the concept and functionality won't stick for long in your head when not using them.
 
+{{% a_blank "velocity-react" "https://github.com/twitter-fabric/velocity-react" %}} is another React animation library that uses the Velocity DOM animation library. It is an alternative to React Motion.
+
 {{% chapter_header "You might not need ..." "youMightNotNeed" %}}
 
-Before we dive into Redux, I just wanted to add "You might not need a state management library". Everyone is speaking about state management libraries like Redux and MobX. Don't introduce them too fast. {{% a_blank "You might not need Redux" "https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367" %}}.
+Before we dive into Redux, I just wanted to add "You might not need a state management library". Everyone is speaking about state management libraries like Redux and MobX. Don't introduce them too fast. You should read {{% a_blank "You might not need Redux" "https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367" %}} by Dan Abramov.
 
-You are still learning React? Use setState to management internal component state. Once you feel comfortable in using React, you might come across problems like state sharing/mutations between components. Even then you don't necessarily need an external state management library. In a growing application there will come the time to introduce a state management library eventually.
+You are still learning React? Use `setState` to manage internal component state. Once you feel comfortable in using React, you might come across problems like sharing state across multiple components. Even then you don't necessarily need an external state management library. You can {{% a_blank "lift state up or down" "https://facebook.github.io/react/docs/lifting-state-up.html" %}}.
 
-A part of the article [Redux or MobX: An attempt to dissolve the Confusion](http://www.robinwieruch.de/redux-mobx-confusion/) covers how to approach to learn state management in React. Even though you introduced a state management library at some point, you will still use React setState, because not everything belongs in the global state.
+In a growing application there will come the time to introduce a state management library eventually. A part of the article [Redux or MobX: An attempt to dissolve the Confusion](http://www.robinwieruch.de/redux-mobx-confusion/) covers how to approach to learn state management in React.
 
 {{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 140+ pages of learning material. Pay as you want like <strong>3000+ readers</strong>." "Get the Book" "img/page/cover.png" "http://eepurl.com/caLPjr" %}}
 
@@ -341,13 +342,13 @@ React and Redux are often used together. Redux is the successor of the flux patt
 
 {{% chapter_header "Global State Everything" "globalStateEverything" %}}
 
-Not everything needs to be stored in your global state. Some components should hold only internal state with React setState. That's why it is important to learn React setState before using Redux. Otherwise you are going to store every state in your global state. Think about a large scaling application in a growing team of developers - you don't want to have each toggle state or opened modal in your global state.
+Not everything needs to be stored in your global state. Some components should hold only internal state with React `setState`. That's why it is important to learn React `setState` before using Redux. Otherwise you are going to store every state in your global state. Think about a large scaling application in a growing team of developers. You don't want to have each toggle state or opened modal in your global state.
 
 {{% chapter_header "Folder Organization" "folderOrganization" %}}
 
 I can recommend the article by {{% a_blank "Jack Hsu" "http://jaysoo.ca/2016/02/28/organizing-redux-application/" %}} which suggests a way to organize your code in a scaling application.
 
-### The first key takeaway is folder organization by feature.
+### First key takeaway: folder organization by feature.
 
 React + Redux tutorials always show a technical separation of folders. It is a good approach to learn React + Redux, but putting all your reducers and actions into one dedicated folder doesn't scale for everybody.
 
@@ -387,11 +388,11 @@ message/
 ----spec.js
 {{< /highlight >}}
 
-I know for sure that not everyone does agree with it. Especially hiding reducers in a feature folder is not following the Redux intention to have them globally accessible. The recommendation is to abstract reducers properly in the first place to share their functionailites. But in a realistic scenario with multiple teams working on one application under time pressure, there isn't always the opportunity to have the correct abstraction in the first place. In a scaling app you are often relieved to have an encapsulated feature module.
+I know for sure that not everyone does agree with it. Especially hiding reducers in a feature folder is not following the Redux intention to have them globally accessible. The recommendation is to abstract reducers properly in the first place to share their functionalities. But in a realistic scenario with multiple teams working on one application under time pressure, there isn't always the opportunity to have the correct abstraction in the first place. In a scaling app you are often relieved to have an encapsulated feature module.
 
-### The second key takeaway by Jack Hsu are clear boundaries of feature modules.
+### Second key takeaway: clear boundaries of feature modules.
 
-A module should always have an index.js file as entry point. The index.js only exposes an API which should be public to other modules. In React + Redux an index.js file could export container components, maybe presenter components, actions to be called from somewhere else and last but not least the reducer. In our more elaborated example we would have to add an index.js file at the top. Maybe also in our component folders as well.
+A module should always have an index.js file as entry point. The index.js only exposes an API which should be public to other modules. In React + Redux an index.js file could export container components, maybe presenter components, action creators to be called from somewhere else and last but not least the reducer. In our more elaborated example we would have to add an index.js file at the top. Maybe also in our component folders as well.
 
 {{< highlight javascript "hl_lines=2 5 9" >}}
 message/
@@ -436,27 +437,25 @@ import { reducer } from ./message/reducer;
 import { reducer } from ./message;
 {{< /highlight >}}
 
-Both key takeways, modules and clear boundaries, help you to organize your code.
+Both key takeways, feature modules and clear boundaries, help you to organize your code.
 
 {{% chapter_header "Naming Conventions" "namingConventions" %}}
 
-Naming can be one of the most difficult things in software engineering. A proper naming convention is a best practice in order to have maintainable and comprehensive code. React + Redux offers a lot of constraints where to organize your code, but is not opinionated about naming. Whether your function resides in a reducer or component, is an action creator or selector - always you want to have a naming convention for it. You should have it before you scale your application, otherwise you end up with untraceable callbacks and refactorings. I am used to have for each type of function a prefix.
+Naming can be one of the most difficult things in software engineering. A proper naming convention is a best practice in order to have maintainable and comprehensive code. React + Redux offers a lot of constraints where to organize your code, but is not opinionated about naming. Whether your function resides in a reducer or component, is an action creator or selector - you should have a naming convention for it. You should have it before you scale your application, otherwise you end up with untraceable callbacks and refactorings. I am used to have for each type of function a prefix.
 
 In a component a callback comes with the little word `on` as prefix (onCreateReply). The prefix in a reducer to change the state is `apply` (applyCreateReply), in a selector it is `get` (getReply) and in a action creator it is `do` (doCreateReply). You don't need to follow these recommendations, but I would suggest to follow your own naming conventions at least.
 
 {{% chapter_header "Tracing State Changes" "tracingStateChanges" %}}
 
-In a growing application with plenty of actions you want to have traceable state changes. One neat helper to see all of your state changes is {{% a_blank "redux-logger" "https://github.com/evgenyrodionov/redux-logger" %}}. Each logging shows the previous state, the action and the next state. But you want to ensure that your actions are recognizable. Therefore I recommend to have prefixes for your action types.
+In a growing application with plenty of actions you want to have traceable state changes. One neat helper to see all of your state changes is {{% a_blank "redux-logger" "https://github.com/evgenyrodionov/redux-logger" %}}. Each logging shows the previous state, the action and the next state.
+
+But you want to ensure that your actions are recognizable. Therefore I recommend to have prefixes for your action types.
 
 {{< highlight javascript >}}
-// bad
-const CREATE_MESSAGE_REPLY = 'CREATE_MESSAGE_REPLY';
-
-// good
-const CREATE_REPLY = 'message/CREATE_REPLY';
+const MESSAGE_CREATE_REPLY = 'message/CREATE_REPLY';
 {{< /highlight >}}
 
-The naming `CREATE_REPLY` doesn't look very unique. You could create a reply for some other domain object than a message. But once you import the constant, the origin from where you import it will tell you more about its domain belonging. Now whenever you create a message reply, you will see the logging `message/CREATE_REPLY`. In case of a state bug you can quickly trace the faulty state change.
+Now whenever you create a message reply, you will see the logging `message/CREATE_REPLY`. In case of a state bug you can quickly trace the faulty state change.
 
 {{% chapter_header "Keep Your State Flat" "flatState" %}}
 
@@ -521,7 +520,7 @@ The data structure is not deep nested anymore. It is easy to keep it immutable w
 
 {{% chapter_header "Single source of truth" "singleSourceOfTruth" %}}
 
-It seems obvious, but sometimes normalized state helps you to keep your state in sync. Imagine again the backend request returns a deep nested data structure of blog posts. A blog post has an author, a list of comments, but this time each comment has an author again. The author can be the same as the post author.
+Normalized data helps you to keep your state in sync. Imagine again the backend request returns a deep nested data structure of blog posts. A blog post has an author, a list of comments, but this time each comment has an author as well. The comment author can be the same as the post author.
 
 {{< highlight javascript >}}
 {
@@ -541,7 +540,9 @@ It seems obvious, but sometimes normalized state helps you to keep your state in
 }
 {{< /highlight >}}
 
-You can see that the blog post author has written a comment. Thus we have the object two times in our nested data structure. When you treat your data as normalized data, the author is only an entity. It doesn't matter if it is a blog post or comment author. You have one single source of truth for your authors in your entities.
+You can see that a blog post author has written a comment too. Thus we have the object two times in our nested data structure. There is no single source of truth. It makes it difficult when you want to modify the author.
+
+When you treat your data as normalized data, the author is only one entity. It doesn't matter if it is a blog post author or comment author. The author is one single source of truth in your entities of authors.
 
 {{< highlight javascript >}}
 {
@@ -554,7 +555,7 @@ You can see that the blog post author has written a comment. Thus we have the ob
 
 Since your blog posts and comments still have the author ids as reference, it is fairly easy to display the author in the lists of blog posts and comments.
 
-Now imagine you can follow an author. You can easily update your one entity.
+Whenever you modify the author, all references will get updated. Imagine you could follow an author. You can easily update the one entity - the single source of truth.
 
 {{< highlight javascript >}}
 {
@@ -565,72 +566,41 @@ Now imagine you can follow an author. You can easily update your one entity.
 }
 {{< /highlight >}}
 
-All author representations in your lists blog post and comments components are updated, because they are only references to one source of truth.
+All author representations in your lists of blog posts and comments are updated, because they are only references to one source of truth.
 
 {{% chapter_header "Selectors" "selectors" %}}
 
-You don't use selectors yet? It is totally fine to have prop computations in `mapStateToProps` of Redux. Once you introduce selectors, you could move the computations into your selectors and keep your `mapStateToProps` tidy. After you introduced your own selectors, you could have a look in {{% a_blank "reselect" "https://github.com/reactjs/reselect" %}}. It helps you to compute derived (state) data and gives your application a performance boost.
-
-* Selectors can compute derived data, allowing Redux to store the minimal possible state.
-* Selectors are efficient. A selector is not recomputed unless one of its arguments change.
-* Selectors are composeable. They can be used as input to other selectors.
-
-{{% chapter_header "Dynamic State Keys" "dynamicStateKeys" %}}
-
-Remember when I said you don't want to store everything into your global state? Sometimes proper abstractions help you to group slices of your global state for little properties like isFetching, isOpened and isToggled. Simple reducers can help you to abstract these. Imagine you can have a dedicated reducer for each case: isFetching, isOpened and isToggled. Let's take the isFetching reducer for instance, which manages all the pending requests in your whole application. It would look something like this:
+You don't use selectors yet? It is totally fine to have prop computations in `mapStateToProps` of Redux.
 
 {{< highlight javascript >}}
-function(state, action) {
-  switch (action.type) {
-    case actionTypes.SET_IS_FETCHING:
-      return applySetIsFetching(state, action);
-  }
-  return state;
-}
-
-function applySetIsFetching(state, action) {
-  const { stateKey, isFetching } = action.payload;
-  return { ...state, [stateKey]: isFetching };
-{{< /highlight >}}
-
-That's enough to manage all your state in terms of showing a loading spinner across your application. It takes a key and a boolean to know if something is fetching right now. Whenever you do an API request, you can call an action `{ type: SET_IS_FETCHING, payload: { isFetching: true, stateKey: 'SOME_ASYNC_REQUEST' } }`. When the request is finished, you can call the action again with the payload `{ isFetching: false, stateKey: 'SOME_ASYNC_REQUEST' }`.
-
-The state keys would be an explicit list of constants. It makes it easier to match an action with a state key and a loading indicator in your component tree.
-
-{{< highlight javascript >}}
-const FETCHING_USERS = 'FETCHING_USERS';
-const FETCHING_FOLLOWERS = 'FETCHING_FOLLOWERS';
-const FETCHING_FOLLOWINGS = 'FETCHING_FOLLOWINGS';
-const FETCHING_FAVORITES = 'FETCHING_FAVORITES';
-{{< /highlight >}}
-
-At the end your global state might evolve to something like this, but it would still be very tidy.
-
-{{< highlight javascript >}}
-const state = {
-  isFetching: {
-    'FETCHING_USERS': true,
-    'FETCHING_FOLLOWERS': false,
-    'FETCHING_FOLLOWINGS': false,
-    'FETCHING_FAVORITES': false,
-  },
-  isOpened: {
-    'OPEN_LOGIN_MODAL': false,
-    'OPEN_PLAYLIST_POPOVER': false,
-  },
-  isToggled: {
-    'TOGGLE_USERS_LIST_EXPANDED': true,
-  },
+function mapStateToProps(state) {
+  return {
+    isShown: state.list.length > 0,
+  };
 };
 {{< /highlight >}}
 
-I already wrote about that approach in [Redux State Keys](http://www.robinwieruch.de/redux-state-keys/). Additionally I used the pattern in a {{% a_blank "larger application" "https://github.com/rwieruch/favesound-redux" %}} for LoadingIndicators, More Buttons (to fetch paginated data) and Toggles.
+Once you introduce selectors, you can move the computations into your selectors and keep your `mapStateToProps` tidy.
+
+{{< highlight javascript >}}
+function mapStateToProps(state) {
+  return {
+    isShown: getIsShown(state),
+  };
+};
+{{< /highlight >}}
+
+Later you could have a look into {{% a_blank "reselect" "https://github.com/reactjs/reselect" %}}. It helps you to compute derived data from your state and gives your application a performance boost.
+
+* Selectors can compute derived data, allowing Redux to store the minimal possible state.
+* Selectors are composeable. They can be used as input to other selectors.
+* Reselect Selectors are efficient. A selector is not recomputed unless one of its arguments change.
 
 {{% chapter_header "Refactor, refactor, refactor" "refactor" %}}
 
-There will come a time when you only want to refactor your code. It doesn't matter if you are only using React, React and Redux or some other library/framework. Everyday you will learn a more elegant way of writing your code or a novel pattern to apply.
+There will come a time when you only want to refactor your code. It doesn't matter if you are only using React, React and Redux or some other library or framework. Everyday you will learn a more elegant way of writing your code or a novel pattern to apply.
 
-Once you have a larger component tree in React, you may see patterns to distribute containers among presenters in a more elegant way. You will see abstractions in container and presenter relationships and vice versa. If you didn't apply proper naming conventions in your code base, you may want to introduce them later for a cleaner code.
+Once you have a larger component tree in React, you may see patterns to distribute containers among presenters in a more elegant way. You will see abstractions in container and presenter relationships and vice versa. If you didn't apply proper naming conventions in your code base, you may want to introduce them.
 
 There will be always something to refactor to keep your code more maintainable and readable. You should take the time to apply these refactoring, especially naming conventions, in an early stage of your project.
 
@@ -644,7 +614,7 @@ Redux is a great library to experience different paradigms and technologies. Peo
 * {{% a_blank "Redux Observable" "https://github.com/redux-observable/redux-observable" %}} - Observables
 * {{% a_blank "Redux Loop" "https://github.com/redux-loop/redux-loop" %}} - Elm Effects
 
-As a beginner it makes sense to stick with Redux Thunk. As you advance in the ecosystem, you could have a look at other libraries. Redux Saga is one of the most adopted approaches. [But also Observables are used more often](http://www.robinwieruch.de/redux-observable-rxjs/). Overall the Redux ecosystem is the perfect place to explore the world of JavaScript.
+As a beginner it makes sense to stick with Redux Thunk. As you advance in the ecosystem, you could have a look at other libraries. Redux Saga is one of the most adopted approaches. [But also Observables are used more often](http://www.robinwieruch.de/redux-observable-rxjs/). Overall the Redux ecosystem itself is a perfect place to explore the JavaScript ecosystem.
 
 {{% chapter_header "Learn about implementation details of Redux" "reduxImplementation" %}}
 
@@ -655,8 +625,6 @@ In the beginning it may be easier to get started by watching the {{% a_blank "Ge
 In the second video series {{% a_blank "Building React Applications with Idiomatic Redux" "https://egghead.io/courses/building-react-applications-with-idiomatic-redux" %}} by Dan Abramov you will learn {{% a_blank "how to implement an own middleware from scratch" "https://egghead.io/lessons/javascript-redux-wrapping-dispatch-to-log-actions" %}}. Once you have your own middleware implemented, you want to {{% a_blank "let your store know about it" "https://egghead.io/lessons/javascript-redux-the-middleware-chain" %}}. After that you get to know that there is already a Redux helper {{% a_blank "applyMiddleware" "https://egghead.io/lessons/javascript-redux-applying-redux-middleware" %}} to wire all your middleware to your store.
 
 Both video series will not only help you to learn Redux, they will also help you to learn about the inner workings of Redux. After that you are prepared to dive into the {{% a_blank "source code" "https://github.com/reactjs/redux/tree/master/src" %}}.
-
-{{% read_more "Implement your own SoundCloud Client with React + Redux" "http://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
 
 {{% header_with_anchor "Tips for Testing" "testing" %}}
 
@@ -674,7 +642,7 @@ I can recommend to read some articles about testing like the one by {{% a_blank 
 
 While shallow() only renders the component without children, mount() renders all child components as well. The first is used for component tests in isolation (unit tests) and the latter is used for integration tests. Integration tests are more likely to break, because they include a bigger set of your component tree. The maintenance costs are higher for integration tests. You should have a lot of small maintanable unit tests, but a few vital integration tests.
 
-The third option in enzyme is render(). Render similar to mount() renders all child components. But with mount() you have access to components lifecycle methods like componentDidUpdate. I have seen it rarely in testing nowadays.
+The third option in enzyme is render(). Render similar to mount() renders all child components. But with mount() you have access to components lifecycle methods like componentDidUpdate.
 
 I very much like the rules of thumb by {{% a_blank "Geoffroy Warin" "https://github.com/airbnb/enzyme/issues/465" %}}:
 
@@ -697,9 +665,9 @@ After all Facebook introduced Jest to keep your tests lightweight in the first p
 
 {{% chapter_header "Embrace TDD" "embraceTdd" %}}
 
-Everyone is saying that you should do TDD, but nobody is doing it. I think that once you found out how to test each part in your React + Redux app, you can easily apply TDD. You will notice that a reducer test reads differently than a component test, but each type (reducer, component, ...) of test will always follow the same test pattern.
+Everyone is saying that you should do test-driven development (TDD), but nobody is doing it. I think that once you found out how to test each part in your React + Redux app, you can easily apply TDD. You will notice that a reducer test reads differently than a component test, but each type (reducer, component, ...) of test will always follow the same test pattern.
 
-Take a reducer test for instance, where you always want to expect that reducer(state, action) === newState. The pattern is always the same: input => output without side effects. The test has an initial state, an action with action type and payload and an expected new state.
+Take a reducer test for instance, where you always want to expect that `reducer(state, action) === newState`. The pattern is always the same: `(input) => output` without side effects. The test has an initial state, an action with action type and payload and an expected new state.
 
 Additionally the test has to make sure that the state is immutable - I recommend to use a helper like {{% a_blank "deep-freeze" "https://github.com/substack/deep-freeze" %}}. In pseudo code the test would always read like the following:
 
@@ -715,9 +683,9 @@ expect(reducer(initialState, action)).to.equal(expectedState);
 
 Once you know the test patterns for each part in your app, you should apply TDD. People tend to use code snippets for that task, which I can totally recommend. Add a snippet for each test part, like the one blueprint from above for reducer tests, in your app.
 
-{{% chapter_header "Export Multiple Components" "exportMultipleComponents" %}}
+{{% chapter_header "Test Multiple Components" "exportMultipleComponents" %}}
 
-I believe it is fine to export multiple components from one file for the sake of testing. Each component could get unit tested with enzyme shallow, but one could also integration test them all together by using enzyme mount for the upper parent component. Additionally it should be mandatory to have s Snapshot test with Jest for each component.
+I believe it is fine to export multiple components from one file for the sake of testing. Each component could get unit tested with enzyme shallow, but one could also integration test them all together by using enzyme mount for the upper parent component. Additionally it should be mandatory to have a Snapshot test with Jest for each component.
 
 {{% header_with_anchor "General Recommendations" "generalRecommendations" %}}
 
@@ -727,7 +695,7 @@ In the end I have some general recommendations for the React and Redux environme
 
 Your whole team is new to React?
 
-Since React is a library, but the ecosystem around it could be seen as framework, don't add extensions too fast. Every time you introduce a new module, raise awareness in your team. Especially when coming to the Redux ecosystem itself, there is an overwhelming amount of smaller modules. For instance:
+Since React is a library, but the ecosystem around it could be seen as flexible framework, don't add extensions too fast. Every time you introduce a new module, raise awareness in your team. Especially when coming to the Redux ecosystem itself, there is an overwhelming amount of smaller modules. For instance:
 
 * Don't add {{% a_blank "redux-actions" "https://github.com/acdlite/redux-actions" %}} before people wrote their own action creators and reducers
 * Don't add {{% a_blank "redux-forms" "https://github.com/erikras/redux-form" %}} before people wrote at least one own form and validation
@@ -735,7 +703,7 @@ Since React is a library, but the ecosystem around it could be seen as framework
 * Don't add {{% a_blank "recompose" "https://github.com/acdlite/recompose" %}} before people wrote their first HOC
 * ...
 
-Follow best practices by thought leaders. Establish your own best practices. But make sure that everyone understands them. Define clear naming conventions and folder structurings. Don't discuss those topics too late in the migration phase.
+Follow best practices by thought leaders. Establish your own best practices. But make sure that everyone understands them. Define clear naming conventions and folder structures. Don't discuss those topics too late in the migration phase.
 
 Moreover address certain topics more in depth. For instance:
 
@@ -745,7 +713,7 @@ You can explore observables or generators, but not everyone might be aware of th
 
 {{% chapter_header "Stay Curious" "stayCurious" %}}
 
-In the React + Redux ecosystem we have a set of great contributors out there who embrace novel things. Don't be dogmatic about the way you implement something, embrace new ways of doing it! There are great articles which describe these novelties. Have you ever seen composed components with {{% a_blank "ramda.js" "http://ramdajs.com/" %}} in React and Redux? Have a look at {{% a_blank "The elegance of React" "https://medium.com/javascript-inside/the-elegance-of-react-ebc21a2dcd19" %}} by A. Sharif. Stay curious!
+In the React + Redux ecosystem there is a set of great contributors who embrace novel things. Don't be dogmatic about the way you implement something, embrace new ways of doing it! There are great articles which describe these novelties. Have you ever seen composed components with {{% a_blank "ramda.js" "http://ramdajs.com/" %}} in React and Redux? Have a look at {{% a_blank "The elegance of React" "https://medium.com/javascript-inside/the-elegance-of-react-ebc21a2dcd19" %}} by A. Sharif. Stay curious!
 
 {{% chapter_header "Dive into other environments" "diveInto" %}}
 
@@ -753,7 +721,7 @@ The ecosystem offers so much more. You are already familiar in React? Start to b
 
 {{% chapter_header "No Silver Bullet" "noSilverBullet" %}}
 
-Not React or Redux are the silver bullets for everything. There are other solutions to give a shot.
+React or Redux are not the silver bullets for everything. There are other solutions to give a shot.
 
 Don't see React + Redux as dogma. Both are exchangeable. MobX can be [an alternative to Redux for state management](http://www.robinwieruch.de/redux-mobx-confusion/). In a larger code base it is still possible to {{% a_blank "exchange the state management layer" "https://github.com/rwieruch/favesound-mobx/pull/1" %}}.
 
@@ -767,16 +735,16 @@ Code style is very important. In a team of developers you want to embrace one co
 
 The team should embrace to follow an common standard rather than developing an own code style. Therefore I can recommend the {{% a_blank "Airbnb JavaScript Style Guide" "https://github.com/airbnb/javascript" %}} for general JavaScript, but also the {{% a_blank "Airbnb React/JSX Style Guide" "https://github.com/airbnb/javascript/tree/master/react" %}}. Both are commonly used guidelines for JavaScript and React developers.
 
-No style guide will help your team without enforcing it. You can use {{% a_blank "Airbnb's ESLint config" "https://www.npmjs.com/package/eslint-config-airbnb" %}} to follow both mentioned style guides.
+No style guide will help your team without enforcing it. You can use [ESLint](https://robinwieruch.de/react-eslint-webpack-babel/) to follow both mentioned style guides.
 
 {{% chapter_header "Contribute!" "contribute" %}}
 
-The ecosystem is huge and there is a lot potential to contribute in the open source community. You don't need to deep dive into a library, but can also contribute in documentation or open source applications as beginner. Start by applying the gathered best practices in an application like {{% a_blank "favesound-redux" "https://github.com/rwieruch/favesound-redux" %}}, which I wrote myself to demonstrate React + Redux. You feel more confident? Have a look into the endless selection of libraries in React + Redux to help out.
+The ecosystem is huge and there is a lot potential to contribute in the open source community. You don't need to deep dive into a library, but can also contribute in documentation or open source applications as beginner. Start by applying the gathered best practices in an application like {{% a_blank "favesound-redux" "https://github.com/rwieruch/favesound-redux" %}}, which I wrote myself to demonstrate React + Redux. You feel more confident? Have a look into the endless selection of libraries in the React + Redux ecosystem.
 
 {{% chapter_header "Honor the Contributors!" "contributors" %}}
 
-Behind every library there is a person or team of contributors and maintainers. Most of them are doing the work on a library in their spare time. Honor their work and avoid to take it as granted! It is a gift from other developers who care about the community and open source. You can even help them to improve the library by giving constructive feedback, opening issues with well written instructions or by contributing with Pull Requests. After all it simply helps to write a kind message to remind these people that you are using their open source contribution for your own project. It encourages them in their work.
+Behind every library there is a person or team of contributors and maintainers. Most of them are doing the work on a library in their spare time. Honor their work and avoid to take it as granted! It is a gift from other developers who care about the community and open source their work. You can even help them to improve the library by giving constructive feedback, opening issues with well written instructions or by contributing with Pull Requests. After all it simply helps to write a kind message to remind these people that you are using their open source contribution for your own project. It encourages them in their work.
 
 {{% header_with_anchor "Final Thoughts" "finalThoughts" %}}
 
-What's missing in your opinion? Where do you agree or disagree? As I said, it's a list made up of learnings and personal opinions. But I am keen to hear your feedback. Write me on {{% a_blank "Twitter" "https://twitter.com/rwieruch" %}} your suggestions or {{% a_blank "have a direct impact on the article and submit a tip" "https://github.com/rwieruch/blog_robinwieruch_content/blob/master/tips-to-learn-react-redux" %}}.
+What's missing in your opinion? Where do you agree or disagree? As I said, it's a list made up of learnings and personal opinions. But I am keen to hear your feedback. You can have {{% a_blank "a direct impact on the article and submit your tip" "https://github.com/rwieruch/blog_robinwieruch_content/blob/master/tips-to-learn-react-redux" %}}.

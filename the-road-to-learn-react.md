@@ -32,7 +32,7 @@ In the Road to learn React I want to offer a foundation before you start to dive
 
 **Does it cover Redux?** It doesn't. The book should give you a solid foundation before you dive into advanced topics like Redux. Still the implementation in the book will show you that you don't need Redux to build an application.
 
-**Why is the book pay as you want?** I have put a lot of effort into this and will do so in the future. My desire is to reach as many people as possible. Everyone should be enabled to learn React. When you come from my website to *Get The Book*, you will get a coupon url which allows you to pay what you want. Still you could pay - if you can afford it - because it already took me days to write and improve the book.
+**Why is the book pay what you want?** I have put a lot of effort into this and will do so in the future. My desire is to reach as many people as possible. Everyone should be enabled to learn React. When you come from my website to *Get The Book*, you will get a coupon url which allows you to pay what you want. Still you could pay - if you can afford it - because it already took me a lot of my time to write and improve the book.
 
 **Does the article cover all book chapters?** No. The book improves all the time. But it is tough to keep it in sync with the article. The article only covers preview chapters. These preview chapters are not up to date. Simply grab the book to get all the material! It has over 140 pages of learning material. It will stay updated.
 
