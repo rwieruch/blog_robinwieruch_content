@@ -1,7 +1,7 @@
 +++
-title = "Tips to learn React + Redux"
+title = "Tips to learn React + Redux in 2017"
 description = "In tips to learn React + Redux you will get a list of best practices and tips to learn React JS and Redux. The tutorial covers various topics in Redux, ES6 and React like testing, components and state..."
-date = "2017-01-10T13:50:46+02:00"
+date = "2017-01-17T13:50:46+02:00"
 tags = ["React", "Redux"]
 categories = ["React", "Redux"]
 keyword = "learn react redux"
@@ -12,7 +12,7 @@ contribute = "tips-to-learn-react-redux.md"
 summary = "I am doing React + Redux for quite some time now. My learnings are subjective, but I thought they may help people to learn or advance in React + Redux. Redux is not strictly coupled to React, but it happens to be that a lot of people are using both libraries in combination. The article is opinionated, maybe it doesn't match every time your thoughts, but I hope to get feedback on it to improve myself as well."
 +++
 
-{{% header "Tips to learn React + Redux" %}}
+{{% header "Tips to learn React + Redux in 2017" %}}
 
 {{% pin_it_image "learn react redux" "img/posts/tips-to-learn-react-redux/banner.jpg" %}}
 
@@ -25,7 +25,7 @@ I am doing React + Redux for quite some time now. My learnings are subjective, b
   * [Learn X before you learn Y](#learnXBeforeY)
   * [React Component Declarations](#reactComponentDeclarations)
   * [Lightweight Functional Stateless Components](#lightweightFunctionalStatelessComponents)
-  * [Concise Functional Stateless Components](conciseFunctionStatelessComponents)
+  * [Concise Functional Stateless Components](#conciseFunctionStatelessComponents)
   * [Presenter and Container Pattern](#presenterContainerPattern)
   * [When to use Container Components](#whenContainerComponents)
   * [Write your first higher order component](#hoc)
@@ -66,9 +66,9 @@ Let's start with React, before we dive into Redux, testing and more general reco
 
 You start to learn React? I can recommend to avoid boilerplate projects. It is already tough to learn React. You shouldn't bother with all the tooling around it. Especially when someone else has set up the tooling for you.
 
-I can recommend to use {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}}. It is the official zero-configuration setup by Facebook for React.
+I can recommend to use {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}}. It is the official zero-configuration setup by Facebook for React. Technically it is a boilerplate, but all the tooling is hidden. You get a foundation to start your React application in a comfortable environment.
 
-After a while you may want to dig deeper and setup your own project without create-react-app. Then it is about time to get to know the tools around you. When you setup your own project from scratch, you will get to know how the underlying things work. It will maybe lead to your very own boilerplate project.
+After a while you may want to dig deeper and setup your own project without create-react-app. Then it is about time to get to know the tools around you. You will miss the tools you had in create-react-app and eventually use install and set up them on your own. When you setup your own project from scratch, you will get to know how the underlying things work. It will maybe lead to your very own boilerplate project.
 
 You can use boilerplate projects as blueprint to experiment how things work. Experiment with the tools in the projects, get to know which problem they solve for you and use them yourself.
 
@@ -85,7 +85,7 @@ The ecosystem around React is huge since React is only a view library. There are
 * JSX syntax
 * ReactDOM.render
 * internal component state management with setState
-* component lifecycle methods
+* React component lifecycle methods
 * events and forms
 * different component declarations
 * composeable components
@@ -320,7 +320,7 @@ var buttonClasses = classNames(
 
 {{% chapter_header "Animations in React" "animations" %}}
 
-The {{% a_blank "first time when I saw animations in React" "http://chenglou.github.io/react-motion/demos/demo8-draggable-list/" %}} I was hooked. {{% a_blank "React Motion" "https://github.com/chenglou/react-motion" %}} gives you a toolkit to implement animations in React. I found the learning curve pretty steep. It can get frustrating in the beginning when you experiment with React Motion, but it pays off once you see your first smooth drag and drop animation.
+The {{% a_blank "first time when I saw a React animation" "http://chenglou.github.io/react-motion/demos/demo8-draggable-list/" %}} I was hooked. {{% a_blank "React Motion" "https://github.com/chenglou/react-motion" %}} gives you a toolkit to implement animations in React. I found the learning curve pretty steep. It can get frustrating in the beginning when you experiment with React Motion, but it pays off once you see your first smooth drag and drop animation.
 
 Moreover for most of us only a small part of professional coding time is spend with animations. That's why I experienced something like a recurring learning curve, since the concept and functionality won't stick for long in your head when not using them.
 
@@ -332,7 +332,7 @@ Before we dive into Redux, I just wanted to add "You might not need a state mana
 
 You are still learning React? Use `setState` to manage internal component state. Once you feel comfortable in using React, you might come across problems like sharing state across multiple components. Even then you don't necessarily need an external state management library. You can {{% a_blank "lift state up or down" "https://facebook.github.io/react/docs/lifting-state-up.html" %}}.
 
-In a growing application there will come the time to introduce a state management library eventually. A part of the article [Redux or MobX: An attempt to dissolve the Confusion](http://www.robinwieruch.de/redux-mobx-confusion/) covers how to approach to learn state management in React.
+In a growing application there will come the time to introduce a state management library eventually. A part of the article [Redux or MobX: An attempt to dissolve the Confusion](https://www.robinwieruch.de/redux-mobx-confusion/) covers how to approach to learn state management in React.
 
 {{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 140+ pages of learning material. Pay as you want like <strong>3000+ readers</strong>." "Get the Book" "img/page/cover.png" "http://eepurl.com/caLPjr" %}}
 
@@ -614,7 +614,7 @@ Redux is a great library to experience different paradigms and technologies. Peo
 * {{% a_blank "Redux Observable" "https://github.com/redux-observable/redux-observable" %}} - Observables
 * {{% a_blank "Redux Loop" "https://github.com/redux-loop/redux-loop" %}} - Elm Effects
 
-As a beginner it makes sense to stick with Redux Thunk. As you advance in the ecosystem, you could have a look at other libraries. Redux Saga is one of the most adopted approaches. [But also Observables are used more often](http://www.robinwieruch.de/redux-observable-rxjs/). Overall the Redux ecosystem itself is a perfect place to explore the JavaScript ecosystem.
+As a beginner it makes sense to stick with Redux Thunk. As you advance in the ecosystem, you could have a look at other libraries. Redux Saga is one of the most adopted approaches. [But also Observables are used more often](https://www.robinwieruch.de/redux-observable-rxjs/). Overall the Redux ecosystem itself is a perfect place to explore the JavaScript ecosystem.
 
 {{% chapter_header "Learn about implementation details of Redux" "reduxImplementation" %}}
 
@@ -723,7 +723,7 @@ The ecosystem offers so much more. You are already familiar in React? Start to b
 
 React or Redux are not the silver bullets for everything. There are other solutions to give a shot.
 
-Don't see React + Redux as dogma. Both are exchangeable. MobX can be [an alternative to Redux for state management](http://www.robinwieruch.de/redux-mobx-confusion/). In a larger code base it is still possible to {{% a_blank "exchange the state management layer" "https://github.com/rwieruch/favesound-mobx/pull/1" %}}.
+Don't see React + Redux as dogma. Both are exchangeable. MobX can be [an alternative to Redux for state management](https://www.robinwieruch.de/redux-mobx-confusion/). In a larger code base it is still possible to {{% a_blank "exchange the state management layer" "https://github.com/rwieruch/favesound-mobx/pull/1" %}}.
 
 React is only the view layer. You can exchange it with a more other solution like {{% a_blank "Preact" "https://preactjs.com/" %}} or {{% a_blank "Inferno" "https://github.com/infernojs/inferno" %}}.
 

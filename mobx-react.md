@@ -16,7 +16,7 @@ summary = "The MobX React: Refactor your application from Redux to MobX tutorial
 
 {{% pin_it_image "mobx react" "img/posts/mobx-react/banner.jpg" %}}
 
-{{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "The SoundCloud Client in React + Redux" "http://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
+{{% read_before "This React tutorial is part 2 of 2 in the series." "Part 1:" "The SoundCloud Client in React + Redux" "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
 
 MobX is a state management solution. It is a standalone pure technical solution without being opinionated about the architectural state management app design. The 4 pillars State, Actions, Reactions and Derivations make state management in MobX possible. First the State encapsulates all of your application state which can consist of primitives to complex objects. While Actions mutate the State, Reactions are running every time the State was mutated. Derivations are similar to Reactions, but they produce a new value depending on the State.
 
@@ -758,7 +758,7 @@ At the end one can remove all the unused libraries which we used in the Redux en
 npm uninstall --save redux react-redux redux-logger redux-thunk react-router-redux
 {{< /highlight >}}
 
-Finally one can see that due to the refactoring a lot of Redux dependent code has been removed. That could be seen as an advantage, because after spending some time to set up a bunch of Action Types, Action Creators, Actions and Reducers, it feels like a lot of boilerplate. The paradox is the fact that these constraints and APIs of Redux make it so successful for state management even in larger applications. MobX leaves out the whole architectural design which comes with Redux. Be aware of that and don't mistake MobX as replacement for Redux. You can find the outcome of this tutorial in the {{% a_blank "react-mobx-soundcloud repository" "https://github.com/rwieruch/react-mobx-soundcloud" %}}. Moreover there exists a real world {{% a_blank "MobX + React + SoundCloud application" "https://github.com/rwieruch/favesound-mobx" %}}.
+Finally one can see that due to the refactoring a lot of Redux dependent code has been removed. That could be seen as an advantage, because after spending some time to set up a bunch of Action Types, Action Creators, Actions and Reducers, it feels like a lot of boilerplate. The paradox is the fact that these constraints and APIs of Redux make it so successful for state management even in larger applications. MobX leaves out the whole architectural design which comes with Redux. Be aware of that and don't mistake MobX as replacement for Redux. You can find the outcome of this React tutorial in the {{% a_blank "react-mobx-soundcloud repository" "https://github.com/rwieruch/react-mobx-soundcloud" %}}. Moreover there exists a real world {{% a_blank "MobX + React + SoundCloud application" "https://github.com/rwieruch/favesound-mobx" %}}.
 
 {{% chapter_header "Troubleshoot" "troubleshoot" %}}
 

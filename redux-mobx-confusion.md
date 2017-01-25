@@ -166,11 +166,11 @@ Both Redux and MobX are mostly used in React applications. But they are standalo
 
 In recent discussions it happened that people argued about the learning curve in Redux. It was often in the context of React: people began to learn React and already wanted to leverage state management with Redux. Most people would say that React and Redux itself have a good learning curve, but both together can be overwhelming. An alternative therefore would be MobX, because it is more suitable for beginners.
 
-I would suggest a different approach for newcomers to learn state management in React ecosystem. Start to learn React with its own component state management functionality: setState. In a React application you will first learn the lifecycle methods and you will deal with component state management by using setState. Eventually you will realize that the (internal) state management of components is getting difficult once you want to share state across components.
+I would suggest a different approach for newcomers to learn state management in React ecosystem. Start to learn React with its own component state management functionality: setState. In a React application you will first learn the React lifecycle methods and you will deal with component state management by using setState. Eventually you will realize that the (internal) state management of components is getting difficult once you want to share state across components.
 
 Now we are at the point: What problem does MobX or Redux solve for us. Both libraries give a way of managing application state external to the components. Components can access the state, manipulate it (explicit, implicit) and update with the new state.
 
-{{% read_more "Implement your own SoundCloud Client with React + Redux" "http://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
+{{% read_more "Implement your own SoundCloud Client with React + Redux" "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
 
 Now you have to make the decision to choose a state management library. You know why you need to solve the problem in the first place. Moreover after having already a larger application in place, you should feel comfortable with React by now.
 
@@ -233,7 +233,7 @@ Another advantage of Redux is using it on the server side. Since we are dealing 
 
 MobX is less opinionated, but by using `useStrict` you can enforce clearer constraints like in Redux. That's why I wouldn't say you cannot use MobX in scaling applications, but there is a clear way of doing things in Redux. The documentation in MobX even says: *"[MobX] does not tell you how to structure your code, where to store state or how to process events."* The development team would have to establish a state management architecture in the first place.
 
-{{% read_more "Refactor an application from Redux to MobX" "www.robinwieruch.de/mobx-react/" %}}
+{{% read_more "Refactor an application from Redux to MobX" "https://www.robinwieruch.de/mobx-react/" %}}
 
 After all the state management learning curve isn't that steep. When we recap the recommendations, a newcomer in React would **first learn to use setState** properly. After a while you would **realize the problems of using only setState** to maintain state in a React application. When looking for a solution, you stumble upon state management libraries like MobX or Redux. But which one to choose? Since MobX is less opinionated, has less boilerplate and can be used similar to setState I would recommend in smaller projects to give MobX a shot. Once the application grows in size and contributors, you should consider to enforce more restrictions in MobX or give Redux a shot. I enjoyed to use both libraries. Even if you don't use one of them after all, it makes sense to have seen an alternative way of doing state management.
 
@@ -289,7 +289,7 @@ function mapDispatchToProps(dispatch) {
 const UserProfileContainer = connect(mapStateToProps, mapDispatchToProps)(UserProfile);
 {{< /highlight >}}
 
-There exists a tutorial on [how to refactor from Redux to MobX](http://www.robinwieruch.de/mobx-react/). But one could also apply the refactoring vice versa. Once you have chosen a state management library, you can see that there is no vendor lock in. They are pretty much decoupled from your application and therefore exchangeable.
+There exists a tutorial on [how to refactor from Redux to MobX](https://www.robinwieruch.de/mobx-react/). But one could also apply the refactoring vice versa. Once you have chosen a state management library, you can see that there is no vendor lock in. They are pretty much decoupled from your application and therefore exchangeable.
 
 {{% chapter_header "Final Thoughts" "finalThoughts" %}}
 

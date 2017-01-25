@@ -18,7 +18,7 @@ I love to teach, even though I am no expert. I learn every day and I have the fo
 
 The following article includes preview chapters of an eBook to learn React. In the future it highly depends on your feedback and contribution. I try my best to teach in the best way possible, but I can only improve with your help. I am keen to hear your honest thoughts on {{% a_blank "Twitter" "https://twitter.com/rwieruch" %}}.
 
-**But why me?** In the past I have written a large tutorial to implement a [SoundCloud Client in React + Redux](http://www.robinwieruch.de/the-soundcloud-client-in-react-redux). I never expected the overwhelming reaction. I learned a lot during the process of writing. But even more by getting your feedback. It was my first attempt to teach people in programming.
+**But why me?** In the past I have written a large tutorial to implement a [SoundCloud Client in React + Redux](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux). I never expected the overwhelming reaction. I learned a lot during the process of writing. But even more by getting your feedback. It was my first attempt to teach people in programming.
 
 It also taught me to do better. I realized the SoundCloud tutorial is suited for advanced developers. It uses several tools to bootstrap your application and dives quickly into Redux. Still it helped a lot of people to get started. In my opinion it is a great tutorial to get a bigger picture of React + Redux. I use every free minute to improve the material, but it is time consuming.
 
@@ -105,7 +105,7 @@ In the Road to learn React I want to offer a foundation before you start to dive
 
 In general each chapter will build up on the previous. Each will dive into a new learning. Don't rush through the book. You should internalize each step. You can apply your own implementations and read more about the topic. Make yourself comfortable with the learnings before you continue.
 
-After you have read the book you could dive into the [SoundCloud Client in React + Redux](http://www.robinwieruch.de/the-soundcloud-client-in-react-redux). It guides you to implement your own SoundCloud application with Redux as state management library.
+After you have read the book you could dive into the [SoundCloud Client in React + Redux](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux). It guides you to implement your own SoundCloud application with Redux as state management library.
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
@@ -173,7 +173,7 @@ The first generation SPA frameworks arrived at an enterprise level. React stays 
 
 {{% chapter_header "Requirements" "requirements" %}}
 
-Before you start to read the book, you should be quite familiar with HTML, CSS and JavaScript (ES5). Additionally you will need a working [editor and terminal](http://www.robinwieruch.de/developer-setup/). Last but not least you will need an installation of {{% a_blank "node and npm" "https://nodejs.org/en/" %}}.
+Before you start to read the book, you should be quite familiar with HTML, CSS and JavaScript (ES5). Additionally you will need a working [editor and terminal](https://www.robinwieruch.de/developer-setup/). Last but not least you will need an installation of {{% a_blank "node and npm" "https://nodejs.org/en/" %}}.
 
 These are my versions of node and npm at the time of writing the book.
 
@@ -535,6 +535,6 @@ It makes sense to make a break at this point. Internalize the learnings and appl
 
 That's the last chapter of the book preview. You can read more chapters on [Leanpub](http://eepurl.com/caLPjr)! Grab it and pay as you want. I want to enable everyone to learn React. You can have a look again at the [Table of Contents](#toc) to see what you can expect to find on Leanpub.
 
-{{% read_more "The SoundCloud Client in React + Redux" "http://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
+{{% read_more "The SoundCloud Client in React + Redux" "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
 
 I would really appreciate your support on social media to reach as many people as possible to grab a version of the book.

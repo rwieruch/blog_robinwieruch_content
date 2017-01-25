@@ -70,12 +70,12 @@ In the future I am going to write some [smaller tutorials](#extensions) based on
 
 A list of extensions which can be applied on top of the SoundCloud Client with React + Redux tutorial afterwards.
 
-* [React ESLint: Code Style like Airbnb in React](http://www.robinwieruch.de/the-soundcloud-client-in-react-redux-eslint)
-* [Flow: Type Checking with Flow in React + Redux](http://www.robinwieruch.de/the-soundcloud-client-in-react-redux-flow)
-* [Redux Ducks: Restructure your Redux App with Ducks](http://www.robinwieruch.de/the-soundcloud-client-in-react-redux-ducks)
-* [Redux Normalizr: Improve your State Management](http://www.robinwieruch.de/the-soundcloud-client-in-react-redux-normalizr)
-* [Redux Observable RxJS: Going Epic with Reactive Programming](http://www.robinwieruch.de/redux-observable-rxjs/)
-* [MobX React: Simplified State Management in React](http://www.robinwieruch.de/mobx-react/)
+* [React ESLint: Code Style like Airbnb in React](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-eslint)
+* [Flow: Type Checking with Flow in React + Redux](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-flow)
+* [Redux Ducks: Restructure your Redux App with Ducks](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-ducks)
+* [Redux Normalizr: Improve your State Management](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-normalizr)
+* [Redux Observable RxJS: Going Epic with Reactive Programming](https://www.robinwieruch.de/redux-observable-rxjs/)
+* [MobX React: Simplified State Management in React](https://www.robinwieruch.de/mobx-react/)
 
 {{% chapter_header "A project from scratch" "aProjectFromScratch" %}}
 
@@ -93,7 +93,7 @@ Additionally I can recommend to read *The Road to learn React* before you dive i
 
 Tools and versions I used during the implementation of {{% a_blank "FaveSound" "https://github.com/rwieruch/favesound-redux" %}}:
 
-* [editor and terminal](http://www.robinwieruch.de/developer-setup/)
+* [editor and terminal](https://www.robinwieruch.de/developer-setup/)
 * {{% a_blank "node with npm" "https://nodejs.org/en/" %}}
 
 {{< highlight javascript >}}
@@ -329,6 +329,18 @@ module.exports = {
 };
 {{< /highlight >}}
 
+And define in the *src/index.js* file that hot reloading is available and should be used.
+
+*src/index.js*
+
+{{< highlight javascript "hl_lines=3" >}}
+console.log('My SoundCloud React Redux App');
+
+module.hot.accept();
+{{< /highlight >}}
+
+Now you can start your app again.
+
 *From root folder:*
 
 {{< highlight javascript >}}
@@ -440,6 +452,8 @@ ReactDOM.render(
   <div>{title}</div>,
   document.getElementById('app')
 );
+
+module.hot.accept();
 {{< /highlight >}}
 
 We should be able to see the output in our browser rather than in a console output. ReactDOM.render needs two parameters. The first parameter is the output DOM element. It has to have always one root node. The second paramter is the node where your output should be appended. Remember when we used `<div id="app"></div>` in our *dist/index.html*? The same id is our entry point for React now.
@@ -471,34 +485,11 @@ ReactDOM.render(
   </div>,
   document.getElementById('app')
 );
+
+module.hot.accept();
 {{< /highlight >}}
 
 The {{% a_blank "JSX syntax" "https://facebook.github.io/react/docs/jsx-in-depth.html" %}} takes getting used to. Basically we can use JavaScript in HTML. In our code snippet we map over a list of tracks and return a HTML node with track properties.
-
-{{< highlight javascript "hl_lines=4 5 6 7 8 9 10 11 14 15 16 17 18 19 20" >}}
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-const tracks = [
-  {
-    title: 'Some track'
-  },
-  {
-    title: 'Some other track'
-  }
-];
-
-ReactDOM.render(
-  <div>
-    {
-      tracks.map((track) => {
-        return <div className="track">{track.title}</div>;
-      })
-    }
-  </div>,
-  document.getElementById('app')
-);
-{{< /highlight >}}
 
 The console output gives the hint of a missing key property. {{% a_blank "React elements need that key property to uniquely identify themselves in a list of elements" "https://facebook.github.io/react/docs/multiple-components.html" %}}. Let’s fix this, save the file and see how hot reloading kicks in and refreshes our page!
 
@@ -549,6 +540,8 @@ ReactDOM.render(
   <Stream tracks={tracks} />,
   document.getElementById('app')
 );
+
+module.hot.accept();
 {{< /highlight >}}
 
 We import a Stream component which gets a list of tracks as props. Moreover we use that component as first parameter for `ReactDOM.render`. Now let's implement the Stream component.
@@ -595,7 +588,7 @@ export default Stream;
 
 The Stream component is a React ES6 class component. The render shorthand function returns the element. Additionally we retrieve the props from `this` by using ES6 destructuring and providing a default empty list.
 
-ES6 class components provide a slim API. These lifecycle methods can be used to hook into the component lifecycle. For instance you can do things before a component gets rendered with `componentWillMount()` or when it updated with `componentDidUpdate()`. You can read about all component {{% a_blank "lifecycle methods" "https://facebook.github.io/react/docs/react-component.html" %}}.
+React ES6 class components provide a slim API. These lifecycle methods can be used to hook into the component lifecycle. For instance you can do things before a component gets rendered with `componentWillMount()` or when it updated with `componentDidUpdate()`. You can read about all component {{% a_blank "lifecycle methods" "https://facebook.github.io/react/docs/react-component.html" %}}.
 
 {{< highlight javascript >}}
 class Stream extends React.Component {
@@ -737,7 +730,7 @@ A lot of things already happened during the last chapters. Let’s summarise the
 
 > You may want to experiment a bit more with React before you dive into Redux. Build some more ES6 class and functional stateless components. Additionally use lifecycle methods and internal component state to get used to it. Only then you will see the benefits of using Redux for state management.
 
-{{% read_more "The learning curve for state management in React" "http://www.robinwieruch.de/redux-mobx-confusion/" %}}
+{{% read_more "The learning curve for state management in React" "https://www.robinwieruch.de/redux-mobx-confusion/" %}}
 
 {{% chapter_header "Test Setup" "testSetup" %}}
 
@@ -934,6 +927,8 @@ ReactDOM.render(
   <Stream />,
   document.getElementById('app')
 );
+
+module.hot.accept();
 {{< /highlight >}}
 
 As you can see we initialise a store object with some imported function we didn’t define yet. The store is a singleton Redux object and holds our global state object. Moreover it is possible to use a lightweight store API to dispatch an action, get the state of the store or subscribe to the store when updates occur.
@@ -1201,6 +1196,8 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('app')
 );
+
+module.hot.accept();
 {{< /highlight >}}
 
 Now we made the Redux store available to all child components, in that case the Stream component.
@@ -1414,6 +1411,8 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('app')
 );
+
+module.hot.accept();
 {{< /highlight >}}
 
 {{% sub_chapter_header "React Router" "reactRouter" %}}
@@ -1508,6 +1507,8 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('app')
 );
+
+module.hot.accept();
 {{< /highlight >}}
 
 At the end there are two new components: App as component wrapper and Callback for the authentication. Let’s create the first one.
@@ -1990,6 +1991,8 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('app')
 );
+
+module.hot.accept();
 {{< /highlight >}}
 
 We only removed the hardcoded tracks in here. Moreover we don’t dispatch anymore an action to set some initial state.
@@ -2409,12 +2412,12 @@ Let’s start our app again. We login, we see our tracks as a list, we are able 
 
 Add one of the following tutorials on top of your current SoundCloud project:
 
-* [React ESLint: Code Style like Airbnb in React](http://www.robinwieruch.de/the-soundcloud-client-in-react-redux-eslint)
-* [Flow: Type Checking with Flow in React + Redux](http://www.robinwieruch.de/the-soundcloud-client-in-react-redux-flow)
-* [Redux Ducks: Restructure your Redux App with Ducks](http://www.robinwieruch.de/the-soundcloud-client-in-react-redux-ducks)
-* [Redux Normalizr: Improve your State Management](http://www.robinwieruch.de/the-soundcloud-client-in-react-redux-normalizr)
-* [Redux Observable RxJS: Going Epic with Reactive Programming](http://www.robinwieruch.de/redux-observable-rxjs)
-* [MobX React: Simplified State Management in React](http://www.robinwieruch.de/mobx-react)
+* [React ESLint: Code Style like Airbnb in React](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-eslint)
+* [Flow: Type Checking with Flow in React + Redux](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-flow)
+* [Redux Ducks: Restructure your Redux App with Ducks](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-ducks)
+* [Redux Normalizr: Improve your State Management](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-normalizr)
+* [Redux Observable RxJS: Going Epic with Reactive Programming](https://www.robinwieruch.de/redux-observable-rxjs)
+* [MobX React: Simplified State Management in React](https://www.robinwieruch.de/mobx-react)
 
 {{% chapter_header "Troubleshoot" "troubleshoot" %}}
 

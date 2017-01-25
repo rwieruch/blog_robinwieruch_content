@@ -16,7 +16,7 @@ summary = "The Flow: Type Checking with Flow in React + Redux tutorial will teac
 
 {{% pin_it_image "redux flow" "img/posts/the-soundcloud-client-in-react-redux-flow/banner.jpg" %}}
 
-{{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "The SoundCloud Client in React + Redux" "http://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
+{{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "The SoundCloud Client in React + Redux" "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
 
 The Flow: Type Checking with Flow in React + Redux tutorial will teach you how to use {{% a_blank "Flow" "https://flowtype.org" %}} in a React + Redux environment. Since JavaScript itself is a dynamically typed language, you will end up with several bugs in your JavaScript career, which could have been prevented due type safety. In terms of using Flow for type safety, it only needs a simple setup to get the advantage of a more robust application. Moreover your feedback loop during development will improve, since you get the type safety in your terminal/IDE. Flow was introduced the first time at the {{% a_blank "Scale Conference in September 2014" "https://youtu.be/M8x0bc81smU" %}}.
 

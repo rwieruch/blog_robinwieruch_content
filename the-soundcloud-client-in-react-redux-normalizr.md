@@ -16,7 +16,7 @@ summary = "The Normalizr in Redux tutorial will teach you how to use normalizr f
 
 {{% pin_it_image "redux normalizr" "img/posts/the-soundcloud-client-in-react-redux-normalizr/banner.jpg" %}}
 
-{{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "The SoundCloud Client in React + Redux" "http://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
+{{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "The SoundCloud Client in React + Redux" "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
 
 The Normalizr in Redux tutorial will teach you how to use {{% a_blank "normalizr" "https://github.com/paularmstrong/normalizr" %}} for an improved data management in your Redux store. The library itself will help you to avoid deep nested data structures although the returned data from a server is deeply nested. Additionally it comes for free to enable a manageable single source of truth for data entities in your global store.
 
