@@ -24,7 +24,7 @@ It also taught me to do better. I realized the SoundCloud tutorial is suited for
 
 In the Road to learn React I want to offer a foundation before you start to dive into the broader React ecosystem. It has less tooling and less external state management, but more React. It explains general concepts, patterns and best practices. You will learn to build your own Hacker News application. It cover real world features like pagination, client-side caching and interactions. Additionally you will transition from JavaScript ES5 to JavaScript ES6. After all the book should give you a solid foundation in React before you dive into more advanced topics like Redux.
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 140+ pages of learning material. Pay as you want like <strong>3000+ readers</strong>." "Get the Book" "img/page/cover.png" "http://eepurl.com/caLPjr" %}}
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 140+ pages of learning material. Pay as you want like <strong>3500+ readers</strong>." "Get the Book" "img/page/cover.png" "http://eepurl.com/caLPjr" %}}
 
 {{% chapter_header "FAQ" "faq" %}}
 
