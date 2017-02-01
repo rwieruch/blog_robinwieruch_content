@@ -107,7 +107,7 @@ Additionally the entities stay in a **nested data structure in relation to each 
 }
 {{< /highlight >}}
 
-### How does the implementation look like?
+### What does the implementation look like?
 
 In Redux it would need the following lines of code to add a new user to the **global state**. You can see how we make use of the {{% a_blank "object spread operator" "https://github.com/sebmarkbage/ecmascript-rest-spread" %}} to return a new state object. You could also use `Object.assign()` to have immutable objects in JavaScript ES5.
 
