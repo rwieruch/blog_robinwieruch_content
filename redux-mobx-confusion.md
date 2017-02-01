@@ -107,7 +107,7 @@ Additionally the entities stay in a **nested data structure in relation to each 
 }
 {{< /highlight >}}
 
-### How does the implementation look like?
+### What does the implementation look like?
 
 In Redux it would need the following lines of code to add a new user to the **global state**. You can see how we make use of the {{% a_blank "object spread operator" "https://github.com/sebmarkbage/ecmascript-rest-spread" %}} to return a new state object. You could also use `Object.assign()` to have immutable objects in JavaScript ES5.
 
@@ -235,7 +235,7 @@ MobX is less opinionated, but by using `useStrict` you can enforce clearer const
 
 {{% read_more "Refactor an application from Redux to MobX" "https://www.robinwieruch.de/mobx-react/" %}}
 
-After all the state management learning curve isn't that steep. When we recap the recommendations, a newcomer in React would **first learn to use setState** properly. After a while you would **realize the problems of using only setState** to maintain state in a React application. When looking for a solution, you stumble upon state management libraries like MobX or Redux. But which one to choose? Since MobX is less opinionated, has less boilerplate and can be used similar to setState I would recommend in smaller projects to give MobX a shot. Once the application grows in size and contributors, you should consider to enforce more restrictions in MobX or give Redux a shot. I enjoyed to use both libraries. Even if you don't use one of them after all, it makes sense to have seen an alternative way of doing state management.
+After all the state management learning curve isn't that steep. When we recap the recommendations, a newcomer in React would **first learn to use setState** properly. After a while you would **realize the problems of using only setState** to maintain state in a React application. When looking for a solution, you stumble upon state management libraries like MobX or Redux. But which one to choose? Since MobX is less opinionated, has less boilerplate and can be used similar to setState I would recommend in smaller projects to give MobX a shot. Once the application grows in size and contributors, you should consider to enforce more restrictions in MobX or give Redux a shot. I enjoyed using both libraries. Even if you don't use one of them after all, it makes sense to have seen an alternative way of doing state management.
 
 {{% chapter_header "Another state management solution?" "anotherSolution" %}}
 
