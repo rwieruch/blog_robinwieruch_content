@@ -18,9 +18,9 @@ summary = "I did a lot of Angular 1.x back in the days until I started to use Re
 
 I did a lot of Angular 1.x back in the days until I started to use React. I can say that I used both solutions extensively. But there were and are several reasons why I moved to React. These reasons were not clear from the beginning, but retrospectively I think I can summarize these very well.
 
-In the following I want to give you 10 reasons why I moved from Angular to React. It is only my opinion. I liked Angular in all its facets back in the days, but it was about time to move on. Perhaps the article helps people to understand the benefits of React, but also the benefits of Angular, to make a decision between Angular or React - or even React or Angular 2.
+In the following I want to give you 10 reasons why I moved from Angular to React. I liked Angular in all its facets back in the days, but it was about time to move on. Perhaps the article helps people to understand the benefits of React, but also the benefits of Angular, to make a decision between Angular or React - or even React or Angular 2.
 
-Personally I felt a bit concerned during the process of writing this article. The article is not intended to blame Angular. Angular, for myself, was a great single page app experience for a long time. I enjoyed the framework, because it gives you everything you need. I only used Angular 1.x extensively, so I cannot speak for Angular 2, but I think most of the philosophy behind the framework is still the same and adaptable for the article. In the end it is only my experience that I made with both solutions.
+The article is not intended to blame Angular. Angular, for myself, was a great single page app experience for a long time. I enjoyed the framework, because it gives you everything you need. I only used Angular 1.x extensively, so I cannot speak for Angular 2, but I think most of the philosophy behind the framework is still the same and adaptable for the article. In the end it is only my experience that I made with both solutions.
 
 Nevertheless, let's dive into the 10 reasons why I enjoy to use React now.
 
