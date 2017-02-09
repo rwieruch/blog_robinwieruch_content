@@ -22,6 +22,8 @@ In the following I want to give you 10 reasons why I moved from Angular to React
 
 The article is not intended to blame Angular. Angular, for myself, was a great single page app experience for a long time. I enjoyed the framework, because it gives you everything you need. I only used Angular 1.x extensively, so I cannot speak for Angular 2, but I think most of the philosophy behind the framework is still the same and adaptable for the article. In the end it is only my experience that I made with both solutions.
 
+The article is no comparison between two solutions per se. It is a reflection about why you could consider to use React as your solution. It makes no sense to compare apples and oranges. But it makes sense to reflect why you can use or why you have chosen a specific tool at hand.
+
 Nevertheless, let's dive into the 10 reasons why I enjoy to use React now.
 
 {{% chapter_header "React is only a view library" "viewLibrary" %}}

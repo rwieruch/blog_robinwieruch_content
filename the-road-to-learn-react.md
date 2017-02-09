@@ -24,11 +24,11 @@ It also taught me to do better. I realized the SoundCloud tutorial is suited for
 
 In the Road to learn React I want to offer a foundation before you start to dive into the broader React ecosystem. It has less tooling and less external state management, but more React. It explains general concepts, patterns and best practices. You will learn to build your own Hacker News application. It cover real world features like pagination, client-side caching and interactions. Additionally you will transition from JavaScript ES5 to JavaScript ES6. After all the book should give you a solid foundation in React before you dive into more advanced topics like Redux.
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 140+ pages of learning material. Pay as you want like <strong>3500+ readers</strong>." "Get the Book" "img/page/cover.png" "http://eepurl.com/caLPjr" %}}
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 140+ pages of learning material. Pay as you want like <strong>4000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
 {{% chapter_header "FAQ" "faq" %}}
 
-**How do I get updates?** You can {{% a_blank "subscribe" "http://eepurl.com/caLPjr" %}} or follow me on {{% a_blank "Twitter" "https://twitter.com/rwieruch" %}} to get updates. It keeps me motivated to do my work. Once you have a copy of the book, it will stay updated. But you have to download the copy again once its updated. I will notify everyone via the {{% a_blank "Newsletter" "http://eepurl.com/caLPjr" %}} and {{% a_blank "Twitter" "https://twitter.com/rwieruch" %}}.
+**How do I get updates?** You can {{% a_blank "subscribe" "https://www.getrevue.co/profile/rwieruch" %}} or follow me on {{% a_blank "Twitter" "https://twitter.com/rwieruch" %}} to get updates. It keeps me motivated to do my work. Once you have a copy of the book, it will stay updated. But you have to download the copy again once its updated. I will notify everyone via the {{% a_blank "Newsletter" "https://www.getrevue.co/profile/rwieruch" %}} and {{% a_blank "Twitter" "https://twitter.com/rwieruch" %}}.
 
 **Does it cover Redux?** It doesn't. The book should give you a solid foundation before you dive into advanced topics like Redux. Still the implementation in the book will show you that you don't need Redux to build an application.
 
@@ -533,7 +533,7 @@ It makes sense to make a break at this point. Internalize the learnings and appl
 
 <hr class="section-divider">
 
-That's the last chapter of the book preview. You can read more chapters on [Leanpub](http://eepurl.com/caLPjr)! Grab it and pay as you want. I want to enable everyone to learn React. You can have a look again at the [Table of Contents](#toc) to see what you can expect to find on Leanpub.
+That's the last chapter of the book preview. You can read more chapters on [subscription](https://www.getrevue.co/profile/rwieruch)! Grab it and pay as you want. I want to enable everyone to learn React. You can have a look again at the [Table of Contents](#toc) to see what you can expect to find on Leanpub.
 
 {{% read_more "The SoundCloud Client in React + Redux" "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
 
