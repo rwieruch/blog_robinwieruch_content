@@ -30,6 +30,7 @@ The article aims to be an exhaustive list of options for conditional renderings 
 * [enums](#enums)
 * [Multi-Level Conditional Rendering](#multiLevel)
 * [Conditional Renderings as Higher Order Components](#conditionalRenderingHoc)
+* [display-if, ala ng-if for jsx](#displayif)
 * [External Templating Components](#externalTemplatingComponents)
 
 {{% chapter_header "if statement" "ifStatement" %}}
@@ -420,6 +421,27 @@ const ListWithLoadingIndicator = withLoadingIndicator(List);
 In the example, the List component can focus on rendering the list. It doesn't have to bother with a loading state. Finally you could add more HOCs to shield away the empty list or null list.
 
 A HOC can opt-in one or multiple conditional renderings. You could even use multiple HOCs to handle several conditional renderings. After all, a HOC shields away all the noise from your component.
+
+{{% chapter_header "display-if jsx attribute, ala ng-if" "displayif" %}}
+
+JSX is a powerful tool that helps us write concise understandable components. Since jsx needs to be pre-processed by something like babel this allows us to introduce custom jsx tags that can be processed into plain javascript for us.
+
+The babel plugin {{% a_blank "display-if" "https://www.npmjs.com/package/babel-plugin-jsx-display-if" %}} gives us this power. It introduces a jsx component attribute that can aid in the conditional displaying of components and elements.
+
+{{< highlight javascript >}}
+class Example extends React.Component {
+    render() {
+        let { showSwatch, color } = this.props;
+        return (
+            <div>
+                <ColorSwatch display-if={showSwatch} color={color} />
+            </div>
+        );
+    }
+}
+{{< /highlight >}}
+
+In the above example the `display-if` is an attribute that turns the displaying of `ColorSwatch` component into a ternary `showSwatch ? <ColorSwatch color={color} /> : null` during babel pre-processing. This can help clean up code by removing confusing inline ternary operations and help readability.
 
 {{% chapter_header "External Templating Components" "externalTemplatingComponents" %}}
 
