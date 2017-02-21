@@ -57,7 +57,7 @@ module: {
     {
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'react-hot!babel'
+      loader: 'react-hot-loader!babel-loader'
     },
     {
       test: /\.js$/,
@@ -127,7 +127,7 @@ module: {
     {
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'react-hot!babel'
+      loader: 'react-hot-loader!babel-loader'
     },
     {
       test: /\.js$/,
@@ -157,7 +157,7 @@ module: {
     {
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'react-hot!babel'
+      loader: 'react-hot-loader!babel-loader'
     }
   ]
 },
