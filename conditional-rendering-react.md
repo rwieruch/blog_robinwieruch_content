@@ -438,4 +438,32 @@ Last but not least there exist external solutions to deal with conditional rende
 
 Some people use it. Personally I wouldn't recommend it. JSX allows you to use the powerful set of JavaScript functionalities to handle conditional rendering. There is no need to add templating components to enable conditional rendering. A lot of people consider React including JSX as their library of choice, because they can handle the rendering with pure HTML and JS in JSX.
 
+But in the end you might wonder: **When to use which type of conditional render?** My opinionated answer:
+
+* if-else
+    * is the most basic conditional rendering
+    * beginner friendly
+    * use if to opt-out early from a render method by returning null
+* ternary operator
+    * use it over an if-else statement
+    * it is more concise than if-else
+* logical && operator
+    * use it when one side of the ternary operation would return null
+* switch case
+    * verbose
+    * can only be inlined with self invoking function
+    * avoid it, use enums instead
+* enums
+    * perfect to map different states
+    * perfect to map more than one condition
+* multi-level/nested conditional renderings
+    * avoid them for the sake of readability
+    * split up components into more lightweight components with their own simple conditional rendering
+    * use HOCs
+* HOCs
+    * use them to shield away conditional rendering
+    * components can focus on their main purpose
+* external templating components
+    * avoid them and be comfortable with JSX and JavaScript
+
 In conclusion, I hope you can make use of the alternatives for conditional rendering. I am keen to hear your ways of doing it.
