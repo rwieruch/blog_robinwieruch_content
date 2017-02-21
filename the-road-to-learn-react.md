@@ -8,13 +8,12 @@ keyword = "learn react"
 news_keywords = ["learn react"]
 contribute = "the-road-to-learn-react.md"
 banner = "img/posts/the-road-to-learn-react/cover.png"
+headline = "The Road to learn React [eBook]"
 
 summary = "The Road to learn React offers you a foundation before you start to dive into the more advanced React ecosystem. It has less tooling and less external state management, but more React. It explains general concepts and patterns."
 +++
 
-{{% header "The Road to learn React [eBook]" %}}
-
-I love to teach, even though I am no expert. I learn every day and I have the fortune to have great mentors at my [company](https://www.small-improvements.com/). After all not everyone has the opportunity to learn from mentors and peers. The book is my attempt to give something back which might help people to get started and advance in React.
+I love to teach, even though I am no expert. I learn every day and I have the fortune to have great mentors at my [company](https://www.small-improvements.com/?ref=robinwieruch.de). After all not everyone has the opportunity to learn from mentors and peers. The book is my attempt to give something back which might help people to get started and advance in React.
 
 The following article includes preview chapters of an eBook to learn React. In the future it highly depends on your feedback and contribution. I try my best to teach in the best way possible, but I can only improve with your help. I am keen to hear your honest thoughts on {{% a_blank "Twitter" "https://twitter.com/rwieruch" %}}.
 

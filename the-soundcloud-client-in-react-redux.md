@@ -8,17 +8,16 @@ keyword = "react redux"
 news_keywords = ["react redux"]
 banner = "img/posts/the-soundcloud-client-in-react-redux/banner.jpg"
 contribute = "the-soundcloud-client-in-react-redux.md"
+headline = "The SoundCloud Client in React + Redux"
 
 summary = "At the end of this tutorial you can expect to have a running React + Redux app, which consumes the SoundCloud API. You will be able to login with your SoundCloud account, list your latest tracks and listen to them within the browser. Additionally you will learn a lot about tooling with Webpack and Babel."
 +++
-
-{{% header "The SoundCloud Client in React + Redux" %}}
 
 {{% pin_it_image "react redux" "img/posts/the-soundcloud-client-in-react-redux/banner.jpg" %}}
 
 In the beginning of 2016 it was time for me to deep dive into the ReactJs world. I read tons of articles about React and its environment, especially Redux, so far. Several of my colleagues used it in side projects and on a theoretical level I could participate in the discussions.
 
-In my {{% a_blank "company" "https://www.small-improvements.com/" %}} we relied heavily on Angular 1 at this point. Since we are using it in a quite large code base, we know a lot about its flaws. Back in 2015 we already adopted our own flux architecture in the Angular world with the usage of stores and an unidirectional data flow. We were highly aware of the change coming with the React environment.
+In my {{% a_blank "company" "https://www.small-improvements.com/?ref=robinwieruch.de" %}} we relied heavily on Angular 1 at this point. Since we are using it in a quite large code base, we know a lot about its flaws. Back in 2015 we already adopted our own flux architecture in the Angular world with the usage of stores and an unidirectional data flow. We were highly aware of the change coming with the React environment.
 
 Again in the early days of 2016 I wanted to see this hyped paradigm shift in its natural environment (React and its flux successor Redux) with a hands on side project.
 

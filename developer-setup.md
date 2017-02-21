@@ -7,9 +7,9 @@ keyword = "frontend developer setup"
 news_keywords = ["frontend developer setup"]
 contribute = "developer-setup.md"
 type = "promo"
-+++
+headline = "Technical Cheatsheet: Development Environment Setup"
 
-{{% header "Technical Cheatsheet: Development Environment Setup" %}}
++++
 
 The cheatsheet will give you guidance to setup your environment. It addresses Mac users, but you could substitute some tools and instructions with something equivalent for Windows or Linux.
 

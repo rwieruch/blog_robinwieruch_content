@@ -8,11 +8,10 @@ keyword = "book summary on writing well"
 news_keywords = ["book summary on writing well"]
 contribute = "lessons-learned-on-writing-well.md"
 banner = "img/posts/lessons-learned-on-writing-well/banner.jpeg"
+headline = "Lessons learned from On Writing Well"
 
 summary = "The article is a summary of my lessons learned from On Writing Well by William Zinsser. By providing a summary I hope to help other developers to improve their writing. Apart from that it helps me to memorize my lessons learned."
 +++
-
-{{% header "Lessons learned from On Writing Well" %}}
 
 {{% pin_it_image "book summary on writing well" "img/posts/lessons-learned-on-writing-well/banner.jpeg" %}}
 

@@ -8,11 +8,10 @@ keyword = "book summary deep work flow"
 news_keywords = ["book summary deep work flow"]
 contribute = "lessons-learned-deep-work-flow.md"
 banner = "img/posts/lessons-learned-deep-work-flow/banner.jpeg"
+headline = "(Deep Work) => Flow - A proven Path to Satisfaction"
 
 summary = "The following article summarizes my lessons learned from the books Deep Work and Flow by Cal Newport and Mihaly Csikszentmihalyi. It can be a way to convert deep work into flow. It can be the way to achieve a fulfilled life. The summary helps me to internalize my learnings. However, perhaps it helps you as well to attain deep satisfaction by using the deep work technique to achieve a state of flow."
 +++
-
-{{% header "(Deep Work) => Flow - A proven Path to Satisfaction" %}}
 
 {{% pin_it_image "book summary on writing well" "img/posts/lessons-learned-deep-work-flow/banner.jpeg" %}}
 

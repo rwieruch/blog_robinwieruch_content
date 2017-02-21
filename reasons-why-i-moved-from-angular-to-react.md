@@ -8,11 +8,10 @@ keyword = "angular or react"
 news_keywords = ["angular or react"]
 contribute = "reasons-why-i-moved-from-angular-to-react.md"
 banner = "img/posts/reasons-why-i-moved-from-angular-to-react/banner.jpg"
+headline = "10 Reasons why I moved from Angular to React"
 
 summary = "I did a lot of Angular 1.x back in the days until I started to use React. I can say that I used both solutions extensively. But there were several reasons why I moved to React. These reasons were not clear from the beginning, but retrospectively I think I can summarize these very well."
 +++
-
-{{% header "10 Reasons why I moved from Angular to React" %}}
 
 {{% pin_it_image "angular js or react js" "img/posts/reasons-why-i-moved-from-angular-to-react/banner.jpg" %}}
 
@@ -155,4 +154,4 @@ As I said, these community thoughts of mine are more general thoughts. I think a
 
 <hr class="section-divider">
 
-In conclusion I hope these reasons help you to have a better understanding of the React ecosystem. Maybe they help you to make a personal decision if you want to hop on the React train in 2017. Personally it helped me to reflect about my decision to start to learn React. Apart from that it was an upside that my company {{% a_blank "Small Improvements" "https://careers.small-improvements.com/" %}} did this step as well in the mid of last year. But we have plenty of Angular leftovers and are keen to hire people who know both solutions :D
+In conclusion I hope these reasons help you to have a better understanding of the React ecosystem. Maybe they help you to make a personal decision if you want to hop on the React train in 2017. Personally it helped me to reflect about my decision to start to learn React. Apart from that it was an upside that my company {{% a_blank "Small Improvements" "https://careers.small-improvements.com/?ref=robinwieruch.de" %}} did this step as well in the mid of last year. But we have plenty of Angular leftovers and are keen to hire people who know both solutions :D

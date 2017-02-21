@@ -8,11 +8,10 @@ keyword = "redux flow"
 news_keywords = ["redux flow"]
 banner = "img/posts/the-soundcloud-client-in-react-redux-flow/banner.jpg"
 contribute = "the-soundcloud-client-in-react-redux-flow.md"
+headline = "Flow: Type Checking with Flow in React + Redux"
 
 summary = "The Flow: Type Checking with Flow in React + Redux tutorial will teach you how to use Flow in a React + Redux environment. Since JavaScript itself is a dynamically typed language, you will end up with several bugs in your JavaScript career, which could have been prevented due type safety. In terms of using Flow for type safety, it only needs a simple setup to get the advantage of a more robust application."
 +++
-
-{{% header "Flow: Type Checking with Flow in React + Redux" %}}
 
 {{% pin_it_image "redux flow" "img/posts/the-soundcloud-client-in-react-redux-flow/banner.jpg" %}}
 

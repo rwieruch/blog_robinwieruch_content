@@ -8,11 +8,10 @@ keyword = "redux state keys"
 news_keywords = ["redux state keys"]
 banner = "img/posts/redux-state-keys/banner.jpg"
 contribute = "redux-state-keys.md"
+headline = "Redux State Keys - A predictable yet dynamic substate"
 
 summary = "In a rapid development environment it happens quite often: There is no time to plan state structure ahead. There is no time to refactor in favour of abstractions. There is no place to refactor, because you have multiple teams working on feature folders, where every team is relieved to have their owned place. Redux state keys solve that problem. They enable a dynamically allocated yet predictable substate."
 +++
-
-{{% header "Redux State Keys - A predictable yet dynamic substate" %}}
 
 {{% pin_it_image "redux state keys" "img/posts/redux-state-keys/banner.jpg" %}}
 

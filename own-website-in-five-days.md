@@ -7,9 +7,8 @@ keyword = "website in five days"
 news_keywords = ["website in five days"]
 contribute = "own-website-in-five-days.md"
 type = "promo"
+headline = "Technical Cheatsheet: 5 days to your own Website"
 +++
-
-{{% header "Technical Cheatsheet: 5 days to your own Website" %}}
 
 {{% read_before "This tutorial is part 2 of a series." "Part 1:" "Day One - Technical Cheatsheet: Setup your development environment" "https://www.robinwieruch.de/developer-setup/" %}}
 

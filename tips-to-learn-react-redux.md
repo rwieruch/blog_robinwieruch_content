@@ -8,11 +8,10 @@ keyword = "learn react redux"
 news_keywords = ["react redux", "react", "redux"]
 banner = "img/posts/tips-to-learn-react-redux/banner.jpg"
 contribute = "tips-to-learn-react-redux.md"
+headline = "Tips to learn React + Redux in 2017"
 
 summary = "I am doing React + Redux for quite some time now. My learnings are subjective, but I thought they may help people to learn or advance in React + Redux. Redux is not strictly coupled to React, but it happens to be that a lot of people are using both libraries in combination. The article is opinionated, maybe it doesn't match every time your thoughts, but I hope to get feedback on it to improve myself as well."
 +++
-
-{{% header "Tips to learn React + Redux in 2017" %}}
 
 {{% pin_it_image "learn react redux" "img/posts/tips-to-learn-react-redux/banner.jpg" %}}
 

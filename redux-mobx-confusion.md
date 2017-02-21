@@ -8,11 +8,10 @@ keyword = "redux mobx"
 news_keywords = ["redux mobx", "redux", "mobx"]
 banner = "img/posts/redux-mobx-confusion/banner.jpg"
 contribute = "redux-mobx-confusion.md"
+headline = "Redux or MobX: An attempt to dissolve the Confusion"
 
 summary = "Everyone wants to have state management in an application. But what problem does it solve for us? Most people start with a small application and already introduce a state management library. Everyone is speaking about it, aren't they? But most applications don't need ambitious state management from the beginning. It is even more dangerous, because most people are never going to experience which problems libraries like Redux or MobX solve."
 +++
-
-{{% header "Redux or MobX: An attempt to dissolve the Confusion" %}}
 
 {{% pin_it_image "redux mobx" "img/posts/redux-mobx-confusion/banner.jpg" %}}
 

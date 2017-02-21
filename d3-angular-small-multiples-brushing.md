@@ -8,11 +8,10 @@ keyword = "angular d3"
 news_keywords = ["angular d3"]
 banner = "img/posts/d3-angular-small-multiples-brushing/banner.png"
 contribute = "d3-angular-small-multiples-brushing.md"
+headline = "D3 on Angular: Small Multiples with Brushing"
 
 summary = "This article shows how you can achieve Small Multiples with D3 using Angular.js. According to Edward Tufte (1983) Small Multiples are a concept to visualize multiple homogenous visualizations like maps, line graphs or scatterplots. We will use this visualization concept to draw multiple line graphs with D3 on Angular."
 +++
-
-{{% header "D3 on Angular: Small Multiples with Brushing" %}}
 
 This article shows how you can achieve Small Multiples with D3 using Angular.js. According to Edward Tufte (1983) Small Multiples are a concept to visualize multiple homogenous visualizations like maps, line graphs or scatterplots. We will use this visualization concept to draw multiple line graphs with D3 on Angular.
 

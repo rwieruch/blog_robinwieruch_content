@@ -8,11 +8,10 @@ keyword = "redux normalizr"
 news_keywords = ["redux normalizr"]
 banner = "img/posts/the-soundcloud-client-in-react-redux-normalizr/banner.jpg"
 contribute = "the-soundcloud-client-in-react-redux-normalizr.md"
+headline = "Redux Normalizr: Improve your State Management"
 
 summary = "The Normalizr in Redux tutorial will teach you how to use normalizr for an improved data management in your Redux store. The library itself will help you to avoid deep nested data structures although the returned data from a server is deeply nested. Additionally it comes for free to enable a manageable single source of truth for data entities in your global store."
 +++
-
-{{% header "Redux Normalizr: Improve your State Management" %}}
 
 {{% pin_it_image "redux normalizr" "img/posts/the-soundcloud-client-in-react-redux-normalizr/banner.jpg" %}}
 

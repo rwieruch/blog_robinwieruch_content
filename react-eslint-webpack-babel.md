@@ -8,11 +8,10 @@ keyword = "react eslint"
 news_keywords = ["react eslint"]
 banner = "img/posts/react-eslint-webpack-babel/banner.jpg"
 contribute = "react-eslint-webpack-babel.md"
+headline = "React ESLint: Code Style like Airbnb in React + Babel + Webpack"
 
 summary = "The React ESLint: Code Style like Airbnb in React tutorial will teach you how to setup ESLint in a React + Babel + Webpack environment. In addition to the setup of usual code style rules, you will add React rules to enforce a better code style in your React environment as well. Moreover you will learn how to extend your ESLint rules with existing best practices rules of companies like Airbnb."
 +++
-
-{{% header "React ESLint: Code Style like Airbnb in React + Babel + Webpack" %}}
 
 {{% pin_it_image "react eslint" "img/posts/react-eslint-webpack-babel/banner.jpg" %}}
 
