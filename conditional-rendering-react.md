@@ -30,7 +30,7 @@ The article aims to be an exhaustive list of options for conditional renderings 
 * [enums](#enums)
 * [Multi-Level Conditional Rendering](#multiLevel)
 * [Conditional Renderings as Higher Order Components](#conditionalRenderingHoc)
-* [display-if, ala ng-if for jsx](#displayif)
+* [display-if jsx attribute, ala ng-if](#displayif)
 * [External Templating Components](#externalTemplatingComponents)
 
 {{% chapter_header "if statement" "ifStatement" %}}
