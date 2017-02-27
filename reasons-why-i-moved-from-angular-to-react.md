@@ -41,7 +41,7 @@ In that perspective Angular is different. It isn't a library, but a framework. I
 
 {{% chapter_header "React is an innovative place" "innovativePlace" %}}
 
-React is only the core of the ecosystem and everything around it consists of building blocks. You are flexible to choose your building blocks to solve different problems. But it remains simple to exchange them. The simpleness to exchange them makes it possible for novel approaches to thrive. You can take {{% a_blank "Redux" "http://redux.js.org/" %}} and {{% a_blank "MobX" "https://mobx.js.org/" %}} for state management as an example. Redux got great momentum in the early days yet MobX has a small community of advocates, because it is possible to exchange both solutions.
+React is only the core of the ecosystem and everything around it consists of building blocks. You are flexible to choose your building blocks to solve different problems. But it remains simple to exchange them. The simpleness to exchange them makes it possible for novel approaches to thrive. You can take {{% a_blank "Redux" "http://redux.js.org/" %}} and {{% a_blank "MobX" "https://mobx.js.org/" %}} for state management as an example. Redux got great momentum in the early days yet MobX has a small community of advocates, because it is [possible to exchange both solutions](https://www.robinwieruch.de/mobx-react/).
 
 Even the core building block React is exchangeable. Recent libraries like {{% a_blank "Inferno" "https://infernojs.org/" %}} and {{% a_blank "Preact" "https://preactjs.com/" %}} compete with React and can be used to replace React. I cannot remember that someone used these libraries in another context. It makes no sense to use these approaches in Angular, because Angular comes with its own solutions.
 
@@ -49,7 +49,7 @@ The exchangeable building blocks in React make it possible to experiment with no
 
 {{% chapter_header "JSX - Mix up HTML and JavaScript" "jsxMixup" %}}
 
-React comes with its own syntax to build components called JSX. In JSX you can mix up HTML and JavaScript. Additionally people often use inline styles in their elements. It is like adding CSS into the mix. It can be confusing in the beginning, but it feels natural eventually. You can use JavaScript to compose and manipulate your DOM, but it is inlined in your HTML. You can use built-in JavaScript functionalities like map and filter to display multiple (filtered) DOM nodes. But you can also use ternaries to make conditional renderings happen. You can use the full power of JavaScript in your HTML.
+React comes with its own syntax to build components called JSX. In JSX you can mix up HTML and JavaScript. Additionally people often use inline styles in their elements. It is like adding CSS into the mix. It can be confusing in the beginning, but it feels natural eventually. You can use JavaScript to compose and manipulate your DOM, but it is inlined in your HTML. You can use built-in JavaScript functionalities like map and filter to display multiple (filtered) DOM nodes. But you can also use [ternaries to make conditional renderings](https://www.robinwieruch.de/conditional-rendering-react/) happen. You can use the full power of JavaScript in your HTML.
 
 In the range of SPA solutions it was a novel approach to define your components with mixed up HTML and JavaScript. In older server side rendering solutions (e.g. {{% a_blank "JSP" "https://en.wikipedia.org/wiki/JavaServer_Pages" %}}) that approach was already present.
 
@@ -154,4 +154,8 @@ As I said, these community thoughts of mine are more general thoughts. I think a
 
 <hr class="section-divider">
 
-In conclusion I hope these reasons help you to have a better understanding of the React ecosystem. Maybe they help you to make a personal decision if you want to hop on the React train in 2017. Personally it helped me to reflect about my decision to start to learn React. Apart from that it was an upside that my company {{% a_blank "Small Improvements" "https://careers.small-improvements.com/?ref=robinwieruch.de" %}} did this step as well in the mid of last year. But we have plenty of Angular leftovers and are keen to hire people who know both solutions :D
+In conclusion I hope these reasons help you to have a better understanding of the React ecosystem. Maybe they help you to make a personal decision if you want to hop on the React train in 2017. Personally it helped me to reflect about my decision to start to learn React. Apart from that it was an upside that my company {{% a_blank "Small Improvements" "https://careers.small-improvements.com/?ref=robinwieruch.de" %}} did this step as well in the mid of last year. But we have plenty of Angular leftovers and are keen to hire people who know both solutions.
+
+{{% read_more "Tips to learn React + Redux" "https://www.robinwieruch.de/tips-to-learn-react-redux/" %}}
+
+{{% read_more "The SoundCloud Client in React + Redux" "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}

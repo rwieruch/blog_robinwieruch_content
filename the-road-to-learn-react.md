@@ -23,7 +23,13 @@ It also taught me to do better. I realized the SoundCloud tutorial is suited for
 
 In the Road to learn React I want to offer a foundation before you start to dive into the broader React ecosystem. It has less tooling and less external state management, but more React. It explains general concepts, patterns and best practices. You will learn to build your own Hacker News application. It cover real world features like pagination, client-side caching and interactions. Additionally you will transition from JavaScript ES5 to JavaScript ES6. After all the book should give you a solid foundation in React before you dive into more advanced topics like Redux.
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 140+ pages of learning material. Pay as you want like <strong>4000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 140+ pages of learning material. Pay as you want like <strong>4500+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
+
+{{% chapter_header "Testimonials" "testimonials" %}}
+
+* A Rookie Developer: *"I just finished the book as a rookie developer, thanks for working on this. It was easy to follow and I feel confident in starting a new app from scratch in the coming days. The book was much better than official React.js tutorial that I tried earlier (and couldn't complete due to lack of detail). The exercises at the end of each section were very rewarding."*
+
+* Goodreads Review: *"Pretty solid introduction to React that doesn't try to be comprehensive. I just wanted a taste to understand what it was about and this book gave me exactly that. I didn't follow all the little footnotes to learn about the new ES6 features I've missed ("I wouldn't say I've been missing it, Bob."). But I'm sure for those of you who have fallen behind and are diligent about following those, you can probably learn a lot more than just what the book teaches."*
 
 {{% chapter_header "FAQ" "faq" %}}
 
@@ -86,19 +92,6 @@ In the Road to learn React I want to offer a foundation before you start to dive
 </div>
 
 <div class="clearfix"></div>
-
-{{% chapter_header "What you could expect (in the future...)" "expectLater" %}}
-
-* advanced components and interactions to build a powerful dashboard
-* give your app a structure in terms of files/folders
-* arrive at the point to experience how state management could help you
-* introduce a state management library to your app
-* use common patterns in React and state management
-* get to know open source style guides for a better code style
-* more neat libraries along the way
-* usage of React dev tools and performance profiling
-* get to know a diverse set of styling tools in React
-* animate your components
 
 {{% chapter_header "How to read it?" "howToRead" %}}
 

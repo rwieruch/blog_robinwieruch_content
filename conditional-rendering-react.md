@@ -13,7 +13,7 @@ headline = "All the Conditional Renderings in React"
 summary = "Conditional rendering in React is no witchcraft. In JSX you can use pure JavaScript. In JavaScript you should be familiar with if-else or switch case statements. You can use it in JSX as well, since JSX only mixes HTML and JavaScript. But what is conditional rendering in React? In a conditional render a component decides based on one or several conditions which elements it will return."
 +++
 
-{{% pin_it_image "learn react redux" "img/posts/conditional-rendering-react/banner.jpg" %}}
+{{% pin_it_image "conditional rendering react" "img/posts/conditional-rendering-react/banner.jpg" %}}
 
 Conditional rendering in React is no witchcraft. In JSX - the syntax extension used for React - you can use pure JavaScript. In JavaScript you should be familiar with if-else or switch case statements. You can use it in JSX as well, since JSX only mixes HTML and JavaScript.
 
@@ -438,7 +438,9 @@ Last but not least there exist external solutions to deal with conditional rende
 
 Some people use it. Personally I wouldn't recommend it. JSX allows you to use the powerful set of JavaScript functionalities to handle conditional rendering. There is no need to add templating components to enable conditional rendering. A lot of people consider React including JSX as their library of choice, because they can handle the rendering with pure HTML and JS in JSX.
 
-But in the end you might wonder: **When to use which type of conditional render?** My opinionated answer:
+<hr class="section-divider">
+
+In the end you might wonder: When to use which type of conditional render? My opinionated answer:
 
 * if-else
     * is the most basic conditional rendering
@@ -449,6 +451,7 @@ But in the end you might wonder: **When to use which type of conditional render?
     * it is more concise than if-else
 * logical && operator
     * use it when one side of the ternary operation would return null
+    * but be careful that you don't run into bugs when using multiple conditions
 * switch case
     * verbose
     * can only be inlined with self invoking function
@@ -467,3 +470,7 @@ But in the end you might wonder: **When to use which type of conditional render?
     * avoid them and be comfortable with JSX and JavaScript
 
 In conclusion, I hope you can make use of the alternatives for conditional rendering. I am keen to hear your ways of doing it.
+
+{{% read_more "The SoundCloud Client in React + Redux" "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
+
+{{% read_more "Tips to learn React + Redux" "https://www.robinwieruch.de/tips-to-learn-react-redux/" %}}

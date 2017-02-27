@@ -3,7 +3,7 @@ title = "(Deep Work) => Flow - A proven Path to Satisfaction"
 description = "The following article summarizes my lessons learned from the books Deep Work and Flow. It can be the way to achieve a fulfilled life. Cal Newport and Mihaly Csikszentmihalyi have written outstanding books in their ..."
 date = "2017-02-09T13:50:46+02:00"
 tags = ["book", "summary", "deep work", "flow"]
-categories = ["Self-Growth"]
+categories = ["Growth"]
 keyword = "book summary deep work flow"
 news_keywords = ["book summary deep work flow"]
 contribute = "lessons-learned-deep-work-flow.md"
@@ -25,7 +25,7 @@ The book {{% a_blank "Deep Work" "https://www.amazon.com/Deep-Work-Focused-Succe
 
 According to Cal Newport Deep Work is crucial to make a difference. He groups activities into shallow work and deep work.
 
-Shallow Work: "Noncoygnitively demanding, logistical-style tasks, often performed while distracted. These efforts tend to not create much new value in the world and are easy to replicate."
+Shallow Work: "Non-cognitively demanding, logistical-style tasks, often performed while distracted. These efforts tend to not create much new value in the world and are easy to replicate."
 
 Deep Work: "Professional activities performed in a state of distraction-free concentration that push you cognitive capabilities to their limit. These efforts create new value, improve your skill, and are hard to replicate."
 
@@ -89,11 +89,11 @@ He sees the solution in becoming independent of external rewards. These rewards 
 
 Both definitions and values have shown us why it can be desirable to master deep work and to cause a state of flow. It can help us on a professional yet personal level. It can be the way to deep satisfaction in our lives.
 
-Let's dive into the lessons learned to do deep work. Afterward the article will continue with the lessons learning to cause a state of flow.
+Let's dive into the lessons learned to do deep work. Afterward the article will continue with the lessons learned to cause a state of flow.
 
 {{% chapter_header "How to Deep Work" "howToDeepWork" %}}
 
-"Deep work is an activity well suited to generate a flow state". The following lessons learned from "Deep Work" by Cal Newport summarize how you can leverage deep work.
+"Deep work is an activity well suited to generate a flow state". The following lessons learned from {{% a_blank "Deep Work" "https://www.amazon.com/Deep-Work-Focused-Success-Distracted/dp/1455586692//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=1b246a2daeac91a6cf39c1e6fa0143be" %}} by Cal Newport summarize how you can leverage deep work.
 
 ### Have Routines to use less Willpower
 
@@ -215,7 +215,7 @@ There exists a neat trick to quantify the depth of each activity beforehand. Ask
 
 ### Become hard to reach
 
-You can become hard to reach to avoid shallow obligations. For instance, Cal Newport suggests the *sender filter* approach to filter potential E-Mail correspondents beforehand. Before you leave your E-Mail address somewhere, you can mention that you will not answer every E-Mail and that you will only act on proposals that are a good match. The effect is that correspondents will filter themselves. They will double check if there request makes sense.
+You can become hard to reach to avoid shallow obligations. For instance, Cal Newport suggests the *sender filter* approach to filter potential E-Mail correspondents beforehand. Before you leave your E-Mail address somewhere, you can mention that you will not answer every E-Mail and that you will only act on proposals that are a good match. The effect is that correspondents will filter themselves. They will double check if their request makes sense.
 
 Afterward the pile of unread messages doesn't generate a sense of obligation. It is a freeing psychology that you don't need to answer everything. Instead of having an inbox full of burdensome inquiries, the inbox will become a place for opportunities.
 
@@ -225,7 +225,7 @@ Another approach is to use a *process-centric* response in your mails. You can p
 
 Deep work can be used as a technique to get into a state of flow. The state of flow can be your path in life to accomplish happiness, to be in control of your life and to be independent of social rewards. It can also be your path to accomplish challenges in your professional life.
 
-Let's dive into the lessons learned about the state of flow.
+Let's dive into the lessons learned about the state of {{% a_blank "Flow" "https://www.amazon.com/Flow-Psychology-Experience-Perennial-Classics/dp/0061339202//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=07c7de157f0ad5f27e5c147cf0da698b" %}} by Mihaly Csikszentmihalyi.
 
 {{% chapter_header "Elements of Flow" "elementsOfFlow" %}}
 
@@ -373,3 +373,5 @@ These were only my lessons learned, but I am curious about yours. If you didn't 
 * {{% a_blank "Deep Work" "https://www.amazon.com/Deep-Work-Focused-Success-Distracted/dp/1455586692//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=1b246a2daeac91a6cf39c1e6fa0143be" %}} by Cal Newport
 
 "If you give your mind something meaningful to do throughout **all** your waking hours, you'll end the day more fulfilled, and begin the next one more relaxed [...]" by Cal Newport.
+
+{{% read_more "Lessons learned from On Writing Well" "https://www.robinwieruch.de/lessons-learned-on-writing-well/" %}}
