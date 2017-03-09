@@ -1,7 +1,7 @@
 +++
 title = "The Road to learn React"
-description = "The Road to learn React offers you a foundation before you start to dive into the advanced React JS ecosystem. It covers React by building an example Hacker News application. It's a huge tutorial..."
-date = "2017-01-10T13:50:46+02:00"
+description = "The Road to learn React is your way to learn ReactJs in 2017 by building a real world application. You will get a foundation before you dive into more advanced topics like Redux, Flow and React Router. It's a huge tutorial ..."
+date = "2017-03-09T13:50:46+02:00"
 tags = ["learn", "react"]
 categories = ["React"]
 keyword = "learn react"
@@ -13,17 +13,19 @@ headline = "The Road to learn React [eBook]"
 summary = "The Road to learn React offers you a foundation before you start to dive into the more advanced React ecosystem. It has less tooling and less external state management, but more React. It explains general concepts and patterns."
 +++
 
-I love to teach, even though I am no expert. I learn every day and I have the fortune to have great mentors at my [company](https://www.small-improvements.com/?ref=robinwieruch.de). After all not everyone has the opportunity to learn from mentors and peers. The book is my attempt to give something back which might help people to get started and advance in React.
-
-The following article includes preview chapters of an eBook to learn React. In the future it highly depends on your feedback and contribution. I try my best to teach in the best way possible, but I can only improve with your help. I am keen to hear your honest thoughts on {{% a_blank "Twitter" "https://twitter.com/rwieruch" %}}.
+I love to teach, even though I am no expert. I learn every day and I have the fortune to have great mentors. After all not everyone has the opportunity to learn from mentors and peers. The book is my attempt to give something back. It might help people to get started and advance in React.
 
 **But why me?** In the past I have written a large tutorial to implement a [SoundCloud Client in React + Redux](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux). I never expected the overwhelming reaction. I learned a lot during the process of writing. But even more by getting your feedback. It was my first attempt to teach people in programming.
 
 It also taught me to do better. I realized the SoundCloud tutorial is suited for advanced developers. It uses several tools to bootstrap your application and dives quickly into Redux. Still it helped a lot of people to get started. In my opinion it is a great tutorial to get a bigger picture of React + Redux. I use every free minute to improve the material, but it is time consuming.
 
-In the Road to learn React I want to offer a foundation before you start to dive into the broader React ecosystem. It has less tooling and less external state management, but more React. It explains general concepts, patterns and best practices. You will learn to build your own Hacker News application. It cover real world features like pagination, client-side caching and interactions. Additionally you will transition from JavaScript ES5 to JavaScript ES6. After all the book should give you a solid foundation in React before you dive into more advanced topics like Redux.
+In the Road to learn React I want to offer a foundation before you start to dive into the broader React ecosystem. It has less tooling and less external state management, but a lot of information around React. It explains general concepts, patterns and best practices.
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 140+ pages of learning material. Pay as you want like <strong>4500+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
+You will learn to build your own Hacker News application. It covers real world features like pagination, client-side caching and interactions like searching and sorting. Additionally you will transition from JavaScript ES5 to JavaScript ES6 on the way. In conclusion, the book should give you a solid foundation in React before you dive into more advanced topics like Redux. I hope this book captures my enthusiasm for React and JavaScript and helps you to get started.
+
+The Road to learn React comes as eBook and as [interactive course](https://www.educative.io/collection/5740745361195008/5676830073815040).
+
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 170+ pages of learning material. Pay as you want like <strong>4500+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
 {{% chapter_header "Testimonials" "testimonials" %}}
 
@@ -33,17 +35,15 @@ In the Road to learn React I want to offer a foundation before you start to dive
 
 {{% chapter_header "FAQ" "faq" %}}
 
-**How do I get updates?** You can {{% a_blank "subscribe" "https://www.getrevue.co/profile/rwieruch" %}} or follow me on {{% a_blank "Twitter" "https://twitter.com/rwieruch" %}} to get updates. It keeps me motivated to do my work. Once you have a copy of the book, it will stay updated. But you have to download the copy again once its updated. I will notify everyone via the {{% a_blank "Newsletter" "https://www.getrevue.co/profile/rwieruch" %}} and {{% a_blank "Twitter" "https://twitter.com/rwieruch" %}}.
+**How do I get updates?** You can [subscribe](https://www.getrevue.co/profile/rwieruch) to my Newsletter or follow me on [Twitter](https://twitter.com/rwieruch) to get updates. It keeps me motivated to continue. Once you have a copy of the book, it will stay updated. But you have to download the copy again when an update is announced. I will notify everyone by a [Newsletter](https://www.getrevue.co/profile/rwieruch) and [Twitter](https://twitter.com/rwieruch).
 
-**Does it cover Redux?** It doesn't. The book should give you a solid foundation before you dive into advanced topics like Redux. Still the implementation in the book will show you that you don't need Redux to build an application.
+**Does it cover Redux?** It doesn't. The book should give you a solid foundation before you dive into advanced topics. Still the implementation in the book will show you that you don't need Redux to build an application. After you have read the book, you should be able to implement a solid application without Redux.
 
-**Why is the book pay what you want?** I have put a lot of effort into this and will do so in the future. My desire is to reach as many people as possible. Everyone should be enabled to learn React. When you come from my website to *Get The Book*, you will get a coupon url which allows you to pay what you want. Still you could pay - if you can afford it - because it already took me a lot of my time to write and improve the book.
+**Does it use JavaScript ES6?** Yes. But don't worry. You will be fine if you are familiar with JavaScript ES5. All JavaScript ES6 features I describe on the journey to learn React will transition from ES5 to ES6 in the book. Every feature along the way will be explained. The book does not only teach React, but also all useful JavaScript ES6 features for React.
 
-**Does the article cover all book chapters?** No. The book improves all the time. But it is tough to keep it in sync with the article. The article only covers preview chapters. These preview chapters are not up to date. Simply grab the book to get all the material! It has over 140 pages of learning material. It will stay updated.
+**Why is the book pay what you want?** I have put a lot of effort into this and will do so in the future. My desire is to reach as many people as possible. Everyone should be enabled to learn React. Still you could pay - if you can afford it - because it already took me a lot of my time to write and improve the book.
 
-**Does the article stay updated?** Not really. I try to keep it updated, but I am working continuously on the book. It's hard to keep both in sync. Grab the book instead! What you see in the article is only a preview and not updated on a regular basis.
-
-**Will you add more chapters in the future?** It depends on the community. If there is an acceptance for the book, I will deliver more chapters and improve old material. I will keep the content up to date with recent best practices, concepts and patterns. But it has to pay me a bit of my effort. I would love to hear your thoughts about possible chapters to improve and enrich the learning experience.
+**Will you add more chapters in the future?** You can have a look at the Change Log chapter for major updates that already happened. There will be unannounced improvements in between all the time. In general it depends on the community whether I continue to work on the book. If there is an acceptance for the book, I will deliver more chapters and improve the old material. I will keep the content up to date with recent best practices, concepts and patterns. I would love to hear your thoughts about possible chapters to improve and enrich the learning experience.
 
 {{% chapter_header "Changelog" "changelog" %}}
 
@@ -54,7 +54,14 @@ In the Road to learn React I want to offer a foundation before you start to dive
 * 30% improved content
 * 13 improved and new chapters
 * 140 pages of learning material
-* [+ interactive course of the book on educative.io](https://www.educative.io/collection/5740745361195008/5676830073815040)
+* {{% a_blank "interactive course of the book on educative.io" "https://www.educative.io/collection/5740745361195008/5676830073815040" %}}
+
+**08. March 2017:**
+
+* 20% more content
+* 25% improved content
+* 9 new chapters
+* 170 pages of learning material
 
 {{% chapter_header "What you can expect (so far...)" "expectNow" %}}
 
@@ -93,25 +100,21 @@ In the Road to learn React I want to offer a foundation before you start to dive
 
 <div class="clearfix"></div>
 
-{{% chapter_header "How to read it?" "howToRead" %}}
-
-In general each chapter will build up on the previous. Each will dive into a new learning. Don't rush through the book. You should internalize each step. You can apply your own implementations and read more about the topic. Make yourself comfortable with the learnings before you continue.
-
-After you have read the book you could dive into the [SoundCloud Client in React + Redux](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux). It guides you to implement your own SoundCloud application with Redux as state management library.
-
 {{% chapter_header "Table of Contents" "toc" %}}
 
-* Bootstrap your React App
-  * [Hi, my name is React.](#introductionToReact)
+* Introduction to React
+  * [Hi, my name is React](#introductionToReact)
   * [Requirements](#requirements)
-  * npm and node
+  * [node and npm](#nodeAndNpm)
   * Installation
-  * [create-react-app](#cra)
-  * [Introduction to JSX](#jsx)
+  * Zero-Configuration Setup
+  * Introduction to JSX
   * ES6 const and let
-  * [ReactDOM.render](#reactDomRender)
-  * [Complex JavaScript in JSX](#mapJsx)
+  * ReactDOM
+  * Hot Module Reloading
+  * Complex JavaScript in JSX
   * ES6 Arrow Functions
+  * ES6 Classes
 * Basics in React
   * Internal Component State
   * ES6 Object Initializer
@@ -119,414 +122,159 @@ After you have read the book you could dive into the [SoundCloud Client in React
   * Interactions with Forms and Events
   * ES6 Destructuring
   * Controlled Components
-  * Breakup Your Components
-  * Composable Components
+  * Split Up Components
+  * Composeable Components
   * Reusable Components
   * Component Declarations
   * Styling Components
 * Getting Real with an API
   * Lifecycle Methods
-  * Fetch Data from an API
-  * ES6 spread operator
+  * Fetching Data
+  * ES6 Spread Operators
   * Conditional Rendering
-  * Client- or Server-side Interaction: Search
+  * Client- or Server-side Search
   * Paginated Fetch
   * Client Cache
-* Advanced React Components
+* Code Organization and Testing
+  * ES6 Modules: Import and Export
+  * Code Organization with ES6 Modules
+  * Component Interface with PropTypes
   * Snapshot Tests with Jest
   * Unit Tests with Enzyme
-  * Loading ...
+* Advanced React Components
+  * Ref a DOM Element
+  * Loading …
   * Higher Order Components
   * Advanced Sorting
-  * Lift State
-* Deploy your App to Production
+* State Management in React and beyond
+  * Lifting State
+  * Revisited: setState()
+  * Taming the State
+* Final Steps to Production
+  * Eject
+  * Deploy your App
+* Final Words
 
-> <strong>The content below is not up to date. Grab a copy of the book to get the full updated version.</strong>
+{{% chapter_header "Book Preview" "bookPreview" %}}
 
-{{% header "Bootstrap your React App" %}}
+{{% sub_chapter_header "Hi, my name is React." "introductionToReact" %}}
 
-The chapter will give you an introduction to React. It clarifies why you should learn React in the first place. Once that's clarified you will bootstrap your first React app. Along the way you will get an introduction to JSX to be prepared for your first React components.
+**Why should you bother to learn React?** In recent years single page applications ([SPA](https://en.wikipedia.org/wiki/Single-page_application)) have become popular. Frameworks like Angular, Ember and Backbone helped JavaScript developers to build modern web applications beyond the usage of jQuery. The list is not exhaustive. There exists a wide range of SPA frameworks. When you consider the release dates, most of them are among the first generation of SPAs: Angular 2010, Backbone 2010, Ember 2011.
 
-{{% chapter_header "Hi, my name is React." "introductionToReact" %}}
+The initial React release was 2013 by Facebook. React is not an SPA framework but a view library. It is the V in the [MVC](https://de.wikipedia.org/wiki/Model_View_Controller) (model view controller). It only enables you to render components as viewable elements in a browser. Yet the whole ecosystem around React makes it possible to build single page applications.
 
-Why should you bother to learn React? In the recent years single page applications (SPA) got popular. Frameworks like Angular, Ember and Backbone helped JavaScript people to build modern web applications beyond jQuery. The list is not exhaustive. There exists a wide range of SPA frameworks. When you consider the release dates, most of them are among the first generation of SPAs: Angular 2010, Backbone 2010, Ember 2011.
+But why should you consider using React over the first generation of SPA frameworks? While the first generation of frameworks tried to solve a lot of things at once, React only helps you to build your view layer. It's a library and not a framework. The idea behind it: Your view is a hierarchy of composeable components.
 
-The initial React release was 2013 by Facebook. React is no SPA framework but a view library. You can get easily started to render your first components in a browser. But the whole ecosystem around React makes it possible to build single page applications.
+In React you can focus on your view before you introduce more aspects to your application. Every other aspect is another building block for your SPA. These building blocks are essential to build a mature application. They come with two advantages.
 
-But why should you consider to use React over the first generation of SPA frameworks? While the first generation of SPAs tried to solve a lot of things at once, React only helps you to build your view layer. It's a library and not a whole framework. The idea behind it: Your view is a hierarchy of composable components.
-
-In React you can focus on your view before you introduce more aspects to your application. Every other aspect is another building block for your SPA. These building blocks are essential.
-
-First you can learn them step by step without worrying to understand everything at once. It's different in comparison to a framework which gives you every building block from the start.
+First you can learn the building blocks step by step. You don't have to worry about understanding them altogether. It is different from a framework that gives you every building block from the start. This book focuses on React as the first building block. More building blocks follow eventually.
 
 Second all building blocks are interchangeable. It makes the ecosystem around React such an innovative place. Multiple solutions are competing with each other. You can pick the most appealing solution for you and your use case.
 
-The first generation SPA frameworks arrived at an enterprise level. React stays innovative and gets adapted by multiple tech thought leader companies like {{% a_blank "Airbnb, Netflix and of course Facebook" "https://github.com/facebook/react/wiki/Sites-Using-React" %}}. React is probably one of the best choices for building UI nowadays. It has a good design, an amazing ecosystem and a great community. Everyone is keen to experience where it will lead us in 2017.
+The first generation of SPA frameworks arrived at an enterprise level. They are more rigid. React stays innovative and gets adopted by multiple tech thought leader companies like {{% a_blank "Airbnb, Netflix and of course Facebook" "https://github.com/facebook/react/wiki/Sites-Using-React" %}}. All of them invest in the future of React and are content with React and the ecosystem itself.
 
-{{% chapter_header "Requirements" "requirements" %}}
+React is probably one of the best choices for building single page applications nowadays. It only delivers the view layer, but the React ecosystem is a whole flexible and interchangeable framework. React has a slim API, an amazing ecosystem and a great community. You can read about my experiences [why I moved from Angular to React](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/). I highly recommend to have an understanding why you would choose React over another framework or library. After all everyone is keen to experience where React will lead us in 2017 and beyond.
 
-Before you start to read the book, you should be quite familiar with HTML, CSS and JavaScript (ES5). Additionally you will need a working [editor and terminal](https://www.robinwieruch.de/developer-setup/). Last but not least you will need an installation of {{% a_blank "node and npm" "https://nodejs.org/en/" %}}.
+{{% sub_chapter_header "Requirements" "requirements" %}}
 
-These are my versions of node and npm at the time of writing the book.
+Before you start to read the book, you should be familiar with HTML, CSS and JavaScript (ES5). The book will teach JavaScript ES6 and beyond. If you are coming from a different SPA framework or library, you should already be familiar with the basics. If you have just started in web development, you should feel comfortable with HTML, CSS and JavaScript ES5 to learn React.
+
+Every developer needs tools to build applications. You will need an editor (IDE) and terminal (command line) tool. You can read my developer setup to organize your tools: [Developer Setup](https://www.robinwieruch.de/developer-setup/). It is adjusted for Mac users, but you can substitute most of the tools for other operating system.
+
+The editor is used to organize and write your code. The terminal is used to execute commands. A command can be to start your application, to run tests or to install other libraries for your project.
+
+Last but not least you will need an installation of [node and npm](https://nodejs.org/en/). Both are used to manage libraries you will need along the way to learn React. You will install external node packages via npm (node package manager). These node packages can be libraries or whole frameworks.
+
+You can verify your versions of node and npm on the command line. If you don't get any output in the terminal, you need to install node and npm first. These are my versions:
 
 {{< highlight javascript >}}
 node --version
-*v5.0.0
+*v7.4.0
 npm --version
-*v3.3.6
+*v4.0.5
 {{< /highlight >}}
 
-{{% chapter_header "create-react-app" "cra" %}}
+{{% sub_chapter_header "node and npm" "nodeAndNpm" %}}
 
-You will use {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}} to bootstrap your app. It's an opinionated but zero-configuration starter kit for React introduced by Facebook. People like and would {{% a_blank "recommend it to starters by 96%" "https://twitter.com/dan_abramov/status/806985854099062785" %}}. In create-react-app the tools evolve in the background while the focus is on the application implementation.
+This chapter gives you a little crash course in node and npm. It is not exhaustive, but you will get all the necessary tools. If you are familiar with both of them, you can skip the chapter.
 
-To get started you will have to install the package to your global packages on your command line. You should already have npm installed to install the package.
+The **node package manager** (npm) allows you to install external **node packages** from the command line. These packages can be a set of utility functions, libraries or whole frameworks. They are the dependencies of your application. You can either install these packages to your global node package folder or to your local project folder.
+
+Global node packages are accessible from everywhere in the terminal and you have to install them only once. You can install a global package by typing in your terminal:
 
 {{< highlight javascript >}}
-npm install -g create-react-app
+npm install -g <package>
 {{< /highlight >}}
 
-Now you can bootstrap your first app and navigate into the directory:
+The `-g` flag tells npm to install the package globally. Local packages are used in your application. For instance, React as a library will be a local package which can be required in your application for usage. You can install it via the terminal by typing:
 
 {{< highlight javascript >}}
-create-react-app hackernews
-cd hackernews
+npm install <package>
 {{< /highlight >}}
 
-When you open the app in your editor, you will find the following folder structure:
+In the case of React it would be:
 
 {{< highlight javascript >}}
-hackernews/
-  README.md
-  node_modules/
-  package.json
-  .gitignore
-  public/
-    favicon.ico
-    index.html
-  src/
-    App.css
-    App.js
-    App.test.js
-    index.css
-    index.js
-    logo.svg
+npm install react
 {{< /highlight >}}
 
-In the beginning everything you need is located in the *src* folder. The main focus lies on the *App.js* file to implement React components. But there is also the *App.test.js* for tests and the *index.js* as entry point to the React world. We will get to know them in a later chapter.
-
-Additionally create-react-app comes with the following npm scripts for your command line:
+The installed package will automatically appear in a folder called *node_modules/*. But be careful. Whenever you install a local package you shouldn't forget the neat `--save` flag:
 
 {{< highlight javascript >}}
-// Runs the app in http://localhost:3000
-npm start
-
-// Runs the tests
-npm test
-
-// Builds the app for production
-npm run build
+npm install --save <package>
 {{< /highlight >}}
 
-You can read more about {{% a_blank "the scripts and create-react-app" "https://github.com/facebookincubator/create-react-app" %}} in general.
+The `--save` flag tells npm to store the package requirement in a file called *package.json*. The file can be found in your project folder.
 
-### Exercises:
-
-* `npm start` your app and visit the page in your browser
-* run the interactive `npm test` script
-* make yourself familiar with the folder structure
-
-{{% chapter_header "Introduction to JSX" "jsx" %}}
-
-Now you will get to know JSX. Let's dive into the source code provided by create-react-app. The only file you will touch in the beginning will be the *src/App.js*.
+Not every project folder comes with a *package.json* file though. There is a npm command to initialize a npm project and thus a *package.json* file. Only when you have that file, you can install new local packages via npm.
 
 {{< highlight javascript >}}
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
-
-export default App;
+npm init -y
 {{< /highlight >}}
 
-create-react-app already scaffolded a boilerplate application. In the file you have an ES6 class component with the name App. Basically you can use the `<App />` component everywhere in your application now. Once you use it, it will produce an instance of your component. The elements it returns are specified in the `render()` function.
+The `-y` flag is a shortcut to initialize all the defaults in your *package.json*. If you don't use it, you have to decide how to configure the file.
 
-Pretty soon you will see where the App component is used. Otherwise you wouldn't see the rendered output in the browser, would you?
+One more word about the *package.json*. The file enables you to share your project with other developers without sharing all the node packages. The file has all the references of node packages used in your project. These packages are called dependencies. Everyone can copy your project without the dependencies. The dependencies are references in the *package.json*. Someone who copies your project can install all packages by using `npm install` on the command line.
 
-The content in the render block looks pretty similar to HTML, but it's JSX. JSX allows you to mix HTML and JavaScript. It's powerful yet confusing in the beginning when you are used to plain HTML. That's why a good starting point is to use basic HTML in your JSX. Next you can start to embed JavaScript expressions in between by using curly braces.
-
-Try it. Define a property and use it in JSX.
-
-{{< highlight javascript "hl_lines=7 12" >}}
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-class App extends Component {
-  render() {
-    const helloWorld = 'Welcome to React';
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>{helloWorld}</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
-
-export default App;
-{{< /highlight >}}
-
-Additionally you might have noticed the `className` attribute. Because of technical reasons JSX had to replace HTML attributes like class (className) and for (htmlFor).
-
-### ES6 Sugar:
-
-In ES5 you declare variables with var. In ES6 there are two more variable declarations: const and let.
-
-### Exercises:
-
-* read more about {{% a_blank "JSX" "https://facebook.github.io/react/docs/introducing-jsx.html" %}}
-* read more about {{% a_blank "React components, elements and instances" "https://facebook.github.io/react/blog/2015/12/18/react-components-elements-and-instances.html" %}}
-* read more about {{% a_blank "supported HTML attributes in React" "https://facebook.github.io/react/docs/dom-elements.html" %}}
-* read more about ES6 {{% a_blank "const" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const" %}} and {{% a_blank "let" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let" %}} variable declarations
-* define more variables to render them in your JSX
-
-{{% chapter_header "ReactDOM.render" "reactDomRender" %}}
-
-Before you continue with the App component, you might want to see where it's used. It's located in your entry point to the React world *src/index.js*.
+I want to cover one more npm command to prevent confusion:
 
 {{< highlight javascript >}}
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+npm install --save-dev <package>
 {{< /highlight >}}
 
-Basically ReactDOM.render uses a DOM node in your html to replace it with your React components. That's how you can easily integrate React in every app.
+The `--save-dev` flag indicates that the node package is only used in the development environment. It will not be used in production when you deploy your application on a server. What kind of node package could that be? Imagine you want to test your application with the help of a node package. You need to install that package via npm, but want to exclude it from your production environment. There you don't want to test your application anymore. It should be tested already and work out of the box for users. That's only one use case where you would want to use the `--save-dev` flag.
 
-ReactDOM.render expects two arguments.
+You will encounter more npm commands on your way. But these will be sufficient for now.
 
-The first argument is JSX. It already takes your App component, but you don't need to pass a component. It would be sufficient to use `<div>Hello React World</div>`. After all the first argument is the content to be rendered.
+#### Exercises:
 
-The second argument specifies the place where the React application hooks into your HTML. It expects an element with an `id="root"`. Open your *public/index.html* file to find the id.
+* setup a throw away npm project
+  * create a new folder with `mkdir <folder_name>`
+  * navigate into the folder with `cd <folder_name>`
+  * execute `npm init -y`
+  * install a local package like React with `npm install --save react`
+  * have a look into the *package.json* file and the *node_modules/* folder
+  * find out how to uninstall the *react* node package
+* read more about [npm](https://docs.npmjs.com/)
 
-### Exercises:
+{{% chapter_header "Finished the Book? My Recommendations" "learningPaths" %}}
 
-* open your *public/index.html* file to find the `id="root"`
-* read more about {{% a_blank "React rendering element" "https://facebook.github.io/react/docs/rendering-elements.html" %}}
+My recommended learning paths (extracted from the book) after you have read the book:
 
-{{% chapter_header "Map in JSX" "mapJsx" %}}
+* **Code Organization:** On your way reading the book you came across one chapter about Code Organization. You could apply these changes now, if you haven't done it yet. It will organize your components in structured files and folders (modules). In addition it helps to understand and learn the principles of code splitting, reusability, maintainability and module API design.
 
-Let's get back to your App component. So far your rendered some random properties in your JSX. Now you will start to render a list of items. The list will be some mock data in the beginning, but later you will fetch the data from an external API. That will be far more exciting.
+* **Asynchronous Requests:** You can substitute the native fetch API with third party alternatives to perform asynchronous requests: {{% a_blank "superagent" "https://github.com/visionmedia/superagent" %}} or {{% a_blank "axios" "https://github.com/mzabriskie/axios" %}}. There is no perfect solution to make asynchronous requests. But by exchanging the buildings blocks around React, you make the experience how powerful it can be to have this flexibility. In frameworks you stick to one solution, in a flexible ecosystem like React you can exchange the solutions.
 
-Since you can use JavaScript in JSX, it's possible to map over your data to display each item.
+* **Type Checking:** In one chapter you have used React PropTypes to define component interfaces. It is a good practice to prevent bugs. But the PropTypes are only checked on runtime. You can go one step further to introduce static type checking in your editor. {{% a_blank "TypeScript" "https://www.typescriptlang.org/" %}} is one popular approach. But in the React ecosystem people prefer to use {{% a_blank "Flow" "https://flowtype.org/" %}}. I can recommend to give Flow a shot.
 
-{{< highlight javascript "hl_lines=4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 28 29 30 31 32 33 34 35 36 37" >}}
-import React, { Component } from 'react';
-import './App.css';
+* **Tooling with Webpack and Babel:** You have setup your application with *create-react-app*. At some point, when you learned React, you want to learn the tooling around it to setup your own project without *create-react-app*. I can recommend to follow a minimal setup with [Webpack and Babel](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). Afterward you could [setup ESLint](https://www.robinwieruch.de/react-eslint-webpack-babel/) to follow a unified code style in your application.
 
-const list = [
-  {
-    title: 'React',
-    url: 'https://facebook.github.io/react/',
-    author: 'Jordan Walke',
-    num_comments: 3,
-    points: 4,
-    objectID: 0,
-  },
-  {
-    title: 'Redux',
-    url: 'https://github.com/reactjs/redux',
-    author: 'Dan Abramov, Andrew Clark',
-    num_comments: 2,
-    points: 5,
-    objectID: 1,
-  },
-];
+* **State Management:** You have used React `setState` to manage internal component state. That's a perfect start. However, in a scaling application you will experience the limits of internal component state. Therefore you have third party state management libraries like Redux or MobX.
 
-class App extends Component {
-
-  render() {
-    return (
-      <div className="App">
-        { list.map(function(item) {
-          return (
-            <div>
-              <span><a href={item.url}>{item.title}</a></span>
-              <span>{item.author}</span>
-              <span>{item.num_comments}</span>
-              <span>{item.points}</span>
-            </div>
-          );
-        })}
-      </div>
-    );
-  }
-}
-
-export default App;
-{{< /highlight >}}
-
-Additionally you have to assign a key property to each list element. Only that way React is able to identify added, changed and removed items.
-
-{{< highlight javascript "hl_lines=3" >}}
-{ list.map(function(item) {
-  return (
-    <div key={item.objectID}>
-      <span><a href={item.url}>{item.title}</a></span>
-      <span>{item.author}</span>
-      <span>{item.num_comments}</span>
-      <span>{item.points}</span>
-    </div>
-  );
-})}
-{{< /highlight >}}
-
-Give your elements a stable id. Don't make the mistake to use the array key which isn't stable. React will have a hard time to identify the items properly when the order of them changes.
-
-{{< highlight javascript "hl_lines=2 4" >}}
-// bad example
-{ list.map(function(item, key) {
-  return (
-    <div key={key}>
-      ...
-    </div>
-  );
-})}
-{{< /highlight >}}
-
-Now when you open your app in a browser both list items should get rendered and be visible.
-
-### ES6 Sugar:
-
-Let's have a look again at the map function. It takes a function itself, which you can write more concise in ES6.
-
-First you can use the arrow function.
-
-{{< highlight javascript "hl_lines=1" >}}
-{ list.map((item) => {
-  return (
-    <div key={item.objectID}>
-      <span><a href={item.url}>{item.title}</a></span>
-      <span>{item.author}</span>
-      <span>{item.num_comments}</span>
-      <span>{item.points}</span>
-    </div>
-  );
-})}
-{{< /highlight >}}
-
-Second you can remove the block body and thus remove the return statement. In a concise body an implicit return is attached.
-
-{{< highlight javascript "hl_lines=1 8" >}}
-{ list.map((item) =>
-  <div key={item.objectID}>
-    <span><a href={item.url}>{item.title}</a></span>
-    <span>{item.author}</span>
-    <span>{item.num_comments}</span>
-    <span>{item.points}</span>
-  </div>
-)}
-{{< /highlight >}}
-
-Now your JSX looks more readable again.
-
-### Exercises:
-
-* read more about {{% a_blank "React lists and keys" "https://facebook.github.io/react/docs/lists-and-keys.html" %}}
-* read more about {{% a_blank "ES6 arrow functions" "https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions" %}}
-* make yourself comfortable with {{% a_blank "standard built-in functionalities in JavaScript" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" %}}
-* use more JavaScript expression on your own in JSX (e.g. {{% a_blank "ternary" "https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator" %}})
+* **Routing:** You can implement routing for your application with {{% a_blank "react-router" "https://github.com/ReactTraining/react-router" %}}. So far you only have one page in your application. React Router helps you to have multiple pages across different URLs.
 
 <hr class="section-divider">
 
-Your *src/App.js* should look like the following by now:
+Now you should know everything what you can expect from the book. You can pay what you want, because I want to enable everyone to learn React. I would really appreciate your support on social media to reach as many people as possible to grab a version of the book.
 
-{{< highlight javascript >}}
-import React, { Component } from 'react';
-import './App.css';
-
-const list = [
-  {
-    title: 'React',
-    url: 'https://facebook.github.io/react/',
-    author: 'Jordan Walke',
-    num_comments: 3,
-    points: 4,
-    objectID: 0,
-  },
-  {
-    title: 'Redux',
-    url: 'https://github.com/reactjs/redux',
-    author: 'Dan Abramov, Andrew Clark',
-    num_comments: 2,
-    points: 5,
-    objectID: 1,
-  },
-];
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        { list.map((item) =>
-          <div key={item.objectID}>
-            <span><a href={item.url}>{item.title}</a></span>
-            <span>{item.author}</span>
-            <span>{item.num_comments}</span>
-            <span>{item.points}</span>
-          </div>
-        )}
-      </div>
-    );
-  }
-}
-
-export default App;
-{{< /highlight >}}
-
-You have learned to bootstrap your own React app! Let's recap the last chapters:
-
-* React
-  * create-react-app bootstraps a React app
-  * JSX mixes up HTML and JavaScript to express React components
-  * ReactDOM.render() is an entry point for a React app
-  * built-in JavaScript functionalities like map can be used to render a list of items
-* ES6
-  * more variable declarations with const and let
-  * arrow functions with block and concise bodies to shorten your function declarations
-
-It makes sense to make a break at this point. Internalize the learnings and apply them on your own. You can experiment with the source code you have written so far.
-
-<hr class="section-divider">
-
-That's the last chapter of the book preview. You can read more chapters on [subscription](https://www.getrevue.co/profile/rwieruch)! Grab it and pay as you want. I want to enable everyone to learn React. You can have a look again at the [Table of Contents](#toc) to see what you can expect to find on Leanpub.
-
-{{% read_more "The SoundCloud Client in React + Redux" "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
-
-I would really appreciate your support on social media to reach as many people as possible to grab a version of the book.
+{{% package_box "Pre-order: The Road to learn Redux" "If there is enough interest and support, I would love to teach you Redux as a state management solution. It would be a walkthrough from the problem of state handling to an exhaustive solution with Redux." "Pre-order" "img/page/cover-redux-ebook.png" "https://gum.co/the-road-to-learn-redux" %}}

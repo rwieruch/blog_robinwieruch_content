@@ -79,7 +79,7 @@ The whole tutorial contains a lot of information. I wouldn't suggest to do every
 
 Additionally I can recommend to read *The Road to learn React* before you dive into Redux. It teaches React by building a Hacker News App without configuration, tooling and Redux. If you are new to React, do yourself a favour and learn React first.
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 140+ pages of learning material. Pay as you want like <strong>4500+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 170+ pages of learning material. Pay as you want like <strong>4500+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
 {{% chapter_header "Let’s get started" "getStarted" %}}
 
@@ -2053,35 +2053,35 @@ In case you want to know which versions npm installed during that tutorial, here
 *package.json*
 
 {{< highlight javascript >}}
-  "devDependencies": {
-    "babel-core": "^6.9.1",
-    "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-react": "^6.5.0",
-    "babel-preset-stage-2": "^6.5.0",
-    "chai": "^3.5.0",
-    "enzyme": "^2.3.0",
-    "exports-loader": "^0.6.3",
-    "imports-loader": "^0.6.5",
-    "jsdom": "^9.2.1",
-    "mocha": "^2.5.3",
-    "react-addons-test-utils": "^15.1.0",
-    "react-hot-loader": "^1.3.0",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
-  },
-  "dependencies": {
-    "react": "^15.1.0",
-    "react-dom": "^15.1.0",
-    "react-redux": "^4.4.5",
-    "react-router": "^2.4.1",
-    "react-router-redux": "^4.0.5",
-    "redux": "^3.5.2",
-    "redux-logger": "^2.6.1",
-    "redux-thunk": "^2.1.0",
-    "soundcloud": "^3.1.2",
-    "whatwg-fetch": "^1.0.0"
-  }
+"devDependencies": {
+  "babel-core": "^6.23.1",
+  "babel-loader": "^6.3.2",
+  "babel-preset-es2015": "^6.22.0",
+  "babel-preset-react": "^6.23.0",
+  "babel-preset-stage-2": "^6.22.0",
+  "chai": "^3.5.0",
+  "enzyme": "^2.7.1",
+  "exports-loader": "^0.6.3",
+  "imports-loader": "^0.7.0",
+  "jsdom": "^9.11.0",
+  "mocha": "^3.2.0",
+  "react-addons-test-utils": "^15.4.2",
+  "react-hot-loader": "^1.3.1",
+  "webpack": "^2.2.1",
+  "webpack-dev-server": "^2.4.1"
+},
+"dependencies": {
+  "react": "^15.4.2",
+  "react-dom": "^15.4.2",
+  "react-redux": "^5.0.2",
+  "react-router": "^3.0.2",
+  "react-router-redux": "^4.0.8",
+  "redux": "^3.6.0",
+  "redux-logger": "^2.8.1",
+  "redux-thunk": "^2.2.0",
+  "soundcloud": "^3.1.2",
+  "whatwg-fetch": "^2.0.2"
+}
 {{< /highlight >}}
 
 {{% chapter_header "Final Thoughts" "finalThoughts" %}}
