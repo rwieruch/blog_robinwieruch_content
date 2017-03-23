@@ -1,7 +1,7 @@
 +++
 title = "React Code Style with ESLint + Babel + Webpack"
 description = "You want to setup ESLint in your ReactJs project? It includes Babel and Webpack? Then this article will guide you through all the options with style guides, thought leader opinions and recommendations..."
-date = "2017-03-07T13:50:46+02:00"
+date = "2017-03-14T13:50:46+02:00"
 tags = ["React"]
 categories = ["React"]
 keyword = "react eslint"
@@ -19,25 +19,17 @@ Code style is an important topic for developers. When you code for yourself, it 
 
 The article will teach you how to setup ESLint in a [React + Babel + Webpack](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/) environment. You can setup rules for JavaScript and React to enforce a unified code style. Every violated rule will ping you and your team members in the terminal or developer console in the browser. Additionally you will not only learn about custom rules, but also recommended best practices in the community. You will learn to extend your rules easily with a common set of rules in one line of configuration.
 
+Apart from ESLint for as a code style checker, you should know about the alternatives as well: Prettier and StandardJS.
+
 {{% chapter_header "Table of Contents" "toc" %}}
 
-* [Style Guides](#styleguides)
 * [ESLint](#eslint)
 * [ESLint + Babel](#eslintBabel)
 * [ESLint Rules](#eslintRules)
 * [ESLint Rules for React](#eslintRulesReact)
 * [Extend ESLint Rules](#eslintExtendRules)
-* [Clean Up](#cleanUp)
-
-{{% chapter_header "Styleguides" "styleguides" %}}
-
-There are a handful of useful style guides in the JavaScript and React community. Before you will dive into the ESLint setup in Webpack and Babel, I want to list very quickly some of these styleguides. I can highly recommend to read them as a JavaScript/React developer.
-
-* {{% a_blank "Airbnb JavaScript" "https://github.com/airbnb/javascript" %}}
-* {{% a_blank "Airbnb React" "https://github.com/airbnb/javascript/tree/master/react" %}}
-* {{% a_blank "Idiomatic JavaScript" "https://github.com/rwaldron/idiomatic.js/" %}}
-
-Another approach to enforce code style is {{% a_blank "StandardJs" "https://github.com/feross/standard" %}}. It is no style guide, but a node package that enforces you to have one common code style. It can be seen as alternative to ESLint. But it is opionated in its set of rules.
+* [Disable ESLint Rules](#cleanUp)
+* [Code Style Alternatives](#codeStyleAlternatives)
 
 {{% chapter_header "ESLint" "eslint" %}}
 
@@ -278,7 +270,7 @@ You have to install the required packages.
 npm --save-dev install eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y
 {{< /highlight >}}
 
-Now you can add a one-liner to your ESLint configuration to use Airbnbs’ ESLint configuration. When you have a look at the installed node packes, you can see that the configuration includes JSX and React rules.
+Now you can add Airbnbs’ ESLint configuration to your ESLint configuration. When you have a look at the installed node packages, you can see that the configuration includes JSX and React rules.
 
 *.eslintrc*
 
@@ -289,13 +281,13 @@ Now you can add a one-liner to your ESLint configuration to use Airbnbs’ ESLin
     "max-len": [1, 120, 2, {ignoreComments: true}],
     "prop-types": [2]
   },
-  "extends": "airbnb"
+  "extends": ["airbnb-base"]
 }
 {{< /highlight >}}
 
 You can see that it is very simple to extend the ESLint rules from someone else. We could use other extensions as well, but at this time the Airbnb Code Style and the according ESLint configuration are very popular and well accepted by developers.
 
-{{% chapter_header "Clean Up" "cleanUp" %}}
+{{% chapter_header "Disable ESLint Rules" "cleanUp" %}}
 
 Now you are prepared to fix all the ESLint code style violations in your code. Start your application to see all the ESLint errors.
 
@@ -330,6 +322,20 @@ And you can disable a rule in a local file:
 ...some code...
 /*eslint-enable no-unused-vars*/
 {{< /highlight >}}
+
+{{% chapter_header "Code Style Alternatives" "codeStyleAlternatives" %}}
+
+There are a handful of useful **style guides** in the JavaScript and React community. It makes sense to read them even though you don't enforce every aspect in your set of rules in ESLint. As a JavaScript developer, I can highly recommend to read them though.
+
+* {{% a_blank "Airbnb JavaScript" "https://github.com/airbnb/javascript" %}}
+* {{% a_blank "Airbnb React" "https://github.com/airbnb/javascript/tree/master/react" %}}
+* {{% a_blank "Idiomatic JavaScript" "https://github.com/rwaldron/idiomatic.js/" %}}
+
+Another alternative are **code formatters**. In the JavaScript ecosystem there are two mainly used solutions that enforce an opinionated code style. These solutions will reformat your code on demand. You don't have to fix the code style violations yourself and you don't have to set up any rules. There is a default set of rules.
+
+{{% a_blank "StandardJs" "https://github.com/feross/standard" %}} is one of these code formatters that is widely known and used in the JavaScript community. Yet recently there was another solution released with the name {{% a_blank "Prettier" "http://jlongster.com/A-Prettier-Formatter" %}}.
+
+Both solutions can be installed globally or locally via npm. Afterward you can include these in your projects and reformat the code on demand. You can go one step further and install an editor or IDE plugin for StandardJS or Prettier. In my case, using Sublime as my editor of choice, I installed both plugins to experiment with both approaches. It is convenient to have an automatic code formatter. Finally you can configure your editor to reformat your code style, based on StandardJS or Prettier, whenever you save your file.
 
 <hr class="section-divider">
 
