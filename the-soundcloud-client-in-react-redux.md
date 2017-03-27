@@ -753,7 +753,7 @@ The logger middleware shows us console output for each action: the previous stat
 
 {{< highlight javascript "hl_lines=2 5 7" >}}
 import { createStore, applyMiddleware } from 'redux';
-import createLogger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import rootReducer from '../reducers/index';
 
 const logger = createLogger();
@@ -1212,7 +1212,7 @@ export default combineReducers({
 
 {{< highlight javascript "hl_lines=3 4 8 10" >}}
 import { createStore, applyMiddleware } from 'redux';
-import createLogger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import { browserHistory } from 'react-router';
 import { routerMiddleware } from 'react-router-redux';
 import rootReducer from '../reducers/index';
@@ -1405,7 +1405,7 @@ Let’s add thunk as middleware to our store.
 
 {{< highlight javascript "hl_lines=3 11" >}}
 import { createStore, applyMiddleware } from 'redux';
-import createLogger from 'redux-logger';
+import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 import { browserHistory } from 'react-router';
 import { routerMiddleware } from 'react-router-redux'
