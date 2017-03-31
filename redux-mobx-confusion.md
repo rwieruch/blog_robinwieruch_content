@@ -374,10 +374,12 @@ Both libraries are great. While Redux is already well established, MobX becomes 
 
 {{% chapter_header "Key Takeaways" "keyTakeaways" %}}
 
-* learn React and setState first!
-* learning recommendation: setState -> optional: (MobX -> MobX more restricted (e.g. useStrict)) -> Redux
-* use MobX in a smaller size &amp; few developers project
-* use Redux in a bigger size &amp; several developers / teams project
+* learn React with setState and this.state to manage local state
+  * get comfortable with it
+  * experience the issues you run into without a state managament library like Redux or MobX
+* learning recommendations
+  * setState -> MobX -> MobX more restricted (e.g. useStrict) -> Redux
+  * or stick to one solution after setState:
 * use MobX over Redux:
   * short learning curve
   * simple to use (magic)
@@ -387,6 +389,8 @@ Both libraries are great. While Redux is already well established, MobX becomes 
   * used in lightweight applications
   * mutable data
   * object-oriented programming
+  * in a smaller size &amp; few developers project
+  * but can be used in bigger size projects too, when used with explicit constraints
 * use Redux over MobX:
   * clear constraints
   * testable lightweight parts
@@ -395,6 +399,7 @@ Both libraries are great. While Redux is already well established, MobX becomes 
   * used in complex applications
   * immutable data
   * functional programming
+  * in a bigger size &amp; several developers / teams project
   * testability, scaleability, maintainability
 * container + presenter components is a valid pattern for both
 * react-redux and mobx-react are exchangeable interfaces to React container components

@@ -29,7 +29,7 @@ The article aims to be an exhaustive list of options for conditional renderings 
 * [switch case operator](#switchCaseOperator)
 * [enums](#enums)
 * [Multi-Level Conditional Rendering](#multiLevel)
-* [Conditional Renderings as Higher Order Components](#conditionalRenderingHoc)
+* [With Higher Order Components](#conditionalRenderingHoc)
 * [External Templating Components](#externalTemplatingComponents)
 
 {{% chapter_header "if statement" "ifStatement" %}}
@@ -390,13 +390,12 @@ function NoList({ isNull, isEmpty }) {
 
 Still, it doesn't look that appealing. Let's have a look at higher order components and how they would help to tidy it up.
 
-{{% chapter_header "Conditional Renderings as Higher Order Components" "conditionalRenderingHoc" %}}
+{{% chapter_header "With Higher Order Components" "conditionalRenderingHoc" %}}
 
-Higher order components (HOCs) are a perfect match for conditional rendering in React. One use case of HOCs is it to alter the look of a component. Let's have a look at a HOC that either shows a loading indicator or a desired component.
+Higher order components (HOCs) are a perfect match for conditional rendering in React. HOCs can have multiple use cases. Yet one use case could be to alter the look of a component. To make the use case more specific: it could be to apply a conditional rendering for a component. Let's have a look at a HOC that either shows a loading indicator or a desired component.
 
 {{< highlight javascript >}}
 // HOC declaration
-
 function withLoadingIndicator(Component) {
   return function EnhancedComponent({ isLoading, ...props }) {
     if (!isLoading) {
@@ -408,7 +407,6 @@ function withLoadingIndicator(Component) {
 }
 
 // Usage
-
 const ListWithLoadingIndicator = withLoadingIndicator(List);
 
 <ListWithLoadingIndicator
@@ -417,7 +415,7 @@ const ListWithLoadingIndicator = withLoadingIndicator(List);
 />
 {{< /highlight >}}
 
-In the example, the List component can focus on rendering the list. It doesn't have to bother with a loading state. Finally you could add more HOCs to shield away the empty list or null list.
+In the example, the List component can focus on rendering the list. It doesn't have to bother with a loading state. Ultimately you could add more HOCs to shield away multiple conditional rendering edge cases.
 
 A HOC can opt-in one or multiple conditional renderings. You could even use multiple HOCs to handle several conditional renderings. After all, a HOC shields away all the noise from your component.
 
