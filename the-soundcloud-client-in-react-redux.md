@@ -2077,7 +2077,7 @@ In case you want to know which versions npm installed during that tutorial, here
   "react-router": "^3.0.2",
   "react-router-redux": "^4.0.8",
   "redux": "^3.6.0",
-  "redux-logger": "^2.8.1",
+  "redux-logger": "^3.0.0",
   "redux-thunk": "^2.2.0",
   "soundcloud": "^3.1.2",
   "whatwg-fetch": "^2.0.2"
