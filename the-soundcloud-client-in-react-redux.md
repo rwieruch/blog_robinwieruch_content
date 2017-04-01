@@ -118,7 +118,7 @@ module.hot.accept();
 
 The {{% a_blank "JSX syntax" "https://facebook.github.io/react/docs/jsx-in-depth.html" %}} takes getting used to. Basically we can use JavaScript in HTML. In our code snippet we map over a list of tracks and return a HTML node with track properties.
 
-The console output gives the hint of a missing key property. {{% a_blank "React elements need that key property to uniquely identify themselves in a list of elements" "https://facebook.github.io/react/docs/multiple-components.html" %}}. Let’s fix this, save the file and see how hot reloading kicks in and refreshes our page!
+The console output gives the hint of a missing key property. {{% a_blank "React elements need that key property to uniquely identify themselves in a list of elements" "https://facebook.github.io/react/docs/lists-and-keys.html" %}}. Let’s fix this, save the file and see how hot reloading kicks in and refreshes our page!
 
 {{< highlight javascript "hl_lines=16 17" >}}
 import React from 'react';
