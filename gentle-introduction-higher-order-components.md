@@ -19,15 +19,15 @@ Another fitting headline for the article could be: learn Higher Order Components
 
 Higher order components, or known under the abbreviation HOCs, are often a hard to grasp pattern in React. These components can be used for multiple use cases. I want to pick out one use case, the [conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/) with higher order components, to give you two outcomes from this article as a reader.
 
-First, it should teach you about higher order components with the use case of conditional rendering. Keep in mind, that altering the look of a component with a higher order component, specifically in the context of conditional rendering, is only one of several use cases to use HOCs. For instance, you could use them to opt-in local state or to alter props.
+First, it should teach you about higher order components with the use case of conditional rendering. Keep in mind, that altering the look of a component with a higher order component, specifically in the context of conditional rendering, is only one of several use cases to use HOCs. For instance, you could use them to opt-in local state or to alter props as well.
 
-Second, even though you might already know HOCs, the article goes a bit furhter by composing higher order components with recompose and by applying functional programming principles. You will get to know how to use HOCs in an elegant way.
+Second, even though you might already know HOCs, the article goes a bit further by composing higher order components with the library recompose and by applying functional programming principles. You will get to know how to use higher order components in an elegant way.
 
-In order to teach higher order components, the article focuses on the use case of conditional rendering. A conditional rendering in React can be applied in multiple ways. You can use if-else statements, the ternary operator or the logical && operator. You can read more about the different ways in another article about [different ways for conditional renderings in React](https://www.robinwieruch.de/conditional-rendering-react/). If you are not familiar with conditional rendering in React, you could read the article first.
+In order to teach higher order components, the article focuses on the use case of conditional rendering. A conditional rendering in React can be applied in multiple ways. You can use if-else statements, the ternary operator or the logical && operator. You can read more about the different ways in another article about [conditional renderings in React](https://www.robinwieruch.de/conditional-rendering-react/). If you are not familiar with conditional rendering in React, you could read the article first.
 
 # A Growing Component
 
-We will start with a problem in React where higher order components could be used to solve that problem. Let's assume our application has a `TodoList` component.
+We will start with a problem in React where higher order components could be used as solution. Let's assume our application has a `TodoList` component.
 
 {{< highlight javascript >}}
 function App(props) {
@@ -39,7 +39,7 @@ function App(props) {
 function TodoList({ todos }) {
   return (
     <div>
-      {map.todos(todo => <TodoItem key={todo.id} todo={todo} />)}
+      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
     </div>
   );
 }
@@ -59,7 +59,7 @@ function TodoList({ todos }) {
 
   return (
     <div>
-      {map.todos(todo => <TodoItem key={todo.id} todo={todo} />)}
+      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
     </div>
   );
 }
@@ -83,13 +83,13 @@ function TodoList({ todos }) {
 
   return (
     <div>
-      {map.todos(todo => <TodoItem key={todo.id} todo={todo} />)}
+      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
     </div>
   );
 }
 {{< /highlight >}}
 
-Third, since the todos arrive asynchronously from your backend, you want to show a loading indicator in case the todos are still in a pending request.
+Third, since the todos arrive asynchronously from your backend, you want to show a loading indicator in case the todos are still in a pending request. You would get one more property, such as 'isLoadingTodos', to know about the loading state.
 
 {{< highlight javascript "hl_lines=1 2 3 4 5 6 7 8" >}}
 function TodoList({ todos, isLoadingTodos }) {
@@ -115,13 +115,13 @@ function TodoList({ todos, isLoadingTodos }) {
 
   return (
     <div>
-      {map.todos(todo => <TodoItem key={todo.id} todo={todo} />)}
+      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
     </div>
   );
 }
 {{< /highlight >}}
 
-Okay. I don't want to make this more complex as it is. But you get the idea that a lot of edge cases for conditional renderings can add up in a simple component. Higher order components can solves this issue. They can be used to shield away these edge cases as reusabled functionalities. Thus the `TodoList` has not to worry about it anymore. Let's enter the concept of higher order components to deal with it.
+Okay. I don't want to make this more complex as it is. But you get the idea that a lot of edge cases for conditional renderings can add up in a simple component. Higher order components can solves this issue. They can be used to shield away these edge cases as reusable functionalities. Thus the `TodoList` has not to worry about it anymore. Let's enter the concept of higher order components to deal with it.
 
 # Entering Higher Order Components
 
@@ -151,7 +151,7 @@ function TodoList({ todos, isLoadingTodos }) {
 
   return (
     <div>
-      {map.todos(todo => <TodoItem key={todo.id} todo={todo} />)}
+      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
     </div>
   );
 }
@@ -169,7 +169,7 @@ function withTodosNull(Component) {
 
 Now, let's slow down and let me explain what's happening in `withTodosNull`.
 
-Basically the `withTodosNull` function is a higher order function. It takes an input and returns another function. Since we use it in the context of React, we can call it a higher order component. Because it takes a `Component` as input and returns another `Component`. We don't return another `Component` yet, but we will do later on. In this case it will return a functional stateless component, but it could return a ES6 class component as well. Depending on your use case you can use different component types. Yet a functional stateless component is sufficient for the sake of conditonal rendering. When you would need access to `this.state` or React lifecylce methods, you could return an ES6 class component.
+Basically the `withTodosNull` function is a higher order function. It takes an input and returns another function. Since we use it in the context of React, we can call it a higher order component. Because it takes a `Component` as input and returns another `Component`. We don't return another `Component` yet, but we will do later on. In this case it will return a functional stateless component, but it could return a ES6 class component as well. Depending on your use case you can use different component types. Yet a functional stateless component is sufficient for the sake of conditional rendering. When you would need access to `this.state` or React lifecycle methods, you could return an ES6 class component.
 
 As mentioned, the **enhanced component** doesn't render anything. Let's add the rendered output of the enhanced component.
 
@@ -219,7 +219,7 @@ function App(props) {
 
 That's it. As you can see, you can use it whenever you need it. Higher order components are reusable.
 
-But there are more conditional renderings in the `TodoList` component. Let's quickly implement two more higher order components that take ownership of the loading indicator and an empy list.
+But there are more conditional renderings in the `TodoList` component. Let's quickly implement two more higher order components that take ownership of the loading indicator and an empty list.
 
 {{< highlight javascript >}}
 const withTodosEmpty = (Component) => (props) =>
@@ -260,9 +260,9 @@ function TodoList({ todos }) {
   ...
 }
 
-const TodoListOne = withLoadingIndicator(TodoList);
+const TodoListOne = withTodosEmpty(TodoList);
 const TodoListTwo = withTodosNull(TodoListOne);
-const TodoListThree = withTodosEmpty(TodoListTwo);
+const TodoListThree = withLoadingIndicator(TodoListTwo);
 
 function App(props) {
   return (
@@ -274,7 +274,7 @@ function App(props) {
 }
 {{< /highlight >}}
 
-The order to apply the higher order components should be the same as in the previous `TodoList` with all implemeted conditional renderings. Otherwise, like in the basic `TodoList` component that had all the conditional renderings, you would run into bugs because of an `length` check on an null `todos` object.
+The order to apply the higher order components should be the same as in the previous `TodoList` with all implemented conditional renderings. Otherwise, like in the basic `TodoList` component that had all the conditional renderings, you would run into bugs because of an `length` check on an null `todos` object.
 
 Let's see what is left in the `TodoList` component:
 
@@ -282,7 +282,7 @@ Let's see what is left in the `TodoList` component:
 function TodoList({ todos, isLoadingTodos }) {
   return (
     <div>
-      {map.todos(todo => <TodoItem key={todo.id} todo={todo} />)}
+      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
     </div>
   );
 }
@@ -293,27 +293,29 @@ Isn't that great? We shielded away all the conditional renderings and the `TodoL
 But it is kinda tedious to wrap all the components by hand into each other.
 
 {{< highlight javascript >}}
-const TodoListOne = withLoadingIndicator(TodoList);
+const TodoListOne = withTodosEmpty(TodoList);
 const TodoListTwo = withTodosNull(TodoListOne);
-const TodoListThree = withTodosEmpty(TodoListTwo);
+const TodoListThree = withLoadingIndicator(TodoListTwo);
 {{< /highlight >}}
 
 You could refactor it to:
 
 {{< highlight javascript >}}
-const TodoListWithConditionalRendering = withTodosEmpty(withTodosNull(withLoadingIndicator(TodoList)));
+const TodoListWithConditionalRendering = withLoadingIndicator(withTodosNull(withTodosEmpty(TodoList)));
 {{< /highlight >}}
 
-Still, it is not readble. React embraces functional programming, so why are we not using these principles?
+Still, it is not readable. React embraces functional programming, so why are we not using these principles?
 
 # Entering Recompose
 
-The little higher order component library {{% a_blank "recompose" "https://github.com/acdlite/recompose" %}} has a lot built-in higher order components that you can re-use. You should definetly check them out after you have read this article. However, it comes with a neat functionality called `compose` that allows you to return one function composed out of multiple functions. These multiple functions could be all of our conditional rendering HOCs. And that's how you use it:
+The little higher order component library {{% a_blank "recompose" "https://github.com/acdlite/recompose" %}} has a lot built-in higher order components that you can re-use. You should definitely check them out after you have read this article. However, it comes with a neat functionality called `compose` that allows you to return one function composed out of multiple functions. These multiple functions could be all of our conditional rendering HOCs. And that's how you use it:
 
 {{< highlight javascript >}}
-import recompose from 'recompose';
+import { compose } from 'recompose';
 
-const withConditionalRenderings = recompose.compose(
+...
+
+const withConditionalRenderings = compose(
   withLoadingIndicator,
   withTodosNull,
   withTodosEmpty
@@ -329,7 +331,7 @@ const TodoListWithConditionalRendering = withConditionalRenderings(TodoList);
 That's convenient, isn't it? You can use `compose` to pass your input component through all higher order component functions. The input components gets an enhanced version of the component in each function.
 
 {{< highlight javascript "hl_lines=1 16 17 18 19 20 22 26" >}}
-import recompose from 'recompose';
+import { compose } from 'recompose';
 
 const withTodosNull = (Component) => (props) =>
   ...
@@ -344,7 +346,7 @@ function TodoList({ todos }) {
   ...
 }
 
-const withConditionalRenderings = recompose.compose(
+const withConditionalRenderings = compose(
   withLoadingIndicator,
   withTodosNull,
   withTodosEmpty
@@ -390,7 +392,7 @@ const withCondition = (Component, conditionalRenderingFn) => (props) =>
 
 Now you could use the higher order component but with a function that determines the conditional rendering.
 
-{{< highlight javascript "hl_lines=1 2 6 8" >}}
+{{< highlight javascript "hl_lines=6 8" >}}
 const withCondition = (Component, conditionalRenderingFn) => (props) =>
   conditionalRenderingFn(props)
     ? null
@@ -401,14 +403,14 @@ const conditionFn = (props) => !props.todos;
 const TodoListWithCondition = withTodosNull(TodoList, conditionFn);
 {{< /highlight >}}
 
-The `withCondition` HOC enables you to re-use it everywhere for a conditional rendering that returns the input component or nothing. It is independent of the input component, indepenent of the condition and independent of the props structure.
+The `withCondition` HOC enables you to re-use it everywhere for a conditional rendering that returns the input component or nothing. It is independent of the input component, independent of the condition and independent of the props structure.
 
 Now let's use the `withCondition` in our composition of HOCs.
 
 {{< highlight javascript "hl_lines=5" >}}
-import recompose from 'recompose';
+import { compose } from 'recompose';
 
-const withConditionalRenderings = recompose.compose(
+const withConditionalRenderings = compose(
     withLoadingIndicator,
     withCondition,
     withTodosEmpty
@@ -431,11 +433,13 @@ const withCondition = (conditionalRenderingFn) => (Component) => (props) =>
 Now, the first time you invoke `withCondition` you have to pass the condition function. It returns your higher order component. The HOC can then be used in the composition of recompose.
 
 {{< highlight javascript "hl_lines=7" >}}
-import recompose from 'recompose';
+import { compose } from 'recompose';
+
+...
 
 const conditionFn = (props) => !props.todos;
 
-const withConditionalRenderings = recompose.compose(
+const withConditionalRenderings = compose(
     withLoadingIndicator,
     withCondition(conditionFn),
     withTodosEmpty
@@ -459,7 +463,7 @@ const withCondition = (conditionalRenderingFn) => (Component) => (props) =>
     : <Component { ...props } />
 {{< /highlight >}}
 
-The component returns nothing or the input component. Such a type, nothing or value, is called Maybe (or Option) in functional programming. After knowing this, you could call the higher order component `withMaybe`. It would follow functional programming naming conventions.
+The component returns nothing or the input component. Such a type, nothing or value, is called Maybe (or Option) in functional programming. After knowing this, you could call the higher order component `withMaybe`. Even though the HOC is not an explicit type, it would use the naming convention of FP to make it simple to understand.
 
 {{< highlight javascript "hl_lines=1" >}}
 const withMaybe = (conditionalRenderingFn) => (Component) => (props) =>
@@ -480,9 +484,11 @@ const withEither = (conditionalRenderingFn, EitherComponent) => (Component) => (
 Now you can use it in the application by passing the conditional function and the `EitherComponent`.
 
 {{< highlight javascript "hl_lines=3 4 5 6 8 9 10 11 13 14 15 18 20" >}}
-import recompose from 'recompose';
+import { compose } from 'recompose';
 
-const Empty = () =>
+...
+
+const EmptyMessage = () =>
   <div>
     <p>You have no Todos.</p>
   </div>
@@ -496,7 +502,7 @@ const isLoadingConditionFn = (props) => props.isLoadingTodos;
 const nullConditionFn = (props) => !props.todos;
 const isEmptyConditionFn = (props) => !props.todos.length
 
-const withConditionalRenderings = recompose.compose(
+const withConditionalRenderings = compose(
   withEither(isLoadingConditionFn, LoadingIndicator),
   withMaybe(nullConditionFn),
   withEither(isEmptyConditionFn, EmptyMessage)
@@ -510,7 +516,7 @@ Now every higher order component receives a payload apart from the input compone
 Last but least, let's see everything in context to each other.
 
 {{< highlight javascript >}}
-import recompose from 'recompose';
+import { compose } from 'recompose';
 
 const withMaybe = (conditionalRenderingFn) => (Component) => (props) =>
   conditionalRenderingFn(props)
@@ -522,7 +528,7 @@ const withEither = (conditionalRenderingFn, EitherComponent) => (Component) => (
     ? <EitherComponent />
     : <Component { ...props } />
 
-const Empty = () =>
+const EmptyMessage = () =>
   <div>
     <p>You have no Todos.</p>
   </div>
@@ -536,7 +542,7 @@ const isLoadingConditionFn = (props) => props.isLoadingTodos;
 const nullConditionFn = (props) => !props.todos;
 const isEmptyConditionFn = (props) => !props.todos.length
 
-const withConditionalRenderings = recompose.compose(
+const withConditionalRenderings = compose(
   withEither(isLoadingConditionFn, LoadingIndicator),
   withMaybe(nullConditionFn),
   withEither(isEmptyConditionFn, EmptyMessage)
@@ -556,7 +562,7 @@ function App(props) {
 function TodoList({ todos }) {
   return (
     <div>
-      {map.todos(todo => <TodoItem key={todo.id} todo={todo} />)}
+      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
     </div>
   );
 }
