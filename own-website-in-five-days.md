@@ -34,7 +34,7 @@ Read more about {{% a_blank "Hugo" "https://gohugo.io/" %}} and its features bef
 Now you can install Hugo with Homebrew:
 
 {{< highlight javascript >}}
-bew update && brew install hugo
+brew update && brew install hugo
 {{< /highlight >}}
 
 You can create your first basic website by following the {{% a_blank "quickstart guide" "https://gohugo.io/overview/quickstart/" %}}. Give yourself a bit of time to understand Hugo. The quickstart guide covers how to scaffold your project and its content. Additionally you get to know how to apply a theme and how to experiment with your local website.
