@@ -29,21 +29,37 @@ The Road to learn React comes as eBook and as [interactive course](https://www.e
 
 {{% chapter_header "Testimonials" "testimonials" %}}
 
+* {{% a_blank "Muhammad Kashif" "https://twitter.com/appsdevpk" %}}: *"The Road to Learn React is a unique book that I recommend to any student or professional interested in learning react basics to advanced level. It is packed with insightful tips and techniques that are hard to find elsewhere, and remarkably thorough in its use of examples and references to sample problems, i have 17 years of experience in web and desktop app development, and before reading this book i was having trouble in learning react, but this book works like magic."*
+
+* {{% a_blank "Nicholas Hunt-Walker, Instructor of Python at a Seattle Coding School" "https://github.com/nhuntwalker" %}}: *"This is one of the most well-written & informative coding books I've ever worked through. A solid React & ES6 introduction."*
+
 * A Rookie Developer: *"I just finished the book as a rookie developer, thanks for working on this. It was easy to follow and I feel confident in starting a new app from scratch in the coming days. The book was much better than official React.js tutorial that I tried earlier (and couldn't complete due to lack of detail). The exercises at the end of each section were very rewarding."*
 
-* Goodreads Review: *"Pretty solid introduction to React that doesn't try to be comprehensive. I just wanted a taste to understand what it was about and this book gave me exactly that. I didn't follow all the little footnotes to learn about the new ES6 features I've missed ("I wouldn't say I've been missing it, Bob."). But I'm sure for those of you who have fallen behind and are diligent about following those, you can probably learn a lot more than just what the book teaches."*
+* Student: *"The best book to start learning ReactJS. The project moves along with the concepts being learnt which helps to grasp the subject. I have found 'Code and learn' as best way to master programming and this book exactly does that."*
+
+* {{% a_blank "Thomas Lockney" "https://www.goodreads.com/review/show/1880673388" %}}: *"Pretty solid introduction to React that doesn't try to be comprehensive. I just wanted a taste to understand what it was about and this book gave me exactly that. I didn't follow all the little footnotes to learn about the new ES6 features I've missed ("I wouldn't say I've been missing it, Bob."). But I'm sure for those of you who have fallen behind and are diligent about following those, you can probably learn a lot more than just what the book teaches."*
+
+{{% chapter_header "Education for Children" "educateChildren" %}}
+
+The book is open source and should enable everyone to learn React. However, not everyone is privileged to use open source resources, because not everyone is educated in the English language in the first place. Even though the book is pay what you want, I want to use it to support projects that teach children English in the developing world.
+
+* 11. April to 18. April, 2017, [Giving Back, By Learning React](https://www.robinwieruch.de/giving-back-by-learning-react/)
 
 {{% chapter_header "FAQ" "faq" %}}
 
 **How do I get updates?** You can [subscribe](https://www.getrevue.co/profile/rwieruch) to my Newsletter or follow me on [Twitter](https://twitter.com/rwieruch) to get updates. It keeps me motivated to continue. Once you have a copy of the book, it will stay updated. But you have to download the copy again when an update is announced. I will notify everyone by a [Newsletter](https://www.getrevue.co/profile/rwieruch) and [Twitter](https://twitter.com/rwieruch).
 
+**Does it use the recent React version?** Books are outdated pretty soon after their release. Since this book is self-published, I can update it whenever I want. In conclusion, I update the resource whenever there is a new React version.
+
 **Does it cover Redux?** It doesn't. The book should give you a solid foundation before you dive into advanced topics. Still the implementation in the book will show you that you don't need Redux to build an application. After you have read the book, you should be able to implement a solid application without Redux. You can pre-order my next book to support me: [The Road to learn Redux](https://gumroad.com/products/uwiyI).
 
 **Does it use JavaScript ES6?** Yes. But don't worry. You will be fine if you are familiar with JavaScript ES5. All JavaScript ES6 features I describe on the journey to learn React will transition from ES5 to ES6 in the book. Every feature along the way will be explained. The book does not only teach React, but also all useful JavaScript ES6 features for React.
 
+**Will you add more chapters in the future?** You can have a look at the Change Log chapter for major updates that already happened. There will be unannounced improvements in between all the time. In general it depends on the community whether I continue to work on the book. If there is an acceptance for the book, I will deliver more chapters and improve the old material. I will keep the content up to date with recent best practices, concepts and patterns. I would love to hear your thoughts about possible chapters to improve and enrich the learning experience.
+
 **Why is the book pay what you want?** I have put a lot of effort into this and will do so in the future. My desire is to reach as many people as possible. Everyone should be enabled to learn React. Still you could pay - if you can afford it - because it already took me a lot of my time to write and improve the book.
 
-**Will you add more chapters in the future?** You can have a look at the Change Log chapter for major updates that already happened. There will be unannounced improvements in between all the time. In general it depends on the community whether I continue to work on the book. If there is an acceptance for the book, I will deliver more chapters and improve the old material. I will keep the content up to date with recent best practices, concepts and patterns. I would love to hear your thoughts about possible chapters to improve and enrich the learning experience.
+**Can I support the project?** Yes. Feel free to reach out or to support me. I invest a lot of my time into open source tutorials and learning resources. You can have a look at my [about me](https://www.robinwieruch.de/about/) page.
 
 {{% chapter_header "Changelog" "changelog" %}}
 
@@ -62,6 +78,10 @@ The Road to learn React comes as eBook and as [interactive course](https://www.e
 * 25% improved content
 * 9 new chapters
 * 170 pages of learning material
+
+**15. April 2017:**
+
+* upgrade to React 15.5.
 
 {{% chapter_header "What you can expect (so far...)" "expectNow" %}}
 
