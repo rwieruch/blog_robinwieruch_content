@@ -375,3 +375,5 @@ These were only my lessons learned, but I am curious about yours. If you didn't 
 "If you give your mind something meaningful to do throughout **all** your waking hours, you'll end the day more fulfilled, and begin the next one more relaxed [...]" by Cal Newport.
 
 {{% read_more "Lessons learned from On Writing Well" "https://www.robinwieruch.de/lessons-learned-on-writing-well/" %}}
+
+{{% read_more "Lessons learned from Give and Take" "https://www.robinwieruch.de/lessons-learned-give-and-take/" %}}
