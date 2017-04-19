@@ -1,6 +1,6 @@
 # Content & Contribution
 
-You can actively contribute on [robinwieruch.de](robinwieruch.de).
+You can actively contribute on [robinwieruch.de](https://robinwieruch.de/).
 
 Feel free to improve the content.
 
