@@ -178,7 +178,7 @@ The book is open source and should enable everyone to learn React. However, not 
 * Final Steps to Production
   * Eject
   * Deploy your App
-* Final Words
+* Outline
 
 {{% chapter_header "Book Preview" "bookPreview" %}}
 
