@@ -46,3 +46,5 @@ To have a meaningful impact with the article, **I want to donate all earnings of
 How is all of this connected to a web development book? The book is open source yet it isn't of use for minorities in countries who lack education. People are not able to achieve higher education when they have no knowledge about the English language. For example, the Big Brother Mouse project contributes English children's book to educate children in Laos.
 
 People in such countries have no access to things like Open Source in the first place. By donating in education you can open up opportunities for them. They could be the next generation of engineers. By investing in education for children in the developing world, you contribute to diversity in our professional lives.
+
+{{% pin_it_image "learn react" "img/posts/giving-back-by-learning-react/result.png" %}}

@@ -1,7 +1,7 @@
 +++
 title = "Local Storage in React"
 description = "The article gives you a little showcase on how to persist state in React with local storage, how to use it as a cache and how to make it expire..."
-date = "2017-04-25T13:50:46+02:00"
+date = "2017-04-27T13:50:46+02:00"
 tags = ["React"]
 categories = ["React"]
 keyword = "react local storage"

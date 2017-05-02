@@ -25,7 +25,7 @@ You will learn to build your own Hacker News application. It covers real world f
 
 The Road to learn React comes as eBook and as [interactive course](https://www.educative.io/collection/5740745361195008/5676830073815040).
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 170+ pages of learning material. Pay as you want like <strong>6000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 170+ pages of learning material. Pay as you want like <strong>6500+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
 {{% chapter_header "Testimonials" "testimonials" %}}
 
@@ -38,6 +38,9 @@ The Road to learn React comes as eBook and as [interactive course](https://www.e
 * Student: *"The best book to start learning ReactJS. The project moves along with the concepts being learnt which helps to grasp the subject. I have found 'Code and learn' as best way to master programming and this book exactly does that."*
 
 * {{% a_blank "Thomas Lockney" "https://www.goodreads.com/review/show/1880673388" %}}: *"Pretty solid introduction to React that doesn't try to be comprehensive. I just wanted a taste to understand what it was about and this book gave me exactly that. I didn't follow all the little footnotes to learn about the new ES6 features I've missed ("I wouldn't say I've been missing it, Bob."). But I'm sure for those of you who have fallen behind and are diligent about following those, you can probably learn a lot more than just what the book teaches."*
+
+{{% pin_it_image "learn reactjs" "img/posts/the-road-to-learn-react/testimonial_andre_vargas.jpg" %}}
+{{% pin_it_image "learn reactjs" "img/posts/the-road-to-learn-react/testimonial_appsdev.jpg" %}}
 
 {{% chapter_header "Education for Children" "educateChildren" %}}
 
@@ -60,6 +63,8 @@ The book is open source and should enable everyone to learn React. However, not 
 **Why is the book pay what you want?** I have put a lot of effort into this and will do so in the future. My desire is to reach as many people as possible. Everyone should be enabled to learn React. Still you could pay - if you can afford it - because it already took me a lot of my time to write and improve the book.
 
 **Can I support the project?** Yes. Feel free to reach out or to support me. I invest a lot of my time into open source tutorials and learning resources. You can have a look at my [about me](https://www.robinwieruch.de/about/) page.
+
+**Is there a call to action?** Yes. I want you to take a moment to think about a person who would be a good match to learn React. The person could have shown the interest already, could be in the middle of learning React or might not yet be aware about wanting to learn React. Reach out to that person and share the book. It would mean a lot to me. The book is intended to be given to others.
 
 {{% chapter_header "Changelog" "changelog" %}}
 
@@ -281,20 +286,24 @@ You will encounter more npm commands on your way. But these will be sufficient f
 
 My recommended learning paths (extracted from the book) after you have read the book:
 
-* **Code Organization:** On your way reading the book you came across one chapter about Code Organization. You could apply these changes now, if you haven't done it yet. It will organize your components in structured files and folders (modules). In addition it helps to understand and learn the principles of code splitting, reusability, maintainability and module API design.
+* **Code Organization:** On your way reading the book you came across one chapter about Code Organization. You could apply these changes now, if you haven't done it yet. It will organize your components in structured files and folders (modules). In addition, it helps to understand and learn the principles of code splitting, reusability, maintainability and module API design.
 
-* **Asynchronous Requests:** You can substitute the native fetch API with third party alternatives to perform asynchronous requests: {{% a_blank "superagent" "https://github.com/visionmedia/superagent" %}} or {{% a_blank "axios" "https://github.com/mzabriskie/axios" %}}. There is no perfect solution to make asynchronous requests. But by exchanging the buildings blocks around React, you make the experience how powerful it can be to have this flexibility. In frameworks you stick to one solution, in a flexible ecosystem like React you can exchange the solutions.
+* **Testing:** The book only scratched the surface of testing. If you are not familiar with the general topic, you could dive deeper into the concepts of unit testing and integration testing, especially in context of React applications. On an implementation level, I would recommend to stick to Enzyme and Jest in order to refine your approach of testing in React.
 
-* **Type Checking:** In one chapter you have used React PropTypes to define component interfaces. It is a good practice to prevent bugs. But the PropTypes are only checked on runtime. You can go one step further to introduce static type checking in your editor. {{% a_blank "TypeScript" "https://www.typescriptlang.org/" %}} is one popular approach. But in the React ecosystem people prefer to use {{% a_blank "Flow" "https://flowtype.org/" %}}. I can recommend to give Flow a shot.
+* **Asynchronous Requests:** You can substitute the native fetch API with third party alternatives to perform asynchronous requests: {{% a_blank "superagent" "https://github.com/visionmedia/superagent" %}} or {{% a_blank "axios" "https://github.com/mzabriskie/axios" %}}. There is no perfect solution to make asynchronous requests. But by exchanging the buildings blocks around React, you make the experience {{% a_blank "how powerful it can be to have this flexibility" "https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/" %}}. In frameworks you usually stick to one solution. In a flexible ecosystem like React you can exchange the solutions.
 
-* **Tooling with Webpack and Babel:** You have setup your application with *create-react-app*. At some point, when you learned React, you want to learn the tooling around it to setup your own project without *create-react-app*. I can recommend to follow a minimal setup with [Webpack and Babel](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). Afterward you could [setup ESLint](https://www.robinwieruch.de/react-eslint-webpack-babel/) to follow a unified code style in your application.
+* **Type Checking:** In one chapter you have used React PropTypes to define component interfaces. It is a good practice to prevent bugs. But the PropTypes are only checked on runtime. You can go one step further to introduce static type checking on compile time. {{% a_blank "TypeScript" "https://www.typescriptlang.org/" %}} is one popular approach. But in the React ecosystem people often use {{% a_blank "Flow" "https://flowtype.org/" %}}. I can recommend to give Flow a shot.
 
-* **State Management:** You have used React `setState` to manage internal component state. That's a perfect start. However, in a scaling application you will experience the limits of internal component state. Therefore you have third party state management libraries like Redux or MobX.
+* **Tooling with Webpack and Babel:** In the book you used *create-react-app* to set up your application. At some point, when you learned React, you want to learn the tooling around it. It enables you to setup your own project without *create-react-app*. I can recommend to follow a minimal setup with {{% a_blank "Webpack and Babel" "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" %}}. Afterward you could {{% a_blank "use ESLint" "https://www.robinwieruch.de/react-eslint-webpack-babel/" %}} to follow a unified code style in your application.
 
-* **Routing:** You can implement routing for your application with {{% a_blank "react-router" "https://github.com/ReactTraining/react-router" %}}. So far you only have one page in your application. React Router helps you to have multiple pages across different URLs.
+* **State Management:** You have used React `this.setState()` to manage internal component state. That's a perfect start. However, in a scaling application you will experience the limits of internal component state. Therefore you have third party state management libraries like {{% a_blank "Redux or MobX" "https://www.robinwieruch.de/redux-mobx-confusion/" %}}. My {{% a_blank "next book" "https://gumroad.com/products/uwiyI" %}} will give you guidance on this topic.
+
+* **Routing:** You can implement routing for your application with {{% a_blank "react-router" "https://github.com/ReactTraining/react-router" %}}. So far you only have one page in your application. React Router helps you to have multiple pages across multiple URLs.
+
+* **React Native:** {{% a_blank "React Native" "https://facebook.github.io/react-native/" %}} brings your application on mobile devices. You can apply your learnings from React to ship iOS and Android applications. The learning curve, once you learned React, shouldn't be steep in React Native. Both share the same principles. You will only encounter different layout components on mobile than you are used to in web applications.
 
 <hr class="section-divider">
 
 Now you should know everything what you can expect from the book. You can pay what you want, because I want to enable everyone to learn React. I would really appreciate your support on social media to reach as many people as possible to grab a version of the book.
 
-{{% package_box "Pre-order: The Road to learn Redux" "If there is enough interest and support, I would love to teach you Redux as a state management solution. It would be a walkthrough from the problem of state handling to an exhaustive solution with Redux." "Pre-order" "img/page/cover-redux-ebook.png" "https://gum.co/the-road-to-learn-redux" %}}
+{{% package_box "Pre-order: The Road to learn Redux" "A walkthrough from the problem to the solution of state management in React. It covers local state, Redux and MobX and outlines other technologies." "Pre-order" "img/page/cover-redux-ebook.png" "https://gum.co/the-road-to-learn-redux" %}}
