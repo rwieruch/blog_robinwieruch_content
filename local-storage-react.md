@@ -65,7 +65,7 @@ class App extends React.Component {
 
         <form type="submit" onSubmit={this.onSearch}>
           <input type="text" ref={node => this.input = node} />
-          <button type="text">Search</button>
+          <button type="button">Search</button>
         </form>
 
         {
@@ -151,7 +151,7 @@ class App extends React.Component {
 
         <form type="submit" onSubmit={this.onSearch}>
           <input type="text" ref={node => this.input = node} />
-          <button type="text">Search</button>
+          <button type="button">Search</button>
         </form>
 
         {
