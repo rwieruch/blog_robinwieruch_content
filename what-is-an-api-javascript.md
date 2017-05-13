@@ -6,6 +6,7 @@ tags = ["react"]
 categories = ["React"]
 keyword = "what javascript api"
 news_keywords = ["what javascript api"]
+hashtag = "#JavaScript"
 contribute = "what-is-an-api-javascript.md"
 banner = "img/posts/what-is-an-api-javascript/banner.jpeg"
 headline = "Nobody introduced me to the API - A journey from packages to RESTful services with Roy T. Fielding"

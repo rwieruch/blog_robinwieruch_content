@@ -6,6 +6,7 @@ tags = ["Redux"]
 categories = ["Redux"]
 keyword = "redux observable"
 news_keywords = ["redux observable", "redux rxjs"]
+hashtag = "#ReactJs"
 banner = "img/posts/redux-observable-rxjs/banner.jpg"
 contribute = "redux-observable-rxjs.md"
 headline = "Redux Observable RxJS: Going Epic with Reactive Programming"
@@ -63,7 +64,7 @@ import 'rxjs';
 
 After we've set up everything accordingly, we can start to replace the thunk approach observables. We do this from scratch and you can compare the solution afterwards with the thunk approach we used before.
 
-First we need to authenticate our app with the SoundCloud API.
+First we need to authenticate our app with the SoundCloud API ([What's an API?](https://www.robinwieruch.de/what-is-an-api-javascript/)).
 
 *src/actions/auth.js*
 

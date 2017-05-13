@@ -6,6 +6,7 @@ tags = ["react", "angular"]
 categories = ["React"]
 keyword = "angular or react"
 news_keywords = ["angular or react"]
+hashtag = "#ReactJs"
 contribute = "reasons-why-i-moved-from-angular-to-react.md"
 banner = "img/posts/reasons-why-i-moved-from-angular-to-react/banner.jpg"
 headline = "10 Reasons why I moved from Angular to React"
@@ -65,7 +66,7 @@ Overall there are only 9 lifecycle methods to control your component. But in mos
 
 After that you only need to know two more React ES6 class component methods: `setState()` and `forceUpdate()`. You will barely touch the latter one which updates a component forcefully and programmatically. But `setState()` is used to update your internal component state that you have initialized in your `constructor()` lifecycle method. Imagine you have a list of items in your component. As next step you want to be able to add and remove items from the list. You can do so by storing the list in your internal component state `this.state` and by using `setState()` to update the list.
 
-You can read more in depth about the React component API in the {{% a_blank "official React documentation" "https://facebook.github.io/react/docs/react-component.html" %}}.
+You can read more in depth about the React component API in the {{% a_blank "official React documentation" "https://facebook.github.io/react/docs/react-component.html" %}}. If you are not familiar with APIs in general, I can recommend to read [this article](https://www.robinwieruch.de/what-is-an-api-javascript/).
 
 After that you know all the essential component methods. Still there are more concepts in React, like props and state, the children property or different component declarations. But you can learn all of them step by step.
 

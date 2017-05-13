@@ -6,6 +6,7 @@ tags = ["React", "Redux"]
 categories = ["React", "Redux"]
 keyword = "redux normalizr"
 news_keywords = ["redux normalizr"]
+hashtag = "#ReactJs"
 banner = "img/posts/the-soundcloud-client-in-react-redux-normalizr/banner.jpg"
 contribute = "the-soundcloud-client-in-react-redux-normalizr.md"
 headline = "Redux Normalizr: Improve your State Management"
@@ -719,7 +720,7 @@ Finally we are done using normalizr for our React + Redux app. Normalizr helps t
 
 {{% chapter_header "Exercise" "exercise" %}}
 
-You can use the SoundCloud API to like the track for real without faking it. Look into the {{% a_blank "API Documentation" "https://developers.soundcloud.com/docs/api/guide" %}} for more advice.
+You can use the SoundCloud API ([What's an API?](https://www.robinwieruch.de/what-is-an-api-javascript/)) to like the track for real without faking it. Look into the {{% a_blank "API Documentation" "https://developers.soundcloud.com/docs/api/guide" %}} for more advice.
 
 {{% chapter_header "Troubleshoot" "troubleshoot" %}}
 

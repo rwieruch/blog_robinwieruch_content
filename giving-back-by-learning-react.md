@@ -6,6 +6,7 @@ tags = ["React"]
 categories = ["React"]
 keyword = "learn react"
 news_keywords = ["learn react"]
+hashtag = "#ReactJs"
 banner = "img/posts/giving-back-by-learning-react/banner.jpg"
 contribute = "giving-back-by-learning-react.md"
 headline = "Giving Back, By Learning React"

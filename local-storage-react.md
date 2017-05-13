@@ -6,6 +6,7 @@ tags = ["React"]
 categories = ["React"]
 keyword = "react local storage"
 news_keywords = ["react local storage"]
+hashtag = "#ReactJs"
 banner = "img/posts/local-storage-react/banner.jpg"
 contribute = "local-storage-react.md"
 headline = "Local Storage in React"
@@ -25,7 +26,7 @@ The article gives you a little showcase on how to persist state in React with lo
 
 You can use {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}} or any other [React boilerplate](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). I can recommend to use *create-react-app*.
 
-Since we will use the *native fetch API* to retrieve data from an third party API, you should make sure that *fetch* is supported by your browser. Otherwise you would need a polyfill to support it. That's why I recommend to use *create-react-app*, because the fetch API will work in every browser. They provide everything for you.
+Since we will use the *native fetch API* ([What's an API?](https://www.robinwieruch.de/what-is-an-api-javascript/)) to retrieve data from an third-party API, you should make sure that *fetch* is supported by your browser. Otherwise you would need a polyfill to support it. That's why I recommend to use *create-react-app*, because the fetch API will work in every browser. They provide everything for you.
 
 After you have set up your project, you can replace your root component with the following boilerplate.
 

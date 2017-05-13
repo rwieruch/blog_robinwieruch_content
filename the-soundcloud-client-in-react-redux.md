@@ -6,6 +6,7 @@ tags = ["React", "Redux"]
 categories = ["React", "Redux"]
 keyword = "react redux"
 news_keywords = ["react redux"]
+hashtag = "#ReactJs"
 banner = "img/posts/the-soundcloud-client-in-react-redux/banner.jpg"
 contribute = "the-soundcloud-client-in-react-redux.md"
 headline = "The SoundCloud Client in React + Redux"
@@ -25,7 +26,7 @@ It took me some weeks to implement the {{% a_blank "SoundCloud Client FaveSound"
 
 Professionally I grew with the code base, but also got an entry point into the open source community by providing a {{% a_blank "larger code base example for beginners" "https://github.com/rwieruch/favesound-redux" %}} in the React + Redux world. Since I made this great experience, I wanted to give the community this hands on tutorial, which will guide people to get started in React + Redux with a compelling real world application - a SoundCloud client.
 
-At the end of this tutorial you can expect to have a running React + Redux app, which consumes the SoundCloud API. You will be able to login with your SoundCloud account, list your latest tracks and listen to them within the browser. Additionally you will learn a lot about tooling with Webpack and Babel.
+At the end of this tutorial you can expect to have a running React + Redux app, which consumes the SoundCloud API ([What's an API?](https://www.robinwieruch.de/what-is-an-api-javascript/)). You will be able to login with your SoundCloud account, list your latest tracks and listen to them within the browser. Additionally you will learn a lot about tooling with Webpack and Babel.
 
 In the future I am going to write some [smaller tutorials](#extensions) based on this one. They will simply build on top of this project and help you to get started in various topics. So keep an eye on this tutorial, follow me on {{% a_blank "Twitter" "https://twitter.com/rwieruch" %}} or {{% a_blank "GitHub" "https://github.com/rwieruch" %}} or simply star the {{% a_blank "repository" "https://github.com/rwieruch/react-redux-soundcloud" %}} to get updates.
 
@@ -79,7 +80,7 @@ The whole tutorial contains a lot of information. I wouldn't suggest to do every
 
 Additionally I can recommend to read *The Road to learn React* before you dive into Redux. It teaches React by building a Hacker News App without configuration, tooling and Redux. If you are new to React, do yourself a favour and learn React first.
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 170+ pages of learning material. Pay as you want like <strong>6500+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 170+ pages of learning material. Pay as you want like <strong>7000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
 {{% chapter_header "Let’s get started" "getStarted" %}}
 

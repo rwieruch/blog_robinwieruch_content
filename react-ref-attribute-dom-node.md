@@ -6,6 +6,7 @@ tags = ["React"]
 categories = ["React"]
 keyword = "react ref"
 news_keywords = ["react ref"]
+hashtag = "#ReactJs"
 banner = "img/posts/react-ref-attribute-dom-node/banner.jpg"
 contribute = "react-ref-attribute-dom-node.md"
 headline = "When to use Ref on a DOM node in React"
@@ -69,7 +70,7 @@ But it is not always a good idea to use the `ref` attribute. The general rule of
 * *Integrating with third-party DOM libraries.*
 * *Triggering imperative animations.*
 
-First, you can use the `ref` attribute to access the DOM API. You can get a value of an input element yet you can also trigger methods like a `focus()`. It gives you control over the DOM API, for instance to use the media elements.
+First, you can use the `ref` attribute to access the DOM API ([What's an API?](https://www.robinwieruch.de/what-is-an-api-javascript/)). You can get a value of an input element yet you can also trigger methods like a `focus()`. It gives you control over the DOM API, for instance to use the media elements.
 
 Second, you can use it to integrate with third-party libraries that rely on the DOM. {{% a_blank "D3.js" "https://d3js.org/" %}} is such an use case, because it has to hook into the DOM and it has its own DOM manipulation API. For instance, you might want to integrate a D3 component in your React component hierarchy. Therefore you can use a `ref` attribute as an entry point for the D3 component. You leave the React world and access the D3 world.
 

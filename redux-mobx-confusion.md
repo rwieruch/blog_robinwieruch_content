@@ -6,6 +6,7 @@ tags = ["React", "Redux", "MobX"]
 categories = ["React", "Redux", "MobX"]
 keyword = "redux mobx"
 news_keywords = ["redux mobx", "redux", "mobx"]
+hashtag = "#ReactJs"
 banner = "img/posts/redux-mobx-confusion/banner.jpg"
 contribute = "redux-mobx-confusion.md"
 headline = "Redux or MobX: An attempt to dissolve the Confusion"

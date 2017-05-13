@@ -6,6 +6,7 @@ tags = ["React"]
 categories = ["React"]
 keyword = "react eslint"
 news_keywords = ["react eslint"]
+hashtag = "#ReactJs"
 banner = "img/posts/react-eslint-webpack-babel/banner.jpg"
 contribute = "react-eslint-webpack-babel.md"
 headline = "React Code Style with ESLint + Babel + Webpack"

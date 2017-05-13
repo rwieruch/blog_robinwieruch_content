@@ -5,6 +5,7 @@ date = "2016-11-09T13:50:46+02:00"
 tags = ["frontend", "developer", "setup"]
 keyword = "frontend developer setup"
 news_keywords = ["frontend developer setup"]
+hashtag = "#programming"
 contribute = "developer-setup.md"
 type = "promo"
 headline = "Technical Cheatsheet: Development Environment Setup"

@@ -6,6 +6,7 @@ tags = ["book", "summary", "writing"]
 categories = ["Growth"]
 keyword = "book summary on writing well"
 news_keywords = ["book summary on writing well"]
+hashtag = "#growth"
 contribute = "lessons-learned-on-writing-well.md"
 banner = "img/posts/lessons-learned-on-writing-well/banner.jpeg"
 headline = "Lessons learned from On Writing Well"

@@ -6,6 +6,7 @@ tags = ["Angular", "D3"]
 categories = []
 keyword = "angular d3"
 news_keywords = ["angular d3"]
+hashtag = "#d3js #angularjs"
 banner = "img/posts/apple-health-chart-d3-js/line-chart.png"
 contribute = "apple-health-chart-d3-js.md"
 headline = "Apple Health Chart on Angular and D3.js"

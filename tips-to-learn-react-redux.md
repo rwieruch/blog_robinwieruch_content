@@ -6,6 +6,7 @@ tags = ["React", "Redux"]
 categories = ["React", "Redux"]
 keyword = "learn react redux"
 news_keywords = ["react redux", "react", "redux"]
+hashtag = "#ReactJs"
 banner = "img/posts/tips-to-learn-react-redux/banner.jpg"
 contribute = "tips-to-learn-react-redux.md"
 headline = "Tips to learn React + Redux in 2017"
@@ -333,7 +334,7 @@ You are still learning React? Use `setState` to manage internal component state.
 
 In a growing application there will come the time to introduce a state management library eventually. A part of the article [Redux or MobX: An attempt to dissolve the Confusion](https://www.robinwieruch.de/redux-mobx-confusion/) covers how to approach to learn state management in React.
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 170+ pages of learning material. Pay as you want like <strong>6500+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 170+ pages of learning material. Pay as you want like <strong>7000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
 {{% header_with_anchor "Tips for Redux" "redux" %}}
 
@@ -391,7 +392,7 @@ I know for sure that not everyone does agree with it. Especially hiding reducers
 
 ### Second key takeaway: clear boundaries of feature modules.
 
-A module should always have an index.js file as entry point. The index.js only exposes an API which should be public to other modules. In React + Redux an index.js file could export container components, maybe presenter components, action creators to be called from somewhere else and last but not least the reducer. In our more elaborated example we would have to add an index.js file at the top. Maybe also in our component folders as well.
+A module should always have an index.js file as entry point. The index.js only exposes an API ([What's an API?](https://www.robinwieruch.de/what-is-an-api-javascript/)) which should be public to other modules. In React + Redux an index.js file could export container components, maybe presenter components, action creators to be called from somewhere else and last but not least the reducer. In our more elaborated example we would have to add an index.js file at the top. Maybe also in our component folders as well.
 
 {{< highlight javascript "hl_lines=2 5 9" >}}
 message/

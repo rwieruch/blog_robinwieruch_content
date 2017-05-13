@@ -6,6 +6,7 @@ tags = ["book", "summary", "deep work", "flow"]
 categories = ["Growth"]
 keyword = "book summary deep work flow"
 news_keywords = ["book summary deep work flow"]
+hashtag = "#growth"
 contribute = "lessons-learned-deep-work-flow.md"
 banner = "img/posts/lessons-learned-deep-work-flow/banner.jpeg"
 headline = "(Deep Work) => Flow - A proven Path to Satisfaction"

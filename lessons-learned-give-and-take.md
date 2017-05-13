@@ -6,6 +6,7 @@ tags = ["book", "summary", "give take"]
 categories = ["Growth"]
 keyword = "book summary give take"
 news_keywords = ["book summary give take"]
+hashtag = "#growth"
 contribute = "lessons-learned-give-and-take.md"
 banner = "img/posts/lessons-learned-give-and-take/banner.jpeg"
 headline = "Lessons learned from Give and Take"

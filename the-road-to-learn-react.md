@@ -6,6 +6,7 @@ tags = ["learn", "react"]
 categories = ["React"]
 keyword = "learn react"
 news_keywords = ["learn react"]
+hashtag = "#ReactJs"
 contribute = "the-road-to-learn-react.md"
 banner = "img/posts/the-road-to-learn-react/cover.png"
 headline = "The Road to learn React [eBook]"
@@ -25,7 +26,7 @@ You will learn to build your own Hacker News application. It covers real world f
 
 The Road to learn React comes as eBook and as [interactive course](https://www.educative.io/collection/5740745361195008/5676830073815040).
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 170+ pages of learning material. Pay as you want like <strong>6500+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 170+ pages of learning material. Pay as you want like <strong>7000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
 {{% chapter_header "Testimonials" "testimonials" %}}
 
@@ -41,12 +42,6 @@ The Road to learn React comes as eBook and as [interactive course](https://www.e
 
 {{% pin_it_image "learn reactjs" "img/posts/the-road-to-learn-react/testimonial_andre_vargas.jpg" %}}
 {{% pin_it_image "learn reactjs" "img/posts/the-road-to-learn-react/testimonial_appsdev.jpg" %}}
-
-{{% chapter_header "Education for Children" "educateChildren" %}}
-
-The book is open source and should enable everyone to learn React. However, not everyone is privileged to use open source resources, because not everyone is educated in the English language in the first place. Even though the book is pay what you want, I want to use it to support projects that teach children English in the developing world.
-
-* 11. April to 18. April, 2017, [Giving Back, By Learning React](https://www.robinwieruch.de/giving-back-by-learning-react/)
 
 {{% chapter_header "FAQ" "faq" %}}
 
@@ -66,7 +61,22 @@ The book is open source and should enable everyone to learn React. However, not 
 
 **Is there a call to action?** Yes. I want you to take a moment to think about a person who would be a good match to learn React. The person could have shown the interest already, could be in the middle of learning React or might not yet be aware about wanting to learn React. Reach out to that person and share the book. It would mean a lot to me. The book is intended to be given to others.
 
+{{% chapter_header "What did people build after they have read the book?" "build-after" %}}
+
+I encourage developers to reach out after they have finished the book and build their first React applications. The following are an excerpt of projects. Reach out to showcase your applications!
+
+* {{% a_blank "Stellar Photos - Unsplash Client" "https://ayoisaiah.com/stellar-photos/" %}}
+* {{% a_blank "Hacker News App with improved Design" "https://frozen-waters-31575.herokuapp.com" %}}
+
+{{% chapter_header "Education for Children" "educateChildren" %}}
+
+The book is open source and should enable everyone to learn React. However, not everyone is privileged to use open source resources, because not everyone is educated in the English language in the first place. Even though the book is pay what you want, I want to use it to support projects that teach children English in the developing world.
+
+* 11. April to 18. April, 2017, [Giving Back, By Learning React](https://www.robinwieruch.de/giving-back-by-learning-react/)
+
 {{% chapter_header "Changelog" "changelog" %}}
+
+I keep the learning material up to date to the recent changes in the React ecosystem.
 
 **10. January 2017:**
 
@@ -198,7 +208,7 @@ Second all building blocks are interchangeable. It makes the ecosystem around Re
 
 The first generation of SPA frameworks arrived at an enterprise level. They are more rigid. React stays innovative and gets adopted by multiple tech thought leader companies like {{% a_blank "Airbnb, Netflix and of course Facebook" "https://github.com/facebook/react/wiki/Sites-Using-React" %}}. All of them invest in the future of React and are content with React and the ecosystem itself.
 
-React is probably one of the best choices for building single page applications nowadays. It only delivers the view layer, but the React ecosystem is a whole flexible and interchangeable framework. React has a slim API, an amazing ecosystem and a great community. You can read about my experiences [why I moved from Angular to React](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/). I highly recommend to have an understanding why you would choose React over another framework or library. After all everyone is keen to experience where React will lead us in 2017 and beyond.
+React is probably one of the best choices for building single page applications nowadays. It only delivers the view layer, but the React ecosystem is a whole flexible and interchangeable framework. React has a slim API ([What's an API?](https://www.robinwieruch.de/what-is-an-api-javascript/)), an amazing ecosystem and a great community. You can read about my experiences [why I moved from Angular to React](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/). I highly recommend to have an understanding why you would choose React over another framework or library. After all everyone is keen to experience where React will lead us in 2017 and beyond.
 
 {{% sub_chapter_header "Requirements" "requirements" %}}
 

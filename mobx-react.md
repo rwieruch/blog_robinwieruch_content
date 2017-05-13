@@ -6,6 +6,7 @@ tags = ["Redux", "MobX"]
 categories = ["Redux", "MobX"]
 keyword = "mobx react"
 news_keywords = ["mobx react"]
+hashtag = "#ReactJs"
 banner = "img/posts/mobx-react/banner.jpg"
 contribute = "mobx-react.md"
 headline = "MobX React: Refactor your application from Redux to MobX"
@@ -146,7 +147,7 @@ export { TrackStore };
 
 Similar to the UserStore, we decorate the two properties tracks and activeTrack with `@observable` to indicate that these can change over time. Additionally to the UserStore the TrackStore can be initialized with an array of tracks.
 
-We are set up to save all of our state which was handled in the Redux global store before. But we don't use the stores yet. Let's do it by refactoring the authentication process. There we fetch data like login user and tracks from the SoundCloud API. Now we want to use MobX Actions to set the fetched data in our stores rather than using Redux Actions.
+We are set up to save all of our state which was handled in the Redux global store before. But we don't use the stores yet. Let's do it by refactoring the authentication process. There we fetch data like login user and tracks from the SoundCloud API ([What's an API?](https://www.robinwieruch.de/what-is-an-api-javascript/)). Now we want to use MobX Actions to set the fetched data in our stores rather than using Redux Actions.
 
 {{% chapter_header "MobX Actions" "actions" %}}
 

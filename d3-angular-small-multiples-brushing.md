@@ -6,6 +6,7 @@ tags = ["Angular", "D3"]
 categories = []
 keyword = "angular d3"
 news_keywords = ["angular d3"]
+hashtag = "#d3js #angularjs"
 banner = "img/posts/d3-angular-small-multiples-brushing/banner.png"
 contribute = "d3-angular-small-multiples-brushing.md"
 headline = "D3 on Angular: Small Multiples with Brushing"

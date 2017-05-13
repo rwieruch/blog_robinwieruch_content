@@ -5,7 +5,8 @@ date = "2017-04-04T13:50:46+02:00"
 tags = ["React"]
 categories = ["React"]
 keyword = "react higher order component"
-news_keywords = ["react", "react higher order component"]
+news_keywords = ["react higher order component"]
+hashtag = "#ReactJs"
 banner = "img/posts/gentle-introduction-higher-order-components/banner.jpg"
 contribute = "gentle-introduction-higher-order-components.md"
 headline = "A gentle Introduction to Higher Order Components"
@@ -19,13 +20,13 @@ Another fitting headline for the article could be: learn Higher Order Components
 
 Higher order components, or known under the abbreviation HOCs, are often a hard to grasp pattern in React. These components can be used for multiple use cases. I want to pick out one use case, the [conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/) with higher order components, to give you two outcomes from this article as a reader.
 
-First, it should teach you about higher order components with the use case of conditional rendering. Keep in mind, that altering the look of a component with a higher order component, specifically in the context of conditional rendering, is only one of several use cases to use HOCs. For instance, you could use them to opt-in local state or to alter props as well.
+First, it should teach you about React's higher order components with the use case of conditional rendering. Keep in mind, that altering the look of a component with a higher order component, specifically in the context of conditional rendering, is only one of several use cases to use HOCs. For instance, you could use them to opt-in local state or to alter props as well.
 
-Second, even though you might already know HOCs, the article goes a bit further by composing higher order components with the library recompose and by applying functional programming principles. You will get to know how to use higher order components in an elegant way.
+Second, even though you might already know HOCs, the article goes a bit further by composing higher order components in React with the library recompose and by applying functional programming principles. You will get to know how to use higher order components in an elegant way.
 
-In order to teach higher order components, the article focuses on the use case of conditional rendering. A conditional rendering in React can be applied in multiple ways. You can use if-else statements, the ternary operator or the logical && operator. You can read more about the different ways in another article about [conditional renderings in React](https://www.robinwieruch.de/conditional-rendering-react/). If you are not familiar with conditional rendering in React, you could read the article first.
+In order to teach React higher order components, the article focuses on the use case of conditional rendering. A conditional rendering in React can be applied in multiple ways. You can use if-else statements, the ternary operator or the logical && operator. You can read more about the different ways in another article about [conditional renderings in React](https://www.robinwieruch.de/conditional-rendering-react/). If you are not familiar with conditional rendering in React, you could read the article first.
 
-# A Growing Component
+{{% chapter_header "A Growing React Component" "growing-react-component" %}}
 
 We will start with a problem in React where higher order components could be used as solution. Let's assume our application has a `TodoList` component.
 
@@ -121,9 +122,9 @@ function TodoList({ todos, isLoadingTodos }) {
 }
 {{< /highlight >}}
 
-Okay. I don't want to make this more complex as it is. But you get the idea that a lot of edge cases for conditional renderings can add up in a simple component. Higher order components can solves this issue. They can be used to shield away these edge cases as reusable functionalities. Thus the `TodoList` has not to worry about it anymore. Let's enter the concept of higher order components to deal with it.
+Okay. I don't want to make this more complex as it is. But you get the idea that a lot of edge cases for conditional renderings can add up in a simple component. Higher order components can solves this issue. They can be used to shield away these edge cases as reusable functionalities. Thus the `TodoList` has not to worry about it anymore. Let's enter the concept of React's higher order components to deal with it.
 
-# Entering Higher Order Components
+{{% chapter_header "Entering React's Higher Order Components" "react-higher-order-component" %}}
 
 Higher order components usually take a component and optional arguments as input and return an **enhanced component** of the **input component**. In our example, the goal would be to shield away specifically all the conditional rendering edge cases from the `TodoList` component.
 
@@ -157,7 +158,7 @@ function TodoList({ todos, isLoadingTodos }) {
 }
 {{< /highlight >}}
 
-Now let's implement our first higher order component to take ownership of this functionality. Higher order components can come with the naming prefix `with`, but it is not mandatory. In the end it makes it easier to distinguish components from higher order components.
+Now let's implement our first higher order component in React to take ownership of this functionality. Higher order components can come with the naming prefix `with`, but it is not mandatory. In the end, it makes it easier to distinguish a React component from a React higher order component.
 
 {{< highlight javascript >}}
 function withTodosNull(Component) {
@@ -306,7 +307,7 @@ const TodoListWithConditionalRendering = withLoadingIndicator(withTodosNull(with
 
 Still, it is not readable. React embraces functional programming, so why are we not using these principles?
 
-# Entering Recompose
+{{% chapter_header "Entering Recompose in React" "recompose-in-react" %}}
 
 The little higher order component library {{% a_blank "recompose" "https://github.com/acdlite/recompose" %}} has a lot built-in higher order components that you can re-use. You should definitely check them out after you have read this article. However, it comes with a neat functionality called `compose` that allows you to return one function composed out of multiple functions. These multiple functions could be all of our conditional rendering HOCs. And that's how you use it:
 
@@ -366,7 +367,7 @@ function App(props) {
 
 After all, higher order components themselves are reusable. By composing these components into each other, you get a lot of permutations of component enhancements.
 
-# Reusability with Abstractions
+{{% chapter_header "Reusability with abstracted Higher Order Components" "reusability-abstraction-higher-order-components" %}}
 
 The higher order components of the last section were pretty specific. Each of them had a specific use case matching the requirements of the `TodoList` component. You wouldn't be able to use them in another context, to be more specific, in another component with a different props structure. Thinking about the long term investment in an application, you could abstract these higher order components to make them reusable by other components too.
 
@@ -450,7 +451,7 @@ const TodoListWithConditionalRendering = withConditionalRenderings(TodoList);
 
 That's a powerful abstraction, isn't it? You can use the first higher order function to pass the optional payload and return the higher order component that is used in the composition.
 
-# Maybe and Either Higher Order Components
+{{% chapter_header "Maybe and Either Higher Order Components" "maybe-either-higher-order-components" %}}
 
 You can use the naming conventions and principles of functional programming (FP) to name your abstracted higher order components properly. Developers who are familiar with FP will know the use case of the HOC by seeing its name.
 

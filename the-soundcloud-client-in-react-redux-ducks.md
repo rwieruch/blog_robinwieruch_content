@@ -6,6 +6,7 @@ tags = ["Redux"]
 categories = ["Redux"]
 keyword = "redux ducks"
 news_keywords = ["redux ducks"]
+hashtag = "#ReactJs"
 banner = "img/posts/the-soundcloud-client-in-react-redux-ducks/banner.jpg"
 contribute = "the-soundcloud-client-in-react-redux-ducks.md"
 headline = "Redux Ducks: Restructure your Redux App with Ducks"

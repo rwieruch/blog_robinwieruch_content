@@ -5,6 +5,7 @@ date = "2016-11-09T13:50:46+02:00"
 tags = ["website"]
 keyword = "website in five days"
 news_keywords = ["website in five days"]
+hashtag = "#programming"
 contribute = "own-website-in-five-days.md"
 type = "promo"
 headline = "Technical Cheatsheet: 5 days to your own Website"
