@@ -22,6 +22,8 @@ The following article summarizes my lessons learned from both books. It can be a
 
 The book {{% a_blank "Deep Work" "https://www.amazon.com/Deep-Work-Focused-Success-Distracted/dp/1455586692//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=1b246a2daeac91a6cf39c1e6fa0143be" %}} by Cal Newport gives you guidance to achieve high-quality work. It is achieved by multiplying the time spent on the subject of matter and the intensity of your focus. In his book he references the book {{% a_blank "Flow" "https://www.amazon.com/Flow-Psychology-Experience-Perennial-Classics/dp/0061339202//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=07c7de157f0ad5f27e5c147cf0da698b" %}} by Mihaly Csikszentmihalyi. He says: "Deep work is an activity well suited to generate a flow state". The state of flow is defined by "being completely involved in an activity for its own sake" where "nothing else seems to matter". Naturally it leads to an improvement of the self and to a fulfilled and meaningful life. Since both books where on my reading list, I took the chance to read them one after the other.
 
+{{% read_more "Lessons learned from Give and Take" "https://www.robinwieruch.de/lessons-learned-give-and-take/" %}}
+
 {{% chapter_header "What is Deep Work?" "whatIsDeepWork" %}}
 
 According to Cal Newport Deep Work is crucial to make a difference. He groups activities into shallow work and deep work.
@@ -374,7 +376,5 @@ These were only my lessons learned, but I am curious about yours. If you didn't 
 * {{% a_blank "Deep Work" "https://www.amazon.com/Deep-Work-Focused-Success-Distracted/dp/1455586692//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=1b246a2daeac91a6cf39c1e6fa0143be" %}} by Cal Newport
 
 "If you give your mind something meaningful to do throughout **all** your waking hours, you'll end the day more fulfilled, and begin the next one more relaxed [...]" by Cal Newport.
-
-{{% read_more "Lessons learned from On Writing Well" "https://www.robinwieruch.de/lessons-learned-on-writing-well/" %}}
 
 {{% read_more "Lessons learned from Give and Take" "https://www.robinwieruch.de/lessons-learned-give-and-take/" %}}

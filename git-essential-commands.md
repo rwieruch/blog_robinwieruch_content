@@ -16,9 +16,9 @@ summary = "In this article, I want to give you the essentials about Git and GitH
 
 {{% pin_it_image "git essential commands" "img/posts/git-essential-commands/banner.png" %}}
 
-Over the past years, I noticed that the GitHub commands I used break down to only a few essential ones. These essential commands are sufficient to come along in web development.
+Over the past years, I have noticed that the GitHub commands I use break down to only a few essential ones that I use in recurring scenarios. These essential commands were quite sufficient for me to come along in web development.
 
-When you get started with Git, it can be quite overwhelming. First, the idea of a distributed version control system and the benefits are not clear for everyone. Second, there are tons of commands with additional options to master Git on the command line. It can be intimidating.
+When you get started with Git, it can be quite overwhelming. First, the idea of a distributed version control system and the benefits are not clear for everyone. Second, there are tons of commands with additional options in order to master Git on the command line. It can be intimidating.
 
 However, you will never need all the combinations of commands and options in Git. As I mentioned, for me they break down to only a few essential commands that I use for web development. Everything else can be looked up whenever complex problems arise.
 
@@ -40,15 +40,15 @@ Yet everyone is able to make a copy of the global repository to his or her local
 
 The local repository can be used to experiment with source code, to add improvements or to fix issues. Eventually, these adjustments in the local repository get merged back to the global repository. However, the collaborator has to have writing permission to the global repository.
 
-The distribution of Git and GitHub repositories makes it possible to collaborate as a group on one global repository when everyone has reading and writing access. A local repository is used to perform changes while the global repository is the single source of truth.
+The distribution of repositories makes it possible to collaborate as a group on one global repository when everyone has reading and writing access. A local repository is used to perform changes while the global repository is the source of truth.
 
-GitHub offers the possibility to make repositories private. You have to upgrade your GitHub account and pay for it. Once your GitHub profile is upgraded, you can make any repository private and only visible for yourself.
+GitHub offers the possibility to make repositories private. But you would have to upgrade to a payed GitHub account. Once your GitHub profile is upgraded, you can make any repository private thus only visible for yourself.
 
 {{% chapter_header "Initialize a repository with Git and GitHub" "initialize-git-repository" %}}
 
-In the beginning, you somehow have to initialize a Git repository. You can initialize a local repository by using the `git init` command in one of your directories or copy a global public repository by using `git clone <repository_url>`.
+In the beginning, you somehow have to initialize a Git repository. You can initialize a local repository by using the `git init` command in one of your directories. Another way to initialize a repository: Copy a global repository by using `git clone <repository_url>` to your local machine.
 
-A local repository has a *.git* file where all the information, for instance the commit history, about the repository is saved. Another file, a *.gitignore*file, can be added to ignore certain files to be merged to the global repository. Ignored files are only in your local repository.
+A local repository has a *.git* file where all the information, for instance the commit history, about the repository is saved. Another file, a *.gitignore* file, can be added to ignore certain files to be merged to the global repository. Ignored files are only in your local repository.
 
 Another option is to create a new repository on the GitHub website directly. You will get all the instructions about the commands that you have to use on the command line in order to connect a newly created global repository to a local repository on your machine.
 
@@ -58,9 +58,7 @@ Once you have a local repository, you want to "commit" changes to the code base.
 
 Commits come with a commit message. You will see later on how to write a commit message. In addition, a hash is automatically generated to identify your commit. You don't have to care about the hash in the beginning, but later it can be used to jump to specific points in history or to compare commits with each other.
 
-The commits happen in your local repository, before you eventually "push" them to the global repository where they are accessible and visible for everyone. You can accumulate multiple commits locally before you sync them to the global repository.
-
-**When:** Whenever you want to push your local changes to the global repository to make them accessible for everyone.
+The commits happen in your local repository before you eventually "push" them to the global repository where they are accessible and visible for everyone. You can accumulate multiple commits locally before you sync them to the global repository.
 
 How would you get your changes from a local repository to the global repository? There are three essential commands: add, commit, push.
 
@@ -91,17 +89,17 @@ Also you can use the default commit command to make a more elaborated commit mes
 git commit
 {{< /highlight >}}
 
-The latter command will open up your default command line editor. Usually, the default command line editor is vim. In vim you would type your commit message. Afterward, you can save and exit vim by using `:wq` which stands for write and quit.
+The latter command will open up your default command line editor. Usually, the default command line editor is vim. In vim you would type your commit message. Afterward, you can save and exit vim by using `:wq` which stands for *write* and *quit*.
 
-Most of the time you will use the shortcut commit though. It is fast and often an inlined commit message is sufficient.
+Most of the time, you will use the shortcut commit though. It is fast and often an inlined commit message is sufficient.
 
-Now, before the third step, multiple commits can accumulate in your local repository. Eventually, in the third step, you would push all the commits in bulk to the global repository.
+Now, before you get to the third step, multiple commits can accumulate in your local repository. Eventually, in the third step, you would push all the commits in one command to the global repository.
 
 {{< highlight javascript >}}
 git push origin master
 {{< /highlight >}}
 
-These are the three necessary steps to get your changes in your local repository to the global repository.
+These are the three necessary steps to get your changes from your local repository to the global repository.
 
 But when you collaborate with others, there can be an intermediate step before you push your changes. It can happen that someone else already pushed changes in the global repository while you made your changes in your local repository. Thus, you would have to *pull* all the changes from the global repository before you are allowed to push your own changes. It can be simple as that:
 
@@ -124,27 +122,29 @@ A pull rebase has two benefits:
 * it keeps an ordered git history, because your changes are always added last
 * it helps you to resolve conflicts, if you run into them, because you can adjust your own changes more easily
 
+If you have changed but uncommited files when you pull from the global repository, you are asked to "stash" your changed files first. After you have pulled all the changes, you can apply the stash again. Stashing will be explained later in the article.
+
 {{% chapter_header "Status" "git-status" %}}
 
 There a three essential git commands that give you a status of your project about current and recent changes. They don't alter anything in your local repository but showing you information.
+
+Whenever you want to check the local staged and unstaged changes.
 
 {{< highlight javascript >}}
 git status
 {{< /highlight >}}
 
-**When:** Whenever you want to check the local staged and unstaged changes.
+Whenever you want to see your local unstaged changes compared to the recent commit.
 
 {{< highlight javascript >}}
 git diff
 {{< /highlight >}}
 
-**When:** Whenever you want to see your local unstaged changes compared to the recent commit.
+Whenever you want to see the git history of commits.
 
 {{< highlight javascript >}}
 git log
 {{< /highlight >}}
-
-**When:** Whenever you want to see the git history of commits.
 
 The default `git log` is not helpful for most people. Each commit takes too much space and it is hard to scan the history. You can use the following configuration ({{% a_blank "Kudos to Coderwall" "https://coderwall.com/p/euwpig/a-better-git-log" %}}) to setup a more helpful alias:
 
@@ -176,7 +176,7 @@ Or *checkout* a branch that is there already.
 git checkout <branch>
 {{< /highlight >}}
 
-When the branch is newly created by another collaborator and not yet known to the local repository, you can *fetch* all the branch information. Afterward, you can checkout the branch in your local repository.
+When the branch is newly created by another collaborator and not yet known to your local repository, you can *fetch* all the branch information. Afterward, you can checkout the branch in your local repository.
 
 {{< highlight javascript >}}
 git fetch
@@ -189,7 +189,7 @@ Once you are on the branch, you can pull all the recent changes.
 git pull --rebase origin <branch>
 {{< /highlight >}}
 
-Now you can start to adjust the code and *Push my Changes*, but rather than pushing them to the master branch, you would push them to the branch.
+Now you can start to adjust the code and *Push your Changes*, but rather than pushing them to the master branch, you would push them to the branch.
 
 {{< highlight javascript >}}
 git push origin <branch>
@@ -201,15 +201,50 @@ At some point, you want to merge a branch to the master branch. You would use th
 
 Before opening a PR, I usually follow these steps to checkout the branch, get all the updates to merge them with my own, get all the recent changes from the master branch too, and force push all the changes to the branch itself.
 
+Update the master branch to the recent changes:
+
 {{< highlight javascript >}}
 git pull --rebase origin master
+{{< /highlight >}}
+
+Checkout the branch:
+
+{{< highlight javascript >}}
 git checkout <branch>
+{{< /highlight >}}
+
+Pull rebase all recent changes from the branch:
+
+{{< highlight javascript >}}
 git pull --rebase origin <branch>
+{{< /highlight >}}
+
+Rebase all the changes from the recent master branch on top:
+
+{{< highlight javascript >}}
 git rebase master
+{{< /highlight >}}
+
+Force push all the changes to the remote branch:
+
+{{< highlight javascript >}}
 git push -f origin <branch>
 {{< /highlight >}}
 
 The branch is synced with changes from collaborators, my changes and changes from the master branch. Finally, when the branch is updated in the global repository, you can hit the Merge Pull Request button on GitHub.
+
+{{% chapter_header "Resolving Conflicts" "git-resolve-conflicts" %}}
+
+Sometimes, when you pull the recent changes from a global repository or when you rebase the master on a branch, you run into conflicts. Conflicts happen when Git cannot resolve multiple changes on the same file. That can happen more often than expected when collaborating with multiple people.
+
+For instance, imagine it happens for a `git rebase master` on your branch. The command line would indicate that it stopped the rebase and shows you the conflicting files. That's no reason to panic. You can open the indicated files and resolve the conflicts. In the file you should see the changes well separated: the changes from master (HEAD) and from your branch (usually the commit message). You have to decide which of both versions you want to take in order to resolve the problem. After you have resolved all conflicts, you can continue the rebase:
+
+{{< highlight javascript >}}
+git add .
+git rebase --continue
+{{< /highlight >}}
+
+If you run again into conflicts, you can resolve them and run the commands again.
 
 {{% chapter_header "Stashing" "git-stash" %}}
 
@@ -262,30 +297,34 @@ Afterward, since you adjusted the Git history, you need to force push your chang
 git push -f origin master
 {{< /highlight >}}
 
+In general, you should be careful with force pushes. A good rule of thumb is that you can do them on a branch, but never on the master branch.
+
 {{% chapter_header "Commit Message Conventions" "git-commit-message-conventions" %}}
 
 When you collaborate with others or want to have tidy commit messages on your own, you can follow Git commit message conventions. There are a handful of conventions. I am used to follow these that were {{% a_blank "brought up in the Angular community" "https://gist.github.com/brianclements/841ea7bffdb01346392c" %}}:
 
-* feat: A new feature
-* fix: A bug fix
-* docs: Documentation only changes
-* style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-* refactor: A code change that neither fixes a bug or adds a feature
-* perf: A code change that improves performance
-* test: Adding missing tests
-* chore: Changes to the build process or auxiliary tools and libraries such as documentation generation
+* **feat**: A new feature
+* **fix**: A bug fix
+* **docs**:  A documentation change
+* **style**: A code style change, doesn't change implementation details
+* **refactor**: A code change that neither fixes a bug or adds a feature
+* **perf**: A code change that improves performance
+* **test**: When testing your code
+* **chore**: Changes to the build process or auxiliary tools and libraries
 
 They follow this syntax: `<type>(<scope>): <subject>`
 
-An example would be: `git commit -m "feat(todo-list) add filter functionality"`
+An example taken from the command line could be:
+
+{{< highlight javascript >}}
+git commit -m "feat(todo-list) add filter functionality"
+{{< /highlight >}}
 
 {{% chapter_header "Aliases" "git-aliases" %}}
 
-Git aliases are used to make up own Git commands by using the built-in Git commands. With aliases they can be made more concise or grouped.
+Git aliases are used to make up own Git commands by using the built-in Git commands. Aliases allow you to make Git commands more concise or to group them.
 
 For instance, you can group two Git commands in order to execute them in one command. That would for example make sense if you wanted to delete a branch. The local and remote deletion would happen in one command. Something like this: `git nuke`. In another scenario you would abbreviate `git pull --rebase` with `gpr`.
-
-I have to confess that I never use git aliases. I want to keep it puristic so that I am not strictly required to use my aliases when working on another machine.
 
 {{% chapter_header "Pull Requests vs. Issues" "git-pull-requests-issues" %}}
 
@@ -324,4 +363,4 @@ The essential Git commands break down to:
 * git log (git lg)
 * git diff
 
-Obviously, there are more Git commands (git bisect, git reflog, ...) that you could master. However, I don't find myself using them very often. You can look these up, once you need them, before you have to memorize them. After all, in most cases you will more likely lookup the issue you want to solve in Git rather than a specific command. Most of these issues in Git are well explained on websites like Stack Overflow.
+Obviously, there are more Git commands (git bisect, git reflog, ...) that you could master. However, I don't find myself using them very often. You can look these up, once you need them, before you have to memorize them. After all, in most cases you will more likely lookup the issue you want to solve in Git rather than a specific command. Most of these issues in Git are well explained when you search for them.

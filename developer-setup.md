@@ -42,7 +42,7 @@ Git will be your distributed version control system. It manages your local and e
 brew install git
 {{< /highlight >}}
 
-Later we will setup a GitHub account to manage our projects (repositories) on GitHub.
+Later we will setup a GitHub account to manage our projects (repositories) on GitHub. You can read up all my essential GitHub commands in this article: [GitHub and Git Essentials](https://www.robinwieruch.de/git-essential-commands/).
 
 {{% chapter_header "Sublime as Editor" "sublime" %}}
 
