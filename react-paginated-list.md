@@ -160,7 +160,7 @@ class App extends React.Component {
         <div className="interactions">
           <form type="submit" onSubmit={this.onInitialSearch}>
             <input type="text" ref={node => this.input = node} />
-            <button type="button">Search</button>
+            <button type="submit">Search</button>
           </form>
         </div>
 
@@ -261,7 +261,7 @@ class App extends React.Component {
         <div className="interactions">
           <form type="submit" onSubmit={this.onInitialSearch}>
             <input type="text" ref={node => this.input = node} />
-            <button type="button">Search</button>
+            <button type="submit">Search</button>
           </form>
         </div>
 
@@ -462,7 +462,7 @@ class App extends React.Component {
         <div className="interactions">
           <form type="submit" onSubmit={this.onInitialSearch}>
             <input type="text" ref={node => this.input = node} />
-            <button type="button">Search</button>
+            <button type="submit">Search</button>
           </form>
         </div>
 

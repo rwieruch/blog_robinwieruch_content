@@ -92,7 +92,7 @@ class App extends React.Component {
         <div className="interactions">
           <form type="submit" onSubmit={this.onInitialSearch}>
             <input type="text" ref={node => this.input = node} />
-            <button type="button">Search</button>
+            <button type="submit">Search</button>
           </form>
         </div>
 
@@ -261,5 +261,3 @@ The condiditions will get evaluated in the higher order components themselves. T
 <hr class="section-divider">
 
 In the last three parts of this React tutorial series you have learned to build a complex list component by using React's higher order components. The list component itself stays simple. It only displays a list. But it can be composed into useful higher order components to opt-in functionalities. By extracting the conditions from the higher order components and using them as configuration, you have the control about which component is used first as default and which should be used as opt-in feature. The full example application can be found in {{% a_blank "this repository" "https://github.com/rwieruch/react-example-paginated-list-infinite-scroll" %}}. If you are keen to explore more about these functionalities when working with lists in the local state of React, you can read [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) to learn about caching in React.
-
-* TODO include all series in the revue subscription
