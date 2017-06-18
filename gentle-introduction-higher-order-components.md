@@ -1,6 +1,6 @@
 +++
-title = "A gentle Introduction to Higher Order Components"
-description = "Higher order components, or known under the abbreviation HOCs, are often a hard to grasp pattern in React. The article gives you an introduction to HOCs, how to use them elegantly in the case of conditional rendering and how to abstract them..."
+title = "A gentle Introduction to React's Higher Order Components"
+description = "Higher order components in React, or known under the abbreviation HOCs, are often a hard to grasp pattern in ReactJs. The article gives you an introduction to HOCs, how to use them elegantly in the case of conditional rendering and how to abstract them..."
 date = "2017-04-04T13:50:46+02:00"
 tags = ["React"]
 categories = ["React"]
@@ -9,7 +9,7 @@ news_keywords = ["react higher order component"]
 hashtag = "#ReactJs"
 banner = "img/posts/gentle-introduction-higher-order-components/banner.jpg"
 contribute = "gentle-introduction-higher-order-components.md"
-headline = "A gentle Introduction to Higher Order Components"
+headline = "A gentle Introduction to React's Higher Order Components"
 
 summary = "Higher order components, or known under the abbreviation HOCs, are often a hard to grasp pattern in React. These components can be used for multiple use cases. I want to pick out one use case, the conditional rendering with higher order components, to give you two outcomes from this article as a reader: to learn higher order components and to see how you can use them in an elegant way."
 +++

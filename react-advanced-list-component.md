@@ -1,7 +1,7 @@
 +++
 title = "Advanced List in React - Build a powerful Component (Part III)"
 description = "The series of React tutorials focuses on building a complex yet elegant and powerful React component. It attempts to go beyond the fundamentals in React. This part introduces an advanced list in React..."
-date = "2017-06-12T13:50:46+02:00"
+date = "2017-06-13T13:50:46+02:00"
 tags = ["react"]
 categories = ["React"]
 keyword = "react advanced list component"
@@ -12,15 +12,17 @@ banner = "img/posts/react-advanced-list-component/banner.jpg"
 headline = "Advanced List in React - Build a powerful Component (Part III)"
 
 summary = "The series of React tutorials focuses on building a complex yet elegant and powerful React component. It attempts to go beyond the fundamentals in React. This part introduces an advanced list in React. You will combine higher order components, configure them and opt-in fallbacks for an improved user experience."
-
-type = "promo"
 +++
 
 {{% pin_it_image "react advanced list component" "img/posts/react-advanced-list-component/banner.jpg" %}}
 
 The last two parts of the tutorial series in React introduced two functionalities, [a paginated list](https://www.robinwieruch.de/react-paginated-list) and an [infinite scroll](https://www.robinwieruch.de/react-infinite-scroll), by using higher order components. However, these functionalities were used exclusively. In one scenario you used a paginated list, where you manually fetched the data, then again in another scenario you used an infinite scroll, where the data was fetched automatically for you.
 
-Now you could use both features exclusively. But what about using them in combination to give your user an improved user experience? You could use the infinite scroll as default behavior for your list. Your users will thank you, because they don't have to fetch more list items by using the More button. Then, when your request runs into an error, you could use the More button as fallback. The user can manually try again to fetch data. That's a great user experience and done already by applications like Twitter and Pocket
+Now you could use both features exclusively. But what about using them in combination to give your user an improved user experience? You could use the infinite scroll as default behavior for your list. Your users will thank you, because they don't have to fetch more list items by using the More button. Then, when your request runs into an error, you could use the More button as fallback. The user can manually try again to fetch data. That's a great user experience and done already by applications like Twitter and Pocket.
+
+* [Paginated List in React - Build a powerful Component (Part I)](https://www.robinwieruch.de/react-paginated-list)
+* [Infinite Scroll in React - Build a powerful Component (Part II)](https://www.robinwieruch.de/react-infinite-scroll)
+* **Advanced List in React - Build a powerful Component (Part III)**
 
 {{% chapter_header "Catching the Error in Local State" "catch-error-react-local-state" %}}
 

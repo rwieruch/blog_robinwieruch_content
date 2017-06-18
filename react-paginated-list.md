@@ -18,8 +18,6 @@ summary = "The series of React tutorials focuses on building a complex yet elega
 
 There are a ton of tutorials about the implementation of applications in React. Most of the time, they use basic components to teach the fundamentals of React, because, to be fair, everything else is hard to cover in one tutorial. Only a handful of [long written content](https://www.robinwieruch.de/the-road-to-learn-react/) will take you on the journey to build more powerful components. I want to take you on this journey, after you have learned the fundamentals in React, to build a powerful component in a series of three tutorials.
 
-If you want to {{% a_blank "get all three parts of this series immediately" "https://www.getrevue.co/profile/rwieruch" %}}, you can opt-in by a free subscription to get them. Otherwise they are going to be published during the next weeks.
-
 **But what are you going to build in this series?**
 
 Have you ever been confused how to deal with paginated data in React? Ever wondered how to implement an infinite scroll in React? This walkthrough gives you all the tools you need to implement both features. The first part of the series covers the paginated List component in React. The second part of the series covers infinite scroll in React. Both parts will conclude in the third part of the series into one advanced List component in React that composes functionalities into each other, introduces error handling and fallbacks to those errors.
@@ -27,6 +25,10 @@ Have you ever been confused how to deal with paginated data in React? Ever wonde
 The series uses several basic and advanced features of React. During the series you will use higher order components and compose multiple higher order components onto one base component. The state is managed locally in your React components. You will use a [real world API](https://www.robinwieruch.de/what-is-an-api-javascript/), the API of Hacker News to be more specific, to experiment outside of your own sandbox and use real world data. Otherwise it would be boring, wouldn't it?
 
 If you are not familiar with these features of React, I can recommend to read the open source book [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) where you will learn about the fundamentals of React. All the knowledge acquired in the book will be used as common ground for the next three parts of this series.
+
+* **Paginated List in React - Build a powerful Component (Part I)**
+* [Infinite Scroll in React - Build a powerful Component (Part II)](https://www.robinwieruch.de/react-infinite-scroll)
+* [Advanced List in React - Build a powerful Component (Part III)](https://www.robinwieruch.de/react-advanced-list-component)
 
 {{% chapter_header "The initial React Hacker News Setup" "initial-react-setup" %}}
 
@@ -539,6 +541,5 @@ By using higher order components, you can opt-in and opt-out functionalities on 
 
 Your App component already renders a powerful React List component by now. While the List component only deals with the responsibility to render a list of items, the HOCs opt-in additional functionalities.
 
-Stay tuned for the next two parts to extend the powerful component with infinite scroll, error handling and fall back functionalities in case of an error.
+You can continue with the second part of the React tutorial series: [Infinite Scroll in React - Build a powerful Component (Part II)](https://www.robinwieruch.de/react-infinite-scroll).
 
-If you are not able to stay put, you can {{% a_blank "get access to all three parts immediately" "https://www.getrevue.co/profile/rwieruch" %}}. Otherwise these will be published during the next weeks.
