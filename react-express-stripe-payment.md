@@ -18,9 +18,9 @@ summary = "Accepting payments on your own website can be a recurring problem. Of
 
 Accepting payments on your own website can be an issue at some point. Often you'll find yourself avoiding it, because you can easily outsource it to platforms such as Gumroad that deal with it. However, at some point you want to avoid these third-party platforms and introduce your own payment system.
 
-I dealt with the same issue in a React application. After researching the topic, I found out that Stripe could be a solution, and an viable alternative to PayPal, to charge money. Stripe is a payment platform with a {{% a_blank "well documented API" "https://stripe.com/docs/api" %}} for developers.
+I dealt with the same issue in a React application. After researching the topic, I found out that using Stripe with React could be a solution, and an viable alternative to PayPal, to charge money. Stripe is a payment platform with a {{% a_blank "well documented API" "https://stripe.com/docs/api" %}} for developers.
 
-In this React tutorial, you will setup a minimal React application where you can charge money with a credit card form and a minimal Express server that receives the payment request. The request gets forwared from your payment server to Stripe via its platform API. The tutorial doesn't come with a lot extra on top. It tries to keep the solution to a minimum so that you can adapt it to your needs.
+In this React tutorial, you will setup a minimal React application where you can charge money with a credit card React Stripe form and a minimal Express server that receives the payment request. The request gets forwared from your payment server to Stripe via its platform API. The tutorial doesn't come with a lot extra on top. It tries to keep the solution to a minimum so that you can adapt it to your needs.
 
 {{% chapter_header "Stripe Platform" "stripe-platform" %}}
 
@@ -73,7 +73,7 @@ The second library you will use is {{% a_blank "react-stripe-checkout" "https://
 * it comes with a pretty component to capture credit card information
 * it generates a Stripe token that you can send afterward to your backend
 
-I guess the token generation happens under the hood with the official Stripe library that you will later use in your backend too.
+I guess the token generation happens under the hood with the official Stripe.js library that you will later use in your backend too.
 
 There exists another library, the official library by Stripe for React, called {{% a_blank "react-stripe-elements" "https://github.com/stripe/react-stripe-elements" %}}. However, I ran into two drawbacks when using it:
 

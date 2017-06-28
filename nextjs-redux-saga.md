@@ -1,7 +1,7 @@
 +++
 title = "Redux and Redux Saga in Next.js"
 description = "Basic steps to use Redux and Redux Saga as side-effect library for asynchronous actions in NextJs - a library for server-rendered React applications..."
-date = "2017-07-27T13:50:46+02:00"
+date = "2017-07-28T13:50:46+02:00"
 tags = ["Redux"]
 categories = ["Redux"]
 keyword = "nextjs redux saga"

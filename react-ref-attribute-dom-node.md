@@ -1,5 +1,5 @@
 +++
-title = "When to use Ref on a DOM node in React"
+title = "When to use React's Ref on a DOM node in React"
 description = "The article gives clarification around the ref attribute to access DOM nodes in React. It shows you how you can use it, when you should use it and where it can be used..."
 date = "2017-03-22T13:50:46+02:00"
 tags = ["React"]
@@ -9,7 +9,7 @@ news_keywords = ["react ref"]
 hashtag = "#ReactJs"
 banner = "img/posts/react-ref-attribute-dom-node/banner.jpg"
 contribute = "react-ref-attribute-dom-node.md"
-headline = "When to use Ref on a DOM node in React"
+headline = "When to use React's Ref on a DOM node in React"
 
 summary = "In the past there has been a lot of confusion around the ref attribute in React. The attribute makes it possible to reference a DOM node in order to access it and to interact with it. This article should give some clarification around the ref attribute in React. It shows you how you can use it, when you should use it and where it can be used."
 +++
@@ -20,7 +20,7 @@ In the past there has been a lot of confusion around the `ref` attribute in Reac
 
 On a side note: Don't mistake the `ref` attribute with the `this.refs` object. The latter was used in React in the past. There you would have used a string over a callback function to reference a DOM node. It was deprecated in favor of the `ref` attribute.
 
-{{% chapter_header "How does it work?" "how" %}}
+{{% chapter_header "How does React's Ref attribute work?" "how" %}}
 
 An input element is the perfect example to showcase the `ref` attribute. When you learn React, you often wonder how you can get the value in an input element. The following example shows how you can access it:
 
@@ -62,7 +62,7 @@ class SearchForm extends Component {
 
 The input element defines a `ref` attribute. The `ref` attribute definition always follows the same pattern: `ref={node => this.input = node}`. When the component renders the first time, you want to bind the DOM node to the `this` object of the component. Then you have access to the DOM node. In the code snippet above it is used to get the input value of the input element when you submit the form.
 
-{{% chapter_header "When to use it?" "when" %}}
+{{% chapter_header "When to use React's Ref attribute?" "when" %}}
 
 But it is not always a good idea to use the `ref` attribute. The general rule of thumb is to avoid it. The {{% a_blank "official React documentation" "https://facebook.github.io/react/docs/refs-and-the-dom.html" %}} mentions three occasions where you can use it because you have no other choice.
 

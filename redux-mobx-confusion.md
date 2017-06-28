@@ -71,7 +71,7 @@ Since Redux embraces functional programming, it uses **pure functions**. A funct
 Your Redux **state is immutable**. Instead of mutating your state, you always return a new state. You don't perform state mutations or depend on object references.
 
 {{< highlight javascript >}}
-// don't do this in Redux, because it muates the array
+// don't do this in Redux, because it mutates the array
 function addAuthor(state, action) {
   return state.authors.push(action.author);
 }
