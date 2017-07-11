@@ -372,7 +372,7 @@ The configuration is already used in your *index.js*. Your Express Stripe Backen
 
 {{% chapter_header "Make your first Payment" "stripe-react-payment" %}}
 
-All the implementation is done. Now it is about testing it. When you start backend and frontend, your applications should run on the localhost ports 8080 and 3000. Open up the backend application and verify that it is running on http://localhost:8080/. Open up the frontend application on http://localhost:3000/ and charge money with one of Stripe's {{% a_blank "test credit cards" "https://stripe.com/docs/testing#cards" %}}. One of these credit cards could be:
+All the implementation is done. Now it is about testing it. When you start backend and frontend, your applications should run on the localhost ports 8080 and 3000. Open up the backend application and verify that it is running on the URL localhost:8080. Open up the frontend application on the URL localhost:3000 and charge money with one of Stripe's {{% a_blank "test credit cards" "https://stripe.com/docs/testing#cards" %}}. One of these credit cards could be:
 
 * Email: Any Email
 * Number: 4242 4242 4242 4242

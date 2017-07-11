@@ -1,7 +1,7 @@
 +++
 title = "Redux and Redux Saga in Next.js"
 description = "Basic steps to use Redux and Redux Saga as side-effect library for asynchronous actions in NextJs - a library for server-rendered React applications..."
-date = "2017-07-28T13:50:46+02:00"
+date = "2017-06-28T13:50:46+02:00"
 tags = ["Redux"]
 categories = ["Redux"]
 keyword = "nextjs redux saga"
@@ -18,12 +18,12 @@ summary = "This article will show you the basic steps to use Redux and Redux Sag
 
 This article will show you the basic steps to use {{% a_blank "Redux Saga" "https://github.com/redux-saga/redux-saga" %}} as side-effect library for asynchronous actions in NextJs. I am no expert in server-side rendering, so maybe you as a reader have more insights that you want to share in the comments.
 
-Recently I used {{% a_blank "Next.js" "https://github.com/zeit/next.js/" %}} for a server-rendered React.js application. It comes with its open source {{% a_blank "create-next-app" "https://open.segment.com/create-next-app" %}} project, which can be seen as pendant to {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}} from Facebook, but only as a boilerplate for server-rendered React applications.
+Recently I used {{% a_blank "Next.js" "https://github.com/zeit/next.js/" %}} for a server-rendered React.js application. It comes with its open source {{% a_blank "create-next-app" "https://open.segment.com/create-next-app" %}} project, which can be seen as pendant to {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}} by Facebook, but only as a boilerplate for server-rendered React applications.
 
 There are a few things that are different in a server-side rendered React application. I guess the perfect place to learn about those is {{% a_blank "Learning Next.js" "https://learnnextjs.com/" %}}. But basically in NextJs you have pages in a *pages/* directory that act as routes in your ReactJs + NextJs application.
 
-* pages/home -> http://www.yourdomain/home
-* pages/about -> http://www.yourdomain/about
+* pages/home -> www.yourdomain/home
+* pages/about -> www.yourdomain/about
 
 However, after you have learned the basic steps in Next, you might want to introduce more aspects to your React + Next application. In my case, it were the libraries Redux, for state management beyond local state, and Redux Saga, as side-effect library for asynchronous actions.
 
