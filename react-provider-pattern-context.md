@@ -214,7 +214,7 @@ const coloredTheme = "green";
 
 ReactDOM.render(
   <ThemeProvider coloredTheme={coloredTheme}>
-    <App>
+    <App />
   </ThemeProvider>,
   document.getElementById('app')
 );
