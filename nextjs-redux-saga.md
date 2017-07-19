@@ -14,7 +14,7 @@ headline = "Redux and Redux Saga in Next.js"
 summary = "This article will show you the basic steps to use Redux and Redux Saga as side-effect library for asynchronous actions in NextJs."
 +++
 
-{{% pin_it_image "nextjs redux saga" "img/posts/nextjs-redux-saga/banner.jpg" %}}
+{{% pin_it_image "nextjs redux saga" "img/posts/nextjs-redux-saga/banner.jpg" "is-src-set" %}}
 
 This article will show you the basic steps to use {{% a_blank "Redux Saga" "https://github.com/redux-saga/redux-saga" %}} as side-effect library for asynchronous actions in NextJs. I am no expert in server-side rendering, so maybe you as a reader have more insights that you want to share in the comments.
 

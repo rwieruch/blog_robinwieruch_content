@@ -8,13 +8,13 @@ keyword = "what javascript api"
 news_keywords = ["what javascript api"]
 hashtag = "#JavaScript"
 contribute = "what-is-an-api-javascript.md"
-banner = "img/posts/what-is-an-api-javascript/banner.jpeg"
+banner = "img/posts/what-is-an-api-javascript/banner.jpg"
 headline = "Nobody introduced me to the API - A journey from packages to RESTful services with Roy T. Fielding"
 
 summary = "There is a knowledge gap when it comes to APIs. People assume that the knowledge about APIs is common ground, but it isn't. This article takes you on a journey to explore APIs and their empowering effects. It goes from concrete examples to one abstraction to get to know APIs and their contexts."
 +++
 
-{{% pin_it_image "what javascript api" "img/posts/what-is-an-api-javascript/banner.jpeg" %}}
+{{% pin_it_image "what javascript api" "img/posts/what-is-an-api-javascript/banner.jpg" "is-src-set" %}}
 
 It might be a common issue in teaching computer science at universities: While you learn about bubble sorts, lambda calculus and permutations, nobody mentors you about common developer subjects. In the early days at university, I often wondered: *What is an API?*
 

@@ -16,12 +16,12 @@ summary = "Last year Apple released their new collection of iPhones. One innovat
 
 Last year Apple released their new collection of iPhones. One innovation of Apple which caught my eyes is the new health app. The dashboard with its health charts is appealing and well designed. Therefore I had to remake one of its components with D3.js. This is what you are going to achieve.
 
-{{% pin_it_image "angular d3" "img/posts/apple-health-chart-d3-js/line-chart.png" %}}
+{{% pin_it_image "angular d3" "img/posts/apple-health-chart-d3-js/line-chart.png" "" %}}
 
 * {{% a_blank "Gist for Source Code" "https://gist.github.com/rwieruch/7b90f99823ee1feda28a" %}}
 * {{% a_blank "Example with Source Code + Visualization" "http://bl.ocks.org/rwieruch/7b90f99823ee1feda28a" %}}
 
-{{% pin_it_image  "angular d3" "img/posts/apple-health-chart-d3-js/bar-chart.png" %}}
+{{% pin_it_image  "angular d3" "img/posts/apple-health-chart-d3-js/bar-chart.png" "" %}}
 
 * {{% a_blank "Gist for Source Code" "https://gist.github.com/rwieruch/1e1ee13299db48252e2c" %}}
 * {{% a_blank "Example with Source Code + Visualization" "http://bl.ocks.org/rwieruch/1e1ee13299db48252e2c" %}}

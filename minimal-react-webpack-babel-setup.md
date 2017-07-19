@@ -14,7 +14,7 @@ headline = "The Minimal React Webpack Babel Setup"
 summary = "Personally I did a lot of React projects in the recent time. Always I had to setup the project from scratch. Eventually I have created my own boilerplate project on GitHub. As you might know, uncountable React boilerplate projects and repositories were created that way. But the article is not my attempt to advertise yet another React boilerplate project."
 +++
 
-{{% pin_it_image "react webpack babel" "img/posts/minimal-react-webpack-babel-setup/banner.jpg" %}}
+{{% pin_it_image "react webpack babel" "img/posts/minimal-react-webpack-babel-setup/banner.jpg" "is-src-set" %}}
 
 Personally I bootstrapped a lot of React projects in the recent time. I always had to setup the project from scratch. Eventually I have created my own {{% a_blank "boilerplate project on GitHub" "https://github.com/rwieruch/minimal-react-webpack-babel-setup" %}}. As you might know, uncountable React boilerplate projects and repositories were created that way.
 

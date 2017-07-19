@@ -8,15 +8,15 @@ keyword = "book summary give take"
 news_keywords = ["book summary give take"]
 hashtag = "#growth"
 contribute = "lessons-learned-give-and-take.md"
-banner = "img/posts/lessons-learned-give-and-take/banner.jpeg"
+banner = "img/posts/lessons-learned-give-and-take/banner.jpg"
 headline = "Lessons learned from Give and Take"
 
 summary = "Adam Grant dives deep into the spectrum of altruistic to selfish personalities. Anyone, who reads the book, might be able to identify his or her own personal traits. Moreover, as Adam Grant shows, you can apply the principles of giving and taking even in companies or communities. The book shows and encourages the benefits of giving instead of taking. Furthermore it dives into the role of a giving personality and shows ways to avoid being exploited."
 +++
 
-{{% pin_it_image "book summary give take" "img/posts/lessons-learned-give-and-take/banner.jpeg" %}}
+{{% pin_it_image "book summary give take" "img/posts/lessons-learned-give-and-take/banner.jpg" "is-src-set" %}}
 
-Recently I have read {{% a_blank "Give and Take: A revolutionary approach to Success" "http://amzn.to/2olhgRv" %}} by Adam Grant. It is an inspiring book and I found myself taking too many notes while reading it. Now I want to summarize my learnings, to internalize them, but also to give others access to it.
+Recently I have read {{% a_blank_no_follow "Give and Take: A revolutionary approach to Success" "http://amzn.to/2olhgRv" %}} by Adam Grant. It is an inspiring book and I found myself taking too many notes while reading it. Now I want to summarize my learnings, to internalize them, but also to give others access to it.
 
 In his book, Adam Grant dives deep into the spectrum of altruistic to selfish personalities. Anyone, who reads the book, might be able to identify his or her own personal traits. It can differ in your personal and professional lives. Moreover, as Adam Grant shows, you can apply the principles of giving and taking even in companies or communities. The book shows and encourages the benefits of giving instead of taking. Furthermore it dives into the role of a giving personality and shows ways to avoid being exploited.
 
@@ -251,7 +251,7 @@ Chris Granger, executive at the NBA, says: "Talented people are attracted to tho
 
 Each year companies spend huge amounts of money to identify potential in their future leaders. It builds up on the flaw that talent comes first followed by motivation. But as research shows, by seeing potential in everyone, the pool of talent gets bigger and by encouraging everyone the is potential to grow is unleashed. "It turns out that motivation is the reason that people develop talent in the first place."
 
-"As Malcom Gladwell showed us in {{% a_blank "Outliers" "http://amzn.to/2oqJdq3" %}}, research led by psychologist Anders Ericsson reveals that attaining expertise in a domain typically requires ten thousand hours of deliberate practice. But what motivates people to practice at such length in the first place? This is where givers often enter the picture."
+"As Malcom Gladwell showed us in {{% a_blank_no_follow "Outliers" "http://amzn.to/2oqJdq3" %}}, research led by psychologist Anders Ericsson reveals that attaining expertise in a domain typically requires ten thousand hours of deliberate practice. But what motivates people to practice at such length in the first place? This is where givers often enter the picture."
 
 In the end, it is not the talent or abilities of a person. It is the grit. It is the grit that givers see in their students. But as George Anders notes: "You can't take motivation for granted."
 
@@ -289,7 +289,7 @@ Adam Grant mentions several language basics in powerless communication.
 
 Powerless communication earns prestige: "There's no limit to the amount of respect and admiration that we can dole out. This means that prestige usually has more lasting value, and it's worth examining how people earn it."
 
-Adam Grant recommends, but I can only agree, to read the book {{% a_blank "Quiet" "http://amzn.to/2oJNgRU" %}} by Susan Cain. Powerful and powerless communication play a major role in the world of extroverts and introverts.
+Adam Grant recommends, but I can only agree, to read the book {{% a_blank_no_follow "Quiet" "http://amzn.to/2oJNgRU" %}} by Susan Cain. Powerful and powerless communication play a major role in the world of extroverts and introverts.
 
 ### Presenting
 
@@ -395,7 +395,7 @@ But there are more pitfalls for givers. For takers, it can be easy to exploit gi
 
 #### Screening
 
-Multiple authors ({{% a_blank "Blink" "http://amzn.to/2or0SOh" %}} by Malcolm Gladwell, {{% a_blank "Thinking, Fast and Slow" "http://amzn.to/2pA3fA5" %}} by Daniel Kahneman) have revealed that the first impression of another person can be very important to distinguish givers from other reciprocity styles.
+Multiple authors ({{% a_blank_no_follow "Blink" "http://amzn.to/2or0SOh" %}} by Malcolm Gladwell, {{% a_blank_no_follow "Thinking, Fast and Slow" "http://amzn.to/2pA3fA5" %}} by Daniel Kahneman) have revealed that the first impression of another person can be very important to distinguish givers from other reciprocity styles.
 
 If you take more time, by listening to a person, you can wait for clues that reveal the person as a taker or giver. Takers are more likely to use first-person pronouns. In addition, they use more time in talking than listening. They are not listening to your needs.
 
@@ -466,13 +466,13 @@ Studies have shown that when people start to join volunteering organizations, ev
 
 Even in companies, when people help their colleagues, it gets branded into the identity and giving becomes a norm in the company. "Because of their tendencies toward powerful speech and claiming credit, successful takers tend to dominate the spotlight. But if you start paying attention to reciprocity styles in your own workplace, [Adam Grant has] a hunch that you'll discover plenty of givers achieving the success to which you aspire."
 
-In addition, Adam Grant says: "Focus attention and energy on making a difference the lives of others, and success might follow as a by-product." Similar to a {{% a_blank "flow" "http://amzn.to/2pfekKc" %}} activity where success follows eventually.
+In addition, Adam Grant says: "Focus attention and energy on making a difference the lives of others, and success might follow as a by-product." Similar to a {{% a_blank_no_follow "flow" "http://amzn.to/2pfekKc" %}} activity where success follows eventually.
 
 Last but not least, I want to mention the call to action for companies by Adam Grant: "[Givers] see success in terms of making significant, lasting contributions to a broad range of people. [...] Taking this definition of success seriously might require dramatic changes in the way that organizations hire, evaluate, reward, and promote people. It would mean paying attention not only to the productivity of individual people but also to the ripple effect of this productivity on others. If we broadened our image of success to include contributions to others along with individual accomplishments, people might be motivated to tilt their professional reciprocity styles toward giving."
 
 <hr class="section-divider">
 
-As I said, these are only my lessons learned. I encourage you to read {{% a_blank "Give and Take" "http://amzn.to/2olhgRv" %}} by Adam Grant, because it is insightful, inspiring and can have a lasting impact.
+As I said, these are only my lessons learned. I encourage you to read {{% a_blank_no_follow "Give and Take" "http://amzn.to/2olhgRv" %}} by Adam Grant, because it is insightful, inspiring and can have a lasting impact.
 
 "[Successful givers] get to the top without cutting others down, finding ways of expanding the pie that benefit themselves and people around them".
 

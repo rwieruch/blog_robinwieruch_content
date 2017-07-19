@@ -14,7 +14,7 @@ headline = "Tips to learn React + Redux in 2017"
 summary = "I am doing React + Redux for quite some time now. My learnings are subjective, but I thought they may help people to learn or advance in React + Redux. Redux is not strictly coupled to React, but it happens to be that a lot of people are using both libraries in combination. The article is opinionated, maybe it doesn't match every time your thoughts, but I hope to get feedback on it to improve myself as well."
 +++
 
-{{% pin_it_image "learn react redux" "img/posts/tips-to-learn-react-redux/banner.jpg" %}}
+{{% pin_it_image "learn react redux" "img/posts/tips-to-learn-react-redux/banner.jpg" "is-src-set" %}}
 
 I am doing React + Redux for quite some time now. My learnings are subjective, but I thought they may help people to learn or advance in React + Redux. Redux is not strictly coupled to React, but it happens to be that a lot of people are using both libraries in combination. The article is opinionated, maybe it doesn't match every time your thoughts, but I hope to get feedback on it to improve myself as well. If you are not into React or Redux, you can still read only one part of the article. Feel free to give feedback, suggestions and improvements. Submit your own tips directly on [GitHub](https://github.com/rwieruch/blog_robinwieruch_content/blob/master/tips-to-learn-react-redux.md).
 

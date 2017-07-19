@@ -14,7 +14,7 @@ headline = "Giving Back, By Learning React"
 summary = "At the time of writing this, I am travelling through South East Asia. On my quest to experience the countries in their most natural ways, I try to connect with locals often as possible. When travelling a country, it is not about seeing another cave or waterfall that drives me. Instead, I seek to connect with the local people. When speaking to them, I realize each time again how privileged I am. Even though I was aware of it before, I am even more aware of it now that I am traveling."
 +++
 
-{{% pin_it_image "learn react" "img/posts/giving-back-by-learning-react/banner.jpg" %}}
+{{% pin_it_image "learn react" "img/posts/giving-back-by-learning-react/banner.jpg" "is-src-set" %}}
 
 At the time of writing this, I am travelling through South East Asia. On my quest to experience the countries in their most natural ways, I try to connect with locals often as possible. When travelling a country, it is not about seeing another cave or waterfall that drives me. Instead, I seek to connect with the local people. When speaking to them, I realize each time again how privileged I am. Even though I was aware of it before, I am even more aware of it now that I am traveling.
 
@@ -48,4 +48,4 @@ How is all of this connected to a web development book? The book is open source 
 
 People in such countries have no access to things like Open Source in the first place. By donating in education you can open up opportunities for them. They could be the next generation of engineers. By investing in education for children in the developing world, you contribute to diversity in our professional lives.
 
-{{% pin_it_image "learn react" "img/posts/giving-back-by-learning-react/result.png" %}}
+{{% pin_it_image "learn react" "img/posts/giving-back-by-learning-react/result.png" "" %}}

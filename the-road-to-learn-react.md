@@ -40,8 +40,8 @@ The Road to learn React comes as eBook and as [interactive course](https://www.e
 
 * {{% a_blank "Thomas Lockney" "https://www.goodreads.com/review/show/1880673388" %}}: *"Pretty solid introduction to React that doesn't try to be comprehensive. I just wanted a taste to understand what it was about and this book gave me exactly that. I didn't follow all the little footnotes to learn about the new ES6 features I've missed ("I wouldn't say I've been missing it, Bob."). But I'm sure for those of you who have fallen behind and are diligent about following those, you can probably learn a lot more than just what the book teaches."*
 
-{{% pin_it_image "learn reactjs" "img/posts/the-road-to-learn-react/testimonial_andre_vargas.jpg" %}}
-{{% pin_it_image "learn reactjs" "img/posts/the-road-to-learn-react/testimonial_appsdev.jpg" %}}
+{{% pin_it_image "learn reactjs" "img/posts/the-road-to-learn-react/testimonial_andre_vargas.jpg" "" %}}
+{{% pin_it_image "learn reactjs" "img/posts/the-road-to-learn-react/testimonial_appsdev.jpg" "" %}}
 
 {{% chapter_header "FAQ" "faq" %}}
 
@@ -129,7 +129,7 @@ I keep the learning material up to date to the recent changes in the React ecosy
   </div>
 
   <div class="col-md-4">
-    {{% pin_it_image "learn React infographic" "img/posts/the-road-to-learn-react/infographic.png" %}}
+    {{% pin_it_image "learn React infographic" "img/posts/the-road-to-learn-react/infographic.png" "" %}}
   </div>
 </div>
 

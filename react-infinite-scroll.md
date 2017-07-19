@@ -14,7 +14,7 @@ headline = "Infinite Scroll in React - Build a powerful Component (Part II)"
 summary = "The series of React tutorials focuses on building a complex yet elegant and powerful React component. It attempts to go beyond the fundamentals in React. This part introduces infinite scroll in React. You will use higher order components to opt-in these functionalities in an elegant way."
 +++
 
-{{% pin_it_image "react infinite scroll" "img/posts/react-infinite-scroll/banner.jpg" %}}
+{{% pin_it_image "react infinite scroll" "img/posts/react-infinite-scroll/banner.jpg" "is-src-set" %}}
 
 The following React tutorial builds up on [Paginated List in React - Build a powerful Component (Part I)](https://www.robinwieruch.de/react-paginated-list). The series of tutorials goes beyond the basic React components that you encounter in other React tutorials.
 

@@ -14,7 +14,7 @@ headline = "React Code Style with ESLint + Babel + Webpack"
 summary = "The React Code Style with ESLint + Babel + Webpack tutorial will teach you how to setup ESLint in a React + Babel + Webpack environment. In addition to the setup of usual code style rules, you will add React rules to enforce a better code style in your React environment as well. Moreover you will learn how to extend your ESLint rules with existing best practices rules of companies like Airbnb."
 +++
 
-{{% pin_it_image "react eslint" "img/posts/react-eslint-webpack-babel/banner.jpg" %}}
+{{% pin_it_image "react eslint" "img/posts/react-eslint-webpack-babel/banner.jpg" "is-src-set" %}}
 
 Code style is an important topic for developers. When you code for yourself, it might be alright to violate best practices. However, in a team of developers you have to have a common code style. You should follow the same rules to make your code look alike. It helps others developers to read your code. It helps people to navigate in a new code base. ESLint in JavaScript helps you to set up rules and to enforce code style.
 

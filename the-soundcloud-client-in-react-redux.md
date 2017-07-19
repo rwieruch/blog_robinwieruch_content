@@ -14,7 +14,7 @@ headline = "The SoundCloud Client in React + Redux"
 summary = "At the end of this tutorial you can expect to have a running React + Redux app, which consumes the SoundCloud API. You will be able to login with your SoundCloud account, list your latest tracks and listen to them within the browser. Additionally you will learn a lot about tooling with Webpack and Babel."
 +++
 
-{{% pin_it_image "react redux" "img/posts/the-soundcloud-client-in-react-redux/banner.jpg" %}}
+{{% pin_it_image "react redux" "img/posts/the-soundcloud-client-in-react-redux/banner.jpg" "is-src-set" %}}
 
 In the beginning of 2016 it was time for me to deep dive into the ReactJs world. I read tons of articles about React and its environment, especially Redux, so far. Several of my colleagues used it in side projects and on a theoretical level I could participate in the discussions.
 
@@ -976,11 +976,11 @@ In the chapter of this tutorial we will implement our SoundCloud client, which m
 
 Before you can create a SoundCloud client, you need to have an account and register a new app. Visit {{% a_blank "Developers SoundCloud" "https://developers.soundcloud.com/" %}} and click the “Register a new app” link. Give your app a name and “Register” it.
 
-{{% pin_it_image "react redux" "img/posts/the-soundcloud-client-in-react-redux/sc_register_your_app.png" %}}
+{{% pin_it_image "react redux" "img/posts/the-soundcloud-client-in-react-redux/sc_register_your_app.jpg" "is-src-set" %}}
 
 In the last registration step you give your app a “Redirect URI” to fulfil the registration later in the app via a login popup. Since we are developing locally, we will set this Redirect URI to “http://localhost:8080/callback”.
 
-{{% pin_it_image "react redux" "img/posts/the-soundcloud-client-in-react-redux/sc_configuration_app.png" %}}
+{{% pin_it_image "react redux" "img/posts/the-soundcloud-client-in-react-redux/sc_configuration_app.jpg" "is-src-set" %}}
 
 > The port should be 8080 by default, but consider to change this according to your setup.
 

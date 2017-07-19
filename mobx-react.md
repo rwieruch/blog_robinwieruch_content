@@ -14,13 +14,13 @@ headline = "MobX React: Refactor your application from Redux to MobX"
 summary = "The MobX React: Refactor your application from Redux to MobX tutorial will teach you how to use MobX instead of Redux for state management in React. We will come from a Redux + React seed project and refactor it from Redux to MobX. While we do so, I will explain in detail the concepts behind MobX and the similarities and differences compared to Redux."
 +++
 
-{{% pin_it_image "mobx react" "img/posts/mobx-react/banner.jpg" %}}
+{{% pin_it_image "mobx react" "img/posts/mobx-react/banner.jpg" "is-src-set" %}}
 
 {{% read_before "This React tutorial is part 2 of 2 in the series." "Part 1:" "The SoundCloud Client in React + Redux" "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
 
 MobX is a state management solution. It is a standalone pure technical solution without being opinionated about the architectural state management app design. The 4 pillars State, Actions, Reactions and Derivations make state management in MobX possible. First the State encapsulates all of your application state which can consist of primitives to complex objects. While Actions mutate the State, Reactions are running every time the State was mutated. Derivations are similar to Reactions, but they produce a new value depending on the State.
 
-{{% pin_it_image "mobx react" "img/posts/mobx-react/four_pillars.png" %}}
+{{% pin_it_image "mobx react" "img/posts/mobx-react/four_pillars.png" "" %}}
 
 The MobX React: Refactor your application from Redux to MobX tutorial will teach you how to use MobX instead of Redux for state management in React. We will come from a Redux + React seed project and refactor it from Redux to MobX. While we do so, I will explain in detail the concepts behind MobX and the similarities and differences compared to Redux.
 

@@ -8,19 +8,19 @@ keyword = "book summary deep work flow"
 news_keywords = ["book summary deep work flow"]
 hashtag = "#growth"
 contribute = "lessons-learned-deep-work-flow.md"
-banner = "img/posts/lessons-learned-deep-work-flow/banner.jpeg"
+banner = "img/posts/lessons-learned-deep-work-flow/banner.jpg"
 headline = "(Deep Work) => Flow - A proven Path to Satisfaction"
 
 summary = "The following article summarizes my lessons learned from the books Deep Work and Flow by Cal Newport and Mihaly Csikszentmihalyi. It can be a way to convert deep work into flow. It can be the way to achieve a fulfilled life. The summary helps me to internalize my learnings. However, perhaps it helps you as well to attain deep satisfaction by using the deep work technique to achieve a state of flow."
 +++
 
-{{% pin_it_image "book summary on writing well" "img/posts/lessons-learned-deep-work-flow/banner.jpeg" %}}
+{{% pin_it_image "book summary on writing well" "img/posts/lessons-learned-deep-work-flow/banner.jpg" "is-src-set" %}}
 
 "A state of flow can be achieved by deep work". The subjects flow and deep work are covered in the books Deep Work by Cal Newport and Flow by Mihaly Csikszentmihalyi. I read both books, personally I can say that they are outstanding, and they can be well combined when it comes to satisfaction in a person's life.
 
 The following article summarizes my lessons learned from both books. It can be a way to convert deep work into flow. It can be the way to achieve a fulfilled life. Both subjects build up on the work of great individuals - Cal Newport and Mihaly Csikszentmihalyi. The summary helps me to internalize my learnings. However, perhaps it helps you as well to attain deep satisfaction by using the deep work technique to achieve a state of flow. Still, I can very much recommend to read the books on your own.
 
-The book {{% a_blank "Deep Work" "https://www.amazon.com/Deep-Work-Focused-Success-Distracted/dp/1455586692//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=1b246a2daeac91a6cf39c1e6fa0143be" %}} by Cal Newport gives you guidance to achieve high-quality work. It is achieved by multiplying the time spent on the subject of matter and the intensity of your focus. In his book he references the book {{% a_blank "Flow" "https://www.amazon.com/Flow-Psychology-Experience-Perennial-Classics/dp/0061339202//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=07c7de157f0ad5f27e5c147cf0da698b" %}} by Mihaly Csikszentmihalyi. He says: "Deep work is an activity well suited to generate a flow state". The state of flow is defined by "being completely involved in an activity for its own sake" where "nothing else seems to matter". Naturally it leads to an improvement of the self and to a fulfilled and meaningful life. Since both books where on my reading list, I took the chance to read them one after the other.
+The book {{% a_blank_no_follow "Deep Work" "https://www.amazon.com/Deep-Work-Focused-Success-Distracted/dp/1455586692//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=1b246a2daeac91a6cf39c1e6fa0143be" %}} by Cal Newport gives you guidance to achieve high-quality work. It is achieved by multiplying the time spent on the subject of matter and the intensity of your focus. In his book he references the book {{% a_blank_no_follow "Flow" "https://www.amazon.com/Flow-Psychology-Experience-Perennial-Classics/dp/0061339202//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=07c7de157f0ad5f27e5c147cf0da698b" %}} by Mihaly Csikszentmihalyi. He says: "Deep work is an activity well suited to generate a flow state". The state of flow is defined by "being completely involved in an activity for its own sake" where "nothing else seems to matter". Naturally it leads to an improvement of the self and to a fulfilled and meaningful life. Since both books where on my reading list, I took the chance to read them one after the other.
 
 {{% read_more "Lessons learned from Give and Take" "https://www.robinwieruch.de/lessons-learned-give-and-take/" %}}
 
@@ -96,7 +96,7 @@ Let's dive into the lessons learned to do deep work. Afterward the article will 
 
 {{% chapter_header "How to Deep Work" "howToDeepWork" %}}
 
-"Deep work is an activity well suited to generate a flow state". The following lessons learned from {{% a_blank "Deep Work" "https://www.amazon.com/Deep-Work-Focused-Success-Distracted/dp/1455586692//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=1b246a2daeac91a6cf39c1e6fa0143be" %}} by Cal Newport summarize how you can leverage deep work.
+"Deep work is an activity well suited to generate a flow state". The following lessons learned from {{% a_blank_no_follow "Deep Work" "https://www.amazon.com/Deep-Work-Focused-Success-Distracted/dp/1455586692//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=1b246a2daeac91a6cf39c1e6fa0143be" %}} by Cal Newport summarize how you can leverage deep work.
 
 ### Have Routines to use less Willpower
 
@@ -112,7 +112,7 @@ The **monastic philosophy** "maximize[s] deep efforts by eliminating or radicall
 
 The **bimodal philosophy** suggests to divide your time into shallow obligations and dedicated deep time stretches. During the deep time you perform the monastic philosophy. The deep time streches can vary from 4 days of a week to a full quarter of the year. The allocated time can be even longer. But the minimum for the bimodal philosophy is at least a full day. It supports people in deep work who cannot reduce shallow obligations to a very minimum.
 
-The **rhythmic philosophy** transforms deep work into a routine. It becomes a habit. There are different techniques to make something a habit. For instance, you can use the *chain method*. The method uses a calendar to support you on a daily basis. Each day you achieved something you can strike it with a red cross in the calendar. A little bit gets done each day. You will stick to the routine, because you don't want to break the chain of strikes. Personally I can recommend the book {{% a_blank "The Power of Habit" "https://www.amazon.com/Power-Habit-What-Life-Business/dp/081298160X//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=bc35416dc97c6e6063c8cdfd35dca496" %}} by Charles Duhigg.
+The **rhythmic philosophy** transforms deep work into a routine. It becomes a habit. There are different techniques to make something a habit. For instance, you can use the *chain method*. The method uses a calendar to support you on a daily basis. Each day you achieved something you can strike it with a red cross in the calendar. A little bit gets done each day. You will stick to the routine, because you don't want to break the chain of strikes. Personally I can recommend the book {{% a_blank_no_follow "The Power of Habit" "https://www.amazon.com/Power-Habit-What-Life-Business/dp/081298160X//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=bc35416dc97c6e6063c8cdfd35dca496" %}} by Charles Duhigg.
 
 The **journalistic philosophy** is the last and most advanced philosophy. In that approach you can rapidly switch between shallow to deep work. Yet we know that a disadvantage of multitasking is the usage of our finite willpower. That's why the approach is only for advanced deep workers. Cal Newport says that "[it] require[s] a sense of confidence in your work." and that "[it] requires a conviction that what you are doing is important and will succeed".
 You can support the philosophy by preparing your deep work schedule in advance. It will help you to preserve your willpower.
@@ -146,7 +146,7 @@ It will boost creativity when you expose yourself to others. In a company enviro
 
 You can operate similar to a business. For instance, imagine a software product that gets an additional feature. The team will come up with a {{% a_blank "minimum viable product (MVP)" "https://en.wikipedia.org/wiki/Minimum_viable_product" %}} for the feature. But the MVP needs planning. A MVP has by definition a minimum yet valuable outcome. The same planning you would need for your own outcome. You have to "identify a small number of ambitious outcomes".
 
-Additionally you can identify short and long term objectives. For instance, a short term objective could be to write an article about a topic. The long term objective could be to write a book about the topic. All articles would contribute to a long term objective. I can recommend to read the book {{% a_blank "The One Thing" "https://www.amazon.com/ONE-Thing-Surprisingly-Extraordinary-Results/dp/1885167776//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=dbea1ebffa906268c497628f067718fe" %}} by Gary Keller. It gives a clear guidance how you can deploy short term objectives that contribute to long term goals.
+Additionally you can identify short and long term objectives. For instance, a short term objective could be to write an article about a topic. The long term objective could be to write a book about the topic. All articles would contribute to a long term objective. I can recommend to read the book {{% a_blank_no_follow "The One Thing" "https://www.amazon.com/ONE-Thing-Surprisingly-Extraordinary-Results/dp/1885167776//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=dbea1ebffa906268c497628f067718fe" %}} by Gary Keller. It gives a clear guidance how you can deploy short term objectives that contribute to long term goals.
 
 During your execution keep track of your progress. You can use the explained chain method. Therefore you would need a visual representation of your progress. It can be simple as to have a physical calendar. To track progress enables you to gather feedback about your efforts. Are you on track? Did you have a bad week? Maybe it is time to recalibrate your efforts based on the feedback. On the other hand, when you don't see something wrong about your progress, it is time to celebrate your achievements.
 
@@ -228,7 +228,7 @@ Another approach is to use a *process-centric* response in your mails. You can p
 
 Deep work can be used as a technique to get into a state of flow. The state of flow can be your path in life to accomplish happiness, to be in control of your life and to be independent of social rewards. It can also be your path to accomplish challenges in your professional life.
 
-Let's dive into the lessons learned about the state of {{% a_blank "Flow" "https://www.amazon.com/Flow-Psychology-Experience-Perennial-Classics/dp/0061339202//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=07c7de157f0ad5f27e5c147cf0da698b" %}} by Mihaly Csikszentmihalyi.
+Let's dive into the lessons learned about the state of {{% a_blank_no_follow "Flow" "https://www.amazon.com/Flow-Psychology-Experience-Perennial-Classics/dp/0061339202//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=07c7de157f0ad5f27e5c147cf0da698b" %}} by Mihaly Csikszentmihalyi.
 
 {{% chapter_header "Elements of Flow" "elementsOfFlow" %}}
 
@@ -372,8 +372,8 @@ Personally it was a stunning experience to read both books. I can say it was a f
 
 These were only my lessons learned, but I am curious about yours. If you didn't read the books yet, I encourage you to read them. I was only able to scratch the surface.
 
-* {{% a_blank "Flow" "https://www.amazon.com/Flow-Psychology-Experience-Perennial-Classics/dp/0061339202//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=07c7de157f0ad5f27e5c147cf0da698b" %}} by Mihaly Csikszentmihalyi
-* {{% a_blank "Deep Work" "https://www.amazon.com/Deep-Work-Focused-Success-Distracted/dp/1455586692//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=1b246a2daeac91a6cf39c1e6fa0143be" %}} by Cal Newport
+* {{% a_blank_no_follow "Flow" "https://www.amazon.com/Flow-Psychology-Experience-Perennial-Classics/dp/0061339202//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=07c7de157f0ad5f27e5c147cf0da698b" %}} by Mihaly Csikszentmihalyi
+* {{% a_blank_no_follow "Deep Work" "https://www.amazon.com/Deep-Work-Focused-Success-Distracted/dp/1455586692//ref=as_li_ss_tl?ie=UTF8&linkCode=ll1&tag=21moves-20&linkId=1b246a2daeac91a6cf39c1e6fa0143be" %}} by Cal Newport
 
 "If you give your mind something meaningful to do throughout **all** your waking hours, you'll end the day more fulfilled, and begin the next one more relaxed [...]" by Cal Newport.
 

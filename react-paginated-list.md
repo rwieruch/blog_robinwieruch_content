@@ -14,7 +14,7 @@ headline = "Paginated List in React - Build a powerful Component (Part I)"
 summary = "The series of React tutorials focuses on building a complex yet elegant and powerful React component. It attempts to go beyond the fundamentals in React. This part introduces a paginated List component in React. In addition, it handles the pending state of a request with a loading indicator. You will use higher order components to opt-in these functionalities in an elegant way."
 +++
 
-{{% pin_it_image "react paginated list" "img/posts/react-paginated-list/banner.jpg" %}}
+{{% pin_it_image "react paginated list" "img/posts/react-paginated-list/banner.jpg" "is-src-set" %}}
 
 There are a ton of tutorials about the implementation of applications in React. Most of the time, they use basic components to teach the fundamentals of React, because, to be fair, everything else is hard to cover in one tutorial. Only a handful of [long written content](https://www.robinwieruch.de/the-road-to-learn-react/) will take you on the journey to build more powerful components. I want to take you on this journey, after you have learned the fundamentals in React, to build a powerful component in a series of three tutorials.
 

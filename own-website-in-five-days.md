@@ -40,7 +40,7 @@ brew update && brew install hugo
 
 You can create your first basic website by following the {{% a_blank "quickstart guide" "https://gohugo.io/overview/quickstart/" %}}. Give yourself a bit of time to understand Hugo. The quickstart guide covers how to scaffold your project and its content. Additionally you get to know how to apply a theme and how to experiment with your local website.
 
-The quickstart guide already provides you with a solution to publish your website with {{% a_blank "GitHub Pages" "https://pages.github.com/" %}}. It's great for your first website. If that's enough, you can stop here. But I want to go a bit further. I will continue the cheatsheet by providing you the breadcrumbs to host your Hugo website on {{% a_blank "DigitalOcean" "https://m.do.co/c/fb27c90322f3" %}}.
+The quickstart guide already provides you with a solution to publish your website with {{% a_blank "GitHub Pages" "https://pages.github.com/" %}}. It's great for your first website. If that's enough, you can stop here. But I want to go a bit further. I will continue the cheatsheet by providing you the breadcrumbs to host your Hugo website on {{% a_blank_no_follow "DigitalOcean" "https://m.do.co/c/fb27c90322f3" %}}.
 
 {{% chapter_header "Day Three: DigitalOcean" "digitalOcean" %}}
 
@@ -51,7 +51,7 @@ Good things about hosting on DigitalOcean:
 * great user interface and experience
 * multiple websites on one instance
 
-You can Sign Up on {{% a_blank "DigitalOcean" "https://m.do.co/c/fb27c90322f3" %}}. After that you can create your first Droplet to host your website(s). Choose Ubuntu from the selection of Distributions.
+You can Sign Up on {{% a_blank_no_follow "DigitalOcean" "https://m.do.co/c/fb27c90322f3" %}}. After that you can create your first Droplet to host your website(s). Choose Ubuntu from the selection of Distributions.
 
 You can get more guidance in the following step by step tutorial:
 

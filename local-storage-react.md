@@ -14,7 +14,7 @@ headline = "Local Storage in React"
 summary = "After reading the Road to learn React, a few readers approached me with a question: How can I persist state in React? Obviously it would be possible by having a backend to persist it in a database. Once the app starts, the React app would make a request to the backend to retrieve the state. Then it could be stored in the local component state or via a state management library like Redux or MobX. But a simpler yet most of the times sufficient solution could be to use the native local storage of the browser. No backend and no additional library needed."
 +++
 
-{{% pin_it_image "react local storage" "img/posts/local-storage-react/banner.jpg" %}}
+{{% pin_it_image "react local storage" "img/posts/local-storage-react/banner.jpg" "is-src-set" %}}
 
 After reading [the Road to learn React](http://www.robinwieruch.de/the-road-to-learn-react/), a few readers approached me with a question: How can I persist state in React?
 

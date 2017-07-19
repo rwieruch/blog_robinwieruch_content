@@ -14,7 +14,7 @@ headline = "How to use React's Provider Pattern"
 summary = "The provider pattern in React is a powerful concept. You will not often see it when using plain React, but might consider using it when scaling your application in React. Basically it takes the clutter away of passing mandatory props, that are needed by every component, down your whole component tree."
 +++
 
-{{% pin_it_image "react ref" "img/posts/react-provider-pattern-context/banner.jpg" %}}
+{{% pin_it_image "react ref" "img/posts/react-provider-pattern-context/banner.jpg" "is-src-set" %}}
 
 The provider pattern in React is a powerful concept. You will not often see it when using plain React, but might consider using it when scaling your application in React. Basically it takes the clutter away of passing mandatory props, that are needed by every component, down your whole component tree.
 
@@ -292,9 +292,9 @@ However, there is more you could read up on this topic below.
 
 As mentioned, the provider pattern is often used when using state management libraries such as Redux or MobX. You will provide the state, that is managed by one of these libraries, via a Provider component. This Provider component uses React's context to pass down the state implicitly.
 
-However, I guess you rarely or never used `this.context` down in your component tree when using a state management library. There is often a higher order component, coming from the state management library (such as `connect` in react-redux), that provides you the state in your component.
+However, I guess you rarely or never used `this.context` down in your component tree when using a state management library. There is often a [higher order component](https://www.robinwieruch.de/gentle-introduction-higher-order-components/), coming from the state management library (such as `connect` in react-redux), that provides you the state in your component.
 
-How would such higher order component, which provides React's context as props, look like? Basically the higher order component would look like the following:
+What would such higher order component, which provides React's context as props, look like? Basically the higher order component would look like the following:
 
 {{< highlight javascript >}}
 const getContext = contextTypes => Component => {
