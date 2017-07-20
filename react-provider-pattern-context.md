@@ -145,7 +145,7 @@ class A extends React.Component {
   }
 
   render() {
-    return <D />;
+    return <C />;
   }
 }
 
@@ -154,7 +154,7 @@ A.childContextTypes = {
 };
 {{< /highlight >}}
 
-In your component C, you could consume the context object. Notice that component A doesn't need to pass down anything to component D in the props.
+In your component C, you could consume the context object. Notice that component A doesn't need to pass down anything to component C in the props.
 
 {{< highlight javascript >}}
 class C extends React.Component {
