@@ -368,7 +368,7 @@ const Counter = enhance(({ counter, setCounter }) =>
 );
 {{< /highlight >}}
 
-When using React's higher order components, you can opt-in local satte to any component in React.
+When using React's higher order components, you can opt-in local state to any component in React.
 
 {{% chapter_header "Container and Presenter Pattern" "container-presenter-react" %}}
 
