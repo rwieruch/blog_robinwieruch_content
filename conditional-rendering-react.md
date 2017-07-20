@@ -7,6 +7,7 @@ categories = ["React"]
 keyword = "react conditional rendering"
 news_keywords = ["react", "react conditional rendering"]
 hashtag = "#ReactJs"
+card = "img/posts/conditional-rendering-react/banner_640.jpg"
 banner = "img/posts/conditional-rendering-react/banner.jpg"
 contribute = "conditional-rendering-react.md"
 headline = "All the Conditional Renderings in React"

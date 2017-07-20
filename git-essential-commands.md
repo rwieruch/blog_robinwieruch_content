@@ -7,6 +7,7 @@ categories = ["React"]
 keyword = "git essential commands"
 news_keywords = ["git essential commands"]
 hashtag = "#programming"
+card = "img/posts/git-essential-commands/banner_640.jpg"
 banner = "img/posts/git-essential-commands/banner.jpg"
 contribute = "git-essential-commands.md"
 headline = "GitHub and Git Essentials"

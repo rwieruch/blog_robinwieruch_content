@@ -8,6 +8,7 @@ keyword = "react paginated list"
 news_keywords = ["react paginated list"]
 hashtag = "#ReactJs"
 contribute = "react-paginated-list.md"
+card = "img/posts/react-paginated-list/banner_640.jpg"
 banner = "img/posts/react-paginated-list/banner.jpg"
 headline = "Paginated List in React - Build a powerful Component (Part I)"
 

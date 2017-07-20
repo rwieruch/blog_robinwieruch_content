@@ -7,6 +7,7 @@ categories = ["Redux"]
 keyword = "redux state keys"
 news_keywords = ["redux state keys"]
 hashtag = "#ReactJs"
+card = "img/posts/redux-state-keys/banner_640.jpg"
 banner = "img/posts/redux-state-keys/banner.jpg"
 contribute = "redux-state-keys.md"
 headline = "Redux State Keys - A predictable yet dynamic substate"

@@ -8,6 +8,7 @@ keyword = "book summary on writing well"
 news_keywords = ["book summary on writing well"]
 hashtag = "#growth"
 contribute = "lessons-learned-on-writing-well.md"
+card = "img/posts/lessons-learned-on-writing-well/banner_640.jpg"
 banner = "img/posts/lessons-learned-on-writing-well/banner.jpg"
 headline = "Lessons learned from On Writing Well"
 

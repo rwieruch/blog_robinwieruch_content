@@ -7,6 +7,7 @@ categories = ["Redux", "MobX"]
 keyword = "mobx react"
 news_keywords = ["mobx react"]
 hashtag = "#ReactJs"
+card = "img/posts/mobx-react/banner_640.jpg"
 banner = "img/posts/mobx-react/banner.jpg"
 contribute = "mobx-react.md"
 headline = "MobX React: Refactor your application from Redux to MobX"

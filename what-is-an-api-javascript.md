@@ -8,6 +8,7 @@ keyword = "what javascript api"
 news_keywords = ["what javascript api"]
 hashtag = "#JavaScript"
 contribute = "what-is-an-api-javascript.md"
+card = "img/posts/what-is-an-api-javascript/banner_640.jpg"
 banner = "img/posts/what-is-an-api-javascript/banner.jpg"
 headline = "Nobody introduced me to the API - A journey from packages to RESTful services with Roy T. Fielding"
 

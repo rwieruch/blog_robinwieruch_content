@@ -7,6 +7,7 @@ categories = ["React"]
 keyword = "react provider pattern"
 news_keywords = ["react provider pattern"]
 hashtag = "#ReactJs"
+card = "img/posts/react-provider-pattern-context/banner_640.jpg"
 banner = "img/posts/react-provider-pattern-context/banner.jpg"
 contribute = "react-provider-pattern-context.md"
 headline = "How to use React's Provider Pattern"

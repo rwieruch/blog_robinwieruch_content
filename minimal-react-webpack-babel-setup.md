@@ -7,6 +7,7 @@ categories = ["React"]
 keyword = "minimal react webpack babel"
 news_keywords = ["minimal react webpack babel"]
 hashtag = "#ReactJs"
+card = "img/posts/minimal-react-webpack-babel-setup/banner_640.jpg"
 banner = "img/posts/minimal-react-webpack-babel-setup/banner.jpg"
 contribute = "minimal-react-webpack-babel-setup.md"
 headline = "The Minimal React Webpack Babel Setup"

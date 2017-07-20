@@ -8,6 +8,7 @@ keyword = "react infinite scroll"
 news_keywords = ["react infinite scroll"]
 hashtag = "#ReactJs"
 contribute = "react-infinite-scroll.md"
+card = "img/posts/react-infinite-scroll/banner_640.jpg"
 banner = "img/posts/react-infinite-scroll/banner.jpg"
 headline = "Infinite Scroll in React - Build a powerful Component (Part II)"
 

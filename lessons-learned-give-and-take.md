@@ -8,6 +8,7 @@ keyword = "book summary give take"
 news_keywords = ["book summary give take"]
 hashtag = "#growth"
 contribute = "lessons-learned-give-and-take.md"
+card = "img/posts/lessons-learned-give-and-take/banner_640.jpg"
 banner = "img/posts/lessons-learned-give-and-take/banner.jpg"
 headline = "Lessons learned from Give and Take"
 

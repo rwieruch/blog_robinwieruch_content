@@ -7,6 +7,7 @@ categories = ["React"]
 keyword = "react local storage"
 news_keywords = ["react local storage"]
 hashtag = "#ReactJs"
+card = "img/posts/local-storage-react/banner_640.jpg"
 banner = "img/posts/local-storage-react/banner.jpg"
 contribute = "local-storage-react.md"
 headline = "Local Storage in React"

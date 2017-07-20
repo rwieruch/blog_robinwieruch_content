@@ -7,6 +7,7 @@ categories = ["React"]
 keyword = "react ref"
 news_keywords = ["react ref"]
 hashtag = "#ReactJs"
+card = "img/posts/react-ref-attribute-dom-node/banner_640.jpg"
 banner = "img/posts/react-ref-attribute-dom-node/banner.jpg"
 contribute = "react-ref-attribute-dom-node.md"
 headline = "When to use React's Ref on a DOM node in React"

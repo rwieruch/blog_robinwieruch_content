@@ -8,6 +8,7 @@ keyword = "react advanced list component"
 news_keywords = ["react advanced list component"]
 hashtag = "#ReactJs"
 contribute = "react-advanced-list-component.md"
+card = "img/posts/react-advanced-list-component/banner_640.jpg"
 banner = "img/posts/react-advanced-list-component/banner.jpg"
 headline = "Advanced List in React - Build a powerful Component (Part III)"
 

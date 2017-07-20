@@ -8,6 +8,7 @@ keyword = "book summary deep work flow"
 news_keywords = ["book summary deep work flow"]
 hashtag = "#growth"
 contribute = "lessons-learned-deep-work-flow.md"
+card = "img/posts/lessons-learned-deep-work-flow/banner_640.jpg"
 banner = "img/posts/lessons-learned-deep-work-flow/banner.jpg"
 headline = "(Deep Work) => Flow - A proven Path to Satisfaction"
 

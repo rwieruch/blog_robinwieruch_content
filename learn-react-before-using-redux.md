@@ -7,6 +7,7 @@ categories = ["Redux"]
 keyword = "learn react redux"
 news_keywords = ["learn react redux"]
 hashtag = "#ReactJs"
+card = "img/posts/learn-react-before-using-redux/banner_640.jpg"
 banner = "img/posts/learn-react-before-using-redux/banner.jpg"
 contribute = "learn-react-before-using-redux.md"
 headline = "8 things to learn in React before using Redux"
@@ -39,7 +40,7 @@ The already mentioned most important advice is to learn React first. Thus you ca
 class Counter extends React.Component {
   constructor(props) {
     super(props);
-    this.state({ counter: 0 });
+    this.state = { counter: 0 };
   }
 
   render() {

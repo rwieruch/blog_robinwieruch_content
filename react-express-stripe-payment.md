@@ -8,6 +8,7 @@ keyword = "react express stripe"
 news_keywords = ["react express stripe"]
 hashtag = "#ReactJs"
 contribute = "react-express-stripe-payment.md"
+card = "img/posts/react-express-stripe-payment/banner_640.jpg"
 banner = "img/posts/react-express-stripe-payment/banner.jpg"
 headline = "Accept Stripe Payments with React and Express"
 

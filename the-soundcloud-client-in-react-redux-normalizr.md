@@ -7,6 +7,7 @@ categories = ["React", "Redux"]
 keyword = "redux normalizr"
 news_keywords = ["redux normalizr"]
 hashtag = "#ReactJs"
+card = "img/posts/the-soundcloud-client-in-react-redux-normalizr/banner_640.jpg"
 banner = "img/posts/the-soundcloud-client-in-react-redux-normalizr/banner.jpg"
 contribute = "the-soundcloud-client-in-react-redux-normalizr.md"
 headline = "Redux Normalizr: Improve your State Management"

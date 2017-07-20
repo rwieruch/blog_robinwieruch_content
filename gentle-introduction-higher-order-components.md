@@ -7,6 +7,7 @@ categories = ["React"]
 keyword = "react higher order component"
 news_keywords = ["react higher order component"]
 hashtag = "#ReactJs"
+card = "img/posts/gentle-introduction-higher-order-components/banner_640.jpg"
 banner = "img/posts/gentle-introduction-higher-order-components/banner.jpg"
 contribute = "gentle-introduction-higher-order-components.md"
 headline = "A gentle Introduction to React's Higher Order Components"

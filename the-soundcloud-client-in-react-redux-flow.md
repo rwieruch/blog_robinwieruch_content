@@ -7,6 +7,7 @@ categories = ["Redux"]
 keyword = "redux flow"
 news_keywords = ["redux flow"]
 hashtag = "#ReactJs"
+card = "img/posts/the-soundcloud-client-in-react-redux-flow/banner_640.jpg"
 banner = "img/posts/the-soundcloud-client-in-react-redux-flow/banner.jpg"
 contribute = "the-soundcloud-client-in-react-redux-flow.md"
 headline = "Flow: Type Checking with Flow in React + Redux"

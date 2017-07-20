@@ -7,6 +7,7 @@ categories = ["Redux"]
 keyword = "nextjs redux saga"
 news_keywords = ["nextjs redux saga"]
 hashtag = "#ReactJs"
+card = "img/posts/nextjs-redux-saga/banner_640.jpg"
 banner = "img/posts/nextjs-redux-saga/banner.jpg"
 contribute = "nextjs-redux-saga.md"
 headline = "Redux and Redux Saga in Next.js"

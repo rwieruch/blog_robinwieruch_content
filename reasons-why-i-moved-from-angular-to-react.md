@@ -8,6 +8,7 @@ keyword = "angular or react"
 news_keywords = ["angular or react"]
 hashtag = "#ReactJs"
 contribute = "reasons-why-i-moved-from-angular-to-react.md"
+card = "img/posts/reasons-why-i-moved-from-angular-to-react/banner_640.jpg"
 banner = "img/posts/reasons-why-i-moved-from-angular-to-react/banner.jpg"
 headline = "10 Reasons why I moved from Angular to React"
 

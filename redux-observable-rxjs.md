@@ -7,6 +7,7 @@ categories = ["Redux"]
 keyword = "redux observable"
 news_keywords = ["redux observable", "redux rxjs"]
 hashtag = "#ReactJs"
+card = "img/posts/redux-observable-rxjs/banner_640.jpg"
 banner = "img/posts/redux-observable-rxjs/banner.jpg"
 contribute = "redux-observable-rxjs.md"
 headline = "Redux Observable RxJS: Going Epic with Reactive Programming"
