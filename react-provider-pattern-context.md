@@ -135,7 +135,7 @@ But you shouldn't overdo it with React's context. **So what are use cases for th
 
 **How is React's context provided and consumed?** Imagine you would have component A as root component that provides the context and component C as one of the child components that consumes the context. The application has a colored theme that can be used to style your components. Thus, you want to make the colored theme available for every component via the React context.
 
-In your A component you provide the context. It is a hardcoded colored theme property in this case, but it can be anything from component state to component props.
+In your A component you provide the context. It is a hardcoded colored theme property in this case, but it can be anything from component state to component props. Component A display component D but makes the context available to all its children.
 
 {{< highlight javascript >}}
 class A extends React.Component {
@@ -155,7 +155,7 @@ A.childContextTypes = {
 };
 {{< /highlight >}}
 
-In your component C, you could consume the context object. Notice that component A doesn't need to pass down anything to component D in the props.
+In your component C, somewhere below component D, you could consume the context object. Notice that component A doesn’t need to pass down anything via component D in the props.
 
 {{< highlight javascript >}}
 class C extends React.Component {
