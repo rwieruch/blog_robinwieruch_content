@@ -27,7 +27,7 @@ You will learn to build your own Hacker News application. It covers real world f
 
 The Road to learn React comes as eBook and as [interactive course](https://www.educative.io/collection/5740745361195008/5676830073815040).
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 170+ pages of learning material. Pay as you want like <strong>9000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 170+ pages of learning material. Pay as you want like <strong>10.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
 {{% chapter_header "Testimonials" "testimonials" %}}
 
