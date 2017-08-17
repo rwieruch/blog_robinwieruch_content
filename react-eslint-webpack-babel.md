@@ -341,7 +341,7 @@ Both solutions can be installed globally or locally via npm. Afterward you can i
 
 <hr class="section-divider">
 
-The article taught you how to set up ESLint in a React, Babel and Webpack environment. You can now setup custom rules or extend your rules from well maintained open source projects. Additionally you know about the common style guides to have a better understanding of how to write clean JavaScript and React code. In the end I can recommend you to look for ESLint integrations for your editor. Then your editor can warn you early whenever you violate an ESLint rule.
+The article taught you how to set up ESLint in a React, Babel and Webpack environment. You can now setup custom rules or extend your rules from well maintained open source projects. Additionally, you know about the common style guides to have a better understanding of how to write clean JavaScript and React code. In closing, I recommend you look for ESLint integrations for your editor, so your editor can warn you in real time whenever you violate an ESLint rule.
 
 {{% read_more "The SoundCloud Client in React + Redux" "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
 
