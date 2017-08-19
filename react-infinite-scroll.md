@@ -196,4 +196,4 @@ Now the loading state prevents too many requests. Only when there is no pending 
 
 The upcoming and last part of this series will show you how to combine both functionalities, the paginated list and the infinite scroll, to make it a great user experience. A little hint: one of the two can be used as fallback when there was an erroneous request. Other platforms, such as Twitter and Pocket, are using this approach for an improved UX.
 
-You can continue with the second part of the React tutorial series: [Advanced List in React - Build a powerful Component (Part III)](https://www.robinwieruch.de/react-advanced-list-component).
+You can continue with the third part of the React tutorial series: [Advanced List in React - Build a powerful Component (Part III)](https://www.robinwieruch.de/react-advanced-list-component).
