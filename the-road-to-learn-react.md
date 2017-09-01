@@ -1,6 +1,6 @@
 +++
 title = "The Road to learn React"
-description = "The Road to learn React is your way to learn ReactJs in 2017 by building a real world application. You will get a foundation before you dive into more advanced topics like Redux, Flow and React Router. It's a huge tutorial ..."
+description = "The Road to learn React is your way to learn React by building a real world application. You will get a foundation before you dive into more advanced topics. It's a huge tutorial ..."
 date = "2017-03-09T13:50:46+02:00"
 tags = ["learn", "react"]
 categories = ["React"]
@@ -15,15 +15,11 @@ headline = "The Road to learn React [eBook]"
 summary = "The Road to learn React offers you a foundation before you start to dive into the more advanced React ecosystem. It has less tooling and less external state management, but more React. It explains general concepts and patterns."
 +++
 
-I love to teach, even though I am no expert. I learn every day and I have the fortune to have great mentors. After all not everyone has the opportunity to learn from mentors and peers. The book is my attempt to give something back. It might help people to get started and advance in React.
+The Road to learn React teaches you the fundamentals of React. You will build a real world application along the way in plain React without complicated tooling. Everything from project setup to deployment on a server will be explained. The pay what you want book comes with additional referenced reading material and exercises with each chapter. After reading the book, you will be able to build your own applications in React. The material is kept up to date by me and the community.
 
-**But why me?** In the past I have written a large tutorial to implement a [SoundCloud Client in React + Redux](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux). I never expected the overwhelming reaction. I learned a lot during the process of writing. But even more by getting your feedback. It was my first attempt to teach people in programming.
+In the Road to learn React, I want to offer a foundation before you start to dive into the broader React ecosystem. It has less tooling and less external state management, but a lot of information around React. It explains general concepts, patterns and best practices in a real world React application.
 
-It also taught me to do better. I realized the SoundCloud tutorial is suited for advanced developers. It uses several tools to bootstrap your application and dives quickly into Redux. Still it helped a lot of people to get started. In my opinion it is a great tutorial to get a bigger picture of React + Redux. I use every free minute to improve the material, but it is time consuming.
-
-In the Road to learn React I want to offer a foundation before you start to dive into the broader React ecosystem. It has less tooling and less external state management, but a lot of information around React. It explains general concepts, patterns and best practices.
-
-You will learn to build your own Hacker News application. It covers real world features like pagination, client-side caching and interactions like searching and sorting. Additionally you will transition from JavaScript ES5 to JavaScript ES6 on the way. In conclusion, the book should give you a solid foundation in React before you dive into more advanced topics like Redux. I hope this book captures my enthusiasm for React and JavaScript and helps you to get started.
+You will learn to build your own Hacker News application. It covers real world features like pagination, client-side caching and interactions like searching and sorting. Additionally you will transition from JavaScript ES5 to JavaScript ES6 along the way. I hope this book captures my enthusiasm for React and JavaScript and helps you to get started.
 
 The Road to learn React comes as eBook and as [interactive course](https://www.educative.io/collection/5740745361195008/5676830073815040).
 
@@ -316,5 +312,3 @@ My recommended learning paths (extracted from the book) after you have read the 
 <hr class="section-divider">
 
 Now you should know everything what you can expect from the book. You can pay what you want, because I want to enable everyone to learn React. I would really appreciate your support on social media to reach as many people as possible to grab a version of the book.
-
-{{% package_box "Pre-order: The Road to learn Redux" "A walkthrough from the problem to the solution of state management in React. It covers local state, Redux and MobX and outlines other technologies." "Pre-order" "img/page/cover-redux-ebook.png" "https://gum.co/the-road-to-learn-redux" %}}
