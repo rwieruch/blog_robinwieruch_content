@@ -402,7 +402,7 @@ const withCondition = (Component, conditionalRenderingFn) => (props) =>
 
 const conditionFn = (props) => !props.todos;
 
-const TodoListWithCondition = withTodosNull(TodoList, conditionFn);
+const TodoListWithCondition = withCondition(TodoList, conditionFn);
 {{< /highlight >}}
 
 The `withCondition` HOC enables you to re-use it everywhere for a conditional rendering that returns the input component or nothing. It is independent of the input component, independent of the condition and independent of the props structure.
