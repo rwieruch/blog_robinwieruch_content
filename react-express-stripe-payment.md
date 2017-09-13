@@ -25,7 +25,7 @@ In this React tutorial, you will setup a minimal React application where you can
 
 {{% chapter_header "Stripe Platform" "stripe-platform" %}}
 
-Before you start with the implementation, make sure that you signed up for {{% a_blank "Stripe" "https://stripe.com/de" %}}. You should create an account and be able to access your dashboard. The dashoboard gives you an overview of your payments. There are three things to know about it:
+Before you start with the implementation, make sure that you signed up for {{% a_blank "Stripe" "https://stripe.com/de" %}}. You should create an account and be able to access your dashboard. The dashboard gives you an overview of your payments. There are three things to know about it:
 
 1. **Modes:** Somewhere you should be able to switch between live and test mode. When in **test mode**, you will only see payments that were done from your test application. Once you go live with your application, you will see real payments in the **live mode**.
 
