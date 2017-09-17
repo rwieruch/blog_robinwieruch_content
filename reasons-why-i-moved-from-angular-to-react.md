@@ -61,7 +61,7 @@ In contrast, in Angular you have a clear separation of concerns between logic an
 
 React is only a view library. It solves one problem and it solves it well. Thus it comes only with a handful methods to learn and understand.
 
-A React component comes with lifecycle methods. In React ES6 class components you can use these methods to hook into the lifecycle of a component. Usually you only need the mandatory `render()` lifecycle method to render your elements as a new instance of the component. The render block runs one time when your component is initialized and every time when your component updates. That's it. But you can opt-in more lifecycle methods to add advanced component behaviour. For instance, you can use the `constructor()` to initiliaze a stateful component and add class methods to manipulate the state. Every time the state changes the render lifecycle method runs again to update your view.
+A React component comes with lifecycle methods. In React ES6 class components you can use these methods to hook into the lifecycle of a component. Usually you only need the mandatory `render()` lifecycle method to render your elements as a new instance of the component. The render block runs one time when your component is initialized and every time when your component updates. That's it. But you can opt-in more lifecycle methods to add advanced component behaviour. For instance, you can use the `constructor()` to initialize a stateful component and add class methods to manipulate the state. Every time the state changes the render lifecycle method runs again to update your view.
 
 Overall there are only 9 lifecycle methods to control your component. But in most cases you need only half of them - even in mature React applications.
 
@@ -138,9 +138,9 @@ In React and its ecosystem you can express things concise and elegant yet readab
 
 Functional programming weaves itself naturally into React and its ecosystem. Perhaps it is because of the closeness to JavaScript that makes it possible to adopt the paradigm. As a React developer you are encouraged to define functions without side-effects - pure functions. These functions are composeable in a predictable way. First because they are pure and always return the same output with the same input (predictable). Second because you can use higher order functions to compose them into each other (composeable).
 
-The same advantages of predictability and composeablity apply for the functional components in React. That's why it is possible to embrace predictable and composeable (higher order) components in React.
+The same advantages of predictability and composability apply for the functional components in React. That's why it is possible to embrace predictable and composeable (higher order) components in React.
 
-Every now and then the programming paradigms shift. Functional programming is not new, but it is the first time it gets truthfully adopted in JavaScript. React is one of the thought leaders among other libraries in the JavaScript ecosystem regarding functional programming. It is a great personal accomplishment to learn new principals, to get to know their advantages and disadvantages and to use them hands on. React and its ecosystem gives you the possibility to learn and to apply functional programming.
+Every now and then the programming paradigms shift. Functional programming is not new, but it is the first time it gets truthfully adopted in JavaScript. React is one of the thought leaders among other libraries in the JavaScript ecosystem regarding functional programming. It is a great personal accomplishment to learn new principles, to get to know their advantages and disadvantages and to use them hands on. React and its ecosystem gives you the possibility to learn and to apply functional programming.
 
 {{% chapter_header "Community" "community" %}}
 
@@ -150,7 +150,7 @@ The people behind the ecosystem experiment each day from anew. It goes back to t
 
 The people behind React encourage each other. It doesn't matter if people contribute with an innovation, an additional library or written articles. Everyone thumbs up each other and motivates you to continue. I experienced the same when I started to write articles about React. People encourage you.
 
-The people are not stuck in the ecosystem. If there is a problem, there will be a solution. Someone will come up with a library to solve the problem or explain best practices for a sepcific problem in an article. People help each other and think forward. Since the place stays innovative, there will be always multiple and novel solutions to a problem.
+The people are not stuck in the ecosystem. If there is a problem, there will be a solution. Someone will come up with a library to solve the problem or explain best practices for a specific problem in an article. People help each other and think forward. Since the place stays innovative, there will be always multiple and novel solutions to a problem.
 
 As I said, these community thoughts of mine are more general thoughts. I think all communities around different solutions are doing great, are innovative and encourage each other. That's what makes it great to be involved in such an environment.
 
