@@ -43,7 +43,7 @@ The local repository can be used to experiment with source code, to add improvem
 
 The distribution of repositories makes it possible to collaborate as a group on one global repository when everyone has reading and writing access. A local repository is used to perform changes while the global repository is the source of truth.
 
-GitHub offers the possibility to make repositories private. But you would have to upgrade to a payed GitHub account. Once your GitHub profile is upgraded, you can make any repository private thus only visible for yourself.
+GitHub offers the possibility to make repositories private. But you would have to upgrade to a paid GitHub account. Once your GitHub profile is upgraded, you can make any repository private thus only visible for yourself.
 
 {{% chapter_header "Initialize a repository with Git and GitHub" "initialize-git-repository" %}}
 
