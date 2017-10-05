@@ -1,5 +1,5 @@
 +++
-title = "Taming the State in React [Course Release]"
+title = "Taming the State in React [Course Launch]"
 description = "A full blown React with Redux and MobX course to learn state management in React (250-page ebook, source code, screencasts) ..."
 date = "2017-09-26T13:50:46+02:00"
 tags = ["react", "redux"]
@@ -10,20 +10,18 @@ hashtag = "#ReactJs"
 contribute = "learn-react-redux-mobx-state-management.md"
 card = "img/posts/learn-react-redux-mobx-state-management/banner_640.jpg"
 banner = "img/posts/learn-react-redux-mobx-state-management/banner.jpg"
-headline = "Taming the State in React [Course Release]"
+headline = "Taming the State in React [Course Launch]"
 
 summary = "The course turned out to exceed all my expectations. What started as an attempt to write a sole ebook about state management in React with Redux and MobX, turned out into a full blown course with a 250-page ebook, exciting applications and boilerplate projects to get started in learning and building applications with these libraries, and screencast series about implementing React applications from scratch with state management."
 +++
 
 {{% pin_it_image "learn react redux mobx" "img/posts/learn-react-redux-mobx-state-management/banner.jpg" "is-src-set" %}}
 
-I am excited yet terrified to launch my course {{% a_blank "Taming the State in React" "https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE" %}}. Why am I terrified? I worked on the course for the last 6 months and squeezed every of my free minutes during a workweek, weekends and holidays into it. For instance, when writing the ebook, I woke up two hours earlier before my 9 to 5 job to write 500-1000 qualitative words a day. It continued by building a platform around the course, by recording screencasts, by building exciting applications and boilerplate projects for course participants and by doing a bit of marketing with the of help my better half. During all that time, I tried to keep the output for this website in a good shape by publishing further articles about web development, JavasScript, and React and keeping a consistent high quality.
-
-{{% pin_it_image "taming the state screencasts" "img/posts/learn-react-redux-mobx-state-management/screencast.jpg" "is-src-set" %}}
+I am excited to launch my course {{% a_blank "Taming the State in React" "https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE" %}}. I worked on the course for the last 6 months and squeezed every of my free minutes during a workweek, weekends and holidays into it. For instance, when writing the ebook, I woke up two hours earlier before my 9 to 5 job to write ~750 qualitative words a day. It continued by building a platform around the course, by recording screencasts, by building exciting applications and boilerplate projects for course participants and by doing a bit of outreach with the of help my better half.
 
 So now I am on the finish line and I am terrified to launch something that I have been working on deliberately over the last half year. I procrastinated the last 10% before the launch and felt that growing impostor syndrome. When I asked others about these feelings, they knew it very well before launching a product.
 
-**However, I think it was worth it!** The course turned out to exceed all my expectations. What started as an attempt to write a sole ebook about **state management in React with Redux and MobX**, turned out into a full blown course with a 250-page ebook, exciting applications and boilerplate projects to get started in learning and building applications with these libraries, and multiple screencast series about implementing React applications from scratch with state management.
+**However, I think it was worth it!** The course turned out to exceed all my expectations. What started as an attempt to write a sole ebook about state management in React with Redux and MobX, turned out into a full blown course with a 250-page ebook, exciting applications and boilerplate projects to get started in learning and building applications with these libraries, and multiple screencast series about implementing React applications from scratch with state management. **Grab it today on launch day to get 25% off**.
 
 {{% pin_it_image "learn road react" "img/posts/learn-react-redux-mobx-state-management/road-to-react.jpg" "is-src-set" %}}
 
@@ -31,7 +29,9 @@ The bigger idea was to built a course that gives learners a consistent way to st
 
 {{% chapter_header "What will I learn from the course?" "taming-the-state-in-react-learn" %}}
 
-The course teaches you how to use local state in React and scaling React applications with advanced practices, patterns and techniques. Afterward, the ebook dives into learning Redux and MobX as libraries for state management. These libraries are taught from scratch without React but in combination with React later on. However, all these learnings are not necessarily bound to React as view layer library. They can be applied in other view layer (component based) libraries, such as Vue.js, or single page application (SPA) frameworks, such as Angular.js, too. If you are new to React and want to learn React before, I recommend you to read the up to date book [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). It has been downloaded by 11.000 people so far, which makes me very proud.
+The course teaches you how to use local state in React and scaling React applications with advanced practices, patterns and techniques. Afterward, the ebook dives into learning Redux and MobX as libraries for state management. These libraries are taught from scratch without React but in combination with React later on. However, all these learnings are not necessarily bound to React as view layer library. They can be applied in other view layer (component based) libraries, such as Vue.js, or single page application (SPA) frameworks, such as Angular.js, too. If you are new to React and want to learn React before, I recommend you to read the up to date book [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). It has been downloaded by 12.000 people so far, which makes me very proud.
+
+{{% pin_it_image "taming the state screencasts" "img/posts/learn-react-redux-mobx-state-management/screencast.jpg" "is-src-set" %}}
 
 Due to Redux's popularity, the course teaches more about Redux than MobX. But it is planned to grow the MobX part too, because I am really into that library as well. For both state management libraries, Redux and MobX, you will learn to use them standalone, to connect them to React applications in multiple ways, and to apply best practices, patterns and tricks to scale them in larger applications. You will learn about using JavaScript ES6 to keep your state immutable, middleware in Redux, and flat and normalized state structures. Afterward, the terms actions, reducers, store(s), connected components and so on, will not be foreign subjects to you anymore.
 
@@ -53,7 +53,7 @@ In the previous part, I have shown the benefits and learnings when taking the co
 
 For the last three years, I worked on larger scale applications using Angular and React with Redux. In my development team, we felt the shortcomings of Angular's state management, implemented our own state management solution when Flux wasn't a thing, but decided to move over to React and Redux eventually. Since it is a larger application, the migration is still ongoing, but while migrating and implementing a lot of features in React and Redux from scratch, there were several challenges ahead to overcome and opportunities to grow with them.
 
-Last year, I started to write heavily about React and JavaScript. Over the time, I had the chance to advance my writing and teaching style due to my readers feedback. End of last year, I published an ebook about learning React from scratch. It got downloaded over 11.000 times which was an overwhelming surprise for me. I received great feedback and it makes me really happy to see how people are making progress in their learnings.
+Last year, I started to write heavily about React and JavaScript. Over the time, I had the chance to advance my writing and teaching style due to my readers feedback. End of last year, I published an ebook about learning React from scratch. It got downloaded over 12.000 times which was an overwhelming surprise for me. I received great feedback and it makes me really happy to see how people are making progress in their learnings.
 
 So by now, I believe that I am able to teach things about web development, JavaScript and React in a good way. I hope you believe in this as well. So jump on the train and {{% a_blank "learn Redux and/or MobX" "https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE" %}} :-)
 
