@@ -53,7 +53,7 @@ const CurrySoup = () =>
   ]
 {{< /highlight >}}
 
-Still you would have to use the {{% a_blank "key attribute" "https://reactjs.org/docs/lists-and-keys.html" %}} to make it easier for React to identify your elements in a list of elements. By returning those fragments, it becomes simple to place a group of elements next to each other without the need to add intermediate parent elements:
+Still you would have to use the {{% a_blank "key attribute" "https://reactjs.org/docs/lists-and-keys.html" %}} to make it easier for React to identify your elements in a list of elements. Although the maintainers behind React already {{% a_blank "discuss to remove the keys for static content" "https://github.com/facebook/jsx/issues/84" %}}. By returning those fragments, it becomes simple to place a group of elements next to each other without the need to add intermediate parent elements:
 
 {{< highlight javascript >}}
 const CurrySoup = () =>
@@ -277,7 +277,7 @@ this.setState(prevState => ({
 Now you wouldn't run into any stale state in between when computing your new state. But that's not the change for React 16. In React 16, you can return null in your `this.setState` function to prevent updates. Before you had to check a condition outside of your `this.setState` block:
 
 {{< highlight javascript >}}
-if (isFoo) {
+if (this.state.isFoo) {
   this.setState(prevState => ({
     counter: prevState.counter + 1
   }));
@@ -288,18 +288,31 @@ Now you can return null instead of an object:
 
 {{< highlight javascript >}}
 this.setState(prevState => {
-  return isFoo
+  return prevState.isFoo
     ? { counter: prevState.counter + 1 }
     : null;
 });
 {{< /highlight >}}
 
-That way, you operate again on the current state at the time of the execution, because `this.setState` is executed asynchronously.
+That way, you operate again on the current state at the time of the execution, because `this.setState` is executed asynchronously. If your condition depends on the current state, it can become important to have access to it in `this.setState` and to be able to abort the update.
 
 {{% chapter_header "Custom DOM attributes" "react-custom-dom-attributes" %}}
 
-Unrecognized HTML and SVG attributes are not longer ignored by React. Instead you are allowed to give your DOM nodes any attributes now. Still you should camelCase your attributes to follow React's conventions of using attributes in HTML. My open question for this would be now: {{% a_blank "Am I able to use the deprecated webkitallowfullscreen and mozallowfullscreen attributes in React for my Vimeo component now?" "https://github.com/facebook/react/issues/7848#issuecomment-270536693" %}}
+Unrecognized HTML and SVG attributes are not longer ignored by React. Instead you are allowed to give your DOM nodes any attributes now. Still you should camelCase your attributes to follow React's conventions of using attributes in HTML. My open question for this would be now: {{% a_blank "Am I able to use the deprecated webkitallowfullscreen and mozallowfullscreen attributes in React for my Vimeo component now?" "https://github.com/facebook/react/issues/7848#issuecomment-270536693" %}} Yes, I can! I only need to specify "true" explicitly for those attributes.
+
+{{< highlight javascript >}}
+const VideoPlayer = ({ id }) => {
+  return (
+    <iframe
+      src={`https://player.vimeo.com/video/${id}`}
+      allowFullScreen="true"
+      webkitallowfullscreen="true"
+      mozallowfullscreen="true"
+    />
+  )
+}
+{{< /highlight >}}
 
 <hr class="section-divider">
 
-I cannot wait to {{% a_blank "upgrade" "https://github.com/rwieruch/favesound-redux" %}} {{% a_blank "my" "https://github.com/rwieruch/favesound-mobx" %}} {{% a_blank "projects" "https://github.com/rwieruch/react-express-stripe" %}} to React 16 to experience the benefits. Thanks to all React contributors for your efforts to improve the library yet keeping it with a backward compatibility.
+I {{% a_blank "upgraded" "https://github.com/rwieruch/favesound-redux" %}} {{% a_blank "my" "https://github.com/rwieruch/favesound-mobx" %}} {{% a_blank "projects" "https://github.com/rwieruch/react-express-stripe" %}} to React 16 already. You should try the same. It is effortless if you didn't had any warnings before. In my projects, I only {{% a_blank "had to adjust the Enzyme setup to React 16" "https://github.com/rwieruch/the-road-to-learn-react/issues/73" %}} by using {{% a_blank "enzyme-adapter-react-16" "https://github.com/airbnb/enzyme/tree/master/packages/enzyme-adapter-react-16" %}}. Thanks to all React contributors for your efforts to improve the library yet keeping it with a backward compatibility.
