@@ -2,8 +2,8 @@
 title = "Redux or MobX: An attempt to dissolve the Confusion"
 description = "Redux or MobX? The article shows you the differences between both state management libraries used in React. It gives you guidance to learn MobX vs Redux in React JS applications, when to use them and..."
 date = "2017-03-28T13:50:46+02:00"
-tags = ["React", "Redux", "MobX"]
-categories = ["React", "Redux", "MobX"]
+tags = ["React", "MobX", "JavaScript"]
+categories = ["React", "MobX", "JavaScript"]
 keyword = "redux mobx"
 news_keywords = ["redux mobx", "redux", "mobx"]
 hashtag = "#ReactJs"
@@ -17,13 +17,13 @@ summary = "Everyone wants to have state management in an application. But what p
 
 {{% pin_it_image "redux mobx" "img/posts/redux-mobx-confusion/banner.jpg" "is-src-set" %}}
 
-I used {{% a_blank "Redux" "https://github.com/reactjs/redux" %}} excessively the last year, but spent the recent time with {{% a_blank "MobX" "https://github.com/mobxjs/mobx" %}} as state management alternative. It seems that Redux alternatives evolve naturally into confusion in the community. People are {{% a_blank "uncertain" "https://www.reddit.com/r/reactjs/comments/4npzq5/confused_redux_or_mobx/" %}} which solution to pick. **The issue isn't necessarily Redux vs MobX**. Whenever there exists an alternative, people are curious what's the best way to solve their problem. I am writing these lines to dissolve the confusion around both state management solutions Redux and MobX.
+I used {{% a_blank "Redux" "https://github.com/reactjs/redux" %}} excessively the last years, but spent the recent time with {{% a_blank "MobX" "https://github.com/mobxjs/mobx" %}} as state management alternative. It seems that Redux alternatives evolve naturally into confusion in the community. People are {{% a_blank "uncertain" "https://www.reddit.com/r/reactjs/comments/4npzq5/confused_redux_or_mobx/" %}} which solution to pick. **The issue isn't necessarily Redux vs MobX**. Whenever there exists an alternative, people are curious what's the best way to solve their problem. I am writing these lines to dissolve the confusion around both state management solutions Redux and MobX.
 
-Often the article references React for the usage of state management libraries like MobX and Redux. Yet you can substitute React often with other solutions like Angular, Vue etc.
+Often the article references [React as view layer library](https://www.robinwieruch.de/essential-react-libraries-framework/) for the usage of state management libraries such as MobX and Redux. Yet you can often substitute React with other solutions such as Angular or Vue.
 
-In the beginning of 2016 I wrote a {{% a_blank "fairly big application in React + Redux" "https://github.com/rwieruch/favesound-redux" %}}. After I discovered MobX as alternative, I took the time to refactor the {{% a_blank "application from Redux to MobX" "https://github.com/rwieruch/favesound-mobx/pull/1" %}}. Now I am pretty comfortable in using both and in explaining both approaches.
+In the beginning of 2016 I wrote a {{% a_blank "fairly big application in React + Redux" "https://github.com/rwieruch/favesound-redux" %}}. After I discovered MobX as alternative, I took the time to {{% a_blank "refactor the application from Redux to MobX" "https://github.com/rwieruch/favesound-mobx/pull/1" %}}. I feel pretty comfortable in using both and in explaining their approaches.
 
-What is this article going to be about? If you are === TLDR: you can have a look at the Table of Contents. But to give you more detail: First, I want to revisit shortly the problem a state management library is solving for us. After all you would be doing fine by using `setState()` in React or a variation of it in another SPA framework. Second, I will continue to give you an overview of both solutions by showing the consistencies and differences. Third, I want to give newcomers to the React ecosystem a roadmap to learn state management in React. Spoiler alert: Begin with `setState()` before you dive into MobX or Redux. Last but not least, if you already have an application running with MobX or Redux, I want to give you more insights in refactoring from one to another state management library.
+What is this article going to be about? First, I want to revisit shortly the problem a state management library is solving for us. After all, you would be doing fine by just using `this.setState()` and `this.state` in React or a variation of it in another view layer library or SPA framework. Second, I will continue to give you an overview of both solutions by showing the consistencies and differences. Third, I want to give newcomers to the React ecosystem a roadmap to {{% a_blank "learn state management in React" "https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE" %}}. Spoiler alert: [Begin with React's local state before you dive into MobX or Redux](https://www.robinwieruch.de/learn-react-before-using-redux/). Last but not least, if you already have an application running with MobX or Redux, I want to give you more insights in refactoring from one to another state management library.
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
@@ -40,7 +40,7 @@ What is this article going to be about? If you are === TLDR: you can have a look
 
 Everyone wants to have state management in an application. But what problem does it solve for us? Most people start with a small application and already introduce a state management library. Everyone is speaking about it, aren't they? Redux! MobX! But most applications {{% a_blank "don't need ambitious state management" "https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367" %}} from the beginning. It is even more dangerous, because most **people are never going to experience which problems libraries like Redux or MobX solve**.
 
-Nowadays, the status quo is to build a frontend application with components. Components have internal state. For instance, in React such a local state is handled with `this.state` and `setState()`. In a growing application the state management can get chaotic quickly with local state, because:
+Nowadays, the status quo is to build a frontend application with components. Components have internal state. For instance, in React such a local state is handled with `this.state` and `this.setState()`. In a growing application, the state management can become chaotic with local state, because:
 
 * a component needs to share state with another component
 * a component needs to mutate the state of another component
@@ -49,7 +49,7 @@ At some point, it gets more difficult to reason about the application state. It 
 
 The solution therefore is to introduce a state management library like MobX or Redux. It gives you tools to save your state somewhere, to change your state and to receive state updates. You have one place to find your state, one place to change it and one place to get updates from. It follows the principal of a single source of truth. It makes it easier to reason about your state and state changes, because they get decoupled from your components.
 
-State management libraries like Redux and MobX often have utility add-ons, like for React they have {{% a_blank "react-redux" "https://github.com/reactjs/react-redux" %}} and {{% a_blank "mobx-react" "https://github.com/mobxjs/mobx-react" %}}, to give your components access to the state. Often these components are called *container components* or, to be more specific, *connected components*. From anywhere in your component hierarchy you can access and alter the state by upgrading your component to a connected component.
+State management libraries like Redux and MobX often have utility add-ons, like for React they have {{% a_blank "react-redux" "https://github.com/reactjs/react-redux" %}} and {{% a_blank "mobx-react" "https://github.com/mobxjs/mobx-react" %}}, to give your components access to the state. Often these components are called **container components** or, to be more specific, **connected components**. From anywhere in your component hierarchy you can access and alter the state by upgrading your component to a connected component.
 
 {{% chapter_header "What's the difference between Redux and MobX?" "difference" %}}
 
@@ -59,7 +59,7 @@ Both libraries are used to manage state in JavaScript applications. They are not
 
 If you choose one of the state management solutions, you will not experience a vendor lock-in. You can change to another state management solution any time. You can go from MobX to Redux or from Redux to MobX. I will demonstrate you later on how this works.
 
-Redux by {{% a_blank "Dan Abramov" "https://twitter.com/dan_abramov" %}} is a derivation of the {{% a_blank "flux architecture" "https://facebook.github.io/flux/docs/in-depth-overview.html" %}}. In contrast to flux, it uses a single store over multiple stores to save state. In addition, instead of a dispatcher it uses pure functions to alter the state. If you are not familiar with flux and you are new to state management, don't bother with the last paragraph.
+Redux by {{% a_blank "Dan Abramov" "https://twitter.com/dan_abramov" %}} and {{% a_blank "Andrew Clark" "https://twitter.com/acdlite" %}} is a derivation of the {{% a_blank "flux architecture" "https://facebook.github.io/flux/docs/in-depth-overview.html" %}}. In contrast to flux, it uses a single store over multiple stores to save state. In addition, instead of a dispatcher it uses pure functions to alter the state. If you are not familiar with flux and you are new to state management, don't bother with the last paragraph.
 
 Redux is influenced by **functional programming (FP) principles**. FP can be done in JavaScript, but a lot of people come from an object-oriented background, like Java, and have difficulties to adopt functional programming principles in the first place. That adds up later on why MobX might be easier to learn as a beginner.
 
@@ -346,9 +346,7 @@ Both libraries are great. While Redux is already well established, MobX becomes 
 
 {{% read_more "Learn plain React with setState and this.state" "http://www.robinwieruch.de/the-road-to-learn-react/" %}}
 
-{{% read_more "Implement your own SoundCloud Client with React + Redux" "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
-
-{{% read_more "Refactor an application from Redux to MobX" "https://www.robinwieruch.de/mobx-react/" %}}
+{{% read_more "Learn Redux and MobX in React in a full-blown course" "https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE" %}}
 
 {{% chapter_header "Fact Sheet" "factSheet" %}}
 

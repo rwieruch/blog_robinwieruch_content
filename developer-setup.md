@@ -2,12 +2,12 @@
 title = "Technical Cheatsheet: Development Environment Setup"
 description = "Technical cheatsheet to setup your MAC developer environment with Homebrew, Git, Sublime as Editor, iTerm2 as Terminal / Command Line Tool and GitHub. Setup your development environment to get started..."
 date = "2016-11-09T13:50:46+02:00"
-tags = ["frontend", "developer", "setup"]
+tags = ["Web Development"]
+categories = ["Web Development"]
 keyword = "frontend developer setup"
 news_keywords = ["frontend developer setup"]
 hashtag = "#programming"
 contribute = "developer-setup.md"
-type = "promo"
 headline = "Technical Cheatsheet: Development Environment Setup"
 
 +++

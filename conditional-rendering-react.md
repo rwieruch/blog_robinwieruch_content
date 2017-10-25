@@ -2,8 +2,8 @@
 title = "All the Conditional Renderings in React"
 description = "The article is an exhaustive list of conditional renderings in React. But what is conditional rendering in React? In a conditional render a component decides based on one or several conditions which elements it will return..."
 date = "2017-02-21T13:50:46+02:00"
-tags = ["React"]
-categories = ["React"]
+tags = ["React", "JavaScript"]
+categories = ["React", "JavaScript"]
 keyword = "react conditional rendering"
 news_keywords = ["react", "react conditional rendering"]
 hashtag = "#ReactJs"

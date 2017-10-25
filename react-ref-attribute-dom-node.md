@@ -2,8 +2,8 @@
 title = "When to use React's Ref on a DOM node in React"
 description = "The article gives clarification around the ref attribute to access DOM nodes in React. It shows you how you can use it, when you should use it and where it can be used..."
 date = "2017-03-22T13:50:46+02:00"
-tags = ["React"]
-categories = ["React"]
+tags = ["React", "JavaScript"]
+categories = ["React", "JavaScript"]
 keyword = "react ref"
 news_keywords = ["react ref"]
 hashtag = "#ReactJs"

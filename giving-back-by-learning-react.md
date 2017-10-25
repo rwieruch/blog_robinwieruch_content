@@ -2,8 +2,8 @@
 title = "Giving Back, By Learning React"
 description = "Self-reflection as a privileged developer who travels South East Asia. An attempt to give something back, by learning React, to contribute solving the diversity problem in software development..."
 date = "2017-04-11T13:50:46+02:00"
-tags = ["React"]
-categories = ["React"]
+tags = ["React", "JavaScript"]
+categories = ["React", "JavaScript"]
 keyword = "learn react"
 news_keywords = ["learn react"]
 hashtag = "#ReactJs"

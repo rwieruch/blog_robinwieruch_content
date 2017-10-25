@@ -2,8 +2,8 @@
 title = "How to fetch data in React"
 description = "Basics about React's data fetching to request real world data by using the native fetch API..."
 date = "2017-08-10T13:50:46+02:00"
-tags = ["React"]
-categories = ["React"]
+tags = ["React", "JavaScript"]
+categories = ["React", "JavaScript"]
 keyword = "react fetching data"
 news_keywords = ["react fetching data"]
 hashtag = "#ReactJs"

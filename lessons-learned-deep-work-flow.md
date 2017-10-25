@@ -2,7 +2,7 @@
 title = "(Deep Work) => Flow - A proven Path to Satisfaction"
 description = "The following article summarizes my lessons learned from the books Deep Work and Flow. It can be the way to achieve a fulfilled life. Cal Newport and Mihaly Csikszentmihalyi have written outstanding books in their ..."
 date = "2017-02-09T13:50:46+02:00"
-tags = ["book", "summary", "deep work", "flow"]
+tags = ["Growth"]
 categories = ["Growth"]
 keyword = "book summary deep work flow"
 news_keywords = ["book summary deep work flow"]

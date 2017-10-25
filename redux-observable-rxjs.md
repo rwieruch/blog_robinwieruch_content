@@ -2,8 +2,8 @@
 title = "Redux Observable RxJS: Going Epic with Reactive Programming"
 description = "The Redux Observable RxJS: Going Epic tutorial will show you how to reactive programming in Redux. The middleware can be used in Redux applications. The example shows it in a React JS app..."
 date = "2016-08-13T13:50:46+02:00"
-tags = ["Redux"]
-categories = ["Redux"]
+tags = ["React", "Redux", "JavaScript"]
+categories = ["React", "Redux", "JavaScript"]
 keyword = "redux observable"
 news_keywords = ["redux observable", "redux rxjs"]
 hashtag = "#ReactJs"

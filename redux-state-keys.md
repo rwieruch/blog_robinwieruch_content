@@ -2,8 +2,8 @@
 title = "Redux State Keys - A predictable yet dynamic substate"
 description = "Redux state keys enable a dynamically allocated yet predictable substate. In a rapid development environment it happens quite often: There is no time to plan state structure..."
 date = "2016-10-31T13:50:46+02:00"
-tags = ["Redux"]
-categories = ["Redux"]
+tags = ["React", "Redux", "JavaScript"]
+categories = ["React", "Redux", "JavaScript"]
 keyword = "redux state keys"
 news_keywords = ["redux state keys"]
 hashtag = "#ReactJs"

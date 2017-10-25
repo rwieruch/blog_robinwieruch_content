@@ -2,8 +2,8 @@
 title = "MobX React: Refactor your application from Redux to MobX"
 description = "Refactor your React application from Redux to MobX. Use MobX instead of Redux for state management in React JS. Get to know actions, reactions and derivations in MobX and best practices..."
 date = "2016-07-18T13:50:46+02:00"
-tags = ["Redux", "MobX"]
-categories = ["Redux", "MobX"]
+tags = ["React", "MobX", "JavaScript"]
+categories = ["React", "MobX", "JavaScript"]
 keyword = "mobx react"
 news_keywords = ["mobx react"]
 hashtag = "#ReactJs"

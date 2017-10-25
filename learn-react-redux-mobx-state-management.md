@@ -2,8 +2,8 @@
 title = "Taming the State in React [Course Launch]"
 description = "A full blown React with Redux and MobX course to learn state management in React (250-page ebook, source code, screencasts) ..."
 date = "2017-09-26T13:50:46+02:00"
-tags = ["react", "redux"]
-categories = ["React", "Redux"]
+tags = ["React", "Redux", "MobX", "JavaScript"]
+categories = ["React", "Redux", "MobX", "JavaScript"]
 keyword = "learn react redux mobx"
 news_keywords = ["learn react redux mobx"]
 hashtag = "#ReactJs"
@@ -29,7 +29,7 @@ The bigger idea was to built a course that gives learners a consistent way to st
 
 {{% chapter_header "What will I learn from the course?" "taming-the-state-in-react-learn" %}}
 
-The course teaches you how to use local state in React and scaling React applications with advanced practices, patterns and techniques. Afterward, the ebook dives into learning Redux and MobX as libraries for state management. These libraries are taught from scratch without React but in combination with React later on. However, all these learnings are not necessarily bound to React as view layer library. They can be applied in other view layer (component based) libraries, such as Vue.js, or single page application (SPA) frameworks, such as Angular.js, too. If you are new to React and want to learn React before, I recommend you to read the up to date book [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). It has been downloaded by 12.000 people so far, which makes me very proud.
+The course teaches you how to use local state in React and scaling React applications with advanced practices, patterns and techniques. Afterward, the ebook dives into learning Redux and MobX as libraries for state management. These libraries are taught from scratch without React but in combination with React later on. However, all these learnings are not necessarily bound to React as view layer library. They can be applied in other view layer (component based) libraries, such as Vue.js, or single page application (SPA) frameworks, such as Angular.js, too. If you are new to React and want to learn React before, I recommend you to read the up to date book [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). It has been downloaded by 13.000 people so far, which makes me very proud.
 
 {{% pin_it_image "taming the state screencasts" "img/posts/learn-react-redux-mobx-state-management/screencast.jpg" "is-src-set" %}}
 
@@ -53,7 +53,7 @@ In the previous part, I have shown the benefits and learnings when taking the co
 
 For the last three years, I worked on larger scale applications using Angular and React with Redux. In my development team, we felt the shortcomings of Angular's state management, implemented our own state management solution when Flux wasn't a thing, but decided to move over to React and Redux eventually. Since it is a larger application, the migration is still ongoing, but while migrating and implementing a lot of features in React and Redux from scratch, there were several challenges ahead to overcome and opportunities to grow with them.
 
-Last year, I started to write heavily about React and JavaScript. Over the time, I had the chance to advance my writing and teaching style due to my readers feedback. End of last year, I published an ebook about learning React from scratch. It got downloaded over 12.000 times which was an overwhelming surprise for me. I received great feedback and it makes me really happy to see how people are making progress in their learnings.
+Last year, I started to write heavily about React and JavaScript. Over the time, I had the chance to advance my writing and teaching style due to my readers feedback. End of last year, I published an ebook about learning React from scratch. It got downloaded over 13.000 times which was an overwhelming surprise for me. I received great feedback and it makes me really happy to see how people are making progress in their learnings.
 
 So by now, I believe that I am able to teach things about web development, JavaScript and React in a good way. I hope you believe in this as well. So jump on the train and {{% a_blank "learn Redux and/or MobX" "https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE" %}} :-)
 

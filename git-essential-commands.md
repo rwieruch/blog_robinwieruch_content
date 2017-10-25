@@ -2,8 +2,8 @@
 title = "GitHub and Git Essentials"
 description = "In this article, I want to give you the essentials about Git and GitHub. Afterward, I want to show you my essential commands for Git that enabled me to do web development in the recent years. It's no magic..."
 date = "2017-05-16T13:50:46+02:00"
-tags = ["React"]
-categories = ["React"]
+tags = ["Web Development"]
+categories = ["Web Development"]
 keyword = "git essential commands"
 news_keywords = ["git essential commands"]
 hashtag = "#programming"

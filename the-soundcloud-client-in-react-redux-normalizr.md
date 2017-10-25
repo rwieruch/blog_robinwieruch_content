@@ -2,8 +2,8 @@
 title = "Redux Normalizr: Improve your State Management"
 description = "The Redux Normalizr: Improve your State Management tutorial will teach you how to use normalizr. Avoid deep nested data structures ..."
 date = "2016-07-09T13:50:46+02:00"
-tags = ["React", "Redux"]
-categories = ["React", "Redux"]
+tags = ["React", "Redux", "JavaScript"]
+categories = ["React", "Redux", "JavaScript"]
 keyword = "redux normalizr"
 news_keywords = ["redux normalizr"]
 hashtag = "#ReactJs"

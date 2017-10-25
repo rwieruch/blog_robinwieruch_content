@@ -2,7 +2,7 @@
 title = "Lessons learned from Give and Take"
 description = "Adam Grant dives deep into the spectrum of altruistic to selfish personalities. Anyone might be able to identify his or her own personal traits. Adam Grant shows that you can apply the principles of giving and taking even in companies or communities..."
 date = "2017-04-19T13:50:46+02:00"
-tags = ["book", "summary", "give take"]
+tags = ["Growth"]
 categories = ["Growth"]
 keyword = "book summary give take"
 news_keywords = ["book summary give take"]

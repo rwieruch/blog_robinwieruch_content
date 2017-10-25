@@ -2,8 +2,8 @@
 title = "What's new in React 16?"
 description = "All React 16 changes (new return types with fragments and strings, portals, componentDidCatch, error boundaries, setState with null and custom DOM attributes) at one place ..."
 date = "2017-10-05T13:50:46+02:00"
-tags = ["React"]
-categories = ["React"]
+tags = ["React", "JavaScript"]
+categories = ["React", "JavaScript"]
 keyword = "react 16 changes"
 news_keywords = ["react 16 changes"]
 hashtag = "#ReactJs"

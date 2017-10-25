@@ -2,8 +2,8 @@
 title = "How to use React's Provider Pattern"
 description = "This article gives you a walkthrough for React's provider pattern. After reading it, you should be able to implement..."
 date = "2017-07-11T13:50:46+02:00"
-tags = ["React"]
-categories = ["React"]
+tags = ["React", "JavaScript"]
+categories = ["React", "JavaScript"]
 keyword = "react provider pattern"
 news_keywords = ["react provider pattern"]
 hashtag = "#ReactJs"

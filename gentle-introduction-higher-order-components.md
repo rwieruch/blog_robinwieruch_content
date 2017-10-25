@@ -2,8 +2,8 @@
 title = "A gentle Introduction to React's Higher Order Components"
 description = "Higher order components in React, or known under the abbreviation HOCs, are often a hard to grasp pattern in ReactJs. The article gives you an introduction to HOCs, how to use them elegantly in the case of conditional rendering and how to abstract them..."
 date = "2017-04-04T13:50:46+02:00"
-tags = ["React"]
-categories = ["React"]
+tags = ["React", "JavaScript"]
+categories = ["React", "JavaScript"]
 keyword = "react higher order component"
 news_keywords = ["react higher order component"]
 hashtag = "#ReactJs"

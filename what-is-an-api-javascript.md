@@ -2,8 +2,8 @@
 title = "Nobody introduced me to the API"
 description = "There is a knowledge gap when it comes to APIs. People assume that the knowledge about APIs is common ground, but it isn't. This article takes you on a journey to explore APIs and their empowering effects..."
 date = "2017-05-10T13:50:46+02:00"
-tags = ["react"]
-categories = ["React"]
+tags = ["Web Development"]
+categories = ["Web Development"]
 keyword = "what javascript api"
 news_keywords = ["what javascript api"]
 hashtag = "#JavaScript"

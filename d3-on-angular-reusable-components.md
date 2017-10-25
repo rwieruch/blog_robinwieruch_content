@@ -2,8 +2,8 @@
 title = "D3 on Angular: Reusable Components"
 description = "Components become more important these days. In the future you will get to hear more and more about Web Components, which get available in Angular 2.0..."
 date = "2015-04-03T13:50:46+02:00"
-tags = ["Angular", "D3"]
-categories = []
+tags = ["Angular", "D3", "JavaScript"]
+categories = ["Angular", "D3", "JavaScript"]
 keyword = "angular d3"
 news_keywords = ["angular d3"]
 hashtag = "#d3js #angularjs"

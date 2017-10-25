@@ -2,8 +2,8 @@
 title = "Infinite Scroll in React - Build a powerful Component (Part II)"
 description = "The series of React tutorials focuses on building a complex yet elegant and powerful React component. It attempts to go beyond the fundamentals in React. This part introduces infinite scroll in React..."
 date = "2017-06-07T13:50:46+02:00"
-tags = ["react"]
-categories = ["React"]
+tags = ["React", "JavaScript"]
+categories = ["React", "JavaScript"]
 keyword = "react infinite scroll"
 news_keywords = ["react infinite scroll"]
 hashtag = "#ReactJs"

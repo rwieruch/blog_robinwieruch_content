@@ -2,8 +2,8 @@
 title = "Paginated List in React - Build a powerful Component (Part I)"
 description = "The series of React tutorials focuses on building a complex yet elegant and powerful React component. It attempts to go beyond the fundamentals in React. This part introduces a paginated list in React..."
 date = "2017-05-29T13:50:46+02:00"
-tags = ["react"]
-categories = ["React"]
+tags = ["React", "JavaScript"]
+categories = ["React", "JavaScript"]
 keyword = "react paginated list"
 news_keywords = ["react paginated list"]
 hashtag = "#ReactJs"

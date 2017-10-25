@@ -2,8 +2,8 @@
 title = "10 Reasons why I moved from Angular to React"
 description = "The article should help people to understand the benefits of React, but also the benefits of Angular, to make a decision between Angular or React - or even React or Angular 2..."
 date = "2017-01-31T13:50:46+02:00"
-tags = ["react", "angular"]
-categories = ["React"]
+tags = ["React", "JavaScript", "Angular"]
+categories = ["React", "JavaScript", "Angular"]
 keyword = "angular or react"
 news_keywords = ["angular or react"]
 hashtag = "#ReactJs"

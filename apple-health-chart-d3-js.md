@@ -2,8 +2,8 @@
 title = "Apple Health Chart on Angular and D3.js"
 description = "Last year Apple released their new collection of iPhones. One innovation of Apple which caught my eyes is the new health app. The dashboard with its..."
 date = "2014-12-30T13:50:46+02:00"
-tags = ["Angular", "D3"]
-categories = []
+tags = ["Angular", "D3", "JavaScript"]
+categories = ["Angular", "D3", "JavaScript"]
 keyword = "angular d3"
 news_keywords = ["angular d3"]
 hashtag = "#d3js #angularjs"

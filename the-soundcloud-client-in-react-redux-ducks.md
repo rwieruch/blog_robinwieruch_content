@@ -2,8 +2,8 @@
 title = "Redux Ducks: Restructure your Redux App with Ducks"
 description = "Redux Ducks: Restructure your Redux App with Ducks will teach you how to bundle action creators, action types and reducers side by side in your Redux app."
 date = "2016-06-26T13:50:46+02:00"
-tags = ["Redux"]
-categories = ["Redux"]
+tags = ["React", "Redux", "JavaScript"]
+categories = ["React", "Redux", "JavaScript"]
 keyword = "redux ducks"
 news_keywords = ["redux ducks"]
 hashtag = "#ReactJs"

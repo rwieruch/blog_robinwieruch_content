@@ -2,8 +2,8 @@
 title = "Tips to learn React + Redux in 2017"
 description = "In tips to learn React + Redux you will get a list of best practices and tips to learn React JS and Redux. The tutorial covers various topics in Redux, ES6 and React like testing, components and state..."
 date = "2017-01-17T13:50:46+02:00"
-tags = ["React", "Redux"]
-categories = ["React", "Redux"]
+tags = ["React", "Redux", "JavaScript"]
+categories = ["React", "Redux", "JavaScript"]
 keyword = "learn react redux"
 news_keywords = ["react redux", "react", "redux"]
 hashtag = "#ReactJs"
@@ -335,7 +335,7 @@ You are still learning React? Use `setState` to manage internal component state.
 
 In a growing application there will come the time to introduce a state management library eventually. A part of the article [Redux or MobX: An attempt to dissolve the Confusion](https://www.robinwieruch.de/redux-mobx-confusion/) covers how to approach to learn state management in React.
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 170+ pages of learning material. Pay as you want like <strong>12.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>13.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
 {{% header_with_anchor "Tips for Redux" "redux" %}}
 

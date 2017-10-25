@@ -2,8 +2,8 @@
 title = "MobX (with Decorators) in create-react-app"
 description = "Everything to know about using MobX with and without decorators in a create-react-app with React. MobX doesn't need necessarily decorators. But you can activate them by ejecting your application ..."
 date = "2017-10-10T13:50:46+02:00"
-tags = ["React", "MobX"]
-categories = ["React", "MobX"]
+tags = ["React", "MobX", "JavaScript"]
+categories = ["React", "MobX", "JavaScript"]
 keyword = "create-react-app mobx decorators"
 news_keywords = ["create-react-app mobx decorators"]
 hashtag = "#ReactJs"

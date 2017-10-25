@@ -2,8 +2,8 @@
 title = "React's Ecosystem as a flexible Framework"
 description = "React's ecosystem is a flexible framework. The article gives you an opinionated ideal React setup choosing essential libraries..."
 date = "2017-08-02T13:50:46+02:00"
-tags = ["React"]
-categories = ["React"]
+tags = ["React", "Redux", "JavaScript"]
+categories = ["React", "Redux", "JavaScript"]
 keyword = "essential react libraries"
 news_keywords = ["essential react libraries"]
 hashtag = "#ReactJs"

@@ -2,8 +2,8 @@
 title = "8 things to learn in React before using Redux"
 description = "Facts about React that should be known before using Redux (or MobX). Most important: Learn React first, then opt-in Redux..."
 date = "2017-07-19T13:50:46+02:00"
-tags = ["Redux"]
-categories = ["Redux"]
+tags = ["React", "Redux", "JavaScript"]
+categories = ["React", "Redux", "JavaScript"]
 keyword = "learn react redux"
 news_keywords = ["learn react redux"]
 hashtag = "#ReactJs"

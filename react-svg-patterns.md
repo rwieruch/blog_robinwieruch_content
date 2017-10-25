@@ -2,8 +2,8 @@
 title = "SVG Patterns in React - Build a Twitter Wall"
 description = "Using SVG in React. It shows you how to use plain SVG and how to add SVG background patterns in React. It uses svg-patterns pr Hero Patterns as alternative..."
 date = "2017-08-30T13:50:46+02:00"
-tags = ["react"]
-categories = ["React"]
+tags = ["React", "JavaScript"]
+categories = ["React", "JavaScript"]
 keyword = "svg patterns react"
 news_keywords = ["svg patterns react"]
 hashtag = "#ReactJs"
