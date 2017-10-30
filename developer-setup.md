@@ -4,7 +4,7 @@ description = "Technical cheatsheet to setup your MAC developer environment with
 date = "2016-11-09T13:50:46+02:00"
 tags = ["Web Development"]
 categories = ["Web Development"]
-keyword = "frontend developer setup"
+keywords = ["frontend developer setup"]
 news_keywords = ["frontend developer setup"]
 hashtag = "#programming"
 contribute = "developer-setup.md"
@@ -32,7 +32,7 @@ Get your full instructions on {{% a_blank "Homebrew" "http://brew.sh/" %}}. Othe
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 {{< /highlight >}}
 
-> Whenever you install something with Homebrew, type `brew update` in your command line to update the Homebrew repository with the recent changes.
+Whenever you install something with Homebrew, type `brew update` in your command line to update the Homebrew repository with the recent changes.
 
 {{% chapter_header "Git" "git" %}}
 
@@ -46,9 +46,7 @@ Later we will setup a GitHub account to manage our projects (repositories) on Gi
 
 {{% chapter_header "Sublime as Editor" "sublime" %}}
 
-{{% a_blank "Sublime" "https://www.sublimetext.com/" %}} is my editor of choice. But you can decide to choose another one. It's up to you.
-
-Sublime isn't directly accessible in Homebrew. But we can use {{% a_blank "Cask" "https://caskroom.github.io/" %}} to install it.
+{{% a_blank "Sublime" "https://www.sublimetext.com/" %}} is my editor of choice. But you can decide to choose another one. It's up to you. Sublime isn't directly accessible in Homebrew. But we can use {{% a_blank "Cask" "https://caskroom.github.io/" %}} to install it.
 
 {{< highlight javascript >}}
 brew install caskroom/cask/brew-cask
@@ -68,28 +66,18 @@ Another little trick can be applied to make sublime open the current directory f
 link: ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime
 {{< /highlight >}}
 
-Now you should be able to open any directory from the command line with `sublime .`
-
-> Sublime comes with powerful settings and amazing customization. You can choose from a wide range of themes or packages to make your developer experience nicer and easier.
+Now you should be able to open any directory from the command line with `sublime .` Sublime comes with powerful settings and amazing customization. You can choose from a wide range of themes or packages to make your developer experience nicer and easier.
 
 {{% chapter_header "iTerm2 (Optional)" "iterm" %}}
 
-It's optional, but you might want to install an advanced command line (terminal) tool. I suggest {{% a_blank "iTerm2" "https://www.iterm2.com/" %}}.
-
-Homebrew again helps you to install it.
+It's optional, but you might want to install an advanced command line (terminal) tool. I suggest {{% a_blank "iTerm2" "https://www.iterm2.com/" %}} whereas Homebrew helps you to install it.
 
 {{< highlight javascript >}}
 brew cask install iterm2
 {{< /highlight >}}
 
-Now you can open iTerm2 instead of the default terminal.
-
-> You could install further stuff for iTerm2 like the {{% a_blank "solarized theme" "http://ethanschoonover.com/solarized" %}} or {{% a_blank "Oh My Zsh" "https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet" %}}.
+Now you can open iTerm2 instead of the default terminal. You could install further stuff for iTerm2 like the {{% a_blank "solarized theme" "http://ethanschoonover.com/solarized" %}} or {{% a_blank "Oh My Zsh" "https://github.com/robbyrussell/oh-my-zsh/wiki/Cheatsheet" %}}.
 
 {{% chapter_header "GitHub" "github" %}}
 
-Now it's time to create an account on {{% a_blank "GitHub" "https://github.com/" %}}. It will be your place to share, collaborate on and discuss projects. You could {{% a_blank "follow me on GitHub" "https://github.com/rwieruch" %}} to have your first social connection.
-
-Next you may want to setup a SSH connection to GitHub. It allows you to connect to your external repositories in a secure way. Therefor follow the {{% a_blank "instructions on GitHub" "https://help.github.com/articles/generating-an-ssh-key/" %}}.
-
-That's it for the development setup. I hope it gives you everything you need to start to code or to build your own website.
+Last but not least, it is time to create an account on {{% a_blank "GitHub" "https://github.com/" %}}. It will be your place to share, collaborate on and discuss about exciting projects. Follow the setup instructions from the [GitHub and Git Essentials](https://www.robinwieruch.de/git-essential-commands/) article. In addition, you may want to setup a SSH connection to GitHub. It allows you to connect to your external repositories in a secure way. Therefore, follow the {{% a_blank "instructions on GitHub" "https://help.github.com/articles/generating-an-ssh-key/" %}}.
