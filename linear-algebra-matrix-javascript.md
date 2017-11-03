@@ -94,25 +94,25 @@ const vectorIJ = math.multiply(matrixI, vectorJ);
 
 There is another operation which you would use to have an element-wise multiplication or division in JavaScript by using `math.dotMultiply(matrixI, vectorJ);` or `math.dotDivide(matrixY, matrixZ)`. Otherwise, when using the default operators on matrices with math.js, you will apply matrix operations.
 
-After all, dealing with matrices in math.js isn't that difficult anymore. But you have to know the dimensions of each matrix in your operation, because not every matrix operates on another matrix. Another good thing to know are the associative and commutative matrix properties.
+After all, dealing with matrices in math.js isn't that difficult anymore. But you have to know the dimensions of each matrix in your operation, because not every matrix operates on another matrix. Another good thing to know are the associative and commutative matrix operations.
 
-{{% chapter_header "Are Matrices associative and commutative?" "matrix-associative-commutative-javascript" %}}
+{{% chapter_header "Is matrix multiplication associative and commutative?" "matrix-associative-commutative-javascript" %}}
 
-There are two important matrix properties for matrix operations. First, matrices are not commutative: A x B != B x A.
+There are two important properties for matrix multiplication. First, matrix multiplication is not commutative: A x B != B x A.
 
 {{< highlight javascript >}}
-const matrixN = math.matrix([[0, 1], [2, 3], [4, 5]]);
+const matrixN = math.matrix([[0, 1], [2, 3]]);
 const matrixO = math.matrix([[2, 4], [6, 2]]);
 
 const matrixNO = math.multiply(matrixN, matrixO);
-const matrixON = math.multiply(matrixO, matrixL);
+const matrixON = math.multiply(matrixO, matrixN);
 
-console.log('Are matrices commutative?');
-console.log(math.equal(matrixNO.size(), matrixON.size()));
+console.log('Is matrix multiplication commutative?');
+console.log(math.equal(matrixNO.valueOf(), matrixON.valueOf()));
 // false
 {{< /highlight >}}
 
-Second, matrices are associative: A x (B x C) == (A x B) x C.
+Second, matrix multiplication is associative: A x (B x C) == (A x B) x C.
 
 {{< highlight javascript >}}
 const matrixP = math.matrix([[0, 1], [2, 3], [4, 5]]);
@@ -122,12 +122,12 @@ const matrixR = math.matrix([[5, 2], [2, -2]]);
 const matrixPQ_R = math.multiply(math.multiply(matrixP, matrixQ), matrixR);
 const matrixP_QR = math.multiply(matrixP, math.multiply(matrixQ, matrixR));
 
-console.log('Are matrices associative?');
+console.log('Is matrix multiplication associative?');
 console.log(math.equal(matrixPQ_R.valueOf(), matrixP_QR.valueOf()));
 // true
 {{< /highlight >}}
 
-These matrix properties should be internalized before making any further more complex operations on matrices.
+These matrix multiplication properties should be internalized before making any further more complex operations on matrices.
 
 {{% chapter_header "Transpose and Inverse and the Identity Matrix in JavaScript" "matrix-transpose-inverse-identity-javascript" %}}
 
