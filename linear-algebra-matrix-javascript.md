@@ -220,6 +220,119 @@ const competingResults = math.multiply(houseSizeMatrix, hypothesesMatrix);
 
 You can put these things in matrices now, rather than executing every function on its own. A loop becomes one matrix operation. On a higher level you can say that a unvectorized implementation becomes a vectorized implementation. Thus is becomes computational efficient when performing machine learning algorithms and simpler as well. Furthermore, these matrix operations are used in a **normal equation** which is used as an alternative to gradient descent.
 
+{{% chapter_header "Octave / Matlab alike operations in JavaScript" "octave-javascript" %}}
+
+At some point, using math.js this way doesn't scale anymore. You will do more than one matrix operation in complex mathematical expressions. What about the following expressions?
+
+{{< highlight javascript >}}
+theta - ALPHA / m * ((X * theta - y)' * X)'
+{{< /highlight >}}
+
+Yes, it is taken from a [multivariate linear regression with gradient descent](https://www.robinwieruch.de/multivariate-linear-regression-gradient-descent-javascript). It can be easily expressed in mathematical programming languages such as Matlab or Octave. In math.js it wouldn't scale when using the standard methods.
+
+{{< highlight javascript >}}
+// Octave:
+// theta = theta - ALPHA / m * ((X * theta - y)' * X)';
+
+// Math.js in JavaScript
+theta = math.subtract(
+  theta,
+  math.multiply(
+    (ALPHA / m),
+    math.transpose(
+      math.multiply(
+        math.transpose(
+          math.subtract(
+            math.multiply(
+              X,
+              theta
+            ),
+            y
+          )
+        ),
+        X
+      )
+    )
+  )
+);
+{{< /highlight >}}
+
+That's a mess. However, fortunately you can do it concise by using the eval functionality that takes a mathematical expression and the scoped values to apply those in the expression.
+
+{{< highlight javascript >}}
+// Octave:
+// theta = theta - ALPHA / m * ((X * theta - y)' * X)';
+
+// Math.js in JavaScript
+theta = math.eval(`theta - ALPHA / m * ((X * theta - y)' * X)'`, {
+  theta,
+  ALPHA,
+  m,
+  X,
+  y,
+});
+{{< /highlight >}}
+
+Still not as concise as using Octave or Matlab, but you can evaluate complex mathematical expression now. It helps you in other scenarios too. For instance, it helps you to extract a subset of a Matrix by range indices:
+
+{{< highlight javascript >}}
+// Octave:
+// matrixAsub = matrixA(:, 1:2);
+
+// Math.js in JavaScript
+let matrixAsub = math.eval('matrixA[:, 1:2]', {
+  matrixA,
+});
+{{< /highlight >}}
+
+It returns the first and second column (indices start with 1) with all their rows as two vectors in a new matrix. It goes even further by assigning columns in a matrix a new vector.
+
+{{< highlight javascript >}}
+// Octave:
+// matrixA(:, 1) = vectorB;
+
+// Math.js in JavaScript
+math.eval(`matrixA[:, 1] = vectorB`, {
+  matrixA,
+  vectorB,
+});
+{{< /highlight >}}
+
+There are a couple of things that I couldn't find out how to apply them in JavaScript when coming from Octave expressions. I try to collect them in this {{% a_blank "util library" "https://github.com/javascript-machine-learning/mathjs-util" %}}. For instance, what about adding an intercept term to a Matrix? In octave it is simple to push a vector of ones in front of a Matrix. But I couldn't find any way to express it in math.js. That's why I have put the following function in the util library.
+
+{{< highlight javascript >}}
+// Octave:
+// X = [ones(m, 1) X];
+
+// Math.js in JavaScript
+function pushVector(matrix, index, vector) {
+  const extendedMatrix = math
+    .ones([
+      getDimensionSize(matrix, 1),
+      getDimensionSize(matrix, 2) + 1
+    ])
+    .valueOf();
+
+  return extendedMatrix.map((row, rowKey) => row.map((column, columnKey) => {
+    if (index === columnKey) {
+      return vector[rowKey][0];
+    }
+    if (columnKey < index) {
+      return matrix[rowKey][columnKey];
+    }
+    if (columnKey > index) {
+      return matrix[rowKey][columnKey - 1];
+    }
+  }));
+}
+
+// Usage
+const COLUMN_INDEX = 0;
+const extendedX = pushVector(X, COLUMN_INDEX, math.ones([m, 1]).valueOf());
+{{< /highlight >}}
+
+Perhaps it helps others as well. I will collect more of these utility functions in the library. If you can point out how it can be done in math.js, I will remove it from the util library again.
+
 <hr class="section-divider">
 
 In conclusion, I hope the walkthrough about matrices applied in JavaScript was helpful to get started in the linear algebra in JavaScript or as foundation for machine learning in JavaScript. You can checkout the {{% a_blank "GitHub repository" "https://github.com/rwieruch/linear-algebra-matrix" %}} with executable matrix operations on the command line.
