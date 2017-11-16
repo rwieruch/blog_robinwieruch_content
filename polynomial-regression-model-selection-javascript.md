@@ -4,9 +4,9 @@ description = "How to fit your data with model selection and polynomial regressi
 date = "2017-10-30T13:50:46+02:00"
 tags = ["Machine Learning", "JavaScript"]
 categories = ["Machine Learning", "JavaScript"]
-keywords = ["polynomial regression javascript", "model selection javascript"]
+keywords = ["machine learning javascript", "polynomial regression javascript", "model selection javascript"]
 news_keywords = ["polynomial regression model selection javascript"]
-hashtag = "#JavaScript"
+hashtag = "#JavaScript #MachineLearning"
 card = "img/posts/polynomial-regression-model-selection-javascript/banner_640.jpg"
 banner = "img/posts/polynomial-regression-model-selection-javascript/banner.jpg"
 contribute = "polynomial-regression-model-selection-javascript.md"
@@ -63,7 +63,7 @@ Price +
                                                      Size
 {{< /highlight >}}
 
-That's where you have to select a different model type to fit your training set in the first place, because the correlation of your x and y values may be nonlinear (e.g. curvilinear).
+The problem is called **under-fitting**. In other words, the algorithm has a **high bias**. Both mean that the prediction doesn't fit the data well. That's where you have to select a different model type to fit your training set in the first place, because the correlation of your x and y values may be nonlinear (e.g. curvilinear).
 
 {{% chapter_header "Polynomial Regression" "polynomial-regression-javascript" %}}
 
@@ -99,7 +99,7 @@ Polynomial regression can reduce your costs returned by the cost function. It gi
 
 {{% chapter_header "Over-fitting in Polynomial Regression" "parsimonious-model-over-fitting-javascript" %}}
 
-There is one crucial aspect when using polynomial regression. By selecting models for your regression problem, you want to determine which of these models is the most parsimonious. What does a parsimonious model mean? Generally speaking, you need to care more about a parsimony model rather than a best-fitting model. A complex model could **over-fit** your data. For instance, you might find that a quadratic model fits your trainings set reasonably well. On the other hand, you find out about a very high order polynomial that goes almost perfectly through each of your data points.
+There is one crucial aspect when using polynomial regression. By selecting models for your regression problem, you want to determine which of these models is the most parsimonious. What does a parsimonious model mean? Generally speaking, you need to care more about a parsimony model rather than a best-fitting model. A complex model could **over-fit** your data. It becomes an **over-fitting problem** or in other words the algorithm has a **high variance**. For instance, you might find that a quadratic model fits your trainings set reasonably well. On the other hand, you find out about a very high order polynomial that goes almost perfectly through each of your data points.
 
 {{< highlight javascript >}}
 Price +                                            XXX
@@ -121,6 +121,14 @@ Price +                                            XXX
 {{< /highlight >}}
 
 Even though this model fits perfectly, it will be terrible at making future predictions. It fits the data too well, so it's over-fitting. It's about balancing the model's complexity with the model's explanatory power. That's a parsimonious model. It is a model that accomplishes a desired level of explanation or prediction with as few predictor variables as possible. In conclusion, you want to have a best-fitting prediction when using low order polynomials. There is no point in finding the best-fitting regression line that fits all of your data points.
+
+The terminology is used for both linear and logistic regression. In order to address the issue of over-fitting, there are two options:
+
+* Reduce the number of features:
+  * Manual selection of useful features
+  * Apply a model selection algorithm
+* Regularization (use it, when you have a lot of slightly useful features)
+ * Keep all the features n, but reduce the magnitude of theta parameters
 
 <hr class="section-divider">
 

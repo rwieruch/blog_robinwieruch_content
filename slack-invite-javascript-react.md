@@ -1,7 +1,7 @@
 +++
 title = "Programmatic Slack invite in JavaScript and React"
 description = "The article showcases how to setup an automated Slack invitation for a JavaScript and/or React application. Why would you want a Slack invitation in the first place? ..."
-date = "2017-11-02T09:50:46+02:00"
+date = "2017-11-05T09:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["slack invite react", "slack invite javascript"]
@@ -21,7 +21,7 @@ The article showcases how to setup an automated Slack invitation for a JavaScrip
 
 Sometimes people approach people when they face problems implementing their application or seek for advice about it. Since I write and tweet about JavaScript and React, I had a couple of these conversations too. For a while I managed to help out individuals, but it didn't scale well. It would be a full-time job at some point and it is sad that all this knowledge gets lost because it is only discussed by two people. That's why I decided to open up a {{% a_blank "React Slack Channel" "https://slack-the-road-to-learn-react.wieruch.com/" %}} to help people learn React.js. It is so much more valuable to share these discussions in a group of people. This way, more people are able to help and more people can learn from it.
 
-The same React Slack Group is used for my {{% a_blank "React courses" "https://roadtoreact.com/" %}}. People can join the group when they face problems or want to help out others. It is one crucial part of [my own course platform](https://www.robinwieruch.de/how-to-build-your-own-course-platform/) to grow a community of like minded people. The automated invitation for the Slack Group is powered by the {{% a_blank "slack-invite-automation" "https://github.com/outsideris/" %}} open source project and runs on one of my [Dokku instances](https://www.robinwieruch.de/deploy-applications-digital-ocean/).
+The same React Slack Group is used for my {{% a_blank "React courses" "https://roadtoreact.com/" %}}. People can join the group when they face problems or want to help out others. It is one crucial part of [my own course platform](https://www.robinwieruch.de/how-to-build-your-own-course-platform/) to grow a community of like minded people. The automated invitation for the Slack Group is powered by the {{% a_blank "slack-invite-automation" "https://github.com/outsideris/slack-invite-automation" %}} open source project and runs on one of my [Dokku instances](https://www.robinwieruch.de/deploy-applications-digital-ocean/).
 
 However, that's not all to the story. Afterward, I wanted to be able to invite users programmatically to the Slack Group when they participated in one of my courses. During the sign up process, people can tick a checkbox to get an automated Slack invite. Since then the participation rate in the Slack Group went up. Now the Slack Group invitation is fully automated. People can visit an external website to request access or opt-in on the course platform to get their invite to Slack.
 
@@ -29,11 +29,11 @@ The following article will guide you through the process of setting up an automa
 
 {{% chapter_header "Create a Slack Application" "create-react-app-local-storage" %}}
 
-I don't want to replicate too much of the official instructions about creating an App on the Slack platform, because they could go out of sync at some point. But basically you have to create a new {{% a_blank_no_follow "Slack App" "https://api.slack.com/apps" %}}. In the process, you have to add the "admin" permission to your application. Afterward you can finish the process by installing the Slack App and visiting a specific URL to authorize it. Personally, I followed {{% a_blank "these instructions" "https://github.com/outsideris/" %}} to setup an external Slack invitation website. It demonstrates the walkthrough with a couple of screenshots too. Afterward, you would already have an externally running website to invite users to your Slack Channel. You don't need to use it though and the installed Slack App will suffice to invite users programmatically to your Slack Group.
+I don't want to replicate too much of the official instructions about creating an App on the Slack platform, because they could go out of sync at some point. But basically you have to create a new {{% a_blank_no_follow "Slack App" "https://api.slack.com/apps" %}}. In the process, you have to add the "admin" permission to your application. Afterward you can finish the process by installing the Slack App and visiting a specific URL to authorize it. Personally, I followed {{% a_blank "these instructions" "https://github.com/outsideris/slack-invite-automation" %}} to setup an external Slack invitation website. It demonstrates the walkthrough with a couple of screenshots too. Afterward, you would already have an externally running website to invite users to your Slack Channel. You don't need to use it though and the installed Slack App will suffice to invite users programmatically to your Slack Group.
 
 {{% chapter_header "Programmatic Slack Invitation in JavaScript" "create-react-app-local-storage" %}}
 
-After you have setup your Slack App, you can invite people to your Slack Group programmatically by using the provided Slack token. Slack has a bunch of API endpoints, but not all of them are officially released yet. {{% a_blank "Slack's invite endpoint is one of these unreleased API endpoints" "https://github.com/slackhq/slack-api-docs/issues/30" %}}. So be aware of changes for these endpoints at any time. However, a couple of developers have found out about SLack's API endpoints and {{% a_blank "documented them on GitHub" "https://github.com/ErikKalkoken/slackApiDoc" %}}. There is no OAuth authentication needed at this point in time of writing this article.
+After you have setup your Slack App, you can invite people to your Slack Group programmatically by using the provided Slack token. Slack has a bunch of API endpoints, but not all of them are officially released yet. {{% a_blank "Slack's invite endpoint is one of these unreleased API endpoints" "https://github.com/slackhq/slack-api-docs/issues/30" %}}. So be aware of changes for these endpoints at any time. However, a couple of developers have found out about Slack's API endpoints and {{% a_blank "documented them on GitHub" "https://github.com/ErikKalkoken/slackApiDoc" %}}. There is no OAuth authentication needed at this point in time of writing this article.
 
 When you have installed your Slack App, you can invite people by email and the provided Slack token programmatically in JavaScript. In most browsers, the {{% a_blank "native fetch API" "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" %}} is supported. But you can use any other library (axios, superagent, request, jQuery) to make the request. In a node.js application, you would use a library to perform the Slack invite. In the following example axios is used to perform the invite:
 
@@ -60,7 +60,7 @@ function inviteToSlack(email) {
 }
 {{< /highlight >}}
 
-That's it. If you have provided a valid email and Slack token, the signed up user should have a Slack invitation.
+That's it. If you have provided a valid email and Slack token, the user using the endpoint should have a Slack invitation.
 
 {{% chapter_header "Slack Invitation in React" "create-react-app-local-storage" %}}
 
@@ -167,8 +167,8 @@ class SignUp extends Component {
 }
 {{< /highlight >}}
 
-That's it. Since I have made it effortless for people to join the Slack Group to learn React, more and more people signed up for it.
+That's it. Since I have made it effortless for people to join the Slack Group to learn React, the rate of people joining the Slack Channel went up.
 
 <hr class="section-divider">
 
-Hopefully the article gave you a couple of insights on how to use Slack in a programmatic way in JavaScript and React to automate your member invitation for your Slack Group. My own experiences have shown me that it helps a lot to grow a community around a certain topic. So if you are learning React, don't forget to join the Slack Channel :-)
+Hopefully the article gave you a couple of insights on how to use Slack in a programmatic way in JavaScript and React to automate your member invitation for your Slack Group. My own experiences have shown me that it helps a lot to grow a community of like minded people around a certain topic.

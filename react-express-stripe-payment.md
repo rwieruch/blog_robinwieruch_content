@@ -382,4 +382,4 @@ All the implementation is done. Now it is about testing it. When you start backe
 
 There should be an obvious alert when the payment succeeded, but also an error alert when it failed. Once it succeeded, you can find the payment on your Stripe dashboard using the test mode. If you charged a real credit card in production environment, the payment should be visible on the dashboard in live mode.
 
-You can find the final application and the installation README.md on {{% a_blank "GitHub" "https://github.com/rwieruch/react-express-stripe" %}}.
+You can find the final application and the installation README.md on {{% a_blank "GitHub" "https://github.com/rwieruch/react-express-stripe" %}}. If you like it, make sure to star it.

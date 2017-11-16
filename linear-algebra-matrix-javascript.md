@@ -4,9 +4,9 @@ description = "How to use matrix operations from linear algebra in JavaScript. W
 date = "2017-10-23T13:50:46+02:00"
 tags = ["Machine Learning", "JavaScript", "Node"]
 categories = ["Machine Learning", "JavaScript", "Node"]
-keywords = ["matrix javascript", "matrix math.js"]
+keywords = ["machine learning javascript", "matrix javascript", "matrix math.js"]
 news_keywords = ["matrix javascript"]
-hashtag = "#JavaScript"
+hashtag = "#JavaScript #MachineLearning"
 card = "img/posts/linear-algebra-matrix-javascript/banner_640.jpg"
 banner = "img/posts/linear-algebra-matrix-javascript/banner.jpg"
 contribute = "linear-algebra-matrix-javascript.md"
@@ -335,4 +335,4 @@ Perhaps it helps others as well. I will collect more of these utility functions 
 
 <hr class="section-divider">
 
-In conclusion, I hope the walkthrough about matrices applied in JavaScript was helpful to get started in the linear algebra in JavaScript or as foundation for machine learning in JavaScript. You can checkout the {{% a_blank "GitHub repository" "https://github.com/rwieruch/linear-algebra-matrix" %}} with executable matrix operations on the command line.
+In conclusion, I hope the walkthrough about matrices applied in JavaScript was helpful to get started in the linear algebra in JavaScript or as foundation for machine learning in JavaScript. You can checkout the {{% a_blank "GitHub repository" "https://github.com/rwieruch/linear-algebra-matrix" %}} with executable matrix operations on the command line. If you like it, make sure to star it.

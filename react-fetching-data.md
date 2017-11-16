@@ -513,4 +513,4 @@ Basically that's it to abstract away the data fetching in React. By using higher
 
 <hr class="section-divider">
 
-Even though you don't necessarily need to abstract away your data fetching layer with higher order components, I hope that you have learned the basics about data fetching in React. You can find the finished project in this {{% a_blank "GitHub repository" "https://github.com/rwieruch/react-data-fetching" %}}.
+Even though you don't necessarily need to abstract away your data fetching layer with higher order components, I hope that you have learned the basics about data fetching in React. You can find the finished project in this {{% a_blank "GitHub repository" "https://github.com/rwieruch/react-data-fetching" %}}. If you like it, make sure to star it.

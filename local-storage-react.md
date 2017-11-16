@@ -188,7 +188,7 @@ It can be useful when you deal with an user session after a user logged in into 
 
 <hr class="section-divider">
 
-You can find the {{% a_blank "source code in a GitHub repository" "https://github.com/rwieruch/react-local-storage" %}}. As mentioned, sometimes you don't need a sophisticated persistent layer in your application. It turns out to be sufficient to use the local storage or session storage as a cache.
+You can find the {{% a_blank "source code in a GitHub repository" "https://github.com/rwieruch/react-local-storage" %}}. If you like it, make sure to star it. As mentioned, sometimes you don't need a sophisticated persistent layer in your application. It turns out to be sufficient to use the local storage or session storage as a cache.
 
 If you are looking for more advanced local storage solutions, you can checkout {{% a_blank "store.js" "https://github.com/marcuswestin/store.js/" %}} and {{% a_blank "cross-storage" "https://github.com/zendesk/cross-storage" %}}. The former is used for browser compatibility and the latter is used for cross domain synchronization of local storages.
 

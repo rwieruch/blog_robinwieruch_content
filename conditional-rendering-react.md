@@ -1,10 +1,10 @@
 +++
 title = "All the Conditional Renderings in React"
-description = "The article is an exhaustive list of conditional renderings in React. But what is conditional rendering in React? In a conditional render a component decides based on one or several conditions which elements it will return..."
+description = "An exhaustive list of conditional renderings in React.js. How to use an if else in React? What about a ternary operator or switch case in React ..."
 date = "2017-02-21T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
-keywords = ["react conditional rendering"]
+keywords = ["react conditional rendering", "if else react"]
 news_keywords = ["react", "react conditional rendering"]
 hashtag = "#ReactJs"
 card = "img/posts/conditional-rendering-react/banner_640.jpg"
@@ -25,18 +25,18 @@ The article aims to be an exhaustive list of options for conditional renderings 
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
-* [if statement](#ifStatement)
-* [ternary operation](#ternaryOperation)
-* [logical && operator](#logicalAndOperator)
-* [switch case operator](#switchCaseOperator)
-* [enums](#enums)
-* [Multi-Level Conditional Rendering](#multiLevel)
-* [With Higher Order Components](#conditionalRenderingHoc)
-* [External Templating Components](#externalTemplatingComponents)
+* [if else](#if-else-statement)
+* [ternary operation](#ternary-operation)
+* [logical && operator](#logical-and-operator)
+* [switch case operator](#switch-case-operator)
+* [Conditional Rendering with enums](#enums)
+* [Multi-Level Conditional Rendering](#multi-level)
+* [With Higher Order Components](#conditional-rendering-hoc)
+* [External Templating Components](#external-templating-components)
 
-{{% chapter_header "if statement" "ifStatement" %}}
+{{% chapter_header "if else in React" "if-else-statement" %}}
 
-The easiest way to have a conditional rendering in React is to use an if statement in your render method. Imagine you don't want to render your component, because it doesn't have the necessary props. For instance, a List component shouldn't render the list when there is no list of items. You can use an if statement to return earlier from the render lifecycle.
+The easiest way to have a conditional rendering is to use an if else in React in your render method. Imagine you don't want to render your component, because it doesn't have the necessary props. For instance, a List component shouldn't render the list when there is no list of items. You can use an if statement to return earlier from the render lifecycle.
 
 {{< highlight javascript >}}
 function List({ list }) {
@@ -74,7 +74,7 @@ function List({ list }) {
 
 The List renders either nothing, a text or the list of items. The if-else statement is the most basic option to have a conditional rendering in React.
 
-{{% chapter_header "ternary operation" "ternaryOperation" %}}
+{{% chapter_header "ternary operation in React" "ternary-operation" %}}
 
 You can make your if-else statement more concise by using a {{% a_blank "ternary operation" "https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator" %}}.
 
@@ -101,7 +101,7 @@ function Item({ item, mode }) {
 
 The ternary operation makes the conditional rendering in React more concise than the if-else statement. It is simple to inline it in your return statement.
 
-{{% chapter_header "logical && operator" "logicalAndOperator" %}}
+{{% chapter_header "logical && operator in React" "logical-and-operator" %}}
 
 It happens often that you want to render either an element or nothing. For instance, you could have a LoadingIndicator component that returns a loading text or nothing. You can do it in JSX with an if statement or ternary operation.
 
@@ -158,7 +158,7 @@ function LoadingIndicator({ isLoading }) {
 
 That's your way to go when you want to return an element or nothing. It makes it even more concise than a ternary operation when you would return null for a condition.
 
-{{% chapter_header "switch case operator" "switchCaseOperator" %}}
+{{% chapter_header "switch case operator in React" "switch-case-operator" %}}
 
 Now there might be cases where you have multiple conditional renderings. For instance, the conditional rendering could apply based on different states. Let's imagine a notification component that can render an error, warning or info component based on the input state. You can use a switch case operator to handle the conditional rendering of these multiple states.
 
@@ -251,7 +251,7 @@ function Notification({ text, state }) {
 
 In conclusion, the switch case operator helps you to have multiple conditional renderings. But is it the best way to do that? Let's see how we can have multiple conditional renderings with enums.
 
-{{% chapter_header "enums" "enums" %}}
+{{% chapter_header "Conditional Rendering with enums" "enums" %}}
 
 In JavaScript an object can be used as an enum when the object is used as a map of key value pairs.
 
@@ -340,7 +340,7 @@ FooBarOrFooOrBar.propTypes = {
 }
 {{< /highlight >}}
 
-{{% chapter_header "Multi-Level Conditional Rendering" "multiLevel" %}}
+{{% chapter_header "Multi-Level Conditional Rendering in React" "multi-level" %}}
 
 What about nested conditional renderings? Yes, it is possible. For instance, let's have a look at the List component that can either show a list, an empty text or nothing.
 
@@ -392,7 +392,7 @@ function NoList({ isNull, isEmpty }) {
 
 Still, it doesn't look that appealing. Let's have a look at higher order components and how they would help to tidy it up.
 
-{{% chapter_header "With Higher Order Components" "conditionalRenderingHoc" %}}
+{{% chapter_header "With Higher Order Components" "conditional-rendering-hoc" %}}
 
 Higher order components (HOCs) are a perfect match for conditional rendering in React. HOCs can have multiple use cases. Yet one use case could be to alter the look of a component. To make the use case more specific: it could be to apply a conditional rendering for a component. Let's have a look at a HOC that either shows a loading indicator or a desired component.
 
@@ -421,9 +421,9 @@ In the example, the List component can focus on rendering the list. It doesn't h
 
 A HOC can opt-in one or multiple conditional renderings. You could even use multiple HOCs to handle several conditional renderings. After all, a HOC shields away all the noise from your component. If you want to dig deeper into conditional renderings with higher order components, you should read the [conditional rendering with HOCs article](https://www.robinwieruch.de/gentle-introduction-higher-order-components/).
 
-{{% chapter_header "External Templating Components" "externalTemplatingComponents" %}}
+{{% chapter_header "External Templating Components" "external-templating-components" %}}
 
-Last but not least there exist external solutions to deal with conditional renderings. They add control components to enable conditional renderings without JavaScript in JSX.
+Last but not least there exist external solutions to deal with conditional renderings. They add control components to enable conditional renderings without JavaScript in JSX. Then it is not question anymore on how to use if else in React.
 
 {{< highlight javascript >}}
 <Choose>
