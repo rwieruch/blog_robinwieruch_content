@@ -21,6 +21,8 @@ A recent article gave an introduction to the field of machine learning in JavaSc
 
 In general, when dealing with a regression problem, the outcome can already be influenced by [selecting a fitting model type](https://www.robinwieruch.de/polynomial-regression-model-selection-javascript/). It is not often the case that data points correlate linear to each other. Hence the correlation is often curvilinear and thus it could be a polynomial regression instead of a linear regression. But that isn't specific to gradient descent. So let's dive into the properties to improve gradient descent.
 
+{{% machine-learning-intro %}}
+
 {{% chapter_header "Learning Rate in Gradient Descent" "learning-rate-gradient-descent-javascript" %}}
 
 The gradient descent algorithm converges with a multitude of iterations to a local minimum (which could be the global minimum as well). The learning rate alpha determines how fast the gradient descent algorithm converges. But you cannot simply choose a high learning rate.
