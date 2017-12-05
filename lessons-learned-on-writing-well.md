@@ -19,7 +19,7 @@ summary = "The article is a summary of my lessons learned from On Writing Well b
 
 As a software engineer you will come to a point where writing matters. Perhaps you want to leave your fellow developers a note, you have to write an e-mail to a customer or you have to sum up the recent meeting notes. In my case, it went even further because I have my own website where I write about software development and [where I started to write my first ebook](https://www.robinwieruch.de/the-road-to-learn-react/). It was about time for me to dive into the topic of writing.
 
-The article is a summary of my lessons learned from {{% a_blank_no_follow "On Writing Well" "https://www.amazon.com/gp/product/0060891548/ref=as_li_tl?ie=UTF8&tag=21moves-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0060891548&linkId=c92fde338c49de6f1e3899a1fd62cf06" %}} by William Zinsser. I am no expert in this field, even less as a non native speaker, but by providing a summary I hope to help other developers to improve their writing skills. Apart from that it helps me to memorize my lessons learned.
+The article is a summary of my lessons learned from {{% a_blank_no_follow "On Writing Well" "http://amzn.to/2AsoDzh" %}} by William Zinsser. I am no expert in this field, even less as a non native speaker, but by providing a summary I hope to help other developers to improve their writing skills. Apart from that it helps me to memorize my lessons learned.
 
 I am eager to improve my language and writing skills. *On Writing Well* had topics which are easier applicable than other topics for non native speakers. For instance, it is easier to leave out all the clutter and keep the sentences and words simple. As a non native speaker you are less intended to write in complex sentences with difficult words. However *On Writing Well* had topics that were more difficult to apply. The english language has a rich set of words and synonyms that are not always known for non native speakers. Especially this fact makes it hard for non native speaker to fine tune their writing in its meaning. But let's dive into my lessons learned.
 
@@ -133,7 +133,7 @@ The last paragraph form the last chapter, "Write as Well as You Can", is still s
 
 *A reporter once asked him [a baseball player] how he managed to play so well so consistently, and he said "I always thought that there was at least one person in the stands who had never seen me play, and I didn't want to let him down."*
 
-I can recommend to read the book {{% a_blank_no_follow "On Writing Well by William Zinsser" "https://www.amazon.com/gp/product/0060891548/ref=as_li_tl?ie=UTF8&tag=21moves-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0060891548&linkId=c92fde338c49de6f1e3899a1fd62cf06" %}}. It taught me a lot. But these are only my lessons learned. Maybe you can distill other learnings when you read it.
+I can recommend to read the book {{% a_blank_no_follow "On Writing Well by William Zinsser" "http://amzn.to/2AsoDzh" %}}. It taught me a lot. But these are only my lessons learned. Maybe you can distill other learnings when you read it.
 
 {{% read_more "Lessons learned from Deep Work and Flow" "https://www.robinwieruch.de/lessons-learned-deep-work-flow/" %}}
 

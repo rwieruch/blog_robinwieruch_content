@@ -21,7 +21,7 @@ A recent article gave an introduction to the field of machine learning in JavaSc
 
 {{% machine-learning-intro %}}
 
-{{% chapter_header "Why and what is vectorization?" "vectorization-exaplained" %}}
+{{% chapter_header "Why and what is vectorization?" "vectorization-explained" %}}
 
 Gradient descent by nature is an iterative process. You take a number of iterations and let gradient descent do its thing by adjusting the theta parameters according to the partial derivative of the cost function. Thus there are a bunch of for loops in the algorithm when using the unvectorized implementation.
 

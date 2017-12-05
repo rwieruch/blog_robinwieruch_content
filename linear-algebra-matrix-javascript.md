@@ -17,11 +17,11 @@ summary = "A little refresher about matrix operations (addition, subtraction, mu
 
 {{% pin_it_image "matrix javascript" "img/posts/linear-algebra-matrix-javascript/banner.jpg" "is-src-set" %}}
 
-When I recently started to dive into the topic of machine learning, I had to relearn all the things I have studied about linear algebra, stochastic and calculus at school and university. I took a little refresher on matrix operations (addition, subtraction, multiplication and division) in linear algebra and learned about the different types of matrices again: inverse and transpose matrices, and the identity matrix. The article applies those learnings in JavaScript. Furthermore, in the end of the article, there will be a little example to demonstrate why matrices are beneficial for computations in machine learning.
+When I recently started to dive into the topic of machine learning, I had to relearn all the things I have studied about linear algebra, stochastic and calculus at school and university. I took a little refresher on matrix operations (addition, subtraction, multiplication and division) in linear algebra and learned about the different types of matrices (inverse matrix, transpose matrix, identity matrix) again. The article is a refresher about those things and applies them in JavaScript. Furthermore, in the end of the article, there will be a little example to demonstrate why matrices are beneficial for computations in machine learning. In addition, you will find a couple of tips on how to express mathematical equations in JavaScript similar to Octave or Matlab.
 
-{{% chapter_header "Matrix Operations in JavaScript" "matrix-javascript" %}}
+{{% chapter_header "Linear Algebra in JavaScript" "linear-algebra-javascript" %}}
 
-A matrix is just an array in an array when programming with them. In JavaScript they can be simply expressed as:
+A matrix is just an array in an array when programming with them. In JavaScript, they can be simply expressed as:
 
 {{< highlight javascript >}}
 const matrix = [
@@ -31,7 +31,27 @@ const matrix = [
 ];
 {{< /highlight >}}
 
-whereas m equals the row and n equals the column of a matrix[m][n]. You would be able to apply matrix operations in JavaScript on your own, but it can become ugly when using plain JavaScript. Fortunately, there is one library in JavaScript for mathematics: {{% a_blank "math.js" "https://github.com/josdejong/mathjs" %}}. Defining a matrix becomes as simple as:
+whereas m equals the row and n equals the column of a matrix[m][n]. A vector is a specific kind of a matrix whereas the matrix has only one column.
+
+{{< highlight javascript >}}
+const vector = [
+  [0],
+  [2],
+  [4],
+];
+{{< /highlight >}}
+
+The most simple mathematical object in linear algebra is a scalar. It is just a single number.
+
+{{< highlight javascript >}}
+const scalar = 4;
+{{< /highlight >}}
+
+Matrices and vectors can be expressed with arrays in programming. But what about matrices with more than two dimensions? They need more than two axes. In general, these arrays of numbers with a variable number of axes are called tensors.
+
+{{% chapter_header "Matrix Operations in JavaScript" "matrix-javascript" %}}
+
+You should be able to apply matrix operations all by yourself, but it can become ugly when using plain JavaScript with loops. Fortunately, there exists a library in JavaScript for mathematics called {{% a_blank "math.js" "https://github.com/josdejong/mathjs" %}}. Defining a matrix becomes as simple as:
 
 {{< highlight javascript >}}
 const matrix = math.matrix([[0, 1], [2, 3], [4, 5]]);
@@ -66,7 +86,9 @@ const matrixYZ = math.divide(matrixY, matrixZ);
 // [ [ -2, 2 ], [ -2, 3 ], [ -2, 4 ] ]
 {{< /highlight >}}
 
-In addition, you can perform matrix scalar multiplication and division.
+Note that for instance the product of a matrix in the case of math.js is not just a new matrix containing the product of the individual matrices. This would be called an **element-wise product** (or **Hardamard product**). Instead it is a matrix product operation.
+
+In addition, you can perform matrix scalar multiplication and division as well. It's performed element-wise.
 
 {{< highlight javascript >}}
 // matrix scalar multiplication
@@ -82,7 +104,7 @@ const matrixH2 = math.divide(matrixH, 2);
 // [ [ 1, 2 ], [ 3, 1 ], [ 2, -2 ] ]
 {{< /highlight >}}
 
-Since a vector is only a specific form of a matrix, you can perform matrix-vector multiplication as well.
+Since a vector is only a specific form of a matrix, you can perform matrix-vector multiplication too.
 
 {{< highlight javascript >}}
 const matrixI = math.matrix([[0, 1], [2, 3], [4, 5]]);
@@ -92,7 +114,7 @@ const vectorIJ = math.multiply(matrixI, vectorJ);
 // [ [ 1 ], [ 7 ], [ 13 ] ]
 {{< /highlight >}}
 
-There is another operation which you would use to have an element-wise multiplication or division in JavaScript by using `math.dotMultiply(matrixI, vectorJ);` or `math.dotDivide(matrixY, matrixZ)`. Otherwise, when using the default operators on matrices with math.js, you will apply matrix operations.
+In case you want to have an element-wise multiplication or division in JavaScript, you can use `math.dotMultiply(matrixI, vectorJ);` or `math.dotDivide(matrixY, matrixZ)`. Otherwise, when using the default operators on matrices with math.js, you will apply the default matrix operations.
 
 After all, dealing with matrices in math.js isn't that difficult anymore. But you have to know the dimensions of each matrix in your operation, because not every matrix operates on another matrix. Another good thing to know are the associative and commutative matrix operations.
 
@@ -218,11 +240,11 @@ const competingResults = math.multiply(houseSizeMatrix, hypothesesMatrix);
 // ]
 {{< /highlight >}}
 
-You can put these things in matrices now, rather than executing every function on its own. A loop becomes one matrix operation. On a higher level you can say that a unvectorized implementation becomes a vectorized implementation. Thus is becomes computational efficient when performing machine learning algorithms and simpler as well. Furthermore, these matrix operations are used in a **normal equation** which is used as an alternative to gradient descent.
+You can put these computations in matrices now, rather than executing every function on its own. A loop becomes one matrix operation. On a higher level you can say that a [unvectorized implementation becomes a vectorized implementation](https://www.robinwieruch.de/linear-regression-gradient-descent-vectorization-javascript/). Thus it becomes computational efficient when performing machine learning algorithms and simpler as well. Furthermore, these matrix operations are used in a [normal equation](https://www.robinwieruch.de/multivariate-linear-regression-normal-equation-javascript) by default which is used as an alternative to gradient descent.
 
 {{% chapter_header "Octave / Matlab alike operations in JavaScript" "octave-javascript" %}}
 
-At some point, using math.js this way doesn't scale anymore. You will do more than one matrix operation in complex mathematical expressions. What about the following expressions?
+At some point, using math.js the proposed way doesn't scale anymore. You will do more than one matrix operation in complex mathematical expressions. What about the following expressions?
 
 {{< highlight javascript >}}
 theta - ALPHA / m * ((X * theta - y)' * X)'
@@ -273,7 +295,7 @@ theta = math.eval(`theta - ALPHA / m * ((X * theta - y)' * X)'`, {
 });
 {{< /highlight >}}
 
-Still not as concise as using Octave or Matlab, but you can evaluate complex mathematical expression now. It helps you in other scenarios too. For instance, it helps you to extract a subset of a Matrix by range indices:
+Still not as concise as using Octave or Matlab, but you can evaluate complex mathematical expression now. It helps you in other scenarios too. For instance, it can be used to extract a subset of a Matrix by range indices:
 
 {{< highlight javascript >}}
 // Octave:
@@ -298,7 +320,7 @@ math.eval(`matrixA[:, 1] = vectorB`, {
 });
 {{< /highlight >}}
 
-There are a couple of things that I couldn't find out how to apply them in JavaScript when coming from Octave expressions. I try to collect them in this {{% a_blank "util library" "https://github.com/javascript-machine-learning/mathjs-util" %}}. For instance, what about adding an intercept term to a Matrix? In octave it is simple to push a vector of ones in front of a Matrix. But I couldn't find any way to express it in math.js. That's why I have put the following function in the util library.
+There are a couple of things that I couldn't find out how to apply them in JavaScript when coming from Octave. I try to collect them in this {{% a_blank "util library" "https://github.com/javascript-machine-learning/mathjs-util" %}}. For instance, what about adding an intercept term to a Matrix? In Octave it is simple to push a vector of ones in front of a Matrix. But I couldn't find any way to express it in math.js. That's why I have put the following function in the util library.
 
 {{< highlight javascript >}}
 // Octave:

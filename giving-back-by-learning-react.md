@@ -19,7 +19,7 @@ summary = "At the time of writing this, I am travelling through South East Asia.
 
 At the time of writing this, I am travelling through South East Asia. On my quest to experience the countries in their most natural ways, I try to connect with locals often as possible. When travelling a country, it is not about seeing another cave or waterfall that drives me. Instead, I seek to connect with the local people. When speaking to them, I realize each time again how privileged I am. Even though I was aware of it before, I am even more aware of it now that I am traveling.
 
-The article is intended to give something back. It is by accident that I read {{% a_blank "Give and Take" "https://www.amazon.com/gp/product/0143124986/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&tag=21moves-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=0143124986&linkId=aadd9de236eda407c5812bbcfeb67d47" %}} by Adam Grant at the moment. It is an inspiring book and it partly inspired me to write the article. But an even bigger impact have had my recent experiences.
+The article is intended to give something back. It is by accident that I read {{% a_blank "Give and Take" "http://amzn.to/2BJ1NBx" %}} by Adam Grant at the moment. It is an inspiring book and it partly inspired me to write the article. But an even bigger impact have had my recent experiences.
 
 Several days ago, I travelled through Laos. In a village, I met volunteers who arrange get togethers between travellers and locals, mostly students and monks, to practice English with them by having a conversation. Those lessons take place each day during the morning and evening. Usually, the students prepare questions because most of the time they are not that confident in the conversation.
 
