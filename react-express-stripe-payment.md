@@ -81,7 +81,7 @@ There exists another library, the official library by Stripe for React, called {
 * it isn't supported when using server side rendering (e.g. with {{% a_blank "NextJs" "https://github.com/zeit/next.js/" %}})
 * it didn't came with a pretty pre-configured Stripe like style
 
-After you have installed all the necessary libraries, the frontend application needs only a handful more folders and files for a couple of constants and one component. From *react-express-stripe/* on the command line:
+After you have installed all the necessary libraries, the frontend application needs only a handful more folders and files for a couple of constants and one component. From *react-express-stripe/frontend* on the command line:
 
 {{< highlight javascript >}}
 cd src
