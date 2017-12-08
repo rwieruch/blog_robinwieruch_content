@@ -21,6 +21,8 @@ A couple of my recent articles gave an introduction into a subfield of artificia
 
 Personally, I found it becomes quite complex and challenging to implement those algorithms from scratch at some point. Especially when combining JavaScript and neural networks with the implementation of forward and back propagation. Since I am learning about neural networks myself at the moment, I started to look for libraries doing the job for me. Hopefully I am able to catch up with those foundational implementations to publish them in the GitHub organization in the future. However, for now, as I researched about potential candidates to facilitate neural networks in JavaScript, I came across {{% a_blank "deeplearn.js" "https://deeplearnjs.org/" %}} which was recently released by Google. So I gave it a shot. In this article / tutorial, I want to share my experiences by implementing with you a neural network in JavaScript with deeplearn.js to solve a real world problem for web accessibility.
 
+{{% machine-learning-intro %}}
+
 {{% chapter_header "What's the purpose of the Neural Network?" "neural-network-purpose" %}}
 
 The neural network implemented in this article should be able to improve web accessibility by choosing an appropriate font color regarding a background color. For instance, the font color on a dark blue background should be white whereas the font color on a light yellow background should be black. You might wonder: Why would you need a neural network for the task in the first place? It isn't too difficult to compute an accessible font color depending on a background color programmatically, is it? I quickly found a solution on Stack Overflow for the problem and adjusted it to my needs to facilitate colors in RGB space.
@@ -82,7 +84,7 @@ function randomIntFromInterval(min, max) {
 }
 {{< /highlight >}}
 
-The `generateRandomRgbColors()` function creates partial data sets of a given size m. The data points in the data sets are colors in the RGB color space. Each color is represented as a row in a matrix whereas each column is a **feature** of the color. A feature is either the R, G or B encoded value in the RGB space. The data set hasn't any labels yet, so the training set isn't complete, because it has only input values but no output values.
+The `generateRandomRgbColors()` function creates partial data sets of a given size m. The data points in the data sets are colors in the RGB color space. Each color is represented as a row in a matrix whereas each column is a **feature** of the color. A feature is either the R, G or B encoded value in the RGB space. The data set hasn't any labels yet, so the training set isn't complete (also called unlabeled training set), because it has only input values but no output values.
 
 Since the programmatic approach to generate an accessible font color based on a color is known, an adjusted version of the functionality can be derived to generate the labels for the training set (and the test set later on). The labels are adjusted for a binary classification problem and reflect the colors black and white implicitly in the RGB space. Therefore a label is either [0, 1] for the color black or [ 1, 0 ] for the color white.
 

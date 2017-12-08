@@ -43,7 +43,7 @@ Isn't there a way to compute all theta parameters in one mathematical expression
 
 {{% chapter_header "Vectorization in JavaScript" "vectorization-explanation-javascript" %}}
 
-Imagine a training set about houses with the size of m (m = 50, each row a house) with features n (n = 1, size of a house). It can be expressed in a matrix. Furthermore, the label y (price of a house) can be expressed in a matrix too. If you would have a function in JavaScript, which arguments would have the whole training set in a matrix, you could split up the training set in the partial training set (matrix X) and the labels (matrix y).
+Imagine a training set about houses with the size of m (m = 50, each row a house) with features n (n = 1, size of a house). It can be expressed in a matrix. Furthermore, the label y (price of a house) can be expressed in a matrix too. If you would have a function in JavaScript, which arguments would have the whole training set in a matrix, you could split up the training set in the unlabeled training set (matrix X) and the labels (matrix y).
 
 {{< highlight javascript >}}
 function init(matrix) {
