@@ -1871,9 +1871,328 @@ By now, everything is in place in terms of authentication and user management fo
 
 {{% chapter_header "Authentication in React, Firebase and Redux" "react-firebase-authentication-redux" %}}
 
+- you should install {{% a_blank "redux" "https://redux.js.org/" %}} and {{% a_blank "react-redux" "https://github.com/reactjs/react-redux" %}} on the command line
+
+{{< highlight javascript >}}
+npm install redux react-redux
+{{< /highlight >}}
+
+- furthermore, you will have to install {{% a_blank "recompose" "https://github.com/acdlite/recompose" %}} on the command line to compose more than one higher order components on a component
+
+{{< highlight javascript >}}
+npm install recompose
+{{< /highlight >}}
+
+- find project with a slight different folder structure here: https://github.com/rwieruch/react-redux-firebase-authentication
+
 {{% chapter_header "Authentication in React, Firebase and MobX" "react-firebase-authentication-mobx" %}}
 
+- Note: none of the Redux changes from the previous section are reflected here, we will start with a clean plate from one section before where we didn't use Redux but only plain React
+
 - follow eject tutorial to prepare your create-react-app for MobX and JavaScript decorators
+
+- you should have installed {{% a_blank "mobx" "https://mobx.js.org/" %}} and {{% a_blank "mobx-react" "https://github.com/mobxjs/mobx-react" %}} by now
+- furthermore, you will have to install {{% a_blank "recompose" "https://github.com/acdlite/recompose" %}} on the command line to compose more than one higher order components on a component
+
+{{< highlight javascript >}}
+npm install recompose
+{{< /highlight >}}
+
+- stores
+
+From *src/* folder:
+
+{{< highlight javascript >}}
+mkdir stores
+cd stores
+touch index.js sessionStore.js userStore.js
+{{< /highlight >}}
+
+- implement each store
+
+First, the session store:
+
+In *src/stores/sessionStore.js* file:
+
+{{< highlight javascript >}}
+import { observable, action } from 'mobx';
+
+class SessionStore {
+  @observable authUser = null;
+
+  constructor(rootStore) {
+    this.rootStore = rootStore;
+  }
+
+  @action setAuthUser = authUser => {
+    this.authUser = authUser;
+  }
+}
+
+export default SessionStore;
+{{< /highlight >}}
+
+Second, the user store:
+
+In *src/stores/userStore.js* file:
+
+{{< highlight javascript >}}
+import { observable, action } from 'mobx';
+
+class UserStore {
+  @observable users = [];
+
+  constructor(rootStore) {
+    this.rootStore = rootStore;
+  }
+
+  @action setUsers = users => {
+    this.users = users;
+  }
+}
+
+export default UserStore;
+{{< /highlight >}}
+
+Now, combine both stores in a root store:
+
+In *src/stores/index.js* file:
+
+{{< highlight javascript >}}
+import { useStrict } from 'mobx';
+
+import SessionStore from './sessionStore';
+import UserStore from './userStore';
+
+useStrict(true);
+
+class RootStore {
+  constructor() {
+    this.sessionStore = new SessionStore(this);
+    this.userStore = new UserStore(this);
+  }
+}
+
+const rootStore = new RootStore();
+
+export default rootStore;
+{{< /highlight >}}
+
+- the root store with all its stores can be passed to the component tree now, this way, you connect the state layer with the view layer
+
+In *src/index.js* file:
+
+{{< highlight javascript "hl_lines=3 6 7 11 13" >}}
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'mobx-react';
+import './index.css';
+import App from './components/App';
+import store from './stores';
+import registerServiceWorker from './registerServiceWorker';
+
+ReactDOM.render(
+  <Provider { ...store }>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
+
+registerServiceWorker();
+{{< /highlight >}}
+
+- now the crucial part where you exchange the React state layer with the MobX state layer
+- let's start with the easier part: the user state layer
+
+In *src/components/Home.js* file:
+
+{{< highlight javascript "hl_lines=2 3 10 11 12 13 14 18 35 36 37 38 39" >}}
+import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
+import { compose } from 'recompose';
+
+import withAuthorization from './withAuthorization';
+import { db } from '../firebase';
+
+class HomePage extends Component {
+  componentDidMount() {
+    const { userStore } = this.props;
+
+    db.onceGetUsers().then(snapshot =>
+      userStore.setUsers(snapshot.val())
+    );
+  }
+
+  render() {
+    const { users } = this.props.userStore;
+
+    return (
+      <div>
+        <h1>Home</h1>
+        <p>The Home Page is accessible by every signed in user.</p>
+
+        { !!users && <UserList users={users} /> }
+      </div>
+    );
+  }
+}
+
+...
+
+const authCondition = (authUser) => !!authUser;
+
+export default compose(
+  withAuthorization(authCondition),
+  inject('userStore'),
+  observer
+)(HomePage);
+{{< /highlight >}}
+
+- now the users are managed in a mobx user store rather than in React's local storage
+- in addition, you have used the inject pattern to pass down the user store from the provider above, it is basically MobX's provider pattern
+
+- what about the session state layer which is handled by the session store?
+- essentially you will refactor it similiar to the user state layer before
+- you will replace the provider pattern, where the authenticated user is stored in React's context, with the state layer from MobX, where the user is stored in the session store,
+- instead of passing the authenticated user object down via React's context, you pass it down via the session store by providing the store in a parent component (which you already did) and injecting it in the components
+
+- the crucial component to store the authenticated user object in the MobX store rather than in React's context is the `withAuthentication()` higher order component
+- we can refactor it to use the store instead of the context
+
+In *src/components/withAuthentication.js* file:
+
+{{< highlight javascript "hl_lines=2 9 13 14 25" >}}
+import React from 'react';
+import { inject } from 'mobx-react';
+
+import { firebase } from '../firebase';
+
+const withAuthentication = (Component) => {
+  class WithAuthentication extends React.Component {
+    componentDidMount() {
+      const { sessionStore } = this.props;
+
+      firebase.auth.onAuthStateChanged(authUser => {
+        authUser
+          ? sessionStore.setAuthUser(authUser)
+          : sessionStore.setAuthUser(null);
+      });
+    }
+
+    render() {
+      return (
+        <Component />
+      );
+    }
+  }
+
+  return inject('sessionStore')(WithAuthentication);
+}
+
+export default withAuthentication;
+{{< /highlight >}}
+
+- now you have the authenticated user available in the MobX session store
+- all components which rely on the authenticated user in React's context need to be refactored now, it's similiar to the home component which uses the list of users from the MobX user store insetad of React's local state
+- for most, it affects the Navigation and the Account component
+
+- in the Navigation component, the authenticated user is used to display different routing options
+
+In *src/components/Navigation.js* file:
+
+{{< highlight javascript "hl_lines=2 4 9 11 19 20 21 22" >}}
+import React from 'react';
+import { inject, observer } from 'mobx-react';
+import { Link } from 'react-router-dom';
+import { compose } from 'recompose';
+
+import SignOutButton from './SignOut';
+import * as routes from '../constants/routes';
+
+const Navigation = ({ sessionStore }) =>
+  <div>
+    { sessionStore.authUser
+        ? <NavigationAuth />
+        : <NavigationNonAuth />
+    }
+  </div>
+
+...
+
+export default compose(
+  inject('sessionStore'),
+  observer
+)(Navigation);
+{{< /highlight >}}
+
+- in the Account component, the authenticated user is used to display the email address of the user
+
+In *src/components/Account.js* file:
+
+{{< highlight javascript "hl_lines=2 3 9 11 18 19 20 21 22" >}}
+import React from 'react';
+import { inject, observer } from 'mobx-react';
+import { compose } from 'recompose';
+
+import { PasswordForgetForm } from './PasswordForget';
+import PasswordChangeForm from './PasswordChange';
+import withAuthorization from './withAuthorization';
+
+const AccountPage = ({ sessionStore }) =>
+  <div>
+    <h1>Account: {sessionStore.authUser.email}</h1>
+    <PasswordForgetForm />
+    <PasswordChangeForm />
+  </div>
+
+const authCondition = (authUser) => !!authUser;
+
+export default compose(
+  withAuthorization(authCondition),
+  inject('sessionStore'),
+  observer
+)(AccountPage);
+{{< /highlight >}}
+
+- don't forget that the authorization higher order component used the authenticated user from React's context as well for the fallback conditional rendering
+
+In *src/components/withAuthorization.js* file:
+
+{{< highlight javascript "hl_lines=3 4 20 24 25 26 27 28" >}}
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import { inject, observer } from 'mobx-react';
+import { compose } from 'recompose';
+
+import { firebase } from '../firebase';
+import * as routes from '../constants/routes';
+
+const withAuthorization = (condition) => (Component) => {
+  class WithAuthorization extends React.Component {
+    componentDidMount() {
+      firebase.auth.onAuthStateChanged(authUser => {
+        if (!condition(authUser)) {
+          this.props.history.push(routes.SIGN_IN);
+        }
+      });
+    }
+
+    render() {
+      return this.props.sessionStore.authUser ? <Component /> : null;
+    }
+  }
+
+  return compose(
+    withRouter,
+    inject('sessionStore'),
+    observer
+  )(WithAuthorization);
+}
+
+export default withAuthorization;
+{{< /highlight >}}
+
+- find project with a slight different folder structure here: https://github.com/rwieruch/react-mobx-firebase-authentication
 
 <hr class="section-divider">
 
