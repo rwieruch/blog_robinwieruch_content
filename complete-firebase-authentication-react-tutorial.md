@@ -1883,6 +1883,342 @@ npm install redux react-redux
 npm install recompose
 {{< /highlight >}}
 
+- store
+
+From *src/* folder:
+
+{{< highlight javascript >}}
+mkdir store
+cd store
+touch index.js
+{{< /highlight >}}
+
+- implement store
+
+In *src/store/index.js* file:
+
+{{< highlight javascript >}}
+import { createStore } from 'redux';
+import rootReducer from '../reducers';
+
+const store = createStore(rootReducer);
+
+export default store;
+{{< /highlight >}}
+
+- create reducer files
+
+From *src/* folder:
+
+{{< highlight javascript >}}
+mkdir reducers
+cd reducers
+touch index.js session.js user.js
+{{< /highlight >}}
+
+- implement each reducer
+
+First, the session reducer:
+
+In *src/reducers/session.js* file:
+
+{{< highlight javascript >}}
+const INITIAL_STATE = {
+  authUser: null,
+};
+
+const applySetAuthUser = (state, action) => ({
+  ...state,
+  authUser: action.authUser
+});
+
+function sessionReducer(state = INITIAL_STATE, action) {
+  switch(action.type) {
+    case 'AUTH_USER_SET' : {
+      return applySetAuthUser(state, action);
+    }
+    default : return state;
+  }
+}
+
+export default sessionReducer;
+{{< /highlight >}}
+
+Second, the user reducer:
+
+In *src/reducers/user.js* file:
+
+{{< highlight javascript >}}
+const INITIAL_STATE = {
+  users: [],
+};
+
+const applySetUsers = (state, action) => ({
+  ...state,
+  users: action.users
+});
+
+function userReducer(state = INITIAL_STATE, action) {
+  switch(action.type) {
+    case 'USERS_SET' : {
+      return applySetUsers(state, action);
+    }
+    default : return state;
+  }
+}
+
+export default userReducer;
+{{< /highlight >}}
+
+Now, combine both reducers in a root reducer:
+
+In *src/reducers/index.js* file:
+
+{{< highlight javascript >}}
+import { combineReducers } from 'redux';
+import sessionReducer from './session';
+import userReducer from './user';
+
+const rootReducer = combineReducers({
+  sessionState: sessionReducer,
+  userState: userReducer,
+});
+
+export default rootReducer;
+{{< /highlight >}}
+
+- the root reducer with all its reducers is already passed to the Redux store - now, the redux store can be provided to the component tree
+- this way, you connect the state layer with the view layer
+
+In *src/index.js* file:
+
+{{< highlight javascript "hl_lines=3 6 7 11 13" >}}
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import './index.css';
+import App from './components/App';
+import store from './store';
+import registerServiceWorker from './registerServiceWorker';
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
+
+registerServiceWorker();
+{{< /highlight >}}
+
+- now the crucial part where you exchange the React state layer with the Redux state layer
+- let's start with the easier part: the user state layer
+
+In *src/components/Home.js* file:
+
+{{< highlight javascript "hl_lines=2 3 10 11 12 13 14 18 33 34 35 37 38 39 43 44 45 46" >}}
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
+
+import withAuthorization from './withAuthorization';
+import { db } from '../firebase';
+
+class HomePage extends Component {
+  componentDidMount() {
+    const { onSetUsers } = this.props;
+
+    db.onceGetUsers().then(snapshot =>
+      onSetUsers(snapshot.val())
+    );
+  }
+
+  render() {
+    const { users } = this.props;
+
+    return (
+      <div>
+        <h1>Home</h1>
+        <p>The Home Page is accessible by every signed in user.</p>
+
+        { !!users && <UserList users={users} /> }
+      </div>
+    );
+  }
+}
+
+...
+
+const mapStateToProps = (state) => ({
+  users: state.userState.users,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onSetUsers: (users) => dispatch({ type: 'USERS_SET', users }),
+});
+
+const authCondition = (authUser) => !!authUser;
+
+export default compose(
+  withAuthorization(authCondition),
+  connect(mapStateToProps, mapDispatchToProps)
+)(HomePage);
+{{< /highlight >}}
+
+- now the users are managed with Redux rather than in React's local storage
+- in addition, you have connected the sytate and actions with the view layer, it is basically Redux's provider pattern
+
+- what about the session state layer which is handled by the session reducer?
+- essentially you will refactor it similiar to the user state layer before
+- you will replace the provider pattern, where the authenticated user is stored in React's context, with the state layer from Redux, where the user is stored in the Redux store,
+- instead of passing the authenticated user object down via React's context, you pass it down via the global store by providing the store in a parent component (which you already did) and conencting it in the components
+
+- the crucial component to store the authenticated user object in the Redux store rather than in React's context is the `withAuthentication()` higher order component
+- we can refactor it to use the store instead of the context
+
+In *src/components/withAuthentication.js* file:
+
+{{< highlight javascript "hl_lines=2 9 13 14 25 26 27 29" >}}
+import React from 'react';
+import { connect } from 'react-redux';
+
+import { firebase } from '../firebase';
+
+const withAuthentication = (Component) => {
+  class WithAuthentication extends React.Component {
+    componentDidMount() {
+      const { onSetAuthUser } = this.props;
+
+      firebase.auth.onAuthStateChanged(authUser => {
+        authUser
+          ? onSetAuthUser(authUser)
+          : onSetAuthUser(null);
+      });
+    }
+
+    render() {
+      return (
+        <Component />
+      );
+    }
+  }
+
+  const mapDispatchToProps = (dispatch) => ({
+    onSetAuthUser: (authUser) => dispatch({ type: 'AUTH_USER_SET', authUser }),
+  });
+
+  return connect(null, mapDispatchToProps)(WithAuthentication);
+}
+
+export default withAuthentication;
+{{< /highlight >}}
+
+- now you have the authenticated user available in the Redux store
+- all components which rely on the authenticated user in React's context need to be refactored now, it's similiar to the home component which uses the list of users from the Redux store insetad of React's local state
+- for most, it affects the Navigation and the Account component
+
+- in the Navigation component, the authenticated user is used to display different routing options
+
+In *src/components/Navigation.js* file:
+
+{{< highlight javascript "hl_lines=3 18 19 20 22" >}}
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import SignOutButton from './SignOut';
+import * as routes from '../constants/routes';
+
+const Navigation = ({ authUser }) =>
+  <div>
+    { authUser
+        ? <NavigationAuth />
+        : <NavigationNonAuth />
+    }
+  </div>
+
+...
+
+const mapStateToProps = (state) => ({
+  authUser: state.sessionState.authUser,
+});
+
+export default connect(mapStateToProps)(Navigation);
+{{< /highlight >}}
+
+- in the Account component, the authenticated user is used to display the email address of the user
+
+In *src/components/Account.js* file:
+
+{{< highlight javascript "hl_lines=2 3 16 17 18 22 23 24 25" >}}
+import React from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
+
+import { PasswordForgetForm } from './PasswordForget';
+import PasswordChangeForm from './PasswordChange';
+import withAuthorization from './Session/withAuthorization';
+
+const AccountPage = ({ authUser }) =>
+  <div>
+    <h1>Account: {authUser.email}</h1>
+    <PasswordForgetForm />
+    <PasswordChangeForm />
+  </div>
+
+const mapStateToProps = (state) => ({
+  authUser: state.sessionState.authUser,
+});
+
+const authCondition = (authUser) => !!authUser;
+
+export default compose(
+  withAuthorization(authCondition),
+  connect(mapStateToProps)
+)(AccountPage);
+{{< /highlight >}}
+
+- don't forget that the authorization higher order component used the authenticated user from React's context as well for the fallback conditional rendering
+
+In *src/components/withAuthorization.js* file:
+
+{{< highlight javascript "hl_lines=2 3 20 24 25 26 28 29 30 31" >}}
+import React from 'react';
+import { connect } from 'react-redux';
+import { compose } from 'recompose';
+import { withRouter } from 'react-router-dom';
+
+import { firebase } from '../firebase';
+import * as routes from '../constants/routes';
+
+const withAuthorization = (condition) => (Component) => {
+  class WithAuthorization extends React.Component {
+    componentDidMount() {
+      firebase.auth.onAuthStateChanged(authUser => {
+        if (!condition(authUser)) {
+          this.props.history.push(routes.SIGN_IN);
+        }
+      });
+    }
+
+    render() {
+      return this.props.authUser ? <Component /> : null;
+    }
+  }
+
+  const mapStateToProps = (state) => ({
+    authUser: state.sessionState.authUser,
+  });
+
+  return compose(
+    withRouter,
+    connect(mapStateToProps),
+  )(WithAuthorization);
+}
+
+export default withAuthorization;
+{{< /highlight >}}
+
 - find project with a slight different folder structure here: https://github.com/rwieruch/react-redux-firebase-authentication
 
 {{% chapter_header "Authentication in React, Firebase and MobX" "react-firebase-authentication-mobx" %}}
