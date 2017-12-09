@@ -10,7 +10,7 @@ hashtag = "#ReactJs"
 card = "img/posts/complete-firebase-authentication-react-tutorial/banner_640.jpg"
 banner = "img/posts/complete-firebase-authentication-react-tutorial/banner.jpg"
 contribute = "complete-firebase-authentication-react-tutorial.md"
-headline = "The Complete Firebase in React Authentication Tutorial [WIP]"
+headline = "The Complete Firebase in React Authentication Tutorial"
 
 summary = "A complete walkthrough to learn about Firebase authentication in React. The guide gives you the perfect boilerplate as outcome for user authentication and authorization in React."
 
@@ -21,7 +21,7 @@ type = "promo"
 
 The topic about authentication in React keeps popping up from time to time. When people approach me with this question, most often after they have learned React.js or any other SPA solution (Angular.js, Vue.js), I usually tell them to start out with Firebase. It is the simplest way to learn about the essential parts of authentication in React from a frontend perspective. You can learn about it without worrying about any backend implementations. Firebase handles it for you. By only learning about the authentication from one perspective in the beginning, you keep the level of complexity low and thus keep yourself motivated to learn about it. Once you understand authentication from a client-perspective, you can continue to build your own authentication backend on the server-side.
 
-Authentication can be a complex topic when learning about web development in general. The puristic frontend and backend implementation of a authentication mechanism can be quite overwhelming. How to handle the session on the client- and the server-side? If a RESTful server is stateless, where goes the session on the backend? What about cookies or the native session storage in the browser? Should Passport.js be used on the server-side? All these questions let you run in circles and you never start implementing. Therefore my advice: Take it step by step and use only Firebase in your React application in the beginning. The following tutorial gives you a complete walkthrough of how to use Firebase for authentication in React. The outcome can be seen {{% a_blank "here" "https://react-firebase-authentication.wieruch.com/" %}}. It is not styled, but that's not what the tutorial is about. Instead it implements a whole authentication flow in Firebase and React with you. The styling of the application is up to you.
+Authentication can be a complex topic when learning about web development in general. The puristic frontend and backend implementation of a authentication mechanism can be quite overwhelming. How to handle the session on the client- and the server-side? If a RESTful server is stateless, where goes the session on the backend? What about cookies or the native session storage in the browser? Should Passport.js be used on the server-side? All these questions let you run in circles and you never start implementing. Therefore my advice: Take it step by step and use only Firebase in your React application in the beginning. The following tutorial gives you a complete walkthrough of how to use Firebase for authentication in React. {{% a_blank "The outcome of it can be seen in a GitHub repository" "https://react-firebase-authentication.wieruch.com/" %}}. It is not styled, but that's not what the tutorial is about. Instead it implements a whole authentication flow in Firebase and React with you. The styling of the application is up to you.
 
 In order to keep the guide updated, here is a list of the main node packages and their versions which are used in this tutorial.
 
@@ -41,8 +41,8 @@ The requirements for this tutorial are a working [editor or IDE, a running comma
 
 * [React Application Setup: create-react-app](#react-application-setup)
 * [React Router and Routes](#react-router-setup)
-* [Firebase in React Setup](#react-firebase-setup)
 * Firebase Authentication in React
+  * [Firebase in React Setup](#react-firebase-setup)
   * [Firebase's Authentication API](#firebase-authentication)
   * [Sign Up with React and Firebase](#react-firebase-sign-up)
   * [Sign In with React and Firebase](#react-firebase-sign-in)
@@ -54,8 +54,9 @@ The requirements for this tutorial are a working [editor or IDE, a running comma
   * [Protected Routes in React with Authorization](#react-firebase-protected-routes)
 * Firebase Database in React
   * [User Management with Firebase's Database in React](#react-firebase-user-database)
-* Bonus: [Authentication in React, Firebase and Redux](#react-firebase-authentication-redux)
-* Bonus: [Authentication in React, Firebase and MobX](#react-firebase-authentication-mobx)
+* [What's next?](#react-firebase-authentication-advanced)
+  * Bonus: [Authentication in React, Firebase and Redux](#react-firebase-authentication-redux)
+  * Bonus: [Authentication in React, Firebase and MobX](#react-firebase-authentication-mobx)
 
 {{% chapter_header "React Application Setup: create-react-app" "react-application-setup" %}}
 
@@ -1675,7 +1676,9 @@ const authCondition = (authUser) => !!authUser;
 export default withAuthorization(authCondition)(AccountPage);
 {{< /highlight >}}
 
-That's it, your routes are protected now. You can imagine how this technique gives you full control over your authorizations in your application. Not only by using general authorization rules, but by being more specific with role and permission based authroizations. For instance, an admin page, which is only available for users with the admin role, could be protected as follows.
+That's it, your routes are protected now. You can try it yourself by signing out from your application and trying to access */account* or */home*. It shoudl redirect you.
+
+I guess you can imagine how this technique gives you full control over your authorizations in your application. Not only by using general authorization rules, but by being more specific with role and permission based authroizations. For instance, an admin page, which is only available for users with the admin role, could be protected as follows.
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -1912,29 +1915,39 @@ export default withAuthorization(authCondition)(HomePage);
 
 That's it for the user entity management. You are in full control of your users now. It is possible to retrieve a user entity or a list of user entities. Furhtermore, you can create a user in the realtime database. It is up to you to implement the other {{% a_blank "CRUD operations" "https://en.wikipedia.org/wiki/Create,_read,_update_and_delete" %}} as well in order to update a user, to remove a user and to get a single user entity from the database.
 
+{{% chapter_header "What's next?" "react-firebase-authentication-advanced" %}}
+
 By now, everything is in place in terms of authentication and user management for your application. You could continue to implement your own domain logic. I am keen to see what you are implementing on top of this authentication boilerplate for firebase in React, so don't hesitate to reach out to me.
 
-However, often people are using React with a state management library such as Redux or MobX. **The following sections will showcase you how to implement the session state handling in MobX or Redux**. You can follow one of these sections to learn about it. They will not build up on each other. Instead both use this section as their boilerplate to continue with their implementation. However, keep two things in mind when you continue with one of these solutions:
+You have started to implement your first entity which is managed by the firebase realtime database. You retrieve a list of these entities from the firebase database and created single entities in the database too. You can extend it with further CRUD operations. In addition, you can start to implement your own domain sepcific entities (e.g. todo items in a ToDo application).
+
+**There is one caveat you should keep in mind.** In the very beginning of this tutorial, it says that you will learn everyhting about the client-sided authentication part in this guide. But to be honest, that was only half of the story. If you would implement your own authentication backend (e.g. Passport.js in a Node.js server) from scratch, there are a couple of more topics that you would need to consider for the client-side application. For instance, when using firebase, you can sign in to your application, close the browser tab, open it up again and you will see yourself still signed in to the application. Firebase keeps this information stored for you and the listener in your `withAuthentication()` higher order component knows about the authenticated user object. However, if you would implement your own authentication mechanism from scratch, you would have to use cookies or [the native local storage of the browser](https://www.robinwieruch.de/local-storage-react/) on the client-side to keep a user authenticated over multiple browser sessions. That's only one caveat to the story and shows that implementing an own authentication solution can be a complex adventure.
+
+So what's next for this tutorial? Often people are using React with a state management library such as Redux or MobX. **The following sections will showcase you how to implement the session state handling in MobX or Redux**. You can follow one of these sections to learn about it. They will not build up on each other. Instead both use this section as their boilerplate to continue with their implementation. However, keep two things in mind when you continue with one of these solutions:
 
 * It works in plain React as well. So [if you don't have any good reason to introduce Redux or MobX](https://www.robinwieruch.de/learn-react-before-using-redux/), consider to keep it like it is right now.
 
 * This tutorial used the learnings from [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) as foundation. The same applies for the next chapters and the ebook: {{% a_blank "Taming the State in React" "https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE" %}}. It is full of useful information about Redux and MobX and teaches state management in React from scratch by building applications along the way.
 
-{{% chapter_header "Authentication in React, Firebase and Redux [WIP]" "react-firebase-authentication-redux" %}}
+{{% chapter_header "Authentication in React, Firebase and Redux" "react-firebase-authentication-redux" %}}
 
-- you should install {{% a_blank "redux" "https://redux.js.org/" %}} and {{% a_blank "react-redux" "https://github.com/reactjs/react-redux" %}} on the command line
+The section dives into using Redux on top of React and firebase for the state managament. Basically you will exchange React's local state (user management: e.g. list of users on home page) and React's context (session management: e.g. authenticated user object) with Redux. The section builds on top of the last section which concluded the authentication and authroization in plain React and firebase.
+
+This section is divided into two parts. The first part will setup Redux and all the necessary parts for it. You will implement the state layer seprataely from the view layer. The second part exchanges the current state layer (local state for users, context for authenticated user) with the Redux state layer. It is the part where the new state layer is connected to the view layer.
+
+Let's start with Redux in React and Firebase for the authentication in your application. First of all, you should install {{% a_blank "redux" "https://redux.js.org/" %}} and {{% a_blank "react-redux" "https://github.com/reactjs/react-redux" %}} on the command line.
 
 {{< highlight javascript >}}
 npm install redux react-redux
 {{< /highlight >}}
 
-- furthermore, you will have to install {{% a_blank "recompose" "https://github.com/acdlite/recompose" %}} on the command line to compose more than one higher order components on a component
+Furthermore, you will have to install {{% a_blank "recompose" "https://github.com/acdlite/recompose" %}} on the command line to compose more than one higher order component on a component. You will enhance your component not only once, but multiple times by using the composing functinality of recompose.
 
 {{< highlight javascript >}}
 npm install recompose
 {{< /highlight >}}
 
-- store
+Now let's setup the Redux state layer. First of all, you need the Redux store implementation. THerefore, create a folder and file for it.
 
 From *src/* folder:
 
@@ -1944,7 +1957,7 @@ cd store
 touch index.js
 {{< /highlight >}}
 
-- implement store
+Second, implement the store as singleton instance. There should be only one Redux store. The store creation takes a root reducer which isn't defined yet. You will do it in the next step.
 
 In *src/store/index.js* file:
 
@@ -1957,7 +1970,7 @@ const store = createStore(rootReducer);
 export default store;
 {{< /highlight >}}
 
-- create reducer files
+Third, create a dedicated module for the reducers. You will have a reducer for the session state (e.g. authenticated user) and a reducer for the user state (e.g. list of users from the database). In addition, you will have an entry point file to the module to combine those reducers as root reducer to pass it to the Redux store which you already did in the previous step.
 
 From *src/* folder:
 
@@ -1967,9 +1980,7 @@ cd reducers
 touch index.js session.js user.js
 {{< /highlight >}}
 
-- implement each reducer
-
-First, the session reducer:
+Now, implement the two reducers. First, the session reducer which manages simply the `authUser` object. Remember that the authenticated user represents our session in the application.
 
 In *src/reducers/session.js* file:
 
@@ -1995,13 +2006,13 @@ function sessionReducer(state = INITIAL_STATE, action) {
 export default sessionReducer;
 {{< /highlight >}}
 
-Second, the user reducer:
+Second, the user reducer which deals with the list of users from the firebase realtime database:
 
 In *src/reducers/user.js* file:
 
 {{< highlight javascript >}}
 const INITIAL_STATE = {
-  users: [],
+  users: {},
 };
 
 const applySetUsers = (state, action) => ({
@@ -2021,7 +2032,7 @@ function userReducer(state = INITIAL_STATE, action) {
 export default userReducer;
 {{< /highlight >}}
 
-Now, combine both reducers in a root reducer:
+Finally, combine both reducers in a root reducer to make it accessible for the store creation.
 
 In *src/reducers/index.js* file:
 
@@ -2038,12 +2049,11 @@ const rootReducer = combineReducers({
 export default rootReducer;
 {{< /highlight >}}
 
-- the root reducer with all its reducers is already passed to the Redux store - now, the redux store can be provided to the component tree
-- this way, you connect the state layer with the view layer
+You have already passed the root reducer with all its reducers to the Redux store creation. The Redux setup is done. Now, you can connect your state layer with your view layer. The Redux store can be provided to the component hierarchy by using Redux's bridging Provider component.
 
 In *src/index.js* file:
 
-{{< highlight javascript "hl_lines=3 6 7 11 13" >}}
+{{< highlight javascript "hl_lines=3 6 10 12" >}}
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -2062,8 +2072,9 @@ ReactDOM.render(
 registerServiceWorker();
 {{< /highlight >}}
 
-- now the crucial part where you exchange the React state layer with the Redux state layer
-- let's start with the easier part: the user state layer
+Now comes the refactoring part where you exchange a part of the React state layer with the Redux state layer. You will replace React's context entirely in this part by passing the state down the component tree with the Redux store.
+
+Let's start with the simpler part of the refactoring: the user state layer. On the home page, you will use Redux's bridging library to connect the state via `mapStateToProps()` to the component. In addition, you will connect actions to your component as well via `mapDispatchToProps()` to store the users coming from the firebase realtime database to your Redux store.
 
 In *src/components/Home.js* file:
 
@@ -2116,16 +2127,11 @@ export default compose(
 )(HomePage);
 {{< /highlight >}}
 
-- now the users are managed with Redux rather than in React's local storage
-- in addition, you have connected the sytate and actions with the view layer, it is basically Redux's provider pattern
+Now the users are managed with Redux rather than in React's local state. You have connected the state and actions of Redux with the view layer.
 
-- what about the session state layer which is handled by the session reducer?
-- essentially you will refactor it similiar to the user state layer before
-- you will replace the provider pattern, where the authenticated user is stored in React's context, with the state layer from Redux, where the user is stored in the Redux store,
-- instead of passing the authenticated user object down via React's context, you pass it down via the global store by providing the store in a parent component (which you already did) and conencting it in the components
+What about the session state layer which should be handled by the session reducer? Essentially you will refactor it the same way as the user state layer before. You will replace the provider pattern, where the authenticated user is stored in React's context, with the state layer from Redux, where the authenticated user will be stored in the Redux store. Thus, instead of passing the authenticated user object down via React's context, you pass it down via the global Redux store by providing the store in a parent component (via the Provider component, which you already did) and conencting it to the components that care about the authenticated user (e.g. Navigation, Account).
 
-- the crucial component to store the authenticated user object in the Redux store rather than in React's context is the `withAuthentication()` higher order component
-- we can refactor it to use the store instead of the context
+The most important component to store the authenticated user object in the Redux store rather than in React's context is the `withAuthentication()` higher order component. We can refactor it to use the Redux store instead of React's context by connecting it to the state layer.
 
 In *src/components/withAuthentication.js* file:
 
@@ -2164,18 +2170,16 @@ const withAuthentication = (Component) => {
 export default withAuthentication;
 {{< /highlight >}}
 
-- now you have the authenticated user available in the Redux store
-- all components which rely on the authenticated user in React's context need to be refactored now, it's similiar to the home component which uses the list of users from the Redux store insetad of React's local state
-- for most, it affects the Navigation and the Account component
+Now you have the authenticated user available in the Redux store. As consequence all components which rely on the authenticated user in React's context need to be refactored now. It's similiar to the Home component which uses the list of users from the Redux store instead of React's local state.
 
-- in the Navigation component, the authenticated user is used to display different routing options
+In the Navigation component, the authenticated user is used to display different routing options. Thus you will need to refactor the component to connect it to the Redux store.
 
 In *src/components/Navigation.js* file:
 
-{{< highlight javascript "hl_lines=3 18 19 20 22" >}}
+{{< highlight javascript "hl_lines=2 8 30 31 32 34" >}}
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import SignOutButton from './SignOut';
 import * as routes from '../constants/routes';
@@ -2188,7 +2192,19 @@ const Navigation = ({ authUser }) =>
     }
   </div>
 
-...
+const NavigationAuth = () =>
+  <ul>
+    <li><Link to={routes.LANDING}>Landing</Link></li>
+    <li><Link to={routes.HOME}>Home</Link></li>
+    <li><Link to={routes.ACCOUNT}>Account</Link></li>
+    <li><SignOutButton /></li>
+  </ul>
+
+const NavigationNonAuth = () =>
+  <ul>
+    <li><Link to={routes.LANDING}>Landing</Link></li>
+    <li><Link to={routes.SIGN_IN}>Sign In</Link></li>
+  </ul>
 
 const mapStateToProps = (state) => ({
   authUser: state.sessionState.authUser,
@@ -2197,11 +2213,11 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps)(Navigation);
 {{< /highlight >}}
 
-- in the Account component, the authenticated user is used to display the email address of the user
+In the Account component, the authenticated user is used to display the email address of the user. There you need to connect it to the Redux store as well.
 
 In *src/components/Account.js* file:
 
-{{< highlight javascript "hl_lines=2 3 16 17 18 22 23 24 25" >}}
+{{< highlight javascript "hl_lines=2 3 9 16 17 18 22 23 24 25" >}}
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
@@ -2229,7 +2245,7 @@ export default compose(
 )(AccountPage);
 {{< /highlight >}}
 
-- don't forget that the authorization higher order component used the authenticated user from React's context as well for the fallback conditional rendering
+Furthermore, don't forget that the authorization higher order component used the authenticated user from React's context as well for the fallback conditional rendering. You have to refactor it too.
 
 In *src/components/withAuthorization.js* file:
 
@@ -2270,22 +2286,25 @@ const withAuthorization = (condition) => (Component) => {
 export default withAuthorization;
 {{< /highlight >}}
 
-- find project with a slight different folder structure here: https://github.com/rwieruch/react-redux-firebase-authentication
+That's it. In this section, you have introduced Redux as state management library to manage your session and user state. Instead of relying on React's context for the authenticated user object and React's local state for the list of users from the firebase database, you are storing these objects in the Redux store. You can find the project with a slight different folder structure in this {{% a_blank "GitHub repository" "https://github.com/rwieruch/react-redux-firebase-authentication" %}}.
 
-{{% chapter_header "Authentication in React, Firebase and MobX [WIP]" "react-firebase-authentication-mobx" %}}
+{{% chapter_header "Authentication in React, Firebase and MobX" "react-firebase-authentication-mobx" %}}
 
-- Note: none of the Redux changes from the previous section are reflected here, we will start with a clean plate from one section before where we didn't use Redux but only plain React
+The section dives into using MobX on top of React and firebase for the state managament. Basically you will exchange React’s local state (user management: e.g. list of users on home page) and React’s context (session management: e.g. authenticated user object) with MobX.
 
-- follow eject tutorial to prepare your create-react-app for MobX and JavaScript decorators
+Note: None of the Redux changes from the previous section are reflected here, we will start with a clean plate from one section before where we didn't use Redux but only plain React.
 
-- you should have installed {{% a_blank "mobx" "https://mobx.js.org/" %}} and {{% a_blank "mobx-react" "https://github.com/mobxjs/mobx-react" %}} by now
-- furthermore, you will have to install {{% a_blank "recompose" "https://github.com/acdlite/recompose" %}} on the command line to compose more than one higher order components on a component
+This section is divided into two parts. The first part will setup MobX and all the necessary parts for it. You will implement the state layer seprataely from the view layer. The second part exchanges the current state layer (local state for users, context for authenticated user) with the MobX state layer. It is the part where the new state layer is connected to the view layer.
+
+Let’s start with MobX in React and Firebase for the authentication in your application. First of all, you should follow this [short guide to enable decorators in create-react-app](https://www.robinwieruch.de/create-react-app-mobx-decorators/). You can also take the path of not using decators, to avoid the eject process, but this tutorial only reflects the usage **with decorators**.
+
+You should have installed {{% a_blank "mobx" "https://mobx.js.org/" %}} and {{% a_blank "mobx-react" "https://github.com/mobxjs/mobx-react" %}} by now. Furthermore, you will have to install recompose on the command line to compose more than one higher order component on a component. You will enhance your component not only once, but multiple times by using the composing functinality of recompose.
 
 {{< highlight javascript >}}
 npm install recompose
 {{< /highlight >}}
 
-- stores
+Now let’s setup the MobX state layer. First of all, you need to implement the MobX stores. THerefore, create a folder and files for it.
 
 From *src/* folder:
 
@@ -2295,9 +2314,7 @@ cd stores
 touch index.js sessionStore.js userStore.js
 {{< /highlight >}}
 
-- implement each store
-
-First, the session store:
+You will have a store for the session state (e.g. authenticated user) and a store for the user state (e.g. list of users from the database). In addition, you will have an entry point file to the module to combine those stores as root store. First, the session store which manages simply the authUser object. Remember that the authenticated user represents our session in the application.
 
 In *src/stores/sessionStore.js* file:
 
@@ -2319,7 +2336,7 @@ class SessionStore {
 export default SessionStore;
 {{< /highlight >}}
 
-Second, the user store:
+Second, the user store which deals with the list of users from the firebase realtime database:
 
 In *src/stores/userStore.js* file:
 
@@ -2341,7 +2358,7 @@ class UserStore {
 export default UserStore;
 {{< /highlight >}}
 
-Now, combine both stores in a root store:
+Finally, combine both stores in a root store.
 
 In *src/stores/index.js* file:
 
@@ -2365,11 +2382,11 @@ const rootStore = new RootStore();
 export default rootStore;
 {{< /highlight >}}
 
-- the root store with all its stores can be passed to the component tree now, this way, you connect the state layer with the view layer
+The MobX setup is done. Now, you can connect your state layer with your view layer. The MobX stores can be provided to the component hierarchy by using MobX's bridging Provider component.
 
 In *src/index.js* file:
 
-{{< highlight javascript "hl_lines=3 6 7 11 13" >}}
+{{< highlight javascript "hl_lines=3 6 10 12" >}}
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
@@ -2388,8 +2405,9 @@ ReactDOM.render(
 registerServiceWorker();
 {{< /highlight >}}
 
-- now the crucial part where you exchange the React state layer with the MobX state layer
-- let's start with the easier part: the user state layer
+Now comes the refactoring part where you exchange a part of the React state layer with the MobX state layer. You will replace React’s context entirely in this part by passing the state down the component tree with the MobX stores.
+
+Let’s start with the simpler part of the refactoring: the user state layer. On the home page, you will use MobX's bridging library to inject the needed store via `inject()` to the component. In addition, you will make the component observable via `observer()` for MobX reactions. If the MobX state changes, the component will react to it. In addition, the user store is used to store the users coming from the firebase realtime database.
 
 In *src/components/Home.js* file:
 
@@ -2435,16 +2453,11 @@ export default compose(
 )(HomePage);
 {{< /highlight >}}
 
-- now the users are managed in a mobx user store rather than in React's local storage
-- in addition, you have used the inject pattern to pass down the user store from the provider above, it is basically MobX's provider pattern
+Now the users are managed with MobX rather than in React’s local state. You have connected the state from MobX with the view layer.
 
-- what about the session state layer which is handled by the session store?
-- essentially you will refactor it similiar to the user state layer before
-- you will replace the provider pattern, where the authenticated user is stored in React's context, with the state layer from MobX, where the user is stored in the session store,
-- instead of passing the authenticated user object down via React's context, you pass it down via the session store by providing the store in a parent component (which you already did) and injecting it in the components
+What about the session state layer which should be handled by the session store? Essentially you will refactor it the same way as the user state layer before. You will replace the provider pattern, where the authenticated user is stored in React’s context, with the state layer from MobX, where the authenticated user will be stored in the session store. Thus, instead of passing the authenticated user object down via React’s context, you pass it down via the MobX's session store by providing the store in a parent component (via the Provider component, which you already did) and conencting it to the components that care about the authenticated user (e.g. Navigation, Account).
 
-- the crucial component to store the authenticated user object in the MobX store rather than in React's context is the `withAuthentication()` higher order component
-- we can refactor it to use the store instead of the context
+The most important component to store the authenticated user object in the MobX session store rather than in React’s context is the `withAuthentication()` higher order component. We can refactor it to use the MobX session store instead of React’s context by connecting it to the state layer.
 
 In *src/components/withAuthentication.js* file:
 
@@ -2479,19 +2492,17 @@ const withAuthentication = (Component) => {
 export default withAuthentication;
 {{< /highlight >}}
 
-- now you have the authenticated user available in the MobX session store
-- all components which rely on the authenticated user in React's context need to be refactored now, it's similiar to the home component which uses the list of users from the MobX user store insetad of React's local state
-- for most, it affects the Navigation and the Account component
+Now you have the authenticated user available in the MobX session store. As consequence all components which rely on the authenticated user in React’s context need to be refactored now. It’s similiar to the Home component which uses the list of users from the MobX user store instead of React’s local state.
 
-- in the Navigation component, the authenticated user is used to display different routing options
+In the Navigation component, the authenticated user is used to display different routing options. Thus you will need to refactor the component to inject the MobX session store instead.
 
 In *src/components/Navigation.js* file:
 
-{{< highlight javascript "hl_lines=2 4 9 11 19 20 21 22" >}}
+{{< highlight javascript "hl_lines=2 3 9 11 31 32 33 34" >}}
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Link } from 'react-router-dom';
 import { compose } from 'recompose';
+import { Link } from 'react-router-dom';
 
 import SignOutButton from './SignOut';
 import * as routes from '../constants/routes';
@@ -2504,7 +2515,19 @@ const Navigation = ({ sessionStore }) =>
     }
   </div>
 
-...
+const NavigationAuth = () =>
+  <ul>
+    <li><Link to={routes.LANDING}>Landing</Link></li>
+    <li><Link to={routes.HOME}>Home</Link></li>
+    <li><Link to={routes.ACCOUNT}>Account</Link></li>
+    <li><SignOutButton /></li>
+  </ul>
+
+const NavigationNonAuth = () =>
+  <ul>
+    <li><Link to={routes.LANDING}>Landing</Link></li>
+    <li><Link to={routes.SIGN_IN}>Sign In</Link></li>
+  </ul>
 
 export default compose(
   inject('sessionStore'),
@@ -2512,7 +2535,7 @@ export default compose(
 )(Navigation);
 {{< /highlight >}}
 
-- in the Account component, the authenticated user is used to display the email address of the user
+In the Account component, the authenticated user is used to display the email address of the user. There you need to inject the MobX session store as well.
 
 In *src/components/Account.js* file:
 
@@ -2541,7 +2564,7 @@ export default compose(
 )(AccountPage);
 {{< /highlight >}}
 
-- don't forget that the authorization higher order component used the authenticated user from React's context as well for the fallback conditional rendering
+Furthermore, don’t forget that the authorization higher order component used the authenticated user from React’s context as well for the fallback conditional rendering. You have to refactor it too.
 
 In *src/components/withAuthorization.js* file:
 
@@ -2579,8 +2602,8 @@ const withAuthorization = (condition) => (Component) => {
 export default withAuthorization;
 {{< /highlight >}}
 
-- find project with a slight different folder structure here: https://github.com/rwieruch/react-mobx-firebase-authentication
+That's it. In this section, you have introduced MobX as state management library to manage your session and user state. Instead of relying on React's context for the authenticated user object and React's local state for the list of users from the firebase database, you are storing these objects in the MobX stores. You can find the project with a slight different folder structure in this {{% a_blank "GitHub repository" "https://github.com/rwieruch/react-mobx-firebase-authentication" %}}.
 
 <hr class="section-divider">
 
-Hopefully the guide has helped you to implement your own authentication and authorization flow in React with Firebase. If you have any suggestions or improvements, please reach out in the comments below or open a issue/pull request on GitHub. Again, if the tutorial didn't explain everythin in detail, then it was because most those things are already covered in my {{% a_blank "(partly free) courses" "https://roadtoreact.com/" %}}. Thank you for reading. Keep an eye on the material and help me to keep it up to date for others.
+Hopefully the guide has helped you to implement your own authentication and authorization mechanism in React with Firebase. If you have any suggestions or improvements, please reach out in the comments below or open a issue/pull request on GitHub. Again, if the tutorial didn't explain everythin in detail, then it was because most those things are already covered in my {{% a_blank "(partly free) courses" "https://roadtoreact.com/" %}}. The tutorial builds on top of these courses. I would love if you would go through them to learn everything about React, Redux and MobX. Thank you for reading! :-)
