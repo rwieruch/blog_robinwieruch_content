@@ -46,8 +46,8 @@ The requirements for this tutorial are a working [editor or IDE, a running comma
   * [Sign In with React and Firebase](react-firebase-sign-in)
   * [Sign Out with React and Firebase](react-firebase-sign-out)
   * [Session Handling in React Components](react-firebase-session-handling)
-  * [Session Handling with Higher Order Components](react-firebase-session-handling-higher-order-components)
-  * [Password Reset and Password Change](react-firebase-password)
+  * [Session Handling in React with Higher Order Components](react-firebase-session-handling-higher-order-components)
+  * [Password Reset and Password Change with Firebase](react-firebase-password)
 * Authorization in React
   * [Protected Routes in React with Authorization](react-firebase-protected-routes)
 * Firebase Database in React
@@ -1107,13 +1107,13 @@ That's it! You have successfully implemented the authentication flow with fireba
 
 The recent sections were quite a lot of content. I didn't go into all the details, because I teach those in the referenced articles and [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). So make sure to check out the ebook!
 
-{{% chapter_header "Session Handling with Higher Order Components" "react-firebase-session-handling-higher-order-components" %}}
+{{% chapter_header "Session Handling in React with Higher Order Components" "react-firebase-session-handling-higher-order-components" %}}
 
-In this section, we will abstract the session handling way with higher order components and the React's provider pattern. It has two advantages:
+In this section, we will abstract the session handling away with higher order components and the React's provider pattern. It has two advantages:
 
-* The higher order component fulfills only one purpose and shields away the business logic from the App component. The App component stays lightwight.
+* The higher order component fulfills only one purpose and shields away the business logic from the App component. The App component stays lightweight. There is no business logic mixed up in the component.
 
-* The [provider pattern](https://www.robinwieruch.de/react-provider-pattern-context/) helps us out with React's context. Rather than passing the authenticated user object explicitity down to all components who are interested in it through the App component, you can pass it impicitly through React's context.
+* The [provider pattern](https://www.robinwieruch.de/react-provider-pattern-context/) helps us out with React's context. Rather than passing the authenticated user object explicitity down to all components who are interested in it through the App component via props, you can pass it impicitly down through React's context. Not every component needs to know about the authenticated user object.
 
 First, you can revert the recent changes in the App component. It can become a functional stateless component again. It doesn't need to know about the authenticated user object anymore.
 
@@ -1155,7 +1155,7 @@ const App = () =>
 export default App;
 {{< /highlight >}}
 
-Next, you can wrap the App component up in a session handling higher order component. That's where all the business logic goes which you have just removed in the last step from the App component.
+Next, you can wrap the App component up in a session handling higher order component. That's where all the business logic goes which you have just removed in the last step from the App component. Basically you enhance the App component with the higher order component.
 
 {{< highlight javascript "hl_lines=3 10" >}}
 ...
@@ -1178,11 +1178,31 @@ From *src/components/* folder:
 touch withAuthentication.js
 {{< /highlight >}}
 
-Second, move all the previous session logic into the higher order component.
+Second, implement the framework around the higher order component. Basically most of the higher order components start out like this.
 
 In *src/components/withAuthentication.js* file:
 
 {{< highlight javascript >}}
+import React from 'react';
+
+const withAuthentication = (Component) => {
+  class WithAuthentication extends React.Component {
+    render() {
+      return (
+        <Component />
+      );
+    }
+  }
+
+  return WithAuthentication;
+}
+
+export default withAuthentication;
+{{< /highlight >}}
+
+Third, move all the previous session logic into the higher order component.
+
+{{< highlight javascript "hl_lines=3 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21" >}}
 import React from 'react';
 
 import { firebase } from '../firebase';
@@ -1218,7 +1238,7 @@ const withAuthentication = (Component) => {
 export default withAuthentication;
 {{< /highlight >}}
 
-If you are not familiar with higher order components, make sure to read this [gentle introduction](https://www.robinwieruch.de/gentle-introduction-higher-order-components/).
+If you are not familiar with higher order components, make sure to read this [gentle introduction](https://www.robinwieruch.de/gentle-introduction-higher-order-components/). It gives you an approachable way to learn about them.
 
 Third, there needs to be a mechanism to pass down the authenticated user object to the other components (e.g. Navigation component). As mentioned, we will use React's provider pattern with the context object. Adjust your session handling higher order component to the following.
 
@@ -1269,7 +1289,7 @@ const withAuthentication = (Component) => {
 export default withAuthentication;
 {{< /highlight >}}
 
-Last but not least, the only consumer of the authenticated user object, the Navigation component, needs to know about the change from passing the object via context rather than props. Even though the Navigation component is a functional stateless component, it can access React's context in its second argument in the function signature.
+That's it for the higher order component. Last but not least, the only consumer of the authenticated user object, the Navigation component, needs to know about the change from passing the object via context rather than props. Even though the Navigation component is a functional stateless component, it can access React's context in its second argument in the function signature. The props are not used anymore.
 
 In *src/components/Navigation.js* file:
 
@@ -1298,13 +1318,15 @@ Navigation.contextTypes = {
 export default Navigation;
 {{< /highlight >}}
 
-Now, start your application again and verify that it still works the same as before. You didn't change any behavior of your application in this section, but only shielded away the more complex logic into a higher order component and added the convinience of passing the authenticcated user implictly via React's context rather than explicitly through the whole component tree by using props.
+Notice that you don't need to pass the authenticated user down from the App component anymore. It is passed through it implictly by using React's context.
 
-{{% chapter_header "Password Reset and Password Change" "react-firebase-password" %}}
+Now, start your application again and verify that it still works the same as before. You didn't change any behavior of your application in this section, but only shielded away the more complex logic into a higher order component and added the convinience of passing the authenticcated user implictly via React's context rather than explicitly through the whole component tree by using props. These are two advanced patterns in React and you have used both in this last section!
 
-There are two more neat features available in the firebase authentication API and you have already implemented the interface for it: password forget and password change.
+{{% chapter_header "Password Reset and Password Change with Firebase" "react-firebase-password" %}}
 
-Let's start by implementing the password forget feature. You already have implemented the interface in your firebase module. Now you can make use of it in a component. The following file implements the vast majority of the password reset logic in a form again. We already implemented a couple of those before, so it should be any different now.
+There are two more neat features available in the firebase authentication API and you have already implemented the interface for it in your firebase module: password forget / reset and password change.
+
+Let's start by implementing the password forget feature. Since you have  already implemented the interface in your firebase module, you can make use of it in a component. The following file implements the vast majority of the password reset logic in a form again. We already implemented a couple of those forms before, so it shouldn't be any different now.
 
 In *src/components/PasswordForget.js* file:
 
@@ -1389,11 +1411,9 @@ export {
 };
 {{< /highlight >}}
 
-Again it's a lot of code. But it isn't any different from the sign up and sign in forms. The password forget uses a form to submit the information (email address) which is needed by the firebase API to reset the password. A class method (onSubmit) makes sure that the information is send to the API. Furhtermore, it resets the form's input field on a successful request or shows an error on a errornous request. In addition, the form is validated again before it can be submitted.
+Again it's a lot of code. But it isn't any different from the sign up and sign in forms from before. The password forget uses a form to submit the information (only email address) which is needed by the firebase authentication API to reset the password. A class method (onSubmit) makes sure that the information is send to the API. Furhtermore, it resets the form's input field on a successful request or shows an error on a errornous request. In addition, the form is validated as well before it can be submitted.
 
-Moreover, the file implements a password forget link as component which isn't used directly in the form component. It is similar to the SignUpLink component which was used on the SignInPage. This link is not different. You can already make use of it. In case a user forgot about the password in the signin in process, the password forget page isn't far away by using the link.
-
-Remember that the password forget page is already mapped in the App component. So you can simply drop the PasswordForgetLink component in the sign in page.
+Moreover, the file implements a password forget link as component which isn't used directly in the form component. It is similar to the SignUpLink component which was used on in the SignInPage component. This link is not different. You can already make use of it. In case a user forgot about the password during the sign in in process, the password forget page isn't far away by using the link.
 
 In *src/components/SignIn.js* file:
 
@@ -1417,9 +1437,11 @@ const SignInPage = ({ history }) =>
 ...
 {{< /highlight >}}
 
+Remember that the password forget page is already mapped in the App component. So you can simply drop the PasswordForgetLink component in the sign in page.
+
 You can try it out yourself now. Start the application and reset your password. It doesn't matter if you are authenticated or not. Once you send the request, you should get an email from firebase to update your password.
 
-Now let's get to the password change component. You have implemented this functionality already in your firebase interface as well. You only need a form component to make use of it. Again, the form component isn't any different from the sign in, sign up and password forget forms.
+Now let's get to the second component: the password change component. You have implemented this functionality already in your firebase interface as well. You only need a form component to make use of it. Again, the form component isn't any different from the sign in, sign up and password forget forms. Once you have learned about how to implemenr a form in React, the other forms are pretty similar to it.
 
 In *src/components/PasswordChange.js* file:
 
@@ -1497,9 +1519,9 @@ class PasswordChangeForm extends Component {
 export default PasswordChangeForm;
 {{< /highlight >}}
 
-It updates its local state by using `onChange` handlers in the input fields. Furthermore, it validates the state before submitting a request to change the password. Last but not least, it shows again a error message when a request failed.
+The component updates its local state by using `onChange` handlers in the input fields. Furthermore, it validates the state before submitting a request to change the password by enabling or disabling the submit button. Last but not least, it shows again a error message when a request fails.
 
-Now there is another neat implementation for your application. The password change component isn't reachable yet. On the other hand, it's great that the password forget form is reachable from the sign in page. But what about a central place to make those account functionalities available for an authenticated user? You have already created a file for an account page on the command line and mapped the route in the App component. Now you only need to implement it.
+Now there is another neat implementation for your application. The password change component isn't reachable yet. On the other hand, it's great that the password forget form is reachable from the sign in page. But what about a central place to make those functionalities available for an authenticated user? An account page would be the perfet place. You have already created a file for such a page on the command line and mapped the route in the App component. Now you only need to implement it.
 
 In *src/components/Account.js* file:
 
@@ -1530,11 +1552,11 @@ That's it. Your user experience has improved significantly with the password for
 
 {{% chapter_header "Protected Routes in React with Authorization" "react-firebase-protected-routes" %}}
 
-When you sign out from the home or account page, you will not get any redirect even though these pages should be only accessible for authenticated users. However, it makes no sense to show a non authenticated user the account page. In this section, you will implement a protection for these routes in case a user signs out.
+When you sign out from the home or account page, you will not get any redirect even though these pages should be only accessible for authenticated users. However, it makes no sense to show a non authenticated user the account page. In this section, you will implement a protection for these routes in case a user signs out. This process is called authorization.
 
-This protection is a form of a **general authorization** for your application. It checks whether there is an authenticated user. If there isn't an authenticated user, it will redirect to a public route. Otherwise it will do nothing. The condition could be defined as simple as: `authUser != null`. In contrast, a more **specific authorization** could be role or permission based authorization. For instance, `authUser.role === 'ADMIN'` would be a role based authorization and `authUser.permission === 'canEditAccount'` would be a permission based authorization. Fortunately, we will implement it in a way that you can define the authorization condition in a flexible way so that you have full control over it in the long run.
+The protection you are going to implement is a form of a **general authorization** for your application. It checks whether there is an authenticated user. If there isn't an authenticated user, it will redirect to a public route. Otherwise it will do nothing. The condition could be defined as simple as: `authUser != null`. In contrast, a more **specific authorization** could be role or permission based authorization. For instance, `authUser.role === 'ADMIN'` would be a role based authorization and `authUser.permission.canEditAccount === true` would be a permission based authorization. Fortunately, we will implement it in a way that you can define the authorization condition (predicate) in a flexible way so that you have full control over it in the long run.
 
-Similar to the higher order authentication component, there will be a higher order authorization component to shield away the logic. It can be reused then for the HomePage and AccountPage components. What's the task of the higher order component? First of all, it gets the condition passed as parameters. That way you can decide on your own if it should be a general or specific authorization rule. Second, it has to decide based on the condition whether it should redirect to a public page because the user isn't authorized to view the current page.
+Similar to the higher order authentication component, there will be a higher order authorization component to shield away the logic. It is not used on the App component, but can be used on all components which are associated with a route in the App component. Thus it can be reused for the HomePage and AccountPage components. What's the task of the higher order component? First of all, it gets the condition passed as configurational parameter. That way you can decide on your own if it should be a general or specific authorization rule. Second, it has to decide based on the condition whether it should redirect to a public page because the user isn't authorized to view the current page.
 
 Let's start to implement the higher order component. First, create it on the command line.
 
@@ -1544,9 +1566,29 @@ From *src/components/* folder:
 touch withAuthorization.js
 {{< /highlight >}}
 
-Second, I will just paste the whole block for the higher order component and explain it afterward.
+Second, you have again the common framework for the higher order component.
+
+In *src/components/withAuthorization.js* file:
 
 {{< highlight javascript >}}
+import React from 'react';
+
+const withAuthorization = () => (Component) => {
+  class WithAuthorization extends React.Component {
+    render() {
+      return <Component />;
+    }
+  }
+
+  return WithAuthorization;
+}
+
+export default withAuthorization;
+{{< /highlight >}}
+
+Third, let me paste the whole implementation details for the higher order component and explain it afterward.
+
+{{< highlight javascript "hl_lines=2 3 5 6 8 10 11 12 13 14 15 16 19 23 24 25 27" >}}
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
@@ -1579,9 +1621,11 @@ const withAuthorization = (authCondition) => (Component) => {
 export default withAuthorization;
 {{< /highlight >}}
 
-Let's break it down. First, have a look at the render method. It renders either the passed component (e.g. AccountPage) or nothing. That's just a fallback in case there is no authenticated user in the context. It increases the protection of the component by rendering nothing. However, the real logic happens in the `componentDidMount()` lifecycle method. Same as the `withAuthentication()` higher order component, it uses the firebase listener to trigger a callback function in case the authenticated user object changes. Every time the `authUser` changes, it checks the passed `authCondition()` function with the `authUser`. If the authorization fails, the higher order component redirects to the sign in page. If it doesn't fail, the higher order component does nothing. In general, the higher order component has access to the history object of the router by using the `withRouter()` higher order component.
+Let's break it down. First, have a look at the render method. It renders either the passed component (e.g. HomePage, AccountPage) or nothing. That's just a fallback in case there is no authenticated user in React's context object. It increases the protection of the component by rendering simply nothing. However, the real logic happens in the `componentDidMount()` lifecycle method. Same as the `withAuthentication()` higher order component, it uses the firebase listener to trigger a callback function in case the authenticated user object changes. Every time the `authUser` changes, it checks the passed `authCondition()` function with the `authUser`. If the authorization fails, the higher order component redirects to the sign in page. If it doesn't fail, the higher order component does nothing. In order to be able to redirect, the higher order component has access to the history object of the Router by using the in-house `withRouter()` higher order component form the React Router library.
 
-In the next step, you can use the higher order component to protect your routes (e.g. /home and /account) with authorization rules. For the sake of keeping it simple, the following two components are only protected with a general authotirzation rule that checks if the `authUser` object is not null. First, wrap the HomePage component in the higher order component and define the authorization condition.
+In the next step, you can use the higher order component to protect your routes (e.g. /home and /account) with authorization rules. For the sake of keeping it simple, the following two components are only protected with a general authotirzation rule that checks if the `authUser` object is not null.
+
+First, wrap the HomePage component in the higher order component and define the authorization condition for it. As mentioned, it checks if the user object is not null.
 
 In *src/components/Home.js* file:
 
@@ -1601,7 +1645,7 @@ const authCondition = (authUser) => !!authUser;
 export default withAuthorization(authCondition)(HomePage);
 {{< /highlight >}}
 
-First, wrap the AccountPage component in the higher order component and define the authorization condition as well.
+Second, wrap the AccountPage component in the higher order component and define the authorization condition as well. It isn't any different from the previous usage of the higher order component.
 
 In *src/components/Account.js* file:
 
@@ -1629,39 +1673,34 @@ const authCondition = (authUser) => !!authUser;
 export default withAuthorization(authCondition)(AccountPage);
 {{< /highlight >}}
 
-That's it, your routes are protected now. You can imagine how this technique gives you full control over your authorizations. For instance, an admin dashboard which is only available for users with the ADMIN role, could be protected as follows.
+That's it, your routes are protected now. You can imagine how this technique gives you full control over your authorizations in your application. Not only by using general authorization rules, but by being more specific with role and permission based authroizations. For instance, an admin page, which is only available for users with the admin role, could be protected as follows.
 
-{{< highlight javascript "hl_lines=6 19 21" >}}
+{{< highlight javascript >}}
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { PasswordForgetForm } from './PasswordForget';
-import PasswordChangeForm from './PasswordChange';
-import withAuthorization from './withAuthorization';
-
-const AccountPage = (props, { authUser }) =>
+const AdminPage = (props, { authUser }) =>
   <div>
-    <h1>Account: {authUser.email}</h1>
-    <PasswordForgetForm />
-    <PasswordChangeForm />
+    <h1>Admin</h1>
+    <p>Restricted area! Only users with the admin rule are authorized.</p>
   </div>
 
-AccountPage.contextTypes = {
+AdminPage.contextTypes = {
   authUser: PropTypes.object,
 };
 
-const authCondition = (authUser) => !!authUser;
+const authCondition = (authUser) => authUser.role === 'ADMIN';
 
-export default withAuthorization(authCondition)(AccountPage);
+export default withAuthorization(authCondition)(AdminPage);
 {{< /highlight >}}
 
-Congratulations You successfully implemented a full authentication flow with Firebase in React, added neat features such as password reset and password change, and authorized a couple of routes with dynamic authorizatiuon conditions. In the next section, you will explore how you can manage the users who sign up in your application. So far, only firebase knows about them but you have no own database runnign to store them.
+Congratulations! You successfully implemented a full fledged authentication mechanims with Firebase in React, added neat features such as password reset and password change, and protected routes with dynamic authorization conditions. In the next section, you will explore how you can manage the users who sign up in your application. So far, only firebase knows about them but you have no own database runnoing to store them yourself.
 
 {{% chapter_header "User Management with Firebase's Database in React" "react-firebase-user-database" %}}
 
-So far, only firebase knows about your users. There is no way to retrieve the a single user or a list of users for you. They are stored internally by firebase to keep the authentication secured. But you can introduce the firebase realtime database to keep track of the users yourself. And you should do it, because otherwise you never have a way to associate entities (e.g.a todo item) created by your users. Therefore, follow this section to store users in your firebase realtime database during the sign up process.
+So far, only firebase knows about your users. There is no way to retrieve the a single user or a list of users for you. They are stored internally by firebase to keep the authentication secured. That's good, because you are never involved in storing sensible data such as passwords. However, you can introduce the firebase realtime database to keep track of the user entities yourself. And you should do it, because otherwise you never have a way to associate other domain entities (e.g. a todo item) created by your users to your users. Therefore, follow this section to store users in your realtime database in firebase during the sign up process.
 
-First of all, create a file for your firebase realtime database API. It goes into the firebase folder next to your file for your authentication API.
+First of all, create a file for your firebase realtime database API. It goes into the firebase folder next to your file for the authentication API.
 
 From *src/firebase/* folder:
 
@@ -1692,11 +1731,11 @@ export const onceGetUsers = () =>
 
 In the first asynchronous function, the user is created as object with the username and email properties. Furthermore, it is stored on the `users/${id}` ressource path. So whenver you would want to retrieve a specific user from the firebase database, you could get the one user via its unique identifier and the entity ressource path.
 
-Second, the users are retrieved from the general users entity ressource path. The following asynchronous function will return all users from the firebase realtime database.
+In the second asynchronous function, the users are retrieved from the general users entity ressource path. The function will return all users from the firebase realtime database.
 
-Note: In the future, you could consider to split up the file into multiple files (e.g. in a *db/* folder) for different domain entities (e.g. *db/user.js*, *db/todos.js*, ...).
+Note: In the future, you could consider to split up the file into multiple files for different domain entities (e.g. *db/user.js*, *db/todos.js*, ...) in one module (e.g. *db/* folder).
 
-You might have noticed that the file imports a database object from the *src/firebase/firebase.js* file which isn't defined yet. Let's create it now.
+You might have noticed that the file imports a database object from the *src/firebase/firebase.js* file which isn't defined nor declared yet. Let's create it now.
 
 In *src/firebase/firebase.js* file:
 
@@ -1714,7 +1753,7 @@ export {
 };
 {{< /highlight >}}
 
-Here you can see again how firebase separates its authentication and database API. You did the same in both *db.js* and *auth.js* files. Last but not least, don't forget to make the new functionalities from your firebase database API available in your firebase module's entry point.
+Here you can see again how firebase separates its authentication and database API. You followed the same best practice in both *db.js* and *auth.js* files. Last but not least, don't forget to make the new functionalities from your firebase database API available in your firebase module's entry point.
 
 In *src/firebase/index.js* file:
 
@@ -1730,7 +1769,7 @@ export {
 };
 {{< /highlight >}}
 
-Now you can use those functionalities in your React components to create and retrieve users. Let's start with the user creation. The best place to do it would be the SignUpForm component. You can simply add another API request to create a user when the user signed up successfully.
+Finnaly, you can use those functionalities in your React components to create and retrieve users. Let's start with the user creation. The best place to do it would be the SignUpForm component. It is the most natural place to create a user in the database after the sign up through the firebase authentication API. You can simply add another API request to create a user when the user signed up successfully.
 
 In *src/components/SignUp.js* file:
 
@@ -1786,13 +1825,13 @@ class SignUpForm extends Component {
 }
 {{< /highlight >}}
 
-Notice how all the previous business logic from the first then block moves into the second then block. The logic is only called after the second asynchronous API call resolves succesfully. In addition, see how the `authUser` object's `uid` and the `username` property from the local state can be used to create the user object.
+Notice how all the previous business logic from the first then block moves into the second then block. The previous logic is only called after the second asynchronous API call resolves succesfully. In addition, see how the `authUser` object's `uid` and the `username` property from the local state can be used to pass the necessary parameters to your firebase database API.
 
-Note: It is fine to store user information in your own database. However, you should make sure not to store the password of the user on your own. Firebase already deals with the authentication and thus there is no need to store the password in your database (without encryption etc.) too . It would be a huge security risk, so don't do it if someone else already handles it for you.
+Note: It is fine to store user information in your own database. However, you should make sure not to store the password or any other sensible data of the user on your own. Firebase already deals with the authentication and thus there is no need to store the password in your database. There are a bunch of steps necessart to secure such sensible data (e.g. encryption). It would be a security risk to do it on your own, so don't do it if someone else already handles it for you.
 
-That's it for the user creation process. Now you are creating a user once a user signs up in your application. By now it is a lot of business logic in your component's lifecycle method and you could consider to extract the logic on your own to a separate place to keep the component lightwight.
+That's it for the user creation process. Now you are creating a user once a user signs up in your application. By now it is a lot of business logic in your component's lifecycle method and you could consider to extract the logic on your own to a separate place to keep the component lightwight. If you are going to add tests for your application after the tutorial, it is simpler to test the logic when it is extracted.
 
-Next, only to verify that the user creation is working, you can retrieve all the users from the database in one of your other components. Since the HomePage component isn't of any use yet, you can do it there to display your users stored in the realtime database of firebase. The `componentDidMount()` lifecycle method is the perfect place to call your user database API.
+Next, only to verify that the user creation is working, you can retrieve all the users from the database in one of your other components. Since the HomePage component isn't of any use yet, you can do in this component to display your users stored in the realtime database of firebase. The `componentDidMount()` lifecycle method is the perfect place to fetch users from your database API.
 
 In *src/components/Home.js* file:
 
@@ -1832,7 +1871,7 @@ const authCondition = (authUser) => !!authUser;
 export default withAuthorization(authCondition)(HomePage);
 {{< /highlight >}}
 
-Afterward, you can display a couple of properties of your list of users.
+Afterward, you can display a couple of properties of your list of users. Since the users are an object and not a list when they are retrieved from the firebase database, you have to use the `Object.keys()` helper function to map over the keys in order to display them.
 
 {{< highlight javascript "hl_lines=7 14 20 21 22 23 24 25 26 27 28" >}}
 ...
@@ -1869,13 +1908,15 @@ const authCondition = (authUser) => !!authUser;
 export default withAuthorization(authCondition)(HomePage);
 {{< /highlight >}}
 
-That's it for the user entity management. You are in full control of your users now. It is possible to retrieve a user entity or a list of user entities. Furhtermore, you can create a user in the realtime database. It is up to you to implement the other {{% a_blank "CRUD operations" "https://en.wikipedia.org/wiki/Create,_read,_update_and_delete" %}} as well in order to update a user, to remove a user and to retrieve a single user entity.
+That's it for the user entity management. You are in full control of your users now. It is possible to retrieve a user entity or a list of user entities. Furhtermore, you can create a user in the realtime database. It is up to you to implement the other {{% a_blank "CRUD operations" "https://en.wikipedia.org/wiki/Create,_read,_update_and_delete" %}} as well in order to update a user, to remove a user and to get a single user entity from the database.
 
-By now, everything is in place in terms of authentication and user management for your application. You could continue to implement your domain logic. However, **the following sections will showcase you how to implement to state handling in MobX or Redux**. You can follow one of these sections to learn about it. But keep two things in mind:
+By now, everything is in place in terms of authentication and user management for your application. You could continue to implement your own domain logic. I am keen to see what you are implementing on top of this authentication boilerplate for firebase in React, so don't hesitate to reach out to me.
+
+However, often people are using React with a state management library such as Redux or MobX. **The following sections will showcase you how to implement the session state handling in MobX or Redux**. You can follow one of these sections to learn about it. They will not build up on each other. Instead both use this section as their boilerplate to continue with their implementation. However, keep two things in mind when you continue with one of these solutions:
 
 * It works in plain React as well. So [if you don't have any good reason to introduce Redux or MobX](https://www.robinwieruch.de/learn-react-before-using-redux/), consider to keep it like it is right now.
 
-* This tutorial used the learnings from [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) as foundation. The same applies for the next chapters and the ebook: {{% a_blank "Taming the State in React" "https://roadtoreact.com/" %}}. It is full of useful information about Redux and MobX and teaches state management in React from scratch by building applications along the way.
+* This tutorial used the learnings from [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) as foundation. The same applies for the next chapters and the ebook: {{% a_blank "Taming the State in React" "https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE" %}}. It is full of useful information about Redux and MobX and teaches state management in React from scratch by building applications along the way.
 
 {{% chapter_header "Authentication in React, Firebase and Redux" "react-firebase-authentication-redux" %}}
 
