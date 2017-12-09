@@ -13,6 +13,8 @@ contribute = "machine-learning-javascript.md"
 headline = "A Web Developer's Guide to Machine Learning in JavaScript"
 
 summary = "The article guides you through implementing Machine Learning in JavaScript. The article can be used as introduction to machine learning in JavaScript and as entry point to a whole blog post series."
+
+type = "promo"
 +++
 
 {{% pin_it_image "learn machine learning" "img/posts/machine-learning-javascript-web-developers/banner.jpg" "is-src-set" %}}

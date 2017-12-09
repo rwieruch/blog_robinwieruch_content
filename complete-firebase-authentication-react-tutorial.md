@@ -1,18 +1,20 @@
 +++
 title = "The Complete Firebase in React Authentication Tutorial"
-description = "The complete tutorial for authentication and authorization in Firebase and React.js ..."
+description = "A comprehensive tutorial for authentication and authorization in Firebase and React.js ..."
 date = "2017-12-06T07:50:46+02:00"
 tags = ["React", "JavaScript"]
-categories = ["React", "JavaScript"]
-keywords = ["react firebase authentication tutorial"]
+categories = ["React", "Redux", "JavaScript"]
+keywords = ["react firebase authentication tutorial", "react authentication", "react session", "react authorization", "react protected routes"]
 news_keywords = ["react firebase authentication tutorial"]
 hashtag = "#ReactJs"
 card = "img/posts/complete-firebase-authentication-react-tutorial/banner_640.jpg"
 banner = "img/posts/complete-firebase-authentication-react-tutorial/banner.jpg"
 contribute = "complete-firebase-authentication-react-tutorial.md"
-headline = "The Complete Firebase in React Authentication Tutorial"
+headline = "The Complete Firebase in React Authentication Tutorial [WIP]"
 
-summary = "TODO"
+summary = "A complete walkthrough to learn about Firebase authentication in React. The guide gives you the perfect boilerplate as outcome for user authentication and authorization in React."
+
+type = "promo"
 +++
 
 {{% pin_it_image "react firebase authentication tutorial" "img/posts/complete-firebase-authentication-react-tutorial/banner.jpg" "is-src-set" %}}
@@ -37,23 +39,23 @@ The requirements for this tutorial are a working [editor or IDE, a running comma
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
-* [React Application Setup: create-react-app](react-application-setup)
-* [React Router and Routes](react-router-setup)
-* [Firebase in React Setup](react-firebase-setup)
+* [React Application Setup: create-react-app](#react-application-setup)
+* [React Router and Routes](#react-router-setup)
+* [Firebase in React Setup](#react-firebase-setup)
 * Firebase Authentication in React
-  * [Firebase's Authentication API](firebase-authentication)
-  * [Sign Up with React and Firebase](react-firebase-sign-up)
-  * [Sign In with React and Firebase](react-firebase-sign-in)
-  * [Sign Out with React and Firebase](react-firebase-sign-out)
-  * [Session Handling in React Components](react-firebase-session-handling)
-  * [Session Handling in React with Higher Order Components](react-firebase-session-handling-higher-order-components)
-  * [Password Reset and Password Change with Firebase](react-firebase-password)
+  * [Firebase's Authentication API](#firebase-authentication)
+  * [Sign Up with React and Firebase](#react-firebase-sign-up)
+  * [Sign In with React and Firebase](#react-firebase-sign-in)
+  * [Sign Out with React and Firebase](#react-firebase-sign-out)
+  * [Session Handling in React Components](#react-firebase-session-handling)
+  * [Session Handling in React with Higher Order Components](#react-firebase-session-handling-higher-order-components)
+  * [Password Reset and Password Change with Firebase](#react-firebase-password)
 * Authorization in React
-  * [Protected Routes in React with Authorization](react-firebase-protected-routes)
+  * [Protected Routes in React with Authorization](#react-firebase-protected-routes)
 * Firebase Database in React
-  * [User Management with Firebase's Database in React](react-firebase-user-database)
-* Bonus: [Authentication in React, Firebase and Redux](react-firebase-authentication-redux)
-* Bonus: [Authentication in React, Firebase and MobX](react-firebase-authentication-mobx)
+  * [User Management with Firebase's Database in React](#react-firebase-user-database)
+* Bonus: [Authentication in React, Firebase and Redux](#react-firebase-authentication-redux)
+* Bonus: [Authentication in React, Firebase and MobX](#react-firebase-authentication-mobx)
 
 {{% chapter_header "React Application Setup: create-react-app" "react-application-setup" %}}
 
@@ -147,7 +149,7 @@ Each route represents a page in your application. For instance, the sign up page
 
 First of all, you will have a **sign up page** and a **sign in page**. You can take any web application out there as blueprint to structure these routes for a authentication mechanism. For instance, take the following scenario: A user visits your web application. The user is conviced by your service and finds the button in the navigation bar to sign in to your application. But the user has no account yet, so a sign up button is preseneted as alternative on the sign in page.
 
-{{% pin_it_image "react firebase sign in" "img/posts/complete-firebase-authentication-react-tutorial/sign.jpg" "" %}}
+{{% pin_it_image "react firebase sign in" "img/posts/complete-firebase-authentication-react-tutorial/sign.jpg" "is-src-set" %}}
 
 Second, there will be a **landing page** and a **home page**. The landing page is your root route. That's the place where a user ends up when visiting your web application by default. The user doesn't need to be authenticated to visit this route. On the other hand, the home page is a so called **protected route**. The user can only access it when being authenticated. You will implement the protection of the route by using authorization in this tutorial.
 
@@ -155,13 +157,13 @@ Third, there will be a protected **account page** as well. On this page, a user 
 
 <div class="row">
   <div class="col-xs-8 col-centered">
-    {{% pin_it_image "react firebase account" "img/posts/complete-firebase-authentication-react-tutorial/account.jpg" "" %}}
+    {{% pin_it_image "react firebase account" "img/posts/complete-firebase-authentication-react-tutorial/account.jpg" "is-src-set" %}}
   </div>
 </div>
 
 Last but not least, the password forget component will be exposed on another non protected page, a **password forget page**, as well. It is used for users who are not authenticated and forgot about their password.
 
-{{% pin_it_image "react firebase password" "img/posts/complete-firebase-authentication-react-tutorial/password-reset.jpg" "" %}}
+{{% pin_it_image "react firebase password" "img/posts/complete-firebase-authentication-react-tutorial/password-reset.jpg" "is-src-set" %}}
 
 Now all of these routes need to be accessible for the user. How to get started with the routing in React? The best way to start is implementing a Navigation component which is used in the App component. The App component is the perfect place to render the Navigation component, because it will always render the Navigation component but replace the other components (pages) based on the mapped route. Basically the App component is the container where all your fixed components are going (navigation bar, side bar, footer) but also your components which are displayed depending on the route in the URL.
 
@@ -315,13 +317,13 @@ It's time to sign up for an account on the {{% a_blank "firebase website" "https
 
 Once your project is created on their website, you should have a dashboard for it. There you can find a menu item which says "Authentication". Select it and click "Sign-In Method" menu item afterward. There you can enable the authentication with Email/Password. This tutorial will cover the basic authentication with email and password, but feel free to add other authentication methods later on. If you do so and open source your project, you can link it in the comments below for other readers of this guide.
 
-{{% pin_it_image "firebase authentication methods" "img/posts/complete-firebase-authentication-react-tutorial/firebase-authentication-methods.jpg" "" %}}
+{{% pin_it_image "firebase authentication methods" "img/posts/complete-firebase-authentication-react-tutorial/firebase-authentication-methods.jpg" "is-src-set" %}}
 
 Next, you need to find your configuration in the project settings on your dashboard. There you have access to all the necessary information: secrets, keys, ids and other properties. You will copy these in a next step to your React application.
 
 <div class="row">
   <div class="col-xs-8 col-centered">
-    {{% pin_it_image "firebase config" "img/posts/complete-firebase-authentication-react-tutorial/firebase-config.jpg" "" %}}
+    {{% pin_it_image "firebase config" "img/posts/complete-firebase-authentication-react-tutorial/firebase-config.jpg" "is-src-set" %}}
   </div>
 </div>
 
@@ -1918,7 +1920,7 @@ However, often people are using React with a state management library such as Re
 
 * This tutorial used the learnings from [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) as foundation. The same applies for the next chapters and the ebook: {{% a_blank "Taming the State in React" "https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE" %}}. It is full of useful information about Redux and MobX and teaches state management in React from scratch by building applications along the way.
 
-{{% chapter_header "Authentication in React, Firebase and Redux" "react-firebase-authentication-redux" %}}
+{{% chapter_header "Authentication in React, Firebase and Redux [WIP]" "react-firebase-authentication-redux" %}}
 
 - you should install {{% a_blank "redux" "https://redux.js.org/" %}} and {{% a_blank "react-redux" "https://github.com/reactjs/react-redux" %}} on the command line
 
@@ -2270,7 +2272,7 @@ export default withAuthorization;
 
 - find project with a slight different folder structure here: https://github.com/rwieruch/react-redux-firebase-authentication
 
-{{% chapter_header "Authentication in React, Firebase and MobX" "react-firebase-authentication-mobx" %}}
+{{% chapter_header "Authentication in React, Firebase and MobX [WIP]" "react-firebase-authentication-mobx" %}}
 
 - Note: none of the Redux changes from the previous section are reflected here, we will start with a clean plate from one section before where we didn't use Redux but only plain React
 
