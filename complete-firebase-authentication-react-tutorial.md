@@ -3,7 +3,7 @@ title = "The Complete Firebase in React Authentication Tutorial"
 description = "A comprehensive tutorial for authentication and authorization in Firebase and React.js ..."
 date = "2017-12-11T07:50:46+02:00"
 tags = ["React", "JavaScript"]
-categories = ["React", "Redux", "JavaScript"]
+categories = ["React", "Redux", "MobX", "JavaScript"]
 keywords = ["react firebase authentication tutorial", "react authentication", "react session", "react authorization", "react protected routes"]
 news_keywords = ["react firebase authentication tutorial"]
 hashtag = "#ReactJs"
@@ -13,11 +13,11 @@ contribute = "complete-firebase-authentication-react-tutorial.md"
 headline = "The Complete Firebase in React Authentication Tutorial"
 
 summary = "A complete walkthrough to learn about Firebase authentication in React. The guide gives you the perfect boilerplate as outcome for user authentication and authorization in React."
-
-type = "promo"
 +++
 
 {{% pin_it_image "react firebase authentication tutorial" "img/posts/complete-firebase-authentication-react-tutorial/banner.jpg" "is-src-set" %}}
+
+**UPDATE:** The article got published as a draft in form of a {{% a_blank "free ebook about learning Firebase in React" "https://leanpub.com/learn-react-firebase" %}}. If there is enough interest in it, I will continue to write about it to make it a comprehensive experience beyond authentication and authorization in firebase, but also real-time updates and database management. For now, you can download the ebook for free as PDF, EPUB or MOBI or take it as chance to support my content by buying it.
 
 The topic about authentication in React keeps popping up from time to time. When people approach me with this question, most often after they have learned React.js or any other SPA solution (Angular.js, Vue.js), I usually tell them to start out with Firebase. It is the simplest way to learn about the essential parts of authentication in React from a frontend perspective. You can learn about it without worrying about any backend implementations. Firebase handles it for you. By only learning about the authentication from one perspective, in the beginning, you keep the level of complexity low and thus keep yourself motivated to learn about it. Once you understand authentication from a client-perspective, you can continue to build your own authentication backend on the server-side.
 
@@ -33,16 +33,16 @@ Please help me out if the tutorial needs any updates in order to keep it reliabl
 
 You may wonder that there is no word about MobX or Redux. Indeed, it could be used to manage the client-side state for the authenticated user. But it isn't necessary to use one of those libraries. React's local state is absolutely sufficient to handle the state for the authenticated user. I just wanted to point it out again, because **a lot of people associate authentication in React immediately with Redux or MobX. Yet the article will showcase it initially without using any of these state management libraries**. However, in the end, the article will show you as bonus how to upgrade your application using Redux or MobX for the session handling.
 
+A lot of thanks goes to {{% a_blank "Andrew" "" %}} and {{% a_blank "Jaypal Singh" "https://github.com/jaypal" %}} for reviwing the tutorial. THis kind of supports helps me a lot to keep the material approachable and in great quality.
+
 {{% chapter_header "Requirements" "requirements" %}}
 
-The requirements for this tutorial are a working [editor or IDE, a running command line](https://www.robinwieruch.de/developer-setup/), and installed recent versions of {{% a_blank "node and npm" "https://nodejs.org/en/" %}}. In addition, you should have learned about React in the first place. [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) is a free ebook which gives you all the fundamentals of React. You will build a larger application along the way in plain React and transition smoothly from JavaScript ES5 to JavaScript ES6 and beyond. This tutorial will not dive into all the details taught in the ebook, so take the chance to grab your copy of it to learn about those first. In addition, please follow the referenced articles in this tutorial to understand many of the underlying implementation details in case things are not explained in depth.
-
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>14.500+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
-
-In addition, you can already read up about two topics. But these articles will be linked in this tutorial again when you will need those concepts.
+The requirements for this tutorial are a working [editor or IDE, a running command line](https://www.robinwieruch.de/developer-setup/), and installed recent versions of {{% a_blank "node and npm" "https://nodejs.org/en/" %}}. In addition, you should have learned about React in the first place. [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) is a free ebook which gives you all the fundamentals of React. You will build a larger application along the way in plain React and transition smoothly from JavaScript ES5 to JavaScript ES6 and beyond. This tutorial will not dive into all the details taught in the ebook, so take the chance to grab your copy of it to learn about those first. In addition, please follow the referenced articles in this tutorial to understand many of the underlying implementation details in case things are not explained in depth. Two of them are important to understand, but they will be linked in the appropriate sections later on.
 
 * [Get to know React's Provider Pattern](https://www.robinwieruch.de/react-provider-pattern-context/)
 * [A gentle introduction to React's Higher Order Components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/)
+
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>14.500+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
@@ -315,7 +315,7 @@ const LandingPage = () =>
 export default LandingPage;
 {{< /highlight >}}
 
-After you have done so for the other pages, you should be able to start the application again. Now, when you click through the links in the Navigation component, the displayed page component should change accordingly to the URL. Note that the routes for the PasswordForget page and SignUp page are not used yet but will be defined somewhere else later on. For now, you have successfully implemented the larger part of the routing for this application.
+After you have done so for the other pages, you should be able to start the application again. Now, when you click through the links in the Navigation component, the displayed page component should change accordingly to the URL. Note that the routes for the PasswordForget page, PasswordChange page and SignUp page are not used yet but will be defined somewhere else later on. For now, you have successfully implemented the larger part of the routing for this application.
 
 {{% chapter_header "Firebase in React Setup" "react-firebase-setup" %}}
 
@@ -334,6 +334,8 @@ Next, you need to find your configuration in the project settings on your dashbo
     {{% pin_it_image "firebase config" "img/posts/complete-firebase-authentication-react-tutorial/firebase-config.jpg" "is-src-set" %}}
   </div>
 </div>
+
+The firebase website doesn't make it easy to find this page. Since it's moved around with every iteration of the website, I cannot give you any clear advice where to find it on your dashboard. But it is somewhere there! Take it as opportunity to get to know your firebase project dashboard while searching for this mysterious configuration :)
 
 That's it for the firebase website setup. Now you can return to your application in your editor to add the firebase configuration. Therefore, create a couple of files in a new dedicated firebase folder.
 
@@ -834,7 +836,7 @@ export {
 };
 {{< /highlight >}}
 
-Let's take the previous code block apart again. In order to redirect a user to another page programmatically, we need access to React Router. The React Router package offers a neat [higher order component](https://www.robinwieruch.de/gentle-introduction-higher-order-components/) to make the router properties accessible in the props of a component. That's why the SignUpPage component is passed to the `withRouter()` higher order component. The relevant property for us from the router props is the `history` object. It can be used to push routes to it for a redirect. That's why the history is passed down to the SignUpForm component.
+Let's take the previous code block apart again. In order to redirect a user to another page programmatically, we need access to React Router. Somehow it needs to be possible to tell React Router that it should redirect the user to another page. Fortunately, the React Router node package offers a neat higher order component](https://www.robinwieruch.de/gentle-introduction-higher-order-components/) to make the router properties accessible in the props of a component. Any component which goes in the `withRouter()` higher order component gets access to all the properties of the router. Thus when passing the SignUpPage component to the `withRouter()` higher order component, it has in its own function signature access to the props of the React Router. The relevant property for us from the router props is the `history` object. That's the part which enables us to redirect a user to another page. It can be used to push routes to it for these redirects. That's why the history is passed down to the SignUpForm component.
 
 Just in case: There is no particular reason why I wrapped the SignUpPage and not the SignUpForm with the higher order component.
 
@@ -1121,9 +1123,9 @@ The recent sections were quite a lot of content. I didn't go into all the detail
 
 In this section, we will abstract the session handling away with higher order components and the React's provider pattern. It has two advantages:
 
-* The higher order component fulfils only one purpose and shields away from the business logic from the App component. The App component stays lightweight. There is no business logic mixed up in the component.
+* The higher order component fulfils only one purpose. It shields away the business logic from the App component. Thus the App component stays lightweight. There is no business logic mixed up in the component anymore. Higher order components are a great concept in React to extract logic from components, but use them later on to enhance components with it. Therefore they are a great way to accomplish reusability, composability and often maintainability in React.
 
-* The [provider pattern](https://www.robinwieruch.de/react-provider-pattern-context/) helps us out with React's context. Rather than passing the authenticated user object explicitly down to all components who are interested in it through the App component via props, you can pass it implicitly down through React's context. Not every component needs to know about the authenticated user object.
+* The [provider pattern in React](https://www.robinwieruch.de/react-provider-pattern-context/) is a React concept which helps us to pass around properties in our application by using React's context. Rather than passing props explicitly down to all components who are interested in them, you can pass these props implicitly down to these components without bothering the components in between of the hierarchy. Thus, in our case, the App component doesn't need to bother about the authenticated user object anymore, because it only passes it down to various other components.
 
 First, you can revert the recent changes in the App component. It can become a functional stateless component again. It doesn't need to know about the authenticated user object anymore.
 
