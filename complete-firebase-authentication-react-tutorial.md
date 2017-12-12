@@ -17,7 +17,7 @@ summary = "A complete walkthrough to learn about Firebase authentication in Reac
 
 {{% pin_it_image "react firebase authentication tutorial" "img/posts/complete-firebase-authentication-react-tutorial/banner.jpg" "is-src-set" %}}
 
-**UPDATE:** The article got published as a draft in form of a {{% a_blank "free ebook about learning Firebase in React" "https://leanpub.com/learn-react-firebase" %}}. If there is enough interest in it, I will continue to write about it to make it a comprehensive experience beyond authentication and authorization in Firebase, but also realtime updates and database management. For now, you can download the ebook for free as PDF, EPUB or MOBI or take it as chance to support my content by buying it.
+**UPDATE:** The article got published as a draft in form of a {{% a_blank "free ebook about learning Firebase in React" "https://leanpub.com/learn-react-firebase" %}}. It has grown to a size where an ebook might be a better format. If there is enough interest in it, I will continue to write about it to make it a comprehensive experience beyond authentication and authorization in Firebase, but also realtime updates and database management. For now, you can download the ebook for free as PDF, EPUB or MOBI or take it as chance to support my content by buying it.
 
 The topic about authentication in React keeps popping up from time to time. When people approach me with this question, most often after they have learned React.js or any other SPA solution (Angular.js, Vue.js), I usually tell them to start out with Firebase. It is the simplest way to learn about the essential parts of authentication in React from a frontend perspective. You can learn about it without worrying about any backend implementations. Firebase handles it for you. By only learning about the authentication from one perspective, in the beginning, you keep the level of complexity low and thus keep yourself motivated to learn about it. Once you understand authentication from a client-perspective, you can continue to build your own authentication backend on the server-side.
 
@@ -33,7 +33,7 @@ Please help me out if the tutorial needs any updates in order to keep it reliabl
 
 You may wonder that there is no word about MobX or Redux. Indeed, it could be used to manage the client-side state for the authenticated user. But it isn't necessary to use one of those libraries. React's local state is absolutely sufficient to handle the state for the authenticated user. I just wanted to point it out again, because **a lot of people associate authentication in React immediately with Redux or MobX. Yet the article will showcase it initially without using any of these state management libraries**. However, in the end, the article will show you as bonus how to upgrade your application using Redux or MobX for the session handling.
 
-A lot of thanks goes to {{% a_blank "Andrew" "" %}} and {{% a_blank "Jaypal Singh" "https://github.com/jaypal" %}} for reviwing the tutorial. THis kind of supports helps me a lot to keep the material approachable and in great quality.
+A lot of thanks goes to {{% a_blank "Andrew" "https://github.com/andrew-secret" %}} and {{% a_blank "Jaypal" "https://github.com/jaypal" %}} for reviewing the tutorial. This kind of support helps me a lot to keep the material approachable and in great quality.
 
 {{% chapter_header "Requirements" "requirements" %}}
 
@@ -624,7 +624,7 @@ class SignUpForm extends Component {
 
 Second, let's implement all the input fields to capture those information in the render method of the component. The input fields need to update the local state of the component by using their onChange handler.
 
-{{< highlight javascript "hl_lines=3 4 5 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54" >}}
+{{< highlight javascript "hl_lines=3 4 5 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50" >}}
 ...
 
 const byPropKey = (propertyName, value) => () => ({
