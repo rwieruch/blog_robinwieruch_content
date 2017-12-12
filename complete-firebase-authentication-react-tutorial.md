@@ -1,7 +1,7 @@
 +++
 title = "The Complete Firebase in React Authentication Tutorial"
 description = "A comprehensive tutorial for authentication and authorization in Firebase and React.js ..."
-date = "2017-12-06T07:50:46+02:00"
+date = "2017-12-11T07:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "Redux", "JavaScript"]
 keywords = ["react firebase authentication tutorial", "react authentication", "react session", "react authorization", "react protected routes"]
@@ -33,9 +33,16 @@ Please help me out if the tutorial needs any updates in order to keep it reliabl
 
 You may wonder that there is no word about MobX or Redux. Indeed, it could be used to manage the client-side state for the authenticated user. But it isn't necessary to use one of those libraries. React's local state is absolutely sufficient to handle the state for the authenticated user. I just wanted to point it out again, because **a lot of people associate authentication in React immediately with Redux or MobX. Yet the article will showcase it initially without using any of these state management libraries**. However, in the end, the article will show you as bonus how to upgrade your application using Redux or MobX for the session handling.
 
+{{% chapter_header "Requirements" "requirements" %}}
+
 The requirements for this tutorial are a working [editor or IDE, a running command line](https://www.robinwieruch.de/developer-setup/), and installed recent versions of {{% a_blank "node and npm" "https://nodejs.org/en/" %}}. In addition, you should have learned about React in the first place. [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) is a free ebook which gives you all the fundamentals of React. You will build a larger application along the way in plain React and transition smoothly from JavaScript ES5 to JavaScript ES6 and beyond. This tutorial will not dive into all the details taught in the ebook, so take the chance to grab your copy of it to learn about those first. In addition, please follow the referenced articles in this tutorial to understand many of the underlying implementation details in case things are not explained in depth.
 
 {{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>14.500+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
+
+In addition, you can already read up about two topics. But these articles will be linked in this tutorial again when you will need those concepts.
+
+* [Get to know React's Provider Pattern](https://www.robinwieruch.de/react-provider-pattern-context/)
+* [A gentle introduction to React's Higher Order Components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/)
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
@@ -285,7 +292,7 @@ const App = () =>
 export default App;
 {{< /highlight >}}
 
-So if a route matches a path, the respective component will be displayed. Thus all the page components in the App component are exchangable by changing the route, but the Navigation component stays fixed indepenedently of any route change. Next, you have to create all these page components. You can do it again on the command line.
+So if a route matches a path, the respective component will be displayed. Thus all the page components in the App component are exchangeable by changing the route, but the Navigation component stays fixed independently of any route change. Next, you have to create all these page components. You can do it again on the command line.
 
 From *src/components/* folder:
 
@@ -346,7 +353,7 @@ So what's the matter with all those files? Here comes an overview from top to bo
 
 * **auth.js:** The file where the firebase authentication API will be defined to sign up, sign in, sign out etc. a user in your application. It is the interface between the official firebase API and your React application.
 
-Let's start with the configuration. First, copy the configuration from your firebase dashboard on their website to your application in a configuration object. Make sure to replace the capslock part with your own copied configuration.
+Let's start with the configuration. First, copy the configuration from your firebase dashboard on their website to your application in a configuration object. Make sure to replace the caps lock part with your own copied configuration.
 
 In *src/firebase/firebase.js* file:
 
@@ -380,7 +387,7 @@ if (!firebase.apps.length) {
 }
 {{< /highlight >}}
 
-Third, initialize the auth object. That's the part of the firebase API which will be used in the *src/firebase/auth.js* file and thus needs to be exported. In a later part of this tutorial, you will initialze the database object the same way too. But for now, the auth object will be sufficient.
+Third, initialize the auth object. That's the part of the firebase API which will be used in the *src/firebase/auth.js* file and thus needs to be exported. In a later part of this tutorial, you will initialize the database object the same way too. But for now, the auth object will be sufficient.
 
 {{< highlight javascript "hl_lines=16 18 19 20" >}}
 import * as firebase from 'firebase';
@@ -449,7 +456,7 @@ Great! You have initialized firebase in your application. In the next part, you 
 
 In the previous section, you have created a firebase project on the official firebase website and enabled the authentication with email and password. Now you will implement the authentication API. You can read up all functionalities that are exposed by the API in the official firebase documentation.
 
-Initially, import the previously instantiated auth object form the firebase configuration file.
+Initially, import the previously instantiated auth object from the firebase configuration file.
 
 In *src/firebase/auth.js* file:
 
@@ -680,7 +687,7 @@ Let's take a look at the abstracted function which is used in the `setState()` m
 
 In the last part of the form, there is an optional error message that is used from an error object. These error objects from firebase have this message property by nature, so you can rely on it to display a proper text for your application user. However, the message is only shown when there is an error by using a [conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/).
 
-One piece in the form is missing: validation. Let's use a `isValid` boolean to enable or disable the submit button. When you think about a validation condition for the form, what would it be? It is shown in the next code snippet.
+One piece in the form is missing: validation. Let's use a `isInvalid` boolean to enable or disable the submit button. When you think about a validation condition for the form, what would it be? It is shown in the next code snippet.
 
 {{< highlight javascript "hl_lines=16 17 18 19 20 26" >}}
 ...
@@ -988,7 +995,7 @@ const Navigation = () =>
 export default Navigation;
 {{< /highlight >}}
 
-From a component perspective of the application, everything is in place to fulfill a full authentication roundtrip now. A user is able to sign up, sign in and sign out. However, when you open the application, something feels odd. For instance, the "Sign Out" button should only show up when a user is signed in. If the button is pressed, it should disappear. The simplest solution for this problem is to use a conditional rendering in the Navigation component. Based on an authenticated user object, the navigation changes its options. It has either all the options for an authenticated user or all the options for non authenticated users.
+From a component perspective of the application, everything is in place to fulfil a full authentication roundtrip now. A user is able to sign up, sign in and sign out. However, when you open the application, something feels odd. For instance, the "Sign Out" button should only show up when a user is signed in. If the button is pressed, it should disappear. The simplest solution for this problem is to use a conditional rendering in the Navigation component. Based on an authenticated user object, the navigation changes its options. It has either all the options for an authenticated user or all the options for non authenticated users.
 
 {{< highlight javascript "hl_lines=7 9 10 11 12 15 16 17 18 19 20 21 23 24 25 26 27" >}}
 import React from 'react';
@@ -1026,7 +1033,7 @@ That way, the user only gets presented the options according to the state of the
 
 {{% chapter_header "Session Handling in React Components" "react-firebase-session-handling" %}}
 
-The following section is the most crucial part to the authentication process. You have all components in place to fulfill the authentication roundtrip in React components, but no one knows about any session state yet. The question is: "Is there a currently signed in user?" There is no logic yet about an authenticated user. The information needs to be stored somewhere to make it accessible to other components (e.g. Navigation component).
+The following section is the most crucial part to the authentication process. You have all components in place to fulfil the authentication roundtrip in React components, but no one knows about any session state yet. The question is: "Is there a currently signed in user?" There is no logic yet about an authenticated user. The information needs to be stored somewhere to make it accessible to other components (e.g. Navigation component).
 
 Often that's the point where people start to use a state management library such as [Redux or MobX](https://www.robinwieruch.de/redux-mobx-confusion/). But since our whole application is grouped under the umbrella App component, it's sufficient to manage the session state in the App component by using React's local state. It only needs to keep track of an authenticated user. If a user is authenticated, store it in the local state and pass the authenticated user object down to all components that are interested in it. Otherwise, pass it down as `null`. That way, all components interested in it can use a conditional rendering to adjust their behavior based on the session state. For instance, the Navigation component from the previous section is interested in it, because it has to show different options to authenticated and non authenticated users.
 
@@ -1070,7 +1077,7 @@ class App extends Component {
 export default App;
 {{< /highlight >}}
 
-In the last section, you already made the Navigation component aware of the authenticated user to display different options depending on it. The crucial part comes now. Firebase offers a neat helper function which can be initialized in the `componentDidMount()` lifecycle method of the App component. It can be used as a listener for the authenticated user which is our implict session state.
+In the last section, you already made the Navigation component aware of the authenticated user to display different options depending on it. The crucial part comes now. Firebase offers a neat helper function which can be initialized in the `componentDidMount()` lifecycle method of the App component. It can be used as a listener for the authenticated user which is our implicit session state.
 
 {{< highlight javascript "hl_lines=4 15 16 17 18 19 20 21" >}}
 ...
@@ -1114,7 +1121,7 @@ The recent sections were quite a lot of content. I didn't go into all the detail
 
 In this section, we will abstract the session handling away with higher order components and the React's provider pattern. It has two advantages:
 
-* The higher order component fulfills only one purpose and shields away from the business logic from the App component. The App component stays lightweight. There is no business logic mixed up in the component.
+* The higher order component fulfils only one purpose and shields away from the business logic from the App component. The App component stays lightweight. There is no business logic mixed up in the component.
 
 * The [provider pattern](https://www.robinwieruch.de/react-provider-pattern-context/) helps us out with React's context. Rather than passing the authenticated user object explicitly down to all components who are interested in it through the App component via props, you can pass it implicitly down through React's context. Not every component needs to know about the authenticated user object.
 
@@ -1323,7 +1330,7 @@ export default Navigation;
 
 Notice that you don't need to pass the authenticated user down from the App component anymore. It is passed through it implicitly by using React's context.
 
-Now, start your application again and verify that it still works the same as before. You didn't change any behavior of your application in this section, but only shielded away the more complex logic into a higher order component and added the convenience of passing the authenticated user implictly via React's context rather than explicitly through the whole component tree by using props. These are two advanced patterns in React and you have used both in this last section!
+Now, start your application again and verify that it still works the same as before. You didn't change any behavior of your application in this section, but only shielded away the more complex logic into a higher order component and added the convenience of passing the authenticated user implicitly via React's context rather than explicitly through the whole component tree by using props. These are two advanced patterns in React and you have used both in this last section!
 
 {{% chapter_header "Password Reset and Password Change with Firebase" "react-firebase-password" %}}
 
@@ -1624,7 +1631,7 @@ const withAuthorization = (authCondition) => (Component) => {
 export default withAuthorization;
 {{< /highlight >}}
 
-Let's break it down. First, have a look at the render method. It renders either the passed component (e.g. HomePage, AccountPage) or nothing. That's just a fallback in case there is no authenticated user in React's context object. It increases the protection of the component by rendering simply nothing. However, the real logic happens in the `componentDidMount()` lifecycle method. Same as the `withAuthentication()` higher order component, it uses the firebase listener to trigger a callback function in case the authenticated user object changes. Every time the `authUser` changes, it checks the passed `authCondition()` function with the `authUser`. If the authorization fails, the higher order component redirects to the sign in page. If it doesn't fail, the higher order component does nothing. In order to be able to redirect, the higher order component has access to the history object of the Router by using the in-house `withRouter()` higher order component form the React Router library.
+Let's break it down. First, have a look at the render method. It renders either the passed component (e.g. HomePage, AccountPage) or nothing. That's just a fallback in case there is no authenticated user in React's context object. It increases the protection of the component by rendering simply nothing. However, the real logic happens in the `componentDidMount()` lifecycle method. Same as the `withAuthentication()` higher order component, it uses the firebase listener to trigger a callback function in case the authenticated user object changes. Every time the `authUser` changes, it checks the passed `authCondition()` function with the `authUser`. If the authorization fails, the higher order component redirects to the sign in page. If it doesn't fail, the higher order component does nothing. In order to be able to redirect, the higher order component has access to the history object of the Router by using the in-house `withRouter()` higher order component from the React Router library.
 
 In the next step, you can use the higher order component to protect your routes (e.g. /home and /account) with authorization rules. For the sake of keeping it simple, the following two components are only protected with a general authorization rule that checks if the `authUser` object is not null.
 
@@ -1676,9 +1683,9 @@ const authCondition = (authUser) => !!authUser;
 export default withAuthorization(authCondition)(AccountPage);
 {{< /highlight >}}
 
-That's it, your routes are protected now. You can try it yourself by signing out from your application and trying to access */account* or */home*. It shoudl redirect you.
+That's it, your routes are protected now. You can try it yourself by signing out from your application and trying to access */account* or */home*. It should redirect you.
 
-I guess you can imagine how this technique gives you full control over your authorizations in your application. Not only by using general authorization rules, but by being more specific with role and permission based authroizations. For instance, an admin page, which is only available for users with the admin role, could be protected as follows.
+I guess you can imagine how this technique gives you full control over your authorizations in your application. Not only by using general authorization rules, but by being more specific with role and permission based authorizations. For instance, an admin page, which is only available for users with the admin role, could be protected as follows.
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -1774,7 +1781,7 @@ export {
 };
 {{< /highlight >}}
 
-Finnaly, you can use those functionalities in your React components to create and retrieve users. Let's start with the user creation. The best place to do it would be the SignUpForm component. It is the most natural place to create a user in the database after the sign up through the firebase authentication API. You can simply add another API request to create a user when the user signed up successfully.
+Finally, you can use those functionalities in your React components to create and retrieve users. Let's start with the user creation. The best place to do it would be the SignUpForm component. It is the most natural place to create a user in the database after the sign up through the firebase authentication API. You can simply add another API request to create a user when the user signed up successfully.
 
 In *src/components/SignUp.js* file:
 
@@ -1947,7 +1954,7 @@ Furthermore, you will have to install {{% a_blank "recompose" "https://github.co
 npm install recompose
 {{< /highlight >}}
 
-Now let's setup the Redux state layer. First of all, you need the Redux store implementation. THerefore, create a folder and file for it.
+Now let's setup the Redux state layer. First of all, you need the Redux store implementation. Therefore, create a folder and file for it.
 
 From *src/* folder:
 
@@ -2170,7 +2177,7 @@ const withAuthentication = (Component) => {
 export default withAuthentication;
 {{< /highlight >}}
 
-Now you have the authenticated user available in the Redux store. As consequence all components which rely on the authenticated user in React's context need to be refactored now. It's similiar to the Home component which uses the list of users from the Redux store instead of React's local state.
+Now you have the authenticated user available in the Redux store. As consequence all components which rely on the authenticated user in React's context need to be refactored now. It's similar to the Home component which uses the list of users from the Redux store instead of React's local state.
 
 In the Navigation component, the authenticated user is used to display different routing options. Thus you will need to refactor the component to connect it to the Redux store.
 
@@ -2304,7 +2311,7 @@ You should have installed {{% a_blank "mobx" "https://mobx.js.org/" %}} and {{% 
 npm install recompose
 {{< /highlight >}}
 
-Now let’s setup the MobX state layer. First of all, you need to implement the MobX stores. THerefore, create a folder and files for it.
+Now let’s setup the MobX state layer. First of all, you need to implement the MobX stores. Therefore, create a folder and files for it.
 
 From *src/* folder:
 
@@ -2455,7 +2462,7 @@ export default compose(
 
 Now the users are managed with MobX rather than in React’s local state. You have connected the state from MobX with the view layer.
 
-What about the session state layer which should be handled by the session store? Essentially you will refactor it the same way as the user state layer before. You will replace the provider pattern, where the authenticated user is stored in React’s context, with the state layer from MobX, where the authenticated user will be stored in the session store. Thus, instead of passing the authenticated user object down via React’s context, you pass it down via the MobX's session store by providing the store in a parent component (via the Provider component, which you already did) and conencting it to the components that care about the authenticated user (e.g. Navigation, Account).
+What about the session state layer which should be handled by the session store? Essentially you will refactor it the same way as the user state layer before. You will replace the provider pattern, where the authenticated user is stored in React’s context, with the state layer from MobX, where the authenticated user will be stored in the session store. Thus, instead of passing the authenticated user object down via React’s context, you pass it down via the MobX's session store by providing the store in a parent component (via the Provider component, which you already did) and connecting it to the components that care about the authenticated user (e.g. Navigation, Account).
 
 The most important component to store the authenticated user object in the MobX session store rather than in React’s context is the `withAuthentication()` higher order component. We can refactor it to use the MobX session store instead of React’s context by connecting it to the state layer.
 
@@ -2492,7 +2499,7 @@ const withAuthentication = (Component) => {
 export default withAuthentication;
 {{< /highlight >}}
 
-Now you have the authenticated user available in the MobX session store. As consequence all components which rely on the authenticated user in React’s context need to be refactored now. It’s similiar to the Home component which uses the list of users from the MobX user store instead of React’s local state.
+Now you have the authenticated user available in the MobX session store. As consequence all components which rely on the authenticated user in React’s context need to be refactored now. It’s similar to the Home component which uses the list of users from the MobX user store instead of React’s local state.
 
 In the Navigation component, the authenticated user is used to display different routing options. Thus you will need to refactor the component to inject the MobX session store instead.
 
