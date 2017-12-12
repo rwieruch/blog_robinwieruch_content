@@ -17,7 +17,7 @@ summary = "A complete walkthrough to learn about Firebase authentication in Reac
 
 {{% pin_it_image "react firebase authentication tutorial" "img/posts/complete-firebase-authentication-react-tutorial/banner.jpg" "is-src-set" %}}
 
-**UPDATE:** The article got published as a draft in form of a {{% a_blank "free ebook about learning Firebase in React" "https://leanpub.com/learn-react-firebase" %}}. If there is enough interest in it, I will continue to write about it to make it a comprehensive experience beyond authentication and authorization in firebase, but also real-time updates and database management. For now, you can download the ebook for free as PDF, EPUB or MOBI or take it as chance to support my content by buying it.
+**UPDATE:** The article got published as a draft in form of a {{% a_blank "free ebook about learning Firebase in React" "https://leanpub.com/learn-react-firebase" %}}. If there is enough interest in it, I will continue to write about it to make it a comprehensive experience beyond authentication and authorization in Firebase, but also realtime updates and database management. For now, you can download the ebook for free as PDF, EPUB or MOBI or take it as chance to support my content by buying it.
 
 The topic about authentication in React keeps popping up from time to time. When people approach me with this question, most often after they have learned React.js or any other SPA solution (Angular.js, Vue.js), I usually tell them to start out with Firebase. It is the simplest way to learn about the essential parts of authentication in React from a frontend perspective. You can learn about it without worrying about any backend implementations. Firebase handles it for you. By only learning about the authentication from one perspective, in the beginning, you keep the level of complexity low and thus keep yourself motivated to learn about it. Once you understand authentication from a client-perspective, you can continue to build your own authentication backend on the server-side.
 
@@ -319,7 +319,7 @@ After you have done so for the other pages, you should be able to start the appl
 
 {{% chapter_header "Firebase in React Setup" "react-firebase-setup" %}}
 
-It's time to sign up for an account on the {{% a_blank "firebase website" "https://firebase.google.com/" %}}. After you have created an account, you should be able to create a new project that will be used for your application on their platform. You can give your project any name. Furthermore, you can run it on the free plan.
+It's time to sign up for an account on the {{% a_blank "Firebase website" "https://firebase.google.com/" %}}. After you have created an account, you should be able to create a new project that will be used for your application on their platform. You can give your project any name. Furthermore, you can run it on the free plan.
 
 {{% read_more "Tips to learn React + Redux" "https://www.robinwieruch.de/tips-to-learn-react-redux/" %}}
 
@@ -335,9 +335,9 @@ Next, you need to find your configuration in the project settings on your dashbo
   </div>
 </div>
 
-The firebase website doesn't make it easy to find this page. Since it's moved around with every iteration of the website, I cannot give you any clear advice where to find it on your dashboard. But it is somewhere there! Take it as opportunity to get to know your firebase project dashboard while searching for this mysterious configuration :)
+The Firebase website doesn't make it easy to find this page. Since it's moved around with every iteration of the website, I cannot give you any clear advice where to find it on your dashboard. But it is somewhere there! Take it as opportunity to get to know your Firebase project dashboard while searching for this mysterious configuration :)
 
-That's it for the firebase website setup. Now you can return to your application in your editor to add the firebase configuration. Therefore, create a couple of files in a new dedicated firebase folder.
+That's it for the Firebase website setup. Now you can return to your application in your editor to add the Firebase configuration. Therefore, create a couple of files in a new dedicated Firebase folder.
 
 From *src/* folder:
 
@@ -349,13 +349,13 @@ touch index.js firebase.js auth.js
 
 So what's the matter with all those files? Here comes an overview from top to bottom:
 
-* **index.js:** It's a simple entry point file to the firebase module (*src/firebase/* folder) by grouping and exposing all the functionalities from the module to other modules in one file. Thus it shouldn't be necessary for other modules in your application to access any other file than this one to use its functionalities.
+* **index.js:** It's a simple entry point file to the Firebase module (*src/firebase/* folder) by grouping and exposing all the functionalities from the module to other modules in one file. Thus it shouldn't be necessary for other modules in your application to access any other file than this one to use its functionalities.
 
-* **firebase.js:** The file where all the configuration goes that you have seen previously on your firebase dashboard. In addition, firebase itself will be instantiated in this file.
+* **firebase.js:** The file where all the configuration goes that you have seen previously on your Firebase dashboard. In addition, Firebase itself will be instantiated in this file.
 
-* **auth.js:** The file where the firebase authentication API will be defined to sign up, sign in, sign out etc. a user in your application. It is the interface between the official firebase API and your React application.
+* **auth.js:** The file where the Firebase authentication API will be defined to sign up, sign in, sign out etc. a user in your application. It is the interface between the official Firebase API and your React application.
 
-Let's start with the configuration. First, copy the configuration from your firebase dashboard on their website to your application in a configuration object. Make sure to replace the caps lock part with your own copied configuration.
+Let's start with the configuration. First, copy the configuration from your Firebase dashboard on their website to your application in a configuration object. Make sure to replace the caps lock part with your own copied configuration.
 
 In *src/firebase/firebase.js* file:
 
@@ -389,7 +389,7 @@ if (!firebase.apps.length) {
 }
 {{< /highlight >}}
 
-Third, initialize the auth object. That's the part of the firebase API which will be used in the *src/firebase/auth.js* file and thus needs to be exported. In a later part of this tutorial, you will initialize the database object the same way too. But for now, the auth object will be sufficient.
+Third, initialize the auth object. That's the part of the Firebase API which will be used in the *src/firebase/auth.js* file and thus needs to be exported. In a later part of this tutorial, you will initialize the database object the same way too. But for now, the auth object will be sufficient.
 
 {{< highlight javascript "hl_lines=16 18 19 20" >}}
 import * as firebase from 'firebase';
@@ -414,7 +414,7 @@ export {
 };
 {{< /highlight >}}
 
-That's it for the configurational part. There is one last optional step. On the firebase website, you could create a second project. Afterward, your first project could be used as your development database and your second project as your production database. That way, you never mix up your data from development mode with your data from your deployed application (production mode). The step is obligatory.
+That's it for the configurational part. There is one last optional step. On the Firebase website, you could create a second project. Afterward, your first project could be used as your development database and your second project as your production database. That way, you never mix up your data from development mode with your data from your deployed application (production mode). The step is obligatory.
 
 {{< highlight javascript "hl_lines=3 4 5 6 7 8 9 10 12 21 22 23" >}}
 import * as firebase from 'firebase';
@@ -452,13 +452,13 @@ export {
 };
 {{< /highlight >}}
 
-Great! You have initialized firebase in your application. In the next part, you will define the interface for the firebase API which will be consumed by your React components.
+Great! You have initialized Firebase in your application. In the next part, you will define the interface for the Firebase API which will be consumed by your React components.
 
 {{% chapter_header "Firebase's Authentication API" "firebase-authentication" %}}
 
-In the previous section, you have created a firebase project on the official firebase website and enabled the authentication with email and password. Now you will implement the authentication API. You can read up all functionalities that are exposed by the API in the official firebase documentation.
+In the previous section, you have created a Firebase project on the official Firebase website and enabled the authentication with email and password. Now you will implement the authentication API. You can read up all functionalities that are exposed by the API in the official Firebase documentation.
 
-Initially, import the previously instantiated auth object from the firebase configuration file.
+Initially, import the previously instantiated auth object from the Firebase configuration file.
 
 In *src/firebase/auth.js* file:
 
@@ -466,7 +466,7 @@ In *src/firebase/auth.js* file:
 import { auth } from './firebase';
 {{< /highlight >}}
 
-Now, let's define all the authentication functions step by step. First, the sign up function. It takes email and password parameters in its function signature and uses an official firebase endpoint from the firebase object to create a user.
+Now, let's define all the authentication functions step by step. First, the sign up function. It takes email and password parameters in its function signature and uses an official Firebase endpoint from the firebase object to create a user.
 
 {{< highlight javascript "hl_lines=3 4 5" >}}
 import { auth } from './firebase';
@@ -476,7 +476,7 @@ export const doCreateUserWithEmailAndPassword = (email, password) =>
   auth.createUserWithEmailAndPassword(email, password);
 {{< /highlight >}}
 
-Second, the sign in function which takes a email and password as well. It uses again a firebase endpoint to sign in a user.
+Second, the sign in function which takes a email and password as well. It uses again a Firebase endpoint to sign in a user.
 
 {{< highlight javascript "hl_lines=7 8 9" >}}
 import { auth } from './firebase';
@@ -490,7 +490,7 @@ export const doSignInWithEmailAndPassword = (email, password) =>
   auth.signInWithEmailAndPassword(email, password);
 {{< /highlight >}}
 
-At this point note that these endpoints are called asynchronously. They need to be resolved later on. In addition, there needs to be error handling for it. For instance, it is not possible to sign in a user which is not signed up yet. The firebase API would return an error. You will implement all of this in a later part of this tutorial.
+At this point note that these endpoints are called asynchronously. They need to be resolved later on. In addition, there needs to be error handling for it. For instance, it is not possible to sign in a user which is not signed up yet. The Firebase API would return an error. You will implement all of this in a later part of this tutorial.
 
 Third, the sign out function. You don't need to pass any argument to it, because the auth object itself knows about the currently authenticated user (if a user is authenticated in the first place).
 
@@ -526,7 +526,7 @@ export const doPasswordUpdate = (password) =>
   auth.currentUser.updatePassword(password);
 {{< /highlight >}}
 
-That's it for the whole authentication interface for your React components to be connected to the firebase API. It covers all the use cases for the purpose of this tutorial. Finally, you should expose the implemented authentication methods and the firebase functionalities itself form your firebase module.
+That's it for the whole authentication interface for your React components to be connected to the Firebase API. It covers all the use cases for the purpose of this tutorial. Finally, you should expose the implemented authentication methods and the Firebase functionalities itself form your Firebase module.
 
 In *src/firebase/index.js* file:
 
@@ -540,11 +540,11 @@ export {
 };
 {{< /highlight >}}
 
-That way, consumers (React components in our case) should be only allowed to access the *index.js* file as interface to the whole firebase module (*src/firebase/*) and should not access the auth or firebase files directly.
+That way, consumers (React components in our case) should be only allowed to access the *index.js* file as interface to the whole Firebase module (*src/firebase/*) and should not access the auth or firebase files directly.
 
 {{% chapter_header "Sign Up with React and Firebase" "react-firebase-sign-up" %}}
 
-In the previous sections, you have set up all the routes for your application, configured firebase and implemented the authentication API. Now it is about time to use the authentication functionalities in your React components. Let's build the components from scratch. I try to put most of the code in one block at this point, because the components are not too small and splitting it up step by step could be too verbose. Nevertheless, I will guide you through each code block afterward. At some point, the code blocks for forms can become repetitive. Thus they will be explained once well enough in the beginning, but later in a similar version reused.
+In the previous sections, you have set up all the routes for your application, configured Firebase and implemented the authentication API. Now it is about time to use the authentication functionalities in your React components. Let's build the components from scratch. I try to put most of the code in one block at this point, because the components are not too small and splitting it up step by step could be too verbose. Nevertheless, I will guide you through each code block afterward. At some point, the code blocks for forms can become repetitive. Thus they will be explained once well enough in the beginning, but later in a similar version reused.
 
 Let's start with the sign up page. It consists of the page, a form, and a link. Whereas the form is used to sign up a new user to your application, the link will be used later on the sign in page when a user has no account yet. It is only a redirect to the sign up page, but not used on the sign up page itself. Still, it shares the same domain and therefore shares the same file as the sign up page and sign up form.
 
@@ -595,7 +595,7 @@ export {
 
 In the next step, let's focus on the SignUpForm component. It is the only React ES6 class component in the file, because it has to manage the form state in React's local state. There are two pieces missing in the current SignUpForm component: the form content in terms of input fields to capture the information (email address, password, etc.) and the implementation of the onSubmit class method when a user signs up eventually.
 
-First, let's initialize the state of the component. It will capture the user information such as username, email, and password. There will be two password fields for a password confirmation step. In addition, there is an error state to capture an error object in case of the sign up request to the firebase API fails. The state is initialized by an object destructuring.
+First, let's initialize the state of the component. It will capture the user information such as username, email, and password. There will be two password fields for a password confirmation step. In addition, there is an error state to capture an error object in case of the sign up request to the Firebase API fails. The state is initialized by an object destructuring.
 
 {{< highlight javascript "hl_lines=3 4 5 6 7 8 9 15" >}}
 ...
@@ -687,7 +687,7 @@ Let's take the last implemented code block apart. All the input fields implement
 
 Let's take a look at the abstracted function which is used in the `setState()` method. It is a higher order function which takes a key value and the actual value that is typed into the input field. In the `byPropKey()` function, the key value is used as {{% a_blank "dynamic key" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer" %}} to allocate the actual value in the local state object. That's it for the whole update mechanism to handle all the input fields in the form.
 
-In the last part of the form, there is an optional error message that is used from an error object. These error objects from firebase have this message property by nature, so you can rely on it to display a proper text for your application user. However, the message is only shown when there is an error by using a [conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/).
+In the last part of the form, there is an optional error message that is used from an error object. These error objects from Firebase have this message property by nature, so you can rely on it to display a proper text for your application user. However, the message is only shown when there is an error by using a [conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/).
 
 One piece in the form is missing: validation. Let's use a `isInvalid` boolean to enable or disable the submit button. When you think about a validation condition for the form, what would it be? It is shown in the next code snippet.
 
@@ -730,7 +730,7 @@ class SignUpForm extends Component {
 ...
 {{< /highlight >}}
 
-Of course, the user is only allowed to sign up if both passwords are the same (part of the password confirmation in a common sign up process) and if the username, email and at least one password are filled with a string. You should be able to visit the */signup* route in your browser after starting your application to confirm that the form with all its input fields shows up. Furthermore, you should be able to type into it (confirmation that the local state updates are working) and you should be able to enable the submit button by providing all input fields a string (confirmation that the validation works). What's missing in the component is the `onSubmit()` class method which will pass all the form data to the firebase authentication API via your previously set authentication interface in the firebase folder.
+Of course, the user is only allowed to sign up if both passwords are the same (part of the password confirmation in a common sign up process) and if the username, email and at least one password are filled with a string. You should be able to visit the */signup* route in your browser after starting your application to confirm that the form with all its input fields shows up. Furthermore, you should be able to type into it (confirmation that the local state updates are working) and you should be able to enable the submit button by providing all input fields a string (confirmation that the validation works). What's missing in the component is the `onSubmit()` class method which will pass all the form data to the Firebase authentication API via your previously set authentication interface in the firebase folder.
 
 {{< highlight javascript "hl_lines=2 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25" >}}
 ...
@@ -772,7 +772,7 @@ Next, you can call the sign up function which you have defined in the previous s
 
 If the request resolves successfully, you can set the local state of the component to its initial state to empty the input fields. If the request is rejected, you will run into the catch block and set the error object in the local state. Thus an error message should show up in the form.
 
-In addition, the `preventDefault()` method on the event prevents a reload of the browser which otherwise would be a natural behavior when using a submit in a form. Moreover, note that the signed up user object from the firebase API is available in the callback function of the then block in our request. You will use it later on in this tutorial.
+In addition, the `preventDefault()` method on the event prevents a reload of the browser which otherwise would be a natural behavior when using a submit in a form. Moreover, note that the signed up user object from the Firebase API is available in the callback function of the then block in our request. You will use it later on in this tutorial.
 
 If you want to read more about asynchronous requests in React components, checkout [this article which explains the concept in more detail by fetching data from a third-party API](https://www.robinwieruch.de/react-fetching-data/).
 
@@ -842,7 +842,7 @@ Just in case: There is no particular reason why I wrapped the SignUpPage and not
 
 Eventually, the history object of the router can be used in the `onSubmit()` class method. If a request resolves successfully, you can push any route to the history object. Since the pushed route is defined in our App component with a corresponding component, the displayed page component will change after the redirect.
 
-You can run your application now and checkout if the sign up process works for you. If you signed up a user successfully, you should be redirected to the home page. If the sign up fails, you should see an error message. Try to sign up a user with the same email address twice and verify that the following or a similar error message shows up: "The email address is already in use by another account.". Congratulations, you signed up your first user via firebase authentication.
+You can run your application now and checkout if the sign up process works for you. If you signed up a user successfully, you should be redirected to the home page. If the sign up fails, you should see an error message. Try to sign up a user with the same email address twice and verify that the following or a similar error message shows up: "The email address is already in use by another account.". Congratulations, you signed up your first user via Firebase authentication.
 
 {{% chapter_header "Sign In with React and Firebase" "react-firebase-sign-in" %}}
 
@@ -1115,7 +1115,7 @@ The helper function `onAuthStateChanged()` gets a function as input and this fun
 
 Start your application again and verify that your sign up, sign in and sign out works properly and that the Navigation components displays the options depending on the session state accordingly.
 
-That's it! You have successfully implemented the authentication flow with firebase in React. Everything that comes in the following sections is extra implementation sugar on top and a couple of neat features along the way. But you wouldn't need those things to continue with your own implementation.
+That's it! You have successfully implemented the authentication flow with Firebase in React. Everything that comes in the following sections is extra implementation sugar on top and a couple of neat features along the way. But you wouldn't need those things to continue with your own implementation.
 
 The recent sections were quite a lot of content. I didn't go into all the details, because I teach those in the referenced articles and [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). So make sure to check out the ebook!
 
@@ -1336,9 +1336,9 @@ Now, start your application again and verify that it still works the same as bef
 
 {{% chapter_header "Password Reset and Password Change with Firebase" "react-firebase-password" %}}
 
-There are two more neat features available in the firebase authentication API and you have already implemented the interface for it in your firebase module: password forget / reset and password change.
+There are two more neat features available in the Firebase authentication API and you have already implemented the interface for it in your Firebase module: password forget / reset and password change.
 
-Let's start by implementing the password forget feature. Since you have  already implemented the interface in your firebase module, you can make use of it in a component. The following file implements the vast majority of the password reset logic in a form again. We already implemented a couple of those forms before, so it shouldn't be any different now.
+Let's start by implementing the password forget feature. Since you have  already implemented the interface in your Firebase module, you can make use of it in a component. The following file implements the vast majority of the password reset logic in a form again. We already implemented a couple of those forms before, so it shouldn't be any different now.
 
 In *src/components/PasswordForget.js* file:
 
@@ -1423,7 +1423,7 @@ export {
 };
 {{< /highlight >}}
 
-Again it's a lot of code. But it isn't any different from the sign up and sign in forms from before. The password forget uses a form to submit the information (only email address) which is needed by the firebase authentication API to reset the password. A class method (onSubmit) makes sure that the information is sent to the API. Furthermore, it resets the form's input field on a successful request or shows an error on an erroneous request. In addition, the form is validated as well before it can be submitted.
+Again it's a lot of code. But it isn't any different from the sign up and sign in forms from before. The password forget uses a form to submit the information (only email address) which is needed by the Firebase authentication API to reset the password. A class method (onSubmit) makes sure that the information is sent to the API. Furthermore, it resets the form's input field on a successful request or shows an error on an erroneous request. In addition, the form is validated as well before it can be submitted.
 
 Moreover, the file implements a password forget link as a component which isn't used directly in the form component. It is similar to the SignUpLink component which was used on in the SignInPage component. This link is not different. You can already make use of it. In case a user forgot about the password during the sign in process, the password forget page isn't far away by using the link.
 
@@ -1451,9 +1451,9 @@ const SignInPage = ({ history }) =>
 
 Remember that the password forget page is already mapped in the App component. So you can simply drop the PasswordForgetLink component in the sign in page.
 
-You can try it out yourself now. Start the application and reset your password. It doesn't matter if you are authenticated or not. Once you send the request, you should get an email from firebase to update your password.
+You can try it out yourself now. Start the application and reset your password. It doesn't matter if you are authenticated or not. Once you send the request, you should get an email from Firebase to update your password.
 
-Now let's get to the second component: the password change component. You have implemented this functionality already in your firebase interface as well. You only need a form component to make use of it. Again, the form component isn't any different from the sign in, sign up and password forget forms. Once you have learned about how to implement a form in React, the other forms are pretty similar to it.
+Now let's get to the second component: the password change component. You have implemented this functionality already in your Firebase interface as well. You only need a form component to make use of it. Again, the form component isn't any different from the sign in, sign up and password forget forms. Once you have learned about how to implement a form in React, the other forms are pretty similar to it.
 
 In *src/components/PasswordChange.js* file:
 
@@ -1633,7 +1633,7 @@ const withAuthorization = (authCondition) => (Component) => {
 export default withAuthorization;
 {{< /highlight >}}
 
-Let's break it down. First, have a look at the render method. It renders either the passed component (e.g. HomePage, AccountPage) or nothing. That's just a fallback in case there is no authenticated user in React's context object. It increases the protection of the component by rendering simply nothing. However, the real logic happens in the `componentDidMount()` lifecycle method. Same as the `withAuthentication()` higher order component, it uses the firebase listener to trigger a callback function in case the authenticated user object changes. Every time the `authUser` changes, it checks the passed `authCondition()` function with the `authUser`. If the authorization fails, the higher order component redirects to the sign in page. If it doesn't fail, the higher order component does nothing. In order to be able to redirect, the higher order component has access to the history object of the Router by using the in-house `withRouter()` higher order component from the React Router library.
+Let's break it down. First, have a look at the render method. It renders either the passed component (e.g. HomePage, AccountPage) or nothing. That's just a fallback in case there is no authenticated user in React's context object. It increases the protection of the component by rendering simply nothing. However, the real logic happens in the `componentDidMount()` lifecycle method. Same as the `withAuthentication()` higher order component, it uses the Firebase listener to trigger a callback function in case the authenticated user object changes. Every time the `authUser` changes, it checks the passed `authCondition()` function with the `authUser`. If the authorization fails, the higher order component redirects to the sign in page. If it doesn't fail, the higher order component does nothing. In order to be able to redirect, the higher order component has access to the history object of the Router by using the in-house `withRouter()` higher order component from the React Router library.
 
 In the next step, you can use the higher order component to protect your routes (e.g. /home and /account) with authorization rules. For the sake of keeping it simple, the following two components are only protected with a general authorization rule that checks if the `authUser` object is not null.
 
@@ -1708,13 +1708,13 @@ const authCondition = (authUser) => authUser.role === 'ADMIN';
 export default withAuthorization(authCondition)(AdminPage);
 {{< /highlight >}}
 
-Congratulations! You successfully implemented a full fledged authentication mechanisms with Firebase in React, added neat features such as password reset and password change, and protected routes with dynamic authorization conditions. In the next section, you will explore how you can manage the users who sign up in your application. So far, only firebase knows about them but you have no own database running to store them yourself.
+Congratulations! You successfully implemented a full fledged authentication mechanisms with Firebase in React, added neat features such as password reset and password change, and protected routes with dynamic authorization conditions. In the next section, you will explore how you can manage the users who sign up in your application. So far, only Firebase knows about them but you have no own database running to store them yourself.
 
 {{% chapter_header "User Management with Firebase's Database in React" "react-firebase-user-database" %}}
 
-So far, only firebase knows about your users. There is no way to retrieve the single user or a list of users for you. They are stored internally by firebase to keep the authentication secured. That's good, because you are never involved in storing sensible data such as passwords. However, you can introduce the firebase realtime database to keep track of the user entities yourself. And you should do it, because otherwise you never have a way to associate other domain entities (e.g. a todo item) created by your users to your users. Therefore, follow this section to store users in your realtime database in firebase during the sign up process.
+So far, only Firebase knows about your users. There is no way to retrieve the single user or a list of users for you. They are stored internally by Firebase to keep the authentication secured. That's good, because you are never involved in storing sensible data such as passwords. However, you can introduce the Firebase realtime database to keep track of the user entities yourself. And you should do it, because otherwise you never have a way to associate other domain entities (e.g. a todo item) created by your users to your users. Therefore, follow this section to store users in your realtime database in Firebase during the sign up process.
 
-First of all, create a file for your firebase realtime database API. It goes into the firebase folder next to your file for the authentication API.
+First of all, create a file for your Firebase realtime database API. It goes into the firebase folder next to your file for the authentication API.
 
 From *src/firebase/* folder:
 
@@ -1722,7 +1722,7 @@ From *src/firebase/* folder:
 touch db.js
 {{< /highlight >}}
 
-In the file, you will implement the interface to your firebase realtime database for the user entity. The file defines two functions: one to create a user and one to retrieve all users.
+In the file, you will implement the interface to your Firebase realtime database for the user entity. The file defines two functions: one to create a user and one to retrieve all users.
 
 In *src/firebase/db.js* file:
 
@@ -1743,9 +1743,9 @@ export const onceGetUsers = () =>
 // Other Entity APIs ...
 {{< /highlight >}}
 
-In the first asynchronous function, the user is created as an object with the username and email properties. Furthermore, it is stored on the `users/${id}` resource path. So whenever you would want to retrieve a specific user from the firebase database, you could get the one user via its unique identifier and the entity resource path.
+In the first asynchronous function, the user is created as an object with the username and email properties. Furthermore, it is stored on the `users/${id}` resource path. So whenever you would want to retrieve a specific user from the Firebase database, you could get the one user via its unique identifier and the entity resource path.
 
-In the second asynchronous function, the users are retrieved from the general user's entity resource path. The function will return all users from the firebase realtime database.
+In the second asynchronous function, the users are retrieved from the general user's entity resource path. The function will return all users from the Firebase realtime database.
 
 Note: In the future, you could consider to split up the file into multiple files for different domain entities (e.g. *db/user.js*, *db/todos.js*, ...) in one module (e.g. *db/* folder).
 
@@ -1767,7 +1767,7 @@ export {
 };
 {{< /highlight >}}
 
-Here you can see again how firebase separates its authentication and database API. You followed the same best practice in both *db.js* and *auth.js* files. Last but not least, don't forget to make the new functionalities from your firebase database API available in your firebase module's entry point.
+Here you can see again how Firebase separates its authentication and database API. You followed the same best practice in both *db.js* and *auth.js* files. Last but not least, don't forget to make the new functionalities from your Firebase database API available in your Firebase module's entry point.
 
 In *src/firebase/index.js* file:
 
@@ -1783,7 +1783,7 @@ export {
 };
 {{< /highlight >}}
 
-Finally, you can use those functionalities in your React components to create and retrieve users. Let's start with the user creation. The best place to do it would be the SignUpForm component. It is the most natural place to create a user in the database after the sign up through the firebase authentication API. You can simply add another API request to create a user when the user signed up successfully.
+Finally, you can use those functionalities in your React components to create and retrieve users. Let's start with the user creation. The best place to do it would be the SignUpForm component. It is the most natural place to create a user in the database after the sign up through the Firebase authentication API. You can simply add another API request to create a user when the user signed up successfully.
 
 In *src/components/SignUp.js* file:
 
@@ -1839,13 +1839,13 @@ class SignUpForm extends Component {
 }
 {{< /highlight >}}
 
-Notice how all the previous business logic from the first then block moves into the second then block. The previous logic is only called after the second asynchronous API call resolves successfully. In addition, see how the `authUser` object's `uid` and the `username` property from the local state can be used to pass the necessary parameters to your firebase database API.
+Notice how all the previous business logic from the first then block moves into the second then block. The previous logic is only called after the second asynchronous API call resolves successfully. In addition, see how the `authUser` object's `uid` and the `username` property from the local state can be used to pass the necessary parameters to your Firebase database API.
 
 Note: It is fine to store user information in your own database. However, you should make sure not to store the password or any other sensible data of the user on your own. Firebase already deals with the authentication and thus there is no need to store the password in your database. There are a bunch of steps necessary to secure such sensible data (e.g. encryption). It would be a security risk to do it on your own, so don't do it if someone else already handles it for you.
 
 That's it for the user creation process. Now you are creating a user once a user signs up in your application. By now it is a lot of business logic in your component's lifecycle method and you could consider extracting the logic on your own to a separate place to keep the component lightweight. If you are going to add tests for your application after the tutorial, it is simpler to test the logic when it is extracted.
 
-Next, only to verify that the user creation is working, you can retrieve all the users from the database in one of your other components. Since the HomePage component isn't of any use yet, you can do in this component to display your users stored in the realtime database of firebase. The `componentDidMount()` lifecycle method is the perfect place to fetch users from your database API.
+Next, only to verify that the user creation is working, you can retrieve all the users from the database in one of your other components. Since the HomePage component isn't of any use yet, you can do in this component to display your users stored in the realtime database of Firebase. The `componentDidMount()` lifecycle method is the perfect place to fetch users from your database API.
 
 In *src/components/Home.js* file:
 
@@ -1885,7 +1885,7 @@ const authCondition = (authUser) => !!authUser;
 export default withAuthorization(authCondition)(HomePage);
 {{< /highlight >}}
 
-Afterward, you can display a couple of properties of your list of users. Since the users are an object and not a list when they are retrieved from the firebase database, you have to use the `Object.keys()` helper function to map over the keys in order to display them.
+Afterward, you can display a couple of properties of your list of users. Since the users are an object and not a list when they are retrieved from the Firebase database, you have to use the `Object.keys()` helper function to map over the keys in order to display them.
 
 {{< highlight javascript "hl_lines=7 14 20 21 22 23 24 25 26 27 28" >}}
 ...
@@ -1926,11 +1926,11 @@ That's it for the user entity management. You are in full control of your users 
 
 {{% chapter_header "What's next?" "react-firebase-authentication-advanced" %}}
 
-By now, everything is in place in terms of authentication and user management for your application. You could continue to implement your own domain logic. I am keen to see what you are implementing on top of this authentication boilerplate for firebase in React, so don't hesitate to reach out to me.
+By now, everything is in place in terms of authentication and user management for your application. You could continue to implement your own domain logic. I am keen to see what you are implementing on top of this authentication boilerplate for Firebase in React, so don't hesitate to reach out to me.
 
-You have started to implement your first entity which is managed by the firebase realtime database. You retrieve a list of these entities from the firebase database and created single entities in the database too. You can extend it with further CRUD operations. In addition, you can start to implement your own domain specific entities (e.g. todo items in a ToDo application).
+You have started to implement your first entity which is managed by the Firebase realtime database. You retrieve a list of these entities from the Firebase database and created single entities in the database too. You can extend it with further CRUD operations. In addition, you can start to implement your own domain specific entities (e.g. todo items in a ToDo application).
 
-**There is one caveat you should keep in mind.** In the very beginning of this tutorial, it says that you will learn everything about the client-sided authentication part in this guide. But to be honest, that was only half of the story. If you would implement your own authentication backend (e.g. Passport.js in a Node.js server) from scratch, there are a couple of more topics that you would need to consider for the client-side application. For instance, when using firebase, you can sign in to your application, close the browser tab, open it up again and you will see yourself still signed in to the application. Firebase keeps this information stored for you and the listener in your `withAuthentication()` higher order component knows about the authenticated user object. However, if you would implement your own authentication mechanism from scratch, you would have to use cookies or [the native local storage of the browser](https://www.robinwieruch.de/local-storage-react/) on the client-side to keep a user authenticated over multiple browser sessions. That's only one caveat to the story and shows that implementing an own authentication solution can be a complex adventure.
+**There is one caveat you should keep in mind.** In the very beginning of this tutorial, it says that you will learn everything about the client-sided authentication part in this guide. But to be honest, that was only half of the story. If you would implement your own authentication backend (e.g. Passport.js in a Node.js server) from scratch, there are a couple of more topics that you would need to consider for the client-side application. For instance, when using Firebase, you can sign in to your application, close the browser tab, open it up again and you will see yourself still signed in to the application. Firebase keeps this information stored for you and the listener in your `withAuthentication()` higher order component knows about the authenticated user object. However, if you would implement your own authentication mechanism from scratch, you would have to use cookies or [the native local storage of the browser](https://www.robinwieruch.de/local-storage-react/) on the client-side to keep a user authenticated over multiple browser sessions. That's only one caveat to the story and shows that implementing an own authentication solution can be a complex adventure.
 
 So what's next for this tutorial? Often people are using React with a state management library such as Redux or MobX. **The following sections will showcase you how to implement the session state handling in MobX or Redux**. You can follow one of these sections to learn about it. They will not build up on each other. Instead, both use this section as their boilerplate to continue with their implementation. However, keep two things in mind when you continue with one of these solutions:
 
@@ -1940,7 +1940,7 @@ So what's next for this tutorial? Often people are using React with a state mana
 
 {{% chapter_header "Authentication in React, Firebase and Redux" "react-firebase-authentication-redux" %}}
 
-The section dives into using Redux on top of React and firebase for the state management. Basically, you will exchange React's local state (user management: e.g. list of users on home page) and React's context (session management: e.g. authenticated user object) with Redux. The section builds on top of the last section which concluded the authentication and authorization in plain React and firebase.
+The section dives into using Redux on top of React and Firebase for the state management. Basically, you will exchange React's local state (user management: e.g. list of users on home page) and React's context (session management: e.g. authenticated user object) with Redux. The section builds on top of the last section which concluded the authentication and authorization in plain React and Firebase.
 
 This section is divided into two parts. The first part will setup Redux and all the necessary parts for it. You will implement the state layer separately from the view layer. The second part exchanges the current state layer (local state for users, the context for an authenticated user) with the Redux state layer. It is the part where the new state layer is connected to the view layer.
 
@@ -2015,7 +2015,7 @@ function sessionReducer(state = INITIAL_STATE, action) {
 export default sessionReducer;
 {{< /highlight >}}
 
-Second, the user reducer which deals with the list of users from the firebase realtime database:
+Second, the user reducer which deals with the list of users from the Firebase realtime database:
 
 In *src/reducers/user.js* file:
 
@@ -2083,7 +2083,7 @@ registerServiceWorker();
 
 Now comes the refactoring part where you exchange a part of the React state layer with the Redux state layer. You will replace React's context entirely in this part by passing the state down the component tree with the Redux store.
 
-Let's start with the simpler part of the refactoring: the user state layer. On the home page, you will use Redux's bridging library to connect the state via `mapStateToProps()` to the component. In addition, you will connect actions to your component as well via `mapDispatchToProps()` to store the users coming from the firebase realtime database to your Redux store.
+Let's start with the simpler part of the refactoring: the user state layer. On the home page, you will use Redux's bridging library to connect the state via `mapStateToProps()` to the component. In addition, you will connect actions to your component as well via `mapDispatchToProps()` to store the users coming from the Firebase realtime database to your Redux store.
 
 In *src/components/Home.js* file:
 
@@ -2295,11 +2295,11 @@ const withAuthorization = (condition) => (Component) => {
 export default withAuthorization;
 {{< /highlight >}}
 
-That's it. In this section, you have introduced Redux as state management library to manage your session and user state. Instead of relying on React's context for the authenticated user object and React's local state for the list of users from the firebase database, you are storing these objects in the Redux store. You can find the project with a slightly different folder structure in this {{% a_blank "GitHub repository" "https://github.com/rwieruch/react-redux-firebase-authentication" %}}.
+That's it. In this section, you have introduced Redux as state management library to manage your session and user state. Instead of relying on React's context for the authenticated user object and React's local state for the list of users from the Firebase database, you are storing these objects in the Redux store. You can find the project with a slightly different folder structure in this {{% a_blank "GitHub repository" "https://github.com/rwieruch/react-redux-firebase-authentication" %}}.
 
 {{% chapter_header "Authentication in React, Firebase and MobX" "react-firebase-authentication-mobx" %}}
 
-The section dives into using MobX on top of React and firebase for the state management. Basically, you will exchange React’s local state (user management: e.g. list of users on home page) and React’s context (session management: e.g. authenticated user object) with MobX.
+The section dives into using MobX on top of React and Firebase for the state management. Basically, you will exchange React’s local state (user management: e.g. list of users on home page) and React’s context (session management: e.g. authenticated user object) with MobX.
 
 Note: None of the Redux changes from the previous section are reflected here, we will start with a clean plate from one section before where we didn't use Redux but only plain React.
 
@@ -2345,7 +2345,7 @@ class SessionStore {
 export default SessionStore;
 {{< /highlight >}}
 
-Second, the user store which deals with the list of users from the firebase realtime database:
+Second, the user store which deals with the list of users from the Firebase realtime database:
 
 In *src/stores/userStore.js* file:
 
@@ -2416,7 +2416,7 @@ registerServiceWorker();
 
 Now comes the refactoring part where you exchange a part of the React state layer with the MobX state layer. You will replace React’s context entirely in this part by passing the state down the component tree with the MobX stores.
 
-Let’s start with the simpler part of the refactoring: the user state layer. On the home page, you will use MobX's bridging library to inject the needed store via `inject()` to the component. In addition, you will make the component observable via `observer()` for MobX reactions. If the MobX state changes, the component will react to it. In addition, the user store is used to store the users coming from the firebase realtime database.
+Let’s start with the simpler part of the refactoring: the user state layer. On the home page, you will use MobX's bridging library to inject the needed store via `inject()` to the component. In addition, you will make the component observable via `observer()` for MobX reactions. If the MobX state changes, the component will react to it. In addition, the user store is used to store the users coming from the Firebase realtime database.
 
 In *src/components/Home.js* file:
 
@@ -2611,7 +2611,7 @@ const withAuthorization = (condition) => (Component) => {
 export default withAuthorization;
 {{< /highlight >}}
 
-That's it. In this section, you have introduced MobX as state management library to manage your session and user state. Instead of relying on React's context for the authenticated user object and React's local state for the list of users from the firebase database, you are storing these objects in the MobX stores. You can find the project with a slightly different folder structure in this {{% a_blank "GitHub repository" "https://github.com/rwieruch/react-mobx-firebase-authentication" %}}.
+That's it. In this section, you have introduced MobX as state management library to manage your session and user state. Instead of relying on React's context for the authenticated user object and React's local state for the list of users from the Firebase database, you are storing these objects in the MobX stores. You can find the project with a slightly different folder structure in this {{% a_blank "GitHub repository" "https://github.com/rwieruch/react-mobx-firebase-authentication" %}}.
 
 <hr class="section-divider">
 
