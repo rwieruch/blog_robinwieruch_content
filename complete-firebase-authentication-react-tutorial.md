@@ -1930,13 +1930,13 @@ By now, everything is in place in terms of authentication and user management fo
 
 You have started to implement your first entity which is managed by the Firebase realtime database. You retrieve a list of these entities from the Firebase database and created single entities in the database too. You can extend it with further CRUD operations. In addition, you can start to implement your own domain specific entities (e.g. todo items in a ToDo application).
 
-**There is one caveat you should keep in mind.** In the very beginning of this tutorial, it says that you will learn everything about the client-sided authentication part in this guide. But to be honest, that was only half of the story. If you would implement your own authentication backend (e.g. Passport.js in a Node.js server) from scratch, there are a couple of more topics that you would need to consider for the client-side application. For instance, when using Firebase, you can sign in to your application, close the browser tab, open it up again and you will see yourself still signed in to the application. Firebase keeps this information stored for you and the listener in your `withAuthentication()` higher order component knows about the authenticated user object. However, if you would implement your own authentication mechanism from scratch, you would have to use cookies or [the native local storage of the browser](https://www.robinwieruch.de/local-storage-react/) on the client-side to keep a user authenticated over multiple browser sessions. That's only one caveat to the story and shows that implementing an own authentication solution can be a complex adventure.
+**There is one caveat you should keep in mind.** In the very beginning of this tutorial, it says that you will learn everything about the client-sided authentication in React in this guide. That's true in terms of using Firebase. But to be honest, that was only half of the story when it comes to your own authentication implementation without Firebase. If you would implement your own authentication backend (e.g. Passport.js in a Node.js server) from scratch, there are a couple of more topics that you would need to consider for the client-side application. For instance, when using Firebase, you can sign in to your application, close the browser tab, open it up again and you will see yourself still signed in to the application. Firebase keeps this information stored for you and the listener in your `withAuthentication()` higher order component knows about the authenticated user object. However, if you would implement your own authentication mechanism from scratch, you would have to use cookies or [the native local storage of the browser](https://www.robinwieruch.de/local-storage-react/) on the client-side to keep a user authenticated over multiple browser sessions. That's only one caveat to the story, but shows that implementing an own authentication solution from scratch can be a complex adventure.
 
-So what's next for this tutorial? Often people are using React with a state management library such as Redux or MobX. **The following sections will showcase you how to implement the session state handling in MobX or Redux**. You can follow one of these sections to learn about it. They will not build up on each other. Instead, both use this section as their boilerplate to continue with their implementation. However, keep two things in mind when you continue with one of these solutions:
+So what's next for this tutorial? Often people are using React with a state management library such as Redux or MobX. **The following sections will showcase you how to implement the session state handling in MobX or Redux**. You can follow one of these sections to learn about it. **They will not build up on each other.** Instead, both use this section as their boilerplate to continue with their implementation. However, keep two things in mind when you continue with one of these solutions:
 
 * It works in plain React as well. So [if you don't have any good reason to introduce Redux or MobX](https://www.robinwieruch.de/learn-react-before-using-redux/), consider to keep it like it is right now.
 
-* This tutorial used the learnings from [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) as foundation. The same applies for the next chapters and the ebook: {{% a_blank "Taming the State in React" "https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE" %}}. It is full of useful information about Redux and MobX and teaches state management in React from scratch by building applications along the way.
+* This tutorial used the learnings from [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) as foundation. The same applies for the next chapters and the course: {{% a_blank "Taming the State in React" "https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE" %}}. It is full of useful information about Redux and MobX and teaches state management in React from scratch by building applications along the way. So it is highly recommended to learn at least the basics about Redux or MobX from the course.
 
 {{% chapter_header "Authentication in React, Firebase and Redux" "react-firebase-authentication-redux" %}}
 
@@ -1944,7 +1944,7 @@ The section dives into using Redux on top of React and Firebase for the state ma
 
 This section is divided into two parts. The first part will setup Redux and all the necessary parts for it. You will implement the state layer separately from the view layer. The second part exchanges the current state layer (local state for users, the context for an authenticated user) with the Redux state layer. It is the part where the new state layer is connected to the view layer.
 
-Let's start with Redux in React and Firebase for the authentication in your application. First of all, you should install {{% a_blank "redux" "https://redux.js.org/" %}} and {{% a_blank "react-redux" "https://github.com/reactjs/react-redux" %}} on the command line.
+First of all, you should install {{% a_blank "redux" "https://redux.js.org/" %}} and {{% a_blank "react-redux" "https://github.com/reactjs/react-redux" %}} on the command line.
 
 {{< highlight javascript >}}
 npm install redux react-redux
@@ -1966,7 +1966,7 @@ cd store
 touch index.js
 {{< /highlight >}}
 
-Second, implement the store as singleton instance. There should be only one Redux store. The store creation takes a root reducer which isn't defined yet. You will do it in the next step.
+Second, implement the store as singleton instance, because there should be only one Redux store. The store creation takes a root reducer which isn't defined yet. You will do it in the next step.
 
 In *src/store/index.js* file:
 
@@ -2301,11 +2301,11 @@ That's it. In this section, you have introduced Redux as state management librar
 
 The section dives into using MobX on top of React and Firebase for the state management. Basically, you will exchange React’s local state (user management: e.g. list of users on home page) and React’s context (session management: e.g. authenticated user object) with MobX.
 
-Note: None of the Redux changes from the previous section are reflected here, we will start with a clean plate from one section before where we didn't use Redux but only plain React.
+Note: None of the Redux changes from the previous section are reflected here. We will start with a clean plate from one section before where we didn't use Redux but only plain React and Firebase.
 
 This section is divided into two parts. The first part will setup MobX and all the necessary parts for it. You will implement the state layer separately from the view layer. The second part exchanges the current state layer (local state for users, the context for an authenticated user) with the MobX state layer. It is the part where the new state layer is connected to the view layer.
 
-Let’s start with MobX in React and Firebase for the authentication in your application. First of all, you should follow this [short guide to enable decorators in create-react-app](https://www.robinwieruch.de/create-react-app-mobx-decorators/). You can also take the path of not using decorators, to avoid the eject process, but this tutorial only reflects the usage **with decorators**.
+First of all, you should follow this [short guide to enable decorators in create-react-app](https://www.robinwieruch.de/create-react-app-mobx-decorators/). You can also take the path of not using decorators, to avoid the eject process, but this tutorial only reflects the usage **with decorators**.
 
 You should have installed {{% a_blank "mobx" "https://mobx.js.org/" %}} and {{% a_blank "mobx-react" "https://github.com/mobxjs/mobx-react" %}} by now. Furthermore, you will have to install recompose on the command line to compose more than one higher order component on a component. You will enhance your component not only once, but multiple times by using the composing functionality of recompose.
 
@@ -2367,7 +2367,7 @@ class UserStore {
 export default UserStore;
 {{< /highlight >}}
 
-Finally, combine both stores in a root store.
+Finally, combine both stores in a root store. This can be used to make the stores communicate to each other, but also to provide a way to import only one store (root store) to have access to all of its combined stores later on.
 
 In *src/stores/index.js* file:
 
@@ -2391,7 +2391,7 @@ const rootStore = new RootStore();
 export default rootStore;
 {{< /highlight >}}
 
-The MobX setup is done. Now, you can connect your state layer with your view layer. The MobX stores can be provided to the component hierarchy by using MobX's bridging Provider component.
+The MobX setup is done. Now, you can connect your state layer with your view layer. All the MobX stores can be provided to the component hierarchy by using MobX's bridging Provider component. We will use an object spread operator here to pass all combined stores to the Provider component. Keep in mind that this way the root store isn't available in the component hierarchy, but only the combined stores. That's sufficient for the tutorial, but if you want to have access to the root store as well, you need to pass it to the Provider component too.
 
 In *src/index.js* file:
 
@@ -2416,7 +2416,7 @@ registerServiceWorker();
 
 Now comes the refactoring part where you exchange a part of the React state layer with the MobX state layer. You will replace React’s context entirely in this part by passing the state down the component tree with the MobX stores.
 
-Let’s start with the simpler part of the refactoring: the user state layer. On the home page, you will use MobX's bridging library to inject the needed store via `inject()` to the component. In addition, you will make the component observable via `observer()` for MobX reactions. If the MobX state changes, the component will react to it. In addition, the user store is used to store the users coming from the Firebase realtime database.
+Let’s start with the simpler part of the refactoring: the user state layer. On the home page, you will use MobX's bridging library to inject the needed store via `inject()` to the component. In addition, you will make the component observable via `observer()` from the bridging library for MobX reactions. If the MobX state changes, the component will react to it. In addition, the user store is used to store the users coming from the Firebase realtime database.
 
 In *src/components/Home.js* file:
 
@@ -2615,5 +2615,5 @@ That's it. In this section, you have introduced MobX as state management library
 
 <hr class="section-divider">
 
-Hopefully, the guide has helped you to implement your own authentication and authorization mechanism in React with Firebase. If you have any suggestions or improvements, please reach out in the comments below or open an issue/pull request on GitHub. Again, if the tutorial didn't explain everything in detail, then it was because most those things are already covered in my {{% a_blank "(partly free) courses" "https://roadtoreact.com/" %}}. The tutorial builds on top of these courses. I would love if you would go through them to learn everything about React, Redux, and MobX. Thank you for reading! :-)
+Hopefully, the guide has helped you to implement your own authentication and authorization mechanism in React with Firebase. If you have any suggestions or improvements, please reach out to me. Again, if the tutorial didn't explain everything in detail, then it was because most those things are already covered in my {{% a_blank "(partly free) courses" "https://roadtoreact.com/" %}} and the other referenced articles. The tutorial builds up on top of these learning materials, so make sure to check them out to learn everything about React, Redux, and MobX.
 
