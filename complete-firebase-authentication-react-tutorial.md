@@ -1,5 +1,5 @@
 +++
-title = "The Complete Firebase in React Authentication Tutorial"
+title = "A Complete Firebase in React Authentication Tutorial"
 description = "A comprehensive tutorial for authentication and authorization in Firebase and React.js ..."
 date = "2017-12-11T07:50:46+02:00"
 tags = ["React", "JavaScript"]
@@ -10,7 +10,7 @@ hashtag = "#ReactJs"
 card = "img/posts/complete-firebase-authentication-react-tutorial/banner_640.jpg"
 banner = "img/posts/complete-firebase-authentication-react-tutorial/banner.jpg"
 contribute = "complete-firebase-authentication-react-tutorial.md"
-headline = "The Complete Firebase in React Authentication Tutorial"
+headline = "A Complete Firebase in React Authentication Tutorial"
 
 summary = "A complete walkthrough to learn about Firebase authentication in React. The guide gives you the perfect boilerplate as outcome for user authentication and authorization in React."
 +++
