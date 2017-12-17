@@ -19,7 +19,9 @@ summary = "The article will guide you through using SVG in React. It shows you h
 
 In my recent (yet not fully released) {{% a_blank "application" "https://roadtoreact.com/" %}}, I was confronted with SVG in React. I had to use a logo and wanted to use playful SVG background patterns in React. By using SVG, I avoided to use other image formats which would add performance penalties to my application.
 
-The article will guide you through using SVG in React. It shows you how to use plain SVG for your application and how to add SVG patterns in React for your backgrounds. It will demonstrate two alternatives for using SVG patterns in React: svg-patterns and Hero Patterns. Afterwards, you will have used both {{% a_blank "by building a simple Twitter tweet wall" "https://svg-patterns-react.wieruch.com/" %}} ({{% a_blank "source code" "https://github.com/rwieruch/react-svg-patterns" %}}).
+The article will guide you through using SVG in React. It shows you how to use plain SVG for your application and how to add SVG patterns in React for your backgrounds. It will demonstrate two alternatives for using SVG patterns in React: svg-patterns and Hero Patterns. Afterwards, you will have used both ({{% a_blank "source code" "https://github.com/rwieruch/react-svg-patterns" %}}).
+
+{{% pin_it_image "svg backroung react" "img/posts/react-svg-patterns/backgrounds.jpg" "is-src-set" %}}
 
 {{% chapter_header "SVG in React" "svg-react" %}}
 
