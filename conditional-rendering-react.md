@@ -1,6 +1,6 @@
 +++
 title = "All the Conditional Renderings in React"
-description = "An exhaustive list of conditional renderings in React.js. How to use an if else in React? What about a ternary operator or switch case in React ..."
+description = "Wondering how to render conditionally in React? The article is an exhaustive list of conditional renderings in JSX. How to use ternary operators, switch case and if else in React.js? You will see various use cases where and how to use these conditional renderings and advanced techniques ..."
 date = "2017-02-21T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]

@@ -1,6 +1,6 @@
 +++
 title = "Host a single or multiple applications on Digital Ocean"
-description = "A walkthrough on how to host single or multiple static websites, node applications or APIs on Digital Ocean with server blocks and Dokku ..."
+description = "An extensive walkthrough on how to host your application on Digital Ocean. It showcases how multiple static websites can be hosted in one Droplet by using server blocks and how to deploy multiple APIs or node.js applications side by side in one Droplet with Dokku ..."
 date = "2017-10-31T13:50:46+02:00"
 tags = ["JavaScript", "Web Development"]
 categories = ["JavaScript", "Web Development"]

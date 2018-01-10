@@ -1,6 +1,6 @@
 +++
 title = "Neural Networks in JavaScript with deeplearn.js"
-description = "A tutorial on how to implement a neural network in JavaScript with deeplearn.js to perform machine learning in JavaScript ..."
+description = "An extensive tutorial on how to implement a neural network in JavaScript with deeplearn.js to perform machine learning in JavaScript. You can bring neural networks to your browser by using the performance benefits of WebGL. Deeplearn.js makes it possible to implement a WebGL powered neural network ..."
 date = "2017-12-05T09:50:46+02:00"
 tags = ["Machine Learning", "JavaScript"]
 categories = ["Machine Learning", "JavaScript"]

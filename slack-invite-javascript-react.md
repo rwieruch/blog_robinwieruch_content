@@ -1,6 +1,6 @@
 +++
 title = "Programmatic Slack invite in JavaScript and React"
-description = "The article showcases how to setup an automated Slack invitation for a JavaScript and/or React application. Why would you want a Slack invitation in the first place? ..."
+description = "The article guides you through the setup of an automated Slack invitation for a JavaScript and/or React applications. Why would you want a Slack invitation in the first place? My personal motivation was it to create a like minded community of people learning React, but the idea about a Slack Channel started out on Twitter ..."
 date = "2017-11-05T09:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
@@ -68,7 +68,7 @@ For my course platform, I do the same programmatic Slack invite in a React appli
 
 {{% pin_it_image "slack invite react" "img/posts/slack-invite-javascript-react/slack-invite.jpg" "is-src-set" %}}
 
-The form for the React Sign Up component doesn't become anymore complex by adding the Slack invitation to it. The following is a simple sign up form where the Slack invite is added on top. Before the `onUserAuthSignUp()` function is called to authenticate an user, the user gets invited to the Slack Group when the checkbox for the invitation was checked.
+The form for the React Sign Up component doesn't become anymore complex by adding the Slack invitation to it. The following is a sign up form where the Slack invite is added on top. Before the `onUserAuthSignUp()` function is called to authenticate an user, the user gets invited to the Slack Group when the checkbox for the invitation was checked.
 
 {{< highlight javascript "hl_lines=10 14 17 18 19 28 33 34 35 46 75 76 77 78 79 80 81 82" >}}
 class SignUp extends Component {
@@ -167,7 +167,9 @@ class SignUp extends Component {
 }
 {{< /highlight >}}
 
-That's it. Since I have made it effortless for people to join the Slack Group to learn React, the rate of people joining the Slack Channel went up.
+This tutorial doesn't go into detail on how to implement this sign up process itself. The last code snippet only shows how the Slack invite can be used as opt-in in your sign up process. If you are curious about implementing a whole authentication flow in React (with sign up where you can opt-in the Slack invite), checkout the [complete Firebase in React authentication tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/).
+
+That's it. Since I have made it effortless for people to join the Slack Group to learn React, the rate of people joining the Slack Channel went up. If you are curious about React, {{% a_blank "you can join as well" "https://slack-the-road-to-learn-react.wieruch.com/" %}}!
 
 <hr class="section-divider">
 

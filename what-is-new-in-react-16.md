@@ -1,6 +1,6 @@
 +++
 title = "What's new in React 16?"
-description = "All React 16 changes (new return types with fragments and strings, portals, componentDidCatch, error boundaries, setState with null and custom DOM attributes) at one place ..."
+description = "All React 16 changes in one article. It tells you about the new return types with fragments and strings, portals in React, componentDidCatch and error boundaries for a robust error handling in React, setState with returning null and custom DOM attributes in React.js ..."
 date = "2017-10-05T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]

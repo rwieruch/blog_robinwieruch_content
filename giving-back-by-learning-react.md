@@ -37,6 +37,8 @@ The program is called {{% a_blank "Big Brother Mouse" "http://www.bigbrothermous
 
 Personally, I find it important to give back. Whether it is time or money, it doesn't matter. Whenever I consider making a donation, I try to remember places that I have a personal connection with. Then I know that the money is well spend.
 
+{{% pin_it_image "indonesia" "img/posts/giving-back-by-learning-react/warung.jpg" "is-src-set" %}}
+
 At my company Small Improvements, we have the {{% a_blank "tradition of giving back once a year" "https://blog.small-improvements.com/2017/03/14/why-we-give-back-our-2016-donations/?ref=robinwieruch.de" %}}. Every employee can decide where to spend his or her part. It is a great tradition and one of the plenty reasons I love to work there. The last two years I donated money to {{% a_blank "Sapa O'Chau" "http://sapaochau.org/" %}}, an organization I was able to get to know when I traveled through Vietnam in 2015. They have a lasting effect on education, sustainable tourism and crafting in Sapa, a village in the mountains of Vietnam where a minority of Vietnam's population, the Hmong, lives.
 
 Just yesterday, I saw a group of children, supported by an organization, visiting the ruins of Angkor Wat, Cambodia. These children were around 9 years old and it was great to see them having fun and enjoying their time. Unfortunately, I can't remember the name of the organization.

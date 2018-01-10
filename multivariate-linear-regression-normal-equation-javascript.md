@@ -44,7 +44,7 @@ function init(matrix) {
     matrix,
   });
 
-  let m = getDimensionSize(y, 1);
+  let m = y.length;
 
   // Part 1: Normal Equation
 }
@@ -65,11 +65,11 @@ function init(matrix) {
     matrix,
   });
 
-  let m = getDimensionSize(y, 1);
+  let m = y.length;
 
   // Part 1: Normal Equation
 
-  X = pushVector(X, 0, math.ones([m, 1]).valueOf());
+  X = math.concat(math.ones([m, 1]).valueOf(), X);
 
   let theta = normalEquation(X, y);
 }

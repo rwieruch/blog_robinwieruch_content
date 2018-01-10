@@ -320,41 +320,6 @@ math.eval(`matrixA[:, 1] = vectorB`, {
 });
 {{< /highlight >}}
 
-There are a couple of things that I couldn't find out how to apply them in JavaScript when coming from Octave. I try to collect them in this {{% a_blank "util library" "https://github.com/javascript-machine-learning/mathjs-util" %}}. For instance, what about adding an intercept term to a Matrix? In Octave it is simple to push a vector of ones in front of a Matrix. But I couldn't find any way to express it in math.js. That's why I have put the following function in the util library.
-
-{{< highlight javascript >}}
-// Octave:
-// X = [ones(m, 1) X];
-
-// Math.js in JavaScript
-function pushVector(matrix, index, vector) {
-  const extendedMatrix = math
-    .ones([
-      getDimensionSize(matrix, 1),
-      getDimensionSize(matrix, 2) + 1
-    ])
-    .valueOf();
-
-  return extendedMatrix.map((row, rowKey) => row.map((column, columnKey) => {
-    if (index === columnKey) {
-      return vector[rowKey][0];
-    }
-    if (columnKey < index) {
-      return matrix[rowKey][columnKey];
-    }
-    if (columnKey > index) {
-      return matrix[rowKey][columnKey - 1];
-    }
-  }));
-}
-
-// Usage
-const COLUMN_INDEX = 0;
-const extendedX = pushVector(X, COLUMN_INDEX, math.ones([m, 1]).valueOf());
-{{< /highlight >}}
-
-Perhaps it helps others as well. I will collect more of these utility functions in the library. If you can point out how it can be done in math.js, I will remove it from the util library again.
-
 <hr class="section-divider">
 
 In conclusion, I hope the walkthrough about matrices applied in JavaScript was helpful to get started in the linear algebra in JavaScript or as foundation for machine learning in JavaScript. You can checkout the {{% a_blank "GitHub repository" "https://github.com/rwieruch/linear-algebra-matrix" %}} with executable matrix operations on the command line. If you like it, make sure to star it.

@@ -1,6 +1,6 @@
 +++
 title = "The Minimal React Webpack Babel Setup"
-description = "The minimal approach to set up React with Webpack and Babel. Hot Reloading is one little extra. The article teaches you how to setup your React project without create-react-app..."
+description = "The minimal setup using React with Webpack and Babel. Hot Reloading is one little extra. The article teaches you how to setup your React project without create-react-app. You will understand all the little parts of using Webpack and Babel in combination with React.js ..."
 date = "2017-02-27T13:50:46+02:00"
 tags = ["React", "JavaScript", "Tooling"]
 categories = ["React", "JavaScript", "Tooling"]

@@ -1,6 +1,6 @@
 +++
 title = "Accept Stripe Payments with React and Express"
-description = "In this React tutorial, you will setup a React app where you can charge money and a Express server that receives the payment request. It forwards it to Stripe..."
+description = "Ever wondered how to integrate Stripe in your React application? This tutorial guides you through the whole setup process from using a Stripe checkout form on the client-side to setting up an Express payment server. Afterward you are ready to receive secure credit card payments via Stripe in your React.js application ..."
 date = "2017-06-20T13:50:46+02:00"
 tags = ["React", "Node", "JavaScript"]
 categories = ["React", "Node", "JavaScript"]

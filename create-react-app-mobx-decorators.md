@@ -1,6 +1,6 @@
 +++
 title = "MobX (with Decorators) in create-react-app"
-description = "Everything to know about using MobX with and without decorators in a create-react-app with React. MobX doesn't need necessarily decorators. But you can activate them by ejecting your application ..."
+description = "Everything you need to know about using MobX in a create-react-app with React. The article shows you all the different edge cases on how to activate JavaScript decorators, how to use MobX without decorators, and as bonus how to use MobX in Next.js. Afterward, you are prepared to setup your application with MobX and React.js ..."
 date = "2017-10-10T13:50:46+02:00"
 tags = ["React", "MobX", "JavaScript"]
 categories = ["React", "MobX", "JavaScript"]

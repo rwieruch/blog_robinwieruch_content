@@ -1,6 +1,6 @@
 +++
 title = "8 things to learn in React before using Redux"
-description = "Facts about React that should be known before using Redux (or MobX). Most important: Learn React first, then opt-in Redux..."
+description = "Facts about React that should be known before using Redux (or MobX). Most important: Learn React first, then opt-in Redux but only if you need it. There are various techniques in React.js for scaling your local state management. Only if these are not sufficient, use a library like Redux ..."
 date = "2017-07-19T13:50:46+02:00"
 tags = ["React", "Redux", "JavaScript"]
 categories = ["React", "Redux", "JavaScript"]

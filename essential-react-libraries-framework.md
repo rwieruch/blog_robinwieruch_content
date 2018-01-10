@@ -1,6 +1,6 @@
 +++
 title = "React's Ecosystem as a flexible Framework"
-description = "React's ecosystem is a flexible framework. The article gives you an opinionated ideal React setup choosing essential libraries..."
+description = "Often it is difficult to find all the relevant libraries to complement your React application, because React's ecosystem is a flexible yet large framework. The article gives you an opinionated React setup by choosing essential libraries: Redux, MobX, React Router, Flow, Styled Components, Lodash, Ramda, Prettier, Axios, ..."
 date = "2017-08-02T13:50:46+02:00"
 tags = ["React", "Redux", "JavaScript"]
 categories = ["React", "Redux", "JavaScript"]

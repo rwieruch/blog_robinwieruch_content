@@ -40,7 +40,7 @@ function init(matrix) {
     matrix,
   });
 
-  let m = getDimensionSize(y, 1);
+  let m = y.length;
 
   // Part 1: Feature Normalization
 
@@ -79,7 +79,7 @@ Since I haven't found any helpful functionality in math.js to perform it, I impl
 import math from 'mathjs';
 
 function getMeanAsRowVector(matrix) {
-  const n = getDimensionSize(matrix, 2);
+  const n = matrix[0].length;
 
   const vectors = Array(n).fill().map((_, i) =>
     math.eval(`matrix[:, ${i + 1}]`, { matrix })
@@ -91,7 +91,7 @@ function getMeanAsRowVector(matrix) {
 }
 
 function getStdAsRowVector(matrix) {
-  const n = getDimensionSize(matrix, 2);
+  const n = matrix[0].length;
 
   const vectors = Array(n).fill().map((_, i) =>
     math.eval(`matrix[:, ${i + 1}]`, { matrix })
@@ -105,9 +105,8 @@ function getStdAsRowVector(matrix) {
 
 Afterward, these functionalities can be used to return the mean and standard deviation of each feature as row vector.
 
-{{< highlight javascript "hl_lines=3 4 10 11" >}}
+{{< highlight javascript "hl_lines=2 3 9 10" >}}
 import {
-  getDimensionSize,
   getMeanAsRowVector,
   getStdAsRowVector,
 } from 'mathjs-util';
@@ -131,7 +130,7 @@ function featureNormalize(X) {
   const mu = getMeanAsRowVector(X);
   const sigma = getStdAsRowVector(X);
 
-  const n = getDimensionSize(X, 2);
+  const n = X[0].length;
   for (let i = 0; i < n; i++) {
     ...
   }
@@ -147,7 +146,7 @@ function featureNormalize(X) {
   const mu = getMeanAsRowVector(X);
   const sigma = getStdAsRowVector(X);
 
-  const n = getDimensionSize(X, 2);
+  const n = X[0].length;
   for (let i = 0; i < n; i++) {
     let featureVector = math.eval(`X[:, ${i + 1}]`, {
       X,
@@ -169,7 +168,7 @@ function featureNormalize(X) {
   const mu = getMeanAsRowVector(X);
   const sigma = getStdAsRowVector(X);
 
-  const n = getDimensionSize(X, 2);
+  const n = X[0].length;
   for (let i = 0; i < n; i++) {
     let featureVector = math.eval(`X[:, ${i + 1}]`, {
       X,
@@ -194,7 +193,7 @@ function featureNormalize(X) {
   const mu = getMeanAsRowVector(X);
   const sigma = getStdAsRowVector(X);
 
-  const n = getDimensionSize(X, 2);
+  const n = X[0].length;
   for (let i = 0; i < n; i++) {
     let featureVector = math.eval(`X[:, ${i + 1}]`, {
       X,
@@ -224,7 +223,7 @@ function featureNormalize(X) {
   const mu = getMeanAsRowVector(X);
   const sigma = getStdAsRowVector(X);
 
-  const n = getDimensionSize(X, 2);
+  const n = X[0].length;
   for (let i = 0; i < n; i++) {
     let featureVector = math.eval(`X[:, ${i + 1}]`, {
       X,
@@ -267,7 +266,7 @@ function init(matrix) {
     matrix,
   });
 
-  let m = getDimensionSize(y, 1);
+  let m = y.length;
 
   // Part 1: Feature Normalization
 
@@ -299,7 +298,7 @@ function init(matrix) {
 
   // Part 2: Gradient Descent
 
-  XNorm = pushVector(XNorm, 0, math.ones([m, 1]).valueOf());
+  XNorm = math.concat(math.ones([m, 1]).valueOf(), XNorm);
 
   const ALPHA = 0.01;
   const ITERATIONS = 400;
@@ -313,7 +312,7 @@ Now the gradient descent implementation in JavaScript. First of all, it needs to
 
 {{< highlight javascript "hl_lines=2 4 5 6" >}}
 function gradientDescentMulti(X, y, theta, ALPHA, ITERATIONS) {
-  const m = getDimensionSize(y, 1);
+  const m = y.length;
 
   for (let i = 0; i < ITERATIONS; i++) {
     ...
@@ -345,7 +344,7 @@ In the algorithm, theta would be trained with every iteration by applying gradie
 
 {{< highlight javascript "hl_lines=5 6 7 8 9 10 11" >}}
 function gradientDescentMulti(X, y, theta, ALPHA, ITERATIONS) {
-  const m = getDimensionSize(y, 1);
+  const m = y.length;
 
   for (let i = 0; i < ITERATIONS; i++) {
     theta = math.eval(`theta - ALPHA / m * ((X * theta - y)' * X)'`, {

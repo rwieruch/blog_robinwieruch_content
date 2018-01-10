@@ -1,6 +1,6 @@
 +++
 title = "How to fetch data in React"
-description = "Basics about React's data fetching to request real world data by using the native fetch API..."
+description = "Do you want to go beyond a static React application? Then it's about time to fetch data from a third party API. This guide explains you all the basics and tricks to request data in React.js. You will reuse functionalities in higher order components and implement error handling for a more robust application ..."
 date = "2017-08-10T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]

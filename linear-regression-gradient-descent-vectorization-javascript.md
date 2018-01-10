@@ -67,12 +67,7 @@ That way, you have already vectorized your data. Everything is represented in a 
 
 Before implementing the cost function in JavaScript, the matrix X needs to add an intercept term. Only this way the matrix operations work for theta and matrix X.
 
-{{< highlight javascript "hl_lines=17 19 21 22" >}}
-import {
-  getDimensionSize,
-  pushVector,
-} from 'mathjs-util';
-
+{{< highlight javascript "hl_lines=12 14 16 17" >}}
 function init(matrix) {
 
   // Part 0: Preparation
@@ -84,12 +79,12 @@ function init(matrix) {
     matrix,
   });
 
-  let m = getDimensionSize(y, 1);
+  let m = y.length;
 
   // Part 1: Cost
 
   // Add Intercept Term
-  X = pushVector(X, 0, math.ones([m, 1]).valueOf());
+  X = math.concat(math.ones([m, 1]).valueOf(), X);
 }
 {{< /highlight >}}
 
@@ -103,7 +98,7 @@ function init(matrix) {
   // Part 1: Cost
 
   // Add Intercept Term
-  X = pushVector(X, 0, math.ones([m, 1]).valueOf());
+  X = math.concat(math.ones([m, 1]).valueOf(), X);
 
   let theta = [[-1], [2]];
   let J = computeCost(X, y, theta);
@@ -120,7 +115,7 @@ The cost function returns the cost J. Now it needs only to compute the cost by u
 
 {{< highlight javascript "hl_lines=2 4 5 6 7" >}}
 function computeCost(X, y, theta) {
-  let m = getDimensionSize(y, 1);
+  let m = y.length;
 
   let predictions = math.eval('X * theta', {
     X,
@@ -137,7 +132,7 @@ Second, the squared errors need to be computed too. It can be done in a element 
 
 {{< highlight javascript "hl_lines=9 10 11 12" >}}
 function computeCost(X, y, theta) {
-  let m = getDimensionSize(y, 1);
+  let m = y.length;
 
   let predictions = math.eval('X * theta', {
     X,
@@ -159,7 +154,7 @@ And last but not least, computing the cost with the squared errors and the train
 
 {{< highlight javascript "hl_lines=14 15 16 17" >}}
 function computeCost(X, y, theta) {
-  let m = getDimensionSize(y, 1);
+  let m = y.length;
 
   let predictions = math.eval('X * theta', {
     X,
@@ -190,7 +185,7 @@ function init(matrix) {
   // Part 1: Cost
 
   // Add Intercept Term
-  X = pushVector(X, 0, math.ones([m, 1]).valueOf());
+  X = math.concat(math.ones([m, 1]).valueOf(), X);
 
   let theta = [[-1], [2]];
   let J = computeCost(X, y, theta);
@@ -231,7 +226,7 @@ function init(matrix) {
 }
 
 function gradientDescent(X, y, theta, ALPHA, ITERATIONS) {
-  let m = getDimensionSize(y, 1);
+  let m = y.length;
 
   let thetaZero = theta[0];
   let thetaOne = theta[1];
@@ -248,7 +243,7 @@ The same as in the cost function, you have to define your hypothesis first. It i
 
 {{< highlight javascript "hl_lines=8 9 10 11" >}}
 function gradientDescent(X, y, theta, ALPHA, ITERATIONS) {
-  let m = getDimensionSize(y, 1);
+  let m = y.length;
 
   let thetaZero = theta[0];
   let thetaOne = theta[1];
@@ -270,7 +265,7 @@ Second, you can compute the parameters theta by using matrix operations as well.
 
 {{< highlight javascript "hl_lines=13 14 15 16 17 18 19 20 22 23 24 25 26 27 28 29" >}}
 function gradientDescent(X, y, theta, ALPHA, ITERATIONS) {
-  let m = getDimensionSize(y, 1);
+  let m = y.length;
 
   let thetaZero = theta[0];
   let thetaOne = theta[1];
@@ -308,7 +303,7 @@ In addition, by looking at the mathematical expression, you can see why the inte
 
 {{< highlight javascript "hl_lines=13 14 15 16 17 18 19" >}}
 function gradientDescent(X, y, theta, ALPHA, ITERATIONS) {
-  let m = getDimensionSize(y, 1);
+  let m = y.length;
 
   let thetaZero = theta[0];
   let thetaOne = theta[1];
@@ -345,7 +340,7 @@ Alternatively, you can also exchange the element wise multiplication by using a 
 
 {{< highlight javascript "hl_lines=21" >}}
 function gradientDescent(X, y, theta, ALPHA, ITERATIONS) {
-  let m = getDimensionSize(y, 1);
+  let m = y.length;
 
   let thetaZero = theta[0];
   let thetaOne = theta[1];

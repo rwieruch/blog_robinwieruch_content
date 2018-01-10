@@ -1,6 +1,6 @@
 +++
 title = "SVG Patterns in React - Build a Twitter Wall"
-description = "Using SVG in React. It shows you how to use plain SVG and how to add SVG background patterns in React. It uses svg-patterns pr Hero Patterns as alternative..."
+description = "Wondering how you can use SVG in React? This article gives you a walkthrough of different SVG in React options. It showcases it with an implementation of using SVG as backgrounds in React with stylish patterns from svg-patterns or Hero Patterns. Even though you are not a designer, you can make your applications look pretty with these SVGs ..."
 date = "2017-08-30T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]

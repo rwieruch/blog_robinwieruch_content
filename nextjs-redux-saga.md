@@ -1,6 +1,6 @@
 +++
 title = "Redux and Redux Saga in Next.js"
-description = "Basic steps to use Redux and Redux Saga as side-effect library for asynchronous actions in NextJs - a library for server-rendered React applications..."
+description = "A couple of basic setup steps to use Redux combined with Redux Saga in Next.js. Whereas Next.js enables you to build server-side rendered React applications, Redux and Redux Saga make sure to handle your state not only on the client-side, but also on the server-side. The sagas are used for asynchronous actions and side-effects ..."
 date = "2017-06-28T13:50:46+02:00"
 tags = ["React", "Redux", "JavaScript"]
 categories = ["React", "Redux", "JavaScript"]

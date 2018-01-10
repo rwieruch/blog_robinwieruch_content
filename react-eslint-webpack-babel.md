@@ -1,6 +1,6 @@
 +++
 title = "React Code Style with ESLint + Babel + Webpack"
-description = "You want to setup ESLint in your ReactJs project? It includes Babel and Webpack? Then this article will guide you through all the options with style guides, thought leader opinions and recommendations..."
+description = "You want to setup ESLint in your ReactJs project? But your project includes Babel and Webpack? This article will guide you through all the options with style guides such as Airbnb's style guide, the setup process for ESLint in React, and more beneficial recommendations to follow styling rules in your project ..."
 date = "2017-03-14T13:50:46+02:00"
 tags = ["React", "JavaScript", "Tooling"]
 categories = ["React", "JavaScript", "Tooling"]

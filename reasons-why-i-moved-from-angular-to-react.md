@@ -1,6 +1,6 @@
 +++
 title = "10 Reasons why I moved from Angular to React"
-description = "The article should help people to understand the benefits of React, but also the benefits of Angular, to make a decision between Angular or React - or even React or Angular 2..."
+description = "The article should help people to understand the benefits of React and Angular for making an educated decision to choose between Angular or React. It tells my story why I moved from Angular to React after using both libraries for years. It's not just another click-bait article, but an article with lots of experiences ..."
 date = "2017-01-31T13:50:46+02:00"
 tags = ["React", "JavaScript", "Angular"]
 categories = ["React", "JavaScript", "Angular"]

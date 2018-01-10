@@ -1,6 +1,6 @@
 +++
 title = "Nobody introduced me to the API"
-description = "There is a knowledge gap when it comes to APIs. People assume that the knowledge about APIs is common ground, but it isn't. This article takes you on a journey to explore APIs and their empowering effects..."
+description = "A storytelling approach to learn about the term API. There is a knowledge gap when it comes to APIs. People assume that the knowledge about APIs is common ground, but it isn't. This article takes you on a journey to explore APIs and their empowering effects..."
 date = "2017-05-10T13:50:46+02:00"
 tags = ["Web Development"]
 categories = ["Web Development"]

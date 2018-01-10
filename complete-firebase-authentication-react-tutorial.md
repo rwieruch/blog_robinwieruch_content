@@ -1,6 +1,6 @@
 +++
-title = "A Complete Firebase in React Authentication Tutorial"
-description = "A comprehensive tutorial for authentication and authorization in Firebase and React.js ..."
+title = "A Complete Firebase in React Authentication Tutorial [2018]"
+description = "Therefore my advice: Take it step by step and use only Firebase in your React application. The following tutorial gives you a complete walkthrough of how to use Firebase for authorization and authentication in React.js. It shows you how to protect your routes with permissions and roles and how to store users in a database ..."
 date = "2017-12-11T07:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "Redux", "MobX", "JavaScript"]
@@ -10,7 +10,7 @@ hashtag = "#ReactJs"
 card = "img/posts/complete-firebase-authentication-react-tutorial/banner_640.jpg"
 banner = "img/posts/complete-firebase-authentication-react-tutorial/banner.jpg"
 contribute = "complete-firebase-authentication-react-tutorial.md"
-headline = "A Complete Firebase in React Authentication Tutorial"
+headline = "A Complete Firebase in React Authentication Tutorial [2018]"
 
 summary = "A complete walkthrough to learn about Firebase authentication in React. The guide gives you the perfect boilerplate as outcome for user authentication and authorization in React."
 +++
@@ -1703,7 +1703,7 @@ AdminPage.contextTypes = {
   authUser: PropTypes.object,
 };
 
-const authCondition = (authUser) => authUser.role === 'ADMIN';
+const authCondition = (authUser) => !!authUser && authUser.role === 'ADMIN';
 
 export default withAuthorization(authCondition)(AdminPage);
 {{< /highlight >}}

@@ -278,9 +278,7 @@ Just by looking at the inputs and outputs, you could guess that a higher exam sc
 
 Let's get back to the implementation. As little helper for later on, you can retrieve the dimensions of the training set and the feature set.
 
-{{< highlight javascript "hl_lines=1 15 16" >}}
-import { getDimensionSize } from 'mathjs-util';
-
+{{< highlight javascript "hl_lines=13 14" >}}
 function init(matrix) {
 
   // Part 0: Preparation
@@ -293,8 +291,8 @@ function init(matrix) {
     matrix,
   });
 
-  let m = getDimensionSize(y, 1);
-  let n = getDimensionSize(X, 2);
+  let m = y.length;
+  let n = X[0].length;
 
   ...
 }
@@ -315,8 +313,8 @@ function init(matrix) {
     matrix,
   });
 
-  let m = getDimensionSize(y, 1);
-  let n = getDimensionSize(X, 2);
+  let m = y.length;
+  let n = X[0].length;
 
   // Part 1: Cost Function and Gradient
 
@@ -354,12 +352,7 @@ Later on, the theta parameters of the hypothesis function will be trained by usi
 
 One step is missing, before implementing the cost function. The input matrix X needs to add an intercept term. Only that way the matrix operations work for the dimensions of theta and matrix X.
 
-{{< highlight javascript "hl_lines=3 12 13" >}}
-import {
-  getDimensionSize,
-  pushVector,
-} from 'mathjs-util';
-
+{{< highlight javascript "hl_lines=7 8" >}}
 function init(matrix) {
 
   ...
@@ -367,7 +360,7 @@ function init(matrix) {
   // Part 1: Cost Function and Gradient
 
   // Add Intercept Term
-  X = pushVector(X, 0, math.ones([m, 1]).valueOf());
+  X = math.concat(math.ones([m, 1]).valueOf(), X);
 
   let theta = Array(n + 1).fill().map(() => [0]);
   let cost = costFunction(theta, X, y);
@@ -381,7 +374,7 @@ Now let's implement the cost function. Basically you can split it up into two eq
 {{< highlight javascript "hl_lines=3 5 6 7 8 10 11 12 13 14" >}}
 function costFunction(theta, X, y) {
 
-  const m = getDimensionSize(y, 1);
+  const m = y.length;
 
   let h = math.eval(`X * theta`, {
     X,
@@ -409,7 +402,7 @@ function sigmoid(z) {
 
 function costFunction(theta, X, y) {
 
-  const m = getDimensionSize(y, 1);
+  const m = y.length;
 
   let h = sigmoid(math.eval(`X * theta`, {
     X,
@@ -448,7 +441,7 @@ function init(matrix) {
   // Part 1: Cost Function and Gradient
 
   // Add Intercept Term
-  X = pushVector(X, 0, math.ones([m, 1]).valueOf());
+  X = math.concat(math.ones([m, 1]).valueOf(), X);
 
   let theta = Array(n + 1).fill().map(() => [0]);
   let cost = costFunction(theta, X, y);
@@ -510,7 +503,7 @@ Last but not least, the gradient descent for the logistic regression needs to be
 
 {{< highlight javascript "hl_lines=2 4 5 6" >}}
 function gradientDescent(X, y, theta, ALPHA, ITERATIONS) {
-  const m = getDimensionSize(y, 1);
+  const m = y.length;
 
   for (let i = 0; i < ITERATIONS; i++) {
     ...
@@ -524,7 +517,7 @@ Second, it trains theta based on the training set, the learning rate, the previo
 
 {{< highlight javascript "hl_lines=7 8 9 10 11 12 13 14" >}}
 function gradientDescent(X, y, theta, ALPHA, ITERATIONS) {
-  const m = getDimensionSize(y, 1);
+  const m = y.length;
 
   for (let i = 0; i < ITERATIONS; i++) {
     ...
@@ -547,7 +540,7 @@ Third, the hypothesis function is missing. By using the sigmoid function to comp
 
 {{< highlight javascript "hl_lines=5 6 7 8" >}}
 function gradientDescent(X, y, theta, ALPHA, ITERATIONS) {
-  const m = getDimensionSize(y, 1);
+  const m = y.length;
 
   for (let i = 0; i < ITERATIONS; i++) {
     let h = sigmoid(math.eval(`X * theta`, {

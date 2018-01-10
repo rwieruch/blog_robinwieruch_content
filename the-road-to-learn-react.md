@@ -1,23 +1,23 @@
 +++
-title = "The Road to learn React"
-description = "The Road to learn React is your way to learn React.js by building a real world application. It's a huge tutorial where you will get a foundation in the fundamentals before you dive into more advanced topics..."
+title = "The Road to learn React [React.js Book]"
+description = "The Road to learn React book is your way to learn React.js by building a real world application. It's a huge tutorial where you will learn all the fundamentals in plain React before you dive into more advanced topics in React with Redux. Along the way, you will learn everything about JavaScript ES6 ..."
 date = "2017-10-17T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
-keywords = ["learn react", "react book", "react ebook"]
+keywords = ["learn react", "react book", "react ebook", "react.js book"]
 news_keywords = ["learn react"]
 hashtag = "#ReactJs"
 contribute = "the-road-to-learn-react.md"
 card = "img/posts/the-road-to-learn-react/banner_640.jpg"
 banner = "img/posts/the-road-to-learn-react/banner.jpg"
-headline = "The Road to learn React [eBook]"
+headline = "The Road to learn React [React.js Book]"
 
 summary = "The Road to learn React offers you a foundation before you start to dive into the more advanced React ecosystem. It has less tooling and less external state management, but more React. It explains general concepts and patterns."
 +++
 
 {{% pin_it_image "build own course platform" "img/posts/the-road-to-learn-react/banner.jpg" "is-src-set" %}}
 
-The Road to learn React teaches you the fundamentals of React. You will build a real world application along the way in plain React without complicated tooling. Everything from project setup to deployment on a server will be explained. The book comes with additional referenced reading material and exercises with each chapter. After reading the book, you will be able to build your own applications in React. The material is kept up to date by me, Robin Wieruch, and the community.
+The Road to learn React book teaches you the fundamentals of React. You will build a real world application along the way in plain React without complicated tooling. Everything from project setup to deployment on a server will be explained. The book comes with additional referenced reading material and exercises with each chapter. After reading the book, you will be able to build your own applications in React. The material is kept up to date by me, Robin Wieruch, and the community.
 
 In the Road to learn React, I want to offer a foundation before you start to dive into the broader React ecosystem. It has less tooling and less external state management, but a lot of information around React. It explains general concepts, patterns and best practices in a real world React application.
 
