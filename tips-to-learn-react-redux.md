@@ -17,11 +17,11 @@ summary = "I am doing React + Redux for quite some time now. My learnings are su
 
 {{% pin_it_image "learn react redux 2018" "img/posts/tips-to-learn-react-redux/banner.jpg" "is-src-set" %}}
 
-For quite some time now, I am implementing applications in React and Redux. Over the last years, I have written two ebooks about it and released a {{% a_blank "course platform" "https://roadtoreact.com/" %}} for learning React and its ecosystem. The course platform is even [built in React and Redux](https://www.robinwieruch.de/how-to-build-your-own-course-platform/). My personal learnings are subjective, but I thought they may help people to learn or advance in React and Redux as well. Redux is not strictly coupled to React, but it happens to be that a lot of people are using both libraries in combination.
+For quite some time now, I have been implementing applications in React and Redux. Over the last few years, I have written two ebooks about it and released a {{% a_blank "course platform" "https://roadtoreact.com/" %}} for learning React and its ecosystem. The course platform is even [built in React and Redux](https://www.robinwieruch.de/how-to-build-your-own-course-platform/). My personal learnings are subjective, but I thought they may help people to learn or advance in React and Redux as well. Redux is not strictly coupled to React, but it happens to be that a lot of people are using both libraries in combination.
 
-The article gives you recommendations to get started in React (and Redux) in 2018. I have written the article last year and a lot of people saw it as a helpful resource to get started with React and Redux. Now, I have updated it for you to dive into React this year.
+The article gives you recommendations to get started in React (and Redux) in 2018. I had written the article last year and a lot of people saw it as a helpful resource to get started with React and Redux. Now, I have updated it for you to dive into React this year.
 
-The article is opinionated, maybe it doesn't match every time your thoughts, but I hope to get feedback on it to improve myself as well. If you are not into React or Redux, you can still read the other part of the article. Feel free to give feedback, suggestions and improvements.
+The article is opinionated, it may not match your opinions or thoughts, but I hope to get feedback on it to improve myself as well. If you are not into React or Redux, you can still read the other part of the article. Feel free to give feedback, suggestions and improvements.
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
@@ -69,19 +69,19 @@ The article is opinionated, maybe it doesn't match every time your thoughts, but
 
 {{% header_with_anchor "Tips to learn React" "learn-react" %}}
 
-The section gives helpful advice to get you started in React. It should give a couple of answers to common questions such as: What are the requirements to learn React? What's the best starter project in React? And do I need to know about JavaScript ES6? You will find all the answers about those questions in the following section.
+This section gives helpful advice to get you started in React. It should give a couple of answers to common questions such as: What are the requirements to learn React? What's the best starter project in React? And do I need to know about JavaScript ES6? You will find all the answers about those questions in the following section.
 
 {{% chapter_header "Choosing a React Boilerplate Project" "react-boilerplate-project" %}}
 
-You are about to learn React? There are plenty of boilerplate projects out there to get you started with your first React application. A boilerplate project comes with its own opinionated tooling (Webpack, Babel, ...) and initial scaffold of the application with folders and files. You clone the repository from GitHub and run `npm install && npm start` on the command line to install and start the project. However, a custom boilerplate project adds a barrier to learn React itself. It is opinionated and thus every boilerplate project out there is different. So it became difficult to synchronize the learning experience of all React newcomers by just focusing on learning React instead of focusing on the different and opinionated tooling around it.
+So you are about to learn React? There are plenty of boilerplate projects out there to get you started with your first React application. A boilerplate project comes with its own opinionated tooling (Webpack, Babel, ...) and initial scaffold of the application with folders and files. You clone the repository from GitHub and run `npm install && npm start` on the command line to install and start the project. However, a custom boilerplate project adds a barrier to learn React itself. It is opinionated and thus every boilerplate project out there is different. So it became difficult to synchronize the learning experience of all React newcomers by just focusing on learning React instead of focusing on the different and opinionated tooling around it.
 
 So as a newcomer to React, you will not only have to deal with React but also with the tooling. Therefore my general advice for React newcomers is to avoid all the previously mentioned "custom" React boilerplate projects out there. It is already tough to learn React itself. So why should you bother with the tooling in the beginning? Especially when someone else has set up the tooling for you, it gets tough to make your own adjustments to it. Instead, it can kill your momentum when it comes to learn React in the first place. But which boilerplate project should you use to learn React then?
 
 The {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}} boilerplate project is the preferred way to bootstrap a new project in the React community. It is the official setup recommended by Facebook for React and it is a zero-configuration setup where all the tooling is hidden for you. You get a foundation to start your React application in a comfortable environment with the ability to just focus on learning React. A lot of people are using it nowadays to learn React. It gives this synchronization, where the tooling is shielded away for React learners, and they can focus together on just learning React.
 
-After a while, once you have learned the basic and advanced subjects in React (which takes a while, believe me), you may want to dig deeper and setup your own project without create-react-app. Then it is about time to get to know the tools around it. Eventually you will miss and install the tools in your own project that you have used in create-react-app. When you [setup your own project from scratch](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/), you get to know how the underlying things work together. It will maybe lead to your very own boilerplate project that you can reuse or others might reuse as well. That's how most of the custom boilerplate projects for React where created in the first place (e.g. {{% a_blank "React Boilerplate" "https://github.com/react-boilerplate/react-boilerplate" %}} by Max Stoiber). You can use boilerplate projects from other developers as blueprint to experiment for yourself. You can experiment with the tools in those projects, get to know which problem they might solve for you and use them yourself for your own (boilerplate) project.
+After a while, once you have learned the basic and advanced subjects in React (which takes a while, believe me), you may want to dig deeper and setup your own project without create-react-app. Then it is about time to get to know the tools around it. Eventually you will miss and install the tools in your own project that you have used in create-react-app. When you [setup your own project from scratch](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/), you get to know how the underlying things work together. Maybe it will lead to your very own boilerplate project that you can reuse or others might reuse as well. That's how most of the custom boilerplate projects for React were created in the first place (e.g. {{% a_blank "React Boilerplate" "https://github.com/react-boilerplate/react-boilerplate" %}} by Max Stoiber). You can use boilerplate projects from other developers as a blueprint to experiment for yourself. You can experiment with the tools in those projects, get to know which problem they might solve for you and use them yourself for your own (boilerplate) project.
 
-Here again those tips in a nutshell:
+Here are those tips again in a nutshell:
 
 * avoid custom boilerplate projects
 * instead use {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}} to focus on learning React
@@ -93,11 +93,11 @@ There are a couple of other "officially supported" boilerplate projects for Reac
 
 {{% chapter_header "Learn X before you learn Y" "learn-react-before" %}}
 
-There are not only things to learn in React, but also for the ecosystem around it. React is only a view layer library and thus you come across [the one or other library to complement your React application](https://www.robinwieruch.de/essential-react-libraries-framework/) eventually. It can be quite overwhelming, especially [when you come from a all-in-one framework solution such as Angular](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/). But you shouldn't see it as barrier to get started in React. You should embrace it as playground full of opportunities to complement your React application.
+There are not only things to learn in React, but also for the ecosystem around it. React is only a view layer library and thus you come across [other libraries to complement your React application](https://www.robinwieruch.de/essential-react-libraries-framework/) eventually. It can be quite overwhelming, especially [when you come from a all-in-one framework solution such as Angular](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/). But you shouldn't see it as barrier to get started in React. You should embrace it as playground full of opportunities to complement your React application.
 
-In general, you should learn plain React first and then learn more about the ecosystem around it. That's where React is X and its ecosystem is Y in the "Learn X before you learn Y"-equation. But it goes far deeper into the sole building blocks of each solution. You should experience how React and its ecosystem can help you to solve problems for you that would be difficult to address in vanilla JavaScript.
+In general, you should learn plain React first and then learn more about the ecosystem around it. That's where React is X and its ecosystem is Y in the "Learn X before you learn Y"-equation. But it goes far deeper into the sole building blocks of each solution. You should experience how React and its ecosystem can help you to solve problems that would be difficult to address in vanilla JavaScript.
 
-The ecosystem around React is huge since React is only a view library. There are a lot of opinions out there how to approach learning it. The general advice is to learn X before you learn Y. In the following list, you will find a couple of things to learn in React before you start to use another tool in the ecosystem:
+The ecosystem around React is huge since React is only a view library. There are a lot of opinions out there on how to approach learning it. The general advice is to learn X before you learn Y. In the following list, you will find a couple of things to learn in React before you start to use another tool in the ecosystem:
 
 * JSX syntax
 * [conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/)
@@ -114,13 +114,13 @@ The ecosystem around React is huge since React is only a view library. There are
 * [fetching data](https://www.robinwieruch.de/react-fetching-data/)
 * higher order components
 
-That's how you will learn about React in [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). The general advice is to learn React properly before you dive into the next topic. I guess there are way more "Learn X before learn Y", but you should always keep in mind: Don't learn everything at once.
+That's how you will learn about React in [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). The general advice is to learn React properly before you dive into the next topic. I guess there are way more "Learn X before you learn Y", but you should always keep in mind: Don't learn everything at once.
 
 {{% chapter_header "When and how to learn Redux?" "learn-redux-faq" %}}
 
 Learning is about keeping a [state of flow](https://www.robinwieruch.de/lessons-learned-deep-work-flow/). You need to adjust the challenges - the problems you are going to solve - to your level of skill. Only then you can grow your abilities with a stable momentum and enjoy learning. Otherwise, when setting the bar too high by learning too many things at once, you will get frustrated and quit.
 
-Too often React and Redux are learned together. That's not the best way to approach it. There is a high likelihood that it turns out to be too overwhelming because both of them come with their own individual principles. It is challenging to learn both at once and thus a lot of people quit learning React. Hence the common sense is to learn React first. You should feel comfortable in implementing applications in plain React. Embrace React's local state management and experience the problems that might be solved by a state management library.
+Too often React and Redux are learned together. That's not the best way to approach it. There is a high likelihood that it will turn out to be too overwhelming because both of them come with their own individual principles. It is challenging to learn both at once and thus a lot of people quit learning React. Hence the common sense is to learn React first. You should feel comfortable in implementing applications in plain React. Embrace React's local state management and experience the problems that might be solved by a state management library.
 
 There are many things to [learn in React before using Redux for the first time](https://www.robinwieruch.de/learn-react-before-using-redux/). For instance, did you know about [React's Provider Pattern](https://www.robinwieruch.de/react-provider-pattern-context/)? There are many ways in React to solve state management issues before using a library such as Redux. In general, before you introduce a state management library, using React's local state should become uncomfortable. You need to experience the problems in a scaling application when using only React's local state. Only by knowing about those problems, you will experience what a state management library such as Redux can do for you.
 
@@ -128,7 +128,7 @@ You can scale your React application a while before you run into state managemen
 
 {{% chapter_header "What about JavaScript ES6 and beyond?" "react-javascript-es" %}}
 
-React fully embraces JavaScript ES6. The latter comes with its own things you have to learn on your journey when learning about React. Again, it can be difficult to learn both subjects at once. However, since it feels natural to use JavaScript ES6 in React, I recommend to learn about JavaScript ES6 along the way when learning React. In "the Road to learn React", you will transition smoothly from JavaScript ES5 to JavaScript ES6 while implementing your first React application.
+React fully embraces JavaScript ES6. The latter comes with its own things you have to learn on your journey when learning about React. Again, it can be difficult to learn both subjects at once. However, since it feels natural to use JavaScript ES6 in React, I recommend learning about JavaScript ES6 along the way when learning React. In "the Road to learn React", you will transition smoothly from JavaScript ES5 to JavaScript ES6 while implementing your first React application.
 
 However, you could already learn ES6 in other JavaScript projects before using React. It isn't coupled to React at all. My recommendations:
 
@@ -140,7 +140,7 @@ However, you could already learn ES6 in other JavaScript projects before using R
 * when you are advanced in JavaScript
   * learn JavaScript ES6 along with React
 
-When learning React, you should know or learn about those JavaScript ES6 and beyond features along the way:
+When learning React, you should know or learn about these JavaScript ES6 and beyond features along the way:
 
 * const and let
 * arrow functions
@@ -188,17 +188,17 @@ That's why it makes so much sense to learn vanilla JavaScript before starting wi
 
 {{% chapter_header "What else to learn before starting with React?" "react-requirements" %}}
 
-Apart from having a basic understanding about HTML, CSS and JavaScript ES5, you should have a decent web development setup on your machine to support your workflow. At least, you will need a [terminal and editor (or IDE)](https://www.robinwieruch.de/developer-setup/). In addition, you can setup [Git and GitHub](https://www.robinwieruch.de/git-essential-commands/). It would help you to keep track of your own projects and to clone projects from other developers from GitHub to explore their applications.
+Apart from having a basic understanding about HTML, CSS and JavaScript ES5, you should have a decent web development setup on your machine to support your workflow. At the very least, you will need a [terminal and editor (or IDE)](https://www.robinwieruch.de/developer-setup/). In addition, you can setup [Git and GitHub](https://www.robinwieruch.de/git-essential-commands/). It would help you to keep track of your own projects and to clone projects from other developers from GitHub to explore their applications.
 
-When I learned JavaScript, there weren't much resources out there to learn about it. Nowadays, it is quite the opposite where it becomes difficult to choose a proper learning resource for JavaScript before learning React. There are a lot of high quality yet free resources out there to learn and advance in JavaScript. A couple of my favorites are {{% a_blank "Eloquent JavaScript" "https://eloquentjavascript.net/" %}}, {{% a_blank "You don't know JavaScript" "https://github.com/getify/You-Dont-Know-JS" %}} and {{% a_blank "MDN JavaScript documentation" "https://developer.mozilla.org/bm/docs/Web/JavaScript" %}}. But there are so many more.
+When I learned JavaScript, there weren't many resources out there to learn about it. Nowadays, it is quite the opposite where it becomes difficult to choose a proper learning resource for JavaScript before learning React. There are a lot of high quality yet free resources out there to learn and advance in JavaScript. A couple of my favorites are {{% a_blank "Eloquent JavaScript" "https://eloquentjavascript.net/" %}}, {{% a_blank "You don't know JavaScript" "https://github.com/getify/You-Dont-Know-JS" %}} and {{% a_blank "MDN JavaScript documentation" "https://developer.mozilla.org/bm/docs/Web/JavaScript" %}}. But there are so many more.
 
 {{% chapter_header "Excerpt: React Components" "react-components" %}}
 
-The following section is only one excerpt about a subject that you will learn in React: components. It is not exhaustive, but it should only demonstrate you how powerful yet fine nuanced working with React can be. Even though React is only a view layer library, it should make you aware about how fine-grained the library is in its usage. That's why it's recommended to learn plain React first. The following chapter gives you only an idea about React components.
+The following section is only one excerpt about a subject that you will learn in React: components. It is not exhaustive, but it should demonstrate how powerful yet fine nuanced working with React can be. Even though React is only a view layer library, it should make you aware about how fine-grained the library is in its usage. That's why it's recommended to learn plain React first. The following chapter gives you only an idea about React components.
 
 {{% sub_chapter_header "React Component Declarations" "react-component-declarations" %}}
 
-Often newcomers in React have a hard time with the different ways to declare a component. That's because there are tons of (outdated) articles out there using different component declarations. React evolved naturally over the time and thus it changed with recent JavaScript versions (e.g. JavaScript ES6). It's worth to have a look into React's history of component declarations.
+Often newcomers in React have a hard time with the different ways to declare a component. That's because there are tons of (outdated) articles out there using different component declarations. React evolved naturally over time and thus it changed with recent JavaScript versions (e.g. JavaScript ES6). It's worth taking a look at React's history of component declarations.
 
 {{< highlight javascript >}}
 // React.createClass
@@ -211,7 +211,7 @@ class TodoItem extends React.Component { ... }
 function TodoItem() { ... }
 {{< /highlight >}}
 
-There are React.createClass, React ES6 class components and functional stateless components. React components evolved from the former one to the latter one. Nowadays, only React ES6 class components and functional stateless components are used. So when to use which component declaration?
+There is React.createClass, React ES6 class components and functional stateless components. React components evolved from the former one to the latter one. Nowadays, only React ES6 class components and functional stateless components are used. So when do you use which component declaration?
 
 Functional stateless components have no lifecycle methods and thus no state at all. They are only functions that take state as input and have elements as output.
 
@@ -221,11 +221,11 @@ Functional stateless components have no lifecycle methods and thus no state at a
 
 They are the most lightweight component. They are only a function in JavaScript and don't add any boilerplate to the component. In addition, they don't hold any local state and you cannot access the properties of the component by using `this`. A good rule of thumb is to use functional stateless components whenever you can over ES6 class components.
 
-If you need to access a lifecycle method, need to hold local state (this.state) or need a [component reference](https://www.robinwieruch.de/react-ref-attribute-dom-node/) (this.ref), it would be the right time to use a React ES6 class component instead of a functional stateless component. There you have access to lifecycle methods and the local state of a component. It will often happen that a functional stateless component of yours will mature to an ES6 class component, because it needs to handle local state or needs to have access to lifecycle methods. But it can also evolve the other way around, from a ES6 class component to a functional stateless component, because you {{% a_blank "lift your state" "https://reactjs.org/docs/lifting-state-up.html" %}}.
+If you need to access a lifecycle method, need to hold local state (this.state) or need a [component reference](https://www.robinwieruch.de/react-ref-attribute-dom-node/) (this.ref), you would use a React ES6 class component instead of a functional stateless component. There you have access to lifecycle methods and the local state of a component. It will often happen that a functional stateless component of yours will mature into an ES6 class component, because it needs to handle local state or needs to have access to lifecycle methods. But it can also evolve the other way around, from a ES6 class component to a functional stateless component, because you {{% a_blank "lift your state" "https://reactjs.org/docs/lifting-state-up.html" %}}.
 
-After all you should avoid to use React.createClass. It was used in JavaScript ES5, but {{% a_blank "Facebook declared it as deprecated" "https://facebook.github.io/react/blog/2015/03/10/react-v0.13.html" %}} in favour of ES6 class components.
+After all, you should avoid using React.createClass. It was used in JavaScript ES5, but {{% a_blank "Facebook declared it as deprecated" "https://facebook.github.io/react/blog/2015/03/10/react-v0.13.html" %}} in favour of ES6 class components.
 
-I can recommend to read some very well written blog posts about React component declarations by {{% a_blank "James Nelson" "http://jamesknelson.com/should-i-use-react-createclass-es6-classes-or-stateless-functional-components/" %}} and by {{% a_blank "Todd Motto" "https://toddmotto.com/react-create-class-versus-component/" %}}.
+I can recommend reading some very well written blog posts about React component declarations by {{% a_blank "James Nelson" "http://jamesknelson.com/should-i-use-react-createclass-es6-classes-or-stateless-functional-components/" %}} and by {{% a_blank "Todd Motto" "https://toddmotto.com/react-create-class-versus-component/" %}}.
 
 {{% sub_chapter_header "Lightweight Functional Stateless Components" "lightweight-functional-stateless-components" %}}
 
@@ -294,7 +294,7 @@ const Button = ({ onClick, children }) =>
   </button>
 {{< /highlight >}}
 
-The conversion enforces to only have props as input and an element as output. Nothing in between. That makes the component even more lightweight. Still, you could do something in between by using a block body for your arrow function.
+The conversion enforces you to only have props as input and an element as output. Nothing in between. That makes the component even more lightweight. Still, you could do something in between by using a block body for your arrow function.
 
 {{< highlight javascript >}}
 const Button = ({ onClick, children }) => {
@@ -313,11 +313,11 @@ After all, JavaScript ES6 arrow functions help you to have even more lightweight
 
 {{% sub_chapter_header "Presenter and Container Components" "react-presenter-container-pattern" %}}
 
-In React a component is a representation of your state. It is a good approach to think of it as (State) => View. Additionally, a component can have event handler to change the state and trigger a re-rendering. Since the representation of the view derives from the state, the view changes when the state changes. I can recommend the Presenter and Container pattern for a scalable component hierarchy. While one part of the components represents the state, the other part derives and changes the state.
+In React a component is a representation of your state. It is a good approach to think of it as (State) => View. Additionally, a component can have event handlers to change the state and trigger a re-rendering. Since the representation of the view derives from the state, the view changes when the state changes. I can recommend the Presenter and Container pattern for a scalable component hierarchy. While one part of the component represents the state, the other part derives and changes the state.
 
-In presenter components, you avoid to have any logic. Keep your components dumb and only pass properties and callbacks to them. Most of your components don't need to know everything. These components should be most of the time functional stateless components. You can keep them pure and remove any side effects. A pure component means that the view will be always the same when using the same props as input.
+In presenter components, you should avoid adding any logic. Keep your components dumb and only pass properties and callbacks to them. Most of your components don't need to know everything. These components should most of the time be functional, stateless components. You can keep them pure and remove any side effects. A pure component means that the view will be always the same when using the same props as input.
 
-In container components, you prepare the data and callbacks for your presenter components. Even more you can pass dependencies or business logic to your presenter components. Container components are most of the time ES6 class components which handle lifecycle methods or manage local state.
+In container components, you prepare the data and callbacks for your presenter components. You can even pass dependencies or business logic to your presenter components. Container components are most of the time ES6 class components which handle lifecycle methods or manage local state.
 
 In Redux, a more specific name for a container component is a connected component. These components are connected to the Redux store to derive and manipulate state via the Redux store.
 
@@ -325,19 +325,19 @@ Container components care about how things work. Presenter components care about
 
 {{% sub_chapter_header "When to use Container Components" "react-container-components" %}}
 
-You are using the Presenter and Container Components, but you are not sure when to use which component? I can recommend to start with a Container Component at the top of your application as parent component followed by a bunch of Presenter Components as child components. While the parent component cares about how things work, all children care about how things look. After a while, you will notice that you pass too much properties and callbacks from the parent component to its children. Moreover, you pass most of the things several component layers down. Then it's time to introduce Container Components in between your Presenter Components.
+You are using Presenter and Container Components, but not sure when to use which component? I can recommend starting with a Container Component at the top of your application as parent component followed by a bunch of Presenter Components as child components. While the parent component cares about how things work, all children care about how things look. After a while, you will notice that you pass too many properties and callbacks from the parent component to its children. Moreover, you pass most of the things several component layers down. Then it's time to introduce Container Components in between your Presenter Components.
 
-It's a good rule of thumb in general to stick to presenter components and add only a bunch of container components later on. But where to put the container components?
+It's a good rule of thumb in general to stick to Presenter Components and add only a bunch of Container Components later on. But where do you put the container components?
 
-**Rule of thumb 1**: If your parent Container Component deals with state alone, you can evaluate your Presenter Component hierarchy below. You might notice that a subtree of your presenter components deals with a substate which is not used by other components. Find the parent component of this subtree and give it a Container Component to deal with the state management of the subtree. Your parent Container Component will get lighter, because it doesn't have to deal with all of the state.
+**Rule of thumb 1**: If your parent Container Component deals with state alone, you can evaluate your Presenter Component hierarchy below. You might notice that a subtree of your Presenter Components deals with a substate which is not used by other components. Find the parent component of this subtree and give it a Container Component to deal with the state management of the subtree. Your parent Container Component will get lighter, because it doesn't have to deal with all of the state.
 
-**Rule of thumb 2**: Some of your presenter components might get a bunch of well prepared properties or callbacks for only themselves. Start to give them a Container Component to deal with the logic and make your parent Container Component more lightweight again.
+**Rule of thumb 2**: Some of your Presenter Components might get a bunch of well prepared properties or callbacks for only themselves. Start to give them a Container Component to deal with the logic and make your parent Container Component more lightweight again.
 
 {{% sub_chapter_header "Write your first higher order component" "react-higher-order-components" %}}
 
 Imagine you want to display a list of items, but you have to fetch the items asynchronously first. Now you will need a loading indicator to show your pending request. After the request resolves, you show the list of items. Dan Abramov explains in an {{% a_blank "egghead.io" "https://egghead.io/lessons/javascript-redux-displaying-loading-indicators?course=building-react-applications-with-idiomatic-redux" %}} lesson how this works.
 
-But you could go one step further by introducing your first higher order component. A [higher order components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/) (HOC) returns a component with enhanced functionality. Your HOC could have the name `withLoadingSpinner` and your component to enhance could be `ListItems`. The enhanced version of the component shows either a loading indicator or the list items.
+But you could go one step further by introducing your first higher order component. A [higher order component](https://www.robinwieruch.de/gentle-introduction-higher-order-components/) (HOC) returns a component with enhanced functionality. Your HOC could have the name `withLoadingSpinner` and your component to enhance could be `ListItems`. The enhanced version of the component shows either a loading indicator or the list items.
 
 {{< highlight javascript >}}
 // HOC declaration
@@ -370,7 +370,7 @@ Higher order components are powerful. You should use them with purpose. Always r
 
 {{% sub_chapter_header "Conditional Style in React" "react-conditional-style" %}}
 
-Maybe you came across the problem to have conditional class attributes in your React components. It would look similar to the following:
+Maybe you came across the problem of having conditional class attributes in your React components. It would look similar to the following:
 
 {{< highlight javascript >}}
 var buttonClasses = ['button'];
@@ -395,21 +395,21 @@ var buttonClasses = classNames(
 <button className={buttonClasses} />
 {{< /highlight >}}
 
-It becomes effortless to apply conditional style on elements.
+It becomes effortless to apply conditional styles on elements.
 
 {{% sub_chapter_header "Animations in React" "react-animations" %}}
 
-I was hooked when I saw {{% a_blank "an animation in React" "http://chenglou.github.io/react-motion/demos/demo8-draggable-list/" %}} for the first time. There are a couple of libraries out there helping you with animations in React. For instance, {{% a_blank "React Motion" "https://github.com/chenglou/react-motion" %}} gives you a toolkit to implement animations in React. Personally I found the learning curve pretty steep and I struggle every time again when I use it, but it pays off once you see your first smooth drag and drop animation.
+I was hooked when I saw {{% a_blank "an animation in React" "http://chenglou.github.io/react-motion/demos/demo8-draggable-list/" %}} for the first time. There are a couple of libraries out there that help you with animations in React. For instance, {{% a_blank "React Motion" "https://github.com/chenglou/react-motion" %}} gives you a toolkit to implement animations in React. Personally I found the learning curve pretty steep and I struggle every time again I use it, but it pays off once you see your first smooth drag and drop animation.
 
 {{% chapter_header "Resources to learn React" "learn-react-resources" %}}
 
-After all, how to start learning React? What are the best courses, tutorials and books out there? Personally, I recommend everyone to go through the {{% a_blank "official React documentation and tutorial" "https://reactjs.org/docs/hello-world.html" %}}. The maintainers and contributors of React improve it every day and put a lot of effort into it. So it should be a great way to get a first impression about React before choosing it as your next thing to learn.
+After all, how do you start learning React? What are the best courses, tutorials and books out there? Personally, I recommend everyone work through the {{% a_blank "official React documentation and tutorial" "https://reactjs.org/docs/hello-world.html" %}}. The maintainers and contributors of React improve it every day and put a lot of effort into it. So it should be a great way to get a first impression about React before choosing it as your next thing to learn.
 
-After that, to get an broader impression about React, checkout the free ebook {{% a_blank "The Road to learn React" "https://roadtoreact.com/" %}}. It teaches plain React by building one larger React application from scratch; basically from idea to deployment. Along the way, you transition smoothly from JavaScript ES5 to JavaScript ES6. I am biased here, because I have written the ebook, but I am proud to see a lot of people learning React with it. So far, more than 14.500 people downloaded it and at this time it gets translated into 6 languages (Portuguese, Spanish, Korean, Italian, Russian, Simplified Chinese). It evolved over the last year from 90 to 190 pages and gets improved by me and the community as often as possible. Thus after only 12 months, it is in its 4th edition.
+After that, to get a broader impression about React, check out the free ebook {{% a_blank "The Road to learn React" "https://roadtoreact.com/" %}}. It teaches plain React by building one larger React application from scratch; basically from idea to deployment. Along the way, you transition smoothly from JavaScript ES5 to JavaScript ES6. I am biased here, because I have written the ebook, but I am proud to see a lot of people learning React with it. So far, more than 14.500 people downloaded it and at this time it has been translated into 6 languages (Portuguese, Spanish, Korean, Italian, Russian, Simplified Chinese). It evolved over the last year from 90 to 190 pages and gets improved by me and the community as often as possible. Thus after only 12 months, it is in its 4th edition.
 
 {{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>14.500+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
-It shouldn't take you too long to get through the ebook. After that, you can expose yourself to more React by taking other courses or by building a couple of applications in plain React yourself. Once you finished "The Road to learn React", I give a couple of recommendations how to continue learning React. The most important tip: Build things yourself before you dive into the next topic. Programming is about getting your hands dirty and not only reading and watching tutorials :-)
+It shouldn't take you too long to get through the ebook. After that, you can expose yourself to more React by taking other courses or by building a couple of applications in plain React yourself. Once you have finished "The Road to learn React", I give a couple of recommendations on how to continue learning React. The most important tip: Build things yourself before you dive into the next topic. Programming is about getting your hands dirty and not only reading and watching tutorials :-)
 
 {{% header_with_anchor "Tips to learn Redux" "learn-redux" %}}
 
@@ -417,9 +417,9 @@ React and Redux are often used together. Redux is the successor of the flux patt
 
 Before we dive into Redux, I just wanted to add the phrase: "You might not need a state management library". Everyone is speaking about state management libraries like Redux and MobX. Don't introduce them too early. You should read {{% a_blank "You might not need Redux" "https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367" %}} by Dan Abramov.
 
-You are still learning React? Then you are surely using `this.setState()` and `this.state` to manage your local state. Once you feel comfortable in using React's local state management, you might come across problems like sharing state across multiple components when your application becomes larger. Even then you don't necessarily need an external state management library to deal with the problem. For instance, you can {{% a_blank "lift state up or down" "https://facebook.github.io/react/docs/lifting-state-up.html" %}} to share state across components.
+Are you still learning React? Then you are surely using `this.setState()` and `this.state` to manage your local state. Once you feel comfortable in using React's local state management, you might come across problems like sharing state across multiple components when your application becomes larger. Even then you don't necessarily need an external state management library to deal with the problem. For instance, you can {{% a_blank "lift state up or down" "https://facebook.github.io/react/docs/lifting-state-up.html" %}} to share state across components.
 
-In a growing application, there will come the time to introduce a state management library eventually. A part of the article [Redux or MobX: An attempt to dissolve the Confusion](https://www.robinwieruch.de/redux-mobx-confusion/) covers how to approach to learn state management in React. The following sections will give you a couple of hints on how to use Redux in React.
+In a growing application, there will come the time to introduce a state management library eventually. A part of the article [Redux or MobX: An attempt to dissolve the Confusion](https://www.robinwieruch.de/redux-mobx-confusion/) covers how to approach learning state management in React. The following sections will give you a couple of hints on how to use Redux in React.
 
 {{% chapter_header "Global State Everything" "redux-global-state" %}}
 
@@ -427,7 +427,7 @@ Not everything belongs in your global Redux state. Components should hold local 
 
 {{% chapter_header "Folder Organization" "redux-folder-organization" %}}
 
-There are many different approaches for organizing your folder in a React and Redux application. However, there is no silver bullet. You should read a couple of articles about the topic but then go with the solution that fits best to your and your teams needs. If you are looking for an article about the topic, I can highly recommend the one by {{% a_blank "Jack Hsu" "http://jaysoo.ca/2016/02/28/organizing-redux-application/" %}} which suggests a way to organize your code in a scaling application. It can be boiled down to two key takeaways.
+There are many different approaches for organizing your folder in a React and Redux application. However, there is no silver bullet. You should read a couple of articles about the topic but then go with the solution that fits best with you and your team's needs. If you are looking for an article about the topic, I can highly recommend the one by {{% a_blank "Jack Hsu" "http://jaysoo.ca/2016/02/28/organizing-redux-application/" %}} which suggests a way to organize your code in a scaling application. It can be boiled down to two key takeaways.
 
 ### First key takeaway: folder organization by feature.
 
@@ -449,7 +449,7 @@ message/
 --actions.js
 {{< /highlight >}}
 
-If you are looking for a more elaborated example with container, presenter and test files, checkout the following feature folder organization.
+If you are looking for a more elaborate example with container, presenter and test files, checkout the following feature folder organization.
 
 {{< highlight javascript >}}
 message/
@@ -473,7 +473,7 @@ I know for sure that not everyone agrees with the feature folder approach. Espec
 
 ### Second key takeaway: clear boundaries of feature modules.
 
-A module should always have an index.js file as entry point. The index.js only exposes an [API](https://www.robinwieruch.de/what-is-an-api-javascript/) which should be public to other modules. In React + Redux an index.js file could export container components, maybe presenter components, action creators to be called from somewhere else and last but not least the reducer. In the more elaborated example, you would have to add an index.js file at the top. Maybe also in our component folders as well.
+A module should always have an index.js file as entry point. The index.js only exposes an [API](https://www.robinwieruch.de/what-is-an-api-javascript/) which should be public to other modules. In React + Redux an index.js file could export container components, maybe presenter components, action creators to be called from somewhere else and last but not least the reducer. In the more elaborate example, you would have to add an index.js file at the top. Maybe in our component folders as well.
 
 {{< highlight javascript "hl_lines=2 5 9" >}}
 message/
@@ -524,23 +524,23 @@ Both key takeaways, feature modules and clear boundaries, help you to organize y
 
 Naming can be one of the most difficult things in software engineering. A proper naming convention is said to be a best practice to have maintainable and comprehensive code. React + Redux are not opinionated about the naming of components and functions. Whether your function is a reducer or component, is an action creator or selector - you should have a naming convention for it. You should have it before your application gets larger, otherwise you end up with untraceable callbacks and messy refactorings.
 
-I am used to have a prefix for each type of function. For instance, take the scenario where you can write a reply to a message in an application. In a component, a callback comes with the little word `on` as prefix (onCreateReply). The prefix in a reducer to change the state is `apply` (applyCreateReply), in a selector it is `get` (getReply) and in a action creator it is `do` (doCreateReply). You don't need to follow these recommendations, but I would suggest to follow your own naming conventions at least for these different types of functions in your React and Redux application. This way, you will know on first sight if a function is a reducer or selector.
+I am used to having a prefix for each type of function. For instance, take the scenario where you can write a reply to a message in an application. In a component, a callback comes with the little word `on` as prefix (onCreateReply). The prefix in a reducer to change the state is `apply` (applyCreateReply), in a selector it is `get` (getReply) and in an action creator it is `do` (doCreateReply). You don't need to follow these recommendations, but I would suggest following your own naming conventions at least for these different types of functions in your React and Redux application. This way, you will know on first sight if a function is a reducer or selector.
 
 {{% chapter_header "Tracing State Changes" "tracing-redux-state-changes" %}}
 
-In a growing application with plenty of actions you want to have traceable state changes. One neat helper to see all of your state changes is {{% a_blank "redux-logger" "https://github.com/evgenyrodionov/redux-logger" %}}. Each logging shows the previous state, the action and the next state in your developer console. But you want to ensure that your actions are recognizable. Therefore I recommend to have prefixes for your action types to group them in domains.
+In a growing application with plenty of actions, you want to have traceable state changes. One neat helper to see all of your state changes is {{% a_blank "redux-logger" "https://github.com/evgenyrodionov/redux-logger" %}}. Each logging shows the previous state, the action and the next state in your developer console. But you want to ensure that your actions are recognizable. Therefore I recommend having prefixes for your action types to group them in domains.
 
 {{< highlight javascript >}}
 const MESSAGE_CREATE_REPLY = 'message/CREATE_REPLY';
 {{< /highlight >}}
 
-Now whenever you create a message reply, you will see the logging `message/CREATE_REPLY`. In case of a bug your state management, you can quickly trace the erroneous state change.
+Now whenever you create a message reply, you will see the logging `message/CREATE_REPLY`. In case of a bug in your state management, you can quickly trace the erroneous state change.
 
 {{% chapter_header "Keep Your State Flat" "redux-flat-state" %}}
 
-In Redux you want to have a flat state. It keeps your reducers simple, because you don't need to change properties deep down in your state object. It would be easy when you you be allowed to mutate your state directly. But you are not allowed to do so in Redux, because the state is immutable.
+In Redux you want to have a flat state. It keeps your reducers simple, because you don't need to change properties deep down in your state object. It would be easy to mutate your state directly. But you are not allowed to do so in Redux, because the state is immutable.
 
-It happens often that you only implement the frontend application and you need to deal with backend data structures as they come. Sometimes entities are nested into each other. Imagine a list of blog post entities, which can have an author entity and a list of comment entities.
+It often happens that you only implement the frontend application and need to deal with backend data structures as they come. Sometimes entities are nested into each other. Imagine a list of blog post entities, which can have an author entity and a list of comment entities.
 
 {{< highlight javascript >}}
 {
@@ -551,7 +551,7 @@ It happens often that you only implement the frontend application and you need t
 }
 {{< /highlight >}}
 
-In an elaborated structure, most of the entities will come with an id.
+In an elaborate structure, most of the entities will come with an id.
 
 {{< highlight javascript >}}
 {
@@ -595,11 +595,11 @@ It makes sense to normalize the data to flatten the state structure. The normali
 }
 {{< /highlight >}}
 
-The data structure is not deeply nested anymore. It is easy to keep it immutable while you apply changes. {{% a_blank "Normalizr" "https://github.com/paularmstrong/normalizr" %}} is a powerful library, which helps you to normalize your data.
+The data structure is not deeply nested anymore. It is easy to keep it immutable while you apply changes. {{% a_blank "Normalizr" "https://github.com/paularmstrong/normalizr" %}} is a powerful library, which helps you normalize your data.
 
 {{% chapter_header "Single Source of Truth" "redux-single-source-of-truth" %}}
 
-Normalized data helps you to keep your state in sync. Imagine again the backend request returns a deeply nested data structure of blog posts. A blog post has an author, a list of comments, but this time each comment has an author as well. The comment author can be the same as the post author.
+Normalized data helps you to keep your state in sync. Imagine again that the backend request returns a deeply nested data structure of blog posts. A blog post has an author, a list of comments, but this time each comment has an author as well. The comment author can be the same as the post author.
 
 {{< highlight javascript >}}
 {
@@ -632,7 +632,7 @@ When you treat your data as normalized data, the author is only one entity. It d
 }
 {{< /highlight >}}
 
-Since your blog posts and comments still have the author ids as reference, it is fairly easy to display the author in the lists of blog posts and comments.
+Since your blog posts and comments still have the author ids as a reference, it is fairly easy to display the author in the lists of blog posts and comments.
 
 Whenever you modify the author, all references will get updated. Imagine you could follow an author. You can easily update the one entity - the single source of truth.
 
@@ -649,7 +649,7 @@ All author representations in your lists of blog posts and comments are updated,
 
 {{% chapter_header "Redux Selectors" "redux-selectors" %}}
 
-You don't use selectors yet? It is totally fine to have little business logic in `mapStateToProps` when using Redux.
+Don't use selectors yet? It is totally fine to have a little business logic in `mapStateToProps` when using Redux.
 
 {{< highlight javascript >}}
 function mapStateToProps(state) {
@@ -673,7 +673,7 @@ function mapStateToProps(state) {
 };
 {{< /highlight >}}
 
-Later you could have a look into {{% a_blank "reselect" "https://github.com/reactjs/reselect" %}}. It helps you to compute derived data from your state and gives your application a performance boost. Selectors come with the following benefits:
+Later you could have a look at {{% a_blank "reselect" "https://github.com/reactjs/reselect" %}}. It helps you compute derived data from your state and gives your application a performance boost. Selectors come with the following benefits:
 
 * Selectors can compute derived data, allowing Redux to store the minimal possible state.
 * Selectors are composeable. They can be used as input to other selectors.
@@ -681,7 +681,7 @@ Later you could have a look into {{% a_blank "reselect" "https://github.com/reac
 
 {{% chapter_header "Refactor, refactor, refactor" "react-refactor" %}}
 
-There will come a time when you only want to refactor your code. It doesn't matter if you are only using React, React and Redux or some other library or framework. Everyday you will learn a more elegant way of writing your code or a novel pattern to apply.
+There will come a time when you want to refactor your code. It doesn't matter if you are only using React, React and Redux or some other library or framework. Everyday you will learn a more elegant way of writing your code or a novel pattern to apply.
 
 Once you have a larger component tree in React, you may see patterns to distribute containers among presenters in a more elegant way. You will see abstractions in container and presenter relationships and vice versa. If you didn't apply proper naming conventions in your code base, you may want to introduce them now.
 
@@ -697,25 +697,25 @@ Redux is a great library to experience different paradigms and technologies. In 
 * {{% a_blank "Redux Observable" "https://github.com/redux-observable/redux-observable" %}} - Observables
 * {{% a_blank "Redux Loop" "https://github.com/redux-loop/redux-loop" %}} - Elm Effects
 
-As a beginner, it makes sense to stick with Redux Thunk. As you advance in the ecosystem, you could have a look at other libraries. Redux Saga is one of the most adopted approaches. But also Observables are used more often. Overall the Redux ecosystem itself is a perfect place to explore the JavaScript ecosystem with all its different flavors.
+As a beginner, it makes sense to stick with Redux Thunk. As you advance in the ecosystem, you could have a look at other libraries. Redux Saga is one of the most adopted approaches. But Observables are also used more often. Overall the Redux ecosystem itself is a perfect place to explore the JavaScript ecosystem with all its different flavors.
 
 {{% chapter_header "Learn about implementation details of Redux" "redux-implementation" %}}
 
-The whole Redux source code isn't much to read. Once you are familiar with Redux, you should give it a shot to read the source code.
+The whole Redux source code isn't much to read. Once you are familiar with Redux, you should give reading the source code a shot.
 
 In the beginning it may be easier to get started by watching the {{% a_blank "Getting Started with Redux" "https://egghead.io/courses/getting-started-with-redux" %}} video series by Dan Abramov. For instance, in one video he explains {{% a_blank "how to implement the createStore from scratch" "https://egghead.io/lessons/javascript-redux-implementing-store-from-scratch?course=getting-started-with-redux" %}}, while another one explains {{% a_blank "how to implement combineReducers from scratch" "https://egghead.io/lessons/javascript-redux-implementing-combinereducers-from-scratch?course=getting-started-with-redux" %}}.
 
-In the second video series {{% a_blank "Building React Applications with Idiomatic Redux" "https://egghead.io/courses/building-react-applications-with-idiomatic-redux" %}} by Dan Abramov you will learn {{% a_blank "how to implement an own middleware from scratch" "https://egghead.io/lessons/javascript-redux-wrapping-dispatch-to-log-actions" %}}. Once you have your own middleware implemented, you want to {{% a_blank "let your store know about it" "https://egghead.io/lessons/javascript-redux-the-middleware-chain" %}}. After that you get to know that there is already a Redux helper {{% a_blank "applyMiddleware" "https://egghead.io/lessons/javascript-redux-applying-redux-middleware" %}} to wire all your middleware to your store.
+In the second video series {{% a_blank "Building React Applications with Idiomatic Redux" "https://egghead.io/courses/building-react-applications-with-idiomatic-redux" %}} by Dan Abramov you will learn {{% a_blank "how to implement your own middleware from scratch" "https://egghead.io/lessons/javascript-redux-wrapping-dispatch-to-log-actions" %}}. Once you have your own middleware implemented, you want to {{% a_blank "let your store know about it" "https://egghead.io/lessons/javascript-redux-the-middleware-chain" %}}. After that you get to know that there is already a Redux helper {{% a_blank "applyMiddleware" "https://egghead.io/lessons/javascript-redux-applying-redux-middleware" %}} to wire all your middleware to your store.
 
-Both video series will not only help you to learn Redux, they will also help you to learn about the inner workings of Redux. After that you are prepared to dive into the {{% a_blank "source code" "https://github.com/reactjs/redux/tree/master/src" %}} of Redux to learn about its implementation details.
+Both video series will not only help you to learn Redux, they will also help you learn about the inner workings of Redux. After that you are prepared to dive into the {{% a_blank "source code" "https://github.com/reactjs/redux/tree/master/src" %}} of Redux to learn about its implementation details.
 
 {{% header_with_anchor "Tips for Testing" "react-redux-testing" %}}
 
-There exist some tool combinations to test your JavaScript code nowadays. It can be Mocha/Chai or Karma/Jasmine. The latter can be found a lot when testing Angular code, the former you will find when testing React apps. Airbnb introduced a popular library to test React components called {{% a_blank "enzyme" "https://github.com/airbnb/enzyme" %}}. Another way to test is {{% a_blank "Jest" "https://github.com/facebook/jest" %}} by Facebook.
+There are some tool combinations that allow you to test your JavaScript code nowadays. These can be Mocha/Chai or Karma/Jasmine. The latter can often be found when testing Angular code, the former you will find when testing React apps. Airbnb introduced a popular library to test React components called {{% a_blank "enzyme" "https://github.com/airbnb/enzyme" %}}. Another way to test is {{% a_blank "Jest" "https://github.com/facebook/jest" %}} by Facebook.
 
 A lot of people think you should use one or the other, but you can use enzyme and Jest together. Especially the snapshot testing in Jest complements enzyme. Both libraries are the de facto standard in testing React applications. {{% a_blank "Sinon" "https://github.com/sinonjs/sinon" %}} is another great addition to spy, mock and stub functions in your tests.
 
-I can only recommend to read some articles about testing like the one by {{% a_blank "A. Sharif" "https://medium.com/javascript-inside/some-thoughts-on-testing-react-redux-applications-8571fbc1b78f#.xqqvl4os4" %}}.
+I can only recommend reading some articles about testing like the one by {{% a_blank "A. Sharif" "https://medium.com/javascript-inside/some-thoughts-on-testing-react-redux-applications-8571fbc1b78f#.xqqvl4os4" %}}.
 
 {{% chapter_header "Unit test often, integration test rarely your components" "react-test-often" %}}
 
@@ -736,17 +736,17 @@ I very much like the rules of thumb by {{% a_blank "Geoffroy Warin" "https://git
 
 Keep your tests minimal and simple. Otherwise you will end up with high maintenance costs. Check if a component renders in a unit test. Check if the correct props and callbacks reach a child component in an integration test. In order to keep your component tests minimal and simple, you have to be familiar with your component selectors. For instance, enzyme offers a {{% a_blank "range of selectors" "http://airbnb.io/enzyme/docs/api/selector.html" %}} to dive into your component tree.
 
-Test callbacks with a library such as Sinon. Avoid to test business logic in components, since this might be not the best place for the logic anyways. This logic should be placed in service and thus would be decoupled from the component. It can be tested standalone.
+Test callbacks with a library such as Sinon. Avoid testing business logic in components, since this might be not the best place for the logic anyway. This logic should be placed in a service and thus would be decoupled from the component. It can be tested standalone.
 
 After all Facebook introduced Jest to keep your tests lightweight in the first place. You can easily set up a Snapshot test. Then the test will fail when the component output changes. You can either accept the change or investigate in the error.
 
 {{% chapter_header "Embrace TDD in React and Redux" "react-redux-tdd" %}}
 
-Everyone is saying that you should do test-driven development (TDD), but nobody is doing it. I think that once you found out how to test each part in your React + Redux application, you can easily apply TDD. You will notice that a reducer test reads differently than a component test, but each type (reducer, component, ...) of test will always follow the same test pattern.
+Everyone is saying that you should do test-driven development (TDD), but nobody is doing it. I think that once you find out how to test each part of your React + Redux application, you can easily apply TDD. You will notice that a reducer test reads differently than a component test, but each type (reducer, component, ...) of test will always follow the same test pattern.
 
 Take a reducer test for instance, where you always want to expect that `reducer(state, action) === newState`. The pattern is always the same: `(input) => output` without side effects. The test has an initial state, an action with action type and payload and an expected new state.
 
-Additionally the test has to make sure that the state is immutable - I recommend to use a helper like {{% a_blank "deep-freeze" "https://github.com/substack/deep-freeze" %}}. In pseudo code the test would always read like the following:
+Additionally the test has to make sure that the state is immutable - I recommend using a helper like {{% a_blank "deep-freeze" "https://github.com/substack/deep-freeze" %}}. In pseudo code the test would always read like the following:
 
 {{< highlight javascript >}}
 const initialState = { ... };
@@ -758,7 +758,7 @@ deepFreeze(initialState);
 expect(reducer(initialState, action)).to.equal(expectedState);
 {{< /highlight >}}
 
-Once you know the test patterns for each part in your app, you should apply TDD. People tend to use code snippets for that task, which I can totally recommend. Add a snippet for each test part, like the one blueprint from above for reducer tests, in your app.
+Once you know the test patterns for each part in your app, you should apply TDD. People tend to use code snippets for that task, which I can totally recommend. Add a snippet for each test part, like the one from the blueprint above for reducer tests, in your app.
 
 {{% chapter_header "Test Multiple React Components" "export-multiple-react-components" %}}
 
@@ -770,19 +770,19 @@ In the end, I have some general recommendations for the React and Redux environm
 
 {{% chapter_header "Team On-boarding" "react-team-on-boarding" %}}
 
-Your whole team is new to React?
+Is your whole team new to React?
 
 Since React is a library, but the ecosystem around it could be seen as flexible framework, don't add extensions too fast. Every time you introduce a new module, raise awareness in your team. Especially when coming to the Redux ecosystem itself, there is an overwhelming amount of smaller modules. For instance:
 
-* Don't add {{% a_blank "redux-actions" "https://github.com/acdlite/redux-actions" %}} before people wrote their own action creators and reducers
-* Don't add {{% a_blank "redux-forms" "https://github.com/erikras/redux-form" %}} before people wrote at least one own form and validation
-* Don't add {{% a_blank "reselect" "https://github.com/reactjs/reselect" %}} before people wrote their own selectors
-* Don't add {{% a_blank "recompose" "https://github.com/acdlite/recompose" %}} before people wrote their first HOC
+* Don't add {{% a_blank "redux-actions" "https://github.com/acdlite/redux-actions" %}} before people have written their own action creators and reducers
+* Don't add {{% a_blank "redux-forms" "https://github.com/erikras/redux-form" %}} before people have written at least one form and validation
+* Don't add {{% a_blank "reselect" "https://github.com/reactjs/reselect" %}} before people have written their own selectors
+* Don't add {{% a_blank "recompose" "https://github.com/acdlite/recompose" %}} before people have written their first HOC
 * ...
 
 Follow best practices by thought leaders. Establish your own best practices. But make sure that everyone understands them. Define clear naming conventions and folder structures. Don't discuss those topics too late in the migration phase. Moreover address certain topics more in depth. For instance: *Which Redux side-effect library do you want to use?*
 
-You can explore observables or generators, but not everyone might be aware of these novel features in JavaScript. Make sure that everyone is fine to use it. Otherwise you will only end up to add another level of complexity by using generators or observables.
+You can explore observables or generators, but not everyone might be aware of these novel features in JavaScript. Make sure that everyone is fine using it. Otherwise you will only end up adding another level of complexity by using generators or observables.
 
 {{% chapter_header "Stay Curious" "react-stay-curious" %}}
 
@@ -790,29 +790,29 @@ In the React + Redux ecosystem, there is a set of great contributors who embrace
 
 {{% chapter_header "Dive into other Environments" "react-ecosystem" %}}
 
-The ecosystem offers so much more. You are already familiar in React? Start to build your first mobile application with {{% a_blank "React Native" "https://github.com/facebook/react-native" %}} or your first desktop application with {{% a_blank "Electron" "https://github.com/electron/electron" %}}. The possibilities are endless, but don't overwhelm yourself when you are a beginner.
+The ecosystem offers so much more. Are you already familiar in React? Start building your first mobile application with {{% a_blank "React Native" "https://github.com/facebook/react-native" %}} or your first desktop application with {{% a_blank "Electron" "https://github.com/electron/electron" %}}. The possibilities are endless, but don't overwhelm yourself when you are a beginner.
 
 {{% chapter_header "No Silver Bullet" "react-redux-silver-bullet" %}}
 
-React or Redux are not the silver bullets for everything. There are other solutions to give a shot. Don't see React + Redux as dogma. Both are exchangeable. MobX can be [an alternative to Redux for state management](https://www.robinwieruch.de/redux-mobx-confusion/). In a larger code base it is still possible to {{% a_blank "exchange the state management layer, e.g. from Redux to MobX" "https://github.com/rwieruch/favesound-mobx/pull/1" %}}.
+React or Redux are not the silver bullets for everything. There are other solutions to try. Don't see React + Redux as dogma. Both are exchangeable. MobX can be [an alternative to Redux for state management](https://www.robinwieruch.de/redux-mobx-confusion/). In a larger code base it is still possible to {{% a_blank "exchange the state management layer, e.g. from Redux to MobX" "https://github.com/rwieruch/favesound-mobx/pull/1" %}}.
 
 React is only the view layer. You can exchange it with other solutions such as {{% a_blank "Preact" "https://preactjs.com/" %}} or {{% a_blank "Inferno" "https://github.com/infernojs/inferno" %}}.
 
-After all this shows the ultimate power of the whole ecosystem which contains building blocks as solutions for different problems.
+After all, this shows the ultimate power of the whole ecosystem which contains building blocks and solutions for different problems.
 
 {{% chapter_header "React Style Guides" "react-redux-style-guide" %}}
 
 Code style is very important. In a team of developers you want to embrace one common code style to understand each others code. The source code might be revisited by multiple people over time and thus nobody wants to deal with code which only one developer understands. Additionally the on-boarding for new developers will go more smoothly.
 
-The team should embrace to follow an common standard rather than developing an own code style. Therefore I can recommend the {{% a_blank "Airbnb JavaScript Style Guide" "https://github.com/airbnb/javascript" %}} for general JavaScript, but also the {{% a_blank "Airbnb React/JSX Style Guide" "https://github.com/airbnb/javascript/tree/master/react" %}}. Both are commonly used guidelines for JavaScript and React developers.
+The team should embrace following a common standard rather than developing their own code styles. Therefore I can recommend the {{% a_blank "Airbnb JavaScript Style Guide" "https://github.com/airbnb/javascript" %}} for general JavaScript, but also the {{% a_blank "Airbnb React/JSX Style Guide" "https://github.com/airbnb/javascript/tree/master/react" %}}. Both are commonly used guidelines for JavaScript and React developers.
 
 No style guide will help your team without enforcing it. You can use [ESLint](https://robinwieruch.de/react-eslint-webpack-babel/) to follow both mentioned style guides.
 
-Otherwise, nowadays a lot of teams are simply using {{% a_blank "Prettier" "https://github.com/prettier/prettier" %}} as opinionated code formatter. Once installed and explained to every member in your team, you will never have to worry about any code style.
+Otherwise, nowadays a lot of teams are simply using {{% a_blank "Prettier" "https://github.com/prettier/prettier" %}} as an opinionated code formatter. Once installed and explained to every member in your team, you will never have to worry about any code style.
 
 {{% chapter_header "Join Communities" "react-redux-slack-groups" %}}
 
-There are various forums and chats where you can speak with others about React and Redux. Most of the time you will find people like you learning React and Redux. You can either ask for advice or help others if they are in trouble. By helping others, you will get better at those things yourself. That's why I highly recommend to join those communities. It helps you to grow as individual but you also contribute something to the community. Check out the following groups:
+There are various forums and chats where you can speak with others about React and Redux. Most of the time you will find people like you learning React and Redux. You can either ask for advice or help others if they are in trouble. By helping others, you will get better at those things yourself. That's why I highly recommend joining those communities. It helps you grow as an individual but you also contribute something to the community. Check out the following groups:
 
 * {{% a_blank "Reactiflux" "https://www.reactiflux.com/" %}}
 * {{% a_blank "The Road to learn React" "https://slack-the-road-to-learn-react.wieruch.com/" %}}
@@ -822,11 +822,11 @@ Otherwise, you will find many useful articles on a daily basis on {{% a_blank "R
 
 {{% chapter_header "Contribute!" "react-redux-contribute" %}}
 
-The ecosystem is huge and there is a lot potential to contribute in the open source community. You don't need to deep dive into a library, but can also contribute in documentation or open source applications as beginner. Start by applying the gathered best practices in an application like {{% a_blank "favesound-redux" "https://github.com/rwieruch/favesound-redux" %}}, which I wrote myself to demonstrate React + Redux. You feel more confident? Have a look into the endless selection of libraries in the {{% a_blank "React + Redux ecosystem" "https://github.com/markerikson/react-redux-links" %}}.
+The ecosystem is huge and there is a lot potential to contribute in the open source community. You don't need to deep dive into a library, but can also contribute in documentation or open source applications as a beginner. Start by applying the gathered best practices in an application like {{% a_blank "favesound-redux" "https://github.com/rwieruch/favesound-redux" %}}, which I wrote myself to demonstrate React + Redux. Feel more confident? Have a look at the endless selection of libraries in the {{% a_blank "React + Redux ecosystem" "https://github.com/markerikson/react-redux-links" %}}.
 
 {{% chapter_header "Honor the Contributors!" "react-redux-contributors" %}}
 
-Behind every library there is a person or team of contributors and maintainers. Most of them are doing the work on a library in their spare time. Honor their work and avoid to take it as granted! It is a gift from other developers who care about the community and open source their work. You can even help them to improve the library by giving constructive feedback, opening issues with well written instructions or by contributing with Pull Requests. After all it simply helps to write a kind message to remind these people that you are using their open source contribution for your own project. It encourages them in their work.
+Behind every library there is a person or team of contributors and maintainers. Most of them are doing the work on a library in their spare time. Honor their work and avoid taking it for granted! It is a gift from other developers who care about the community and open source their work. You can even help them to improve the library by giving constructive feedback, opening issues with well written instructions or by contributing with Pull Requests. After all it simply helps to write a kind message to remind these people that you are using their open source contribution for your own project. It encourages them in their work.
 
 <hr class="section-divider">
 
