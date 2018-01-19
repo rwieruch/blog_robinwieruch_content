@@ -1,5 +1,5 @@
 +++
-title = "The Road to learn React [React.js Book]"
+title = "The Road to learn React [React.js Book for 2018]"
 description = "The Road to learn React book is your way to learn React.js by building a real world application. It's a huge tutorial where you will learn all the fundamentals in plain React before you dive into more advanced topics in React with Redux. Along the way, you will learn everything about JavaScript ES6 ..."
 date = "2017-10-17T13:50:46+02:00"
 tags = ["React", "JavaScript"]
@@ -10,7 +10,7 @@ hashtag = "#ReactJs"
 contribute = "the-road-to-learn-react.md"
 card = "img/posts/the-road-to-learn-react/banner_640.jpg"
 banner = "img/posts/the-road-to-learn-react/banner.jpg"
-headline = "The Road to learn React [React.js Book]"
+headline = "The Road to learn React [React.js Book for 2018]"
 
 summary = "The Road to learn React offers you a foundation before you start to dive into the more advanced React ecosystem. It has less tooling and less external state management, but more React. It explains general concepts and patterns."
 +++

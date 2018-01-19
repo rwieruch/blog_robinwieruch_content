@@ -1,10 +1,10 @@
 +++
 title = "The Minimal React Webpack Babel Setup"
 description = "The minimal setup using React with Webpack and Babel. Hot Reloading is one little extra. The article teaches you how to setup your React project without create-react-app. You will understand all the little parts of using Webpack and Babel in combination with React.js ..."
-date = "2017-02-27T13:50:46+02:00"
+date = "2018-01-18T13:50:46+02:00"
 tags = ["React", "JavaScript", "Tooling"]
 categories = ["React", "JavaScript", "Tooling"]
-keywords = ["minimal react webpack babel"]
+keywords = ["minimal react webpack babel", "webpack 3"]
 news_keywords = ["minimal react webpack babel"]
 hashtag = "#ReactJs"
 card = "img/posts/minimal-react-webpack-babel-setup/banner_640.jpg"
@@ -31,15 +31,15 @@ Fourth, the article is not about the boilerplate project itself. The article is 
 
 Last but not least, there is already a great official way introduced by Facebook to bootstrap a boilerplate React project. {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}} comes without any build configuration. I can recommend it for everyone who is getting started in React. If you are a beginner, you probably shouldn't bother with a setup of Webpack, Babel and Hot Reloading. I use create-react-app to teach plain React in my book [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). I can recommend to read it before you get started with the tooling around React.
 
-That's enough about my motivation behind the article. Let's dive into my personal minimal setup for a React project.
+That's enough about my motivation behind the article. Let's dive into my personal minimal setup for a React project. This tutorial got updated to use Webpack 3.
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
 * [Project Setup](#projectSetup)
 * [Webpack Setup](#webpackSetup)
-  * [Hot Reloading](#hotReloading)
 * [Babel Setup](#babelSetup)
 * [React Setup](#reactSetup)
+* [Hot Reloading](#hotReloading)
 
 {{% chapter_header "Project Setup" "projectSetup" %}}
 
@@ -128,7 +128,7 @@ In the *package.json* file you can add a start script additionally to the defaul
 {{< highlight javascript "hl_lines=3" >}}
 ...
 "scripts": {
-  "start": "webpack-dev-server --progress --colors --hot --config ./webpack.config.js",
+  "start": "webpack-dev-server --progress --colors --config ./webpack.config.js",
   ...
 },
 ...
@@ -204,61 +204,6 @@ You can open the {{% a_blank "app in a browser" "http://localhost:8080/" %}}. Ad
 
 You are serving your app via Webpack now. You bundle your entry point file *src/index.js* as *bundle.js*, use it in *dist/index.html* and can see the `console.log()` in the developer console. For now it is only the *src/index.js* file. But you will import more JS files later on in that file, which will get bundled automatically by Webpack in the *bundle.js* file.
 
-{{% sub_chapter_header "Hot Reloading" "hotReloading" %}}
-
-A huge development boost will give you {{% a_blank "react-hot-loader" "https://github.com/gaearon/react-hot-loader" %}}. It will shorten your feedback loop during development. Basically whenever you change something in your source code, the change will apply in your app running in the browser {{% a_blank "without reloading the entire page" "https://www.youtube.com/watch?v=xsSnOQynTHs" %}}.
-
-*From root folder:*
-
-{{< highlight javascript >}}
-npm install --save-dev react-hot-loader
-{{< /highlight >}}
-
-You have to add some more configuration to your Webpack configuration file.
-
-*webpack.config.js*
-
-{{< highlight javascript "hl_lines=3 4 14" >}}
-module.exports = {
-  entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    './src/index.js'
-  ],
-  output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
-    filename: 'bundle.js'
-  },
-  devServer: {
-    contentBase: './dist',
-    hot: true
-  }
-};
-{{< /highlight >}}
-
-Additionally in the *src/index.js* file you have to define that hot reloading is available and should be used.
-
-*src/index.js*
-
-{{< highlight javascript "hl_lines=3" >}}
-console.log('My Minimal React Webpack Babel Setup');
-
-module.hot.accept();
-{{< /highlight >}}
-
-Now you can start your app again.
-
-*From root folder:*
-
-{{< highlight javascript >}}
-npm start
-{{< /highlight >}}
-
-You should still see the `console.log()` in your developer console, but this time with some more output about hot reloading. When you change your `console.log()` in the *src/index.js*, you should see the updated output in the developer console.
-
-You are almost done to write your first React component, but one building block is missing: Babel.
-
 {{% chapter_header "Babel Setup" "babelSetup" %}}
 
 {{% a_blank "Babel" "https://babeljs.io/" %}} enables you writing your code in {{% a_blank "ES6 (ES2015)" "https://babeljs.io/docs/learn-es2015/" %}}. With Babel the code will get transpiled back to ES5 so that every browser, without having all ES6 features implemented, can interpret it. Babel even takes it one step further. You can not only use ES6 features, but also the next generations of ES.
@@ -266,7 +211,7 @@ You are almost done to write your first React component, but one building block 
 *From root folder:*
 
 {{< highlight javascript >}}
-npm install --save-dev babel-core babel-loader babel-preset-es2015
+npm install --save-dev babel-core babel-loader babel-preset-env
 {{< /highlight >}}
 
 Additionally you might want to use some more experimental features in ES6 (e.g. {{% a_blank "object spread" "https://github.com/sebmarkbage/ecmascript-rest-spread" %}}) which can get activated via {{% a_blank "stages" "https://babeljs.io/docs/plugins/preset-stage-0/" %}}. No worries, even though it is experimental, it is already used in create-react-app by Facebook too.
@@ -296,7 +241,7 @@ Now, with all node packages in place, you need to adjust your *package.json* and
 "license": "ISC",
 "babel": {
   "presets": [
-    "es2015",
+    "env",
     "react",
     "stage-2"
   ]
@@ -307,19 +252,19 @@ Now, with all node packages in place, you need to adjust your *package.json* and
 
 *webpack.config.js*
 
-{{< highlight javascript "hl_lines=7 8 9 10 11 12 13 14 15 16" >}}
+{{< highlight javascript "hl_lines=5 6 7 8 9 10 11 12 13 14 15 16" >}}
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
     './src/index.js'
   ],
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'react-hot-loader!babel-loader'
-    }]
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      }
+    ]
   },
   resolve: {
     extensions: ['*', '.js', '.jsx']
@@ -330,13 +275,12 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: './dist',
-    hot: true
+    contentBase: './dist'
   }
 };
 {{< /highlight >}}
 
-The npm start script should be broken right now, because your application doesn’t know about React yet. But you are ready to build your first React component, so let’s fix this.
+You can start your application again. Nothing should have changed except for that you can use future JavaScript functionalities now. You are ready to build your first React component. So let’s do this.
 
 {{% chapter_header "React Setup" "reactSetup" %}}
 
@@ -362,13 +306,88 @@ ReactDOM.render(
   <div>{title}</div>,
   document.getElementById('app')
 );
-
-module.hot.accept();
 {{< /highlight >}}
 
 You should be able to see the output in your browser rather than in a developer console now.
 
 `ReactDOM.render` needs two parameters. The first parameter is your JSX. It has to have always one root node. The second parameter is the node where your output should be appended. Remember when we used `<div id="app"></div>` in the *dist/index.html* file? The same id is your entry point for React now.
+
+{{% chapter_header "Hot Reloading" "hotReloading" %}}
+
+A huge development boost will give you {{% a_blank "react-hot-loader" "https://github.com/gaearon/react-hot-loader" %}}. It will shorten your feedback loop during development. Basically whenever you change something in your source code, the change will apply in your app running in the browser {{% a_blank "without reloading the entire page" "https://www.youtube.com/watch?v=xsSnOQynTHs" %}}.
+
+*From root folder:*
+
+{{< highlight javascript >}}
+npm install --save-dev react-hot-loader
+{{< /highlight >}}
+
+You have to add some more configuration to your Webpack configuration file.
+
+*webpack.config.js*
+
+{{< highlight javascript "hl_lines=1 5 25 26 27 30" >}}
+const webpack = require('webpack');
+
+module.exports = {
+  entry: [
+    'react-hot-loader/patch',
+    './src/index.js'
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
+  output: {
+    path: __dirname + '/dist',
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
+  devServer: {
+    contentBase: './dist',
+    hot: true
+  }
+};
+{{< /highlight >}}
+
+Additionally in the *src/index.js* file you have to define that hot reloading is available and should be used.
+
+*src/index.js*
+
+{{< highlight javascript "hl_lines=11" >}}
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const title = 'My Minimal React Webpack Babel Setup';
+
+ReactDOM.render(
+  <div>{title}</div>,
+  document.getElementById('app')
+);
+
+module.hot.accept();
+{{< /highlight >}}
+
+Now you can start your app again.
+
+*From root folder:*
+
+{{< highlight javascript >}}
+npm start
+{{< /highlight >}}
+
+When you change your `title` for the React component in the *src/index.js* file, you should see the updated output in the browser without any browser reloading. If you would remove the `module.hot.accept();` line, the browser would perform a reload if something has changed in the code.
 
 <hr class="section-divider">
 

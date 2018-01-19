@@ -1,21 +1,21 @@
 +++
-title = "React's Ecosystem as a flexible Framework"
+title = "Essential React Libraries in 2018"
 description = "Often it is difficult to find all the relevant libraries to complement your React application, because React's ecosystem is a flexible yet large framework. The article gives you an opinionated React setup by choosing essential libraries: Redux, MobX, React Router, Flow, Styled Components, Lodash, Ramda, Prettier, Axios, ..."
-date = "2017-08-02T13:50:46+02:00"
+date = "2018-01-11T13:50:46+02:00"
 tags = ["React", "Redux", "JavaScript"]
 categories = ["React", "Redux", "JavaScript"]
-keywords = ["essential react libraries"]
-news_keywords = ["essential react libraries"]
+keywords = ["react js libraries"]
+news_keywords = ["react js libraries"]
 hashtag = "#ReactJs"
 card = "img/posts/essential-react-libraries-framework/banner_640.jpg"
 banner = "img/posts/essential-react-libraries-framework/banner.jpg"
 contribute = "essential-react-libraries-framework.md"
-headline = "React's Ecosystem as a flexible Framework"
+headline = "Essential React Libraries in 2018"
 
 summary = "React with its ecosystem is a flexible framework. You can choose your libraries to complement your React core. The following article will give you an opinionated approach to select from these libraries to build a sophisticated React application."
 +++
 
-{{% pin_it_image "essential react libraries" "img/posts/essential-react-libraries-framework/banner.jpg" "is-src-set" %}}
+{{% pin_it_image "react js libraries" "img/posts/essential-react-libraries-framework/banner.jpg" "is-src-set" %}}
 
 React is only a view-layer library. Thus React only enables you to build component driven user interfaces. It comes with a couple of built-in solutions though, for instance local state management and syntactic events to make interactions happen, but after all you are only dealing with a view-layer library.
 
@@ -31,17 +31,21 @@ I would argue that React with its ecosystem is a flexible framework. You can cho
 
 Even nowadays developers struggle on making a decision on how to setup their React project when joining the React community. There are thousands of boilerplate projects to choose from and every boilerplate project attempts to fulfil different needs. They vary in a range of minimalistic to almost bloated projects.
 
-The status quo in the community is by starting your project with {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}}. It comes with a zero-configuration setup and gives you a minimalistic up and running React application out of the box. You can always decide to lay open the toolchain by using its eject functionality. Afterward, you can alter the underlying toolchain.
+The status quo in the community is by starting your project with {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}}. It comes with a zero-configuration setup and gives you a minimalistic up and running React application out of the box. You can always decide to lay open the tool set by using its eject functionality. Afterward, you can alter the underlying tool set.
 
-In the end, there will never be the perfect boilerplate project. You will always have to add your own tooling. That's why it makes sense, when having a solid understanding of React itself, to start of with a [minimal React boilerplate project](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). You will be able to understand the underlying mechanics, you will do it on your own without copying a project, and you can add your own tooling to it. When choosing a bloated React boilerplate project in the first place, you will only be overwhelmed when you want to change something in the toolchain.
+In the end, there will never be the perfect boilerplate project. You will always have to add your own tooling. That's why it makes sense, when having a solid understanding of React itself, to start of with a [minimal React boilerplate project](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). You will be able to understand the underlying mechanics, you will do it on your own without copying a project, and you can add your own tooling to it. When choosing a bloated React boilerplate project in the first place, you will only be overwhelmed when you want to change something in the tool set.
 
-An alternative in the ecosystem, similar to create-react-app, is {{% a_blank "Next.js" "https://github.com/zeit/next.js/" %}}. It is a zero-configuration React application as well, but for server-side rendered React.
+An alternative in the ecosystem, similar to create-react-app, is {{% a_blank "Next.js" "https://github.com/zeit/next.js/" %}}. It is a zero-configuration React boilerplate as well, but for server-side rendered React. Another alternative is called {{% a_blank "Gatsby.js" "https://github.com/gatsbyjs/gatsby" %}} which is an excellent choice for static websites with React.
+
+If you are tempted to choose a custom boilerplate for your own doings, try to narrow down your requirements. The boilerplate should be minimal and not trying to solve everything. It should be specific for your problem. For instance, the {{% a_blank "gatsby-firebase-authentication" "https://github.com/rwieruch/gatsby-firebase-authentication" %}} boilerplate "only" gives you a full authentication flow with Firebase in a Gatsby.js application. But everything else is bare bones
 
 **Recommendations:**
 
 * create-react-app
+* Gatsby.js for static websites in React
 * Next.js for server-side rendered React
-* own minimal boilerplate, when having a solid understanding of React
+* create your own minimal boilerplate, when having a solid understanding of React
+* otherwise narrow down your requirements and choose a minimal boilerplate for it
 
 {{% chapter_header "Utility Libraries for React" "react-utility-libraries" %}}
 
@@ -66,7 +70,7 @@ So when introducing a utility library to your React core, you could make the dec
 
 * JavaScript ES6 and beyond
 * Lodash
-* Ramda, when doing functional programming
+* Ramda for functional programming
 
 {{% chapter_header "Styling in React" "react-styling" %}}
 
@@ -152,13 +156,13 @@ const Box = ({ status, children }) => {
 }
 {{< /highlight >}}
 
-The library is almost mandatory in React applications when it comes to conditional stylings.
+The library is for many people almost mandatory in applications when it comes to conditional stylings in React.
 
 **Recommendations:**
 
 * plain CSS and inline style
-* CSS modules or Styled Components
 * almost mandatory classnames library
+* CSS modules or Styled Components
 
 {{% chapter_header "Asynchronous Requests in React" "react-asynchronous-requests" %}}
 
@@ -177,7 +181,7 @@ componentDidMount() {
 }
 {{< /highlight >}}
 
-Basically you wouldn't have to add any other library to do the job. However, there exist libraries which only purpose it is to provide sophisticated asynchronous requests. They come with more powerful functionalities yet are only a lightweight library. One of these libraries that I would recommend is called {{% a_blank "axios" "https://github.com/mzabriskie/axios" %}}. It can be used instead of the native fetch API when your application grows in size.
+Basically you wouldn't have to add any other library to do the job. However, there exist libraries which only purpose it is to provide sophisticated asynchronous requests. They come with more powerful functionalities yet are only a lightweight library. One of these libraries that I would recommend is called {{% a_blank "axios" "https://github.com/mzabriskie/axios" %}}. It can be used instead of the native fetch API when your application grows in size. Another alternative is called {{% a_blank "superagent" "https://github.com/visionmedia/superagent" %}}.
 
 **Recommendations:**
 
@@ -214,9 +218,9 @@ List.propTypes = {
 };
 {{< /highlight >}}
 
-Whenever a wrong type is passed to the component, you will get an error message when running the application.
+Whenever a wrong type is passed to the component, you will get an error message when running the application. But this form of type checking should only be used for smaller applications. Facebook recommends to use Flow instead.
 
-However, in scaling React applications you can add sophisticated type checker such as {{% a_blank "Flow" "https://flow.org/" %}} and {{% a_blank "TypeScript" "https://www.typescriptlang.org/" %}}. When using such a type checker, you can get errors already during development time. You wouldn't have to start your application in order to find about a bug that could have prevented with such type checking. That way a type checker might be able to improve your developer experience and avoids to introduce bugs in the first place.
+In a larger React application, you can add sophisticated type checker such as {{% a_blank "Flow" "https://flow.org/" %}} and {{% a_blank "TypeScript" "https://www.typescriptlang.org/" %}} instead of React PropTypes. When using such a type checker, you can get errors already during development time. You wouldn't have to start your application in order to find about a bug that could have prevented with such type checking. That way a type checker might be able to improve your developer experience and avoids to introduce bugs in the first place.
 
 Flow was introduced by Facebook and feels more natural in the React ecosystem than TypeScript. That's why I recommend using it in a React application over TypeScript.
 
@@ -231,14 +235,22 @@ Basically there are three options to have formatting rules in React. It should b
 
 The first approach is to follow a style guide that is embraced by the community. One popular {{% a_blank "React style guide" "https://github.com/airbnb/javascript/tree/master/react" %}} was open sourced by Airbnb. Even though you don't deliberately follow the style guide, it makes sense to read it once to get the basics of formatting in React.
 
-The second approach is to use a linter such as ESLint. You can [integrate it in your toolchain](https://www.robinwieruch.de/react-eslint-webpack-babel/) when you are at the point of introducing new toolings to your project yourself.
+The second approach is to use a linter such as ESLint. You can [integrate it in your tool set](https://www.robinwieruch.de/react-eslint-webpack-babel/) when you are at the point of introducing new toolings to your project yourself.
 
-The third and most important approach is using {{% a_blank "Prettier" "https://github.com/prettier/prettier" %}}. It is an opinionated code formatter. You can integrate it in your editor or IDE that it formats your code every time you save a file or [commit it with git](https://www.robinwieruch.de/git-essential-commands/). Perhaps it doesn't match always your taste, but at least you never need to worry again about code formatting in your own or a team code base.
+The third and most popular approach is using {{% a_blank "Prettier" "https://github.com/prettier/prettier" %}}. It is an opinionated code formatter. You can integrate it in your editor or IDE that it formats your code every time you save a file or [commit it with git](https://www.robinwieruch.de/git-essential-commands/). Perhaps it doesn't match always your taste, but at least you never need to worry again about code formatting in your own or a team code base.
 
 **Recommendations:**
 
 * reading one popular React style guide
 * Prettier
+
+{{% chapter_header "UI Component Libraries in React" "react-ui-component-libraries" %}}
+
+There are many components in web development which you don't want to implement from scratch every time you start to implement a new application. These are things like datepickers, dropdowns, tables or navigation bars. That's why there are a couple of UI libraries out there which are working closely with libraries such as React and Angular. I don't want to introduce all of them to you, but after doing my own research, I found out that {{% a_blank "Semantic UI" "https://react.semantic-ui.com/" %}} and {{% a_blank "Material UI" "http://www.material-ui.com/" %}} are great choices. I use them for many of my [own applications](https://www.robinwieruch.de/how-to-build-your-own-course-platform/) nowadays. Once you feel comfortable with one, you don't want to switch horses all the time. After all, they should only deliver the foundational components in web development for you.
+
+**Recommendations:**
+
+* Semantic UI
 
 {{% chapter_header "State Management" "react-state-management" %}}
 
@@ -246,16 +258,16 @@ Fortunately React comes with its own local state management in components. This 
 
 But what comes when you run into first scaling issues in React's local state management? There are two solutions you can choose from: [Redux and MobX](https://www.robinwieruch.de/redux-mobx-confusion/). Both come with their advantages and disadvantages. You can read the linked article to make a more informed decision about them.
 
-Redux is so popular yet such an innovative place that it comes with its {{% a_blank "own ecosystem" "https://github.com/markerikson/redux-ecosystem-links" %}}. When using it with React, you will certainly run into the bridging library {{% a_blank "react-redux" "https://github.com/reactjs/react-redux" %}}. It is the official library to connect your view layer (React) to your state layer (Redux). A {{% a_blank "similar library" "https://github.com/mobxjs/mobx-react" %}} comes into play when you decide to use MobX instead of Redux.
+Redux is so popular yet such an innovative place that it comes with its {{% a_blank "own ecosystem" "https://github.com/markerikson/redux-ecosystem-links" %}}. When using it with React, you will certainly run into the bridging library {{% a_blank "react-redux" "https://github.com/reactjs/react-redux" %}}. It is the official library to connect your view layer (React) to your state layer (Redux). A {{% a_blank "similar library" "https://github.com/mobxjs/mobx-react" %}} comes into play when you decide to use MobX instead of Redux. If you want to learn Redux, checkout the Redux book {{% a_blank "Taming the State in React" "https://roadtoreact.com/" %}}.
 
-As mentioned, Redux comes with its own ecosystem. The next recommendations are far beyond a simple setup for a React application. But when you scaled your application to a certain point, where Redux becomes an inherent part for your application and you are confident in using Redux, I can recommend to have a look into these libraries: {{% a_blank "Redux Saga" "https://github.com/redux-saga/redux-saga" %}}, {{% a_blank "Normalizr" "https://github.com/paularmstrong/normalizr" %}} and {{% a_blank "Reselect" "https://github.com/reactjs/reselect" %}}. I am releasing soon a book about state management in React where these topics are taught. You can {{% a_blank "subscribe" "https://www.getrevue.co/profile/rwieruch" %}} to get to know when its released.
+As mentioned, Redux comes with its own ecosystem. The next recommendations are far beyond a simple setup for a React application. But when you scaled your application to a certain point, where Redux becomes an inherent part for your application and you are confident in using Redux, I can recommend to have a look into these libraries: {{% a_blank "Redux Saga" "https://github.com/redux-saga/redux-saga" %}}, {{% a_blank "Normalizr" "https://github.com/paularmstrong/normalizr" %}} and {{% a_blank "Reselect" "https://github.com/reactjs/reselect" %}}.
 
 **Recommendations:**
 
 * React's local state
 * Redux or MobX
-  * when doing great with React's local state
-  * when needed
+  * only if you are doing great with React's local state
+  * only if it's needed
 
 {{% chapter_header "React's Routing" "react-routing" %}}
 
@@ -270,6 +282,24 @@ When introducing a sophisticated router, there are a few routing solutions out t
 * React's conditional rendering
 * React Router
 
+{{% chapter_header "Authentication in React" "react-authentication-database" %}}
+
+In a major application, you may want to introduce an authentication flow in React by having sign up, sign in and sign out functionalities. Often these authentication mechanisms go far beyond it. After all, you should be able to reset or update a user's password or to store the user entities in your own database. That's why I have written the comprehensive tutorial and step by step guide to [built your own authentication procedure in React with Firebase](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/). Firebase's realtime database can be used to store your users. But it also comes with a whole authentication framework. Check out the tutorial if you are interested.
+
+There are two alternatives in my eyes for authentication in React which are briefly mentioned in the Firebase tutorial: {{% a_blank "Auth0" "https://auth0.com/" %}} and {{% a_blank "Passport.js" "http://www.passportjs.org/" %}}.
+
+**Recommendations:**
+
+* Firebase
+
+{{% chapter_header "Time in React" "react-date-time" %}}
+
+If your React application is dealing with dates and timezones, you should introduce a library which manages these things for you. Timestamps in an application can be a complex subject. That's why it's great that there are sophisticated libraries out for it. The most popular one is {{% a_blank "moment.js" "https://momentjs.com/" %}} because I would argue it's the oldest and most sophisticated one in the JavaScript ecosystem. Another lightweight solution for dates is a library called {{% a_blank "date-fns" "https://github.com/date-fns/date-fns" %}}.
+
+**Recommendations:**
+
+* moment or date-fns
+
 <hr class="section-divider">
 
 So in the end, the React ecosystem can be seen as a framework for React, but it stays flexible. It is a flexible framework where you can make own decisions on which libraries you want to opt-in. You can start small and add only libraries to solve specific problems for you. You can scale your building blocks along the way when your application grows. Otherwise you can stay lightweight by using plain React. Therefore here again a list of libraries that could complement React as the core of the application regarding different project sizes. Keep in mind that the list is opinionated, but I am keen to get your feedback too.
@@ -281,9 +311,13 @@ So in the end, the React ecosystem can be seen as a framework for React, but it 
  * **Asynchronous Requests:** fetch
  * **Higher Order Components:** optional
  * **Formatting:** none
- * **Type Checking:** none
+ * **Type Checking:** none or PropTypes
  * **State Management:** local state
  * **Routing:** none or conditional rendering
+ * **Authentication:** Firebase
+ * **Database:** Firebase
+ * **UI Components:** none
+ * **Time:** moment or date-fns
 * Medium Application
  * **Boilerplate:** create-react-app with eject
  * **Utility:** JavaScript ES6 + Lodash or Ramda
@@ -294,6 +328,10 @@ So in the end, the React ecosystem can be seen as a framework for React, but it 
  * **Type Checking:** none or Flow
  * **State Management:** local state and very optional Redux
  * **Routing:** React Router
+ * **Authentication:** Firebase
+ * **Database:** Firebase
+ * **UI Components:** none or Semantic UI
+ * **Time:** moment or date-fns
 * Large Application
  * **Boilerplate:** create-react-app with eject or own boilerplate project
  * **Utility:** JavaScript ES6 + Lodash or Ramda
@@ -304,6 +342,10 @@ So in the end, the React ecosystem can be seen as a framework for React, but it 
  * **Type Checking:** Flow
  * **State Management:** local state and Redux or MobX
  * **Routing:** React Router
+ * **Authentication:** Solution with an own Express/Hapi/Koa Node.js Server with Passport.js
+ * **Database:** Solution with an own Express/Hapi/Koa Node.js Server with a SQL or NoSQL Database
+ * **UI Components:** Semantic UI or own implementation of UI components
+ * **Time:** moment or date-fns
 
 The previous recommendations are opinionated. You can choose your own flexible framework for your ideal React application. Every "ideal" React setup is subjective to its needs of the developers and project. After all, there is no ideal React application setup.
 

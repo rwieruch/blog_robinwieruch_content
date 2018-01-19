@@ -58,16 +58,16 @@ Now you can use the loader in your Webpack configuration.
 {{< highlight javascript "hl_lines=9 10 11 12 13" >}}
 ...
 module: {
-  loaders: [
+  rules: [
     {
-      test: /\.jsx?$/,
+      test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-      loader: 'react-hot-loader!babel-loader'
+      use: ['babel-loader']
     },
     {
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'eslint-loader'
+      use: ['eslint-loader']
     }
   ]
 },
@@ -116,41 +116,16 @@ Now you can use that loader and pair it with the eslint-loader.
 {{< highlight javascript "hl_lines=12" >}}
 ...
 module: {
-  loaders: [
+  rules: [
     {
-      test: /\.jsx?$/,
+      test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-      loader: 'react-hot-loader!babel-loader'
+      use: ['babel-loader']
     },
     {
       test: /\.js$/,
       exclude: /node_modules/,
-      loaders: ['babel-loader', 'eslint-loader']
-    }
-  ]
-},
-...
-{{< /highlight >}}
-
-An alternative would be to use Webpacks preLoaders.
-
-*webpack.config.js*
-
-{{< highlight javascript "hl_lines=3 4 5 6 7 8 9" >}}
-...
-module: {
-  preLoaders: [
-    {
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'eslint-loader'
-    },
-  ],
-  loaders: [
-    {
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'react-hot-loader!babel-loader'
+      use: ['babel-loader', 'eslint-loader']
     }
   ]
 },
