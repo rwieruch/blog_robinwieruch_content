@@ -193,3 +193,5 @@ You can find the {{% a_blank "source code in a GitHub repository" "https://githu
 If you are looking for more advanced local storage solutions, you can checkout {{% a_blank "store.js" "https://github.com/marcuswestin/store.js/" %}} and {{% a_blank "cross-storage" "https://github.com/zendesk/cross-storage" %}}. The former is used for browser compatibility and the latter is used for cross domain synchronization of local storages.
 
 The book [the Road to learn React](http://www.robinwieruch.de/the-road-to-learn-react/) will show you how to implement a cache with paginated data by using `setState()` and `this.state`. After reading it, you could apply this tutorial to have a cached state even after the browser is closed.
+
+The other book {{% a_blank "Taming the State in React" "https://roadtoreact.com/" %}} dives more deeply into state management in React with React's local state and Redux.

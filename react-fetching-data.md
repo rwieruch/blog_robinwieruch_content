@@ -426,7 +426,9 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-That's all about the basics in data fetching with plain React. As already mentioned, you can substitute the native fetch API with another library. For instance, another library might run for every erroneous requests into the catch block on its own without you throwing an error in the first place.
+That's all about the basics in data fetching with plain React. You can read more about managing the fetched data in React's local state or libraries such as Redux in {{% a_blank "Taming the State in React" "https://roadtoreact.com/" %}}.
+
+As already mentioned, you can substitute the native fetch API with another library. For instance, another library might run for every erroneous requests into the catch block on its own without you throwing an error in the first place.
 
 {{% chapter_header "How to abstract the fetching away?" "react-fetch-higher-order-component" %}}
 

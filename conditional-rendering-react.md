@@ -99,6 +99,24 @@ function Item({ item, mode }) {
 }
 {{< /highlight >}}
 
+If your blocks in both branches of the ternary operation are getting bigger, you can use parentheses.
+
+{{< highlight javascript >}}
+function Item({ item, mode }) {
+    const isEditMode = mode === 'EDIT';
+
+    return (
+        <div>
+            {isEditMode ? (
+                <ItemEdit item={item} />
+            ) : (
+                <ItemView item={item} />
+            )}
+        </div>
+    );
+}
+{{< /highlight >}}
+
 The ternary operation makes the conditional rendering in React more concise than the if-else statement. It is simple to inline it in your return statement.
 
 {{% chapter_header "logical && operator in React" "logical-and-operator" %}}
