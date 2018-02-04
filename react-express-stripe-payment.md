@@ -23,6 +23,8 @@ I dealt with the same issue in a React application. After researching the topic,
 
 In this React tutorial, you will setup a minimal React application where you can charge money with a credit card React Stripe form and a minimal Express server that receives the payment request. The request gets forwared from your payment server to Stripe via its platform API. The tutorial doesn't come with a lot extra on top. It tries to keep the solution to a minimum so that you can adapt it to your needs.
 
+If you are interested in a full blown payment solution with Stripe and PayPal in React, you can also read [about the PayPal in React setup](https://www.robinwieruch.de/react-paypal-payment/) in my other article.
+
 {{% chapter_header "Stripe Platform" "stripe-platform" %}}
 
 Before you start with the implementation, make sure that you signed up for {{% a_blank "Stripe" "https://stripe.com/de" %}}. You should create an account and be able to access your dashboard. The dashboard gives you an overview of your payments. There are three things to know about it:
@@ -382,4 +384,4 @@ All the implementation is done. Now it is about testing it. When you start backe
 
 There should be an obvious alert when the payment succeeded, but also an error alert when it failed. Once it succeeded, you can find the payment on your Stripe dashboard using the test mode. If you charged a real credit card in production environment, the payment should be visible on the dashboard in live mode.
 
-You can find the final application and the installation README.md on {{% a_blank "GitHub" "https://github.com/rwieruch/react-express-stripe" %}}. If you like it, make sure to star it.
+You can find the final application and the installation README.md on {{% a_blank "GitHub" "https://github.com/rwieruch/react-express-stripe" %}}. If you like it, make sure to star it. Otherwise, if you need help to deploy your Stripe payment server to production, follow this [Digital Ocean deployment guide](https://www.robinwieruch.de/deploy-applications-digital-ocean/). I deploy all my applications there with Dokku.
