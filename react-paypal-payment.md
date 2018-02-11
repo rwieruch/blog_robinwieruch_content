@@ -64,7 +64,7 @@ class PaypalButton extends React.Component {
 export default PaypalButton;
 {{< /highlight >}}
 
-Why is it necessary to manage a local state? PayPal has its own library for its REST API and a abstracted React helper component, but it's not available via npm. Thus we need to load it asynchronously in our component. After we have loaded everything, the `showButton` state can be used to render the button.
+Why is it necessary to manage a local state? The PayPal API library can be loaded asynchronously in our component. After we have loaded everything, the `showButton` state can be used to render the button. Doing it like this, enables you also to use the PayPal button for server-side rendering.
 
 Let's load the PayPal script asynchronously in our React component. Additionally, make sure to bind React and ReactDOM to the window object, because its needed for the PayPal React Component which comes with the library.
 
