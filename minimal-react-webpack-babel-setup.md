@@ -1,21 +1,21 @@
 +++
-title = "The Minimal React Webpack Babel Setup"
-description = "The minimal setup using React with Webpack and Babel. Hot Reloading is one little extra. The article teaches you how to setup your React project without create-react-app. You will understand all the little parts of using Webpack and Babel in combination with React.js ..."
+title = "The Minimal React + Webpack 3 + Babel Setup"
+description = "This guide helps you to setup React with Webpack 3 and Babel from 0 to 1. Hot Module Replacement is a bonus. Learn how to use Webpack and Babel in React.js without using create-react-app. Setup your own boilerplate application ..."
 date = "2018-01-18T13:50:46+02:00"
 tags = ["React", "JavaScript", "Tooling"]
 categories = ["React", "JavaScript", "Tooling"]
-keywords = ["minimal react webpack babel", "webpack 3"]
-news_keywords = ["minimal react webpack babel"]
+keywords = ["react webpack babel", "webpack 3"]
+news_keywords = ["react webpack babel"]
 hashtag = "#ReactJs"
 card = "img/posts/minimal-react-webpack-babel-setup/banner_640.jpg"
 banner = "img/posts/minimal-react-webpack-babel-setup/banner.jpg"
 contribute = "minimal-react-webpack-babel-setup.md"
-headline = "The Minimal React Webpack Babel Setup"
+headline = "The Minimal React + Webpack 3 + Babel Setup"
 
 summary = "Personally I did a lot of React projects in the recent time. Always I had to setup the project from scratch. Eventually I have created my own boilerplate project on GitHub. As you might know, uncountable React boilerplate projects and repositories were created that way. But the article is not my attempt to advertise yet another React boilerplate project."
 +++
 
-{{% pin_it_image "react webpack babel" "img/posts/minimal-react-webpack-babel-setup/banner.jpg" "is-src-set" %}}
+{{% pin_it_image "react webpack 3 babel" "img/posts/minimal-react-webpack-babel-setup/banner.jpg" "is-src-set" %}}
 
 Personally I bootstrapped a lot of React projects in the recent time. I always had to setup the project from scratch. Eventually I have created my own {{% a_blank "boilerplate project on GitHub" "https://github.com/rwieruch/minimal-react-webpack-babel-setup" %}}. As you might know, uncountable React boilerplate projects and repositories were created that way.
 
@@ -35,13 +35,13 @@ That's enough about my motivation behind the article. Let's dive into my persona
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
-* [Project Setup](#projectSetup)
-* [Webpack Setup](#webpackSetup)
-* [Babel Setup](#babelSetup)
-* [React Setup](#reactSetup)
-* [Hot Reloading](#hotReloading)
+* [React Project Setup](#react-project-setup)
+* [Webpack Setup](#webpack-react-setup)
+* [Babel Setup](#babel-react-setup)
+* [React Setup in a Webpack + Babel Project](#react-setup)
+* [Hot Module Replacement](#hot-module-replacement)
 
-{{% chapter_header "Project Setup" "projectSetup" %}}
+{{% chapter_header "React Project Setup" "react-project-setup" %}}
 
 You need some requirements before you can start. First you should have an [editor and terminal](https://www.robinwieruch.de/developer-setup/) on your machine.  Second you will need an installed version of {{% a_blank "node with npm" "https://nodejs.org/en/" %}}.
 
@@ -100,7 +100,7 @@ Therefore our next possible steps are:
 
 Let’s continue with the first step followed by the latter one.
 
-{{% chapter_header "Webpack Setup" "webpackSetup" %}}
+{{% chapter_header "Webpack Setup" "webpack-react-setup" %}}
 
 You will use {{% a_blank "Webpack" "https://github.com/webpack/webpack" %}} as module bundler and build tool. Moreover you will use {{% a_blank "webpack-dev-server" "https://github.com/webpack/webpack-dev-server" %}} to serve your bundled app in a local environment. Otherwise you couldn't see it in the browser to develop it. Let's install both node packages by using npm.
 
@@ -204,7 +204,7 @@ You can open the {{% a_blank "app in a browser" "http://localhost:8080/" %}}. Ad
 
 You are serving your app via Webpack now. You bundle your entry point file *src/index.js* as *bundle.js*, use it in *dist/index.html* and can see the `console.log()` in the developer console. For now it is only the *src/index.js* file. But you will import more JS files later on in that file, which will get bundled automatically by Webpack in the *bundle.js* file.
 
-{{% chapter_header "Babel Setup" "babelSetup" %}}
+{{% chapter_header "Babel Setup" "babel-react-setup" %}}
 
 {{% a_blank "Babel" "https://babeljs.io/" %}} enables you writing your code in {{% a_blank "ES6 (ES2015)" "https://babeljs.io/docs/learn-es2015/" %}}. With Babel the code will get transpiled back to ES5 so that every browser, without having all ES6 features implemented, can interpret it. Babel even takes it one step further. You can not only use ES6 features, but also the next generations of ES.
 
@@ -282,7 +282,7 @@ module.exports = {
 
 You can start your application again. Nothing should have changed except for that you can use future JavaScript functionalities now. You are ready to build your first React component. So let’s do this.
 
-{{% chapter_header "React Setup" "reactSetup" %}}
+{{% chapter_header "React Setup in a Webpack + Babel Project" "react-setup" %}}
 
 In order to use React, you need two more node packages. The react and react-dom packages should fix your npm start.
 
@@ -312,9 +312,9 @@ You should be able to see the output in your browser rather than in a developer 
 
 `ReactDOM.render` needs two parameters. The first parameter is your JSX. It has to have always one root node. The second parameter is the node where your output should be appended. Remember when we used `<div id="app"></div>` in the *dist/index.html* file? The same id is your entry point for React now.
 
-{{% chapter_header "Hot Reloading" "hotReloading" %}}
+{{% chapter_header "Hot Module Replacement in React" "hot-module-replacement" %}}
 
-A huge development boost will give you {{% a_blank "react-hot-loader" "https://github.com/gaearon/react-hot-loader" %}}. It will shorten your feedback loop during development. Basically whenever you change something in your source code, the change will apply in your app running in the browser {{% a_blank "without reloading the entire page" "https://www.youtube.com/watch?v=xsSnOQynTHs" %}}.
+A huge development boost will give you {{% a_blank "react-hot-loader" "https://github.com/gaearon/react-hot-loader" %}} (Hot Module Replacement). It will shorten your feedback loop during development. Basically whenever you change something in your source code, the change will apply in your app running in the browser {{% a_blank "without reloading the entire page" "https://www.youtube.com/watch?v=xsSnOQynTHs" %}}.
 
 *From root folder:*
 
@@ -392,7 +392,5 @@ When you change your `title` for the React component in the *src/index.js* file,
 <hr class="section-divider">
 
 That's it for a minimal React setup with Babel and Webpack. Let me know your thoughts. Again, you can find the {{% a_blank "repository on GitHub" "https://github.com/rwieruch/minimal-react-webpack-babel-setup" %}}. You can contribute by creating issues when new versions introduce breaking changes. Even more you can have a direct impact on this article on GitHub as well.
-
-{{% read_more "The SoundCloud Client in React + Redux" "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}
 
 {{% read_more "React Code Style with ESLint + Babel + Webpack" "https://www.robinwieruch.de/react-eslint-webpack-babel/" %}}

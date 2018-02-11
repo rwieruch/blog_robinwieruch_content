@@ -589,6 +589,32 @@ Overall both scenarios, using vanilla JavaScript and React, should have shown yo
 
 The implementation of both examples is quite small and should show you that the problem can be solved by either vanilla JavaScript or React. Both solutions are just fine. I would argue that the vanilla JavaScript solution is even better for this problem. However, once you scale your application, it becomes more complex in vanilla JavaScript to manage DOM and the state. There comes a point where you end up with spaghetti code like it happened for lots of jQuery applications in the past. In React, you keep your code declarative and can describe a whole HTML hierarchy with components These components manage their own state, can be reused and composed into each other. You can describe a whole component tree with them. React keeps your application readable, maintainable and scalable.
 
+{{< highlight javascript "hl_lines=12 13 14 20 21" >}}
+class App extends React.Component {
+  ...
+
+  render() {
+    return (
+      <div>
+        <h1>Search Hacker News with React</h1>
+        <form type="submit" onSubmit={this.onSubmit}>
+          <input type="text" onChange={this.onChange} value={this.state.input} />
+          <button type="text">Search</button>
+        </form>
+        {this.state.list.map(item =>
+          <Item key={item.objectID} item={item} />
+        )}
+      </div>
+    );
+  }
+}
+
+const Item = ({ item }) =>
+  <div>{item.title}</div>
+{{< /highlight >}}
+
+The last code snippet shows how you can extract another component from the App component. This way, you can scale your component hierarchy and maintain business logic in related components. It would be way more difficult in vanilla JavaScript to maintain such code.
+
 <hr class="section-divider">
 
 You can find the code for all the solutions in {{% a_blank "this GitHub repository" "https://github.com/rwieruch/why-frameworks-matter" %}}. There is also a solution for JavaScript ES6 which can be used in between of vanilla JavaScript and React. It would be great to find more contributors for implementing examples for other solutions such as Angular or Ember. If you can solve the same problem in a similar way with one solution which is not in the repository yet, feel free to contribute to it :)
