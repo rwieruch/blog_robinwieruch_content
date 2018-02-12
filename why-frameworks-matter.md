@@ -17,19 +17,17 @@ summary = "The article shows you how a problem can be solved in vanilla JavaScri
 
 {{% pin_it_image "why react matters" "img/posts/why-frameworks-matter/banner.jpg" "is-src-set" %}}
 
-There are many people entering the field of web development just now. It can be an overwhelming experience for newcomers to get to know all the tools which are used in modern web development nowadays. The historical gap between running HTML in Netscape and today widens with each of these tools that is put on top of the list. There comes a point in time where it makes no sense to learn jQuery anymore in between of learning vanilla JavaScript and the newest library. Students will [jump straight on their favorite framework](https://www.robinwieruch.de/how-to-learn-framework/) after learning vanilla JavaScript. What's missing for these people is all the historical knowledge from the gap in between. The question to be asked is: Why did we end up with React, Vue, and Angular?
+There are many people entering the field of web development right now. It can be an overwhelming experience for newcomers to get to know all the tools which are used in modern web development. The historical gap between running HTML in Netscape and today widens with each of these new tools which are put on top of the tech stack. At some point, it makes no sense anymore for newcomers to learn jQuery. Students will [jump straight on their favorite framework](https://www.robinwieruch.de/how-to-learn-framework/) after learning vanilla JavaScript. What's missing for these people is all the historical knowledge from the gap in between.
 
-In this article, I want to only focus on the leap from vanilla JavaScript to a modern library like React. When people are going to use such libraries, they most often never experienced the struggle from the past which led to these solutions. The question to be asked again: Why did we end up with these libraries? I want to showcase why a library such as React matters and why you wouldn't want implement applications in vanilla JavaScript. The whole story can be seen in analogy to any other library/framework such as Vue, Angular or Ember.
+In this article, I want to focus on the leap from vanilla JavaScript to a modern library like React. When people are going to use such a library, they most often never experienced the struggle from the past which led to these solutions. The question to be asked: Why did we end up with these libraries? I want to showcase why a library like React matters and why you wouldn't want to implement applications in vanilla JavaScript anymore. The whole story can be applied in analogy to any other library/framework such as Vue, Angular or Ember.
 
-Sometimes I see people asking why they should use React. They have learned vanilla JavaScript and don't know why they should learn this new library on top of it. Often these people never build a larger application in vanilla JavaScript which people did back in the days with jQuery and JavaScript's DOM [API](https://www.robinwieruch.de/what-is-an-api-javascript/). When learning vanilla JavaScript nowadays, students most likely build a couple of smaller projects without a bigger scope. Thus there is no struggle involved in building these projects in vanilla JavaScript, because it just works for them. Which is great, because they need to experience that vanilla JavaScript should be used to solve smaller problems. In contrast, it's not the best move to default to a library to solve a problem for you.
-
-In this article, I want to showcase how a small application can be build in vanilla JavaScript and React. If you are new to web development, it should give you a clear comparison why you would want to use a library such as React to build a larger application. If you already know React but newer built an application such as the following in vanilla JavaScript, it might be interesting to see it for you as well.
+I want to showcase how a small application can be build in vanilla JavaScript and React. If you are new to web development, it should give you a clear comparison why you would want to use a library to build a larger application in JavaScript. The following small applications has just the right size for vanilla JavaScript, but it shows clear trends why you would choose a library once you are going to scale it.
 
 {{% chapter_header "Solving a problem in vanilla JavaScript" "vanilla-javascript" %}}
 
-Let's build together an application in vanilla JavaScript. The problem: Search stories from {{% a_blank "Hacker News" "https://hn.algolia.com/api" %}} and show the result in a list in a browser. The application will only need an input field for the search request and a list to show the result. If a new search request is made, the list has to update.
+Let's build together an application in vanilla JavaScript. The problem: Search stories from {{% a_blank "Hacker News" "https://hn.algolia.com/api" %}} and show the result in a list in your browser. The application only needs an input field for the search request and a list to show the result. If a new search request is made, the list has to be updated in the browser.
 
-In a folder of your choice, create a *index.html* file. Let's write a couple of lines of HTML in this file. First, there has to be some HTML boilerplate to render the content to the browser.
+In a folder of your choice, create a *index.html* file. Let's write a couple of lines of HTML in this file. First, there has to be HTML boilerplate to render the content to the browser.
 
 {{< highlight html >}}
 <!DOCTYPE html>
@@ -62,9 +60,9 @@ The important part is the imported *index.js* file. That's the file where the va
 </html>
 {{< /highlight >}}
 
-You might have noticed that there is no container for the requested content yet. In a perfect world, there would be some kind of list container which has multiple items to show the requested stories from Hacker News. Since this content is unknown before the request happens, it should be rendered dynamically after a request is made. You will do this in JavaScript by using the DOM API for DOM manipulations in the next part.
+You might have noticed that there is no container to show the requested content yet. In a perfect world, there would be some kind of element which has multiple elements itself to show the requested stories from Hacker News. Since this content is unknown before the request happens, it's a better approach to render it dynamically after the request is made. You will do this in JavaScript by using the DOM API for HTML manipulations in the next part.
 
-The HTML element with the id `app` can be used to hook into the DOM later on. In addition, the button element can be used to assign a click event listener. That's the perfect place to start the JavaScript code. So let's start there in the *index.js* file.
+The HTML element with the id `app` can be used to hook JavaScript into the DOM later on. In addition, the button element can be used to assign a click event listener. That's the perfect place to start the JavaScript code. Let's start with the *index.js* file.
 
 {{< highlight javascript >}}
 function addButtonEvent() {
@@ -82,11 +80,11 @@ function addButtonEvent() {
 addButtonEvent();
 {{< /highlight >}}
 
-That's everything needed for the application. Once the *index.js* file runs, there will be an event listener added to the button element with the id `searchButton`. You can find the button element in your *index.html* file.
+That's basically everything needed for the application. Once the *index.js* file runs, there will be an event listener added to the button element with the id `searchButton`. You can find the button element in your *index.html* file.
 
 The last line is important because someone has to call the function in the first place. The function itself is only the declaration but not the execution of it. All the following implementations will be just a couple of more functions which are executed once someone clicks the button.
 
-The comments already show you the business logic which will be implemented step by step. Now, let's try to keep the code concise here. You can extract the function which is called on a button click event.
+The comments in the code show you the business logic which will be implemented step by step. Let's try to keep the code concise here. You can extract the function which is called on a button click event.
 
 {{< highlight javascript "hl_lines=3 6 7 8" >}}
 function addButtonEvent() {
@@ -213,7 +211,7 @@ function appendItem(listNode) {
 
 That's it for the implementation of the three steps. First, retrieve the value from the input field, Second, perform an asynchronous request with the value to retrieve the list from a result from the Hacker News API. And third, append the list and item elements to your DOM.
 
-Last but not least, there is one crucial part missing. You shouldn't forget to remove the list from the DOM before requesting a new list from the API and appending it to the DOM. Otherwise, the new result from the search request will just be appended to your previous result in the DOM.
+Last but not least, there is one crucial part missing. You shouldn't forget to remove the list from the DOM when requesting a new list from the API. Otherwise, the new result from the search request will just be appended to your previous result in the DOM.
 
 {{< highlight javascript "hl_lines=2 8 9 10 11 12 13 14" >}}
 function onSearch() {
@@ -232,7 +230,7 @@ function removeList() {
 }
 {{< /highlight >}}
 
-You can see that it was quite some work to solve the defined problem from the article. There needs to be someone in charge of the DOM. The DOM update happens in a very naive way here because it just removes a previous result if there is already one and appends the new result to the DOM. Everything works just fine to solve the defined problem, but the code gets complex once you add functionality or extend the features of the application.
+You can see that it was quite some work to solve the defined problem from the article. There needs to be someone in charge of the DOM. The DOM update happens in a very naive way here, because it just removes a previous result if there is already one and appends the new result to the DOM again. Everything works just fine to solve the defined problem, but the code gets complex once you add functionality or extend the features of the application.
 
 If you haven't npm installed, install it first via {{% a_blank "node" "https://nodejs.org/en/" %}}. Finally, you can test your two files as application in your local browser by installing a HTTP server on the command line with npm.
 
@@ -246,13 +244,13 @@ Afterwards, you can start the HTTP server from the command line in the directory
 http-server
 {{< /highlight >}}
 
-The output should give you a URL where you can find your application in the browser. Let's move over to React now.
+The output should give you a URL where you can find your application in the browser.
 
 {{% chapter_header "Solving the same problem in React" "why-react-matters" %}}
 
-In this part of the article, you are going to solve the same problem with React. It should give you a way to compare both solutions and maybe convince you why a library such as React is a good tool to solve such problems.
+In this part of the article, you are going to solve the same problem with React. It should give you a way to compare both solutions and maybe convince you why a library such as React is a fitting tool to solve such problems.
 
-The project will consist again of a *index.html* and *index.js* file. Our implementation starts again with the HTML boilerplate in the *index.html* file. It requires the two necessary React and ReactDOM libraries. The latter is used to hook React into the DOM. In addition, the *index.js* is included too.
+The project will consist again of a *index.html* and *index.js* file. Our implementation starts again with the HTML boilerplate in the *index.html* file. It requires the two necessary React and ReactDOM libraries. The latter is used to hook React into the DOM and the former for React itself. In addition, the *index.js* is included too.
 
 {{< highlight html >}}
 <!DOCTYPE html>
@@ -268,7 +266,7 @@ The project will consist again of a *index.html* and *index.js* file. Our implem
 </html>
 {{< /highlight >}}
 
-Second, add Babel to transpile your JavaScript code to vanilla JavaScript. It's because the following code in your *index.js* file will use non vanilla JavaScript functionalities, such as {{% a_blank "JavaScript ES6 classes" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" %}}, and thus you have to add Babel to transpile it down to vanilla JavaScript to make it work in all browsers.
+Second, add Babel to transpile your JavaScript code to vanilla JavaScript, because the following code in your *index.js* file will use non vanilla JavaScript functionalities such as {{% a_blank "JavaScript ES6 classes" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes" %}}. Thus you have to add Babel to transpile it to vanilla JavaScript to make it work in all browsers.
 
 {{< highlight html "hl_lines=7 10" >}}
 <!DOCTYPE html>
@@ -285,7 +283,7 @@ Second, add Babel to transpile your JavaScript code to vanilla JavaScript. It's 
 </html>
 {{< /highlight >}}
 
-Third, you have to define an element with an id. That's the crucial bridge to React, because this element will be used to hook in your React code. There is no need to define further HTML elements in your *index.html* file, because everything else will be defined in your React code in the *index.js* file.
+Third, you have to define an element with an id. That's the crucial place where React can hook into the DOM. There is no need to define further HTML elements in your *index.html* file, because everything else will be defined in your React code in the *index.js* file.
 
 {{< highlight html "hl_lines=10" >}}
 <!DOCTYPE html>
@@ -581,13 +579,13 @@ class App extends React.Component {
 }
 {{< /highlight >}}
 
-That's it. Both class methods update the state in synchronous or asynchronous way. After the state updated eventually, the `render()` method runs again and displays all the HTML elements by using the current state. There is no need for you to remove or append DOM elements in an imperative way. You can declaratively say what you want to display with your component.
+That's it. Both class methods update the state in synchronous or asynchronous way. After the state updated eventually, the `render()` method runs again and displays all the HTML elements by using the current state. There is no need for you to remove or append DOM elements in an imperative way. You can define in a declarative way what you want to display with your component.
 
-You can try out the application the same way as the vanilla JavaScript application. On the command line navigate into your folder and use the http-server to serve the application in the browser.
+You can try out the application the same way as the vanilla JavaScript application. On the command line navigate into your folder and use the http-server to serve the application.
 
-Overall both scenarios, using vanilla JavaScript and React, should have shown you a great comparison for imperative vs. declarative code. In imperative programming you describe with your code *how to do something*. That's what you have done in the vanilla JavaScript scenario. In contrast, in declarative programming you describe with your code *what you want to do*. That's the power of React and of using a library over vanilla JavaScript.
+Overall both scenarios which are using vanilla JavaScript and React should have shown you a great comparison of imperative and declarative code. In imperative programming, you describe with your code *how to do something*. That's what you have done in the vanilla JavaScript scenario. In contrast, in declarative programming, you describe with your code *what you want to do*. That's the power of React and of using a library over vanilla JavaScript.
 
-The implementation of both examples is quite small and should show you that the problem can be solved by either vanilla JavaScript or React. Both solutions are just fine. I would argue that the vanilla JavaScript solution is even better for this problem. However, once you scale your application, it becomes more complex in vanilla JavaScript to manage DOM and the state. There comes a point where you end up with spaghetti code like it happened for lots of jQuery applications in the past. In React, you keep your code declarative and can describe a whole HTML hierarchy with components These components manage their own state, can be reused and composed into each other. You can describe a whole component tree with them. React keeps your application readable, maintainable and scalable.
+The implementation of both examples is quite small and should show you that the problem can be solved by both approaches. I would argue that the vanilla JavaScript solution is even better suited for this problem. However, once you scale your application, it becomes more complex in vanilla JavaScript to manage the DOM, DOM manipulations and the application state. There would come a point in time where you would end up with the infamous spaghetti code like it happened for lots of jQuery applications in the past. In React, you keep your code declarative and can describe a whole HTML hierarchy with components. These components manage their own state, can be reused and composed into each other. You can describe a whole component tree with them. React keeps your application readable, maintainable and scalable. It's fairly simple to split up a component into multiple components.
 
 {{< highlight javascript "hl_lines=12 13 14 20 21" >}}
 class App extends React.Component {
@@ -613,12 +611,12 @@ const Item = ({ item }) =>
   <div>{item.title}</div>
 {{< /highlight >}}
 
-The last code snippet shows how you can extract another component from the App component. This way, you can scale your component hierarchy and maintain business logic in related components. It would be way more difficult in vanilla JavaScript to maintain such code.
+The last code snippet shows how you can extract another component from the App component. This way, you can scale your component hierarchy and maintain business logic colocated to components. It would be way more difficult in vanilla JavaScript to maintain such code.
 
 <hr class="section-divider">
 
-You can find the code for all the solutions in {{% a_blank "this GitHub repository" "https://github.com/rwieruch/why-frameworks-matter" %}}. There is also a solution for JavaScript ES6 which can be used in between of vanilla JavaScript and React. It would be great to find more contributors for implementing examples for other solutions such as Angular or Ember. If you can solve the same problem in a similar way with one solution which is not in the repository yet, feel free to contribute to it :)
+You can find all the solutions in {{% a_blank "this GitHub repository" "https://github.com/rwieruch/why-frameworks-matter" %}}. There is also a solution for JavaScript ES6 which can be used in between of the vanilla JavaScript and React approaches. It would be great to find contributors for implementing examples for Angular, Ember and other solutions too. Feel free to contribute to it :)
 
 If you enjoyed this journey from vanilla JavaScript to React and you decided to learn React, checkout [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) as your next journey to learn React. Along the way, you will transition smoothly from vanilla JavaScript to JavaScript ES6 and beyond.
 
-In the end, always remember that there are people working behind the curtains to enable these solutions for you. In the case of React, you can find the repository on GitHub. You can do the contributors a huge favor by cheering them up on Twitter once in a while by leaving a nice message for them. Another great way of helping them out is to get involved in open source by solving issues on GitHub. After all, nobody wants to build larger applications in vanilla JavaScript anymore. So cherish your library or framework and be grateful for the work open source people are doing every day.
+In the end, always remember that there are people working behind the curtains to enable these solutions for you. You can do the contributors a huge favor by cheering them up on Twitter once in a while or by getting involved in open source. After all, nobody wants to build larger applications in vanilla JavaScript anymore. So cherish your library or framework that you are using every day :)
