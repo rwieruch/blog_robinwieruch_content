@@ -1,5 +1,5 @@
 +++
-title = "How to use React's Provider Pattern"
+title = "How to use React's Provider Pattern with React's Context"
 description = "Wondering about React's provider pattern? This article gives you a gentle introduction to the pattern, various use cases where it can be used, and how it can be implemented by using React's context API. React's provider pattern can help you to scale your state management or to introduce theming in your application ..."
 date = "2017-07-11T13:50:46+02:00"
 tags = ["React", "JavaScript"]
@@ -10,7 +10,7 @@ hashtag = "#ReactJs"
 card = "img/posts/react-provider-pattern-context/banner_640.jpg"
 banner = "img/posts/react-provider-pattern-context/banner.jpg"
 contribute = "react-provider-pattern-context.md"
-headline = "How to use React's Provider Pattern"
+headline = "How to use React's Provider Pattern with React's Context"
 
 summary = "The provider pattern in React is a powerful concept. You will not often see it when using plain React, but might consider using it when scaling your application in React. Basically it takes the clutter away of passing mandatory props, that are needed by every component, down your whole component tree."
 +++

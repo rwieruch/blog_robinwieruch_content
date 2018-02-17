@@ -1,6 +1,6 @@
 +++
 title = "Getting started with React and Parcel"
-description = "This guide helps you to setup React with Parcel from 0 to 1. Learn how to use Parcel and Babel in React.js with zero-configuration. Setup your own boilerplate application ..."
+description = "This guide helps you to setup React with Parcel from 0 to 1. Learn how to use Parcel in React.js with zero-configuration. Setup your own boilerplate application ..."
 date = "2018-02-10T13:50:46+02:00"
 tags = ["React", "JavaScript", "Tooling"]
 categories = ["React", "JavaScript", "Tooling"]
@@ -130,44 +130,7 @@ ReactDOM.render(
 );
 {{< /highlight >}}
 
-If you try to run your application with Parcel on the command line now, you should get a "Unexpected token" error. This happens because the JSX from React cannot be interpreted. It's not vanilla JavaScript and thus it needs to be transpiled by {{% a_blank "Babel" "https://github.com/babel/babel" %}}. Let's install two libraries on the command line as dev dependencies which take care of it.
-
-{{< highlight javascript >}}
-npm install babel-preset-env babel-preset-react --save-dev
-{{< /highlight >}}
-
-Afterward, include them in your *package.json* file.
-
-{{< highlight javascript "hl_lines=5 6 7 8 9 10" >}}
-"scripts": {
-  "start": "parcel ./src/index.html",
-  "test": "echo \"Error: no test specified\" && exit 1"
-},
-"babel": {
-  "presets": [
-    "env",
-    "react"
-  ]
-},
-"keywords": [],
-{{< /highlight >}}
-
-As alternative, you can create a *.babelrc* file in your project for a dedicated place to specify your Babel configuration.
-
-*.babelrc*
-
-{{< highlight javascript >}}
-{
-  "presets": [
-    "env",
-    "react"
-  ]
-}
-{{< /highlight >}}
-
-If you are doing it this way, don't forget to remove the configuration from your *package.json* file.
-
-That's basically it for the React in Parcel setup. You are ready to implement your React application now. If you import a component from another file in your *index.js* file, Parcel will be able to resolve it. If you import a CSS file or a image from a file, Parcel will resolve it as well.
+That's it for the React in Parcel setup. You are ready to implement your React application now. If you import a component from another file in your *index.js* file, Parcel will be able to resolve it. If you import a CSS file or a image from a file, Parcel will resolve it as well.
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -185,6 +148,6 @@ ReactDOM.render(
 );
 {{< /highlight >}}
 
-If these files are in your *src/* folder, Parcel should take care of resolving them for you. That's it for a minimal React setup with Parcel and Babel. Again, you can find the {{% a_blank "repository on GitHub" "https://github.com/rwieruch/parcel-react" %}}. However, Parcel should make it fairly easy to setup a React project on your own. It's zero-configuration after all, so just give it a shot.
+If these files are in your *src/* folder, Parcel should take care of resolving them for you. That's it for a minimal React setup with Parcel. Again, you can find the {{% a_blank "repository on GitHub" "https://github.com/rwieruch/parcel-react" %}}. However, Parcel should make it fairly easy to setup a React project on your own. It's zero-configuration after all, so just give it a shot.
 
 {{% read_more "Setup React with Babel and Webpack" "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" %}}
