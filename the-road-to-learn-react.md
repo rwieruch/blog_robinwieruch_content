@@ -1,7 +1,7 @@
 +++
 title = "The Road to learn React [React.js Book for 2018]"
 description = "The Road to learn React book is your way to learn React.js by building a real world application. It's a huge tutorial where you will learn all the fundamentals in plain React before you dive into more advanced topics in React with Redux. Along the way, you will learn everything about JavaScript ES6 ..."
-date = "2017-10-17T13:50:46+02:00"
+date = "2018-02-20T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["learn react", "react book", "react ebook", "react.js book"]
@@ -17,11 +17,11 @@ summary = "The Road to learn React offers you a foundation before you start to d
 
 {{% pin_it_image "build own course platform" "img/posts/the-road-to-learn-react/banner.jpg" "is-src-set" %}}
 
-The Road to learn React book teaches you the fundamentals of React. You will build a real world application along the way in plain React without complicated tooling. Everything from project setup to deployment on a server will be explained. The book comes with additional referenced reading material and exercises with each chapter. After reading the book, you will be able to build your own applications in React. The material is kept up to date by me, Robin Wieruch, and the community.
+The Road to learn React book teaches you the fundamentals of React. You will build a real world application along the way in plain React without complicated tooling. Everything from project setup to deployment on a server will be explained for you. The book comes with additional referenced reading material and exercises with each chapter. After reading the book, you will be able to build your own applications in React. The material is kept up to date by me and the community.
 
-In the Road to learn React, I want to offer a foundation before you start to dive into the broader React ecosystem. It has less tooling and less external state management, but a lot of information around React. It explains general concepts, patterns and best practices in a real world React application.
+In the Road to learn React, I want to offer a foundation before you start to dive into the broader React ecosystem. It has less tooling and less external state management, but a lot of information about React. It explains general concepts, patterns and best practices in a real world React application.
 
-You will learn to build your own Hacker News application. It covers real world features like pagination, client-side caching and interactions like searching and sorting. Additionally you will transition from JavaScript ES5 to JavaScript ES6 along the way. I hope this book captures my enthusiasm for React and JavaScript and helps you to get started.
+You will learn to build your own React application. It covers real world features like pagination, client-side caching and interactions such as searching and sorting. Additionally, you will transition from JavaScript ES5 to JavaScript ES6 along the way. I hope this book captures my enthusiasm for React and JavaScript and helps you to get started with it.
 
 {{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>18.500+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
@@ -124,6 +124,16 @@ I keep the learning material up to date to the recent changes in the React ecosy
 * 190+ pages of learning material
 * {{% a_blank "+9 Source Code Projects" "https://roadtoreact.com/course-details?courseId=THE_ROAD_TO_LEARN_REACT" %}}
 
+**17. February 2018:**
+
+* upgrade to node 8.9.4
+* upgrade to npm 5.6.0
+* upgrade to create-react-app 1.5.1
+* more learning paths
+* extra reading material
+* 1 new chapter (Axios instead of Fetch)
+* {{% a_blank "Amazon Print/E Book" "https://www.amazon.com/dp/B077HJFCQX?tag=21moves-20" %}}
+
 {{% chapter_header "What you can expect (so far...)" "expectNow" %}}
 
 <div class="col-md-12">
@@ -199,6 +209,7 @@ I keep the learning material up to date to the recent changes in the React ecosy
   * Paginated Fetch
   * Client Cache
   * Error Handling
+  * Axios instead of Fetch
 * Code Organization and Testing
   * ES6 Modules: Import and Export
   * Code Organization with ES6 Modules
@@ -225,21 +236,25 @@ My recommended learning paths (extracted from the book) after you have read the 
 
 * **State Management:** You have used React `this.setState()` and `this.state` to manage and access local component state. That's a perfect start. However, in a larger application you will experience the [limits of React's local component state](https://www.robinwieruch.de/learn-react-before-using-redux/). Therefore you can use a third-party state management library such as [Redux or MobX](https://www.robinwieruch.de/redux-mobx-confusion/). On the course platform [Road to React](https://roadtoreact.com/), you will find the course "Taming the State in React" that teaches advanced local state in React, Redux and MobX. The course comes with an ebook as well, but I recommend everyone to dive into the source code and screencasts too. If you liked this book, you should definitely checkout Taming the State in React.
 
-* **Sample Projects:** After learning plain React, it is always good to apply the learnings first in your own projects before learning something new. You could write your own tic-tac-toe game or a simple calculator in React. There are plenty of tutorials out there that use only React to build something exciting. Check out mine about building [a paginated and infinite scrolling list](https://www.robinwieruch.de/react-paginated-list/), [showcasing tweets on a Twitter wall](https://www.robinwieruch.de/react-svg-patterns/) or [connecting your React application to Stripe for charging money](https://www.robinwieruch.de/react-express-stripe-payment/). Experiment with these mini applications to get comfortable in React.
+* **Connecting to a Database and/or Authentication:** In a growing React application, you may want to persist data eventually. The data should be stored in a database so that it can survive after a browser session and be shared across different users using your application. The simplest way to introduce a database is using Firebase. In [this comprehensive tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/), you will find a step by step guide on how to use Firebase authentication (sign up, sign in, sign out, ...) in React. Beyond that, you will use Firebase's realtime database to store user entities. After that, it's up to you to store more data in the database which is needed by your application.
 
-* **Code Organization:** On your way reading the book you came across one chapter about code organization. You could apply these changes now, if you haven't done it yet. It will organize your components in structured files and folders (modules). In addition, it helps to understand and learn the principles of code splitting, reusability, maintainability and module API design.
+* **Tooling with Webpack and Babel:** In the book you have used *create-react-app* to set up your application. At some point, when you have learned React, you might want to learn the tooling around it. It enables you to setup your own project without *create-react-app*. I can recommend to follow a minimal setup with [Webpack and Babel](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). Afterward, you can apply more tooling on your own. For instance, you could [use ESLint](https://www.robinwieruch.de/react-eslint-webpack-babel/) to follow a unified code style in your application.
+
+* **React Component Syntax:** The possibilities and best practices to implement React components evolve over time. You will find many ways to write your React components, especially React class components, in other learning resources. You can checkout {{% a_blank "this GitHub repository" "https://github.com/rwieruch/react-alternative-class-component-syntax" %}} to find out about an alternative way to write React class components. By using the class field declarations, you can write them even more concise in the future.
+
+* **Other Projects:** After learning plain React, it is always good to apply the learnings first in your own projects before learning something new. You could write your own tic-tac-toe game or a simple calculator in React. There are plenty of tutorials out there that use only React to build something exciting. Check out mine about building [a paginated and infinite scrolling list](https://www.robinwieruch.de/react-paginated-list/), [showcasing tweets on a Twitter wall](https://www.robinwieruch.de/react-svg-patterns/) or [connecting your React application to Stripe for charging money](https://www.robinwieruch.de/react-express-stripe-payment/). Experiment with these mini applications to get comfortable in React.
+
+* **UI Components:** You shouldn't make the mistake to introduce too early a UI component library in your project. First, you should learn how to implement and use a dropdown, checkbox or dialog in React with standard HTML elements from scratch. The major part of these components will manage their own local state. A checkbox has to know whether it is checked or not checked. Thus you should implement them as controlled components. After you went through all the foundational implementations, you can introduce a UI component library which gives you checkboxes and dialogs as React components.
+
+* **Code Organization:** On your way reading the book, you came across one chapter about code organization. You could apply these changes now, if you haven't done it yet. It will organize your components in structured files and folders (modules). In addition, it helps you to understand and learn the principles of code splitting, reusability, maintainability and module API design. Eventually your application will grow in size and you will need to structure it in modules. So it's better you get started now.
 
 * **Testing:** The book only scratched the surface of testing. If you are not familiar with the general topic, you could dive deeper into the concepts of unit testing and integration testing, especially in context of React applications. On an implementation level, I would recommend to stick to Enzyme and Jest in order to refine your approach of testing with unit tests and snapshot tests in React.
 
-* **Asynchronous Requests:** You can substitute the native fetch API with third-party alternatives to perform asynchronous requests: [superagent](https://github.com/visionmedia/superagent) or [axios](https://github.com/mzabriskie/axios). There is no perfect solution to make asynchronous requests. But by exchanging the buildings blocks around React, you make the experience [how powerful it can be to have this flexibility](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/). In frameworks you usually stick to one solution. In a [flexible ecosystem like React](https://www.robinwieruch.de/essential-react-libraries-framework/) you can exchange the solutions.
+* **Routing:** You can implement routing for your application with {{% a_blank "react-router" "https://github.com/ReactTraining/react-router" %}}. So far, you only have one page in your application. React Router helps you to have multiple pages across multiple URLs. When you introduce routing to your application, you don't make any requests to your web server to request the next page. The router will do everything for you on the client-side. So get your hands dirty and introduce routing in your application.
 
-* **Routing:** You can implement routing for your application with [react-router](https://github.com/ReactTraining/react-router). So far, you only have one page in your application. React Router helps you to have multiple pages across multiple URLs. When you introduce routing to your application, you don't make any requests to your web server to fetch the next page. The router will do everything for you on the client-side.
+* **Type Checking:** In one chapter, you have used React PropTypes to define component interfaces. It is a general good practice to prevent bugs. But the PropTypes are only checked on runtime. You can go one step further to introduce static type checking on compile time. {{% a_blank "TypeScript" "https://www.typescriptlang.org/" %}}" is one popular approach. But in the React ecosystem, people often use {{% a_blank "Flow" "https://flowtype.org/" %}}. I can recommend to give Flow a shot, if you are interested to make your application more robust.
 
-* **Type Checking:** In one chapter, you have used React PropTypes to define component interfaces. It is a good practice to prevent bugs. But the PropTypes are only checked on runtime. You can go one step further to introduce static type checking on compile time. [TypeScript](https://www.typescriptlang.org/) is one popular approach. But in the React ecosystem, people often use [Flow](https://flowtype.org/). I can recommend to give Flow a shot if you are interested to make your application more robust.
-
-* **Tooling with Webpack and Babel:** In the book you have used *create-react-app* to set up your application. At some point, when you have learned React, you might want to learn the tooling around it. It enables you to setup your own project without *create-react-app*. I can recommend to follow a minimal setup with [Webpack and Babel](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). Afterward you can apply more tooling on your own. For instance, you could [use ESLint](https://www.robinwieruch.de/react-eslint-webpack-babel/) to follow a unified code style in your application.
-
-* **React Native:** [React Native](https://facebook.github.io/react-native/) brings your application on mobile devices. You can apply your learnings from React to ship iOS and Android applications. The learning curve, once you have learned React, shouldn't be steep in React Native. Both share the same principles. You will only encounter different layout components on mobile than you are used to in web applications.
+* **React Native:** {{% a_blank "React Native" "https://facebook.github.io/react-native/" %}} brings your application on mobile devices. You can apply your learnings from React to ship iOS and Android applications. The learning curve, once you have learned React, shouldn't be steep in React Native. Both share the same principles. You will only encounter different layout components on mobile than you are used to in web applications.
 
 <hr class="section-divider">
 
