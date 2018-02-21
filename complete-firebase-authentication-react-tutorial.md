@@ -554,6 +554,8 @@ In *src/components/SignUp.js* file:
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import * as routes from '../constants/routes';
+
 const SignUpPage = () =>
   <div>
     <h1>SignUp</h1>
