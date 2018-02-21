@@ -14,7 +14,9 @@ headline = "Technical Cheatsheet: Development Environment Setup"
 
 {{% pin_it_image "web developer setup" "img/posts/developer-setup/banner.jpg" "is-src-set" %}}
 
-This concise cheatsheet will give you guidance on how to setup your development environment as a web developer. It made for MacOS users, but you can substitute the tools/instructions with equivalents things for Windows and Linux. So don't give up if you are not a MacOS user. Setting up everything yourself is your first challenge as a striving web developer.
+This concise cheatsheet will give you guidance on how to setup your development environment as a web developer. It's made for MacOS developers, but you can substitute the tools/instructions with equivalent things for Windows and Linux. So don't give up if you are not a MacOS user. Setting up everything yourself is your first challenge as a striving web developer.
+
+Note: If you are a Windows developer who wants to get into React.js, checkout this [React setup guide for Windows users](https://www.robinwieruch.de/react-js-windows-setup).
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
