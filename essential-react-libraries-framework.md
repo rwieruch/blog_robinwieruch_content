@@ -1,6 +1,6 @@
 +++
 title = "Essential React Libraries in 2018"
-description = "Often it is difficult to find all the relevant libraries to complement your React application, because React's ecosystem is a flexible yet large framework. The article gives you an opinionated React setup by choosing essential libraries: Redux, MobX, React Router, Flow, Styled Components, Lodash, Ramda, Prettier, Axios, ..."
+description = "Often it is difficult to find all the relevant libraries to complement your React.js application, because React's ecosystem is a flexible yet large framework. The article gives you an opinionated React setup by choosing essential libraries: Redux, MobX, React Router, Flow, Styled Components, Lodash, Ramda, Prettier, Axios, ..."
 date = "2018-01-11T13:50:46+02:00"
 tags = ["React", "Redux", "JavaScript"]
 categories = ["React", "Redux", "JavaScript"]
@@ -17,9 +17,9 @@ summary = "React with its ecosystem is a flexible framework. You can choose your
 
 {{% pin_it_image "react js libraries" "img/posts/essential-react-libraries-framework/banner.jpg" "is-src-set" %}}
 
-React is only a view-layer library. Thus React only enables you to build component driven user interfaces. It comes with a couple of built-in solutions though, for instance local state management and syntactic events to make interactions happen, but after all you are only dealing with a view-layer library.
+React.js is only a view-layer library. Thus React only enables you to build component driven user interfaces. It comes with a couple of built-in solutions though, for instance local state management and syntactic events to make interactions happen, but after all you are only dealing with a view-layer library.
 
-It is often said that plain React is sufficient when building applications. In the open source book [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) it is showcased that plain React suffices to build an application. But in the end, when implementing a larger application, you need a couple of more libraries to have a sophisticated web application with React as its core.
+It is often said that plain React is sufficient when building applications in JS. In the open source book [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) it is showcased that plain React suffices to build an application. But in the end, when implementing a larger application, you need a couple of more libraries to have a sophisticated web application with React as its core.
 
 Developers coming from frameworks such as Angular or Ember often have a hard time to figure out all the building blocks they will need to build a sophisticated web application with React as its core. Coming from a framework, you are used to have all necessary functionalities at your disposal. However, React is only a view-layer library. Thus you would need to figure out all the other building blocks, to be more specific: all the other libraries that are needed to complement React. Nevertheless I think it is one of the crucial advantages of React in staying flexible when choosing your libraries to complement your React application.
 
@@ -222,7 +222,7 @@ Whenever a wrong type is passed to the component, you will get an error message 
 
 In a larger React application, you can add sophisticated type checker such as {{% a_blank "Flow" "https://flow.org/" %}} and {{% a_blank "TypeScript" "https://www.typescriptlang.org/" %}} instead of React PropTypes. When using such a type checker, you can get errors already during development time. You wouldn't have to start your application in order to find about a bug that could have prevented with such type checking. That way a type checker might be able to improve your developer experience and avoids to introduce bugs in the first place.
 
-Flow was introduced by Facebook and feels more natural in the React ecosystem than TypeScript. That's why I recommend using it in a React application over TypeScript.
+Flow was introduced by Facebook and feels more natural in the React ecosystem than TypeScript. That's why I would recommend using it in a React application over TypeScript. But there are many people using TypeScript as well. In the end, both solutions should solve the same problem for you.
 
 **Recommendations:**
 

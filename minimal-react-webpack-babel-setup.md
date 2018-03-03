@@ -1,21 +1,21 @@
 +++
-title = "The Minimal React + Webpack 3 + Babel Setup"
-description = "This guide helps you to setup React with Webpack 3 and Babel from 0 to 1. Hot Module Replacement is a bonus. Learn how to use Webpack and Babel in React.js without using create-react-app. Setup your own boilerplate application ..."
+title = "The Minimal React + Webpack 4 + Babel Setup"
+description = "This guide helps you to setup React with Webpack 4 and Babel from 0 to 1. Hot Module Replacement is a bonus. Learn how to use Webpack and Babel in React.js without using create-react-app. Setup your own boilerplate application ..."
 date = "2018-01-18T13:50:46+02:00"
 tags = ["React", "JavaScript", "Tooling"]
 categories = ["React", "JavaScript", "Tooling"]
-keywords = ["react webpack babel", "webpack 3"]
+keywords = ["react webpack babel", "webpack 4"]
 news_keywords = ["react webpack babel"]
 hashtag = "#ReactJs"
 card = "img/posts/minimal-react-webpack-babel-setup/banner_640.jpg"
 banner = "img/posts/minimal-react-webpack-babel-setup/banner.jpg"
 contribute = "minimal-react-webpack-babel-setup.md"
-headline = "The Minimal React + Webpack 3 + Babel Setup"
+headline = "The Minimal React + Webpack 4 + Babel Setup"
 
 summary = "Personally I did a lot of React projects in the recent time. Always I had to setup the project from scratch. Eventually I have created my own boilerplate project on GitHub. As you might know, uncountable React boilerplate projects and repositories were created that way. But the article is not my attempt to advertise yet another React boilerplate project."
 +++
 
-{{% pin_it_image "react webpack 3 babel" "img/posts/minimal-react-webpack-babel-setup/banner.jpg" "is-src-set" %}}
+{{% pin_it_image "react webpack 4 babel" "img/posts/minimal-react-webpack-babel-setup/banner.jpg" "is-src-set" %}}
 
 Personally I bootstrapped a lot of React projects in the recent time. I always had to setup the project from scratch. Eventually I have created my own {{% a_blank "boilerplate project on GitHub" "https://github.com/rwieruch/minimal-react-webpack-babel-setup" %}}. As you might know, uncountable React boilerplate projects and repositories were created that way.
 
@@ -31,7 +31,7 @@ Fourth, the article is not about the boilerplate project itself. The article is 
 
 Last but not least, there is already a great official way introduced by Facebook to bootstrap a boilerplate React project. {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}} comes without any build configuration. I can recommend it for everyone who is getting started in React. If you are a beginner, you probably shouldn't bother with a setup of Webpack, Babel and Hot Reloading. I use create-react-app to teach plain React in my book [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). I can recommend to read it before you get started with the tooling around React.
 
-That's enough about my motivation behind the article. Let's dive into my personal minimal setup for a React project. This tutorial got updated to use Webpack 3.
+That's enough about my motivation behind the article. Let's dive into my personal minimal setup for a React project. This tutorial is up to the recent Webpack 4 version. It should work for Webpack 3 as well.
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
@@ -79,11 +79,11 @@ The created file should have the following content:
 <!DOCTYPE html>
 <html>
   <head>
-      <title>The Minimal React Webpack Babel Setup</title>
+    <title>The Minimal React Webpack Babel Setup</title>
   </head>
   <body>
     <div id="app"></div>
-    <script src="bundle.js"></script>
+    <script src="/bundle.js"></script>
   </body>
 </html>
 {{< /highlight >}}
@@ -102,12 +102,12 @@ Let’s continue with the first step followed by the latter one.
 
 {{% chapter_header "Webpack Setup" "webpack-react-setup" %}}
 
-You will use {{% a_blank "Webpack" "https://github.com/webpack/webpack" %}} as module bundler and build tool. Moreover you will use {{% a_blank "webpack-dev-server" "https://github.com/webpack/webpack-dev-server" %}} to serve your bundled app in a local environment. Otherwise you couldn't see it in the browser to develop it. Let's install both node packages by using npm.
+You will use {{% a_blank "Webpack" "https://github.com/webpack/webpack" %}} as module bundler and build tool. Moreover you will use {{% a_blank "webpack-dev-server" "https://github.com/webpack/webpack-dev-server" %}} to serve your bundled app in a local environment. Otherwise you couldn't see it in the browser to develop it. Last but not least, you need the {{% a_blank "webpack-cli" "https://github.com/webpack/webpack-cli" %}} node package to configure your Webpack setup in a configuration file later on. Let's install all three node packages by using npm.
 
 *From root folder:*
 
 {{< highlight javascript >}}
-npm install --save-dev webpack webpack-dev-server
+npm install --save-dev webpack webpack-dev-server webpack-cli
 {{< /highlight >}}
 
 Now you should have a *node_modules* folder where you can find your third party dependencies. The dependencies will be listed in the *package.json* file as well, since you used the *--save-dev* flag. Your folder structure should look like the following by now:
@@ -128,13 +128,15 @@ In the *package.json* file you can add a start script additionally to the defaul
 {{< highlight javascript "hl_lines=3" >}}
 ...
 "scripts": {
-  "start": "webpack-dev-server --progress --colors --config ./webpack.config.js",
+  "start": "webpack-dev-server --config ./webpack.config.js --mode development",
   ...
 },
 ...
 {{< /highlight >}}
 
-The script defines that you want to use the webpack-dev-server with some basic configuration and a configuration file called *wepback.config.js*. Let’s create that required file.
+The script defines that you want to use the webpack-dev-server with a configuration file called *wepback.config.js*. The `--mode development` flag just adds default Webpack configurations which came with Webpack 4. You wouldn't need the flag for Webpack 3.
+
+Let’s create the required *wepback.config.js* file.
 
 *From root folder:*
 
@@ -280,7 +282,29 @@ module.exports = {
 };
 {{< /highlight >}}
 
-You can start your application again. Nothing should have changed except for that you can use future JavaScript functionalities now. You are ready to build your first React component. So let’s do this.
+You can start your application again. Nothing should have changed except for that you can use upcoming ECMAScript functionalities for JavaScript now. An optional step would be to extract your Babel configuration in a separate *.babelrc* configuration file.
+
+*From root folder:*
+
+{{< highlight javascript >}}
+touch .babelrc
+{{< /highlight >}}
+
+Now you can add the configuration for Babel, which you have previously added in your *package.json*, in the *.babelrc* file. Don't forget to remove the configuration in the *package.json* afterward. It should be configured at only one place.
+
+*.babelrc*
+
+{{< highlight javascript >}}
+{
+  "presets": [
+    "env",
+    "react",
+    "stage-2"
+  ]
+}
+{{< /highlight >}}
+
+You are set up to build your first React component now.
 
 {{% chapter_header "React Setup in a Webpack + Babel Project" "react-setup" %}}
 
