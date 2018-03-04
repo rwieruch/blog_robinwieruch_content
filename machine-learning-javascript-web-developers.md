@@ -213,7 +213,7 @@ There are even more machine learning related libraries in JavaScript for the oth
 
 * {{% a_blank "Natural" "https://github.com/NaturalNode/natural" %}} ({{% a_blank "Natural Language Processing" "https://en.wikipedia.org/wiki/Natural_language_processing" %}})
 * {{% a_blank "Sentiment" "https://github.com/thisandagain/sentiment" %}} ({{% a_blank "Sentiment Analysis" "https://en.wikipedia.org/wiki/Sentiment_analysis" %}})
-* {{% a_blank "OpenCV.js" "https://github.com/ucisysarch/opencvjs" %}} ({{% a_blank "Computer Vision" "https://en.wikipedia.org/wiki/Computer_vision" %}} with OpenCV for the Browser)
+* {{% a_blank "OpenCV.js" "https://docs.opencv.org/master/d5/d10/tutorial_js_root.html" %}} ({{% a_blank "Computer Vision" "https://en.wikipedia.org/wiki/Computer_vision" %}} with OpenCV for the Browser)
 * {{% a_blank "opencv4nodejs" "https://github.com/justadudewhohacks/opencv4nodejs" %}} (Computer Vision with OpenCV for Node.js)
 * {{% a_blank "face-recognition.js" "https://github.com/justadudewhohacks/face-recognition.js" %}} (Face Recognition)
 
