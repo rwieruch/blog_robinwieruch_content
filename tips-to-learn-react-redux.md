@@ -715,7 +715,7 @@ There are some tool combinations that allow you to test your JavaScript code now
 
 A lot of people think you should use one or the other, but you can use enzyme and Jest together. Especially the snapshot testing in Jest complements enzyme. Both libraries are the de facto standard in testing React applications. {{% a_blank "Sinon" "https://github.com/sinonjs/sinon" %}} is another great addition to spy, mock and stub functions in your tests.
 
-I can only recommend reading some articles about testing like the one by {{% a_blank "A. Sharif" "https://medium.com/javascript-inside/some-thoughts-on-testing-react-redux-applications-8571fbc1b78f#.xqqvl4os4" %}}.
+I can only recommend reading some articles about testing like the one by {{% a_blank "A. Sharif" "https://medium.com/javascript-inside/some-thoughts-on-testing-react-redux-applications-8571fbc1b78f#.xqqvl4os4" %}}. Another article by myself [goes into the setup process and how to test your React components with various testing frameworks](https://www.robinwieruch.de/react-testing-tutorial).
 
 {{% chapter_header "Unit test often, integration test rarely your components" "react-test-often" %}}
 

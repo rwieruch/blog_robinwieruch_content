@@ -7,15 +7,15 @@ categories = ["React"]
 keywords = ["react testing tutorial", "react testing frameworks", "react testing library", "react testing best practices", "react testing components"]
 news_keywords = ["react testing tutorial", "react testing frameworks", "react testing library", "react testing best practices", "react testing components"]
 hashtag = "#ReactJs"
-card = "img/posts/react-component-tests-tutorial/banner_640.jpg"
-banner = "img/posts/react-component-tests-tutorial/banner.jpg"
-contribute = "react-component-tests-tutorial.md"
+card = "img/posts/react-testing-tutorial/banner_640.jpg"
+banner = "img/posts/react-testing-tutorial/banner.jpg"
+contribute = "react-testing-tutorial.md"
 headline = "React Testing Tutorial: Test Frameworks & Component Tests"
 
 summary = "The article gives you guidance on how to setup and perform testing in a React application. It uses common testing tools such as Mocha, Chai, Enzyme, Jest and Sinon to make verify the robustness of your application."
 +++
 
-{{% pin_it_image "react testing tutorial" "img/posts/react-component-tests-tutorial/banner.jpg" "is-src-set" %}}
+{{% pin_it_image "react testing tutorial" "img/posts/react-testing-tutorial/banner.jpg" "is-src-set" %}}
 
 Writing tests is an essential part of software development to ensure a robust application. Tests enable us to automatically verify that our application is working on a certain level. The certain level depends on the quality, quantity (coverage) and type of your tests (unit tests, integration tests, end-to-end tests).
 
@@ -30,6 +30,8 @@ As mentioned, the article will show you **how to setup different testing librari
 **What are unit, integration, and end-to-end tests in a nutshell?** Whereas a unit test should be able to test a piece (e.g. component) in isolation, the integration test should make sure that the piece (component) works in its context with other pieces (components). For instance, an integration test could verify that all necessary props are passed through from the tested component to a specific child component. Last but not least, end-to-end tests are testing your application in a browser environment. For instance, there you could simulate a whole [sign up process](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/) by filling in a email address and a password in a form and submitting these credentials to your backend.
 
 Another goal of the article is to show you a couple of **common test patterns and testing best practices** which are not too complicated and can be applied throughout your application. It should help you to write your React component tests in an efficient way without having to decide every time on how to write the tests themselves. Therefore, most of your tests should follow a common pattern which you can apply throughout your components. These test pattern become even more interesting when using {{% a_blank "TDD" "https://en.wikipedia.org/wiki/Test-driven_development" %}}, because you can write your tests first and your components in the second step. After all, this guide should show you a couple of React testing best practices without being too opinionated. Hopefully it will help you to understand the React testing framework landscape, how to setup these testing tools up and how to use them.
+
+You can find the whole project in {{% a_blank "this GitHub repository" "https://github.com/rwieruch/react-components-test-setup" %}}.
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
@@ -836,7 +838,7 @@ If you have no GitHub account and no setup for git yet, you should make sure to 
 
 Next, you should be set up to create an account for {{% a_blank "Travis CI" "https://travis-ci.org/" %}} by using your GitHub account. Once you have created it and see your dashboard on their platform, you can synchronize your GitHub repositories with it. Make sure to synchronize this project on your Travis CI dashboard by toggling it to make it accessible for your continuous integration.
 
-{{% pin_it_image "react testing travis CI" "img/posts/react-component-tests-tutorial/travis-ci-toggle.jpg" "is-src-set" %}}
+{{% pin_it_image "react testing travis CI" "img/posts/react-testing-tutorial/travis-ci-toggle.jpg" "is-src-set" %}}
 
 Now you should have synchronized Travis CI with your GitHub repository. The only thing left is telling Travis CI on how to install and run your application in their environment. On the command line, create a Travis configuration file in your project's root folder:
 
@@ -869,7 +871,7 @@ touch README.md
 
 Now you can add markdown to describe your project. It's visible in your GitHub repository once you push it. That's up to you. Now, you can add the fancy badge for your passing or failing build process too. At your Travis CI dashboard for your project, you should find the grey and green colored "build passing" badge.
 
-{{% pin_it_image "react testing continuous integration" "img/posts/react-component-tests-tutorial/travis-ci.jpg" "is-src-set" %}}
+{{% pin_it_image "react testing continuous integration" "img/posts/react-testing-tutorial/travis-ci.jpg" "is-src-set" %}}
 
 By clicking it, you should get the all the things you need for displaying it in your repository. You can choose the Markdown version and copy & paste it to your README.md:
 
@@ -885,15 +887,15 @@ This badge references my project. So make sure to reference your own project by 
 
 Identical to the CI environment, Coveralls is not necessarily bound to React component tests. It can be used for any tests in your application. Coveralls is used to show you the test coverage of your application. Let's see how it can be used in this scenario to get the test coverage for our React application. First, sign up at {{% a_blank "Coveralls.io" "https://coveralls.io/" %}} with your GitHub account. Second, synchronize your GitHub repositories and toggle this repository again.
 
-{{% pin_it_image "react testing coverage" "img/posts/react-component-tests-tutorial/react-coveralls-testing-coverage.jpg" "is-src-set" %}}
+{{% pin_it_image "react testing coverage" "img/posts/react-testing-tutorial/react-coveralls-testing-coverage.jpg" "is-src-set" %}}
 
 Afterward, hit the "Details" button to copy your repo_token to your clipboard. Since you don't want to add this private token directly to your public project, you can add it on your Travis CI dashboard to your repository's environment variables. You will find it via the settings option of your Travis repository.
 
-{{% pin_it_image "react testing coveralls environment variables" "img/posts/react-component-tests-tutorial/react-travis-settings.jpg" "is-src-set" %}}
+{{% pin_it_image "react testing coveralls environment variables" "img/posts/react-testing-tutorial/react-travis-settings.jpg" "is-src-set" %}}
 
 Then, you can create a new environment variable for your project. You can name it coveralls_repo_token.
 
-{{% pin_it_image "react testing travis continuous integration" "img/posts/react-component-tests-tutorial/react-travis-environment-variables.jpg" "is-src-set" %}}
+{{% pin_it_image "react testing travis continuous integration" "img/posts/react-testing-tutorial/react-travis-environment-variables.jpg" "is-src-set" %}}
 
 Last but not least, modify your project the following way. First, install the coveralls library on the command line to your dev dependencies:
 
@@ -934,7 +936,7 @@ after_script:
 
 That's it. By adding, committing and pushing your changes to GitHub now, you can see how a report shows up on your coveralls.io dashboard.
 
-{{% pin_it_image "react testing travis continuous integration" "img/posts/react-component-tests-tutorial/react-testing-coveralls-reporting.jpg" "is-src-set" %}}
+{{% pin_it_image "react testing travis continuous integration" "img/posts/react-testing-tutorial/react-testing-coveralls-reporting.jpg" "is-src-set" %}}
 
 You can see that the coverage isn't too high. It's up to you the add tests to increase the percentage for your project.
 
@@ -954,4 +956,4 @@ Make sure to change again the URL to the repository. That's it. I hope these las
 
 <hr class="section-divider">
 
-That's it for this extensive React testing tutorial. I hope you learned lots from it by setting up your own React testing environment, writing your first React tests and by using continuous integration to verify your build before deploying your application to production. You can find the whole project in {{% a_blank "this GitHub repository" "https://github.com/rwieruch/react-components-test-setup" %}} In addition, these simple test patterns should help you to make testing in React a habit rather than an annoyance. It shouldn't be too difficult to setup a couple of tests for your application now. If you have any other tips for testing React applications, feel free to add them to the comments below. Thanks for reading :)
+That's it for this extensive React testing tutorial. I hope you learned lots from it by setting up your own React testing environment, writing your first React tests and by using continuous integration to verify your build before deploying your application to production. You can find the whole project in {{% a_blank "this GitHub repository" "https://github.com/rwieruch/react-components-test-setup" %}}. In addition, these simple test patterns should help you to make testing in React a habit rather than an annoyance. It shouldn't be too difficult to setup a couple of tests for your application now. If you have any other tips for testing React applications, feel free to add them to the comments below. Thanks for reading :)
