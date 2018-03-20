@@ -32,7 +32,7 @@ Because of these drawbacks, you will often get the advice to learn React first a
 
 However, now you decided to jump on the Redux train. So here comes my list of what you should know about React before using Redux.
 
-{{% chapter_header "Local State in React becomes Second Nature" "react-local-state" %}}
+{{% chapter_header "Local State in React becomes second Nature" "react-local-state" %}}
 
 The already mentioned most important advice is to learn React first. Thus you cannot avoid to breathe life into your components by using local state with `this.setState()` and `this.state`. You should feel comfortable using it.
 
@@ -300,11 +300,11 @@ Higher order components are important later on, because you will be confronted w
 
 The same applies for other state management libraries such as MobX. Higher order components are used in these libraries to glue the state management layer to the view layer.
 
-{{% chapter_header "React's Context" "react-context" %}}
+{{% chapter_header "React's Context API" "react-context-api" %}}
 
-React's {{% a_blank "context" "https://facebook.github.io/react/docs/context.html" %}} is rarely used. I wouldn't give the advice to use it, because its API is not stable and it adds implicit complexity to your application. However, it makes sense to understand its functionality.
+React's {{% a_blank "context" "https://facebook.github.io/react/docs/context.html" %}} API is rarely used. I wouldn't give the advice to use it, because its API is not stable and it adds implicit complexity to your application. However, it makes sense to understand its functionality.
 
-So why should you bother about this? The context in React is used to pass down properties implicitly the component tree. You can declare properties as context somewhere up in a parent component and pick it up again in a child component somewhere down the component tree. Yet everything without the need to pass the props explicitly down each component that sits between the context producing parent component and the context consuming child component. It is an invisible container that you can reach down your component tree. So again, why should you care?
+So why should you bother about this? The context in React is used to pass down properties implicitly the component tree. You can declare properties as context somewhere up in a parent component and pick it up again in a child component somewhere down the component tree. Yet everything without the need to pass the props explicitly down each component that sits between the context producing parent component and the context consuming child component. It is an invisible container that you can reach down your component tree. It avoids the so called "props drilling" in React, because you don't need to reach your props through all components which are not interested in them. So again, why should you care?
 
 Often when using a sophisticated state management library, such as Redux or MobX, you glue the state management layer at some point to the React view layer. That's why you have the mentioned higher order components in React. The glueing should allow you to access the state and to modify the state. The state itself is often managed in some kind of state container.
 

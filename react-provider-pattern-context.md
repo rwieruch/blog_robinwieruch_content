@@ -1,16 +1,16 @@
 +++
-title = "How to use React's Provider Pattern with React's Context"
-description = "Wondering about React's provider pattern? This article gives you a gentle introduction to the pattern, various use cases where it can be used, and how it can be implemented by using React's context API. React's provider pattern can help you to scale your state management or to introduce theming in your application ..."
+title = "How to use React's Provider Pattern with React's Context API"
+description = "Wondering about React's provider pattern? This article gives you a introduction to the pattern, various use cases where it can be applied, and how it can be implemented by using React's context API. React's provider pattern can help you to scale your state management or to introduce theming in your application ..."
 date = "2017-07-11T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
-keywords = ["react provider pattern"]
+keywords = ["react provider pattern", "react context API"]
 news_keywords = ["react provider pattern"]
 hashtag = "#ReactJs"
 card = "img/posts/react-provider-pattern-context/banner_640.jpg"
 banner = "img/posts/react-provider-pattern-context/banner.jpg"
 contribute = "react-provider-pattern-context.md"
-headline = "How to use React's Provider Pattern with React's Context"
+headline = "How to use React's Provider Pattern with React's Context API"
 
 summary = "The provider pattern in React is a powerful concept. You will not often see it when using plain React, but might consider using it when scaling your application in React. Basically it takes the clutter away of passing mandatory props, that are needed by every component, down your whole component tree."
 +++
@@ -47,11 +47,11 @@ function Header({ children }) {
 
 In this case the "Hello React Children" would be used as children in the Header component and thus render in the `<h1>` tag. That's a powerful way to nest React components into each other, because the children property is always accessible in the props of a component.
 
-{{% chapter_header "React's Context" "react-context" %}}
+{{% chapter_header "React's Context API" "react-context-api" %}}
 
-React's context is not highly advertised. It is even discouraged to use it. The team behind React keeps it open if the API of the context in React changes in the future.
+React's context API is not highly advertised. It is even discouraged to use it. The team behind React keeps it open if the API of the context in React changes in the future.
 
-Nevertheless, the context in React is a powerful feature. Do you remember the last time when you had to pass props several components down your component tree? In plain React, you can be confronted often with this issue.
+Nevertheless, the context in React is a powerful feature. Do you remember the last time when you had to pass props several components down your component tree? In plain React, you can be confronted often with this issue which is called "prop drilling".
 
 {{< highlight javascript >}}
           +----------------+
