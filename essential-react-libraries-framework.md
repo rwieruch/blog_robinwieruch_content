@@ -27,6 +27,22 @@ I made this experience myself [when I came from Angular to React](https://www.ro
 
 I would argue that React with its ecosystem is a flexible framework. You can choose your libraries to complement your React core. The following article will give you an opinionated approach to select from these libraries to build a sophisticated React application. In the end, you will have an opinionated list of building blocks. Nevertheless, it is up to you to exchange them with your own preferred libraries. After all, the article attempts to give newcomers in the React ecosystem an opinionated overview.
 
+{{% chapter_header "Table of Contents" "toc" %}}
+
+* [React's Boilerplate Decision](#react-boilerplate-decision)
+* [Utility Libraries for React](#react-utility-libraries)
+* [Styling in React](#react-styling)
+* [Asynchronous Requests in React](#react-asynchronous-requests)
+* [React's Higher Order Components](#react-higher-order-components)
+* [React Type Checking](#react-type-checking)
+* [React Formatting](#react-formatting)
+* [React UI Component Libraries](#react-ui-component-libraries)
+* [React State Management](#react-state-management)
+* [React's Routing](#react-routing)
+* [React Authentication](#react-authentication-database)
+* [Testing in React](#react-testing)
+* [Time in React](#react-date-time)
+
 {{% chapter_header "React's Boilerplate Decision" "react-boilerplate-decision" %}}
 
 Even nowadays developers struggle on making a decision on how to setup their React project when joining the React community. There are thousands of boilerplate projects to choose from and every boilerplate project attempts to fulfil different needs. They vary in a range of minimalistic to almost bloated projects.
@@ -201,7 +217,7 @@ Another neat helper in the recompose library is the `compose()` function. It all
 * recompose for utility higher order components
 * recompose or utility library (Lodash, Ramda) for compose
 
-{{% chapter_header "Type Checking" "react-type-checking" %}}
+{{% chapter_header "React Type Checking" "react-type-checking" %}}
 
 Fortunately React comes with its own type checking abilities. With {{% a_blank "PropTypes" "https://facebook.github.io/react/docs/typechecking-with-proptypes.html" %}} you are able to define the incoming props for your React components.
 
@@ -229,7 +245,7 @@ Flow was introduced by Facebook and feels more natural in the React ecosystem th
 * React's PropTypes
 * Flow (or TypeScript)
 
-{{% chapter_header "Formatting in React" "react-formatting" %}}
+{{% chapter_header "React Formatting" "react-formatting" %}}
 
 Basically there are three options to have formatting rules in React. It should be quite similar to other ecosystems.
 
@@ -244,7 +260,7 @@ The third and most popular approach is using {{% a_blank "Prettier" "https://git
 * reading one popular React style guide
 * Prettier
 
-{{% chapter_header "UI Component Libraries in React" "react-ui-component-libraries" %}}
+{{% chapter_header "React UI Component Libraries" "react-ui-component-libraries" %}}
 
 There are many components in web development which you don't want to implement from scratch every time you start to implement a new application. These are things like datepickers, dropdowns, tables or navigation bars. That's why there are a couple of UI libraries out there which are working closely with libraries such as React and Angular. I don't want to introduce all of them to you, but after doing my own research, I found out that {{% a_blank "Semantic UI" "https://react.semantic-ui.com/" %}} and {{% a_blank "Material UI" "http://www.material-ui.com/" %}} are great choices. I use them for many of my [own applications](https://www.robinwieruch.de/how-to-build-your-own-course-platform/) nowadays. Once you feel comfortable with one, you don't want to switch horses all the time. After all, they should only deliver the foundational components in web development for you.
 
@@ -252,7 +268,7 @@ There are many components in web development which you don't want to implement f
 
 * Semantic UI
 
-{{% chapter_header "State Management" "react-state-management" %}}
+{{% chapter_header "React State Management" "react-state-management" %}}
 
 Fortunately React comes with its own local state management in components. This is why it is just fine to learn plain React first. You will only master the fundamentals in React when using `this.state` and `this.setState()` for local state management. [Often newcomers make the mistake to learn React altogether with Redux](https://www.robinwieruch.de/learn-react-before-using-redux/). So don't bother too early with a state management library when you are just starting to use React.
 
@@ -282,7 +298,7 @@ When introducing a sophisticated router, there are a few routing solutions out t
 * React's conditional rendering
 * React Router
 
-{{% chapter_header "Authentication in React" "react-authentication-database" %}}
+{{% chapter_header "React Authentication" "react-authentication-database" %}}
 
 In a major application, you may want to introduce an authentication flow in React by having sign up, sign in and sign out functionalities. Often these authentication mechanisms go far beyond it. After all, you should be able to reset or update a user's password or to store the user entities in your own database. That's why I have written the comprehensive tutorial and step by step guide to [built your own authentication procedure in React with Firebase](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/). Firebase's realtime database can be used to store your users. But it also comes with a whole authentication framework. Check out the tutorial if you are interested.
 
@@ -291,6 +307,28 @@ There are two alternatives in my eyes for authentication in React which are brie
 **Recommendations:**
 
 * Firebase
+
+{{% chapter_header "Testing in React" "react-testing" %}}
+
+Testing in React is a too rarely touched topic. Writing tests is an essential part of software development to ensure a robust application. Tests enable us to automatically verify that our application is working on a certain level. The certain level depends on the quality, quantity (coverage) and type of your tests (unit tests, integration tests, end-to-end tests). So here comes my recommendation on the testing frameworks you could use for your React application.
+
+{{% a_blank "Mocha" "https://github.com/mochajs/mocha" %}} and {{% a_blank "Chai" "https://github.com/chaijs/chai" %}} are a pair of two testing frameworks which are used quite often together. Whereas Mocha is your test runner which makes it possible that your tests run via npm scripts and which encapsulates your tests in test suites, Chai is used for assertion such as `to.equal()`. It's the perfect combination for React applications to start out with simple testing use case such as pure functions. If you need to test asynchronous business logic eventually, you should definitely checkout {{% a_blank "Sinon" "https://github.com/sinonjs/sinon" %}}.
+
+Once you want to test your components, you can add {{% a_blank "Enzyme" "https://github.com/airbnb/enzyme" %}} to your set of testing frameworks for unit and integration tests. It's a library by Airbnb which makes it possible to render your components, simulate events on HTML elements and make expectations on your props, state and DOM nodes.
+
+Last but not least, you can add {{% a_blank "Jest" "https://github.com/facebook/jest" %}} to the mix. It's the official library by Facebook. Jest introduced so called snapshot tests for components. Once you run your tests, a snapshot of your rendered DOM elements of the React component is created. When you run your tests again at some point, another snapshot is created which is used as diff for the previous snapshot. If the diff is not identical, Jest will complain and you either have to accept the snapshot or change the implementation of your component.
+
+If the whole combo of Mocha (test runner), Chai (assertion), Enzyme (component tests) and Jest (snapshot tests) is too much for you, you can only use Jest with Enzyme. Jest comes with its own assertion API (which was provided by Chai) and own test runner (which was provided by Mocha). That way you can keep your testing environment lightweight.
+
+Another alternative for testing your React components is {{% a_blank "Ava" "https://github.com/avajs/ava" %}}. There are many developers who like it as alternative to all the other combined testing libraries. It has no snapshot tests, but if you don't depend on those, you can checkout Ava.
+
+In conclusion, checkout [this extensive React testing tutorial](https://www.robinwieruch.de/react-testing-tutorial) on how to setup various testing frameworks for your React application. You can either setup Mocha, Chai, Enzyme, Jest (and Sinon) or only Jest with Enzyme (and Sinon). It makes totally sense to dive into this topic once before starting out with a larger application. After all, you want to implement a robust and maintainable application.
+
+**Recommendations:**
+
+* Mocha (Test Runner), Chai (Assertion Library) for Business Logic and Sinon for async Business Logic
+* Mocha, Chai, Enzyme, Jest (and Sinon)
+* Jest (Test Runner, Assertion Library, Snapshot Tests) without Mocha and Chai but with Enzyme (and Sinon)
 
 {{% chapter_header "Time in React" "react-date-time" %}}
 
@@ -318,6 +356,7 @@ So in the end, the React ecosystem can be seen as a framework for React, but it 
  * **Database:** Firebase
  * **UI Components:** none
  * **Time:** moment or date-fns
+ * **Testing:** Jest
 * Medium Application
  * **Boilerplate:** create-react-app with eject
  * **Utility:** JavaScript ES6 + Lodash or Ramda
@@ -332,6 +371,7 @@ So in the end, the React ecosystem can be seen as a framework for React, but it 
  * **Database:** Firebase
  * **UI Components:** none or Semantic UI
  * **Time:** moment or date-fns
+ * **Testing:** Jest with Enzyme
 * Large Application
  * **Boilerplate:** create-react-app with eject or own boilerplate project
  * **Utility:** JavaScript ES6 + Lodash or Ramda
@@ -346,6 +386,7 @@ So in the end, the React ecosystem can be seen as a framework for React, but it 
  * **Database:** Solution with an own Express/Hapi/Koa Node.js Server with a SQL or NoSQL Database
  * **UI Components:** Semantic UI or own implementation of UI components
  * **Time:** moment or date-fns
+ * **Testing:** Jest with Enzyme
 
 The previous recommendations are opinionated. You can choose your own flexible framework for your ideal React application. Every "ideal" React setup is subjective to its needs of the developers and project. After all, there is no ideal React application setup.
 

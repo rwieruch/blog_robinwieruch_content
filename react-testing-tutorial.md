@@ -2,8 +2,8 @@
 title = "React Testing Tutorial: Test Frameworks & Component Tests"
 description = "A React tutorial on how to setup and use React component tests with testing frameworks such as Mocha, Chai, Sinon, Enzyme and Jest. It uses unit, integration and end-to-end tests for your React.js components ..."
 date = "2018-03-19T13:50:46+02:00"
-tags = ["React"]
-categories = ["React"]
+tags = ["React", "JavaScript", "Tooling"]
+categories = ["React", "JavaScript", "Tooling"]
 keywords = ["react testing tutorial", "react testing frameworks", "react testing library", "react testing best practices", "react testing components"]
 news_keywords = ["react testing tutorial", "react testing frameworks", "react testing library", "react testing best practices", "react testing components"]
 hashtag = "#ReactJs"
