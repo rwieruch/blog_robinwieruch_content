@@ -48,11 +48,11 @@ You can find the whole project in {{% a_blank "this GitHub repository" "https://
 * Jest
   * [Jest Test Setup in React](#react-jest-test-setup)
   * [React Testing with Jest](#react-jest-snapshot-tests)
+* End-to-end (E2E) Tests
+  * [React End-to-end (E2E) Tests with Cypress.io](#react-e2e-tests-cypress)
 * CI and Tests
   * [React Component Tests and Continuous Integration](#react-component-tests-continuous-integration)
   * [React Component Test Coverage with Coveralls](#react-component-test-coverage-coveralls)
-* End-to-end (E2E) Tests
-  * [React End-to-end (E2E) Tests with Cypress.io](#react-e2e-tests-cypress)
 
 {{% chapter_header "Pseudo React Application Setup for Testing" "react-test-setup" %}}
 
@@ -106,6 +106,7 @@ class App extends Component {
 
     return (
       <div>
+        <h1>My Counter</h1>
         <p>{counter}</p>
 
         <button
@@ -189,7 +190,7 @@ These functions which are used to update the local state of the React component 
 
 In addition for our React application, let's introduce a second component to have a relationship between two components as parent and child components. That's another scenario which can be tested as integration test later on. If you would test each component in isolation, you would have unit tests. But by testing them together in their context, you have an integration test between both components.
 
-{{< highlight javascript "hl_lines=11 31 32" >}}
+{{< highlight javascript "hl_lines=12 32 33" >}}
 ...
 
 class App extends Component {
@@ -200,6 +201,7 @@ class App extends Component {
 
     return (
       <div>
+        <h1>My Counter</h1>
         <Counter counter={counter} />
 
         <button
@@ -363,7 +365,7 @@ Basically the previous lines have defined one test suite and two tests for it. W
 
 Now it's up to you to test both functions which update the React component state from your *src/App.js* file. Whereas one function increments the counter property in the object (state), the other function decrements the counter property.
 
-The simplest procedure to write a test in a "it"-block in three steps is the following: setup, execute, assert.
+The simplest procedure to write a test in a "it"-block in three steps is the following: arrange, act, assert.
 
 {{< highlight javascript "hl_lines=1 5 6 7 8 12 13 14 15" >}}
 import { doIncrement, doDecrement } from './App';
@@ -385,7 +387,7 @@ describe('Local State', () => {
 });
 {{< /highlight >}}
 
-In the first line of each test, you setup the initial state object which will be the input of your function to be tested in the next step. In the second line of each test, you will pass the variable from the setup step to your function. The function returns a value. In the last line of the test, you want to assert that the returned value from the function is an expected value. In this case, the `doIncrement()` function should increment the counter property in the state object and the `doDecrement()` function should decrement it.
+In the first line of each test, you arrange the initial state object which will be the input of your function to be tested in the next step. In the second line of each test, you will pass the variable from the setup step to your function. The function returns a value. In the last line of the test, you want to assert that the returned value from the function is an expected value. In this case, the `doIncrement()` function should increment the counter property in the state object and the `doDecrement()` function should decrement it.
 
 That's it. You can run both tests on the command line with `npm run test:unit` or `npm run test:unit:watch`. You can change the assertion and see how the tests behave in watch mode. They will either fail or succeed. Furthermore, note that there is no React dependency yet in the test file. It's only Mocha and Chai which are able to test your vanilla JavaScript functions. You wouldn't even need the *test/dom.js* configuration yet, because there is no DOM of the browser needed for these unit tests.
 
@@ -828,6 +830,231 @@ That's it. You can run your snapshot tests on the command line now. Hopefully th
 
 Even though that's the most minimal way to snapshot test your React components, Jest is way more powerful. As you can see, it comes with its own assertion functions (e.g. `toEqual()`). You should check its documentation to find out more about them. The library itself is very powerful. However, keep in mind that Jest was invented to keep your component tests lightweight after all. Snapshot tests shouldn't add too much development cost to your test suites.
 
+{{% chapter_header "React End-to-end (E2E) Tests with Cypress.io" "react-e2e-tests-cypress" %}}
+
+End-to-end testing (E2E) was always a tedious task with testing frameworks from the past. However, nowadays many people are using {{% a_blank "Cypress.io" "https://cypress.io" %}} for it. Their documentation has a high quality and their API is concise and clean. Let's use Cypress for this React testing tutorial. First, you have to install it on the command line to your dev dependencies:
+
+{{< highlight javascript >}}
+npm install --save-dev cypress
+{{< /highlight >}}
+
+Second, you can create a dedicated folder for Cypress and its E2E tests in your project folder. It comes with its given {{% a_blank "folder structure" "https://docs.cypress.io/guides/core-concepts/writing-and-organizing-tests.html" %}}.
+
+{{< highlight javascript >}}
+mkdir cypress
+cd cypress
+mkdir integration
+cd integration
+{{< /highlight >}}
+
+Third, you can add a script for npm to your *package.json* file. That way, you are able to run Cypress easily from the command line.
+
+{{< highlight javascript "hl_lines=7" >}}
+"scripts": {
+  "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+  "test:unit": "mocha --require babel-core/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
+  "test:unit:watch": "npm run test:unit -- --watch",
+  "test:snapshot": "jest --config ./test/jest.config.json",
+  "test:snapshot:watch": "npm run test:snapshot -- --watch",
+  "test:cypress": "cypress open"
+},
+{{< /highlight >}}
+
+When you run Cypress for the first time, you should get a similar output.
+
+{{< highlight javascript >}}
+npm run test:cypress
+{{< /highlight >}}
+
+It opens up a window which indicates that you don't have any tests yet: "No files found in".
+
+{{% pin_it_image "react cypress e2e testing" "img/posts/react-testing-tutorial/react-cypress-no-tests-found.jpg" "is-src-set" %}}
+
+Now, in your new Cypress **cypress/integration/** folder, create a end-to-end testing file for your App component.
+
+{{< highlight javascript >}}
+touch App.e2e.js
+{{< /highlight >}}
+
+Next, you can add your first test to it. It's not really an end-to-end test, but only the simplest assertion you can make to verify that Cypress is working for you.
+
+{{< highlight javascript >}}
+describe('App E2E', () => {
+  it('should assert that true is equal to true', () => {
+    expect(true).to.equal(true);
+  });
+});
+{{< /highlight >}}
+
+You might already know the “describe”- and “it”-blocks which enable you to encapsulate your tests in blocks. These blocks are coming from Mocha, which is used by Cypress, under the hood. The assertions such as `expect()` are used from Chai. “Cypress builds on these popular tools and frameworks that you hopefully already have some familiarity and knowledge of.”
+
+Now you can run Cypress again on the command line:
+
+{{< highlight javascript >}}
+npm run test:cypress
+{{< /highlight >}}
+
+You should see the following output now. Cypress finds your test and you can either run the single test by clicking it or run all of your tests by using their dashboard.
+
+{{% pin_it_image "react cypress end-to-end testing" "img/posts/react-testing-tutorial/react-cypress-testing.jpg" "is-src-set" %}}
+
+Run your test and verify that true is equal to true. Hopefully it turns out to be green for you. Otherwise there is something wrong. In contrast, you can checkout a failing end-to-end test too.
+
+{{< highlight javascript >}}
+describe('App E2E', () => {
+  it('should assert that true is equal to true', () => {
+    expect(true).to.equal(false);
+  });
+});
+{{< /highlight >}}
+
+If you want, you can add the script slightly for Cypress to run every test by default without opening the additional window.
+
+{{< highlight javascript "hl_lines=7" >}}
+"scripts": {
+  "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+  "test:unit": "mocha --require babel-core/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
+  "test:unit:watch": "npm run test:unit -- --watch",
+  "test:snapshot": "jest --config ./test/jest.config.json",
+  "test:snapshot:watch": "npm run test:snapshot -- --watch",
+  "test:cypress": "cypress run"
+},
+{{< /highlight >}}
+
+As you can see, when you run Cypress again on the command line, all your tests should run automatically. In addition, you can experience that there is some kind of video recording happening. The videos are stored in a folder for you to experience your tests first hand. You can also add screenshot testing to your Cypress end-to-end tests. Find out more about {{% a_blank "the video and screenshot capabilities of Cypress.io" "https://docs.cypress.io/guides/guides/screenshots-and-videos.html" %}}.
+
+You can suppress the video recording in your Cypress configuration file in your project folder. It might be already generated by Cypress for you, otherwise create it on the command line from your root folder:
+
+{{< highlight javascript >}}
+touch cypress.json
+{{< /highlight >}}
+
+Now, in the Cypress configuration file, add the `videoRecording` flag and set it to false.
+
+{{< highlight javascript >}}
+{
+  "videoRecording": false
+}
+{{< /highlight >}}
+
+In case you want to find out more about the configuration capabilities of Cypress, {{% a_blank "checkout their documentation" "https://docs.cypress.io/guides/references/configuration.html" %}}.
+
+Eventually you want to start to test your implemented React application with Cypress. Since Cypress is offering end-to-end testing, you have to start your application first before visiting the website with Cypress. You can use your local development server for this case.
+
+But how to run your development server, in this case webpack-dev-server, before your Cypress script? There exists a {{% a_blank "neat library" "https://github.com/bahmutov/start-server-and-test" %}} which you can use to start your development server before Cypress. First, install it on the command line for your dev dependencies:
+
+{{< highlight javascript >}}
+npm install --save-dev start-server-and-test
+{{< /highlight >}}
+
+Second, add it to your *package.json* scripts. The library expects the following script pattern: <start script name> <url> <test script name>.
+
+{{< highlight javascript "hl_lines=7 8" >}}
+"scripts": {
+  "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+  "test:unit": "mocha --require babel-core/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
+  "test:unit:watch": "npm run test:unit -- --watch",
+  "test:snapshot": "jest --config ./test/jest.config.json",
+  "test:snapshot:watch": "npm run test:snapshot -- --watch",
+  "test:cypress": "start-server-and-test start http://localhost:8080 cypress",
+  "cypress": "cypress run"
+},
+{{< /highlight >}}
+
+Finally, you can visit your running application with Cypress in your end-to-end test. Therefore you will use the global `cy` cypress object. In addition, you can also add your first E2E test which verifies your header tag (h1) from your application.
+
+{{< highlight javascript "hl_lines=2 3 4 5 6 7" >}}
+describe('App E2E', () => {
+  it('should have a header', () => {
+    cy.visit('http://localhost:8080');
+
+    cy.get('h1')
+      .should('have.text', 'My Counter');
+  });
+});
+{{< /highlight >}}
+
+Basically, that's how a selector and assertion in Cypress work. Now you your test again on the command line. It should turn out to be successful.
+
+A best practice in Cypress testing is adding the base URL to your **cypress.json** configuration file. It's not only to keep your code DRY, but has also performance impacts.
+
+{{< highlight javascript >}}
+{
+  "videoRecording": false,
+  "baseUrl": "http://localhost:8080"
+}
+{{< /highlight >}}
+
+Afterward, you can remove the URL from your single E2E test. It always takes the given base URL now.
+
+{{< highlight javascript "hl_lines=3" >}}
+describe('App E2E', () => {
+  it('should have a header', () => {
+    cy.visit(‘/‘);
+
+    cy.get('h1')
+      .should('have.text', 'My Counter');
+  });
+});
+{{< /highlight >}}
+
+The second E2E test you are going to implement will test the two interactive buttons in your React application. After clicking each button, the counter integer which is shown in the paragraph tag should change. Let's begin by verifying that the counter is 0 when the application just started.
+
+{{< highlight javascript "hl_lines=9 10 11 12 13 14" >}}
+describe('App E2E', () => {
+  it('should have a header', () => {
+    cy.visit('/');
+
+    cy.get('h1')
+      .should('have.text', 'My Counter');
+  });
+
+  it('should increment and decrement the counter', () => {
+    cy.visit('/');
+
+    cy.get('p')
+      .should('have.text', '0');
+  });
+});
+{{< /highlight >}}
+
+Now, by {{% a_blank "interacting with the buttons" "https://docs.cypress.io/guides/core-concepts/interacting-with-elements.html" %}}, you can increment and decrement the counter.
+
+{{< highlight javascript "hl_lines=15 16 17 18 19 20 21 22 23 24 25" >}}
+describe('App E2E', () => {
+  it('should have a header', () => {
+    cy.visit('/');
+
+    cy.get('h1')
+      .should('have.text', 'My Counter');
+  });
+
+  it('should increment and decrement the counter', () => {
+    cy.visit('/');
+
+    cy.get('p')
+      .should('have.text', '0');
+
+    cy.contains('Increment').click();
+    cy.get('p')
+      .should('have.text', '1');
+
+    cy.contains('Increment').click();
+    cy.get('p')
+      .should('have.text', '2');
+
+    cy.contains('Decrement').click();
+    cy.get('p')
+      .should('have.text', '1');
+  });
+});
+{{< /highlight >}}
+
+That's it. You have written your first two E2E tests with Cypress. You can navigate from URL to URL, interact with HTML elements and verify rendered output. Two more things:
+
+* If you need to provide sample data for your E2E tests, checkout the best practice of using fixtures in Cypress.
+* If you need to spy, stub or mock functions in Cypress, you can use Sinon for it. Cypress comes with built-in Sinon to test your asynchronous code.
+
 {{% chapter_header "React Component Tests and Continuous Integration" "react-component-tests-continuous-integration" %}}
 
 React component tests are not any different from other tests when it comes to continuous integration. In the following, the article will demonstrate how to setup continuous integration with Travis CI. But feel free to choose your own favorite CI for it.
@@ -862,6 +1089,21 @@ script:
 {{< /highlight >}}
 
 Push these changes again to your GitHub repository. On every push to your repository, Travis CI should be notified automatically and try to build your project again. On their dashboard, you should see the build process and the tests which either succeed or fail. They should turn out to be green hopefully.
+
+You can add your end-to-end tests from Cypress.io to your CI too.
+
+{{< highlight javascript "hl_lines=10" >}}
+language: node_js
+
+node_js:
+  - stable
+
+install:
+  - npm install
+
+script:
+  - npm run test:unit && npm run test:snapshot && npm run test:cypress
+{{< /highlight >}}
 
 Last but not least, you can add a fancy badge to your GitHub repository. Open up your README.md file in your project. If you have no such file, create it on the command line in your project's root folder:
 
@@ -928,7 +1170,7 @@ install:
   - npm install
 
 script:
-  - npm run test:unit -- --coverage && npm run test:snapshot -- --coverage
+  - npm run test:unit -- --coverage && npm run test:snapshot -- --coverage && npm run test:cypress
 
 after_script:
   - COVERALLS_REPO_TOKEN=$coveralls_repo_token npm run coveralls
@@ -949,10 +1191,6 @@ Last but not least, you can add the fancy Coveralls badge again to your README.m
 {{< /highlight >}}
 
 Make sure to change again the URL to the repository. That's it. I hope these last steps have helped you to setup Coveralls.io for your React testing environment. You should aim to get a higher test coverage in percentage than our project though :)
-
-{{% chapter_header "React End-to-end (E2E) Tests with Cypress.io" "react-e2e-tests-cypress" %}}
-
-**Work in progress:** Keep an eye {{% a_blank "on my newsletter" "https://www.getrevue.co/profile/rwieruch" %}}, to get updates about it.
 
 <hr class="section-divider">
 
