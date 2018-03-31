@@ -1,11 +1,11 @@
 +++
 title = "How to use React's Provider Pattern with React's Context API"
-description = "Wondering about React's provider pattern? This article gives you a introduction to the pattern, various use cases where it can be applied, and how it can be implemented by using React's context API. React's provider pattern can help you to scale your state management or to introduce theming in your application ..."
+description = "React's Provider Pattern is deployed by using React's Context API. It helps you to pass props from a parent component to deeply nested components in the component hierarchy. After having read the article, you will know how to use it yourself and how Redux and MobX are using it as well ..."
 date = "2017-07-11T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["react provider pattern", "react context API"]
-news_keywords = ["react provider pattern"]
+news_keywords = ["react provider pattern", "react context API"]
 hashtag = "#ReactJs"
 card = "img/posts/react-provider-pattern-context/banner_640.jpg"
 banner = "img/posts/react-provider-pattern-context/banner.jpg"
@@ -15,26 +15,28 @@ headline = "How to use React's Provider Pattern with React's Context API"
 summary = "The provider pattern in React is a powerful concept. You will not often see it when using plain React, but might consider using it when scaling your application in React. Basically it takes the clutter away of passing mandatory props, that are needed by every component, down your whole component tree."
 +++
 
-{{% pin_it_image "react ref" "img/posts/react-provider-pattern-context/banner.jpg" "is-src-set" %}}
+{{% pin_it_image "react provider pattern" "img/posts/react-provider-pattern-context/banner.jpg" "is-src-set" %}}
 
-The provider pattern in React is a powerful concept. You will not often see it when using plain React, but might consider using it when scaling your application in React. Basically it takes the clutter away of passing mandatory props, that are needed by every component, down your whole component tree.
+Note: If you are using a React version prior 16.3, this article might be relevant to you. It explains how to use React's old context API to build your own provider and consumer pattern. If you are using React 16.3, head over to [this article that explains the new context API](https://www.robinwieruch.de/react-context-api).
 
-But you will not only see it when using plain React. Often React's provider pattern can be seen in action when using an external state management library. In Redux or MobX, you often end up with a `Provider` component at the top of your component hierarchy that bridges your state layer (Redux/MobX/...) to your view layer (React). The `Provider` component gets the state as props and after that each child component has implicitly access to the managed state.
+The provider pattern in React is a powerful feature. You will not often see it when using plain React, but might consider using it when your React application grows in size and depth from a component perspective. Basically, React's provider pattern takes the clutter away of passing mandatory props, that are needed by every component, down your whole component tree.
 
-**But how does this work?** This article gives you a walkthrough for React's provider pattern. After reading it, you should be able to implement your own Provider in React. In addition, you will understand how a `Provider` component in Redux or MobX works, if you have encountered these already.
+But you will not only see the pattern when using plain React. Often React's provider pattern can be seen in action when using an external state management library. In Redux or MobX, you often end up with a `Provider` component at the top of your component hierarchy that bridges your state layer (Redux/MobX/...) to your view layer (React). The `Provider` component gets the state as props and afterward, each child component has implicitly access to the managed state from the store(s).
 
-There are two things you have to know about React before you can implement your own provider pattern in React: children and context.
+**But how does the Provider Pattern in React work?** This article gives you a walkthrough for implementing your own provider pattern in React. In addition, you will understand how a `Provider` component in Redux or MobX works, if you have encountered these before in your application.
+
+There are two features that you have to know about React before you can implement your own provider pattern in React: children and context.
 
 {{% chapter_header "React's Children" "react-children" %}}
 
-React's children are useful for nesting React components into each other. It is similar to nesting HTML tags into each other. You would only use React's JSX syntax to accomplish it.
+React's children are useful for composing React components into each other. It is similar to composing HTML tags into each other. You would only use React's JSX syntax to accomplish it.
 
 {{< highlight javascript >}}
 class App extends Component {
   render() {
     return (
       <Header>
-        Hello React Children
+        Hello React
       </Header>
     );
   }
@@ -45,7 +47,7 @@ function Header({ children }) {
 }
 {{< /highlight >}}
 
-In this case the "Hello React Children" would be used as children in the Header component and thus render in the `<h1>` tag. That's a powerful way to nest React components into each other, because the children property is always accessible in the props of a component.
+In this case the "Hello React" text would be used as children in the Header component and thus render in the `<h1>` tag. That's a powerful way to compose React components into each other, because the children property is always accessible in the props of a component. {{% a_blank "That's why no inheritance is used in React." "https://reactjs.org/docs/composition-vs-inheritance.html" %}}
 
 {{% chapter_header "React's Context API" "react-context-api" %}}
 
@@ -131,11 +133,11 @@ It can happen that a couple of these props are even mandatory for each child com
                       +----------------+
 {{< /highlight >}}
 
-But you shouldn't overdo it with React's context. **So what are use cases for this approach?** For instance, your application could have a configurable colored theme. Each component should be colored depending on the configuration. The configuration is fetched once from your server, but now you want to make this implicitly accessible for all components. Therefore you could use React's context to give every component access to the colored theme.
+**What are use cases for this approach?** For instance, your application could have a configurable colored theme. Each component should be colored depending on the configuration. The configuration is fetched once from your server, but afterward you want to make this implicitly accessible for all components. Therefore you could use React's context to give every component access to the colored theme.
 
 **How is React's context provided and consumed?** Imagine you would have component A as root component that provides the context and component C as one of the child components that consumes the context. The application has a colored theme that can be used to style your components. Thus, you want to make the colored theme available for every component via the React context.
 
-In your A component you provide the context. It is a hardcoded colored theme property in this case, but it can be anything from component state to component props. Component A display component D but makes the context available to all its children.
+In your A component you would provide the context. It is a hardcoded colored theme property in this case, but it can be anything from component state to component props. When the context comes from the local state, it can be even changed by using `this.setState()`. As you can see, Component A displays component D but makes the context available to all its children. In the next part, you will see how the context is made available in component C as well.
 
 {{< highlight javascript >}}
 class A extends React.Component {
@@ -173,9 +175,7 @@ C.contextTypes = {
 };
 {{< /highlight >}}
 
-By using the colored theme property from `this.context`, the component can derive its style. That way every component that needs to be styled according to the colored theme could get the necessary information from React's context object.
-
-You can read more about [React's context in the official documentation](https://facebook.github.io/react/docs/context.html).
+By using the colored theme property from `this.context`, the component can derive its style. As you can imagine, following this way every component that needs to be styled according to the colored theme could get the necessary information from React's context API by using the Consumer component now.
 
 {{% chapter_header "React's Provider Pattern" "react-provider-pattern" %}}
 
@@ -351,8 +351,8 @@ Now you could wrap any component into the `getContext` higher order component an
 
 The higher order component that is showcased is a simplified version of the `getContext` higher order component that can be found in the {{% a_blank "recompose" "https://github.com/acdlite/recompose/blob/master/docs/API.md#withcontext" %}} library. Recompose has a bunch of these useful higher order components. You should have a look into the library.
 
-A running application build with create-react-app can be found in the {{% a_blank "GitHub repository" "https://github.com/rwieruch/react-provider-pattern" %}}. It showcases the previous shown examples of using functional stateless components and ES6 class components consuming the context, but also the higher order component approach with `getContext`. You could have a look into the *src/* folder and the *src/index.js* and *src/App.js* files.
+A running application can be found in this {{% a_blank "GitHub repository" "https://github.com/rwieruch/react-provider-pattern" %}}. It showcases the previous shown examples of using functional stateless components and ES6 class components consuming the context, but also the higher order component approach with `getContext`. You could have a look into the *src/* folder and the *src/index.js* and *src/App.js* files.
 
 <hr class="section-divider">
 
-In the end, the provider pattern explains how the state layer is glued to your view layer when using a state management library. When using [Redux or MobX](https://www.robinwieruch.de/redux-mobx-confusion/), you don't need to pass the props down from the root component anymore. You provide the state to your `Provider` component as props, the `Provider` component wraps it into React's context and all child components can access the state by using a higher order component such as `connect` from the react-redux library. Basically you provide the state in between your components without the need to pass it down explicitly your component tree.
+In the end, the provider pattern explains how the state layer is glued to your view layer when using a state management library. When using [Redux or MobX](https://www.robinwieruch.de/redux-mobx-confusion/), the state (store) is passed to your `Provider` component as props. The `Provider` component wraps the store into React's context and thus all child components can access the store. For instance, in Redux a higher-order component called `connect` is used to access the store again.
