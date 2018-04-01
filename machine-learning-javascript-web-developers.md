@@ -1,6 +1,6 @@
 +++
 title = "A Web Developer's Guide to Machine Learning in JavaScript"
-description = "A comprehensive walkthrough for machine learning in JavaScript. As I started to learn about AI, deep learning (DL) and machine learning (ML) ..."
+description = "An extensive walkthrough for machine learning in JavaScript. The machine learning libraries in JavaScript are striving. As I started to learn about AI, deep learning (DL) and machine learning (ML) ..."
 date = "2018-01-10T04:50:46+02:00"
 tags = ["Machine Learning", "JavaScript"]
 categories = ["Machine Learning", "JavaScript"]
