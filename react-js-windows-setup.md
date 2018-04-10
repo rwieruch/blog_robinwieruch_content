@@ -1,6 +1,6 @@
 +++
 title = "A simple React.js on Windows Setup"
-description = "A concise step by step guide on how to setup React.js on Windows for your PC. In a few steps, you will install Visual Studio Code, Node.js, NPM, Git, Prettier and create-react-app for building React applications in Windows ..."
+description = "A concise step by step guide on how to setup React.js on Windows for your PC. In a few steps, you will install Visual Studio Code, Node.js, NPM, Git, Prettier and create-react-app for building React applications with Windows ..."
 date = "2018-02-20T13:50:46+02:00"
 tags = ["React", "Web Development"]
 categories = ["React", "Web Development"]
@@ -41,7 +41,7 @@ If you are just getting started with web development, you should create a dedica
 
 In Visual Studio Code you should be able to open a tab which is called "Terminal" at the bottom. That's your integrated command line in Visual Studio Code to install node packages with NPM or to start/test your project. It's up to you to use the integrated terminal or another command line interface for your Windows machine.
 
-Now, you should check whether the Node.js installation for Windows was successful. On the command line, type the following commands. They should output the versions for Node.js and NPM.
+Now, you should check whether the Node.js installation for Windows was successful. On the command line, type the following commands. They should output the versions for Node.js and NPM. The following versions may vary from your versions.
 
 {{< highlight javascript >}}
 node --version
@@ -52,26 +52,26 @@ npm --version
 
 In most cases, it should just work for you. If node or npm are no valid commands, you need to check your environment variables in Windows. But I didn't run into this issue anymore in the past when I worked together with Windows users on React applications.
 
-Now you can install your first node package with npm on the command line. You will install it globally with a -g flag. Because of installing it globally, you will always have access to it on the command line. Later on, when you install a node package for your project without the -g flag, you will only have access to the package (node module) in your project. On the command line (in Visual Studio Code), type the following command to install {{% a_blank "create-react-app" "https://github.com/facebook/create-react-app" %}}:
+Now you can install your first node package with npm on the command line. You will install it globally with a -g flag. Because of installing it globally, you will always have access to it on the command line. Later on, when you install a node package for your project without the -g flag, you will only have access to the node package (node module) in your project. On the command line (in Visual Studio Code), type the following command to install {{% a_blank "create-react-app" "https://github.com/facebook/create-react-app" %}}:
 
 {{< highlight javascript >}}
 npm install -g create-react-app
 {{< /highlight >}}
 
-This package allows you to bootstrap React applications with zero-configuration. There is no need to get involved too early in toolings with [Webpack and Babel](https://github.com/rwieruch/minimal-react-webpack-babel-setup). If you are going to read "The Road to learn React", you will use create-react-app as well. It's the simplest approach to learn plain React without worrying about all the tooling around it. After installing it, you can check its version again on the command line:
+This package allows you to bootstrap React applications with zero-configuration. There is no need to get involved too early in toolings with [Webpack and Babel](https://github.com/rwieruch/minimal-react-webpack-babel-setup). If you are going to read "The Road to learn React", you will use create-react-app as well. It's the simplest approach to learn plain React without worrying about all the tooling with Webpack and Babel around it. After installing it, you can check its version again on the command line:
 
 {{< highlight javascript >}}
 create-react-app --version
 *v1.5.1
 {{< /highlight >}}
 
-Finally, you can bootstrap your first React.js application on Windows. You can use create-react-app by passing the name of your application to it on the command line.
+Finally, you can bootstrap your first React.js application on Windows. You can use create-react-app by passing the name of your application to it on the command line:
 
 {{< highlight javascript >}}
 create-react-app my-app
 {{< /highlight >}}
 
-Afterward, you can navigate into the project on the command line and start it with npm.
+Afterward, you can navigate into the project on the command line and start it with npm:
 
 {{< highlight javascript >}}
 cd my-app
@@ -114,4 +114,4 @@ Afterward, the file should format automatically once you save it. Now you don't 
 
 <hr class="section-divider">
 
-That's everything you need for a React development setup in Windows. I hope you have everything to get started in React on your PC. Let me know what other tools you are using on Windows in the comments below :)
+That's everything you need for a React development setup in Windows. I hope you have everything to get started in React on your PC. Let me know what other tools you are using on Windows in the comments below. Otherwise, if you are curios about the tools that I am using on my machine, head over to [my personal development setup guide](https://www.robinwieruch.de/developer-setup).

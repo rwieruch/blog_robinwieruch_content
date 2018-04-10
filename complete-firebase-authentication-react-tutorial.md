@@ -2381,12 +2381,12 @@ Finally, combine both stores in a root store. This can be used to make the store
 In *src/stores/index.js* file:
 
 {{< highlight javascript >}}
-import { useStrict } from 'mobx';
+import { configure } from 'mobx';
 
 import SessionStore from './sessionStore';
 import UserStore from './userStore';
 
-useStrict(true);
+configure({ enforceActions: true });
 
 class RootStore {
   constructor() {

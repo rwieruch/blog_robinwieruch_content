@@ -4,8 +4,8 @@ description = "The Road to learn React book is your way to learn React.js by bui
 date = "2018-02-20T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
-keywords = ["learn react", "react book", "react ebook", "react.js book"]
-news_keywords = ["learn react"]
+keywords = ["react book", "react ebook", "learn react", "react.js book", "react js book"]
+news_keywords = ["react book", "react ebook", "learn react", "react.js book", "react js book"]
 hashtag = "#ReactJs"
 contribute = "the-road-to-learn-react.md"
 card = "img/posts/the-road-to-learn-react/banner_640.jpg"
@@ -15,7 +15,7 @@ headline = "The Road to learn React [React.js Book for 2018]"
 summary = "The Road to learn React offers you a foundation before you start to dive into the more advanced React ecosystem. It has less tooling and less external state management, but more React. It explains general concepts and patterns."
 +++
 
-{{% pin_it_image "build own course platform" "img/posts/the-road-to-learn-react/banner.jpg" "is-src-set" %}}
+{{% pin_it_image "react book" "img/posts/the-road-to-learn-react/banner.jpg" "is-src-set" %}}
 
 The Road to learn React book teaches you the fundamentals of React. You will build a real world application along the way in plain React without complicated tooling. Everything from project setup to deployment on a server will be explained for you. The book comes with additional referenced reading material and exercises with each chapter. After reading the book, you will be able to build your own applications in React. The material is kept up to date by me and the community.
 
@@ -25,7 +25,9 @@ You will learn to build your own React application. It covers real world feature
 
 {{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>21.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
-{{% chapter_header "Testimonials" "testimonials" %}}
+{{% chapter_header "React Book Testimonials" "react-book-testimonials" %}}
+
+There are many {{% a_blank "testimonials" "https://roadtoreact.com/" %}}, {{% a_blank "ratings" "https://www.goodreads.com/book/show/37503118-the-road-to-learn-react" %}} and {{% a_blank "reviews" "https://www.amazon.com/dp/B077HJFCQX" %}} about the book which should confirm the quality of it. I am so proud of it, because I never expected such an overwhelming feedback. If you enjoy the book as well, I would love to find your rating/review somewhere as well. It helps me to spread the word about the book. The following shows a short excerpt of these good voices:
 
 **[Muhammad Kashif](https://twitter.com/appsdevpk/status/848625244956901376):** "The Road to Learn React is a unique book that I recommend to any student or professional interested in learning react basics to advanced level. It is packed with insightful tips and techniques that are hard to find elsewhere, and remarkably thorough in its use of examples and references to sample problems, i have 17 years of experience in web and desktop app development, and before reading this book i was having trouble in learning react, but this book works like magic."
 
@@ -47,7 +49,7 @@ You will learn to build your own React application. It covers real world feature
 
 **[Thomas Lockney](https://www.goodreads.com/review/show/1880673388):** "Pretty solid introduction to React that doesn't try to be comprehensive. I just wanted a taste to understand what it was about and this book gave me exactly that. I didn't follow all the little footnotes to learn about the new ES6 features I've missed ("I wouldn't say I've been missing it, Bob."). But I'm sure for those of you who have fallen behind and are diligent about following those, you can probably learn a lot more than just what the book teaches."
 
-{{% chapter_header "FAQ" "faq" %}}
+{{% chapter_header "Book FAQ" "book-faq" %}}
 
 **How do I get updates?** You can [subscribe](https://www.getrevue.co/profile/rwieruch) to the Newsletter or follow me on [Twitter](https://twitter.com/rwieruch) for updates. Once you have a copy of the book, it will stay updated when a new edition gets released. But you have to grab the copy again when an update is announced.
 
@@ -69,20 +71,13 @@ You will learn to build your own React application. It covers real world feature
 
 **Is there a call to action?** Yes. I want you to take a moment to think about a person who would be a good match to learn React. The person could have shown the interest already, could be in the middle of learning React or might not yet be aware about wanting to learn React. Reach out to that person and share the book. It would mean a lot to me. The book is intended to be given to others.
 
-{{% chapter_header "What did people build after they have read the book?" "build-after" %}}
-
-I encourage developers to reach out after they have finished the book and build their first React applications. The following are an excerpt of projects. Reach out to showcase your applications!
-
-* {{% a_blank "Stellar Photos - Unsplash Client" "https://ayoisaiah.com/stellar-photos/" %}}
-* {{% a_blank "Hacker News App with improved Design" "https://frozen-waters-31575.herokuapp.com" %}}
-
 {{% chapter_header "Education for Children" "educateChildren" %}}
 
 The book is open source and should enable everyone to learn React. However, not everyone is privileged to use open source resources, because not everyone is educated in the English language in the first place. Even though the book is pay what you want, I want to use it to support projects that teach children English in the developing world.
 
 * 11. April to 18. April, 2017, [Giving Back, By Learning React](https://www.robinwieruch.de/giving-back-by-learning-react/)
 
-{{% chapter_header "Changelog" "changelog" %}}
+{{% chapter_header "Book Changelog" "book-changelog" %}}
 
 I keep the learning material up to date to the recent changes in the React ecosystem.
 
@@ -134,7 +129,7 @@ I keep the learning material up to date to the recent changes in the React ecosy
 * 1 new chapter (Axios instead of Fetch)
 * {{% a_blank "Amazon Print/E Book" "https://www.amazon.com/dp/B077HJFCQX?tag=21moves-20" %}}
 
-{{% chapter_header "What you can expect (so far...)" "expectNow" %}}
+{{% chapter_header "What you can expect (so far...) from the React book" "book-expectations" %}}
 
 <div class="col-md-12">
   <div class="col-md-8" style="margin-top: 30px;">
@@ -230,9 +225,9 @@ I keep the learning material up to date to the recent changes in the React ecosy
   * Deploy your App
 * Outline
 
-{{% chapter_header "Finished the Book? My Recommendations" "learningPaths" %}}
+{{% chapter_header "Finished the Book? My Recommendations to learn the React ecosystem" "react-learning-paths" %}}
 
-My recommended learning paths (extracted from the book) after you have read the book:
+My recommended learning paths (extracted from the book) after you have read it:
 
 * **State Management:** You have used React `this.setState()` and `this.state` to manage and access local component state. That's a perfect start. However, in a larger application you will experience the [limits of React's local component state](https://www.robinwieruch.de/learn-react-before-using-redux/). Therefore you can use a third-party state management library such as [Redux or MobX](https://www.robinwieruch.de/redux-mobx-confusion/). On the course platform [Road to React](https://roadtoreact.com/), you will find the course "Taming the State in React" that teaches advanced local state in React, Redux and MobX. The course comes with an ebook as well, but I recommend everyone to dive into the source code and screencasts too. If you liked this book, you should definitely checkout Taming the State in React.
 
@@ -258,4 +253,4 @@ My recommended learning paths (extracted from the book) after you have read the 
 
 <hr class="section-divider">
 
-Now you should know everything what you can expect from the book. You can pay what you want, because I want to enable everyone to learn React. I would really appreciate your support on social media to reach as many people as possible to grab a version of the book.
+Now you should know everything what you can expect from the book. You can pay what you want, because I want to enable everyone to learn React. I would really appreciate your support on social media to reach as many people as possible to grab a version of the book. If you sign up for the Newsletter to grab yourself a version of the book, you should get a confirmation e-mail where you will find the URL to the course platform. There the book can be found as "The Bare Essentials" package without any pricing tag.

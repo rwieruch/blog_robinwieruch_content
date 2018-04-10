@@ -537,7 +537,7 @@ import SC from 'soundcloud';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import { useStrict } from 'mobx';
+import { configure } from 'mobx';
 import App from './components/App';
 import Callback from './components/Callback';
 import StreamContainer from './components/Stream';
@@ -545,7 +545,7 @@ import { CLIENT_ID, REDIRECT_URI } from './constants/auth';
 
 SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });
 
-useStrict(true);
+configure({ enforceActions: true });
 
 ...
 {{< /highlight >}}
@@ -696,7 +696,7 @@ import { Provider } from 'mobx-react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import { useStrict } from 'mobx';
+import { configure } from 'mobx';
 import App from './components/App';
 import Callback from './components/Callback';
 import StreamContainer from './components/Stream';
@@ -706,7 +706,7 @@ import { CLIENT_ID, REDIRECT_URI } from './constants/auth';
 
 SC.initialize({ client_id: CLIENT_ID, redirect_uri: REDIRECT_URI });
 
-useStrict(true);
+configure({ enforceActions: true });
 
 const stores = { userStore, trackStore };
 
@@ -790,8 +790,8 @@ In case you want to know which versions npm installed during that tutorial, here
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "mobx": "^2.3.7",
-    "mobx-react": "^3.5.1",
+    "mobx": "^4.1.1",
+    "mobx-react": "^5.0.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-router": "^2.4.1",

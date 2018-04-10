@@ -199,9 +199,9 @@ class UserStore {
 }
 {{< /highlight >}}
 
-You can strictly enforce it by using `useStrict()` in MobX. Now you can mutate your state by calling `userStore.addUser(user);` on a store instance.
+You can strictly enforce it by configuring MobX with `configure({ enforceActions: true });`. Now you can mutate your state by calling `userStore.addUser(user);` on a store instance.
 
-You have seen how to update the state in both Redux and MobX. It is different. In Redux your **state is read-only**. You can alter the state only by using **explicit actions**. In contrast, in MobX the state enables read and write. You can mutate the state directly without using actions yet you can opt-in explicit actions by using `useStrict()`.
+You have seen how to update the state in both Redux and MobX. It is different. In Redux your **state is read-only**. You can alter the state only by using **explicit actions**. In contrast, in MobX the state enables read and write. You can mutate the state directly without using actions yet you can opt-in explicit actions by using the `enforceActions` configuration.
 
 {{% chapter_header "The Learning Curve in React State Management" "learningCurve" %}}
 
@@ -250,9 +250,9 @@ It would make the state mutating more explicit with actions. Moreover there exis
 
 {{< highlight javascript >}}
 // root file
-import { useStrict } from 'mobx';
+import { configure } from 'mobx';
 
-useStrict(true);
+configure({ enforceActions: true });
 {{< /highlight >}}
 
 Mutating the state directly in the store like we did in the first example wouldn't work anymore. Coming from the first to the latter example shows how to embrace best practices in MobX. Moreover once you are doing explicit actions only, you are already using Redux constraints.
@@ -272,7 +272,7 @@ Redux gives you a whole architecture for state management with clear constraints
 
 Another advantage of Redux is using it on the server side. Since we are dealing with plain JavaScript, you could send the state across the network. Serializing and deserializing a state object works out of the box. Yet it is possible in MobX too.
 
-MobX is less opinionated, but by using `useStrict()` you can enforce clearer constraints like in Redux. That's why I wouldn't say you cannot use MobX in scaling applications, but there is a clear way of doing things in Redux. The documentation in MobX even says: *"[MobX] does not tell you how to structure your code, where to store state or how to process events."* The development team would have to establish a state management architecture in the first place.
+MobX is less opinionated, but by using `configure({ enforceActions: true })` you can enforce clearer constraints like in Redux. That's why I wouldn't say you cannot use MobX in scaling applications, but there is a clear way of doing things in Redux. The documentation in MobX even says: *"[MobX] does not tell you how to structure your code, where to store state or how to process events."* The development team would have to establish a state management architecture in the first place.
 
 After all the state management learning curve isn't that steep. When we recap the recommendations, a newcomer in React would **first learn to use setState() and this.state** properly. After a while you would **realize the problems of using only setState()** to maintain state in a React application. When looking for a solution, you stumble upon state management libraries like MobX or Redux. But which one to choose? Since MobX is less opinionated, has less boilerplate and can be used similar to `setState()` I would recommend in smaller projects to give MobX a shot. Once the application grows in size and contributors, you should consider to enforce more restrictions in MobX or give Redux a shot. I enjoyed using both libraries. Even if you don't use one of them after all, it makes sense to have seen an alternative way of doing state management.
 
@@ -378,7 +378,7 @@ Both libraries are great. While Redux is already well established, MobX becomes 
   * get comfortable with it
   * experience the issues you run into without a state managament library like Redux or MobX
 * learning recommendations
-  * setState -> MobX -> MobX more restricted (e.g. useStrict) -> Redux
+  * setState -> MobX -> MobX more restricted (e.g. configure enforceActions) -> Redux
   * or stick to one solution after setState:
 * use MobX over Redux:
   * short learning curve
@@ -403,7 +403,7 @@ Both libraries are great. While Redux is already well established, MobX becomes 
   * testability, scaleability, maintainability
 * container + presenter components is a valid pattern for both
 * react-redux and mobx-react are exchangeable interfaces to React container components
-* useStrict of MobX makes state changes more obvious in a scaling app and should be best practice
+* configured enforced actions of MobX makes state changes more obvious in a scaling app and should be best practice
 
 {{% chapter_header "More Resources" "resources" %}}
 
