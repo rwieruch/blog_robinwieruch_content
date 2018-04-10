@@ -259,10 +259,10 @@ In the last step of this section, let's see how these three libraries are config
 {{< highlight javascript >}}
 mkdir test
 cd test
-touch helper.js dom.js
+touch helpers.js dom.js
 {{< /highlight >}}
 
-Both files will be filled with content now. Later on, they will be used as configuration to run the tests via a script on the command line. Let's go first with the *test/helper.js* file:
+Both files will be filled with content now. Later on, they will be used as configuration to run the tests via a script on the command line. Let's go first with the *test/helpers.js* file:
 
 {{< highlight javascript >}}
 import { expect } from 'chai';
