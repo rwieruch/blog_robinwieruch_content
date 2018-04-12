@@ -66,9 +66,9 @@ class App extends React.Component {
           when you search for something twice.
         </p>
 
-        <form type="submit" onSubmit={this.onSearch}>
+        <form onSubmit={this.onSearch}>
           <input type="text" ref={node => this.input = node} />
-          <button type="button">Search</button>
+          <button type="submit">Search</button>
         </form>
 
         {
