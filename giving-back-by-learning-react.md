@@ -12,7 +12,7 @@ banner = "img/posts/giving-back-by-learning-react/banner.jpg"
 contribute = "giving-back-by-learning-react.md"
 headline = "Giving Back, By Learning React"
 
-summary = "At the time of writing this, I am travelling through South East Asia. On my quest to experience the countries in their most natural ways, I try to connect with locals often as possible. When travelling a country, it is not about seeing another cave or waterfall that drives me. Instead, I seek to connect with the local people. When speaking to them, I realize each time again how privileged I am. Even though I was aware of it before, I am even more aware of it now that I am traveling."
+summary = "At the time of writing this, I am travelling through South East Asia. On my quest to experience the countries in their most natural ways, I try to connect with locals as often as possible. When travelling a country, it is not about seeing another cave or waterfall that drives me. Instead, I seek to connect with the local people. When speaking to them, I realize each time again how privileged I am. Even though I was aware of it before, I am even more aware of it now that I am traveling."
 +++
 
 {{% pin_it_image "learn react" "img/posts/giving-back-by-learning-react/banner.jpg" "is-src-set" %}}
