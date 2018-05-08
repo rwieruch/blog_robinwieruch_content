@@ -21,7 +21,7 @@ The article is a checklist for myself, but for anyone else setting up PostgreSQL
 
 You may wonder: Why is there a need for another setup guide for Postgres in the first place? I found many tutorials and guides on how to set it up, but most of it was kinda blurry, outdated (old Postgres versions) and not to the point. So I wanted to have this little checklist for setting up Postgres 10 on MacOS for myself. If it is useful for you, it is an additional plus. The checklist is not comprehensive at all, maybe needs to be improved by using the correct terms (looking forward to your comments), but I will fill out the gaps along the way of using Postgres in Express myself.
 
-{{% chapter_header "Postgres 10 Setup MacOS" "postgres-setup-macos" %}}
+{{% chapter_header "Postgres Setup on MacOS" "postgres-setup-macos" %}}
 
 My personal recommendation is using {{% a_blank "Homebrew" "https://brew.sh/" %}} for installing and managing your applications on MacOS. Over here you can [find some help on how to setup Homebrew](https://www.robinwieruch.de/developer-setup/). Afterward, you can update all your Homebrew dependencies and install PostgreSQL on the command line:
 
@@ -111,9 +111,7 @@ const author = (sequelize, DataTypes) => {
   });
 
   Author.associate = models => {
-    Author.hasMany(models.Tweet, {
-      foreignKey: 'authorId',
-    });
+    Author.hasMany(models.Tweet);
   };
 
   return Author;
@@ -131,9 +129,7 @@ const tweet = (sequelize, DataTypes) => {
   });
 
   Tweet.associate = models => {
-    Tweet.belongsTo(models.Author, {
-      foreignKey: 'tweetId',
-    });
+    Tweet.belongsTo(models.Author);
   };
 
   return Tweet;
