@@ -1,9 +1,9 @@
 +++
 title = "A apollo-link-state Tutorial for Local State Management"
 description = "A tutorial about how to use Apollo Link State as local state management solution in a React application when having a GraphQL powered server in the first place. The example shows you how to use Apollo Link State instead of React's Local State, but also instead of Redux or MobX to manage global state ..."
-date = "2018-05-04T13:50:46+02:00"
-tags = ["React", "GraphQL", "JavaScript"]
-categories = ["React", "GraphQL", "JavaScript"]
+date = "2018-05-04T06:50:46+02:00"
+tags = ["React", "GraphQL", "Apollo", "JavaScript"]
+categories = ["React", "GraphQL", "Apollo", "JavaScript"]
 keywords = ["apollo link state tutorial", "apollo link state example", "apollo link state local state", "apollo link state local state management", "apollo link state react", "react graphql book", "react graphql apollo book"]
 news_keywords = ["apollo link state tutorial", "apollo link state example", "apollo link state local state", "apollo link state local state management", "apollo link state react", "react graphql book", "react graphql apollo book"]
 hashtag = "#ReactJs #GraphQL"
@@ -85,7 +85,7 @@ registerServiceWorker();
 Don't forget to install the necessary packages for GraphQL, Apollo Client and React Apollo on the command line:
 
 {{< highlight javascript >}}
-npm install —save apollo-client apollo-cache-inmemory apollo-link-http graphql graphql-tag react-apollo
+npm install --save apollo-client apollo-cache-inmemory apollo-link-http graphql graphql-tag react-apollo
 {{< /highlight >}}
 
 And furthermore, don't forget to add your {{% a_blank "personal access token" "https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/" %}} from GitHub as value to the `REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN` key to the *.env* file which you have to create in your project folder.
@@ -357,14 +357,14 @@ Last but not least, you have to define the CSS classed which were used for the r
 }
 {{< /highlight >}}
 
-That's it for the selection feature implementation. You should be able to select and unselect repositories in your list when starting your application. Remember that this solution with React's local state would already be sufficient to deal with this problem. No one else than the one component is interested in the selected repositories. So the state is co-located to the component. However, for the sake of demonstrating a Apollo Link State in this application example, this implementation will be refactored from React's local state to Apollo Link State in the following steps.
+That's it for the selection feature implementation. You should be able to select and unselect repositories in your list when starting your application. Remember that this solution with React's local state would already be sufficient to deal with this problem. No one else than the one component is interested in the selected repositories. So the state is co-located to the component. The application can be found in this {{% a_blank "GitHub repository as boilerplate project" "https://github.com/rwieruch/react-apollo-client-example" %}}. However, for the sake of demonstrating a Apollo Link State in this application example, this implementation will be refactored from React's local state to Apollo Link State in the following steps.
 
 {{% chapter_header "Setup of Apollo Link State: Resolvers and Defaults" "apollo-link-state-resolver-defaults" %}}
 
 In order to manage the list of identifiers in Apollo Client's Cache instead of React's local state, you have to install Apollo Link State on the command line first. In addition, you have to install the Apollo Link package for combining multiple links for your Apollo Client creation.
 
 {{< highlight javascript >}}
-npm install —save apollo-link apollo-link-state
+npm install --save apollo-link apollo-link-state
 {{< /highlight >}}
 
 Now comes to the Apollo Link State setup, but as you have learned before, Apollo Links can be composed in a straight forward way by using the Apollo Link package. You have already set up the Apollo HTTP Link. Now it is accompanied by the Apollo Link State in the composition. The composed link can then be used by the Apollo Client creation.
