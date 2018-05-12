@@ -615,7 +615,7 @@ const axiosGitHubGraphQL = axios.create({
 ...
 {{< /highlight >}}
 
-You would have to replace the `YOUR_GITHUB_PERSONAL_ACCESS_TOKEN` string with your personal access token. That's one way to do it. However, you may don't want to paste your access token directly into the source code. Therefore, you can create a *.env* file which holds all of your environment variables on the command line in your project folder. If you don't want to share the personal token in a public GitHub repository, you can add the file to your *.gitignore* file.
+You would have to replace the `YOUR_GITHUB_PERSONAL_ACCESS_TOKEN` string with your personal access token. That's one way to do it. However, you may not want to paste your access token directly into the source code. Therefore, you can create a *.env* file which holds all of your environment variables on the command line in your project folder. If you don't want to share the personal token in a public GitHub repository, you can add the file to your *.gitignore* file.
 
 {{< highlight javascript >}}
 touch .env
@@ -1100,7 +1100,7 @@ That's it for the nested objects, fields and list fields, in a query. Once you r
 
 {{% sub_chapter_header "GraphQL Variables and Arguments in React" "react-graphql-variables-arguments" %}}
 
-For the next steps, it's time to make use of the form and input elements. They should be used to request the data from GitHub's GraphQL API when a user fills in the content and submits it. Furthermore, they content is also used for the initial request in `componentDidMount()` of the App component. So far, the organization `login` and repository `name` were inlined arguments in the query. Now, you should be able to pass in the `path` from the local state to the query to define dynamically an organization and repository. That's where variables in a GraphQL query came into play, do you remember?
+For the next steps, it's time to make use of the form and input elements. They should be used to request the data from GitHub's GraphQL API when a user fills in the content and submits it. Furthermore, the content is also used for the initial request in `componentDidMount()` of the App component. So far, the organization `login` and repository `name` were inlined arguments in the query. Now, you should be able to pass in the `path` from the local state to the query to define dynamically an organization and repository. That's where variables in a GraphQL query came into play, do you remember?
 
 First, let's use a naive approach by performing string interpolation with JavaScript rather than using GraphQL variables. Therefore, you have to refactor the query from a template literal variable to a function that returns a template literal variable. By using the function, you should be able to pass in an organization and repository.
 
@@ -1591,7 +1591,7 @@ Basically, the whole function is a complete rewrite because the update mechanism
 Last but not least, you can use the `hasNextPage` property from the `pageInfo` that you have requested in your query to either show a "More" button or not showing it. In case there are no more issues in the list the button should disappear.
 
 {{< highlight javascript "hl_lines=7 9" >}}
-const Issues = ({ issues, onFetchMoreIssues }) => (
+const Repository = ({ repository, onFetchMoreIssues }) => (
   <div>
     ...
 
@@ -1604,7 +1604,7 @@ const Issues = ({ issues, onFetchMoreIssues }) => (
 );
 {{< /highlight >}}
 
-That's it fir implementing pagination with GraphQL in React. In the following, you can try out further arguments for your list fields (issues and reactions) on your own. Therefore, check the "Docs" sidebar in GraphiQL to find out about the arguments that you can pass to these list fields. There are arguments that are generic and used for every list (e.g. first, last) but also arguments that are specific for a lsit (e.g. states). After all, these arguments should again show you how fine-grained you can be on every level of your GraphQL query.
+That's it for implementing pagination with GraphQL in React. In the following, you can try out further arguments for your list fields (issues and reactions) on your own. Therefore, check the "Docs" sidebar in GraphiQL to find out about the arguments that you can pass to these list fields. There are arguments that are generic and used for every list (e.g. first, last) but also arguments that are specific for a list (e.g. states). After all, these arguments should again show you how fine-grained you can be on every level of your GraphQL query.
 
 ### Exercises:
 
