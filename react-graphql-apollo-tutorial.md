@@ -100,7 +100,7 @@ const client = new ApolloClient({
 
 You may recall how you did the same for the previous application that has only used axios for plain HTTP requests. You configured axios once with the GraphQL API endpoint to default all requests to this URI and set up the authorization header as well. The same happened here, because it is sufficient to configure your client once for all the following GraphQL requests.
 
-Now you would have to replace the `YOUR_GITHUB_PERSONAL_ACCESS_TOKEN` string with your personal access token that you have created before on GitHub's website. That's one way to do it. However, you may don't want to put your access token directly into the source code. Therefore, you can create a *.env* file which holds all of your environment variables in your project folder. If you don't want to share the personal token in a public GitHub repository, I encourage you to add the file to your *.gitignore* file too. On the command line, you can create this file:
+Now you would have to replace the `YOUR_GITHUB_PERSONAL_ACCESS_TOKEN` string with your personal access token that you have created before on GitHub's website. That's one way to do it. However, you may not want to put your access token directly into the source code. Therefore, you can create a *.env* file which holds all of your environment variables in your project folder. If you don't want to share the personal token in a public GitHub repository, I encourage you to add the file to your *.gitignore* file too. On the command line, you can create this file:
 
 {{< highlight javascript >}}
 touch .env
@@ -206,7 +206,7 @@ Basically that's it for sending a query with Apollo Client. As noted before, Apo
 
 The actual requested information from the GraphQL query can be found in the `data` object. There you find the `organization` object with its `name` and `url` fields. In addition, the Apollo Client automatically requests the GraphQL {{% a_blank "meta field" "http://graphql.org/learn/queries/#meta-fields" %}} `__typename`. The meta field can be used by the Apollo Client as identifier to enable caching and optimistic UI updates for you. You will learn later about these features, but only occasionally you will use the meta field yourself.
 
-Further meta information about the request ca be found next to the `data` object. There you see whether the data is still loading (perhaps then you can show a loading indicator), get specific details about the {{% a_blank "network status" "https://github.com/apollographql/apollo-client/blob/master/packages/apollo-client/src/core/networkStatus.ts" %}}, and see whether the requested data is stale on the server-side.
+Further meta information about the request can be found next to the `data` object. There you see whether the data is still loading (perhaps then you can show a loading indicator), get specific details about the {{% a_blank "network status" "https://github.com/apollographql/apollo-client/blob/master/packages/apollo-client/src/core/networkStatus.ts" %}}, and see whether the requested data is stale on the server-side.
 
 ### Exercises:
 
@@ -418,7 +418,7 @@ import App from './App';
 ...
 {{< /highlight >}}
 
-Whereas the `ApolloClient` class is used to create the client instance, the `HttpLink` and `InMemoryCache` are used for the two mandatory configurations when creating the client instance. First, you can create a configured `HttpLink` instance. The instance will be feeded later to the Apollo Client creation.
+Whereas the `ApolloClient` class is used to create the client instance, the `HttpLink` and `InMemoryCache` are used for the two mandatory configurations when creating the client instance. First, you can create a configured `HttpLink` instance. The instance will be fed later to the Apollo Client creation.
 
 {{< highlight javascript >}}
 const GITHUB_BASE_URL = 'https://api.github.com/graphql';
