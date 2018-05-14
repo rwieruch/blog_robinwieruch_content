@@ -1,5 +1,5 @@
 +++
-title = "A apollo-link-state Tutorial for Local State Management"
+title = "A apollo-link-state Tutorial for Local State in React"
 description = "A tutorial about how to use Apollo Link State as local state management solution in a React application when having a GraphQL powered server in the first place. The example shows you how to use Apollo Link State instead of React's Local State, but also instead of Redux or MobX to manage global state ..."
 date = "2018-05-04T06:50:46+02:00"
 tags = ["React", "GraphQL", "Apollo", "JavaScript"]
@@ -10,7 +10,7 @@ hashtag = "#ReactJs #GraphQL"
 card = "img/posts/react-apollo-link-state-tutorial/banner_640.jpg"
 banner = "img/posts/react-apollo-link-state-tutorial/banner.jpg"
 contribute = "react-apollo-link-state-tutorial.md"
-headline = "A apollo-link-state Tutorial for Local State Management"
+headline = "A apollo-link-state Tutorial for Local State in React"
 
 summary = "A tutorial about how to use Apollo Link State as local state management solution in a React application when having already a GraphQL powered server in the first place. The example shows you how to use Apollo Link State instead of React's Local State, but also instead of Redux or MobX to manage global state."
 +++
@@ -88,7 +88,7 @@ Don't forget to install the necessary packages for GraphQL, Apollo Client and Re
 npm install --save apollo-client apollo-cache-inmemory apollo-link-http graphql graphql-tag react-apollo
 {{< /highlight >}}
 
-And furthermore, don't forget to add your {{% a_blank "personal access token" "https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/" %}} from GitHub as value to the `REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN` key to the *.env* file which you have to create in your project folder.
+And furthermore, don't forget to add your {{% a_blank "personal access token" "https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/" %}} from GitHub as value to the key in the *.env* file which you have to create in your project folder.
 
 In the next step, implement the components to display the remote data which gets queried with React Apollo's Query component eventually.
 

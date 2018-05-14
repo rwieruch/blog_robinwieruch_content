@@ -164,7 +164,7 @@ models.Sequelize = Sequelize;
 export default models;
 {{< /highlight >}}
 
-At the top of the file, you have to create a Sequelize instance by passing mandatory arguments (database name, username of database superuser, password of database superuser, configuration) to the constructor. For instance, you have to tell Sequelize the dialect of your database which is postgres and not mysql or sqlite. You may have to create the superuser with its credentials on the command line while being in the psql shell too.
+At the top of the file, you have to create a Sequelize instance by passing mandatory arguments (database name, username of database superuser, password of database superuser, configuration) to the constructor. For instance, you have to tell Sequelize the dialect of your database which is postgres and not mysql or sqlite. You may have to create the superuser with its credentials on the command line while being in the psql shell too. Otherwise, you can also try to keep the credentials null.
 
 {{< highlight javascript >}}
 CREATE USER postgres WITH SUPERUSER PASSWORD 'postgres';

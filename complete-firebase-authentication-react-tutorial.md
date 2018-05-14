@@ -626,7 +626,7 @@ class SignUpForm extends Component {
 
 Second, let's implement all the input fields to capture those information in the render method of the component. The input fields need to update the local state of the component by using their onChange handler.
 
-{{< highlight javascript "hl_lines=3 4 5 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50" >}}
+{{< highlight javascript "hl_lines=3 4 5 12 13 14 15 16 17 18 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50" >}}
 ...
 
 const byPropKey = (propertyName, value) => () => ({
