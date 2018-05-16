@@ -134,9 +134,9 @@ In the *package.json* file you can add a start script additionally to the defaul
 ...
 {{< /highlight >}}
 
-The script defines that you want to use the webpack-dev-server with a configuration file called *wepback.config.js*. The `--mode development` flag just adds default Webpack configurations which came with Webpack 4. You wouldn't need the flag for Webpack 3.
+The script defines that you want to use the webpack-dev-server with a configuration file called *webpack.config.js*. The `--mode development` flag just adds default Webpack configurations which came with Webpack 4. You wouldn't need the flag for Webpack 3.
 
-Let’s create the required *wepback.config.js* file.
+Let’s create the required *webpack.config.js* file.
 
 *From root folder:*
 
