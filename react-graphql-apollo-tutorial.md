@@ -723,7 +723,7 @@ import RepositoryList from './RepositoryList';
 export default RepositoryList;
 {{< /highlight >}}
 
-Next define the RepositoryList component in your *src/Repository/RepositoryList/index.js* file. The component only takes the array of repositories as props, which where retrieved by the GraphQL query, in order to render a list of RepositoryItem components. The identifier of each repository can be passed as key attribute to the rendered list. Otherwise all props from one repository node are passed to the RepositoryItem by using the JavaScript spread operator.
+Next define the RepositoryList component in your *src/Repository/RepositoryList/index.js* file. The component only takes the array of repositories as props, which will be retrieved by the GraphQL query, in order to render a list of RepositoryItem components. The identifier of each repository can be passed as key attribute to the rendered list. Otherwise all props from one repository node are passed to the RepositoryItem by using the JavaScript spread operator.
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -824,7 +824,7 @@ What you have done in the last steps of this section were pure React implementat
 
 {{% chapter_header "Apollo Client Error Handling in React" "react-apollo-client-error-handling" %}}
 
-Before you will dive into using GraphQL mutations in React with Apollo Client, this section should give you clarity about the error handling when using Apollo in React. The error handling can happen on two levels: application level and query/mutation level. Let's see how both can be implemented with the following two cases. On a query level, in your Profile component, you have access to the query `data` and `loading` properties. Apart from these you can also access the `error` object that can be used to show a conditional error message.
+Before diving into using GraphQL mutations in React with Apollo Client, this section should give you clarity about the error handling when using Apollo in React. The error handling can happen on two levels: application level and query/mutation level. Let's see how both can be implemented with the following two cases. On a query level, in your Profile component, you have access to the query `data` and `loading` properties. Apart from these you can also access the `error` object that can be used to show a conditional error message.
 
 {{< highlight javascript "hl_lines=5 11 12 13 14" >}}
 ...
@@ -1341,7 +1341,7 @@ const updateAddStar = (
 
 Note: An alternative way would have been to pass this `id` of the repository to the `updateAddStar()` function, which would be a higher-order function then, in the Mutation component's render prop child function. After all, you already have access to the identifier of the repository in the Repository component.
 
-Now comes the most exciting part of this section. You can use the Apollo Client to read data from the cache but also to write data to the cache. The goal is to read the starred repository from the cache (hence the id), increment the its count of stargazers by one, and write the updated repository back to the cache. But how to get the repository by its `id` from the cache in the first place? That's why you have extracted the repository fragment before. You can use it along with the repository identifier to retrieve the actual repository from Apollo Client's cache without querying all the data with a naive query implementation.
+Now comes the most exciting part of this section. You can use the Apollo Client to read data from the cache but also to write data to the cache. The goal is to read the starred repository from the cache (hence the id), increment its count of stargazers by one, and write the updated repository back to the cache. But how to get the repository by its `id` from the cache in the first place? That's why you have extracted the repository fragment before. You can use it along with the repository identifier to retrieve the actual repository from Apollo Client's cache without querying all the data with a naive query implementation.
 
 {{< highlight javascript "hl_lines=3 13 14 15 16" >}}
 ...
@@ -1405,7 +1405,7 @@ After all, it is a best practice to have the identical fragment for all three pa
 
 On a implementation detail level, you have learned about extracting fragments from your query (or mutation). Basically fragments allow you to define your shared entities by GraphQL types. Afterward, you can reuse those in your queries, mutations or local state management methods to update the cache.
 
-On a higher level, you have learned that Apollo Client's cache normalizes your data. Only this way you are able to retrieve entities that where fetched with a deeply nested query, by using their type and identifier as composite key. Otherwise, imagine you would have to perform all the normalization of the fetched data yourself before putting it in your store/state.
+On a higher level, you have learned that Apollo Client's cache normalizes your data. Only this way you are able to retrieve entities that were fetched with a deeply nested query, by using their type and identifier as composite key. Otherwise, imagine you would have to perform all the normalization of the fetched data yourself before putting it in your store/state.
 
 ### Exercises:
 
