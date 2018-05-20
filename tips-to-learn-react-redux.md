@@ -110,7 +110,7 @@ The ecosystem around React is huge since React is only a view library. There are
 * events and forms
 * component declarations (ES6 class components, functional stateless components)
 * children
-* composeable and reusable components
+* composable and reusable components
 * [fetching data](https://www.robinwieruch.de/react-fetching-data/)
 * higher order components
 
