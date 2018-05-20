@@ -41,7 +41,7 @@ In a folder of your choice, create a *index.html* file. Let's write a couple of 
 </html>
 {{< /highlight >}}
 
-The important part is the imported *index.js* file. That's the file where the vanilla JavaScript code will end up. You can create it next to your *index.html* file. But before you will start to write JavaScript, let's add some more HTML. The application should show an input field and a button to request data based on a search query from the input field.
+The important part is the imported *index.js* file. That's the file where the vanilla JavaScript code will end up. You can create it next to your *index.html* file. But before you start to write JavaScript, let's add some more HTML. The application should show an input field and a button to request data based on a search query from the input field.
 
 {{< highlight html "hl_lines=7 8 9 10 11" >}}
 <!DOCTYPE html>
