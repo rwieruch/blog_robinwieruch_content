@@ -15,6 +15,8 @@ headline = "8 things to learn in React before using Redux"
 summary = "State management is difficult. A view library, such as React, enables you to manage local component state. But it only scales to a certain point. React is just a view layer library. Eventually you decide to move on to a more sophisticated state management solution such as Redux. Yet there are certain things, that I want to point out in this article, that you should know about React before you jump on the Redux train."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "learn react redux" "img/posts/learn-react-before-using-redux/banner.jpg" "is-src-set" %}}
 
 State management is difficult. A view library, such as React, enables you to manage local component state. But it only scales to a certain point. React is just a view layer library. Eventually you decide to move on to a more sophisticated state management solution such as Redux. Yet there are certain things, that I want to point out in this article, that you should know about React before you jump on the Redux train.

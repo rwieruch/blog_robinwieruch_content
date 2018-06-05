@@ -15,6 +15,8 @@ headline = "Lessons learned from Give and Take"
 summary = "Adam Grant dives deep into the spectrum of altruistic to selfish personalities. Anyone, who reads the book, might be able to identify his or her own personal traits. Moreover, as Adam Grant shows, you can apply the principles of giving and taking even in companies or communities. The book shows and encourages the benefits of giving instead of taking. Furthermore it dives into the role of a giving personality and shows ways to avoid being exploited."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "book summary give take" "img/posts/lessons-learned-give-and-take/banner.jpg" "is-src-set" %}}
 
 Recently I have read {{% a_blank_no_follow "Give and Take: A revolutionary approach to Success" "http://amzn.to/2olhgRv" %}} by Adam Grant. It is an inspiring book and I found myself taking too many notes while reading it. Now I want to summarize my learnings, to internalize them, but also to give others access to it.

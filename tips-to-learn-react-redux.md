@@ -15,6 +15,8 @@ headline = "Tips to learn React + Redux in 2018"
 summary = "I am doing React + Redux for quite some time now. My learnings are subjective, but I thought they may help people to learn or advance in React + Redux. Redux is not strictly coupled to React, but it happens to be that a lot of people are using both libraries in combination. The article is opinionated, maybe it doesn't match every time your thoughts, but I hope to get feedback on it to improve myself as well."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "learn react redux 2018" "img/posts/tips-to-learn-react-redux/banner.jpg" "is-src-set" %}}
 
 For quite some time now, I have been implementing applications in React and Redux. Over the last few years, I have written two ebooks about it and released a {{% a_blank "course platform" "https://roadtoreact.com/" %}} for learning React and its ecosystem. The course platform is even [built in React and Redux](https://www.robinwieruch.de/how-to-build-your-own-course-platform/). My personal learnings are subjective, but I thought they may help people to learn or advance in React and Redux as well. Redux is not strictly coupled to React, but it happens to be that a lot of people are using both libraries in combination.

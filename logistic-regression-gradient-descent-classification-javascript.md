@@ -15,6 +15,8 @@ headline = "Logistic Regression with Gradient Descent in JavaScript"
 summary = "The article guides you through implementing a logistic regression with gradient descent algorithm in JavaScript to solve a classification problem. You should read the article about linear regression with gradient descent before diving into logistic regression."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "logistic regression javascript" "img/posts/logistic-regression-gradient-descent-classification-javascript/banner.jpg" "is-src-set" %}}
 
 A couple of my recent articles gave an [introduction to machine learning in JavaScript](https://www.robinwieruch.de/linear-regression-gradient-descent-javascript/) by solving [regression](https://www.robinwieruch.de/linear-regression-gradient-descent-vectorization-javascript) [problems](https://www.robinwieruch.de/multivariate-linear-regression-gradient-descent-javascript) with linear regression using gradient descent or [normal equation](http://localhost:1313/multivariate-linear-regression-normal-equation-javascript/).

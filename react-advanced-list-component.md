@@ -15,6 +15,8 @@ headline = "Advanced List in React - Build a powerful Component (Part III)"
 summary = "The series of React tutorials focuses on building a complex yet elegant and powerful React component. It attempts to go beyond the fundamentals in React. This part introduces an advanced list in React. You will combine higher order components, configure them and opt-in fallbacks for an improved user experience."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react advanced list component" "img/posts/react-advanced-list-component/banner.jpg" "is-src-set" %}}
 
 The last two parts of the tutorial series in React introduced two functionalities, [a paginated list](https://www.robinwieruch.de/react-paginated-list) and an [infinite scroll](https://www.robinwieruch.de/react-infinite-scroll), by using higher order components. However, these functionalities were used exclusively. In one scenario you used a paginated list, where you manually fetched the data, then again in another scenario you used an infinite scroll, where the data was fetched automatically for you.

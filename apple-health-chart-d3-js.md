@@ -14,6 +14,8 @@ headline = "Apple Health Chart on Angular and D3.js"
 summary = "Last year Apple released their new collection of iPhones. One innovation of Apple which caught my eyes is the new health app. The dashboard with its health charts is appealing and well designed. Therefore I had to remake one of its components with D3.js. This is what you are going to achieve."
 +++
 
+{{% sponsorship %}}
+
 Last year Apple released their new collection of iPhones. One innovation of Apple which caught my eyes is the new health app. The dashboard with its health charts is appealing and well designed. Therefore I had to remake one of its components with D3.js. This is what you are going to achieve.
 
 {{% pin_it_image "angular d3" "img/posts/apple-health-chart-d3-js/line-chart.png" "" %}}

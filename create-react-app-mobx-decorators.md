@@ -15,6 +15,8 @@ headline = "MobX (with Decorators) in create-react-app"
 summary = "It is often a false assumption that MobX can only be used with decorators. That's not true. The article explains how to use MobX in a create-react-app or Next.js application with and without using decorators. There is also one alternative to avoid ejecting when using create-react-app."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "create-react-app mobx decorators" "img/posts/create-react-app-mobx-decorators/banner.jpg" "is-src-set" %}}
 
 MobX is used for state management in modern applications. Often it is applied in a React.js application, but it is not necessarily bound to React. In addition, it is a [valuable alternative to Redux](https://www.robinwieruch.de/redux-mobx-confusion/) as state management solution. If you are using {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}} as your application boilerplate, you most likely run into the questions of how to setup MobX and how to use {{% a_blank "decorators" "https://tc39.github.io/proposal-decorators/" %}} in create-react-app. The article should give you the essential knowledge to use MobX without and with decorators in create-react-app.

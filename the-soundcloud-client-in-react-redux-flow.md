@@ -15,6 +15,8 @@ headline = "Flow: Type Checking with Flow in React + Redux"
 summary = "The Flow: Type Checking with Flow in React + Redux tutorial will teach you how to use Flow in a React + Redux environment. Since JavaScript itself is a dynamically typed language, you will end up with several bugs in your JavaScript career, which could have been prevented due type safety. In terms of using Flow for type safety, it only needs a simple setup to get the advantage of a more robust application."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "redux flow" "img/posts/the-soundcloud-client-in-react-redux-flow/banner.jpg" "is-src-set" %}}
 
 {{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "The SoundCloud Client in React + Redux" "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}

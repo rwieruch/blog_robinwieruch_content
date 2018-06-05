@@ -15,6 +15,8 @@ headline = "My development setup as a JavaScript web developer"
 summary = "In this article, you will find a list of my personal web development tools that I am using on MacOS as a web developer, JavaScript enthusiast and software engineer for larger applications. It follows the lightweight approach of combining multiple tools rather than using one IDE."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "web developer setup" "img/posts/developer-setup/banner.jpg" "is-src-set" %}}
 
 This concise cheatsheet will give you an overview on how to setup your development environment as a web developer. It was created for MacOS developers. However, you can substitute the instructions and tools for Windows and Linux as well. So don't give up yet if you are not a MacOS user. After all, setting up your development environment all by yourself is your first challenge as a striving web developer these days. So let's get started!

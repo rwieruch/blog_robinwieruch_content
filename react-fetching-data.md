@@ -15,6 +15,8 @@ headline = "How to fetch data in React"
 summary = "Newcomers to React often start with applications that don't need data fetching at all. Usually they are confronted with Counter, Todo or TicTacToe applications. That's good, because data fetching adds another layer of complexity to your application while taking the first steps in React. However, at some point you want to request real world data from an own or a third-party API."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react fetching data" "img/posts/react-fetching-data/banner.jpg" "is-src-set" %}}
 
 Newcomers to React often start with applications that don't need data fetching at all. Usually they are confronted with Counter, Todo or TicTacToe applications. That's good, because data fetching adds another layer of complexity to your application while taking the first steps in React.

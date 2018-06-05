@@ -15,6 +15,8 @@ headline = "The SoundCloud Client in React + Redux"
 summary = "At the end of this tutorial you can expect to have a running React + Redux app, which consumes the SoundCloud API. You will be able to login with your SoundCloud account, list your latest tracks and listen to them within the browser. Additionally you will learn a lot about tooling with Webpack and Babel."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react redux" "img/posts/the-soundcloud-client-in-react-redux/banner.jpg" "is-src-set" %}}
 
 In the beginning of 2016 it was time for me to deep dive into the ReactJs world. I read tons of articles about React and its environment, especially Redux, so far. Several of my colleagues used it in side projects and on a theoretical level I could participate in the discussions.

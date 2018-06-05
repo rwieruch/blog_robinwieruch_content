@@ -15,6 +15,8 @@ headline = "A gentle Introduction to React's Higher Order Components"
 summary = "Higher order components, or known under the abbreviation HOCs, are often a hard to grasp pattern in React. These components can be used for multiple use cases. I want to pick out one use case, the conditional rendering with higher order components, to give you two outcomes from this article as a reader: to learn higher order components and to see how you can use them in an elegant way."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react higher order component" "img/posts/gentle-introduction-higher-order-components/banner.jpg" "is-src-set" %}}
 
 Another fitting headline for the article could be: learn Higher Order Components with Conditional Rendering in React.

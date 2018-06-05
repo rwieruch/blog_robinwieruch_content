@@ -15,6 +15,8 @@ headline = "A simple React.js on MacOS Setup"
 summary = "In this article, you will find a concise step by step guide on how to setup React on MacOS. It gives you everything you need, an IDE, Node, NPM, and Git, to get you started with web development and React."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react macos setup" "img/posts/react-js-macos-setup/banner.jpg" "is-src-set" %}}
 
 In this article, you will find a concise step by step guide on how to setup React on MacOS. It follows the philosophy of having one IDE to manage most of your web development tasks. That's how you can focus on your task at hand as a developer. However, if you like to compose your development environment with lightweight tools rather than with an full-blown IDE, checkout [my personal recommendations for such a setup](https://www.robinwieruch.de/developer-setup). Nevertheless, if you just want to find a way for getting started with React on Mac OS quickly, follow the guide below.

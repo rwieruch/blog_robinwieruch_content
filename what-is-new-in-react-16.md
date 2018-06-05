@@ -15,6 +15,8 @@ headline = "What's new in React 16?"
 summary = "There is a high likelihood that there are already a multitude of articles about the new React.js 16 release. But for learning about the changes of the library myself, I wanted to read up all the new React 16 features and improvements too. Maybe it is useful for you if I share briefly what I have learned. In the next days, I hope to find the time to update my articles and course content accordingly to the changes."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react 16 changes" "img/posts/what-is-new-in-react-16/banner.jpg" "is-src-set" %}}
 
 There is a high likelihood that there are already a multitude of articles about the new React.js 16 release. But for learning about the changes of the library myself, I wanted to read up all the new React 16 features and improvements too. I thought it would be useful if I would share briefly what I have learned along the way. In the next days, I hope to find the time to update my articles and books accordingly to the React 16 changes.

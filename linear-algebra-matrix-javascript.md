@@ -15,6 +15,8 @@ headline = "Linear Algebra in JavaScript with Matrix Operations"
 summary = "A little refresher about matrix operations (addition, subtraction, multiplication and division) in linear algebra and  about the different types of matrices: inverse and transpose matrices, and the identity matrix. The article applies those learnings in JavaScript. Furthermore, in the end of the article, there will be an example to demonstrate why matrices are beneficial for computations in machine learning."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "matrix javascript" "img/posts/linear-algebra-matrix-javascript/banner.jpg" "is-src-set" %}}
 
 When I recently started to dive into the topic of machine learning, I had to relearn all the things I have studied about linear algebra, stochastic and calculus at school and university. I took a little refresher on matrix operations (addition, subtraction, multiplication and division) in linear algebra and learned about the different types of matrices (inverse matrix, transpose matrix, identity matrix) again. The article is a refresher about those things and applies them in JavaScript. Furthermore, in the end of the article, there will be a little example to demonstrate why matrices are beneficial for computations in machine learning. In addition, you will find a couple of tips on how to express mathematical equations in JavaScript similar to Octave or Matlab.

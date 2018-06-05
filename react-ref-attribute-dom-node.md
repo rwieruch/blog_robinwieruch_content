@@ -15,6 +15,8 @@ headline = "When to use React's Ref on a DOM node in React"
 summary = "In the past there has been a lot of confusion around the ref attribute in React. The attribute makes it possible to reference a DOM node in order to access it and to interact with it. This article should give some clarification around the ref attribute in React. It shows you how you can use it, when you should use it and where it can be used."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react ref" "img/posts/react-ref-attribute-dom-node/banner.jpg" "is-src-set" %}}
 
 In the past there has been a lot of confusion around the `ref` attribute in React. The attribute makes it possible to reference a DOM node in order to access it and to interact with it. This article should give some clarification around the `ref` attribute in React. It shows you **how** you can use it, **when** you should use it and **where** it can be used.

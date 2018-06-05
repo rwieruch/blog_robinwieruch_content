@@ -15,6 +15,8 @@ headline = "(Deep Work) => Flow - A proven Path to Satisfaction"
 summary = "The following article summarizes my lessons learned from the books Deep Work and Flow by Cal Newport and Mihaly Csikszentmihalyi. It can be a way to convert deep work into flow. It can be the way to achieve a fulfilled life. The summary helps me to internalize my learnings. However, perhaps it helps you as well to attain deep satisfaction by using the deep work technique to achieve a state of flow."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "book summary on writing well" "img/posts/lessons-learned-deep-work-flow/banner.jpg" "is-src-set" %}}
 
 "A state of flow can be achieved by deep work". The subjects flow and deep work are covered in the books Deep Work by Cal Newport and Flow by Mihaly Csikszentmihalyi. I read both books, personally I can say that they are outstanding, and they can be well combined when it comes to satisfaction in a person's life.

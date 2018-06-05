@@ -15,6 +15,8 @@ headline = "Redux or MobX: An attempt to dissolve the Confusion"
 summary = "Everyone wants to have state management in an application. But what problem does it solve for us? Most people start with a small application and already introduce a state management library. Everyone is speaking about it, aren't they? But most applications don't need ambitious state management from the beginning. It is even more dangerous, because most people are never going to experience which problems libraries like Redux or MobX solve."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "redux mobx" "img/posts/redux-mobx-confusion/banner.jpg" "is-src-set" %}}
 
 I used {{% a_blank "Redux" "https://github.com/reactjs/redux" %}} excessively the last years, but spent the recent time with {{% a_blank "MobX" "https://github.com/mobxjs/mobx" %}} as state management alternative. It seems that Redux alternatives evolve naturally into confusion in the community. People are {{% a_blank "uncertain" "https://www.reddit.com/r/reactjs/comments/4npzq5/confused_redux_or_mobx/" %}} which solution to pick. **The issue isn't necessarily Redux vs MobX**. Whenever there exists an alternative, people are curious what's the best way to solve their problem. I am writing these lines to dissolve the confusion around both state management solutions Redux and MobX.

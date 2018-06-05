@@ -15,6 +15,8 @@ headline = "A simple React.js on Windows Setup"
 summary = "In this article, you will find a concise step by step guide on how to setup React on Windows. There are plenty of articles out there on how to setup your web development environment on MacOS, but very few on how to setup it on Windows. Especially when people want to enter the world of React.js. This articles helps you to setup everything on your PC."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react js windows setup" "img/posts/react-js-windows-setup/banner.jpg" "is-src-set" %}}
 
 In this article, you will find a concise step by step guide on how to setup React on Windows. There are plenty of articles out there on how to setup your web development environment on MacOS, but very few on how to setup it on Windows. Especially when people want to enter the world of React.js in Windows, there is a missing starting point. I wanted to address this issue, since a lot of people reading [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) are coming from Windows too.

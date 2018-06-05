@@ -15,6 +15,8 @@ headline = "Getting started with React and Parcel"
 summary = "The article is a short guide on how to setup Parcel with React. Parcel is a bundler that got popular because of its zero-configuration setup for JavaScript applications. It can be used as alternative for Webpack."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react parcel" "img/posts/parcel-react-setup/banner.jpg" "is-src-set" %}}
 
 The following article is a short guide on how to setup Parcel with React. {{% a_blank "Parcel" "https://github.com/parcel-bundler/parcel" %}} is a bundler that got popular because of its zero-configuration setup for JavaScript applications. That's why this guide is kept fairly short yet it should give you all the essentials to setup your React project with Parcel. You can find the finished boilerplate project in {{% a_blank "this GitHub repository" "https://github.com/rwieruch/parcel-react" %}}.

@@ -15,6 +15,8 @@ headline = "GitHub and Git Essentials"
 summary = "In this article, I want to give you the essentials about Git and GitHub. Afterward, I want to show you my essential commands for Git that enabled me to do web development in the recent years. It's no magic and doesn't need to be overwhelming. Last but not least, I want to give you some more information to get started with Git and GitHub."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "git essential commands" "img/posts/git-essential-commands/banner.jpg" "is-src-set" %}}
 
 Over the past years, I have noticed that the GitHub commands I use break down to only a few essential ones that I use in recurring scenarios. These essential commands were quite sufficient for me to come along in web development.

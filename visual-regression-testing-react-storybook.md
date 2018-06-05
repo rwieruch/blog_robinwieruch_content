@@ -15,6 +15,8 @@ headline = "Visual Regression Testing and React Storybook"
 summary = "The article gives advice on how to implement visual regression testing in React applications with React Storybook. You will get to know React Storybook and all its testing capabilities."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "visual regression testing react" "img/posts/visual-regression-testing-react-storybook/banner.jpg" "is-src-set" %}}
 
 As I worked with my recent client to develop their lay out the groundwork for their React application, I found out that testing was an important topic for them. They are shipping their React application into embedded systems only once or twice a year. As conclusion there must be a guarantee that everything is working as expected, because there are no deployments possible afterward to fix a bug. That's how I came to write an [extensive article about testing in React](https://www.robinwieruch.de/react-testing-tutorial/) that covers unit tests, integration tests and E2E tests. However, one part is missing in the article: **visual regression tests in React**. These kind of tests were super important for my client, because the embedded application should work on various device sizes and a small bug in the layout or styling could cost much money. Thus all the styling should work as expected for different consumer of their application.

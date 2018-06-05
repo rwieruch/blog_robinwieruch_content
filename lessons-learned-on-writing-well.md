@@ -15,6 +15,8 @@ headline = "Lessons learned from On Writing Well"
 summary = "The article is a summary of my lessons learned from On Writing Well by William Zinsser. By providing a summary I hope to help other developers to improve their writing. Apart from that it helps me to memorize my lessons learned."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "book summary on writing well" "img/posts/lessons-learned-on-writing-well/banner.jpg" "is-src-set" %}}
 
 As a software engineer you will come to a point where writing matters. Perhaps you want to leave your fellow developers a note, you have to write an e-mail to a customer or you have to sum up the recent meeting notes. In my case, it went even further because I have my own website where I write about software development and [where I started to write my first ebook](https://www.robinwieruch.de/the-road-to-learn-react/). It was about time for me to dive into the topic of writing.

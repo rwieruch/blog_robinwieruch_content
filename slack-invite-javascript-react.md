@@ -15,6 +15,8 @@ headline = "Programmatic Slack invite in JavaScript and React"
 summary = "The article showcases how to setup an automated Slack invitation for a JavaScript and/or React application. Why would you want an automated Slack invitation in the first place? My personal motivation was it to create a like minded community of people learning React, but the idea about a Slack Channel started out on Twitter"
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "slack invite javascript" "img/posts/slack-invite-javascript-react/banner.jpg" "is-src-set" %}}
 
 The article showcases how to setup an automated Slack invitation for a JavaScript and/or React application. Why would you want an automated Slack invitation in the first place? My personal motivation was it to create a like minded community of people learning React, but the idea about a Slack Channel started out on Twitter.

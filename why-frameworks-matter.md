@@ -15,6 +15,8 @@ headline = "Why Frameworks matter"
 summary = "The article shows you how a problem can be solved in vanilla JavaScript and React. It should give newcomers to web development a explanation of why libraries such as React are used nowadays. Both solutions are fine, but in the end React will outperform vanilla JavaScript once your application becomes larger."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "why react matters" "img/posts/why-frameworks-matter/banner.jpg" "is-src-set" %}}
 
 There are many people entering the field of web development right now. It can be an overwhelming experience for newcomers to get to know all the tools which are used in modern web development. The historical gap between running HTML in Netscape and today widens with each of these new tools which are put on top of the tech stack. At some point, it makes no sense anymore for newcomers to learn jQuery. Students will [jump straight on their favorite framework](https://www.robinwieruch.de/how-to-learn-framework/) after learning vanilla JavaScript. What's missing for these people is all the historical knowledge from the gap in between.

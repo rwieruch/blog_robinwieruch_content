@@ -15,6 +15,8 @@ headline = "Setup PostgreSQL with Sequelize in Express Tutorial"
 summary = "The article is a checklist for myself, but for anyone else setting up PostgreSQL 10 on MacOS for having a SQL database in an Express.js application. You can leave out the Express part to just set up Postgres on MacOS."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "postgres express tutorial" "img/posts/postgres-express-setup-tutorial/banner.jpg" "is-src-set" %}}
 
 The article is a checklist for myself, but for anyone else setting up PostgreSQL on MacOS for having a SQL database in a Express.js application. You can leave out the Express part to just set up Postgres on MacOS. If you attempt to run Postgres on Windows, I believe you can substitute most of the tools here for your machine.

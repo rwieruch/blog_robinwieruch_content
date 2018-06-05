@@ -15,6 +15,8 @@ headline = "The Road to learn React [React.js Book for 2018]"
 summary = "The Road to learn React offers you a foundation before you start to dive into the more advanced React ecosystem. It has less tooling and less external state management, but more React. It explains general concepts and patterns."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react book" "img/posts/the-road-to-learn-react/banner.jpg" "is-src-set" %}}
 
 The Road to learn React book teaches you the fundamentals of React. You will build a real world application along the way in plain React without complicated tooling. Everything from project setup to deployment on a server will be explained for you. The book comes with additional referenced reading material and exercises with each chapter. After reading the book, you will be able to build your own applications in React. The material is kept up to date by me and the community.

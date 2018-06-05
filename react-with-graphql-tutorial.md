@@ -15,6 +15,8 @@ headline = "A complete React with GraphQL Tutorial"
 summary = "This React with GraphQL Tutorial shows you how to use GraphQL in your React.js application by consuming the GitHub API. You will not use any clever framework such as Apollo for performing a query or mutation, but only plain HTTP requests to learn about GraphQL."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react graphql tutorial" "img/posts/react-with-graphql-tutorial/banner.jpg" "is-src-set" %}}
 
 {{% react-graphql-book %}}

@@ -15,6 +15,8 @@ headline = "MobX React: Refactor your application from Redux to MobX"
 summary = "The MobX React: Refactor your application from Redux to MobX tutorial will teach you how to use MobX instead of Redux for state management in React. We will come from a Redux + React seed project and refactor it from Redux to MobX. While we do so, I will explain in detail the concepts behind MobX and the similarities and differences compared to Redux."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "mobx react" "img/posts/mobx-react/banner.jpg" "is-src-set" %}}
 
 {{% read_before "This React tutorial is part 2 of 2 in the series." "Part 1:" "The SoundCloud Client in React + Redux" "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}

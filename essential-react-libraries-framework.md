@@ -15,6 +15,8 @@ headline = "Essential React Libraries in 2018"
 summary = "React with its ecosystem is a flexible framework. You can choose your libraries to complement your React core. The following article will give you an opinionated approach to select from these libraries to build a sophisticated React application."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react js libraries" "img/posts/essential-react-libraries-framework/banner.jpg" "is-src-set" %}}
 
 React.js is only a view-layer library. Thus React only enables you to build component driven user interfaces. It comes with a couple of built-in solutions though, for instance local state management and syntactic events to make interactions happen, but after all you are only dealing with a view-layer library.

@@ -15,6 +15,8 @@ headline = "React Testing Tutorial: Test Frameworks & Component Tests"
 summary = "The article gives you guidance on how to setup and perform testing in a React application. It uses common testing tools such as Mocha, Chai, Enzyme, Jest and Sinon to make verify the robustness of your application."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react testing tutorial" "img/posts/react-testing-tutorial/banner.jpg" "is-src-set" %}}
 
 Writing tests is an essential part of software development to ensure a robust application. Tests enable us to automatically verify that our application is working on a certain level. The certain level depends on the quality, quantity (coverage) and type of your tests (unit tests, integration tests, end-to-end tests).

@@ -15,6 +15,8 @@ headline = "Neural Networks in JavaScript with deeplearn.js"
 summary = "The article guides you through the implementation of a neural network in JavaScript with Google's deeplearn.js library. In general, it should show how machine learning can be achieved in JavaScript."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "neural network javascript deeplearnjs" "img/posts/neural-networks-deeplearnjs-javascript/banner.jpg" "is-src-set" %}}
 
 A couple of my recent articles gave an introduction into a subfield of artificial intelligence by implementing foundational machine learning algorithms in JavaScript (e.g. [linear regression with gradient descent](https://www.robinwieruch.de/linear-regression-gradient-descent-javascript/), [linear regression with normal equation](https://www.robinwieruch.de/multivariate-linear-regression-normal-equation-javascript) or [logistic regression with gradient descent](https://robinwieruch.de/logistic-regression-gradient-descent-classification-javascript)). These machine learning algorithms were implemented from scratch in JavaScript by using the {{% a_blank "math.js node package" "http://mathjs.org/" %}} for linear algebra (e.g. [matrix operations](https://www.robinwieruch.de/linear-algebra-matrix-javascript/)) and calculus. You can find all of these machine learning algorithms grouped in a {{% a_blank "GitHub organization" "https://github.com/javascript-machine-learning" %}}. If you find any flaws in them, please help me out to make the organization a great learning resource for others. I intend to grow the amount of repositories showcasing different machine learning algorithms to provide web developers a starting point when they enter the domain of machine learning.

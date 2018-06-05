@@ -15,6 +15,8 @@ headline = "Linear Regression with Normal Equation in JavaScript"
 summary = "The article guides you through implementing normal equation as alternative to gradient descent to solve a regression problem in JavaScript. You should learn about gradient descent before diving into this topic."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "normal equation javascript" "img/posts/multivariate-linear-regression-normal-equation-javascript/banner.jpg" "is-src-set" %}}
 
 A recent article gave an introduction to the field of machine learning in JavaScript by [predicting housing prices with gradient descent](https://www.robinwieruch.de/linear-regression-gradient-descent-javascript/) in a univariate regression problem. It used plain mathematical expressions and thus made use of the unvectorized implementation of gradient descent and the cost function. However, the unvectorized approach doesn't scale when applying it for multiple parameters (e.g. [polynomial regression](https://www.robinwieruch.de/polynomial-regression-model-selection-javascript/)) or having a multivariate training set with multiple features n. That's the perfect point in time to use [matrix operations for computational efficiency](https://www.robinwieruch.de/linear-algebra-matrix-javascript/) and thus to use the vectorized implementation of linear regression with gradient descent in [univariate](https://www.robinwieruch.de/linear-regression-gradient-descent-vectorized-javascript) or [multivariate](https://www.robinwieruch.de/multivariate-linear-regression-gradient-descent-javascript) training sets.

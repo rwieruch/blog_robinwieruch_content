@@ -15,6 +15,8 @@ headline = "Redux State Keys - A predictable yet dynamic substate"
 summary = "In a rapid development environment it happens quite often: There is no time to plan state structure ahead. There is no time to refactor in favour of abstractions. There is no place to refactor, because you have multiple teams working on feature folders, where every team is relieved to have their owned place. Redux state keys solve that problem. They enable a dynamically allocated yet predictable substate."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "redux state keys" "img/posts/redux-state-keys/banner.jpg" "is-src-set" %}}
 
 Sometimes I feel it's quite obvious, but I never saw it somewhere written down. The article is my attempt to show you a way to organize your state with **state keys**. I'm using it in my projects, others might already use a similar approach. But nobody advertised it so far.

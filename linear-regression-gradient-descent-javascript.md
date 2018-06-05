@@ -15,6 +15,8 @@ headline = "Linear Regression with Gradient Descent in JavaScript"
 summary = "The article guides you through implementing linear regression with gradient descent in JavaScript. The article can be used as introduction to machine learning in JavaScript and as entry point to a whole blog post series."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "linear regression javascript" "img/posts/linear-regression-gradient-descent-javascript/banner.jpg" "is-src-set" %}}
 
 Recently I started to take the {{% a_blank "Machine Learning" "https://click.linksynergy.com/link?id=yL1MQRWYyXQ&offerid=467035.1560515719&type=2&murl=https%3A%2F%2Fwww.coursera.org%2Flearn%2Fmachine-learning" %}} course by Andrew Ng on Coursera. So far, it is a blast and I am so keen to apply all my learnings in math from university. Starting right into web development after university, I never had the opportunity to apply those learnings when implementing web applications. Now, it is refreshing to see use cases in machine learning where those learnings could be used.

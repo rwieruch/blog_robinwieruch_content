@@ -15,6 +15,8 @@ headline = "A Web Developer's Guide to Machine Learning in JavaScript"
 summary = "The article guides you through implementing Machine Learning in JavaScript. The article can be used as introduction to machine learning in JavaScript and as entry point to a whole blog post series."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "learn machine learning" "img/posts/machine-learning-javascript-web-developers/banner.jpg" "is-src-set" %}}
 
 Recently, I was wondering how I could escape the web development bubble for a while. 2017 was full of React, Redux and MobX in JavaScript where I have written actively about those topics on my blog, developed small ([1](https://github.com/rwieruch/favesound-redux), [2](https://www.robinwieruch.de/how-to-build-your-own-course-platform/), [3](https://github.com/rwieruch/open-crowd-fund), ...) and {{% a_blank "large scale applications" "https://www.small-improvements.com/features/?ref=robinwieruch.de" %}} based on them, {{% a_blank "self-published two educational ebooks" "https://leanpub.com/u/rwieruch" %}}, and implemented a {{% a_blank "course platform" "https://roadtoreact.com/" %}} with those technologies to teach others about them. The last year was all about those subjects, so I needed a side project to escape it for a while and to get into a zen mode of learning again.

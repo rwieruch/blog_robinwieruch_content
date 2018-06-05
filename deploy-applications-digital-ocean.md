@@ -15,6 +15,8 @@ headline = "Host a single or multiple applications on Digital Ocean"
 summary = "There a various tutorials showing you how to host your web applications with a couple of lines on any hosting solution. But that's it. You are able to host your application somewhere, but there are a lot of open questions. What about using an own domain? What about securing it with SSL? What about hosting multiple applications side by side yet keeping it cost efficient by not taking up to much ressources? This article should fill the void and provide you a solution on how to host multiple applications on Digital Ocean."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "single multiple applications digital ocean" "img/posts/deploy-applications-digital-ocean/banner.jpg" "is-src-set" %}}
 
 There a various tutorials showing you how to host your web applications with a couple of lines on any hosting solution. But that's it. You are able to host your application somewhere, but there are a lot of open questions. What about using an own domain? What about securing it with SSL? What about hosting multiple applications side by side yet keeping it cost efficient by not taking up to much ressources? This article should fill the void and provide you a solution on how to host multiple applications on Digital Ocean. Disclaimer: I am not payed by Digital Ocean to write the article, but I enjoy using their product and I hope to give you guidance to setup your applications on their platform as well.

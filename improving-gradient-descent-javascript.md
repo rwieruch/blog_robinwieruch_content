@@ -15,6 +15,8 @@ headline = "Improving Gradient Descent in JavaScript"
 summary = "When using gradient descent as learning algorithm for a regression problem, there are several ways to improve it. In the beginning, it is often unclear how to optimize it. This article shows it by choosing the right learning rate and initial parameters, applying feature scaling and vectorization."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "optimize gradient descent javascript" "img/posts/improving-gradient-descent-javascript/banner.jpg" "is-src-set" %}}
 
 A recent article gave an introduction to the field of machine learning in JavaScript by [predicting housing prices with gradient descent](https://www.robinwieruch.de/linear-regression-gradient-descent-javascript/) in a univariate regression problem. There are several improvements to optimize the gradient descent algorithm that should be collected in this article.

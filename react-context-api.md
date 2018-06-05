@@ -15,6 +15,8 @@ headline = "Exploring the React Context API with Provider and Consumer"
 summary = "React's Context API is a powerful feature for passing props down the component tree without the need to tell components in between about them. React's context creates a Provider and Consumer component that enable us to use this powerful feature."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react context API" "img/posts/react-provider-pattern-context/banner.jpg" "is-src-set" %}}
 
 Note: If you are using a React version 16.3 or above, this article might be relevant to you. It explains how to use React's new context API for passing props down the component tree. Only components who are interested can consume these props. If you are using a React version prior 16.3, head over to [this article to implement your own provider pattern in React with its old context API](https://www.robinwieruch.de/react-provider-pattern-context).

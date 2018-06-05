@@ -15,6 +15,8 @@ headline = "Polynomial Regression and Model Selection"
 summary = "Machine learning often starts out with a linear regression and gradient descent in an univariate training set. But often your data correlation isn't linear. That's where polynomial regression comes into play and selecting a model type to fit your underlying data."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "polynomial regression model selection javascript" "img/posts/polynomial-regression-model-selection-javascript/banner.jpg" "is-src-set" %}}
 
 After learning about [gradient descent in a linear regression](https://www.robinwieruch.de/linear-regression-gradient-descent-javascript/), I was curious about using different kinds of hypothesis functions to improve the result of the algorithm itself. So far, the hypothesis function was only a linear straight line. However, your training set may not have a linear correlation and by staying with a linear model it becomes difficult to reduce the cost returned from the cost function.

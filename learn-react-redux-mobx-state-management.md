@@ -15,6 +15,8 @@ headline = "Taming the State in React [MobX Redux Book]"
 summary = "The course turned out to exceed all my expectations. What started as an attempt to write a sole book about state management in React with Redux and MobX, turned out into a full blown course with a 250-page book, exciting applications and boilerplate projects to get started in learning and building applications with these libraries, and screencast series about implementing React applications from scratch with state management."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "redux book" "img/posts/learn-react-redux-mobx-state-management/banner.jpg" "is-src-set" %}}
 
 I am excited to launch my course {{% a_blank "Taming the State in React" "https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE" %}}. I worked on the course for the last 6 months and squeezed every of my free minutes during a workweek, weekends and holidays into it. For instance, when writing the book, I woke up two hours earlier before my 9 to 5 job to write ~750 qualitative words a day. It continued by building a platform around the course, by recording screencasts, by building exciting applications and boilerplate projects for course participants and by doing a bit of outreach with the of help my better half.

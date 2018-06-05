@@ -15,6 +15,8 @@ headline = "10 Reasons why I moved from Angular to React"
 summary = "I did a lot of Angular 1.x back in the days until I started to use React. I can say that I used both solutions extensively. But there were several reasons why I moved to React. These reasons were not clear from the beginning, but retrospectively I think I can summarize these very well."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "angular js or react js" "img/posts/reasons-why-i-moved-from-angular-to-react/banner.jpg" "is-src-set" %}}
 
 I did a lot of Angular 1.x back in the days until I started to use React. I can say that I used both solutions extensively. But there were and are several reasons why I moved to React. These reasons were not clear from the beginning, but retrospectively I think I can summarize these very well.

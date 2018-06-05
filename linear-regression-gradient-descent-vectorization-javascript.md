@@ -15,6 +15,8 @@ headline = "Gradient Descent with Vectorization in JavaScript"
 summary = "The article guides you through implementing a vectorized implementation of gradient descent for a regression problem in JavaScript. You should be familiar with gradient itself by reading the introductory article before diving into this topic."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "vectorization gradient descent javascript" "img/posts/linear-regression-gradient-descent-vectorization-javascript/banner.jpg" "is-src-set" %}}
 
 A recent article gave an introduction to the field of machine learning in JavaScript by [predicting housing prices with gradient descent](https://www.robinwieruch.de/linear-regression-gradient-descent-javascript/) in a univariate regression problem. It used plain mathematical expressions and thus made use of the **unvectorized implementation** of gradient descent and the cost function. This article takes it one step further by **implementing a vectorized gradient descent** in JavaScript. It will guide you through the process step by step. In the end, you will find the whole source code.

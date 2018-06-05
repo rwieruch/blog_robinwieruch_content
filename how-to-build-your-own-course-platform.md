@@ -15,6 +15,8 @@ headline = "How I built my own course platform"
 summary = "The articles gives you a huge brain dump of mine about why I built my own course platform, what I used to accomplish it, what challenges I faced, and what decisions I had to make along the way. The article aims to give you a couple of valuable insights into launching your own platform, a web application or in general your own product"
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "online course platform open source" "img/posts/how-to-build-your-own-course-platform/banner.jpg" "is-src-set" %}}
 
 Recently, I built {{% a_blank "my own course platform" "https://roadtoreact.com/" %}} to teach students and professionals about web development. The courses on the platform are teaching about React and its ecosystem, but I want to generalize the platform's implementation in the future. It should be reusable for for other educational domains too. The platform launch came along with the release of my second course, [Taming the State in React](https://www.robinwieruch.de/learn-react-redux-mobx-state-management/), and therefore was the perfect playground to experiment with it. In the following article, I want to give you a huge brain dump of mine about why I built my own course platform, what I used to accomplish it, what challenges I faced, and what decisions I had to make along the way. The article might give you a couple of valuable insights into launching your own platform. I am definitely not an expert in this domain, because I just try to document my own learnings on my website. If you have any advice for me, feel free to reach out :-)

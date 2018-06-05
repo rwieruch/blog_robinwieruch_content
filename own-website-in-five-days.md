@@ -12,6 +12,8 @@ type = "promo"
 headline = "Technical Cheatsheet: 5 days to your own Website"
 +++
 
+{{% sponsorship %}}
+
 {{% read_before "This tutorial is part 2 of a series." "Part 1:" "Day One - Technical Cheatsheet: Setup your development environment" "https://www.robinwieruch.de/developer-setup/" %}}
 
 The following document is only a cheatsheet which summarises the steps you need to take to setup your own website. On purpose it's called technical, because you will not use a content management system (CMS) like Wordpress. It doesn't claim to be complete nor to guide you exhaustively through the whole process. After all it should only give you guidance on the way to publish your website. Additionally since you will put all the technical effort into it, you will have more control over your website than in a CMS. It addresses Mac users, but you could substitute some tools and instructions with something equivalent for Windows or Linux.

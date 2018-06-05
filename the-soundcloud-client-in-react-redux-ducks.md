@@ -15,6 +15,8 @@ headline = "Redux Ducks: Restructure your Redux App with Ducks"
 summary = "The Redux Ducks: Restructure your Redux App with Ducks tutorial will teach you how to bundle action creators, action types and reducers side by side in your Redux app. Usually in the beginning of learning Redux you have a technical separation of concerns which gets reflected in the folder structure. Basically there is one folder for your actions and one folder for your reducers. Additionally you collect all action types at one place that they can be reused by reducers and actions."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "redux ducks" "img/posts/the-soundcloud-client-in-react-redux-ducks/banner.jpg" "is-src-set" %}}
 
 {{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "The SoundCloud Client in React + Redux" "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" %}}

@@ -15,6 +15,8 @@ headline = "Accept Stripe Payments with React and Express"
 summary = "Accepting payments on your own website can be a recurring problem. Often you'll find yourself avoiding it. There are platforms such as Gumroad which deal with this problem by outsourcing it. However, at some point you want to avoid these third-party platforms and introduce your own payment system."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react express stripe" "img/posts/react-express-stripe-payment/banner.jpg" "is-src-set" %}}
 
 Accepting payments on your own website can be an issue at some point. Often you'll find yourself avoiding it, because you can easily outsource it to platforms such as Gumroad that deal with it. However, at some point you want to avoid these third-party platforms and introduce your own payment system.

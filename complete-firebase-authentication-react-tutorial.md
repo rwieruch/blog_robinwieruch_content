@@ -15,6 +15,8 @@ headline = "A Complete Firebase in React Authentication Tutorial [2018]"
 summary = "A complete walkthrough to learn about Firebase authentication in React. The guide gives you the perfect boilerplate as outcome for user authentication and authorization in React."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react firebase authentication tutorial" "img/posts/complete-firebase-authentication-react-tutorial/banner.jpg" "is-src-set" %}}
 
 **UPDATE:** The article got published as a draft in form of a {{% a_blank "free ebook about learning Firebase in React" "https://leanpub.com/learn-react-firebase" %}}. It has grown to a size where an ebook might be a better format. If there is enough interest in it, I will continue to write about it to make it a comprehensive experience beyond authentication and authorization in Firebase, but also realtime updates and database management. For now, you can download the ebook for free as PDF, EPUB or MOBI or take it as chance to support my content by buying it.
@@ -373,7 +375,7 @@ const config = {
 Second, import the firebase object from the firebase node package which you have already installed in the very beginning of this tutorial. Afterward, initialize it, if it isn't already initialized, with the configuration object.
 
 {{< highlight javascript "hl_lines=1 12 13 14" >}}
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
 
 const config = {
   apiKey: YOUR_API_KEY,
@@ -391,8 +393,9 @@ if (!firebase.apps.length) {
 
 Third, initialize the auth object. That's the part of the Firebase API which will be used in the *src/firebase/auth.js* file and thus needs to be exported. In a later part of this tutorial, you will initialize the database object the same way too. But for now, the auth object will be sufficient.
 
-{{< highlight javascript "hl_lines=16 18 19 20" >}}
-import * as firebase from 'firebase';
+{{< highlight javascript "hl_lines= 2 17 19 20 21" >}}
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 const config = {
   apiKey: YOUR_API_KEY,
@@ -416,8 +419,9 @@ export {
 
 That's it for the configurational part. There is one last optional step. On the Firebase website, you could create a second project. Afterward, your first project could be used as your development database and your second project as your production database. That way, you never mix up your data from development mode with your data from your deployed application (production mode). The step is optional.
 
-{{< highlight javascript "hl_lines=3 4 5 6 7 8 9 10 12 21 22 23" >}}
-import * as firebase from 'firebase';
+{{< highlight javascript "hl_lines=4 5 6 7 8 9 10 11 13 22 23 24" >}}
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 const prodConfig = {
   apiKey: YOUR_API_KEY,
@@ -1762,8 +1766,10 @@ You might have noticed that the file imports a database object from the *src/fir
 
 In *src/firebase/firebase.js* file:
 
-{{< highlight javascript "hl_lines=5 9" >}}
-import * as firebase from 'firebase';
+{{< highlight javascript "hl_lines=3 7 11" >}}
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
 
 ...
 
@@ -1827,7 +1833,7 @@ class SignUpForm extends Component {
       .then(authUser => {
 
         // Create a user in your own accessible Firebase Database too
-        db.doCreateUser(authUser.uid, username, email)
+        db.doCreateUser(authUser.user.uid, username, email)
           .then(() => {
             this.setState(() => ({ ...INITIAL_STATE }));
             history.push(routes.HOME);

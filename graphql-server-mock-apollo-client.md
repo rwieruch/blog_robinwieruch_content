@@ -1,7 +1,7 @@
 +++
 title = "Mocking a GraphQL Server for Apollo Client"
 description = "The tutorial shows you how to mock your GraphQL server for your GraphQL client for testing or other purposes. Either you can reconstruct a GraphQL client-side schema or introspect the GraphQL server schema. Both ways use client-side resolvers to mock the data..."
-date = "2018-05-20T13:50:46+02:00"
+date = "2018-05-28T13:50:46+02:00"
 tags = ["React", "GraphQL", "Apollo", "JavaScript"]
 categories = ["React", "GraphQL", "Apollo", "JavaScript"]
 keywords = ["apollo client mocking", "apollo server mocking", "apollo server mock", "apollo client mock", "apollo mock link", "apollo client mock testing", "apollo client mock data", "apollo client mock response", "apollo mock query"]
@@ -14,6 +14,8 @@ headline = "Mocking a GraphQL Server for Apollo Client"
 
 summary = "Often you run into the case where you have to mock your GraphQL server for your GraphQL client application. It can be for testing your GraphQL client or when your GraphQL server is not (always) available for development. Then it comes in handy to know how to mock your GraphQL server. The following tutorial will show you how to do it for Apollo Client which is used in a React application."
 +++
+
+{{% sponsorship %}}
 
 {{% pin_it_image "apollo mocking data" "img/posts/graphql-server-mock-apollo-client/banner.jpg" "is-src-set" %}}
 
@@ -29,10 +31,10 @@ In order to get you started, clone this {{% a_blank "minimal React application f
 
 {{% chapter_header "How to mock a GraphQL server from a client-side Schema" "graphql-server-mock-client-schema" %}}
 
-In the following, the *src/index.js* file is the only part you are going to focus on. That's the place where the Apollo Client instance with its HTTP link and cache is instantiated and where you will hook-in the mocking of your GraphQL server. You will need a Apollo Link called {{% a_blank "Apollo Link Schema" "https://www.apollographql.com/docs/link/links/schema.html" %}} to provide a client-side GraphQL schema to your Apollo Client setup. Therefore, install the package on the command line for your project:
+In the following, the *src/index.js* file is the only part you are going to focus on. That's the place where the Apollo Client instance with its HTTP link and cache is instantiated and where you will hook-in the mocking of your GraphQL server. You will need a Apollo Link called {{% a_blank "Apollo Link Schema" "https://www.apollographql.com/docs/link/links/schema.html" %}} to provide a client-side GraphQL schema to your Apollo Client setup. In addition, you need GraphQL Tools helper functions to create the client-sided schema in the first place. Therefore, install the packages on the command line for your project:
 
 {{< highlight javascript >}}
-npm install apollo-link-schema --save
+npm install apollo-link-schema graphql-tools --save
 {{< /highlight >}}
 
 Next, import the SchemaLink along with your other Apollo Client dependencies. Apollo Client's HttpLink is not needed for the first part, because it is replaced entirely by the SchemaLink. In the second part of the sections it is needed though.
@@ -369,7 +371,7 @@ ReactDOM.render(
 );
 {{< /highlight >}}
 
-As you can see, you need to have the working network access to the GraphQL server to retrieve the schema from it. As alternative, the GraphQL schema could be also provided by a *schema.json* file instead of using the GraphQL introspection. A schema file should be used when you don't have network access to your GraphQL server, but you are able to retrieve the *schema.json* file in another way. In addition, the `printSchema()` utility function is used to stringify the schema definitions from the GraphQL server, because the schema is returned as a JavaScript object from the GraphQL server when performing the introspection.
+As you can see, you need to have the working network access to the GraphQL server to retrieve the schema from it. As alternative, the GraphQL schema could be also provided by a *schema.json* file instead of using the GraphQL introspection. A schema file should be used when you don't have network access to your GraphQL server, but you are able to retrieve the *schema.json* file in another way. You will see this approach at the end of this section. Furthermore, the `printSchema()` utility function is used to stringify the schema definitions from the GraphQL server, because the schema is returned as a JavaScript object from the GraphQL server when performing the introspection.
 
 You may have noticed that only the `typeDefs` property has changed for the `makeExecutableSchema()` object argument, because it is the GraphQL schema which comes from your GraphQL server. Thus you don't have to reconstruct the type definitions anymore on your client-side as you did before. You can be assured to have the exact schema on the client-side for mocking your GraphQL server now. However, the second property in the configuration object, the resolvers, are still defined by you on the client-side. It is not possible to retrieve the resolvers from the GraphQL server and it wouldn't make any sense whatsoever, because they are most likely connected to your database on the GraphQL server. That's why you can use the resolver from the previous section to return your mocked data from them for the query and mutation you are using in your application.
 
@@ -438,7 +440,27 @@ async function render() {
 }
 {{< /highlight >}}
 
-Now, start your application to verify that your GraphQL operations are still working. The mocking of your GraphQL server should work identical to the mocking from the previous section with the client-sided GraphQL schema. In the previous section, you have defined your client-side schema which mimics/reconstructs the necessary parts used in your application of the GraphQL server schema. It was only important to reconstruct the type definition structure but not necessarily the type names. In the last section though, you have used the actual GraphQL schema from the GraphQL server by using a GraphQL introspection. For boths approaches, the resolvers have been the same to mock your data.
+Now, start your application to verify that your GraphQL operations are still working. The mocking of your GraphQL server should work identical to the mocking from the previous section with the client-sided GraphQL schema. In the previous section, you have defined your client-side schema which mimics/reconstructs the necessary parts used in your application of the GraphQL server schema. It was only important to reconstruct the type definition structure but not necessarily the type names. In the last section though, you have used the actual GraphQL schema from the GraphQL server by using a GraphQL introspection. For boths approaches, the resolvers have been the same to mock your data. {{% a_blank "The final repository can be found on GitHub." "https://github.com/rwieruch/apollo-client-mocking-example" %}}
+
+If you cannot use an introspection for your GraphQL server, but need to rely on a *schema.json* file which you have retrieved at another point in time, the following example shows you how to create a client-side schema with a *schema.json* file.
+
+{{< highlight javascript >}}
+import { addResolveFunctionsToSchema } from 'graphql-tools';
+import { buildClientSchema } from 'graphql/utilities';
+
+import schema from './schema.json';
+
+const resolvers = ...
+
+const executableSchema = buildClientSchema(schema.data);
+
+addResolveFunctionsToSchema({
+  schema: executableSchema,
+  resolvers,
+});
+{{< /highlight >}}
+
+The last function adds your resolver functions to the schema by mutating it directly. This way, you can use the *schema.json* file instead of an introspection for mocking your GraphQL server.
 
 <hr class="section-divider">
 

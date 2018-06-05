@@ -15,6 +15,8 @@ headline = "How to accept Paypal payments with React"
 summary = "Accepting payments on your own website can be a recurring problem. Often you'll find yourself avoiding it. There are platforms such as Gumroad which deal with this problem by outsourcing it. However, at some point you want to avoid these third-party platforms and introduce your own payment system."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react paypal integration" "img/posts/react-paypal-payment/banner.jpg" "is-src-set" %}}
 
 This React tutorial should give you guidance on how to integrate PayPal in your React application. I came across this topic when I had to introduce a payment process for my [own course platform](https://www.robinwieruch.de/how-to-build-your-own-course-platform/). As I went through the same decision process, I decided in favor of PayPal and Stripe.

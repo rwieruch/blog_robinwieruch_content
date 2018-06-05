@@ -15,6 +15,8 @@ headline = "How to use React's Provider Pattern with React's Context API"
 summary = "The provider pattern in React is a powerful concept. You will not often see it when using plain React, but might consider using it when scaling your application in React. Basically it takes the clutter away of passing mandatory props, that are needed by every component, down your whole component tree."
 +++
 
+{{% sponsorship %}}
+
 {{% pin_it_image "react provider pattern" "img/posts/react-provider-pattern-context/banner.jpg" "is-src-set" %}}
 
 Note: If you are using a React version prior 16.3, this article might be relevant to you. It explains how to use React's old context API to build your own provider and consumer pattern. If you are using React 16.3, head over to [this article that explains the new context API](https://www.robinwieruch.de/react-context-api).
