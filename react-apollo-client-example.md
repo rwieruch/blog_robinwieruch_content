@@ -351,3 +351,7 @@ That's it for the selection feature implementation. You should be able to select
 <hr class="section-divider">
 
 Remember that this solution with React's local state would already be sufficient to deal with this problem. No one else than the one component is interested in the selected repositories. So the state is co-located to the component. But following applications will show you how to replace React's local state management with Apollo Link State or Redux which is used side by side with Apollo Client. The minimal boilerplate application can be found in this {{% a_blank "GitHub repository as boilerplate project" "https://github.com/rwieruch/react-apollo-client-example" %}}.
+
+{{% read_before_2 "This tutorial is part 1 of 3 in this series." "Part 2:" "Mocking a GraphQL Server for Apollo Client" "graphql-server-mock-apollo-client" "Part 3:" "Writing Tests for Apollo Client in React" "react-apollo-client-testing" %}}
+
+{{% read_before_2 "This tutorial is part 1 of 3 in this series." "Part 2:" "Mocking a GraphQL Server for Apollo Client" "graphql-server-mock-apollo-client" "Part 3:" "Writing Tests for Apollo Client in React" "react-apollo-client-testing" %}}

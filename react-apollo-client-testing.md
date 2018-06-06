@@ -570,3 +570,5 @@ All the previous techniques, stubbing the GraphQL API and mocking the Query/Muta
 <hr class="section-divider">
 
 After all, keep in mind that the testing setup and how you use the tools at your hand (Jest, Enzyme, Sinon) is up to you. It doesn't have to be a Apollo specific testing library. In the previous sections, you have learned how you can test your GraphQL queries and mutations in React when having a mocked Apollo Client. Everything you need is a test runner (Jest or Mocha), an assertion library (Jest or Chai), and a library to spy/stub/mock functions (Sinon). Afterward, you can test whether your spied/stubbed methods of the mocked Apollo Client are called. Furthermore, the client-side resolvers return mock data which can be used for testing the rendered output when using the query or mutation results in your component. In conclusion, if you follow these straight forward test patterns, you don't need to reinvent the wheel every time you test Apollo Client with its Mutation and Query components in React.
+
+{{% read_more "A apollo-link-state Tutorial for Local State in React" "https://www.robinwieruch.de/react-apollo-link-state-tutorial" %}}

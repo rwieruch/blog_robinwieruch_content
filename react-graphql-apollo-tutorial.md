@@ -3646,4 +3646,6 @@ pre {
 
 <hr class="section-divider">
 
-You can find the final {{% a_blank "repository on GitHub" "https://github.com/rwieruch/react-graphql-github-apollo" %}}. The repository showcases most of the exercise tasks too. The application is not feature complete and doesn't cover all edge cases. However, I hope the walkthrough of implementing the application with GraphQL and Apollo in React has helped you. In the GraphQL with React book, you will continue learning about using GraphQL (and Apollo) in React. The previous sections are by far not all to it. So I hope you are curious about the GraphQL book and {{% a_blank "sign up for receiving updates" "https://www.getrevue.co/profile/rwieruch" %}}. Thank you so much for reading :-)
+You can find the final {{% a_blank "repository on GitHub" "https://github.com/rwieruch/react-graphql-github-apollo" %}}. The repository showcases most of the exercise tasks too. The application is not feature complete and doesn't cover all edge cases. In the next sections, you will learn more about different techniques such as testing and local state management with Apollo Client in a React application. As exercise, you can try to integrate those extensiosn in this application which you have built in the previous sections.
+
+{{% read_more "A minimal Apollo Client in React Example" "https://www.robinwieruch.de/react-apollo-client-example" %}}

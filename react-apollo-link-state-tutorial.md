@@ -21,7 +21,7 @@ summary = "A tutorial about how to use Apollo Link State as local state manageme
 
 {{% react-graphql-book %}}
 
-{{% read_before "This tutorial is part 2 of 2 in this series." "Part 1:" "A minimal Apollo Client in React Application" "https://www.robinwieruch.de/react-apollo-client-example" %}}
+{{% read_before_2 "This tutorial is part 2 of 3 in this series." "Part 1:" "A minimal Apollo Client in React Application" "https://www.robinwieruch.de/react-apollo-client-example" "Part 3:" "How to use Redux with Apollo Client and GraphQL in React" "https://www.robinwieruch.de/react-redux-apollo-client-state-management-tutorial" %}}
 
 There are many people out there questioning how to deal with local data in a React application when using Apollo Client for remote data with its queries and mutations. As shown in previous applications, it can be done with React's local state management. When the state management for the local data [reaches a point where it becomes too complex](https://www.robinwieruch.de/learn-react-before-using-redux/), it may be beneficial to introduce a state management library such as [Redux or MobX](https://www.robinwieruch.de/redux-mobx-confusion/). However, this leaves the issue of not having a single source of truth as state. There are two state layer then. This topic is revisited later in another application, where I will point out how to use Redux side by side with Apollo Client.
 
@@ -449,3 +449,4 @@ You will not go any deeper implementation wise for this application. Instead, th
 
 The last application has shown you how to use Apollo Link State instead of React's local state to establish state management in your application for local and remote data. As mentioned, the use case isn't the best choice to demonstrate Apollo Link State, because the local data which is manage as state is only needed in one component. It would be the best choice to keep this data in React's local state to have it co-located to your component. However, if you imagine a scenario where this local data is needed and thus shared across the whole application, it might be a valid step to manage it in Apollo Link State (instead of Redux or another state management solution). Then the Apollo Client's Cache becomes the single source of truth for remote data and local data.
 
+{{% read_before_2 "This tutorial is part 2 of 3 in this series." "Part 1:" "A minimal Apollo Client in React Application" "https://www.robinwieruch.de/react-apollo-client-example" "Part 3:" "How to use Redux with Apollo Client and GraphQL in React" "https://www.robinwieruch.de/react-redux-apollo-client-state-management-tutorial" %}}
