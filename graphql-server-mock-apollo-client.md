@@ -21,13 +21,13 @@ summary = "Often you run into the case where you have to mock your GraphQL serve
 
 {{% react-graphql-book %}}
 
-{{% read_before "This tutorial is part 2 of 2 in this series." "Part 1:" "A complete React with GraphQL Tutorial" "https://www.robinwieruch.de/react-with-graphql-tutorial/" %}}
+{{% read_before "This tutorial is part 2 of 2 in this series." "Part 1:" "A minimal Apollo Client in React Application" "https://www.robinwieruch.de/react-apollo-client-example" %}}
 
 Often you run into the case where you have to mock your GraphQL server for your GraphQL client application. It can be for testing your GraphQL client or when your GraphQL server is not (always) available for development. Then it comes in handy to know how to mock your GraphQL server. The following tutorial will show you how to do it for Apollo Client which is used in a React application.
 
 The following sections are split up into two parts. The first part will show you how to mock a GraphQL server with a client-side implemented GraphQL schema. You may wonder: *When would you do it this way?* For instance, it happens when you are not able to get a *schema.json* file from your GraphQL server or when you are not able to run a GraphQL introspection against your GraphQL server. So this approach can be used when the schema from the GraphQL server, which you are trying to mock, is out of your hands. The second part shows you the alternative way, when you are able to access the schema from your GraphQL server, by using a {{% a_blank "GraphQL introspection" "http://graphql.org/learn/introspection/" %}}.
 
-In order to get you started, clone this {{% a_blank "minimal React application from GitHub and follow its installation instructions" "https://github.com/rwieruch/react-apollo-client-example" %}}. Afterward, get to know the source code of the project and run it on the command line with `npm start`. It is a minimal React application which consumes the official GitHub GraphQL API by using Apollo Client.
+In order to get you started, clone this {{% a_blank "minimal React application from GitHub and follow its installation instructions" "https://github.com/rwieruch/react-apollo-client-example" %}} or use the minimal Apollo Client in React boilerplate project from a previous section. Afterward, get to know the source code of the project and run it on the command line with `npm start`. It is a minimal React application which consumes the official GitHub GraphQL API by using Apollo Client.
 
 {{% chapter_header "How to mock a GraphQL server from a client-side Schema" "graphql-server-mock-client-schema" %}}
 

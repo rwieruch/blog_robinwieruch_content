@@ -21,7 +21,7 @@ summary = "The tutorial shows how you can build up on a mocked GraphQL server fo
 
 {{% react-graphql-book %}}
 
-{{% read_before "This tutorial is part 2 of 2 in this series." "Part 1:" "Mocking a GraphQL Server for Apollo Client" "https://www.robinwieruch.de/graphql-server-mock-apollo-client/" %}}
+{{% read_before_2 "This tutorial is part 3 of 3 in this series." "Part 1:" "A minimal Apollo Client in React Application" "https://www.robinwieruch.de/react-apollo-client-example" "Part 2:" "Mocking a GraphQL Server for Apollo Client" "https://www.robinwieruch.de/graphql-server-mock-apollo-client" %}}
 
 In a previous application, you have learned how to mock a GraphQL server in different ways when having Apollo Client as GraphQL client in your React application. The following application shows you how you can take this knowledge to the next level for writing tests for your Apollo Client queries and mutations. So far, the Apollo Client instance can be mocked, but one unsolved question keeps popping up: How to test Apollo Client in a React application?
 
