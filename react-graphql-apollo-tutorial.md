@@ -114,10 +114,12 @@ Simply define your environment variables in this *.env* file. In your *.env* fil
 GITHUB_PERSONAL_ACCESS_TOKEN=xxxXXX
 {{< /highlight >}}
 
-In any Node.js application, you can use the key in your source code with the following package: {{% a_blank "dotenv" "https://github.com/motdotla/dotenv" %}}. Follow their instructions to install it for your project. Afterward use the personal access token from the *.env* file in your *index.js* file:
+In any Node.js application, you can use the key in your actual source code with the following package: {{% a_blank "dotenv" "https://github.com/motdotla/dotenv" %}}. Follow their instructions to install it for your project. Usually it is only a `npm install dotenv` followed by including `require('dotenv').config()` in your *index.js* file. Afterward use the personal access token from the *.env* file in your *index.js* file. If you run into an error afterward when starting your application, just continue to read this section to fix it.
 
-{{< highlight javascript "hl_lines=8" >}}
+{{< highlight javascript "hl_lines=3 10" >}}
 import ApolloClient from 'apollo-boost';
+
+require('dotenv').config();
 
 const client = new ApolloClient({
   uri: 'https://api.github.com/graphql',
@@ -133,7 +135,7 @@ const client = new ApolloClient({
 
 Note: Maybe there are additional necessary configuration steps for the previously installed dotenv package. Since the installation instructions may vary with different dotenv versions, please check how to use it in your source code on their GitHub website after you have installed it.
 
-When you try to start your application with `npm start` without doing any query or mutation but only setting up Apollo Client by creating an instance of it, you might see the following error: "Error: fetch is not found globally and no fetcher passed, to fix pass a fetch for your environment ...". The error occurs because the {{% a_blank "native fetch API" "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" %}}, which is used to make requests to remote APIs on a promise basis, is only available in the browser. Thus you don't have access to it in a Node.js application that runs only on the command line. However, the Apollo Client makes use of the fetch API to perform queries and mutations (usually from a browser environment and not Node.js environment). As you may remember, a query or mutation can be performed with a simple HTTP request after all. That's why the Apollo Client uses the native fetch API under the hood from the browser to perform those requests. So what's the solution to this issue? You can use a node package to make fetch available in a Node.js environment. There are various packages which address this issue. First, install one of those on the command line:
+When you try to start your application with `npm start` without doing any query or mutation but only setting up Apollo Client by creating an instance of it, you might see the following error: *"Error: fetch is not found globally and no fetcher passed, to fix pass a fetch for your environment ..."*. The error occurs because the {{% a_blank "native fetch API" "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" %}}, which is used to make requests to remote APIs on a promise basis, is only available in the browser. Thus you don't have access to it in a Node.js application that runs only on the command line. However, the Apollo Client makes use of the fetch API to perform queries and mutations (usually from a browser environment and not Node.js environment). As you may remember, a query or mutation can be performed with a simple HTTP request after all. That's why the Apollo Client uses the native fetch API under the hood from the browser to perform those requests. So what's the solution to this issue? You can use a node package to make fetch available in a Node.js environment. There are various packages which address this issue. First, install one of those on the command line:
 
 {{< highlight javascript >}}
 npm install cross-fetch --save
@@ -213,6 +215,7 @@ Further meta information about the request can be found next to the `data` objec
 ### Exercises:
 
 * explore GitHub's GraphQL API
+  * get comfortable navigating through their documentation
   * add other fields for the `organization` field
 * read more about {{% a_blank "why you should use Apollo Client" "https://www.apollographql.com/docs/react/why-apollo.html" %}}
 * read more about the {{% a_blank "networkStatus property and its possible values" "https://github.com/apollographql/apollo-client/blob/master/packages/apollo-client/src/core/networkStatus.ts" %}}
@@ -220,7 +223,7 @@ Further meta information about the request can be found next to the `data` objec
 
 {{% chapter_header "Apollo Client with Pagination, Variables, Nested Objects and List Fields" "graphql-apollo-client-pagination" %}}
 
-You have learned about GraphQL pagination and other GraphQL features in previous sections. This section will introduce a couple of these features, but keeps most of them for you as your exercise to internalize these things. Let's start this section with introducing GraphQL variables. The `login` argument for the organization field in the previous query can be substituted with such a variable. First, you have to introduce the variable in your GraphQL query:
+You have learned about GraphQL pagination and other GraphQL features in previous sections where you have built the React with GraphQL application without Apollo. This section will introduce a couple of these features, but keeps most of them for you as your exercise to internalize these things. Let's start this section with introducing GraphQL variables. The `login` argument for the organization field in the previous query can be substituted with such a variable. First, you have to introduce the variable in your GraphQL query:
 
 {{< highlight javascript "hl_lines=2 3 13 14 15" >}}
 const GET_ORGANIZATION = gql`
@@ -283,6 +286,7 @@ You have seen a similar query structure in another application from a previous s
 * explore GitHub's GraphQL API
   * extend the `repositories` list field by querying an ordered list of repositories which is ordered by the number of stargazers
 * extract the content of a repository `node` to a GraphQL a reusable fragment
+* read more about {{% a_blank "pagination in GraphQL" "https://graphql.org/learn/pagination" %}}
 * add the pagination feature for list of repositories
   * add the `pageInfo` field with its `endCursor` and `hasNextPage` fields in the query
   * add the `after` argument and introduce a new `$cursor` variable for it
@@ -340,7 +344,7 @@ For this application, there is no elaborated React setup needed. You will simply
 * create a new React application with create-react-app
 * create a folder/file structure for your project (recommendation below)
 
-It's up to you to come up with an own folder/file structure for your components in the *src/* folder. The following top level structure is only a recommendation. If you adjust it to your own needs, keep in mind that the JavaScript import statements with their paths may vary for your own application structure. Along the way, you may introduce additional folders and files.
+It's up to you to come up with an own folder/file structure for your components in the *src/* folder. The following top level structure is only a recommendation. If you adjust it to your own needs, keep in mind that the JavaScript import statements with their paths may vary for your own application structure. Along the way, you may introduce additional folders and files. If you don't want to create everything (folders, files, styles) yourself, you can clone this {{% a_blank "GitHub repository" "https://github.com/rwieruch/react-graphql-apollo-tutorial-boilerplate" %}} instead and follow its installation instructions.
 
 * App/
   * index.js
@@ -374,7 +378,7 @@ This application will use plain CSS classes and CSS files. If you want to introd
 ### Exercises:
 
 * if you are not familiar with React, read up *The Road to learn React*
-* setup the recommended folder/file structure (if you are not going with your own structure)
+* setup the recommended folder/file structure (if you are not going with your own structure and didn't clone the repository)
   * create the CSS *style.css* files in their specified folders from the [appendix](#appendix-styling) section of this tutorial
   * create the *index.js* files for the components
   * create further folders on your own for non top level components (e.g. Navigation) when conducting the following sections
@@ -3332,34 +3336,6 @@ pre {
   .App-content_small-header {
     margin-top: 68px;
   }
-}
-{{< /highlight >}}
-
-*src/App/Footer/style.css*
-
-{{< highlight css >}}
-.Footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #24292e;
-  padding: 20px;
-  color: #ffffff;
-}
-
-@media only screen and (max-device-width: 480px) {
-  .Footer {
-    text-align: center;
-  }
-}
-
-.Footer-text {
-  opacity: 0.35;
-}
-
-.Footer-link {
-  color: #ffffff;
-  opacity: 1;
 }
 {{< /highlight >}}
 
