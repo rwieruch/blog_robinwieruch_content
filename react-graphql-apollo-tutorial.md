@@ -21,7 +21,7 @@ summary = "This React with Apollo and GraphQL tutorial shows you how to use Grap
 
 {{% react-graphql-book %}}
 
-{{% read_before "This tutorial is part 2 of 2 in this series." "Part 1:" "A complete React with GraphQL Tutorial" "https://www.robinwieruch.de/react-with-graphql-tutorial/" %}}
+{{% read_before_2 "This tutorial is part 3 of 3 in this series." "Part 1:" "Getting Started with GitHub's GraphQL API" "https://www.robinwieruch.de/getting-started-github-graphql-api" "Part 2:" "A complete React with GraphQL Tutorial" "https://www.robinwieruch.de/react-with-graphql-tutorial/" %}}
 
 In this tutorial, you will learn how to combine React with GraphQL in your application by using Apollo. Whereas the whole Apollo toolset can be used to create a GraphQL client, GraphQL server and other complementary applications, you will use Apollo Client only for your React client-side application in the following application. Along the way, you will build a simplified GitHub client that consumes {{% a_blank "GitHub's GraphQL API" "https://developer.github.com/v4/" %}} by using Apollo and not plain HTTP requests as in a previous application. Apollo Client can be used to perform queries and mutations to read and write data. At the end, you should be able to showcase a React application using GraphQL and Apollo that can be used by other developers to learn from it.
 

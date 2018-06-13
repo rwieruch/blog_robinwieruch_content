@@ -1,6 +1,6 @@
 +++
 title = "A Complete Firebase in React Authentication Tutorial [2018]"
-description = "Therefore my advice: Take it step by step and use only Firebase in your React application. The following tutorial gives you a complete walkthrough of how to use Firebase for authorization and authentication in React.js. It shows you how to protect your routes with permissions and roles and how to store users in a database ..."
+description = "Take it step by step and use only Firebase in your React application. The following tutorial gives you a complete walkthrough of how to use Firebase for authorization and authentication in React.js. It shows you how to protect your routes with permissions and roles and how to store users in a database ..."
 date = "2017-12-11T07:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "Redux", "MobX", "JavaScript"]

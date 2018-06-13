@@ -21,7 +21,7 @@ summary = "This React with GraphQL Tutorial shows you how to use GraphQL in your
 
 {{% react-graphql-book %}}
 
-{{% read_before "This tutorial is part 1 of 2 in this series." "Part 2:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial" %}}
+{{% read_before_2 "This tutorial is part 2 of 3 in this series." "Part 1:" "Getting Started with GitHub's GraphQL API" "https://www.robinwieruch.de/getting-started-github-graphql-api" "Part 3:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial" %}}
 
 In this tutorial, you will learn how to combine React with GraphQL in your application. There is no clever library such as {{% a_blank "Apollo Client" "https://github.com/apollographql/apollo-client" %}} or {{% a_blank "Relay" "https://github.com/facebook/relay" %}} involved to help you out in the beginning. Instead, you will perform GraphQL queries and mutations with plain HTTP requests. In a later tutorial, it's planned to introduce Apollo as GraphQL client for your React.js application. But for now, this tutorial should should only show you how to use plain GraphQL in React. Yet you will start out without React to learn just about GraphQL in the first place.
 
@@ -31,7 +31,6 @@ Along the way of this React GraphQL tutorial, you will build a simplified GitHub
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
-* [Tools for interacting with GitHub's GraphQL API](#graphql-tools)
 * [GraphQL Query](#graphql-query-github-api)
 * [GraphQL Mutation](#graphql-mutation-github-api)
 * [GraphQL Pagination](#graphql-pagination)
@@ -43,41 +42,9 @@ Along the way of this React GraphQL tutorial, you will build a simplified GitHub
 * [GraphQL Mutation in React](#react-graphql-mutation)
 * [Shortcomings of GraphQL in React without a GraphQL Client library](#react-graphql-library)
 
-{{% chapter_header "GraphQL tools for interacting with GitHub's GraphQL API" "graphql-tools" %}}
-
-Before you start to build the GitHub GraphQL client from scratch as your React application, you will use third-party applications to interact with GitHub's API without using React. That way, you will learn about GraphQL without having to worry about integrating it in React.
-
-If you don't have a GitHub account yet, you can follow [this guide](https://www.robinwieruch.de/git-essential-commands/) to sign up on GitHub, to get to know what git and GitHub is all about, and to learn about a few essential commands in order to use it. After all, you might want to share your finished project in the end of this tutorial with others on GitHub. It's a neat way to showcase your portfolio as a developer to hiring companies or clients of yours.
-
-Since you are going to interact with the GitHub API in this tutorial, you need to generate a personal access token on GitHub's website. The access token makes sure that you can be authorized as a user who interacts with their data. Basically, it allows you to read and write data in your name. You can {{% a_blank "follow their step by step instructions" "https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line" %}} to obtain the personal access token. While getting your token, make sure to check all the necessary scopes for it. You will need sufficient read and write permissions for the following domains in order to implement all the features for the GitHub client.
-
-{{% pin_it_image "react graphql github" "img/posts/react-with-graphql-tutorial/github-personal-access-token.jpg" "is-src-set" %}}
-
-The personal access token can be used to interact with GitHub's GraphQL API in the next sections of this tutorial. Basically it is your private key to access GitHub. You shouldn't share it with any third-parties.
-
-There are two common ways to interact with the GitHub GraphQL API without writing any source code for it. First, you can use {{% a_blank "GitHub's GraphQL Explorer" "https://developer.github.com/v4/explorer/" %}}. You only need to sign up with your GitHub account in order to perform a query or mutation to their GraphQL API. That's how you can make your initial experiences with GraphQL.
-
-Second, you can use a more generic client in form of an application. GraphiQL is one of those clients to make GraphQL requests either from your own application, using it as integrated component, or from a standalone application. The former can be accomplished {{% a_blank "by setting up GraphiQL directly as or in your own application" "https://github.com/skevy/graphiql-app" %}}. Another way, which might be more convenient for you, is {{% a_blank "using GraphiQL as standalone application" "https://github.com/skevy/graphiql-app" %}} that was already written by someone else. It's a lightweight wrapper around GraphiQL that can be easily installed on the command line or manually by downloading it.
-
-Whereas GitHub's GraphQL Explorer knows about your credentials, since you need to sign up to use it, the GraphiQL application needs to know about your personal access token that you have created before. If you are using your own GraphiQL application, you can add the access token in your HTTP header for every request by opening up the headers configuration.
-
-{{% pin_it_image "graphiql headers" "img/posts/react-with-graphql-tutorial/graphiql-headers.jpg" "is-src-set" %}}
-
-In the next step, you need to add a new header with a name and value to your GraphiQL configuration. In order to communicate with GitHub's GraphQL API, you need to fill in the header name with "Authorization" and the header value with "bearer [your personal access token]". Afterward, save this new header for your GraphiQL application. Finally, you are ready to make requests to GitHub's GraphQL API with your GraphiQL application.
-
-{{% pin_it_image "graphiql authorization" "img/posts/react-with-graphql-tutorial/graphiql-authorization.jpg" "is-src-set" %}}
-
-After all, the last paragraphs have provided you with two ways to interact with the GitHub GraphQL API. Whereas the GitHub's GraphQL Explorer can only be used for GitHub's API, GraphiQL, integrated in your application or as standalone application, can be used for any GraphQL API. As you might have noticed, the GitHub GraphQL Explorer is nothing else than a hosted standalone GraphiQL application, but it is tailored to only use GitHub's GraphQL API.
-
-In case you end up using your own GraphiQL application, you need to provide the GraphQL endpoint for GitHub's GraphQL API: `https://api.github.com/graphql`. In this tutorial, you are going to use the {{% a_blank "POST HTTP method" "https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods" %}} for GraphQL queries and mutations. After all, you have to transfer the body of data as payload to your GraphQL endpoint. In the next sections, you will interact with the GitHub API by only writing queries and mutations without using any React yet.
-
-### Exercises:
-
-* setup GraphiQL or GitHub's GraphQL Explorer to get started with GraphQL
-
 {{% chapter_header "GraphQL Query with GitHub's GraphQL API" "graphql-query-github-api" %}}
 
-In this section, you are going to use your GraphiQL application or GitHub's GraphQL Explorer, which is only a GitHub dedicated GraphiQL application after all, to make your first GraphQL query requests to GitHub's API. Both tools should be authorized to make a request by using your personal access token. Therefore, on the left-hand side of your GraphiQL application, you can fill in GraphQL queries and mutations. Let's add the following query to request data about yourself.
+In this section, you will interact with the GitHub API by only writing queries and mutations without using any React yet. Therefore, you are going to use your GraphiQL application or GitHub's GraphQL Explorer from the previous sections to make your first GraphQL query requests to GitHub's API. Both tools should be authorized to make a request by using your personal access token. Therefore, on the left-hand side of your GraphiQL application, you can fill in GraphQL queries and mutations. Let's add the following query to request data about yourself.
 
 {{< highlight javascript >}}
 {
@@ -1953,4 +1920,4 @@ You can find the final {{% a_blank "repository on GitHub" "https://github.com/rw
 
 The previous sections should have shown you how to implement a React application with GraphQL and HTTP requests without using a library such as Apollo for it. In the GraphQL with React book, you will continue learning about using GraphQL in React by using Apollo instead of plain HTTP requests. The Apollo GraphQL Client makes caching your data, normalizing it, performing optimistic updates and pagination an effortless endeavor. That's by far not all to it. So stay tuned for the next applications you are are going to build with GraphQL in React.
 
-{{% read_before "This tutorial is part 1 of 2 in this series." "Part 2:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial" %}}
+{{% read_before_2 "This tutorial is part 2 of 3 in this series." "Part 1:" "Getting Started with GitHub's GraphQL API" "https://www.robinwieruch.de/getting-started-github-graphql-api" "Part 3:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial" %}}
