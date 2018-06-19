@@ -299,6 +299,7 @@ When introducing a sophisticated router, there are a few routing solutions out t
 
 * React's conditional rendering
 * React Router
+* Alternatives such as [Buttermilk](https://buttermilk.js.org/)
 
 {{% chapter_header "React Authentication" "react-authentication-database" %}}
 
