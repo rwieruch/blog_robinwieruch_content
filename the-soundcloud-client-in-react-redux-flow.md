@@ -529,7 +529,7 @@ npm run-script flow
 
 Flow makes it possible to type check the {{% a_blank "props and state of nested components" "https://flowtype.org/docs/react.html" %}}. React already comes with PropTypes, they are awesome and you should use them, but they can be improved with Flow. PropTypes for instance cannot specify the input and output of a function.
 
-Let’s add add the Flow annotation and the props objects we want to type check in the next step.
+Let’s add the Flow annotation and the props objects we want to type check in the next step.
 
 *src/components/Stream/presenter.js*
 
