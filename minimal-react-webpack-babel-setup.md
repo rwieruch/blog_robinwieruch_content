@@ -1,5 +1,5 @@
 +++
-title = "The Minimal React + Webpack 4 + Babel Setup"
+title = "The minimal React + Webpack 4 + Babel Setup"
 description = "This guide helps you to setup React with Webpack 4 and Babel from 0 to 1. Hot Module Replacement is a bonus. Learn how to use Webpack and Babel in React.js without using create-react-app. Setup your own boilerplate application ..."
 date = "2018-01-18T13:50:46+02:00"
 tags = ["React", "JavaScript", "Tooling"]
@@ -10,7 +10,7 @@ hashtag = "#ReactJs"
 card = "img/posts/minimal-react-webpack-babel-setup/banner_640.jpg"
 banner = "img/posts/minimal-react-webpack-babel-setup/banner.jpg"
 contribute = "minimal-react-webpack-babel-setup.md"
-headline = "The Minimal React + Webpack 4 + Babel Setup"
+headline = "The minimal React + Webpack 4 + Babel Setup"
 
 summary = "Personally I did a lot of React projects in the recent time. Always I had to setup the project from scratch. Eventually I have created my own boilerplate project on GitHub. As you might know, uncountable React boilerplate projects and repositories were created that way. But the article is not my attempt to advertise yet another React boilerplate project."
 +++
@@ -18,6 +18,8 @@ summary = "Personally I did a lot of React projects in the recent time. Always I
 {{% sponsorship %}}
 
 {{% pin_it_image "react webpack 4 babel" "img/posts/minimal-react-webpack-babel-setup/banner.jpg" "is-src-set" %}}
+
+{{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "My development setup as a JavaScript web developer" "https://www.robinwieruch.de/developer-setup/" %}}
 
 Personally I bootstrapped a lot of React projects in the recent time. I always had to setup the project from scratch. Eventually I have created my own {{% a_blank "boilerplate project on GitHub" "https://github.com/rwieruch/minimal-react-webpack-babel-setup" %}}. As you might know, uncountable React boilerplate projects and repositories were created that way.
 
@@ -420,3 +422,5 @@ When you change your `title` for the React component in the *src/index.js* file,
 That's it for a minimal React setup with Babel and Webpack. Let me know your thoughts. Again, you can find the {{% a_blank "repository on GitHub" "https://github.com/rwieruch/minimal-react-webpack-babel-setup" %}}. You can contribute by creating issues when new versions introduce breaking changes. Even more you can have a direct impact on this article on GitHub as well.
 
 {{% read_more "React Code Style with ESLint + Babel + Webpack" "https://www.robinwieruch.de/react-eslint-webpack-babel/" %}}
+
+{{% read_more "The minimal Node.js with Babel Setup" "https://www.robinwieruch.de/minimal-node-js-babel-setup/" %}}

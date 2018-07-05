@@ -1,7 +1,7 @@
 +++
 title = "How to use Redux with Apollo Client and GraphQL in React"
 description = "When having a GraphQL server, Apollo Client can be a valid option for your remote data. How fits Redux into the equation? This tutorial shows you an example on how Redux and Apollo Client can be used together in a React application. Whereas Redux is used for local data, Apollo Client is used for remote data ..."
-date = "2018-06-13T13:50:46+02:00"
+date = "2018-06-26T13:50:46+02:00"
 tags = ["React", "GraphQL", "Apollo", "Redux", "JavaScript"]
 categories = ["React", "GraphQL", "Apollo", "Redux", "JavaScript"]
 keywords = ["apollo client redux", "react graphql redux", "apollo redux store", "apollo link state redux", "apollo vs redux", "apollo client vs redux", "how to use redux with apollo", "how to use apollo with redux", "graphql react book"]
@@ -29,9 +29,11 @@ In a previous application, you have used Apollo Link State to substitute React's
 * you have a GraphQL server, because otherwise Apollo Client may makes no sense in the first place
 * you embrace React's local state as still being useful for co-located component state
 
-Basically you have learned that Apollo Link State can be used as replacement for Redux or MobX to manage local data in a global store in your application. However, Redux is often already used in React applications for historical reasons, because it was the successor of the state management libraries in React, but also because people consciously decide(d) to use it. It's not without reason that people use Redux as their powerful state management solution. So there is no real use for Apollo Link State in these applications other than turning everything into managed by GraphQL operations.
+Basically you have learned that Apollo Link State can be used as replacement for Redux or MobX to manage local data in a global store in your application. However, Redux is often already used in React applications for historical reasons, because it was the successor of the state management libraries for React applications, but also because people consciously decide to use it. It's not without reason that people use Redux as their powerful state management solution. So there is no real use for Apollo Link State in these applications.
 
-So even though the server-side application makes a transition to being GraphQL powered instead of being RESTful, it is not often requested to abandon Redux as state layer for the client-side application. The big question, which is asked by many developers who introduced GraphQL to their server-side and Apollo Client to their client-side applications, is: **How to use Redux and Apollo Client together?** The application that you are going to build in the following section should show you only one approach of how Redux can be used together with Apollo Client in a React application. It gives you a implementation-wise scenario on how it can be done and is also followed by a couple of recommendations on how to use Redux and Apollo Client together in a larger application.
+So even though the server-side application makes a transition to being GraphQL powered instead of being RESTful, it is not often requested to abandon Redux as state layer for the client-side application. The big question, which is asked by many developers who introduced GraphQL to their server-side and Apollo Client to their client-side application, is: **How to use Redux and Apollo Client together?** The application that you are going to build in the following section should show you only one approach of how Redux can be used together with Apollo Client in a React application. It gives you a implementation-wise scenario on how it can be done and is also followed by a couple of recommendations on how to use Redux and Apollo Client together in larger applications.
+
+I also want to point out that Redux may not be needed at all when introducing Apollo Client to your tech stack. Whereas Apollo Client would be used for your remote data, React's local state may be sufficient to manage local data. [Only if the state management for your local data becomes complex](https://www.robinwieruch.de/learn-react-before-using-redux/), you want to introduce a sophisticated state management solution such as Redux.
 
 If you are not interested in Redux at all, it may be still valuable to read up the following approach and discussion for using other state management libraries in combination with Apollo Client. In general, if you are interested in using Redux with Apollo Client, but you have never learned Redux before, you should take the time to go through the {{% a_blank "Taming the State in React" "https://roadtoreact.com/" %}} course to get a high level yet pragmatic understanding about it.
 
@@ -73,7 +75,7 @@ function applyToggleSelectRepository(state, action) {
 }
 {{< /highlight >}}
 
-Basically the Redux reducer does the same as the React local sate, but only for this particular action which is identified by its type. It only merges the local data in a global state which is managed by the Redux store rather than React's local state managed co-located in a component.
+Basically the Redux reducer does the same as the React local state, but only for this particular action which is identified by its type. It only merges the local data in a global state which is managed by the Redux store rather than React's local state managed co-located in a component.
 
 Next, you can setup the Redux store in the same file and give it the reducer and an initial state which has the identical structure as the local state in the Repositories component.
 
@@ -285,3 +287,4 @@ The last paragraphs tried to give you advice on how to use React and Redux toget
 The last sections have shown you how to set up and use Apollo Client with Redux in a React application. The example application was only one approach of doing it. Furthermore, another section gave you advice on how to fit Redux and Apollo Client together in larger applications. Since there is not much experience in this area yet, everyone is waiting for people gathering more experience about this topic. Another neat way to set up Redux when having Apollo Client is using the {{% a_blank "apollo-redux-cache" "https://github.com/rportugal/apollo-cache-redux" %}} ({{% a_blank "example" "https://github.com/rwieruch/react-apollo-client-apollo-cache-redux-example" %}}) package instead of the apollo-cache-inmemory package to create Apollo Client's Cache. When using the Redux Cache instead, you get all the functionality around Redux and associated packages, such as {{% a_blank "redux-persist" "https://github.com/rt2zz/redux-persist" %}}, for free. However, it must be a conscious decision to exchange the Apollo Client Cache for it.
 
 {{% read_more "Mocking a GraphQL Server for Apollo Client" "https://www.robinwieruch.de/graphql-server-mock-apollo-client" %}}
+{{% read_more "How to build a GraphQL client library for React" "https://www.robinwieruch.de/react-graphql-client-library" %}}

@@ -108,6 +108,25 @@ Once you have installed it, you can use it with CTRL + CMD + P to format a file.
 
 Afterward, the file should format automatically once you save it. Now you don't need to worry anymore about your code style in JavaScript and React. You and your team can follow one code style.
 
+If you want to have a configuration for each project, you can add a *.prettierrc* configuration file to it:
+
+{{< highlight javascript >}}
+touch .prettierrc
+{{< /highlight >}}
+
+The following is only my personal recommendation of the content of a prettier configuration file in a project, but you can find all configuration over {{% a_blank "here" "https://prettier.io/docs/en/configuration.html" %}}:
+
+{{< highlight javascript >}}
+{
+  "semi": true,
+  "trailingComma": "all",
+  "singleQuote": true,
+  "printWidth": 70,
+}
+{{< /highlight >}}
+
+After all, Prettier should be able to format your code with the general configuration file but also for each project individually.
+
 <hr class="section-divider">
 
 That's everything you need for a React development setup in MacOS. I hope you have everything to get started in React on your machine. Let me know what other tools you are using on MacOS in the comments below. Otherwise, if you are curios about the tools that I am using on my machine, head over to [my personal development setup guide](https://www.robinwieruch.de/developer-setup).

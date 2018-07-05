@@ -3625,3 +3625,4 @@ pre {
 You can find the final {{% a_blank "repository on GitHub" "https://github.com/rwieruch/react-graphql-github-apollo" %}}. The repository showcases most of the exercise tasks too. The application is not feature complete and doesn't cover all edge cases. In the next sections, you will learn more about different techniques such as testing and local state management with Apollo Client in a React application. As exercise, you can try to integrate those extensiosn in this application which you have built in the previous sections.
 
 {{% read_more "A minimal Apollo Client in React Example" "https://www.robinwieruch.de/react-apollo-client-example" %}}
+{{% read_more "How to build a GraphQL client library for React" "https://www.robinwieruch.de/react-graphql-client-library" %}}

@@ -19,7 +19,7 @@ summary = "A complete walkthrough to learn about Firebase authentication in Reac
 
 {{% pin_it_image "react firebase authentication tutorial" "img/posts/complete-firebase-authentication-react-tutorial/banner.jpg" "is-src-set" %}}
 
-**UPDATE:** The article got published as a draft in form of a {{% a_blank "free ebook about learning Firebase in React" "https://leanpub.com/learn-react-firebase" %}}. It has grown to a size where an ebook might be a better format. If there is enough interest in it, I will continue to write about it to make it a comprehensive experience beyond authentication and authorization in Firebase, but also realtime updates and database management. For now, you can download the ebook for free as PDF, EPUB or MOBI or take it as chance to support my content by buying it.
+**UPDATE:** The article got published as a draft in form of a {{% a_blank "free ebook about learning Firebase in React" "https://leanpub.com/the-road-to-react-with-firebase" %}}. It has grown to a size where an ebook might be a better format. If there is enough interest in it, I will continue to write about it to make it a comprehensive experience beyond authentication and authorization in Firebase, but also realtime updates and database management. For now, you can download the ebook for free as PDF, EPUB or MOBI or take it as chance to support my content by buying it.
 
 The topic about authentication in React keeps popping up from time to time. When people approach me with this question, most often after they have learned React.js or any other SPA solution (Angular.js, Vue.js), I usually tell them to start out with Firebase. It is the simplest way to learn about the essential parts of authentication in React from a frontend perspective. You can learn about it without worrying about any backend implementations. Firebase handles it for you. By only learning about the authentication from one perspective, in the beginning, you keep the level of complexity low and thus keep yourself motivated to learn about it. Once you understand authentication from a client-perspective, you can continue to build your own authentication backend on the server-side.
 
@@ -69,9 +69,9 @@ The requirements for this tutorial are a working [editor or IDE, a running comma
 
 {{% chapter_header "React Application Setup: create-react-app" "react-application-setup" %}}
 
-You are going to implement a whole authentication mechanism in React with sign up, sign in and sign out. Furthermore, it should be possible to reset a password or change a password as a user. The latter option is only available for an authenticated user. Last but not least, it should be possible to protect certain routes (URLs) to be only used by authenticated users. Therefore you will build a proper authorization solution around it.
+You are going to implement a whole authentication mechanism in React with sign up, sign in and sign out. Furthermore, it should be possible to reset a password or change a password as a user. The latter option is only available for an authenticated user. Last but not least, it should be possible to protect certain routes (URLs) to be accessible by authenticated users only. Therefore you will build a proper authorization solution around it.
 
-The application will be bootstrapped with Facebook's official React boilerplate project {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}}. You can install it once globally on the command line and make use of it whenever you want afterward.
+The application will be bootstrapped with Facebook's official React boilerplate project {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}}. You can install it once globally on the command line, and make use of it whenever you want afterward.
 
 {{< highlight javascript >}}
 npm install -g create-react-app
@@ -84,7 +84,7 @@ create-react-app react-firebase-authentication
 cd react-firebase-authentication
 {{< /highlight >}}
 
-Now you have the following commands on your command line to start and test your application. Unfortunately the tutorial doesn't cover testing yet.
+Now you have the following commands on your command line to start and test your application. Unfortunately, the tutorial doesn't cover testing yet.
 
 {{< highlight javascript >}}
 npm start
@@ -104,7 +104,7 @@ cd src
 mkdir components
 {{< /highlight >}}
 
-Next, move the App component and all its related files to the *components/* folder. That way, you will start off with a well structured folder/file hierarchy.
+Next, move the App component and all its related files to the *components/* folder. That way, you will start off with a well-structured folder/file hierarchy.
 
 {{< highlight javascript >}}
 mv App.js components/
@@ -128,11 +128,11 @@ registerServiceWorker();
 
 Next, run your application on the command line again. It should work again and be accessible in the browser for you. Make yourself familiar with it if you haven't used create-react-app before.
 
-Before implementing the authentication in React, it would be great to have a couple of pages (e.g. sign up page, sign in page) to split up the application on multiple URLs (routes). Therefore, let's implement the routing with React Router first before diving into Firebase and the authentication afterward.
+Before implementing the authentication in React, it would be great to have a couple of pages (e.g. sign up page, sign in page) to split up the application into multiple URLs (routes). Therefore, let's implement the routing with React Router first before diving into Firebase and the authentication afterward.
 
 {{% chapter_header "React Router and Routes" "react-router-setup" %}}
 
-The following application should have multiple routes for the authentication mechanism but also for the application domain itself. Therefore, you can create a file to consolidate all the routes of your application in well defined constants. Keep it in a constants folder to add more of those files eventually.
+The following application should have multiple routes for the authentication mechanism but also for the application domain itself. Therefore, you can create a file to consolidate all the routes of your application in well-defined constants. Keep it in a constants folder to add more of those files eventually.
 
 From *src/* folder:
 
@@ -161,9 +161,9 @@ First of all, you will have a **sign up page** and a **sign in page**. You can t
 
 {{% pin_it_image "react firebase sign in" "img/posts/complete-firebase-authentication-react-tutorial/sign.jpg" "is-src-set" %}}
 
-Second, there will be a **landing page** and a **home page**. The landing page is your root route. That's the place where a user ends up when visiting your web application by default. The user doesn't need to be authenticated to visit this route. On the other hand, the home page is a so called **protected route**. The user can only access it when being authenticated. You will implement the protection of the route by using authorization in this tutorial.
+Second, there will be a **landing page** and a **home page**. The landing page is your root route. That's the place where a user ends up when visiting your web application by default. The user doesn't need to be authenticated to visit this route. On the other hand, the home page is a so-called **protected route**. The user can only access it when being authenticated. You will implement the protection of the route by using authorization in this tutorial.
 
-Third, there will be a protected **account page** as well. On this page, a user can reset a password or change a password. It is secured by authorization as well and thus only reachable for authenticated users.
+Third, there will be a protected **account page** as well. On this page, a user can reset a password or change a password. It is secured by authorization as well, and thus only reachable for authenticated users.
 
 <div class="row">
   <div class="col-xs-8 col-centered">
@@ -171,13 +171,13 @@ Third, there will be a protected **account page** as well. On this page, a user 
   </div>
 </div>
 
-Last but not least, the password forget component will be exposed on another non protected page, a **password forget page**, as well. It is used for users who are not authenticated and forgot about their password.
+Last but not least, the password forget component will be exposed on another non-protected page, a **password forget page**, as well. It is used for users who are not authenticated and forgot about their password.
 
 {{% pin_it_image "react firebase password" "img/posts/complete-firebase-authentication-react-tutorial/password-reset.jpg" "is-src-set" %}}
 
 Now all of these routes need to be accessible to the user. How to get started with the routing in React? The best way to start is implementing a Navigation component which is used in the App component. The App component is the perfect place to render the Navigation component, because it will always render the Navigation component but replace the other components (pages) based on the mapped route. Basically, the App component is the container where all your fixed components are going (navigation bar, side bar, footer) but also your components which are displayed depending on the route in the URL.
 
-First, refactor your App component to the following implementation. It will use the Navigation component and wraps it already in the Router component provided by React Router. The Router makes it possible to navigate from URL to URL on the client-side application without making requests to a webserver. Thus the application needs to be requested only once from the server and do the routing only on the client-side.
+First, refactor your App component as follows. It will use the Navigation component and wraps it already in the Router component provided by React Router. The Router makes it possible to navigate from URL-to-URL on the client-side application, without making requests to a web server. Thus, applications need to be requested only once from the server, with the process of handling requested routes handled on the client side.
 
 In *src/components/App.js* file:
 
@@ -195,7 +195,7 @@ const App = () =>
 export default App;
 {{< /highlight >}}
 
-In addition, you can remove the *logo.svg* because it isn't used anymore. Moreover, it is up to you to keep the *App.css* file to style your application in between of this tutorial.
+In addition, you can remove the *logo.svg* image, because it isn't used anymore. Moreover, it is up to you to keep the *App.css* file up to date, to enhance your application's appearance, as we proceed through this tutorial.
 
 From *src/components/* folder:
 
@@ -234,7 +234,7 @@ const Navigation = () =>
 export default Navigation;
 {{< /highlight >}}
 
-Now, run your application again and verify two things: The links need to show up in your browser and once you click a link the URL has to change. However, even though the URL changes, the displayed content doesn't change. Let's implement this behavior.
+Now, run your application again and verify two things: The links need to show up in your browser; and once you click a link, the URL has to change. However, notice that even though the URL changes, the displayed content doesn't change. Let's implement this behavior.
 
 In your App component, you can specify which components should show up according to corresponding routes with the help of the Route component from React Router.
 
@@ -302,7 +302,7 @@ From *src/components/* folder:
 touch Landing.js Home.js Account.js SignUp.js SignIn.js SignOut.js PasswordForget.js PasswordChange.js
 {{< /highlight >}}
 
-In each component, define a simple boilerplate component as functional stateless component. That's sufficient for now. These components will be filled with business logic later on. For instance, the component for the Landing page could be defined as follows.
+In each component, define a simple boilerplate component as a functional, stateless component. That's sufficient for now. These components will be filled with business logic later on. For instance, the component for the Landing page could be defined as follows.
 
 In *src/components/Landing.js* file:
 
@@ -337,9 +337,9 @@ Next, you need to find your configuration in the project settings on your dashbo
   </div>
 </div>
 
-The Firebase website doesn't make it easy to find this page. Since it's moved around with every iteration of the website, I cannot give you any clear advice where to find it on your dashboard. But it is somewhere there! Take it as opportunity to get to know your Firebase project dashboard while searching for this mysterious configuration.
+The Firebase website doesn't make it easy to find this page. Since it's moved around with every iteration of the website, I cannot give you any clear advice where to find it on your dashboard. But it is there, somewhere! Take it as an opportunity to get to know your Firebase project dashboard while searching for this mysterious configuration. :)
 
-That's it for the Firebase website setup. Now you can return to your application in your editor to add the Firebase configuration. Therefore, create a couple of files in a new dedicated Firebase folder.
+That's it for the Firebase website setup. Now you can return to your application in your editor to add the Firebase configuration. So, create a couple of files in a new dedicated Firebase folder.
 
 From *src/* folder:
 
@@ -349,7 +349,7 @@ cd firebase
 touch index.js firebase.js auth.js
 {{< /highlight >}}
 
-So what's the matter with all those files? Here comes an overview from top to bottom:
+So what's the deal with all those files? Here comes an overview from top to bottom:
 
 * **index.js:** It's a simple entry point file to the Firebase module (*src/firebase/* folder) by grouping and exposing all the functionalities from the module to other modules in one file. Thus it shouldn't be necessary for other modules in your application to access any other file than this one to use its functionalities.
 
@@ -357,7 +357,7 @@ So what's the matter with all those files? Here comes an overview from top to bo
 
 * **auth.js:** The file where the Firebase authentication API will be defined to sign up, sign in, sign out etc. a user in your application. It is the interface between the official Firebase API and your React application.
 
-Let's start with the configuration. First, copy the configuration from your Firebase dashboard on their website to your application in a configuration object. Make sure to replace the caps lock part with your own copied configuration.
+Let's start with the configuration. First, copy the configuration from your Firebase dashboard on their website to your application in a configuration object. Make sure to replace the capitalized keys with the corresponding keys from your own copied configuration.
 
 In *src/firebase/firebase.js* file:
 
@@ -417,7 +417,7 @@ export {
 };
 {{< /highlight >}}
 
-That's it for the configurational part. There is one last optional step. On the Firebase website, you could create a second project. Afterward, your first project could be used as your development database and your second project as your production database. That way, you never mix up your data from development mode with your data from your deployed application (production mode). The step is optional.
+That's it for the configuration part. There is one last optional step. On the Firebase website, you could create a second project. Afterward, your first project could be used as your development database and your second project as your production database. That way, you never mix up your data from development mode with your data from your deployed application (production mode). The step is optional.
 
 {{< highlight javascript "hl_lines=4 5 6 7 8 9 10 11 13 22 23 24" >}}
 import firebase from 'firebase/app';
@@ -460,7 +460,7 @@ Great! You have initialized Firebase in your application. In the next part, you 
 
 {{% chapter_header "Firebase's Authentication API" "firebase-authentication" %}}
 
-In the previous section, you have created a Firebase project on the official Firebase website and enabled the authentication with email and password. Now you will implement the authentication API. You can read up all functionalities that are exposed by the API in the official Firebase documentation.
+In the previous section, you have created a Firebase project on the official Firebase website and enabled the authentication with email and password. Now you will implement the authentication API. You can read up on all functionalities that are exposed by the API in the official Firebase documentation.
 
 Initially, import the previously instantiated auth object from the Firebase configuration file.
 
@@ -480,7 +480,7 @@ export const doCreateUserWithEmailAndPassword = (email, password) =>
   auth.createUserWithEmailAndPassword(email, password);
 {{< /highlight >}}
 
-Second, the sign in function which takes a email and password as well. It uses again a Firebase endpoint to sign in a user.
+Second, the sign in function which takes email and password parameters, as well. It also uses a Firebase endpoint to sign in a user.
 
 {{< highlight javascript "hl_lines=7 8 9" >}}
 import { auth } from './firebase';
@@ -494,7 +494,7 @@ export const doSignInWithEmailAndPassword = (email, password) =>
   auth.signInWithEmailAndPassword(email, password);
 {{< /highlight >}}
 
-At this point, note that these endpoints are called asynchronously. They need to be resolved later on. In addition, there needs to be error handling for it. For instance, it is not possible to sign in a user which is not signed up yet. The Firebase API would return an error. You will implement all of this in a later part of this tutorial.
+At this point, note that these endpoints are called asynchronously. They need to be resolved later on. In addition, there needs to be error handling for it. For instance, it is not possible to sign in a user who is not signed up yet. The Firebase API would return an error. You will implement all of this in a later part of this tutorial.
 
 Third, the sign out function. You don't need to pass any argument to it, because the auth object itself knows about the currently authenticated user (if a user is authenticated in the first place).
 
@@ -514,7 +514,7 @@ export const doSignOut = () =>
   auth.signOut();
 {{< /highlight >}}
 
-Last but not least, the two optional functions to reset and change a password of an authenticated user.
+Last but not least, the two optional functions to reset and change a password of an authenticated user:
 
 {{< highlight javascript "hl_lines=5 6 7 9 10 11" >}}
 import { auth } from './firebase';
@@ -530,7 +530,7 @@ export const doPasswordUpdate = (password) =>
   auth.currentUser.updatePassword(password);
 {{< /highlight >}}
 
-That's it for the whole authentication interface for your React components to be connected to the Firebase API. It covers all the use cases for the purpose of this tutorial. Finally, you should expose the implemented authentication methods and the Firebase functionalities itself form your Firebase module.
+That's it for the whole authentication interface for your React components to be connected to the Firebase API. It covers all the use cases for the purpose of this tutorial. Finally, you should expose the implemented authentication methods and the Firebase functionalities itself from your Firebase module.
 
 In *src/firebase/index.js* file:
 
@@ -544,7 +544,7 @@ export {
 };
 {{< /highlight >}}
 
-That way, consumers (React components in our case) should be only allowed to access the *index.js* file as interface to the whole Firebase module (*src/firebase/*) and should not access the auth or firebase files directly.
+That way, consumers (React components in our case) should be only allowed to access the *index.js* file as the sole interface to the entire Firebase module (*src/firebase/*),  and should not access the auth or firebase files directly.
 
 {{% chapter_header "Sign Up with React and Firebase" "react-firebase-sign-up" %}}
 
