@@ -121,15 +121,17 @@ When GraphQL was developed and open sourced by Facebook, other companies ran in 
 
 {{% sub_chapter_header "Single Source of Truth" "graphql-single-source-of-truth" %}}
 
-In GraphQL applications there exists a single source of truth: the GraphQL schema. It provides a central place where all available data is described. Whereas the GraphQL schema is usually defined on the server-side, clients can read (query) and write (mutation) data based on the schema. So basically the server-side application offers all the information about what's available on its side and the client-side application asks for only a part of it by performing GraphQL queries.
+In GraphQL applications there exists a single source of truth: the GraphQL schema. It provides a central place where all available data is described. Whereas the GraphQL schema is usually defined on a server-side, clients can read (query) and write (mutation) data based on the schema. So basically the server-side application offers all the information about what's available on its side and the client-side application asks for only a part of it by performing GraphQL queries or alters a part of it by using GraphQL mutations.
 
 {{% sub_chapter_header "GraphQL embraces modern Trends" "graphql-trends" %}}
 
-GraphQL embraces modern trends on how applications are built nowadays. You may only have one backend application, but often it happens that multiple clients (web, mobile, smartwatches, ...) depend on the data of the backend application. Thus GraphQL can be used to connect both worlds but also to fulfil the requirements (e.g. network usage requirements, nested relationships of data, fetching only the required data) of each client application without having a dedicated API for each client. On the server side, there might be several microservices which need to be made accessible such kind of an API. That's where GraphQL with schema stitching comes into play.
+GraphQL embraces modern trends on how applications are built nowadays. You may only have one backend application, but often it happens that multiple clients (web, mobile, smartwatches, ...) depend on the data of the one backend application. Thus GraphQL can be used to connect both worlds but also to fulfil the requirements (e.g. network usage requirements, nested relationships of data, fetching only the required data) of each client application without having a dedicated API for each client.
+
+On the other side, on the server side, there might not only be one backend but a group of microservices which offer their specific functionalities. That's the perfect usage for GraphQL schema stitching which enables you to aggregate all functionalities into one GraphQL schema.
 
 {{% sub_chapter_header "GraphQL Schema Stitching" "graphql-schema-stitching" %}}
 
-Schema stitching makes it possible to create one schema out of multiple schemas. When would you run into such a case? Think about a microservices architecture for your backend. Each microservice handles the business logic and data for a specific domain. Therefore, each microservice can define its own schema. Afterward, you would use schema stitching for weaving all schemas into one schema which is accessed by a client-application. In the end, each microservice can have its own GraphQL endpoint whereas one GraphQL gateway consolidates all schemas into one global schema to make it available to the client applications.
+Schema stitching makes it possible to create one schema out of multiple schemas. When would you run into such a case? Think about a microservices architecture for your backend. Each microservice handles the business logic and data for a specific domain. Therefore, each microservice can define its own GraphQL schema. Afterward, you would use schema stitching for weaving all schemas into one schema which is accessed by a client-application. In the end, each microservice can have its own GraphQL endpoint whereas one GraphQL API gateway consolidates all schemas into one global schema to make it available to the client applications.
 
 {{% sub_chapter_header "GraphQL Introspection" "graphql-introspection" %}}
 
@@ -183,12 +185,12 @@ In conclusion, there are still use cases where REST is a valuable approach for c
 
 {{% chapter_header "GraphQL Alternatives" "graphql-alternatives" %}}
 
-Obviously REST is still the most popular alternative for GraphQL. In the recent years, the common theme was using a RESTful architecture for connecting client and server applications. It became more popular than other networking technologies such as {{% a_blank "RPC" "https://en.wikipedia.org/wiki/Remote_procedure_call" %}} and {{% a_blank "SOAP" "https://simple.wikipedia.org/wiki/SOAP_(protocol)" %}}, because it used the native features of HTTP, whereas other protocols (e.g. SOAP) tried to build their own solution.
+Obviously REST is still the most popular alternative for GraphQL. In the recent years, the common theme was using a RESTful architectures for connecting client and server applications. It became more popular than other networking technologies such as {{% a_blank "RPC" "https://en.wikipedia.org/wiki/Remote_procedure_call" %}} and {{% a_blank "SOAP" "https://simple.wikipedia.org/wiki/SOAP_(protocol)" %}}, because it used the native features of HTTP, whereas other protocols (e.g. SOAP) tried to build their own solution on top of it.
 
-Falcor by Netflix is another alternative which was mentioned before. It was developed at the same time GraphQL was developed by Facebook. Netflix ran into similar issues and open sourced their own solution for it. There isn't much traction around Falcor, maybe because GraphQL got so popular, but developers at Netflix have shown great engineering efforts in the past so it may be worth looking into it.
+Falcor by Netflix is another alternative which was mentioned before. It was developed at the same time as GraphQL created by Facebook. Netflix ran into similar issues and open sourced their own solution for it. There isn't too much traction around Falcor, maybe because GraphQL got so popular, but developers at Netflix have shown great engineering efforts in the past so it may be worth looking into it.
 
 <hr class="section-divider">
 
-After all, there are plenty of reasons to adopt GraphQL for your JavaScript applications instead of implementing yet another RESTful architecture. So try it out yourself by learning and building a couple of applications with it.
+After all, there are plenty of reasons to adopt GraphQL for your JavaScript applications instead of implementing yet another RESTful architecture. It has many advantages and plays nicely with modern software architectures. So try it yourself by learning and building a couple of applications with it.
 
 {{% read_before "This tutorial is part 1 of 2 in this series." "Part 2:" "Why Apollo: Advantages, Disadvantages & Alternatives" "https://www.robinwieruch.de/why-apollo-advantages-disadvantages-alternatives" %}}

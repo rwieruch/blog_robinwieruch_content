@@ -27,7 +27,7 @@ In this tutorial, you will learn how to combine React with GraphQL in your appli
 
 Along the way of this React GraphQL tutorial, you will build a simplified GitHub client, basically an issue tracker for GitHub, that consumes {{% a_blank "GitHub's GraphQL API" "https://developer.github.com/v4/" %}}. You will perform queries and mutations to read and write data. At the end of this GraphQL in React tutorial, you should be able to showcase a React GraphQL example that can be used by other developers to learn from it.
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>28.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>33.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
