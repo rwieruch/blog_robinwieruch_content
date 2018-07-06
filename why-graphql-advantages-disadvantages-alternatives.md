@@ -107,14 +107,14 @@ GraphQL is not only exciting for React developers. Even though Facebook showcase
 
 Facebook has been using GraphQL since 2012, so even before it got open sourced. It is the driving company behind the GraphQL specification and reference implementation in JavaScript. So when using GraphQL, you are already staying on their shoulders. However, other well known companies are using it as well for their applications. They are invested in the GraphQL ecosystem, because there is a huge demand for modern applications. Thus, it is not only Facebook's shoulders you are staying on, but also on the shoulders of these companies:
 
-* {{% a_blank "GitHub" "https://githubengineering.com/the-github-graphql-api/" %}}
+* GitHub {{% a_blank "[1]" "https://githubengineering.com/the-github-graphql-api/" %}} {{% a_blank "[2]" "https://youtu.be/lj41qhtkggU" %}}
 * Shopify {{% a_blank "[1]" "https://shopifyengineering.myshopify.com/blogs/engineering/solving-the-n-1-problem-for-graphql-through-batching" %}} {{% a_blank "[2]" "https://youtu.be/2It9NofBWYg" %}}
 * {{% a_blank "Twitter" "https://www.youtube.com/watch?v=Baw05hrOUNM" %}}
 * {{% a_blank "Coursera" "https://youtu.be/F329W0PR6ds" %}}
 * {{% a_blank "Yelp" "https://youtu.be/bqcRQYTNCOA" %}}
 * {{% a_blank "Wordpress" "https://youtu.be/v3xY-rCsUYM" %}}
 * {{% a_blank "The New York Times" "https://youtu.be/W-u-vZUSnIk" %}}
-* Instagram
+* {{% a_blank "Samsara" "https://youtu.be/g-asVW9JFPw" %}}
 * and {{% a_blank "more" "https://graphql.org/users/" %}} ...
 
 When GraphQL was developed and open sourced by Facebook, other companies ran in similar issues for their mobile applications. That's how Netflix came up with {{% a_blank "Falcor" "https://github.com/Netflix/falcor" %}} which can be seen as alternative to GraphQL. It only shows again that modern applications demanded such solutions such as GraphQL and Falcor.

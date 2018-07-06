@@ -21,21 +21,19 @@ summary = "Personally I did a lot of React projects in the recent time. Always I
 
 {{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "My development setup as a JavaScript web developer" "https://www.robinwieruch.de/developer-setup/" %}}
 
-Personally I bootstrapped a lot of React projects in the recent time. I always had to setup the project from scratch. Eventually I have created my own {{% a_blank "boilerplate project on GitHub" "https://github.com/rwieruch/minimal-react-webpack-babel-setup" %}}. As you might know, uncountable React boilerplate projects and repositories were created that way.
+Personally I bootstrapped a lot of React projects in the recent time. I always had to setup the project from scratch. Eventually I have created my own {{% a_blank "boilerplate project on GitHub" "https://github.com/rwieruch/minimal-react-webpack-babel-setup" %}}. As you might know, uncountable React boilerplate projects and repositories were created that way. But the article is not my attempt to advertise yet another React boilerplate project. I had several reasons why I extracted the setup process from another article of mine.
 
-But the article is not my attempt to advertise yet another React boilerplate project. I had several reasons why I extracted the setup process from another article of mine.
-
-First, I can reuse it for all my other articles of my website whenever there is a React project setup involved. You might be reading the article right now, because you are in the middle of another article.
+First, I can reuse it for all my other articles of my website whenever there is a React project setup involved. You might be reading the article right now, because you are in the middle of another article of mine.
 
 Second, it helps me to maintain the React setup at one place. It is my single source of truth. Whenever there are updates regarding React, Webpack, Babel or Hot Reloading, I can come back to this one article to keep all other articles updated.
 
-Third, a single source of truth has to be well maintained. When several of my articles reference this one article to bootstrap an React application with Webpack and Babel, I am enforced to maintain it well. People, who search about setting up their React, Webpack and Babel environment, will hopefully always find an up to date version of the article. I really appreciate any feedback, issue reports and improvements for the article.
+Third, a single source of truth has to be well maintained. When several of my articles reference this one article to set up a React application with Webpack and Babel, I am enforced to maintain it well. People, who search about setting up their React, Webpack and Babel environment, will hopefully always find an up to date version of the article. I really appreciate any feedback, issue reports and improvements for the article.
 
-Fourth, the article is not about the boilerplate project itself. The article is more about teaching people how to setup their own project without a boilerplate project. At some point, you will start to use the tools around your library or framework of choice. In JavaScript you will have to deal with Webpack, Babel et al. at some point.
+Fourth, the article is not about the boilerplate project itself. The article is more about teaching people how to setup their own project without a third-party boilerplate project. At some point, you will start to use the tools around your library or framework of choice. In JavaScript you will have to deal with Webpack, Babel et al. and thus it makes sense to learn about them. I hope this article helps you with this adventure.
 
-Last but not least, there is already a great official way introduced by Facebook to bootstrap a boilerplate React project. {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}} comes without any build configuration. I can recommend it for everyone who is getting started in React. If you are a beginner, you probably shouldn't bother with a setup of Webpack, Babel and Hot Reloading. I use create-react-app to teach plain React in my book [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). I can recommend to read it before you get started with the tooling around React.
+Last but not least, there is already a great official way introduced by Facebook to start a React project: {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}} comes without any build configuration which I can only recommend for anyone who is getting started with React. If you are a beginner, you probably shouldn't bother with a setup of Webpack and Babel. I use create-react-app to teach plain React in my book [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). You should take the time to read it before you get started with the tooling around React.
 
-That's enough about my motivation behind the article. Let's dive into my personal minimal setup for a React project. This tutorial is up to the recent Webpack 4 version. It should work for Webpack 3 as well.
+That should be enough said about my motivation behind this article. Let's dive into my personal minimal setup for a React project. This tutorial is up to the recent React 16 and Webpack 4 versions. However, you should be able to make it work with Webpack 3 as well.
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
@@ -47,23 +45,37 @@ That's enough about my motivation behind the article. Let's dive into my persona
 
 {{% chapter_header "React Project Setup" "react-project-setup" %}}
 
-You need some requirements before you can start. First you should have an [editor and terminal](https://www.robinwieruch.de/developer-setup/) on your machine.  Second you will need an installed version of {{% a_blank "node with npm" "https://nodejs.org/en/" %}}.
+Before you can get started, you should make sure to have an installed [editor and terminal](https://www.robinwieruch.de/developer-setup/) on your machine. In addition, you will need an installed version of {{% a_blank "node with npm" "https://nodejs.org/en/" %}}. Make sure to have setup everything of it before you continue to read.
 
-The first chapter concentrates on setting up the project. Let's create a new folder and initialize it as a npm project.
-
-*In your terminal type:*
+For any new project, there has to be a folder to allocate the project's configuration but most importantly its source code. This folder usually resides in another folder where all your other projects can be found. That's at least how I do it for my projects. In order to get started with your new project, create its folder on the command line or in your favorite folder/file explorer (e.g. MacOS finder, editor/IDE side bar) and navigate into it.
 
 {{< highlight javascript >}}
 mkdir minimal-react-boilerplate
 cd minimal-react-boilerplate
+{{< /highlight >}}
+
+Now you have got the project's folder. Next you can initialize it as {{% a_blank "npm" "https://docs.npmjs.com/cli/init" %}} project. By giving it the `-y` shorthand flag, you are telling npm that it should take all the defaults. If you leave the flag out, you are in charge to specify the information about your project manually.
+
+{{< highlight javascript >}}
 npm init -y
 {{< /highlight >}}
 
-The last command should have generated a *package.json* file. The `-y` indicates that all default configurations should be used. In the *package.json* file you will find configurations, installed node packages and scripts later on.
+You can checkout the *package.json* file after initializing your project as npm project. It should be filled with your defaults. If you want to change your defaults, you can see and change them with the following commands on the command line:
 
-The next step is to create a distribution folder. The folder will be used to serve the single page application (SPA). Serving the app makes it possible to view it in the browser or host it on an external server to make it accessible for everyone.
+{{< highlight javascript >}}
+npm config list
 
-The whole served SPA contains only of two files: a *.html* and a *.js* file. While the *.js* file will be generated automatically from all of your JavaScript source files (via Webpack) later, you can already create the *.html* file manually as an entry point for your application.
+npm set init.author.name "<Your Name>"
+npm set init.author.email "you@example.com"
+npm set init.author.url "example.com"
+npm set init.license "MIT"
+{{< /highlight >}}
+
+After setting up your npm project, you can install node packages (libraries) to your project with npm itself. Once you install a new node package, it should show up in your *package.json* file.
+
+The next step is to create a distribution folder. The folder will be used to serve your application. Serving the app makes it possible to view it in the browser or host it on an external server to make it accessible for everyone.
+
+The whole served application contains only of two files: a *.html* and a *.js* file. While the *.js* file will be generated automatically from all of your JavaScript source files (via Webpack) later, you can already create the *.html* file manually as an entry point for your application.
 
 *From root folder (minimal-react-boilerplate):*
 
@@ -95,14 +107,14 @@ The created file should have the following content:
 Two important facts about the content:
 
 * the bundle.js file will be a generated file by Webpack (1)
-* the id=“app” attribute will help our root React component to find its entry point (2)
+* the id="app" attribute will help our root React component to find its entry point (2)
 
 Therefore our next possible steps are:
 
 * (1) setup Webpack to bundle our source files in one file as bundle.js
 * (2) build our first React root component which uses the entry point id=“app”
 
-Let’s continue with the first step followed by the latter one.
+Let’s continue with the former step followed by the latter one.
 
 {{% chapter_header "Webpack Setup" "webpack-react-setup" %}}
 
@@ -125,7 +137,7 @@ Now you should have a *node_modules* folder where you can find your third party 
 - package.json
 {{< /highlight >}}
 
-In the *package.json* file you can add a start script additionally to the default given scripts to run the webpack-dev-server.
+In the *package.json* file, you can add a start script additionally to the default given scripts to run the webpack-dev-server.
 
 *package.json*
 

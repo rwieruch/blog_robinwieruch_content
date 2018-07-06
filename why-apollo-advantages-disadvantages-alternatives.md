@@ -43,7 +43,7 @@ The company behind Apollo (Meteor Development Group Inc.) is pouring lots of res
 
 There are plenty of popular and tech savvy companies out there who are using Apollo already. Not only the Apollo company itself, who was developing the popular Meteor framework before, but also companies such as Airbnb and Twitch are using it. The following list is an excerpt of companies and their stories using Apollo for their JavaScript applications:
 
-* {{% a_blank "Airbnb" "https://medium.com/airbnb-engineering/reconciling-graphql-and-thrift-at-airbnb-a97e8d290712" %}}
+* Airbnb {{% a_blank "[1]" "https://medium.com/airbnb-engineering/reconciling-graphql-and-thrift-at-airbnb-a97e8d290712" %}} {{% a_blank "[2]" "https://youtu.be/oBOSJFkrNqc" %}}
 * {{% a_blank "Twitch" "https://about.sourcegraph.com/graphql/twitch-our-graphql-transformation" %}}
 * {{% a_blank "The New York Times" "https://open.nytimes.com/the-new-york-times-now-on-apollo-b9a78a5038c" %}}
 * {{% a_blank "KLM" "https://youtu.be/T2njjXHdKqw" %}}
