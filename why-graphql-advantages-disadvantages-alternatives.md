@@ -169,7 +169,7 @@ Another problem is rate limiting. Whereas in REST it is simpler to say "we allow
 
 {{% sub_chapter_header "GraphQL Caching" "graphql-caching" %}}
 
-Implementing a simplified cache when having GraphQL becomes far more complex then implementing it in REST. In REST you access resources with URLs and thus you would be able to cache on a resource level, because you have the resource URL as identifier. In GraphQL this becomes complex, because each query can be different even though it operates on the same entity. In one query you may only request the name of an author but in the next query you want to know the email address too. That's where you need to have a more fine-grained cache in place on a field level which isn't the simplest thing to implement. However, most of the libraries build on top of GraphQL are offering these caching mechanisms out of the box for you.
+Implementing a simplified cache when having GraphQL becomes far more complex than implementing it in REST. In REST you access resources with URLs and thus you would be able to cache on a resource level, because you have the resource URL as identifier. In GraphQL this becomes complex, because each query can be different even though it operates on the same entity. In one query you may only request the name of an author but in the next query you want to know the email address too. That's where you need to have a more fine-grained cache in place on a field level which isn't the simplest thing to implement. However, most of the libraries build on top of GraphQL are offering these caching mechanisms out of the box for you.
 
 {{% chapter_header "Why not REST?" "why-not-rest" %}}
 
