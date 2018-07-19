@@ -127,6 +127,8 @@ When it comes to {{% a_blank "Apollo Client" "https://github.com/apollographql/a
 
 * {{% a_blank "urql" "https://github.com/FormidableLabs/urql" %}}: urql is a GraphQL client library from Formidable Labs for consuming GraphQL in React applications. It was open sourced as minimalistic alternative in contrast to the growing Apollo behemoth.
 
+* {{% a_blank "AWS Amplify - GraphQL Client" "https://github.com/aws/aws-amplify" %}}: The AWS Amplify family offers libraries for cloud-enabled applications. One of the modules is a GraphQL client which can be used for your general GraphQL server or AWS AppSync API.
+
 {{% sub_chapter_header "Apollo Server Alternatives for Node.js" "apollo-client-alternatives" %}}
 
 When it comes to {{% a_blank "Apollo Server" "https://github.com/apollographql/apollo-server" %}} for Node.js with Express, Koa, Hapi or something else, there are several alternatives you can checkout. Obviously these come with their own advantages and disadvantages whereas these things are not covered here.
