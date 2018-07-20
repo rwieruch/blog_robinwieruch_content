@@ -19,7 +19,7 @@ summary = "In this article, you will find a concise step by step guide on how to
 
 {{% pin_it_image "react js windows setup" "img/posts/react-js-windows-setup/banner.jpg" "is-src-set" %}}
 
-In this article, you will find a concise step by step guide on how to setup React on Windows. There are plenty of articles out there on how to setup your web development environment on MacOS, but very few on how to setup it on Windows. Especially when people want to enter the world of React.js in Windows, there is a missing starting point. I wanted to address this issue, since a lot of people reading [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) are coming from Windows too.
+In this article, you will find a concise step by step guide on how to install React on Windows. There are plenty of articles out there on how to setup your web development environment on MacOS, but very few on how to setup it on Windows. Especially when people want to enter the world of React.js in Windows, there is a missing starting point. I wanted to address this issue, since a lot of people reading [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) are coming from Windows too.
 
 Just recently I worked closely with a group of developers who are required to develop on a Windows machine, because of company internal policies. Thus I had to go through the whole React setup on a Windows machine with them. That's why I think I can give you a concise way on how to use React on a Windows machine in 4 steps.
 

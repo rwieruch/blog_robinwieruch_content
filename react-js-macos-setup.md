@@ -4,8 +4,8 @@ description = "A concise step by step guide on how to setup React.js on MacOS. I
 date = "2018-02-20T13:50:46+02:00"
 tags = ["React", "Web Development"]
 categories = ["React", "Web Development"]
-keywords = ["react macos setup", "react mac os"]
-news_keywords = ["react macos setup", "react mac os"]
+keywords = ["react macos setup", "react mac os", "how to install react", "install react"]
+news_keywords = ["react macos setup", "react mac os", "how to install react", "install react"]
 hashtag = "#ReactJs"
 card = "img/posts/react-js-macos-setup/banner_640.jpg"
 banner = "img/posts/react-js-macos-setup/banner.jpg"
@@ -19,7 +19,7 @@ summary = "In this article, you will find a concise step by step guide on how to
 
 {{% pin_it_image "react macos setup" "img/posts/react-js-macos-setup/banner.jpg" "is-src-set" %}}
 
-In this article, you will find a concise step by step guide on how to setup React on MacOS. It follows the philosophy of having one IDE to manage most of your web development tasks. That's how you can focus on your task at hand as a developer. However, if you like to compose your development environment with lightweight tools rather than with an full-blown IDE, checkout [my personal recommendations for such a setup](https://www.robinwieruch.de/developer-setup). Nevertheless, if you just want to find a way for getting started with React on Mac OS quickly, follow the guide below.
+In this article, you will find a concise step by step guide on how to install React on MacOS. It follows the philosophy of having one IDE to manage most of your web development tasks. That's how you can focus on your task at hand as a developer. However, if you like to compose your development environment with lightweight tools rather than with an full-blown IDE, checkout [my personal recommendations for such a setup](https://www.robinwieruch.de/developer-setup). Nevertheless, if you just want to find a way for getting started with React on Mac OS quickly, follow the guide below.
 
 {{% chapter_header "Node.js and NPM on MacOS" "react-macos-node-npm" %}}
 

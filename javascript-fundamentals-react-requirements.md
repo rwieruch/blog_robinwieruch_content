@@ -1,29 +1,43 @@
 +++
-title = "React is no abstraction, React is JavaScript"
-description = "A walkthrough of the fundamentals in JavaScript for React applications. Often newcomers to React realize early that most of the learnings are JavaScript, because React has only a slim API ..."
+title = "JavaScript fundamentals before learning React"
+description = "A walkthrough of the fundamentals in JavaScript for React applications. Often React newcomers realize early that most of the learnings are JavaScript, because React has only a small API ..."
 date = "2018-07-18T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
-keywords = ["react javascript", "javascript fundamentals react", "react requirements", "learn react"]
-news_keywords = ["react javascript", "javascript fundamentals react", "react requirements", "learn react"]
+keywords = ["react javascript", "javascript fundamentals react", "react js requirements", "learn react"]
+news_keywords = ["react javascript", "javascript fundamentals react", "react js requirements", "learn react"]
 hashtag = "#ReactJs"
 card = "img/posts/javascript-fundamentals-react-requirements/banner_640.jpg"
 banner = "img/posts/javascript-fundamentals-react-requirements/banner.jpg"
 contribute = "javascript-fundamentals-react-requirements.md"
-headline = "React is no abstraction, React is JavaScript"
+headline = "JavaScript fundamentals before learning React"
 
 summary = "After all my teachings about React, be it online for a larger audience or on-site for companies transitioning to web development and React, I always come to the conclusion that React is all about JavaScript. Newcomers to React but also myself see it as an advantage, because you carry your JavaScript knowledge for a longer time than your React skills."
 +++
 
-{{% sponsorship %}}
+{{% pin_it_image "react js requirements" "img/posts/javascript-fundamentals-react-requirements/banner.jpg" "is-src-set" %}}
 
-{{% pin_it_image "react javascript" "img/posts/javascript-fundamentals-react-requirements/banner.jpg" "is-src-set" %}}
-
-After all my teachings about React, be it online for a larger audience or on-site for companies transitioning to web development and React, I always come to the conclusion that React is all about JavaScript. Newcomers to React but also myself see it as an advantage, because you carry your JavaScript knowledge for a longer time than your React skills.
+After all my teachings about React, be it online for a larger audience or on-site for companies transitioning to web development and React, I always come to the conclusion that React is all about JavaScript. Newcomers to React but also myself see it as an advantage, because you carry your JavaScript knowledge for a longer time around compared to your React skills.
 
 During my workshops a greater part of the material is about JavaScript and not React. Most of it boils down to JavaScript ES6 and beyond features and syntax, but also ternary operators, shorthand versions in the language, the `this` object, JavaScript built-in functions (map, reduce, filter) or more general concepts such as composability, reusability, immutability or higher-order functions. These are the fundamentals, which you don't need necessarily to master before starting with React, but which will definitely come up while learning or practicing it.
 
 The following walkthrough is my attempt giving you an almost extensive yet concise list about all the different JavaScript functionalities to complement your React application. If you have any other things which are not in the list, just leave a comment for this article and I will keep it up to date.
+
+{{% chapter_header "Table of Contents" "toc" %}}
+
+* [Entering React after learning JavaScript](#react-javascript)
+* [React and JavaScript Classes](#react-javascript-classes)
+* [Arrow Functions in React](#react-arrow-functions)
+* [Functions as Components in React](#react-javascript-functional-components)
+* [React Class Component Syntax](#react-class-component-syntax)
+* [Map, Reduce and Filter in React](#react-javascript-map-reduce-filter)
+* [var, let, and const in React](#react-javascript-variables)
+* [Ternary Operator in React](#react-ternary-operator)
+* [Import and Export Statements in React](#react-import-export-statements)
+* [Libraries in React](#react-libraries)
+* [Higher-Order Functions in React](#react-higher-order-functions)
+* [Destructuring and Spread Operators in React](#react-destructuring-spread-operator)
+* [There is more JavaScript than React](#react-javascript-learn)
 
 {{% chapter_header "Entering React after learning JavaScript" "react-javascript" %}}
 
@@ -53,11 +67,11 @@ class App extends Component {
 export default App;
 {{< /highlight >}}
 
-Arguably, a React class component may not be the best starting point. There are lots of thinks to digest for newcomers which are not necessarily React: class statements, class methods and inheritance. Also the import statements doesn't add simplicity when learning React. Even though the main focus point should be JSX (React's syntax) in the very beginning, often all the things around demand explanations as well. This article is supposed to shed some light into all the things around, most of it JavaScript, without worrying too much about React.
+Arguably, a React class component may not be the best starting point. There are lots of things to digest for newcomers which are not necessarily React: class statements, class methods and inheritance. Also the import statements are only adding complexity when learning React. Even though the main focus point should be JSX (React's syntax) in the very beginning, often all the things around demand explanations as well. This article is supposed to shed some light into all the things around, most of it JavaScript, without worrying too much about React.
 
 {{% chapter_header "React and JavaScript Classes" "react-javascript-classes" %}}
 
-Being confronted with a React class component in the beginning, requires the prior knowledge about JavaScript classes. One would assume that this is given knowledge, but it isn't, because JavaScript classes are fairly new in the language. Previously, there was only {{% a_blank "JavaScript's prototype chain" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" %}} which could be used for inheritance similar to a JavaScript class.
+Being confronted with a React class component in the beginning, requires the prior knowledge about JavaScript classes. One would assume that this is given knowledge, but it isn't, because JavaScript classes are fairly new in the language. Previously, there was only {{% a_blank "JavaScript's prototype chain" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" %}} which could be used for inheritance too. JavaScript classes build up on top of the prototypical inheritance giving the whole thing a simpler representation.
 
 One way to define a React component is using a JavaScript class. In order to understand JavaScript classes, you can take some time learning about them without React.
 
@@ -78,7 +92,7 @@ var me = new Developer('Robin', 'Wieruch');
 console.log(me.getName());
 {{< /highlight >}}
 
-A class describes an **entity** which is used as a blueprint to create an **instance** of this entity. Once an instance of the class gets created with the `new` statement, the constructor of the class is called which instantiates the instance of the class. Therefore, a class can have properties, which are usually located in its constructor or above. In addition, class methods (e.g. `getName()`) are used to read (or write) data of the instance. The instance of the class is represented as the `this` object within the class, but outside the instance is just assigned to a JavaScript variable.
+A class describes an **entity** which is used as a blueprint to create an **instance** of this entity. Once an instance of the class gets created with the `new` statement, the constructor of the class is called which instantiates the instance of the class. Therefore, a class can have properties which are usually located in its constructor. In addition, class methods (e.g. `getName()`) are used to read (or write) data of the instance. The instance of the class is represented as the `this` object within the class, but outside the instance is just assigned to a JavaScript variable.
 
 Usually classes are used for inheritance in object-oriented programming. They are used for the same in JavaScript whereas the `extends` statement can be used to inherit with one class from another class. The more specialized class with the `extends` statements inherits all the abilities from the more general class, but can add its specialized abilities to it.
 
@@ -128,20 +142,18 @@ That's why the `render()` method is mandatory in React class components: The Rea
 
 However, as you have seen, using a JavaScript class is beneficial for extending the general class with your specialized behavior. Thus you can introduce your own class methods or properties.
 
-{{< highlight javascript "hl_lines=4 6 7 8 13" >}}
+{{< highlight javascript "hl_lines=4 5 6 11" >}}
 import React, { Component } from 'react';
 
 class App extends Component {
-  greeting = 'Welcome to React';
-
-  displayGreeting() {
-    return this.greeting;
+  getGreeting() {
+    return 'Welcome to React';
   }
 
   render() {
     return (
       <div>
-        <h1>{this.displayGreeting()}</h1>
+        <h1>{this.getGreeting()}</h1>
       </div>
     );
   }
@@ -285,7 +297,43 @@ class Counter extends Component {
 }
 {{< /highlight >}}
 
-By using JavaScript arrow functions, you can auto-bind class methods without having to bind them in the constructor. Also the constructor can be left out, when not using the props, by defining the state directly as a class property. Therefore you can say that this way of defining a React class component is way more concise than the other version.
+By using JavaScript arrow functions, you can auto-bind class methods without having to bind them in the constructor. Also the constructor can be left out, when not using the props, by defining the state directly as a class property (Note: be aware that {{% a_blank "class properties" "https://babeljs.io/docs/en/babel-plugin-transform-class-properties/" %}} are not in the JavaScript language yet). Therefore you can say that this way of defining a React class component is way more concise than the other version.
+
+{{% chapter_header "Template Literals in React" "react-javascript-template-literals" %}}
+
+{{% a_blank "Template literals" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" %}} are another JavaScript language specific feature that came with JavaScript ES6. It is worth to mention it shortly, because when people new to JavaScript and React see them, they can be confusing as well. What you are growing up with is the following syntax for concatenating a string:
+
+{{< highlight javascript >}}
+function getGreeting(what) {
+  return 'Welcome to ' + what;
+}
+
+const greeting = getGreeting('JavaScript');
+console.log(greeting);
+// Welcome to JavaScript
+{{< /highlight >}}
+
+Template literals can be used for the same which is called string interpolation:
+
+{{< highlight javascript "hl_lines=2" >}}
+function getGreeting(what) {
+  return `Welcome to ${what}`;
+}
+{{< /highlight >}}
+
+You only have to use backticks and the `${}` notation for inserting JavaScript primitives. However, string literals are not only used for string interpolation, but also for multiline strings in JavaScript:
+
+{{< highlight javascript "hl_lines=2" >}}
+function getGreeting(what) {
+  return `
+    Welcome
+    to
+    ${what}
+  `;
+}
+{{< /highlight >}}
+
+Basically that's how larger text blocks can be formatted on multiple lines. Otherwise, it can be seen with the [recent introduction of GraphQL in JavaScript](https://www.robinwieruch.de/react-with-graphql-tutorial/) too.
 
 {{% chapter_header "Map, Reduce and Filter in React" "react-javascript-map-reduce-filter" %}}
 
@@ -431,12 +479,10 @@ export default App;
 Then I give the rules of thumb when to use which variable declaration:
 
 * (1) don't use `var`, because `let` and `const` are more specific
-* (2) default to `const` for embracing immutable data structures
-* (3) use `let` when mutating the variable
+* (2) default to `const`, because it cannot be re-assigned or re-declared
+* (3) use `let` when re-assigning the variable
 
-While `let` is usually used in a for loop for incrementing the iterator, `const` is normally used for keeping JavaScript variables immutable. Even though it is possible to mutate the inner properties of objects and arrays when using `const`, the variable declaration shows the intent of keeping the variable immutable though.
-
-Keeping your data structures immutable is a recurring subject when teaching React and its ecosystem. So I try to introduce the topic early but not in too much detail, but add more detail (why immutability, how to stay immutable, which libraries are embracing immutability,  ...) to it along the way.
+While `let` is usually used in a for loop for incrementing the iterator, `const` is normally used for keeping JavaScript variables unchanged. Even though it is possible to change the inner properties of objects and arrays when using `const`, the variable declaration shows the intent of keeping the variable unchanged though.
 
 {{% chapter_header "Ternary Operator in React" "react-ternary-operator" %}}
 
@@ -502,7 +548,38 @@ class App extends Component {
 export default App;
 {{< /highlight >}}
 
-After all, the conditional rendering in React only shows again that most of React is JavaScript and not anything React specific. You can learn more about all the different techniques for [conditional rendering in React over here](https://www.robinwieruch.de/conditional-rendering-react/).
+Another way of doing it, if you only return one side of the conditional rendering anyway, is using the `&&` operator:
+
+{{< highlight javascript "hl_lines=15 19" >}}
+import React, { Component } from 'react';
+
+class App extends Component {
+  render() {
+    const users = [
+      { name: 'Robin' },
+      { name: 'Markus' },
+    ];
+
+    const showUsers = false;
+
+    return (
+      <div>
+        {
+          showUsers && (
+            <ul>
+              {users.map(user => <li>{user.name}</li>)}
+            </ul>
+          )
+        }
+      </div>
+    );
+  }
+}
+
+export default App;
+{{< /highlight >}}
+
+I will not go into detail why this works, but if you are curious, you can learn about it and other techniques for conditional rendering over here: [All the conditional renderings in React](https://www.robinwieruch.de/conditional-rendering-react/). After all, the conditional rendering in React only shows again that most of React is JavaScript and not anything React specific.
 
 {{% chapter_header "Import and Export Statements in React" "react-import-export-statements" %}}
 
@@ -534,7 +611,106 @@ class App extends Component {
 export default App;
 {{< /highlight >}}
 
-It's great for the starter project, because it offers you a well-rounded experience how other files can be imported and (exported). Also the App component gets imported in the *src/index.js* file. However, when doing your first steps in React, I try to avoid those imports in the beginning. Instead, I try to focus on JSX and React components. Only later the import and export statements are introduced when separating the first React component in another file.
+It's great for the starter project, because it offers you a well-rounded experience how other files can be imported and (exported). Also the App component gets imported in the *src/index.js* file. However, when doing your first steps in React, I try to avoid those imports in the beginning. Instead, I try to focus on JSX and React components. Only later the import and export statements are introduced when separating the first React component or JavaScript function in another file.
+
+So how do these import and export statements work? Let's say in one file you want to export the following variables:
+
+{{< highlight javascript >}}
+const firstname = 'Robin';
+const lastname = 'Wieruch';
+
+export { firstname, lastname };
+{{< /highlight >}}
+
+Then you can import them in another file with a relative path to the first file:
+
+{{< highlight javascript >}}
+import { firstname, lastname } from './file1.js';
+
+console.log(firstname);
+// output: Robin
+{{< /highlight >}}
+
+So it's not necessarily about importing/exporting components or functions, it's about sharing everything that is assignable to a variable (leaving out CSS or SVG imports/exports, but speaking only about JS). You can also import all exported variables from another file as one object:
+
+{{< highlight javascript >}}
+import * as person from './file1.js';
+
+console.log(person.firstname);
+// output: Robin
+{{< /highlight >}}
+
+Imports can have an alias. It can happen that you import functionalities from multiple files that have the same named export. That's why you can use an alias:
+
+{{< highlight javascript >}}
+import { firstname as username } from './file1.js';
+
+console.log(username);
+// output: Robin
+{{< /highlight >}}
+
+All the previous cases are named imports and exports. But there exists the default statement too. It can be used for a few use cases:
+
+* to export and import a single functionality
+* to highlight the main functionality of the exported API of a module
+* to have a fallback import functionality
+
+{{< highlight javascript >}}
+const robin = {
+  firstname: 'Robin',
+  lastname: 'Wieruch',
+};
+
+export default robin;
+{{< /highlight >}}
+
+You can leave out the curly braces for the import to import the default export:
+
+{{< highlight javascript >}}
+import developer from './file1.js';
+
+console.log(developer);
+// output: { firstname: 'Robin', lastname: 'Wieruch' }
+{{< /highlight >}}
+
+Furthermore, the import name can differ from the exported default name. You can also use it in conjunction with the named export and import statements:
+
+{{< highlight javascript >}}
+const firstname = 'Robin';
+const lastname = 'Wieruch';
+
+const person = {
+  firstname,
+  lastname,
+};
+
+export {
+  firstname,
+  lastname,
+};
+
+export default person;
+{{< /highlight >}}
+
+And import the default or the named exports in another file:
+
+{{< highlight javascript >}}
+import developer, { firstname, lastname } from './file1.js';
+
+console.log(developer);
+// output: { firstname: 'Robin', lastname: 'Wieruch' }
+console.log(firstname, lastname);
+// output: Robin Wieruch
+{{< /highlight >}}
+
+You can also spare additional lines and export the variables directly for named exports:
+
+{{< highlight javascript >}}
+export const firstname = 'Robin';
+export const lastname = 'Wieruch';
+{{< /highlight >}}
+
+These are the main functionalities for ES6 modules. They help you to organize your code, to maintain your code and to design reusable module APIs. You can also export and import functionalities to test them.
 
 {{% chapter_header "Libraries in React" "react-libraries" %}}
 
@@ -834,7 +1010,7 @@ function withLoading(Component) {
 }
 {{< /highlight >}}
 
-Next, using JavaScript ES6 arrow functions makes the higher-order component more concise again:
+You can see that the rest destructuring can be used in the function's signature too. Next, using JavaScript ES6 arrow functions makes the higher-order component more concise again:
 
 {{< highlight javascript "hl_lines=1 7" >}}
 const withLoading = Component => ({ isLoading, ...props }) => {
