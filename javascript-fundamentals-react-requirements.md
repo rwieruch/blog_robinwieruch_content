@@ -768,7 +768,7 @@ So once you know about your problem which need to be solved, [React's extensive 
 
 {{% chapter_header "Higher-Order Functions in React" "react-higher-order-functions" %}}
 
-Higher-order functions are a great programming concept especially when moving towards functional programming. In React, it makes totally sense to know about this kind of functions, because at some point you have to deal with higher-order components which can be explained best when knowing about higher-order functions in the first place.
+Higher-order functions are a great programming concept especially when moving towards functional programming. In React, it makes total sense to know about these kind of functions, because at some point you have to deal with higher-order components which can be explained best when knowing about higher-order functions in the first place.
 
 Higher-order functions can be showcased in React early on without introducing higher-order components. For instance, let's say a rendered list of users can be filtered based on the value of an input field.
 
