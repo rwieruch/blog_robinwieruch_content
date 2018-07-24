@@ -1,6 +1,6 @@
 +++
 title = "JavaScript fundamentals before learning React"
-description = "A walkthrough of the fundamentals in JavaScript for React applications. Often React newcomers realize early that most of the learnings are JavaScript, because React has only a small API ..."
+description = "All the fundamentals in JavaScript for React applications. Often React newcomers realize that most of the learnings are JavaScript, because React has only a small API ..."
 date = "2018-07-18T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
@@ -14,6 +14,8 @@ headline = "JavaScript fundamentals before learning React"
 
 summary = "After all my teachings about React, be it online for a larger audience or on-site for companies transitioning to web development and React, I always come to the conclusion that React is all about JavaScript. Newcomers to React but also myself see it as an advantage, because you carry your JavaScript knowledge for a longer time than your React skills."
 +++
+
+{{% sponsorship %}}
 
 {{% pin_it_image "react js requirements" "img/posts/javascript-fundamentals-react-requirements/banner.jpg" "is-src-set" %}}
 
@@ -38,6 +40,8 @@ The following walkthrough is my attempt giving you an almost extensive yet conci
 * [Higher-Order Functions in React](#react-higher-order-functions)
 * [Destructuring and Spread Operators in React](#react-destructuring-spread-operator)
 * [There is more JavaScript than React](#react-javascript-learn)
+
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>33.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
 {{% chapter_header "Entering React after learning JavaScript" "react-javascript" %}}
 
@@ -297,7 +301,7 @@ class Counter extends Component {
 }
 {{< /highlight >}}
 
-By using JavaScript arrow functions, you can auto-bind class methods without having to bind them in the constructor. Also the constructor can be left out, when not using the props, by defining the state directly as a class property (Note: be aware that {{% a_blank "class properties" "https://babeljs.io/docs/en/babel-plugin-transform-class-properties/" %}} are not in the JavaScript language yet). Therefore you can say that this way of defining a React class component is way more concise than the other version.
+By using JavaScript arrow functions, you can auto-bind class methods without having to bind them in the constructor. Also the constructor can be left out, when not using the props, by defining the state directly as a class property. (Note: Be aware that {{% a_blank "class properties" "https://babeljs.io/docs/en/babel-plugin-transform-class-properties/" %}} are not in the JavaScript language yet.) Therefore you can say that this way of defining a React class component is way more concise than the other version.
 
 {{% chapter_header "Template Literals in React" "react-javascript-template-literals" %}}
 
@@ -323,7 +327,7 @@ function getGreeting(what) {
 
 You only have to use backticks and the `${}` notation for inserting JavaScript primitives. However, string literals are not only used for string interpolation, but also for multiline strings in JavaScript:
 
-{{< highlight javascript "hl_lines=2" >}}
+{{< highlight javascript >}}
 function getGreeting(what) {
   return `
     Welcome
@@ -438,7 +442,7 @@ class App extends Component {
     return (
       <ul>
         {users
-          .filter(users => user.isDeveloper)
+          .filter(user => user.isDeveloper)
           .map(user => <li>{user.name}</li>)
         }
       </ul>
@@ -794,7 +798,7 @@ class App extends Component {
       <div>
         <ul>
           {users
-            .filter(users => this.state.query === user.name)
+            .filter(user => this.state.query === user.name)
             .map(user => <li>{user.name}</li>)
           }
         </ul>
@@ -817,7 +821,7 @@ It's not always desired to extract functions, because it can add unecessary comp
 import React, { Component } from 'react';
 
 function doFilter(user) {
-  return this.state.query === user.name;
+  return query === user.name;
 }
 
 class App extends Component {
@@ -857,7 +861,7 @@ import React, { Component } from 'react';
 
 function doFilter(query) {
   return function (user) {
-    return this.state.query === user.name;
+    return query === user.name;
   }
 }
 
@@ -895,7 +899,7 @@ Basically a higher-order function is a function which returns a function. By usi
 
 {{< highlight javascript >}}
 const doFilter = query => user =>
-  this.state.query === user.name;
+  query === user.name;
 {{< /highlight >}}
 
 Now the `doFilter()` function can be exported from the file and tested in isolation as pure (higher-order) function. After learning about higher-order functions, all the fundamental knowledge is established to learn more about [React's higher-order components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/).
@@ -935,7 +939,7 @@ class Counter extends Component {
 }
 {{< /highlight >}}
 
-Moving functions around your code base is a great way learning about the benefits of having functions as fist class citizens in JavaScript. It's powerful when moving your code towards functional programming.
+Moving functions around your code base is a great way learning about the benefits of having functions as first class citizens in JavaScript. It's powerful when moving your code towards functional programming.
 
 {{% chapter_header "Destructuring and Spread Operators in React" "react-destructuring-spread-operator" %}}
 

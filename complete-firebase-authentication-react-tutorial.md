@@ -757,7 +757,7 @@ class SignUpForm extends Component {
 
     auth.doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-        this.setState(() => ({ ...INITIAL_STATE }));
+        this.setState({ ...INITIAL_STATE });
       })
       .catch(error => {
         this.setState(byPropKey('error', error));
@@ -819,7 +819,7 @@ class SignUpForm extends Component {
 
     auth.doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-        this.setState(() => ({ ...INITIAL_STATE }));
+        this.setState({ ...INITIAL_STATE });
         history.push(routes.HOME);
       })
       .catch(error => {
@@ -902,7 +902,7 @@ class SignInForm extends Component {
 
     auth.doSignInWithEmailAndPassword(email, password)
       .then(() => {
-        this.setState(() => ({ ...INITIAL_STATE }));
+        this.setState({ ...INITIAL_STATE });
         history.push(routes.HOME);
       })
       .catch(error => {
@@ -1105,8 +1105,8 @@ class App extends Component {
   componentDidMount() {
     firebase.auth.onAuthStateChanged(authUser => {
       authUser
-        ? this.setState(() => ({ authUser }))
-        : this.setState(() => ({ authUser: null }));
+        ? this.setState({ authUser })
+        : this.setState({ authUser: null });
     });
   }
 
@@ -1238,8 +1238,8 @@ const withAuthentication = (Component) =>
     componentDidMount() {
       firebase.auth.onAuthStateChanged(authUser => {
         authUser
-          ? this.setState(() => ({ authUser }))
-          : this.setState(() => ({ authUser: null }));
+          ? this.setState({ authUser })
+          : this.setState({ authUser: null });
       });
     }
 
@@ -1276,8 +1276,8 @@ const withAuthentication = (Component) =>
     componentDidMount() {
       firebase.auth.onAuthStateChanged(authUser => {
         authUser
-          ? this.setState(() => ({ authUser }))
-          : this.setState(() => ({ authUser: null }));
+          ? this.setState({ authUser })
+          : this.setState({ authUser: null });
       });
     }
 
@@ -1387,7 +1387,7 @@ class PasswordForgetForm extends Component {
 
     auth.doPasswordReset(email)
       .then(() => {
-        this.setState(() => ({ ...INITIAL_STATE }));
+        this.setState({ ...INITIAL_STATE });
       })
       .catch(error => {
         this.setState(byPropKey('error', error));
@@ -1496,7 +1496,7 @@ class PasswordChangeForm extends Component {
 
     auth.doPasswordUpdate(passwordOne)
       .then(() => {
-        this.setState(() => ({ ...INITIAL_STATE }));
+        this.setState({ ...INITIAL_STATE });
       })
       .catch(error => {
         this.setState(byPropKey('error', error));
@@ -1835,7 +1835,7 @@ class SignUpForm extends Component {
         // Create a user in your own accessible Firebase Database too
         db.doCreateUser(authUser.user.uid, username, email)
           .then(() => {
-            this.setState(() => ({ ...INITIAL_STATE }));
+            this.setState({ ...INITIAL_STATE });
             history.push(routes.HOME);
           })
           .catch(error => {
@@ -1881,7 +1881,7 @@ class HomePage extends Component {
 
   componentDidMount() {
     db.onceGetUsers().then(snapshot =>
-      this.setState(() => ({ users: snapshot.val() }))
+      this.setState({ users: snapshot.val() })
     );
   }
 
