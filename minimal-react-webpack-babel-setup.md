@@ -366,12 +366,11 @@ You have to add some more configuration to your Webpack configuration file.
 
 *webpack.config.js*
 
-{{< highlight javascript "hl_lines=1 5 25 26 27 30" >}}
+{{< highlight javascript "hl_lines=1 24 25 26 29" >}}
 const webpack = require('webpack');
 
 module.exports = {
   entry: [
-    'react-hot-loader/patch',
     './src/index.js'
   ],
   module: {
