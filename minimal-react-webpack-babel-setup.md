@@ -166,9 +166,7 @@ You can continue by providing the following content:
 
 {{< highlight javascript >}}
 module.exports = {
-  entry: [
-    './src/index.js'
-  ],
+  entry: './src/index.js',
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
@@ -270,11 +268,9 @@ Now, with all node packages in place, you need to adjust your *package.json* and
 
 *webpack.config.js*
 
-{{< highlight javascript "hl_lines=5 6 7 8 9 10 11 12 13 14 15 16" >}}
+{{< highlight javascript "hl_lines=3 4 5 6 7 8 9 10 11 12 13 14" >}}
 module.exports = {
-  entry: [
-    './src/index.js'
-  ],
+  entry: './src/index.js',
   module: {
     rules: [
       {
@@ -366,13 +362,11 @@ You have to add some more configuration to your Webpack configuration file.
 
 *webpack.config.js*
 
-{{< highlight javascript "hl_lines=1 24 25 26 29" >}}
+{{< highlight javascript "hl_lines=1 22 23 24 27" >}}
 const webpack = require('webpack');
 
 module.exports = {
-  entry: [
-    './src/index.js'
-  ],
+  entry: './src/index.js',
   module: {
     rules: [
       {
