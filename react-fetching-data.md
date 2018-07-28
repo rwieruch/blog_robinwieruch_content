@@ -21,7 +21,7 @@ summary = "Newcomers to React often start with applications that don't need data
 
 Newcomers to React often start with applications that don't need data fetching at all. Usually they are confronted with Counter, Todo or TicTacToe applications. That's good, because data fetching adds another layer of complexity to your application while taking the first steps in React.
 
-However, at some point you want to request real world data from an own or a third-party [API](https://www.robinwieruch.de/what-is-an-api-javascript/). The article gives you a walkthrough on how to fetch data in plain React. There is no external state management solution, such as [Redux or MobX](https://www.robinwieruch.de/redux-mobx-confusion/), involved to store your fetched data. Instead you will use React's local state management.
+However, at some point you want to request real world data from an own or a third-party [API](https://www.robinwieruch.de/what-is-an-api-javascript/). The article gives you a walkthrough on how to fetch data in React. There is no external state management solution, such as [Redux or MobX](https://www.robinwieruch.de/redux-mobx-confusion/), involved to store your fetched data. Instead you will use React's local state management.
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
@@ -239,7 +239,7 @@ class App extends Component {
 export default App;
 {{< /highlight >}}
 
-However, the article is going to demonstrate it with a real world third-party API:
+That's the most basic React.js fetch API example. It shows you how to get JSON in React from an API. However, the article is going to demonstrate it with a real world third-party API:
 
 {{< highlight javascript "hl_lines=3 4 11 16 18" >}}
 import React, { Component } from 'react';
@@ -510,6 +510,48 @@ export default App;
 {{< /highlight >}}
 
 As you can see, axios returns a JavaScript promise as well. But this time you don't have to resolve the promise two times, because axios already returns a JSON response for you. Furthermore, when using axios you can be sure that all errors are caught in the `catch()` block. In addition, you need to adjust the data structure slightly for the returned axios data.
+
+The previous example has only shown you how to get data in React from an API with a HTTP GET method in React's componentDidMount lifecycle method. However, you can also actively request data with a button click. Then you wouldn't use a lifecycle method, but your own class method.
+
+{{< highlight javascript "hl_lines=18" >}}
+import React, { Component } from 'react';
+import axios from 'axios';
+
+const API = 'https://hn.algolia.com/api/v1/search?query=';
+const DEFAULT_QUERY = 'redux';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      hits: [],
+      isLoading: false,
+      error: null,
+    };
+  }
+
+  getStories() {
+    this.setState({ isLoading: true });
+
+    axios.get(API + DEFAULT_QUERY)
+      .then(result => this.setState({
+        hits: result.data.hits,
+        isLoading: false
+      }))
+      .catch(error => this.setState({
+        error,
+        isLoading: false
+      }));
+  }
+
+  ...
+}
+
+export default App;
+{{< /highlight >}}
+
+But that's only the GET method in React. What about writing data to an API? When having axios in place, you can do a post request in React as well. You only need to swap the `axios.get()` with a `axios.post()`.
 
 {{% chapter_header "How to test data fetching in React?" "react-fetch-data-test-testing" %}}
 
