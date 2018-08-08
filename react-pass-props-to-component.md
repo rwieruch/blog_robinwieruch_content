@@ -1,7 +1,7 @@
 +++
 title = "How to pass props to components in React"
-description = "Everything you need to know about props in React. How to pass props to components, how to set default props, how to differentiate between props and state, and how to pass components or functions as props, ...
-date = "2018-07-30T13:50:46+02:00"
+description = "Everything you need to know about props in React. How to pass props to components, how to set default props, how to differentiate between props and state, and how to pass components or functions as props, ..."
+date = "2018-07-29T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["react pass props to component", "react props vs state", "react props explained", "react props example", "react props best practices"]
@@ -17,7 +17,7 @@ summary = "Everyone who is new to React is confused by these so called props, be
 
 {{% sponsorship %}}
 
-{{% pin_it_image "react-pass-props-to-component" "img/posts/react-pass-props-to-component/banner.jpg" "is-src-set" %}}
+{{% pin_it_image "react pass props to component" "img/posts/react-pass-props-to-component/banner.jpg" "is-src-set" %}}
 
 Everyone who is new to React is confused by these so called props, because they are never mentioned in any other web framework, and rarely explained on their own. They are one of the early things you will learn in React after initially grasping React's JSX syntax. Basically props are used to pass data from component to component. In this guide, I want to explain React props in greater detail. First, it explains the *"What are props in React?" question*, followed by different props examples to see how they can be used in React.
 
@@ -182,6 +182,8 @@ const Greeting = ({ greeting }) => <h1>{greeting.text}</h1>;
 
 export default App;
 {{< /highlight >}}
+
+Note: It is important to note that is could lead to performance issues, because every time the component renders a new object is created again. But it can be a premature optimization as well when learning only about React.
 
 Basically that's how props are passed to React components. As you may have noticed, props are only passed from top to bottom in React's component tree. There is no way to pass props up to a parent component. We will revisit this issue later in this article. In addition, it's important to know that React's props are read only. There is **no way in React to set props** (even though it was possible in the past). After all, props are only used to pass data from one component to another component React, but only from parent to child components down the component tree.
 
@@ -399,7 +401,7 @@ const Greeting = ({ greeting, isShow }) =>
 export default App;
 {{< /highlight >}}
 
-As said, there is no way passing props from a child to a parent component. But **you can always pass functions from parent to child components**, whereas the child components make use of these functions and the functions may change the state in a parent component above. Once the state has changed, the state is passed down as props again. All affected components will render again.
+As said, there is no way passing props from a child to a parent component. But **you can always pass functions from parent to child components**, whereas the child components make use of these functions and the functions may change the state in a parent component above. Once the state has changed, the state is passed down as props again. All affected components will render again. For instance, the same pattern applies for having page components in your React application. Once you want to pass data from page to another in React, you can lift the state up to the component (usually App component) which has all page components as its child components. Then the data is managed as state in the top level component but still can be distributed to all child components.
 
 {{% chapter_header "Props can be state, props, or derived properties" "react-props-state-derived-properties" %}}
 
@@ -504,7 +506,7 @@ You can do all of this code formatting on your own or use a code formatter inste
 
 {{% chapter_header "React ...props syntax" "react-props-syntax-spread-rest" %}}
 
-Another strategy for passing props to a component is the {{% a_blank "JavaScript spread operator" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax" %}}. JavaScript's spread operator in React is a useful power feature and you can read people referring to it as the **React ...props syntax** even though it is not really a React feature but just a thing coming from JavaScript.
+Another strategy for passing all props to a child component is the {{% a_blank "JavaScript spread operator" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax" %}}. JavaScript's spread operator in React is a useful power feature and you can read people referring to it as the **React ...props syntax** even though it is not really a React feature but just a thing coming from JavaScript.
 
 {{< highlight javascript "hl_lines=10" >}}
 class App extends Component {
@@ -725,7 +727,7 @@ Many people refer to this as **slot pattern** in React. You can find a working m
 
 The concept of **children as a function** or **child as a function**, also called **render prop**, is one of the advanced patterns in React (next to [higher-order components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/)). The components which implement this pattern can be called **render prop components.**
 
-The following implementations can be difficult to follow when not having used render props in React before. Please read up this article {{% a_blank "as introduction to render props in React" "https://reactjs.org/docs/render-props.html" %}} first.
+The following implementations can be difficult to follow when not having used render props in React before. Please read up this article [as introduction to render props in React](https://www.robinwieruch.de/react-render-props-pattern/) first.
 
 First, let's start with the render prop. Basically it is a function passed as prop (usually called render, but the name can be anything). The function receives arguments (in this case the amount), but also renders JSX (in this case the components for the currency conversion).
 
@@ -1060,7 +1062,7 @@ const App = ({ user }) =>
   </Router>
 {{< /highlight >}}
 
-But how would you pass props to the components in React Router? You can use the render prop instead of the component prop for passing props to your actual component.
+But how would you pass props to the child component in React Router? You can use the render prop instead of the component prop for passing props to the child component.
 
 {{< highlight javascript "hl_lines=5 9 13" >}}
 const App = ({ user }) =>

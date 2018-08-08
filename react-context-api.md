@@ -1,5 +1,5 @@
 +++
-title = "Exploring the React Context API with Provider and Consumer"
+title = "React's Context API explained: Provider and Consumer"
 description = "React's Context API is a powerful feature for passing props down the component tree without the need to tell components in between about them. React's context creates a Provider and Consumer component that enable us to use this powerful feature ..."
 date = "2018-03-31T13:50:46+02:00"
 tags = ["React", "JavaScript"]
@@ -10,7 +10,7 @@ hashtag = "#ReactJs"
 card = "img/posts/react-provider-pattern-context/banner_640.jpg"
 banner = "img/posts/react-provider-pattern-context/banner.jpg"
 contribute = "react-context-api.md"
-headline = "Exploring the React Context API with Provider and Consumer"
+headline = "React's Context API explained: Provider and Consumer"
 
 summary = "React's Context API is a powerful feature for passing props down the component tree without the need to tell components in between about them. React's context creates a Provider and Consumer component that enable us to use this powerful feature."
 +++
@@ -174,7 +174,7 @@ class C extends React.Component {
 }
 {{< /highlight >}}
 
-The component can derive its style by consuming the context. The Consumer component makes the passed context available by using a {{% a_blank "render prop" "https://reactjs.org/docs/render-props.html" %}}. As you can imagine, following this way every component that needs to be styled according to the colored theme could get the necessary information from React's context API by using the Consumer component now. You only have to use the Provider component which passes the value once somewhere above them. You can read more about [React's context in the official documentation](https://reactjs.org/docs/context.html).
+The component can derive its style by consuming the context. The Consumer component makes the passed context available by using a [render prop](https://www.robinwieruch.de/react-render-props-pattern/). As you can imagine, following this way every component that needs to be styled according to the colored theme could get the necessary information from React's context API by using the Consumer component now. You only have to use the Provider component which passes the value once somewhere above them. You can read more about [React's context in the official documentation](https://reactjs.org/docs/context.html).
 
 {{% chapter_header "React's Context API in Higher Order Components" "react-context-api-higher-order-component" %}}
 

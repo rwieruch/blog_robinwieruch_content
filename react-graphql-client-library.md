@@ -204,7 +204,7 @@ So rather than using the Consumer component directly in your React components, y
 
 Now you are going to explore on how to execute GraphQL queries and mutations with your own GraphQL client instance. However, rather than using the client directly in your React components by using the `withClient()` HOC, which would be possible as well, you will implement two components, called Query and Mutation, which are performing the GraphQL operations in your component tree in a declarative way.
 
-Both components, the Query and Mutation component, will implement the {{% a_blank "render props" "https://reactjs.org/docs/render-props.html" %}} pattern to pass information to the component which uses the Query or Mutation component. Let's start out with the Query component in React. The minimal implementation of the Query component could look like the following:
+Both components, the Query and Mutation component, will implement the [render props](https://www.robinwieruch.de/react-render-props-pattern/) pattern to pass information to the component which uses the Query or Mutation component. Let's start out with the Query component in React. The minimal implementation of the Query component could look like the following:
 
 {{< highlight javascript >}}
 import React from 'react';

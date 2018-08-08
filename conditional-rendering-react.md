@@ -19,7 +19,7 @@ summary = "Conditional rendering in React is no witchcraft. In JSX you can use p
 
 {{% pin_it_image "conditional rendering react" "img/posts/conditional-rendering-react/banner.jpg" "is-src-set" %}}
 
-Conditional rendering in React is no witchcraft. In JSX - the syntax extension used for React - you can use pure JavaScript. In JavaScript you should be familiar with if-else or switch case statements. You can use it in JSX as well, since JSX only mixes HTML and JavaScript.
+Conditional rendering in React is no witchcraft. In JSX - the syntax extension used for React - you can use pure JavaScript. In JavaScript you should be familiar with if-else or switch case statements, [because they are the one of the fundamental pillars for learning React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/). You can use these in JSX as well, since JSX only mixes HTML and JavaScript.
 
 But what is conditional rendering in React? In a conditional render a component decides based on one or several conditions which elements it will return. For instance, it can either return a list of items or a message that says "Sorry, the list is empty". When a component has conditional rendering, the instance of the rendered component can have different looks.
 
@@ -42,15 +42,15 @@ The easiest way to have a conditional rendering is to use an if else in React in
 
 {{< highlight javascript >}}
 function List({ list }) {
-    if (!list) {
-        return null;
-    }
+  if (!list) {
+    return null;
+  }
 
-    return (
-        <div>
-            {list.map(item => <ListItem item={item} />)}
-        </div>
-    );
+  return (
+    <div>
+      {list.map(item => <ListItem item={item} />)}
+    </div>
+  );
 }
 {{< /highlight >}}
 
@@ -58,19 +58,19 @@ A component that returns null will render nothing. However, you might want to sh
 
 {{< highlight javascript >}}
 function List({ list }) {
-    if (!list) {
-        return null;
-    }
+  if (!list) {
+    return null;
+  }
 
-    if (!list.length) {
-        return <p>Sorry, the list is empty.</p>;
-    } else {
-        return (
-            <div>
-                {list.map(item => <ListItem item={item} />)}
-            </div>
-        );
-    }
+  if (!list.length) {
+    return <p>Sorry, the list is empty.</p>;
+  } else {
+    return (
+      <div>
+        {list.map(item => <ListItem item={item} />)}
+      </div>
+    );
+  }
 }
 {{< /highlight >}}
 
@@ -88,16 +88,16 @@ For instance, imagine you have a toggle to switch between two modes, edit and vi
 
 {{< highlight javascript >}}
 function Item({ item, mode }) {
-    const isEditMode = mode === 'EDIT';
+  const isEditMode = mode === 'EDIT';
 
-    return (
-        <div>
-            { isEditMode
-                ? <ItemEdit item={item} />
-                : <ItemView item={item} />
-            }
-        </div>
-    );
+  return (
+    <div>
+      { isEditMode
+        ? <ItemEdit item={item} />
+        : <ItemView item={item} />
+      }
+    </div>
+  );
 }
 {{< /highlight >}}
 
@@ -105,17 +105,17 @@ If your blocks in both branches of the ternary operation are getting bigger, you
 
 {{< highlight javascript >}}
 function Item({ item, mode }) {
-    const isEditMode = mode === 'EDIT';
+  const isEditMode = mode === 'EDIT';
 
-    return (
-        <div>
-            {isEditMode ? (
-                <ItemEdit item={item} />
-            ) : (
-                <ItemView item={item} />
-            )}
-        </div>
-    );
+  return (
+    <div>
+      {isEditMode ? (
+        <ItemEdit item={item} />
+      ) : (
+        <ItemView item={item} />
+      )}
+    </div>
+  );
 }
 {{< /highlight >}}
 
@@ -127,26 +127,26 @@ It happens often that you want to render either an element or nothing. For insta
 
 {{< highlight javascript >}}
 function LoadingIndicator({ isLoading }) {
-    if (isLoading) {
-        return (
-            <div>
-                <p>Loading...</p>
-            </div>
-        );
-    } else {
-        return null;
-    }
+  if (isLoading) {
+    return (
+      <div>
+        <p>Loading...</p>
+      </div>
+    );
+  } else {
+    return null;
+  }
 }
 
 function LoadingIndicator({ isLoading }) {
-    return (
-        <div>
-            { isLoading
-                ? <p>Loading...</p>
-                : null
-            }
-        </div>
-    );
+  return (
+    <div>
+      { isLoading
+        ? <p>Loading...</p>
+        : null
+      }
+    </div>
+  );
 }
 {{< /highlight >}}
 
@@ -168,11 +168,11 @@ In React you can make use of that behaviour. If the condition is true, the expre
 
 {{< highlight javascript >}}
 function LoadingIndicator({ isLoading }) {
-    return (
-        <div>
-            { isLoading && <p>Loading...</p> }
-        </div>
-    );
+  return (
+    <div>
+      { isLoading && <p>Loading...</p> }
+    </div>
+  );
 }
 {{< /highlight >}}
 
@@ -184,16 +184,16 @@ Now there might be cases where you have multiple conditional renderings. For ins
 
 {{< highlight javascript >}}
 function Notification({ text, state }) {
-    switch(state) {
-        case 'info':
-            return <Info text={text} />;
-        case 'warning':
-            return <Warning text={text} />;
-        case 'error':
-            return <Error text={text} />;
-        default:
-            return null;
-    }
+  switch(state) {
+    case 'info':
+      return <Info text={text} />;
+    case 'warning':
+      return <Warning text={text} />;
+    case 'error':
+      return <Error text={text} />;
+    default:
+      return null;
+  }
 }
 {{< /highlight >}}
 
@@ -203,21 +203,21 @@ As a little side information: When a component has a conditional rendering based
 
 {{< highlight javascript >}}
 function Notification({ text, state }) {
-    switch(state) {
-        case 'info':
-            return <Info text={text} />;
-        case 'warning':
-            return <Warning text={text} />;
-        case 'error':
-            return <Error text={text} />;
-        default:
-            return null;
-    }
+  switch(state) {
+    case 'info':
+      return <Info text={text} />;
+    case 'warning':
+      return <Warning text={text} />;
+    case 'error':
+      return <Error text={text} />;
+    default:
+      return null;
+  }
 }
 
 Notification.propTypes = {
-     text: React.PropTypes.string,
-     state: React.PropTypes.oneOf(['info', 'warning', 'error'])
+   text: React.PropTypes.string,
+   state: React.PropTypes.oneOf(['info', 'warning', 'error'])
 }
 {{< /highlight >}}
 
@@ -227,22 +227,22 @@ An alternative way would be to inline the switch case. Therefore you would need 
 
 {{< highlight javascript >}}
 function Notification({ text, state }) {
-    return (
-        <div>
-            {(function() {
-                switch(state) {
-                    case 'info':
-                        return <Info text={text} />;
-                    case 'warning':
-                        return <Warning text={text} />;
-                    case 'error':
-                        return <Error text={text} />;
-                    default:
-                        return null;
-                }
-            })()}
-        </div>
-    );
+  return (
+    <div>
+      {(function() {
+        switch(state) {
+          case 'info':
+            return <Info text={text} />;
+          case 'warning':
+            return <Warning text={text} />;
+          case 'error':
+            return <Error text={text} />;
+          default:
+            return null;
+        }
+      })()}
+    </div>
+  );
 }
 {{< /highlight >}}
 
@@ -250,22 +250,22 @@ Again it can be more concise with an ES6 arrow function.
 
 {{< highlight javascript "hl_lines=4" >}}
 function Notification({ text, state }) {
-    return (
-        <div>
-            {(() => {
-                switch(state) {
-                    case 'info':
-                        return <Info text={text} />;
-                    case 'warning':
-                        return <Warning text={text} />;
-                    case 'error':
-                        return <Error text={text} />;
-                    default:
-                        return null;
-                }
-            })()}
-        </div>
-    );
+  return (
+    <div>
+      {(() => {
+        switch(state) {
+          case 'info':
+            return <Info text={text} />;
+          case 'warning':
+            return <Warning text={text} />;
+          case 'error':
+            return <Error text={text} />;
+          default:
+            return null;
+        }
+      })()}
+    </div>
+  );
 }
 {{< /highlight >}}
 
@@ -277,9 +277,9 @@ In JavaScript an object can be used as an enum when the object is used as a map 
 
 {{< highlight javascript >}}
 const ENUM = {
-    a: '1',
-    b: '2',
-    c: '3',
+  a: '1',
+  b: '2',
+  c: '3',
 };
 {{< /highlight >}}
 
@@ -287,15 +287,15 @@ An enum is a great way to have multiple conditional renderings. Let's consider t
 
 {{< highlight javascript >}}
 function Notification({ text, state }) {
-    return (
-        <div>
-            {{
-                info: <Info text={text} />,
-                warning: <Warning text={text} />,
-                error: <Error text={text} />,
-            }[state]}
-        </div>
-    );
+  return (
+    <div>
+      {{
+        info: <Info text={text} />,
+        warning: <Warning text={text} />,
+        error: <Error text={text} />,
+      }[state]}
+    </div>
+  );
 }
 {{< /highlight >}}
 
@@ -305,17 +305,17 @@ In this case we had to use an inlined object, because the values of the object d
 
 {{< highlight javascript >}}
 const NOTIFICATION_STATES = {
-    info: <Info />,
-    warning: <Warning />,
-    error: <Error />,
+  info: <Info />,
+  warning: <Warning />,
+  error: <Error />,
 };
 
 function Notification({ state }) {
-    return (
-        <div>
-            {NOTIFICATION_STATES[state]}
-        </div>
-    );
+  return (
+    <div>
+      {NOTIFICATION_STATES[state]}
+    </div>
+  );
 }
 {{< /highlight >}}
 
@@ -323,17 +323,17 @@ Although we could use a function to retrieve the value, if we would depend on th
 
 {{< highlight javascript >}}
 const getSpecificNotification = (text) => ({
-    info: <Info text={text} />,
-    warning: <Warning text={text} />,
-    error: <Error text={text} />,
+  info: <Info text={text} />,
+  warning: <Warning text={text} />,
+  error: <Error text={text} />,
 });
 
 function Notification({ state, text }) {
-    return (
-        <div>
-            {getSpecificNotification(text)[state]}
-        </div>
-    );
+  return (
+    <div>
+      {getSpecificNotification(text)[state]}
+    </div>
+  );
 }
 {{< /highlight >}}
 
@@ -341,22 +341,22 @@ After all, the enum approach in comparison to the switch case statement is more 
 
 {{< highlight javascript >}}
 function FooBarOrFooOrBar({ isFoo, isBar }) {
-    const key = `${isFoo}-${isBar}`;
-    return (
-        <div>
-            {{
-                ['true-true']: <FooBar />,
-                ['true-false']: <Foo />,
-                ['false-true']: <Bar />,
-                ['false-false']: null,
-            }[key]}
-        </div>
-    );
+  const key = `${isFoo}-${isBar}`;
+  return (
+    <div>
+      {{
+        ['true-true']: <FooBar />,
+        ['true-false']: <Foo />,
+        ['false-true']: <Bar />,
+        ['false-false']: null,
+      }[key]}
+    </div>
+  );
 }
 
 FooBarOrFooOrBar.propTypes = {
-     isFoo: React.PropTypes.boolean.isRequired,
-     isBar: React.PropTypes.boolean.isRequired,
+   isFoo: React.PropTypes.boolean.isRequired,
+   isBar: React.PropTypes.boolean.isRequired,
 }
 {{< /highlight >}}
 
@@ -366,20 +366,20 @@ What about nested conditional renderings? Yes, it is possible. For instance, let
 
 {{< highlight javascript >}}
 function List({ list }) {
-    const isNull = !list;
-    const isEmpty = !isNull && !list.length;
+  const isNull = !list;
+  const isEmpty = !isNull && !list.length;
 
-    return (
-        <div>
-            { isNull
-                ? null
-                : ( isEmpty
-                    ? <p>Sorry, the list is empty.</p>
-                    : <div>{list.map(item => <ListItem item={item} />)}</div>
-                )
-            }
-        </div>
-    );
+  return (
+    <div>
+      { isNull
+        ? null
+        : ( isEmpty
+          ? <p>Sorry, the list is empty.</p>
+          : <div>{list.map(item => <ListItem item={item} />)}</div>
+        )
+      }
+    </div>
+  );
 }
 
 // Usage
@@ -393,20 +393,20 @@ It works. However I would recommend to keep the nested conditional renderings to
 
 {{< highlight javascript >}}
 function List({ list }) {
-    const isList = list && list.length;
+  const isList = list && list.length;
 
-    return (
-        <div>
-            { isList
-                ? <div>{list.map(item => <ListItem item={item} />)}</div>
-                : <NoList isNull={!list} isEmpty={list && !list.length} />
-            }
-        </div>
-    );
+  return (
+    <div>
+      { isList
+        ? <div>{list.map(item => <ListItem item={item} />)}</div>
+        : <NoList isNull={!list} isEmpty={list && !list.length} />
+      }
+    </div>
+  );
 }
 
 function NoList({ isNull, isEmpty }) {
-    return (!isNull && isEmpty) && <p>Sorry, the list is empty.</p>;
+  return (!isNull && isEmpty) && <p>Sorry, the list is empty.</p>;
 }
 {{< /highlight >}}
 
@@ -447,12 +447,12 @@ Last but not least there exist external solutions to deal with conditional rende
 
 {{< highlight javascript >}}
 <Choose>
-    <When condition={isLoading}>
-        <div><p>Loading...</p></div>
-    </When>
-    <Otherwise>
-        <div>{list.map(item => <ListItem item={item} />)}</div>
-    </Otherwise>
+  <When condition={isLoading}>
+    <div><p>Loading...</p></div>
+  </When>
+  <Otherwise>
+    <div>{list.map(item => <ListItem item={item} />)}</div>
+  </Otherwise>
 </Choose>
 {{< /highlight >}}
 
