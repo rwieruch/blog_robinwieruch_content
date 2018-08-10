@@ -505,7 +505,7 @@ And finally using it in your App component:
 const App = () => <CurrenciesWithAmount />;
 {{< /highlight >}}
 
-However, in this case you would loose the possibility to render something in between. You are strictly coupled to the higher-order component's render method. If you need to add something in between of the currency components, you would have to do it in the higher-order component. It would be quite similar as you have done it previously by rendering the currency components straight away in the Amount component. If using a render prop component instead, you would be flexible in your composition. That's only one different aspect of render prop components and higher-order components.
+However, in this case you would lose the possibility to render something in between. You are strictly coupled to the higher-order component's render method. If you need to add something in between of the currency components, you would have to do it in the higher-order component. It would be quite similar as you have done it previously by rendering the currency components straight away in the Amount component. If using a render prop component instead, you would be flexible in your composition. That's only one different aspect of render prop components and higher-order components.
 
 <hr class="section-divider">
 
