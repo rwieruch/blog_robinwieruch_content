@@ -266,27 +266,27 @@ const App = () =>
 
       <Route
         exact path={routes.LANDING}
-        render={() => <LandingPage />}
+        component={LandingPage}
       />
       <Route
         exact path={routes.SIGN_UP}
-        render={() => <SignUpPage />}
+        component={SignUpPage}
       />
       <Route
         exact path={routes.SIGN_IN}
-        render={() => <SignInPage />}
+        component={SignInPage}
       />
       <Route
         exact path={routes.PASSWORD_FORGET}
-        render={() => <PasswordForgetPage />}
+        component={PasswordForgetPage}
       />
       <Route
         exact path={routes.HOME}
-        render={() => <HomePage />}
+        component={HomePage}
       />
       <Route
         exact path={routes.ACCOUNT}
-        render={() => <AccountPage />}
+        component={AccountPage}
       />
     </div>
   </Router>
@@ -1161,12 +1161,12 @@ const App = () =>
 
       <hr/>
 
-      <Route exact path={routes.LANDING} render={() => <LandingPage />} />
-      <Route exact path={routes.SIGN_UP} render={() => <SignUpPage />} />
-      <Route exact path={routes.SIGN_IN} render={() => <SignInPage />} />
-      <Route exact path={routes.PASSWORD_FORGET} render={() => <PasswordForgetPage />} />
-      <Route exact path={routes.HOME} render={() => <HomePage />} />
-      <Route exact path={routes.ACCOUNT} render={() => <AccountPage />} />
+      <Route exact path={routes.LANDING} component={LandingPage} />
+      <Route exact path={routes.SIGN_UP} component={SignUpPage} />
+      <Route exact path={routes.SIGN_IN} component={SignInPage} />
+      <Route exact path={routes.PASSWORD_FORGET} component={PasswordForgetPage} />
+      <Route exact path={routes.HOME} component={HomePage} />
+      <Route exact path={routes.ACCOUNT} component={AccountPage} />
     </div>
   </Router>
 
