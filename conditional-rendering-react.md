@@ -176,7 +176,7 @@ function LoadingIndicator({ isLoading }) {
 }
 {{< /highlight >}}
 
-That's your way to go when you want to return an element or nothing. It makes it even more concise than a ternary operation when you would return null for a condition.
+That's your way to go when you want to return an element or nothing. The technique is also called short-circuit evaluation. It makes it even more concise than a ternary operation when you would return null for a condition.
 
 {{% chapter_header "switch case operator in React" "switch-case-operator" %}}
 

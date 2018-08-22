@@ -197,10 +197,8 @@ npm install dotenv --save
 
 And second, import it in your *src/index.js* file in order to initialize it. Afterward, the environment variable from your *.env* file is accessible in your source code.
 
-{{< highlight javascript "hl_lines=1 3 7" >}}
-import dotenv from 'dotenv';
-
-dotenv.config();
+{{< highlight javascript "hl_lines=1 5" >}}
+import 'dotenv/config';
 
 console.log('Hello Node.js project.');
 
@@ -212,19 +210,15 @@ After starting your npm script again, you should see the environment variable in
 There is one thing about these environment variables where you have to be careful. Consider the following code for your *src/index.js* file where you import a function from another file from your project.
 
 {{< highlight javascript >}}
-import dotenv from 'dotenv';
-
 import saySomething from './my-other-file.js'
 
-dotenv.config();
+import 'dotenv/config';
 {{< /highlight >}}
 
 If you would use an environment variable in your *src/my-other-file.js*, it would be undefined, because the initialization of the dotenv package happens after the actual import in your *src/index.js* file. In order to fix it, you would have to put the dotenv initialization before your local file imports.
 
 {{< highlight javascript >}}
-import dotenv from 'dotenv';
-
-dotenv.config();
+import 'dotenv/config';
 
 import saySomething from './my-other-file.js'
 {{< /highlight >}}
