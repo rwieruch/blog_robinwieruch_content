@@ -65,6 +65,7 @@ While building this application with me in the following sections, I recommend t
   * [GraphQL Server E2E Test Setup](#graphql-server-e2e-test-setup)
   * [Testing User Scenarios with E2E Tests](#graphql-server-test-api)
 * [Batching and Caching in GraphQL with Data Loader](#graphql-server-data-loader-caching-batching)
+* [GraphQL Server + PostgreSQL Deployment to Heroku](#graphql-server-postgresql-deployment-heroku)
 
 {{% chapter_header "Apollo Server Setup with Express" "apollo-server-setup-express" %}}
 
@@ -3882,13 +3883,13 @@ In addition, you need to make sure to create such a database, in this case it is
 
 Finally, you need to ensure to start with a seeded and consistent database every time you run your test server. Therefore you can set the database re-seeding flag depending on the set test database environment variable in the *src/index.js* file:
 
-{{< highlight javascript "hl_lines=3" >}}
+{{< highlight javascript "hl_lines=3 5 6" >}}
 ...
 
-const eraseDatabaseOnSync = process.env.TEST_DATABASE ? true : false;
+const isTest = !!process.env.TEST_DATABASE;
 
-sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
-  if (eraseDatabaseOnSync) {
+sequelize.sync({ force: isTest }).then(async () => {
+  if (isTest) {
     createUsersWithMessages(new Date());
   }
 
@@ -4416,7 +4417,135 @@ That's it. Feel free to add more loaders, maybe also for the message domain, on 
 
 ### Exercises:
 
+* read more about {{% a_blank "GraphQL and Dataloader" "https://www.apollographql.com/docs/graphql-tools/connectors.html#dataloader" %}}
 * read more about {{% a_blank "GraphQL Best Practices" "https://graphql.github.io/learn/best-practices/" %}}
+
+{{% chapter_header "GraphQL Server + PostgreSQL Deployment to Heroku" "graphql-server-postgresql-deployment-heroku" %}}
+
+Eventually you want to deploy your GraphQL server somewhere that it can be reached online by others or that it can be used in production. In this section, you will learn how to deploy your GraphQL server to Heroku which is a platform as a service to host applications. The best thing about it: You can host your PostgreSQL there as well.
+
+The following section will guide you through the process on the command line. If you want to take the visual route, you can checkout this {{% a_blank "GraphQL server on Heroku deployment tutorial" "https://www.apollographql.com/docs/apollo-server/deployment/heroku.html" %}} which, however, doesn't include the PostgreSQL database deployment.
+
+Initially you need to complete three requirements for using Heroku:
+
+* [install git for your command line and push your project to GitHub](https://www.robinwieruch.de/git-essential-commands/)
+* create an account for {{% a_blank "Heroku" "https://www.heroku.com/" %}}
+* install the {{% a_blank "Heroku CLI" "https://devcenter.heroku.com/articles/heroku-cli" %}} for accessing Heroku's features on the command line
+
+On the command line verify your Heroku installation with `heroku version`. If there is a valid installation, sign in to your recently created Heroku account with `heroku login` on the command line. That's it for the general Heroku setup. You should be able to use Heroku for hosting any of your applications now.
+
+Now, in your project's folder, you can create a new Heroku application from the command line. It's up to you to give your application any name:
+
+{{< highlight javascript >}}
+heroku create graphql-server-node-js
+{{< /highlight >}}
+
+Afterward, you can also install the PostgreSQL add-on for Heroku on the command line for your project:
+
+{{< highlight javascript >}}
+heroku addons:create heroku-postgresql:hobby-dev
+{{< /highlight >}}
+
+It uses the {{% a_blank "hobby tier" "https://devcenter.heroku.com/articles/heroku-postgres-plans#hobby-tier" %}} which can be upgraded any time but shouldn't cost you anything for the start. The output for the PostgreSQL add-on installation should be similar to:
+
+{{< highlight javascript >}}
+Creating heroku-postgresql:hobby-dev on ⬢ graphql-server-node-js... free
+Database has been created and is available
+ ! This database is empty. If upgrading, you can transfer
+ ! data from another database with pg:copy
+Created postgresql-perpendicular-34121 as DATABASE_URL
+Use heroku addons:docs heroku-postgresql to view documentation
+{{< /highlight >}}
+
+As pointed out by the command line output, you can always check the {{% a_blank "Heroku PostgreSQL documentation" "https://devcenter.heroku.com/articles/heroku-postgresql" %}} for more in depth instructions for your database setup. Depending on the plan you have chosen, your database can take a couple of minutes to become available.
+
+Now, everything should be set up from a command line perspective to take your application online. By having the PostgreSQL add-on installed, you should have gotten a database URL too. You can find it with `heroku config`. Now, let's step into your GraphQL server's code to make a couple of adjustments for production.
+
+In your *src/models/index.js*, you need to decide between development (coding, testing) and production (live) build. Because you have a new environment variable for your database URL now, you can use this to make the decision:
+
+{{< highlight javascript "hl_lines=3 4 5 6 7 8 17" >}}
+import Sequelize from 'sequelize';
+
+let sequelize;
+if (process.env.DATABASE_URL) {
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+  });
+} else {
+  sequelize = new Sequelize(
+    process.env.TEST_DATABASE || process.env.DATABASE,
+    process.env.DATABASE_USER,
+    process.env.DATABASE_PASSWORD,
+    {
+      dialect: 'postgres',
+    },
+  );
+}
+
+...
+{{< /highlight >}}
+
+If you check your *.env* file, you will see that the `DATABASE_URL` environment variable isn't there. But you should see that it is set as Heroku environment variable with `heroku config:get DATABASE_URL`. Once your application is live on Heroku, your environment variables are merged with Heroku's environment variables. That's why the `DATABASE_URL` isn't applied for your local development environment.
+
+Another environment variable which is used in your *src/index.js* file is the *SECRET* for your authentication strategy. If you haven't included your *.env* file in your project's version control (see .gitignore), you need to set the `SECRET` for your production code in Heroku on the command line too: `heroku config:set SECRET mysecret`.
+
+Another thing which needs consideration is the application's port which is specified in the *src/index.js* file. In case Heroku adds its own `PORT` environment variable, you should use the port from an environment variable as fallback.
+
+{{< highlight javascript "hl_lines=3 10 11" >}}
+...
+
+const port = process.env.PORT || 8000;
+
+sequelize.sync({ force: isTest }).then(async () => {
+  if (isTest) {
+    createUsersWithMessages(new Date());
+  }
+
+  httpServer.listen({ port }, () => {
+    console.log(`Apollo Server on http://localhost:${port}/graphql`);
+  });
+});
+
+...
+{{< /highlight >}}
+
+Last but not least, you can decide whether you want to start with a seeded database, or an empty database on Heroku PostgreSQL. If it should be seeded, you can add an extra flag to the seeding:
+
+{{< highlight javascript "hl_lines=4 7 8" >}}
+...
+
+const isTest = !!process.env.TEST_DATABASE;
+const isProduction = !!process.env.DATABASE_URL;
+const port = process.env.PORT || 8000;
+
+sequelize.sync({ force: isTest || isProduction }).then(async () => {
+  if (isTest || isProduction) {
+    createUsersWithMessages(new Date());
+  }
+
+  httpServer.listen({ port }, () => {
+    console.log(`Apollo Server on http://localhost:${port}/graphql`);
+  });
+});
+
+...
+{{< /highlight >}}
+
+Don't forget to remove the flag afterward, otherwise the database is purged and seeded with every deployment. That's it for the code adjustments. Depending on development or production, you are choosing the correct database, you seed (or seed not) your database and you choose an appropriate port for your GraphQL server. Now let's take it online to Heroku.
+
+Before pushing your application to Heroku, you need to push all your recent changes with git on the command line to your GitHub repository (git add, git commit, git push). Afterward, you can push all the changes to your Heroku remote repository too, because you have created a Heroku application before: `git push heroku master`. If everything went successful, you can open the application with `heroku open`. Don't forget to add the `/graphql` suffix to your URL in the browser to open up GraphQL Playground.
+
+Depending on your seeding strategy, your database should be empty or should have seeded data. In case of the former, you need first to register a user and create messages with this user via GraphQL mutations. Otherwise, if your database is seeded, you can start to request a list of messages with a GraphQL query.
+
+Congratulations, your application should be live now. Not only your GraphQL server is running on Heroku, but also your PostgreSQL database. Follow the exercises to learn more about Heroku.
+
+### Exercises:
+
+* create sample data in your production database with GraphQL Playground
+* get familiar with the {{% a_blank "Heroku Dashboard" "https://dashboard.heroku.com/apps" %}}
+  * find your application's logs
+  * find your application's environment variables
+* access your PostgreSQL database on Heroku with `heroku pg:psql`
 
 <hr class="section-divider">
 
