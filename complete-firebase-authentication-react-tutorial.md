@@ -1561,7 +1561,7 @@ const AccountPage = () =>
   <AuthUserContext.Consumer>
     {authUser =>
       <div>
-        <h1>Account: {authUser.email}</h1>
+        <h1>Account: {authUser ? authUser.email : null}</h1>
         <PasswordForgetForm />
         <PasswordChangeForm />
       </div>
