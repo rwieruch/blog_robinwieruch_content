@@ -23,24 +23,26 @@ summary = "This React with GraphQL Tutorial shows you how to use GraphQL in your
 
 {{% read_before_2 "This tutorial is part 2 of 3 in this series." "Part 1:" "Getting Started with GitHub's GraphQL API" "https://www.robinwieruch.de/getting-started-github-graphql-api" "Part 3:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial" %}}
 
-In this tutorial, you will learn how to combine React with GraphQL in your application. There is no clever library such as {{% a_blank "Apollo Client" "https://github.com/apollographql/apollo-client" %}} or {{% a_blank "Relay" "https://github.com/facebook/relay" %}} involved to help you out in the beginning. Instead, you will perform GraphQL queries and mutations with plain HTTP requests. In a later tutorial, it's planned to introduce Apollo as GraphQL client for your React.js application. But for now, this tutorial should should only show you how to use plain GraphQL in React. Yet you will start out without React to learn just about GraphQL in the first place.
+In the following client-sided GraphQL application that we are going to build together, you will learn how to combine React with GraphQL. There is no clever library such as {{% a_blank "Apollo Client" "https://github.com/apollographql/apollo-client" %}} or {{% a_blank "Relay" "https://github.com/facebook/relay" %}} involved yet to help you out in the beginning. Instead, you will perform GraphQL queries and mutations with basic HTTP requests. In a later GraphQL tutorial, it's planned to introduce Apollo as GraphQL client for your React.js application. But for now, this application should should only show you how to use GraphQL in React with HTTP. Yet you will start out even without React to learn just about GraphQL in the first place.
 
-Along the way of this React GraphQL tutorial, you will build a simplified GitHub client, basically an issue tracker for GitHub, that consumes {{% a_blank "GitHub's GraphQL API" "https://developer.github.com/v4/" %}}. You will perform queries and mutations to read and write data. At the end of this GraphQL in React tutorial, you should be able to showcase a React GraphQL example that can be used by other developers to learn from it.
+Along the way of this React with GraphQL tutorial, you will build a simplified {{% a_blank "GitHub client" "https://github.com/rwieruch" %}}, basically an issue tracker for GitHub, that consumes {{% a_blank "GitHub's GraphQL API" "https://developer.github.com/v4/" %}}. You will perform GraphQL queries and mutations to read and write data. At the end of this GraphQL in React tutorial, you should be able to showcase a GraphQL in React example that can be used by other developers to learn from it. The final application you are going to build can be found in this {{% a_blank "repository on GitHub" "https://github.com/rwieruch/react-graphql-github-vanilla" %}}.
 
 {{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>33.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
-* [GraphQL Query](#graphql-query-github-api)
-* [GraphQL Mutation](#graphql-mutation-github-api)
-* [GraphQL Pagination](#graphql-pagination)
-* [Writing your first React GraphQL Client](#react-graphql-client)
-* [GraphQL Query in React](#react-graphql-query)
-  * [GraphQL Nested Objects in React](#react-graphql-nested-objects)
-  * [GraphQL Variables and Arguments in React](#react-graphql-variables-arguments)
-* [GraphQL Pagination in React](#react-graphql-pagination)
-* [GraphQL Mutation in React](#react-graphql-mutation)
-* [Shortcomings of GraphQL in React without a GraphQL Client library](#react-graphql-library)
+* GrapQL Basics
+  * [GraphQL Query](#graphql-query-github-api)
+  * [GraphQL Mutation](#graphql-mutation-github-api)
+  * [GraphQL Pagination](#graphql-pagination)
+* Graph with React and HTTP
+  * [Writing your first React GraphQL Client](#react-graphql-client)
+  * [GraphQL Query in React](#react-graphql-query)
+      * [GraphQL Nested Objects in React](#react-graphql-nested-objects)
+      * [GraphQL Variables and Arguments in React](#react-graphql-variables-arguments)
+  * [GraphQL Pagination in React](#react-graphql-pagination)
+  * [GraphQL Mutation in React](#react-graphql-mutation)
+  * [Shortcomings of GraphQL in React without a GraphQL Client library](#react-graphql-library)
 
 {{% chapter_header "GraphQL Query with GitHub's GraphQL API" "graphql-query-github-api" %}}
 
@@ -1916,8 +1918,8 @@ As I mentioned, the list may be not complete, but I am keen to hear your thought
 
 <hr class="section-divider">
 
-You can find the final {{% a_blank "repository on GitHub" "https://github.com/rwieruch/react-graphql-github-vanilla" %}}. The repository showcases most of the exercise tasks too. The application is not feature complete, doesn't cover all edge cases and isn't styled. However, I hope the walkthrough of implementing the application with plain GraphQL in React has helped you to understand using GraphQL in React by using only HTTP request. I believe it's important to make this step before using a sophisticated GraphQL client library such as Apollo.
+You can find the final {{% a_blank "repository on GitHub" "https://github.com/rwieruch/react-graphql-github-vanilla" %}}. The repository showcases most of the exercise tasks too. The application is not feature complete, doesn't cover all edge cases and isn't styled. However, I hope the walkthrough of implementing the application with plain GraphQL in React has helped you to understand using GraphQL only on the client-side in React by using only HTTP request. I believe it's important to make this step before using a sophisticated GraphQL client library such as Apollo or Relay.
 
-The previous sections should have shown you how to implement a React application with GraphQL and HTTP requests without using a library such as Apollo for it. In the GraphQL with React book, you will continue learning about using GraphQL in React by using Apollo instead of plain HTTP requests. The Apollo GraphQL Client makes caching your data, normalizing it, performing optimistic updates and pagination an effortless endeavor. That's by far not all to it. So stay tuned for the next applications you are are going to build with GraphQL in React.
+The previous sections should have shown you how to implement a React application with GraphQL and HTTP requests without using a library such as Apollo for it. In the following, you will continue learning about using GraphQL in React by using Apollo instead of basic HTTP requests. The Apollo GraphQL Client makes caching your data, normalizing it, performing optimistic updates and pagination an effortless endeavor. That's by far not all to it. So stay tuned for the next applications you are are going to build with GraphQL.
 
 {{% read_before_2 "This tutorial is part 2 of 3 in this series." "Part 1:" "Getting Started with GitHub's GraphQL API" "https://www.robinwieruch.de/getting-started-github-graphql-api" "Part 3:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial" %}}
