@@ -23,9 +23,9 @@ summary = "This React with GraphQL Tutorial shows you how to use GraphQL in your
 
 {{% read_before_2 "This tutorial is part 2 of 3 in this series." "Part 1:" "Getting Started with GitHub's GraphQL API" "https://www.robinwieruch.de/getting-started-github-graphql-api" "Part 3:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial" %}}
 
-In the following client-sided GraphQL application that we are going to build together, you will learn how to combine React with GraphQL. There is no clever library such as {{% a_blank "Apollo Client" "https://github.com/apollographql/apollo-client" %}} or {{% a_blank "Relay" "https://github.com/facebook/relay" %}} involved yet to help you out in the beginning. Instead, you will perform GraphQL queries and mutations with basic HTTP requests. In a later GraphQL tutorial, it's planned to introduce Apollo as GraphQL client for your React.js application. But for now, this application should should only show you how to use GraphQL in React with HTTP. Yet you will start out even without React to learn just about GraphQL in the first place.
+In the  client-sided GraphQL application we'll build together, you will learn how to combine React with GraphQL. There is no clever library like {{% a_blank "Apollo Client" "https://github.com/apollographql/apollo-client" %}} or {{% a_blank "Relay" "https://github.com/facebook/relay" %}} to help yoy get started yet, so instead, you will perform GraphQL queries and mutations with basic HTTP requests. Later I'll introduce Apollo as a GraphQL client for your React.js application. For now, the application we build should should only show how to use GraphQL in React with HTTP. 
 
-Along the way of this React with GraphQL tutorial, you will build a simplified {{% a_blank "GitHub client" "https://github.com/rwieruch" %}}, basically an issue tracker for GitHub, that consumes {{% a_blank "GitHub's GraphQL API" "https://developer.github.com/v4/" %}}. You will perform GraphQL queries and mutations to read and write data. At the end of this GraphQL in React tutorial, you should be able to showcase a GraphQL in React example that can be used by other developers to learn from it. The final application you are going to build can be found in this {{% a_blank "repository on GitHub" "https://github.com/rwieruch/react-graphql-github-vanilla" %}}.
+Along the way, you will build a simplified {{% a_blank "GitHub client" "https://github.com/rwieruch" %}}, basically an issue tracker for GitHub, that consumes {{% a_blank "GitHub's GraphQL API" "https://developer.github.com/v4/" %}}. You will perform GraphQL queries and mutations to read and write data, and by the end, you should be able to showcase an example that can be used by other developers as a learning tool. The final application you are going to build can be found in this {{% a_blank "repository on GitHub" "https://github.com/rwieruch/react-graphql-github-vanilla" %}}.
 
 {{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>33.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
@@ -46,7 +46,7 @@ Along the way of this React with GraphQL tutorial, you will build a simplified {
 
 {{% chapter_header "GraphQL Query with GitHub's GraphQL API" "graphql-query-github-api" %}}
 
-In this section, you will interact with the GitHub API by only writing queries and mutations without using any React yet. Therefore, you are going to use your GraphiQL application or GitHub's GraphQL Explorer from the previous sections to make your first GraphQL query requests to GitHub's API. Both tools should be authorized to make a request by using your personal access token. Therefore, on the left-hand side of your GraphiQL application, you can fill in GraphQL queries and mutations. Let's add the following query to request data about yourself.
+In this section, you will interact with the GitHub API using queries and mutations without React, so it can use a GraphiQL application or GitHub's GraphQL Explorer to make GraphQL query requests to GitHub's API. Both tools should be authorized to make request using a personal access token. On the left-hand side of your GraphiQL application, you can fill in GraphQL queries and mutations. Add the following query to request data about yourself.
 
 {{< highlight javascript >}}
 {
@@ -57,9 +57,9 @@ In this section, you will interact with the GitHub API by only writing queries a
 }
 {{< /highlight >}}
 
-The `viewer` object can be used to request data about the currently authorized user. Since you are authorized by using your personal access token, it should be data about your own account. The `viewer` is an **object** when speaking in GraphQL terms. Objects hold data about an entity. You can access the data by using a so called **field** in GraphQL. Fields are used to ask for specific properties that are available in objects. For instance, the `viewer` object exposes a wide range of fields. Two fields for the object are called `name` and `url` that you have used in the query. A query in its most basic form consists of objects and fields in GraphQL terms. Objects can also be called fields.
+The `viewer` object can be used to request data about the currently authorized user. Since you are authorized by your personal access token, it should show data about your account. The `viewer` is an **object** in GraphQL terms. Objects hold data about an entity. This data is accessed using a so-called **field** in GraphQL. Fields are used to ask for specific properties in objects. For instance, the `viewer` object exposes a wide range of fields. Two fields for the object--`name` and `url`--were used in the query. In its most basic form, a query is just 9,objects and fields, and objects can also be called fields.
 
-Once you run the query in GraphiQL, you should get a similar output on the right-hand side of your GraphiQL application as shown below. My output is the following since I am authorized with my own personal access token:
+Once you run the query in GraphiQL, you should see output similar to the one below, where your name and url are in the place of mine:
 
 {{< highlight javascript >}}
 {
@@ -72,7 +72,7 @@ Once you run the query in GraphiQL, you should get a similar output on the right
 }
 {{< /highlight >}}
 
-It should work for you as well. So congratulations, you have performed your first query to access fields from your own user data. Now, let's see how to request data from something else than yourself as authorized user. What about fetching data from a public GitHub organization? There exists one organization which has the goal to teach developers about React. You can use this organization or any other organization to continue with the following queries. In order to specify a GitHub organization, you can pass a so called **argument** to fields with GraphQL:
+Congratulations, you have performed your first query to access fields from your own user data. Now, let's see how to request data from another source other than yourself, like a public GitHub organization. To specify a GitHub organization, you can pass an **argument** to fields:
 
 {{< highlight javascript >}}
 {
@@ -83,7 +83,7 @@ It should work for you as well. So congratulations, you have performed your firs
 }
 {{< /highlight >}}
 
-The organization when using GitHub's API is identified with a `login`. If you have used GitHub before, you might know that this is a part of the organization URL: `https://github.com/the-road-to-learn-react`. By providing a `login` to identify the organization, you can request data about it. In this example, you have specified two fields in order to access the `name` and `url` fields. The request should succeed and return you on the right-hand side of your GraphiQL application something similar to the following output:
+When using GitHub's API, an organization is identified with a `login`. If you have used GitHub before, you might know this is a part of the organization URL: `https://github.com/the-road-to-learn-react`. By providing a `login` to identify the organization, you can request data about it. In this example, you have specified two fields to access data about the organization's `name` and `url`. The request should return something similar to the following output:
 
 {{< highlight javascript >}}
 {
@@ -96,9 +96,9 @@ The organization when using GitHub's API is identified with a `login`. If you ha
 }
 {{< /highlight >}}
 
-In the previous query, you have passed an argument to a field. As you can imagine, you can add arguments to various fields when using GraphQL. It grants you a huge flexible when structuring your queries, because you can make specifications to your requests not on a request level but on a field level. In addition, arguments can be of different kinds. In case of the organization, you have provided an argument with the type `String`. However, you can pass also types such as enumerations with a fixed set of options, integers or booleans.
+In the previous query you passed an argument to a field. As you can imagine, you can add arguments to various fields using GraphQL. It grants a great deal of flexibility for structuring queries, because you can make specifications to requests on a field level. Also, arguments can be of different types. With the organization above, you provided an argument with the type `String`, though you can also pass types like enumerations with a fixed set of options, integers, or booleans.
 
-There are further features in structuring your queries which GraphQL has to offer. If you ever wanted to request data about two identical objects, you would have to use so called **aliases** in GraphQL. The following query wouldn't be possible, because GraphQL wouldn't know how to resolve the two organization objects in a result:
+If you ever wanted to request data about two identical objects, you would have to use **aliases** in GraphQL. The following query wouldn't be possible, because GraphQL wouldn't know how to resolve the two organization objects in a result:
 
 {{< highlight javascript >}}
 {
@@ -113,7 +113,7 @@ There are further features in structuring your queries which GraphQL has to offe
 }
 {{< /highlight >}}
 
-You would see an error similar to `Field 'organization' has an argument conflict`. But by using aliases, you can resolve the result into two blocks:
+You would see an error similar to `Field 'organization' has an argument conflict`. Using aliases, you can resolve the result into two blocks:
 
 {{< highlight javascript "hl_lines=2 6" >}}
 {
@@ -145,7 +145,7 @@ The result should be similar to the following:
 }
 {{< /highlight >}}
 
-Next imagine you would have to request lots of fields for both organization. Thus you would have to repeat all fields for each organization which makes the quert repetitive and verbose. Therefore, you can use so called **fragments** to extract reusable parts of a query. That's especially useful when your query becomes deeply nested and uses lots of shared fields.
+Next, imagine you want to request multiple fields for both organizations. Re-typing all the fields for each organization would make the query repetitive and verbose, so we'll use **fragments** to extract the query's reusable parts.  Fragments are especially useful when your query becomes deeply nested and uses lots of shared fields.
 
 {{< highlight javascript "hl_lines=3 6 10 11 12 13" >}}
 {
@@ -163,11 +163,12 @@ fragment sharedOrganizationFields on Organization {
 }
 {{< /highlight >}}
 
-As you can see, you have to specify `on` which **type** of object the fragment should be used on. In this case, it is the type `Organization` which is a custom type defined by GitHub's GraphQL API. That's how you can use fragments to extract and reuse parts of your queries. At this point in time, you might want to open up the "Docs" on the right-hand side of your GraphiQL application. The documentation gives you access to the GraphQL **schema**. A schema is exposed by the GraphQL API that is used by your GraphiQL application. In your case, it's the schema of Github's GraphQL API. Basically, the schema defines the GraphQL **graph** that is accessible via the GraphQL API by using queries and mutations. Since it is a graph, objects and fields can be deeply nested in it. That's why you will encounter such deeply nested queries and mutations eventually.
+As you can see, you have to specify on which **type** of object the fragment should be used. In this case, it is the type `Organization`, which is a custom type we defined using  GitHub's GraphQL API. This is how you use fragments to extract and reuse parts of your queries. At this point, you might want to open "Docs" on the right side of your GraphiQL application. The documentation gives you access to the GraphQL **schema**. A schema is exposes the GraphQL API  used by your GraphiQL application, which is Github's GraphQL API in this case. It defines the GraphQL **graph** that is accessible via the GraphQL API using queries and mutations. Since it is a graph, objects and fields can be deeply nested in it, which we'll certainly encounter as we move along.
 
-Since we are exploring queries and not mutations at the moment, you can select "Query" in the "Docs" sidebar. Afterward, you can traverse through the objects and fields of the graph, explore their (optional) arguments that can be passed to them and by clicking on them, you can see the accessible fields on those objects in the graph again. Whereas some fields are common GraphQL types such as `String`, `Int` and `Boolean`, some other types are **custom types** such as the `Organization` type which you have used before. In addition, you can see whether arguments are required when requesting fields on an object. It can be identified by the exclamation point. For instance, a field with a `String!` argument requires that you pass in a `String` argument whereas a field with a `String` argument doesn't require you to pass it.
+Since we're exploring queries and not mutations at the moment, select "Query" in the "Docs" sidebar. Afterward, traverse the objects and fields of the graph, explore their optional arguments. By clicking them, you can see the accessible fields within those objects in the graph. Some fields are common GraphQL types such as `String`, `Int` and `Boolean`, while some other types are **custom types** like the `Organization` type we used. In addition, you can see whether arguments are required when requesting fields on an object. It can be identified by the exclamation point. For instance, a field with a `String!` argument requires that you pass in a `String` argument whereas a field with a `String` argument doesn't require you to pass it.
 
-In the previous queries, you have provided an argument to identify the organization to your field. But you have **inlined these arguments** in your query. If you think about a query like a function in your code, you would want to provide dynamic arguments to your query, wouldn't you? That's where the **variable** in GraphQL comes into play. You can extract argument(s) as variable(s) from your queries. Let's see how an organization's `login` argument can be extracted to such a dynamic variable:
+In the previous queries, you provided arguments that identified an organization to your fields; but you **inlined these arguments** in your query. Think about a query like a function, where it's important to provide dynamic arguments to it. That's where the **variable** in GraphQL comes in, as it allows arguments to be extracted as variables from queries. Here's how an organization's `login` argument can be extracted to 
+a dynamic variable:
 
 {{< highlight javascript "hl_lines=1 2" >}}
 query ($organization: String!) {
@@ -178,7 +179,9 @@ query ($organization: String!) {
 }
 {{< /highlight >}}
 
-It defines the `organization` argument as a variable by using the `$` sign. In addition, the type of the argument is provided by defining it as `String` type. Since the argument is required to fulfil the query, the `String` type has an exclamation point. In the next step, in your "Query Variables" panel in GraphiQL, the variables would have the following content for providing the `organization` variable as argument for the query:
+It defines the `organization` argument as a variable using the `$` sign. Also, the argument's type is definined as a `String`. Since the argument is required to fulfil the query, the `String` type has an exclamation point. 
+
+In the "Query Variables" panel, the variables would have the following content for providing the `organization` variable as argument for the query:
 
 {{< highlight javascript >}}
 {
@@ -186,9 +189,9 @@ It defines the `organization` argument as a variable by using the `$` sign. In a
 }
 {{< /highlight >}}
 
-Variable(s) can be used to create dynamic queries when it comes to the implementation in your code. Following this best practice in GraphQL, you don't need to do any manual string interpolation yourself to structure a dynamic query later on. You would provide the query which uses variables as arguments instead and provide the variables when you actually perform the query as request to your GraphQL API. You will see both implementations later in your React application.
+Essentially, ariables can be used to create dynamic queries. Following the best practices in GraphQL, we don't need manual string interpolation to structure a dynamic query later on. Instead, we provide a query that uses variables as arguments, which are available when the query is sent as a request to the GraphQL API. You will see both implementations later in your React application. 
 
-On a side note, you can also define a **default variable** in GraphQL. It has to be a not required argument, otherwise you will get an error about a **nullable variable** or **non-null variable**. For the purpose of learning about the default variable, you have to make the `organization` argument a not required argument by omitting the exclamation point. Afterward, you can pass it a default variable.
+Sidenote: You can also define a **default variable** in GraphQL. It has to be a non-required argument, or an error will occur about a **nullable variable** or **non-null variable**. For learning about default variables, we'll make the `organization` argument non-required by omitting the exclamation point. Afterwards, it can be passed as a default variable.
 
 {{< highlight javascript "hl_lines=1 2" >}}
 query ($organization: String = "the-road-to-learn-react") {
@@ -199,9 +202,9 @@ query ($organization: String = "the-road-to-learn-react") {
 }
 {{< /highlight >}}
 
-You can try to execute the previous query with two sets of variables: one time with the `organization` variable which should differ from the default variable and one time without defining the `organization` variable.
+Try to execute the previous query with two sets of variables: once with the `organization` variable that's different from the default variable,  and once without defining the `organization` variable.
 
-Let's take a step back to examine the structure of the GraphQL query. After you have introduced variables, you have encountered the `query` statement in your query structure for the first time. Before you were able to use the **shorthand version of a query** by omitting the `query` statement. However, the `query` statement has to be there when using variables now. Try the following query without variables but with the `query` statement in order to verify that the long version of a query works for you as well.
+Now, let's take a step back to examine the structure of the GraphQL query. After you introduced variables, you encountered the `query` statement in your query structure for the first time. Before, you used the **shorthand version of a query** by omitting the `query` statement, but the `query` statement has to be there now that it's using variables. Try the following query without variables, but with the `query` statement, to verify that the long version of a query works.
 
 {{< highlight javascript "hl_lines=1" >}}
 query {
@@ -212,7 +215,7 @@ query {
 }
 {{< /highlight >}}
 
-While it's not the shorthand version of the query, it still returns the identical data as before. That's the desired behavior after all. The query statement is also called **operation type** in GraphQL lingua. For instance, it can be a `mutation` statement as well. In addition to the operation type, you can also define an **operation name**.
+While it's not the shorthand version of the query, it still returns the same data as before, which is the desired outcome. The query statement is also called **operation type** in GraphQL lingua. For instance, it can also be a `mutation` statement. In addition to the operation type, you can also define an **operation name**.
 
 {{< highlight javascript "hl_lines=1" >}}
 query OrganizationForLearningReact {
@@ -223,7 +226,7 @@ query OrganizationForLearningReact {
 }
 {{< /highlight >}}
 
-You can compare it to anonymous and named functions in your code. A **named query** provides a certain level of clarity for what you want to achieve with the query in a declarative way. They also help you debugging your code when it comes to multiple queries in your application eventually. Thus, they should be used when you want to implement a application. After all, your final query, without showing again the variables panel, could look like the following:
+Compare it to anonymous and named functions in your code. A **named query** provides a certain level of clarity about what you want to achieve with the query in a declarative way, and it helps with debugging multiple queries, so it should be used when you want to implement an application. Your final query, without showing the variables panel again, could look like the following:
 
 {{< highlight javascript >}}
 query OrganizationForLearningReact($organization: String!) {
@@ -234,7 +237,7 @@ query OrganizationForLearningReact($organization: String!) {
 }
 {{< /highlight >}}
 
-So far, you have only accessed one object, an organization which teaches React, with a couple of its fields. But the GraphQL schema implements a whole graph, doesn't it? Let's see how to access a **nested object** with a query in this graph. It's not much different from before:
+So far, you have only accessed one object, an organization that teaches React, with a couple of its fields. The GraphQL schema implements a whole graph, so Let's see how to access a **nested object** from within the graph with a query. It's not much different from before:
 
 {{< highlight javascript "hl_lines=3 8 9 10" >}}
 query OrganizationForLearningReact(
@@ -251,7 +254,7 @@ query OrganizationForLearningReact(
 }
 {{< /highlight >}}
 
-Whereas you would have to provide the second variable to request a specific repository of the organization:
+Provide a second variable to request a specific repository of the organization:
 
 {{< highlight javascript "hl_lines=3" >}}
 {
@@ -260,9 +263,9 @@ Whereas you would have to provide the second variable to request a specific repo
 }
 {{< /highlight >}}
 
-The organization that teaches about React has translated versions of its content. One repository teaches students about React in simplified Chinese. As you can see, fields in GraphQL can be nested objects again. Basically, you have queried two associated objects from the graph. After all, you are making requests on a graph which can have a deeply nested structure. As you have explored the "Docs" sidebar in GraphiQL before, you might have seen that you can jump from object to object in the graph.
+The organization that teaches about React has translated versions of its content, and one of its repositories teaches students about React in simplified Chinese. Fields in GraphQL can be nested objects again, and you have queried two associated objects from the graph. The requests are made on a graph that can have a deeply nested structure. While exploring the "Docs" sidebar in GraphiQL before, you might have seen that you can jump from object to object in the graph.
 
-There is one last missing piece for structuring your queries in GraphQL: **directives**. A directive can be used to query conditional data from your GraphQL API. This way, you can apply conditional structures to your shape of query. They can be applied to fields and objects. You can either use the **include directive** or **skip directive**. Whereas the include directive only includes the field when the `Boolean` type is set to true, the skip directive excludes the field instead. The following query showcases the include directive, but you can substitute it with the skip directive on your own.
+A **directive** can be used to query conditional data from your GraphQL API, so you can apply conditional structures to your shape of query. Directives can also be applied to fields and objects.  Below, we use two types: an **include directive**, which includes the field when the `Boolean` type is set to true; and the skip directive, which excludes it instead. The following query showcases the include directive, but you can substitute it with the skip directive to achieve the opposite effect:
 
 {{< highlight javascript "hl_lines=4 11" >}}
 query OrganizationForLearningReact(
@@ -281,7 +284,7 @@ query OrganizationForLearningReact(
 }
 {{< /highlight >}}
 
-Now you can dynamically decide based on your provided variables whether you want to include the information for the `forCount` field.
+Now you can decide whether to include the information for the `forCount` field based on provided variables.
 
 {{< highlight javascript "hl_lines=4" >}}
 {
@@ -291,7 +294,7 @@ Now you can dynamically decide based on your provided variables whether you want
 }
 {{< /highlight >}}
 
-That's it for the GraphQL query. You have learned everything about structuring your GraphQL queries. The query in GraphQL gives you all you need to read data from a GraphQL API. Perhaps the last section came close to a whirlwind of information for you, but if you perform the following exercises, you should be prepared for using queries on your own.
+The query in GraphQL gives you all you need to read data from a GraphQL API. The last section may have felt like a whirlwind of information, so these excercises provide additional practice until you feel comfortable.
 
 ### Exercises:
 
