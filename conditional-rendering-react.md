@@ -1,11 +1,11 @@
 +++
 title = "All the Conditional Renderings in React"
-description = "Wondering how to render conditionally in React? The article is an exhaustive list of conditional renderings in JSX. How to use ternary operators, switch case and if else in React.js? You will see various use cases where and how to use these conditional renderings and advanced techniques ..."
+description = "Wondering how to perform a conditional render in React? The article is an exhaustive list of conditional renderings in React's JSX. How to use ternary operators, switch case and if else in React.js? You will see various use cases where and how to use these conditional renderings and advanced techniques ..."
 date = "2017-02-21T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
-keywords = ["react conditional rendering", "if else react"]
-news_keywords = ["react", "react conditional rendering"]
+keywords = ["react conditional rendering", "react conditional render"]
+news_keywords = ["react conditional rendering", "react conditional render", "if else react"]
 hashtag = "#ReactJs"
 card = "img/posts/conditional-rendering-react/banner_640.jpg"
 banner = "img/posts/conditional-rendering-react/banner.jpg"
@@ -19,7 +19,7 @@ summary = "Conditional rendering in React is no witchcraft. In JSX you can use p
 
 {{% pin_it_image "conditional rendering react" "img/posts/conditional-rendering-react/banner.jpg" "is-src-set" %}}
 
-Conditional rendering in React is no witchcraft. In JSX - the syntax extension used for React - you can use pure JavaScript. In JavaScript you should be familiar with if-else or switch case statements, [because they are the one of the fundamental pillars for learning React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/). You can use these in JSX as well, since JSX only mixes HTML and JavaScript.
+A conditional render in React is no witchcraft. In JSX - the syntax extension used for React - you can use pure JavaScript. In JavaScript you should be familiar with if-else or switch case statements, [because they are the one of the fundamental pillars for learning React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/). You can use these in JSX as well, since JSX only mixes HTML and JavaScript.
 
 But what is conditional rendering in React? In a conditional render a component decides based on one or several conditions which elements it will return. For instance, it can either return a list of items or a message that says "Sorry, the list is empty". When a component has conditional rendering, the instance of the rendered component can have different looks.
 

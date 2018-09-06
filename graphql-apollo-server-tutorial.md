@@ -386,6 +386,7 @@ Now you have already three queries which can be used in your GraphQL client (e.g
 
 * read more about {{% a_blank "the GraphQL schema with Apollo Server" "https://www.apollographql.com/docs/apollo-server/v2/essentials/schema.html" %}}
 * read more about {{% a_blank "the GraphQL mindset: Thinking in Graphs" "https://graphql.github.io/learn/thinking-in-graphs/" %}}
+* read more about {{% a_blank "nullability in GraphQL" "https://blog.apollographql.com/using-nullability-in-graphql-2254f84c4ed7" %}}
 
 {{% chapter_header "Apollo Server: Resolvers" "apollo-server-resolvers" %}}
 
