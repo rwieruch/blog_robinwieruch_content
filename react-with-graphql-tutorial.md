@@ -113,7 +113,7 @@ If you ever wanted to request data about two identical objects, you would have t
 }
 {{< /highlight >}}
 
-You would see an error similar to `Field 'organization' has an argument conflict`. Using aliases, you can resolve the result into two blocks:
+You'd see an error such as `Field 'organization' has an argument conflict`. Using aliases, you can resolve the result into two blocks:
 
 {{< highlight javascript "hl_lines=2 6" >}}
 {
@@ -237,7 +237,7 @@ query OrganizationForLearningReact($organization: String!) {
 }
 {{< /highlight >}}
 
-So far, you have only accessed one object, an organization that teaches React, with a couple of its fields. The GraphQL schema implements a whole graph, so Let's see how to access a **nested object** from within the graph with a query. It's not much different from before:
+So far you've only accessed one object, an organization that teaches React, with a couple of its fields. The GraphQL schema implements a whole graph, so Let's see how to access a **nested object** from within the graph with a query. It's not much different from before:
 
 {{< highlight javascript "hl_lines=3 8 9 10" >}}
 query OrganizationForLearningReact(
@@ -310,11 +310,11 @@ The query in GraphQL gives you all you need to read data from a GraphQL API. The
 
 {{% chapter_header "GraphQL Mutation with GitHub's GraphQL API" "graphql-mutation-github-api" %}}
 
-This section introduces the GraphQL mutation. It complements the GraphQL query, because it is used for writing data instead of reading it. The mutation shares the same principles as the query: it has fields and objects, arguments and variables, fragments and operation names and last but not least directives and nested objects for the returned result. When performing a mutation, you can specify the data as fields and objects that should be returned after a mutation. So let's see how mutations work by using your GraphiQL application. Before you start making your first mutation, beware that you are using live GitHub data here. For instance, if you follow a person on GitHub by making a mutation, you will follow this person for real. Which is fine in the end, because following one another should be encouraged to explore or collaborate on projects.
+This section introduces the GraphQL mutation. It complements the GraphQL query because it is used for writing data instead of reading it. The mutation shares the same principles as the query: it has fields and objects, arguments and variables, fragments and operation names, as well as directives and nested objects for the returned result. With mutations you can specify data as fields and objects that should be returned after it 'mutates' into something acceptable. Before you start making your first mutation, be aware that you are using live GitHub data, so if you follow a person on GitHub using your experimental mutation, you will follow this person for real. Fortunately this sort of behavior is encouraged on Github.
 
-In this section, you will star a repository on GitHub, the repository you have requested before with a query, by using a mutation available {{% a_blank "from GitHub's API" "https://developer.github.com/v4/mutation/addstar" %}}. You can find the `addStar` mutation when browsing the "Docs" sidebar in GraphiQL too. If you don't like to star the repository, you can unstar it afterward again. It's up to you. But I encourage you to keep the star. The repository which you are going to star is a project for teaching developers about the fundamentals of React.
+In this section, you will star a repository on GitHub, the same one you used a query to request before, using a mutation {{% a_blank "from GitHub's API" "https://developer.github.com/v4/mutation/addstar" %}}. You can find the `addStar` mutation in the "Docs" sidebar. The repository is a project for teaching developers about the fundamentals of React.
 
-You can visit {{% a_blank "the repository" "https://github.com/the-road-to-learn-react/the-road-to-learn-react" %}} to check whether you haven't given a star for the repository yet. Next, you can star it either manually on GitHub or by using a GraphQL mutation. Therefore, it's the perfect time to use a mutation instead of doing it manually. Before you can star the repository, you need to know its identifier for the mutation. You can retrieve the identifier in a query. After all, it is identical how you would do it later in your implementation.
+You can visit {{% a_blank "the repository" "https://github.com/the-road-to-learn-react/the-road-to-learn-react" %}} to see if you've given a star to the repository already. We want an unstarred repository so we can star it using a mutation. Before you can star a repository, you need to know its identifier, which can be retrieved by a query:
 
 {{< highlight javascript "hl_lines=5" >}}
 query {
@@ -329,7 +329,7 @@ query {
 }
 {{< /highlight >}}
 
-In your result for the query in GraphiQL, you should see the identifier for the repository: `"MDEwOlJlcG9zaXRvcnk2MzM1MjkwNw=="`. Before using the identifier as variable, you can structure your mutation in GraphiQL the following way:
+In the results for the query in GraphiQL, you should see the identifier for the repository: `"MDEwOlJlcG9zaXRvcnk2MzM1MjkwNw=="`. Before using the identifier as a variable, you can structure your mutation in GraphiQL the following way:
 
 {{< highlight javascript >}}
 mutation AddStar($repositoryId: ID!) {
@@ -342,7 +342,7 @@ mutation AddStar($repositoryId: ID!) {
 }
 {{< /highlight >}}
 
-The mutation name is given by GitHub's API: `addStar`. You are required to pass it the `starrableId` as `input` to identify the repository. Otherwise, the GitHub server wouldn't be able to know the repository that you want to star with the mutation. In addition, the mutation is a named mutation: `AddStar`. It's up to you to give it any name. Last but not least, you can define the return values of the mutation by using objects and fields again. It's identical to a query. Finally, the variables tab can provide the variable for the mutation which you have retrieved with your last query:
+The mutation's name is given by GitHub's API: `addStar`. You are required to pass it the `starrableId` as `input` to identify the repository; otherwise, the GitHub server won't know which repository to star with the mutation. In addition, the mutation is a named mutation: `AddStar`. It's up to you to give it any name. Last but not least, you can define the return values of the mutation by using objects and fields again. It's identical to a query. Finally, the variables tab provides the variable for the mutation you retrieved with the last query:
 
 {{< highlight javascript >}}
 {
@@ -350,7 +350,7 @@ The mutation name is given by GitHub's API: `addStar`. You are required to pass 
 }
 {{< /highlight >}}
 
-Once you execute the mutation, the result should look similar to the following. Since you have been able to specify the return values of your mutation by using the `id` and `viewerHasStarred` fields, you should be able to see them in the result.
+Once you execute the mutation, the result should look like the following. Since you specified the return values of your mutation using the `id` and `viewerHasStarred` fields, you should see them in the result.
 
 {{< highlight javascript >}}
 {
@@ -365,24 +365,24 @@ Once you execute the mutation, the result should look similar to the following. 
 }
 {{< /highlight >}}
 
-The repository should be starred now. It's visible in the result, but you can also check again the {{% a_blank "repository on GitHub" "https://github.com/the-road-to-learn-react/the-road-to-learn-react" %}} whether you have given it a star or not. Congratulations, you made your first mutation. It doesn't differ much from a query, does it?
+The repository is starred now. It's visible in the result, but you can verify it in the {{% a_blank "repository on GitHub" "https://github.com/the-road-to-learn-react/the-road-to-learn-react" %}}. Congratulations, you made your first mutation.  
 
 ### Exercises:
 
-* read more about {{% a_blank "the Mutation in GraphQL" "http://graphql.org/learn/queries/#mutations" %}}
-* explore GitHub's mutations by using the "Docs" sidebar in GraphiQL
-* find GitHub's `addStar` mutation in the "Docs" sidebar in GraphiQL
-  * check its possible fields for returning a response
-* create a few other mutations for this or another repository such as:
-  * unstar repository
-  * watch repository
-* create two named mutations side by side in the GraphiQL panel and execute them
-* read more about {{% a_blank "the schema and types" "http://graphql.org/learn/schema" %}}
-  * make yourself a picture of it, but don't worry if you don't understand everything yet
+* Read more about {{% a_blank "the Mutation in GraphQL" "http://graphql.org/learn/queries/#mutations" %}}
+* Explore GitHub's mutations by using the "Docs" sidebar in GraphiQL
+* Find GitHub's `addStar` mutation in the "Docs" sidebar in GraphiQL
+  * Check its possible fields for returning a response
+* Create a few other mutations for this or another repository such as:
+  * Unstar repository
+  * Watch repository
+* Create two named mutations side by side in the GraphiQL panel and execute them
+* Read more about {{% a_blank "the schema and types" "http://graphql.org/learn/schema" %}}
+  * Make yourself a picture of it, but don't worry if you don't understand everything yet
 
 {{% chapter_header "GraphQL Pagination " "graphql-pagination" %}}
 
-You will use early some kind of mechanism to request a list of items by using GraphQL. For instance, imagine you have a list of repositories in your GitHub organization. There must be a way to request only a part of the list. Otherwise, it would take ages to fetch the list of repositories from a large organization with lots of repositories. The answer to this problem is **pagination**. In GraphQL, you can request paginated data by providing arguments to a **list field**. For instance, an argument can say how many items you are expecting from the list.
+This is where we return to the concept of **pagination** mentioned in the first chapter. Imagine you have a list of repositories in your GitHub organization, but you only want to retreive a few of them to display in your UI. It could take ages to fetch a list of repositories from a large organization. In GraphQL, you can request paginated data by providing arguments to a **list field**, such as an argument that says how many items you are expecting from the list.
 
 {{< highlight javascript "hl_lines=5 6 7 8 9 10 11" >}}
 query OrganizationForLearningReact {
@@ -400,9 +400,9 @@ query OrganizationForLearningReact {
 }
 {{< /highlight >}}
 
-As you can see, a `first` argument is passed to the `repositories` list field. That's how you can specify how many items from the list you expect in the result. Furthermore, the query shape doesn't need to follow the `edges` and `node` structure, but it's one of a few solutions to define paginated data structures and lists with GraphQL. Actually it follows the interface description of Facebook's GraphQL client called Relay. GitHub followed this approach and adopted it for their own GraphQL pagination API. Later, you will learn in the exercises about other strategies to implement pagination with GraphQL.
+A`first` argument is passed to the `repositories` list field that specifies how many items from the list are expected in the result. The query shape doesn't need to follow the `edges` and `node` structure, but it's one of a few solutions to define paginated data structures and lists with GraphQL. Actually, it follows the interface description of Facebook's GraphQL client called Relay. GitHub followed this approach and adopted it for their own GraphQL pagination API. Later, you will learn in the exercises about other strategies to implement pagination with GraphQL.
 
-After executing the query, you should be able to see two items of the list for the repositories field. However, there is one question which comes up naturally when executing the previous query: How to fetch the next two repositories in the list? Whereas the first result of the query is the first **page** of the paginated list, the second query result should be the second page. In the following, you will see how the query structure for paginated data allows us to retrieve meta information in order to execute successive queries. For instance, each edge comes with its own cursor field to identify its position in the list.
+After executing the query, you should see two items from the list in the repositories field. We still need to figure out how to fetch the next two repositories in the list, however. The first result of the query is the first **page** of the paginated list, the second query result should be the second page. In the following, you will see how the query structure for paginated data allows us to retrieve meta information to execute successive queries. For instance, each edge comes with its own cursor field to identify its position in the list.
 
 {{< highlight javascript "hl_lines=10" >}}
 query OrganizationForLearningReact {
@@ -450,7 +450,7 @@ The result should be similar to the following:
 }
 {{< /highlight >}}
 
-Now, you can use the cursor of the first repository in the list to execute a second query. By using the `after` argument for the `repositories` list field, you can specify an entry point to retrieve your next page of paginated data. Question: What will the result look like when executing the following query?
+Now, you can use the cursor of the first repository in the list to execute a second query. By using the `after` argument for the `repositories` list field, you can specify an entry point to retrieve your next page of paginated data. What would the result look like when executing the following query?
 
 {{< highlight javascript "hl_lines=5" >}}
 query OrganizationForLearningReact {
@@ -469,14 +469,14 @@ query OrganizationForLearningReact {
 }
 {{< /highlight >}}
 
-From the previous result, only the second item is retrieved and a new third item. The first item isn't retrieved anymore, because you have used its cursor as `after` argument in order to retrieve all items after it. Now you can imagine how to make successive queries for paginated lists:
+In the previous result, only the second item is retrieved, as well as a new third item. The first item isn't retrieved because you have used its cursor as `after` argument to retrieve all items after it. Now you can imagine how to make successive queries for paginated lists:
 
 * execute the initial query without a cursor argument
 * execute every following query with the cursor of the **last** item's cursor from the previous query result
 
-In order to keep the query dynamic, it is up to you to extract its arguments as variables. Afterward, you can use the query with a dynamic `cursor` argument by providing a variable for it. The `after` argument can be `undefined` to retrieve the first page. In conclusion, that would be everything you need to fetch pages of lists from one large list by using a feature called pagination. You need a mandatory argument specifying how many items should be retrieved and an optional argument, in this case the `after` argument, specifying the starting point for the list.
+To keep the query dynamic, we extract its arguments as variables. Afterward, you can use the query with a dynamic `cursor` argument by providing a variable for it. The `after` argument can be `undefined` to retrieve the first page. In conclusion, that would be everything you need to fetch pages of lists from one large list by using a feature called pagination. You need a mandatory argument specifying how many items should be retrieved and an optional argument, in this case the `after` argument, specifying the starting point for the list.
 
-There are a couple of helpful meta information that you can retrieve for your paginated list too. Retrieving the `cursor` field for every repository may be verbose when using only the `cursor` of the last repository after all. That's why you can remove the `cursor` field for an individual edge, but add the `pageInfo` object with its `endCursor` and `hasNextPage` fields. In addition, you can request the `totalCount` of the list as well.
+There are also a couple helpful ways to use meta information for your paginated list. Retrieving the `cursor` field for every repository may be verbose when using only the `cursor` of the last repository, so you can remove the `cursor` field for an individual edge, but add the `pageInfo` object with its `endCursor` and `hasNextPage` fields. You can also request the `totalCount` of the list.
 
 {{< highlight javascript "hl_lines=6 12 13 14 15" >}}
 query OrganizationForLearningReact {
@@ -499,30 +499,30 @@ query OrganizationForLearningReact {
 }
 {{< /highlight >}}
 
-Whereas the `totalCount` field gives you disclosure about the total number of items in the list, the `pageInfo` field gives you information about two things:
+The `totalCount` field discloses the total number of items in the list, while the `pageInfo` field gives you information about two things:
 
-* endCursor: The `endCursor` can be used to retrieve the successive list. You have done the same before with the `cursor` field, but this time you only need this one meta field to perform it. After all, the cursor of the last list item is sufficient to request the next page of list.
+* **`endCursor`** can be used to retrieve the successive list, which we did with the `cursor` field, exce[t this time we only need one meta field to perform it. The cursor of the last list item is sufficient to request the next page of list.
 
-* hasNextPage: The `hasNextPage` gives you information whether there is a next page to retrieve from the GraphQL API in the first place. It can happen that you have already fetched the last page from your server. When thinking about an application which implements a feature called infinite scrolling to load more pages when scrolling through the list, you can stop fetching more pages from the server when there is no next page available.
+* **`hasNextPage`** gives you information about whether or not there is a next page to retrieve from the GraphQL API. Sometimes you've already fetched the last page from your server. For applications that use infinite scrolling to load more pages when scrolling lists, you can stop fetching pages when there are no more available.
 
-These meta information make the pagination implementation complete. All necessary information are accessible by using the GraphQL API to implement features such as [paginated lists](https://www.robinwieruch.de/react-paginated-list/) and [infinite scroll](https://www.robinwieruch.de/react-infinite-scroll/). However, keep in mind that you have used the GitHub's GraphQL API. Using another GraphQL API which offers pagination, might use different namings for the fields, doesn't offer meta information at all, or uses a different pagination mechanism. You will learn more about those approaches in the following exercises.
+This meta information completes the pagination implementation. Information is made accessible using the GraphQL API to implement [paginated lists](https://www.robinwieruch.de/react-paginated-list/) and [infinite scroll](https://www.robinwieruch.de/react-infinite-scroll/). Note, this covers GitHub's GraphQL API; a different GraphQL API for pagination might use different naming conventions for the fields, exclude meta information, or employ different mechanisms altogether. 
 
 ### Exercises:
 
-* extract the `login` and the `cursor` from your pagination query as variables
-* exchange the `first` argument with a `last` argument
-* search for the `repositories` field in the GraphiQL "Docs" sidebar which says: "A list of repositories that the ... owns."
-  * explore the other arguments that can be passed to this list field
-  * use the `orderBy` argument to retrieve an ascending or descending list
-* read more about {{% a_blank "pagination in GraphQL" "http://graphql.org/learn/pagination" %}}
- * the cursor approach is only one solution which is used by GitHub
- * make sure to understand the other solutions too
+* Extract the `login` and the `cursor` from your pagination query as variables.
+* Exchange the `first` argument with a `last` argument.
+* Search for the `repositories` field in the GraphiQL "Docs" sidebar which says: "A list of repositories that the ... owns."
+  * Explore the other arguments that can be passed to this list field.
+  * Use the `orderBy` argument to retrieve an ascending or descending list.
+* Read more about {{% a_blank "pagination in GraphQL" "http://graphql.org/learn/pagination" %}}.
+ * The cursor approach is only one solution which is used by GitHub.
+ * Make sure to understand the other solutions, too.
 
 {{% chapter_header "Writing your first React GraphQL Client" "react-graphql-client" %}}
 
-After reading the last sections, you should be prepared for queries and mutations. Now it comes to using them in your React application. In this section, you will start to create a React application from scratch which will consume the GitHub GraphQL API. The application should be able to show open issues that are available in a GitHub repository. Basically the application is a simple issue tracker. Once again, if you don't have any experiences with React, jump over to [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react) to learn about it. Afterward, you should be well set up for the following section to use GraphQL in React.
+After the last sections, you should be ready to use queries and mutations in your React application. In this section, you will create a React application that consumes the GitHub GraphQL API. The application should show open issues in a GitHub repository, making it a simple issue tracker. Again, if you lack experience with React, see [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react) to learn more about it. After that you should be well set up for the following section.
 
-For this application, there is no elaborated React setup needed. You will simply use [create-react-app](https://github.com/facebook/create-react-app) to create your React application with zero-configuration. If you haven't installed it yet, you should install it with npm by typing the following instructions on the command line: `npm install -g create-react-app`. If you want to have an elaborated React setup instead, read up this [setup guide for using Webpack with React](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/).
+For this application, no elaborate React setup is needed. You will simply use [create-react-app](https://github.com/facebook/create-react-app) to create your React application with zero-configuration. Install it with npm by typing the following instructions on the command line: `npm install -g create-react-app`. If you want to have an elaborated React setup instead, read up this [setup guide for using Webpack with React](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/).
 
 Now, let's create the application with create-react-app. In your general projects folder, type the following instructions:
 
@@ -531,9 +531,9 @@ create-react-app react-graphql-github-vanilla
 cd react-graphql-github-vanilla
 {{< /highlight >}}
 
-After your application has been created, you can start and test it with `npm start` and `npm test`. Once again, after you have learned about plain React in *the Road to learn React*, you should be familiar with npm, create-react-app and React itself.
+After your application has been created, you can test it with `npm start` and `npm test`. Again, after you have learned about plain React in *the Road to learn React*, you should be familiar with npm, create-react-app, and React itself.
 
-The following application will solely focus on the *src/App.js* file. It's up to you to split out components, configuration or functions to their own folders and files. Let's get started with the App component in the mentioned file. In order to simplify it, you can change it to the following content.
+The following application will focus on the *src/App.js* file. It's up to you to split out components, configuration, or functions to their own folders and files. Let's get started with the App component in the mentioned file. In order to simplify it, you can change it to the following content:
 
 {{< highlight javascript >}}
 import React, { Component } from 'react';
@@ -553,15 +553,15 @@ class App extends Component {
 export default App;
 {{< /highlight >}}
 
-The component only renders a `title` as a headline. Before implementing any further React components, let's install a library which will take care for us to perform GraphQL requests, executing queries and mutations, by only using a HTTP POST method. You will use {{% a_blank "axios" "https://github.com/axios/axios" %}} for it. On the command line, type the following command to install axios in the project folder:
+The component only renders a `title` as a headline. Before implementing any more React components, let's install a library to handle GraphQL requests, executing queries and mutations, using a HTTP POST method. For this, you will use {{% a_blank "axios" "https://github.com/axios/axios" %}}. On the command line, type the following command to install axios in the project folder:
 
 {{< highlight javascript >}}
 npm install axios --save
 {{< /highlight >}}
 
-Afterward, you can import axios next to your App component. Furthermore, you can configure axios before using an instance of it. It's perfect for the following application, because somehow you want to configure it only once with your personal access token and GitHub's GraphQL API.
+Afterward, you can import axios next to your App component and configure it. It's perfect for the following application, because somehow you want to configure it only once with your personal access token and GitHub's GraphQL API.
 
-First, define a base URL for axios when creating a configured instance from it. As mentioned before, afterward you don't need to define GitHub's URL endpoint every time you make request. After all, it is common sense in GraphQL that all queries and mutations point to the same URL endpoint. You get the flexibility from your query and mutation structures by using objects and fields instead.
+First, define a base URL for axios when creating a configured instance from it. As mentioned before, you don't need to define GitHub's URL endpoint every time you make request because all queries and mutations point to the same URL endpoint in GraphQL. You get the flexibility from your query and mutation structures using objects and fields instead.
 
 {{< highlight javascript "hl_lines=2 4 5 6" >}}
 import React, { Component } from 'react';
@@ -576,7 +576,7 @@ const axiosGitHubGraphQL = axios.create({
 export default App;
 {{< /highlight >}}
 
-Second, pass your personal access token as header to the configuration. Afterward, the header is used by each request made with this axios instance.
+Second, pass the personal access token as header to the configuration. The header is used by each request made with this axios instance.
 
 {{< highlight javascript "hl_lines=5 6 7" >}}
 ...
@@ -591,13 +591,13 @@ const axiosGitHubGraphQL = axios.create({
 ...
 {{< /highlight >}}
 
-You would have to replace the `YOUR_GITHUB_PERSONAL_ACCESS_TOKEN` string with your personal access token. That's one way to do it. However, you may not want to paste your access token directly into the source code. Therefore, you can create a *.env* file which holds all of your environment variables on the command line in your project folder. If you don't want to share the personal token in a public GitHub repository, you can add the file to your *.gitignore* file.
+Replace the `YOUR_GITHUB_PERSONAL_ACCESS_TOKEN` string with your personal access token. To avoid cutting and pasting your access token directly into the source code, you can create a *.env* file to hold all your environment variables on the command line in your project folder. If you don't want to share the personal token in a public GitHub repository, you can add the file to your *.gitignore*.
 
 {{< highlight javascript >}}
 touch .env
 {{< /highlight >}}
 
-You can define your environment variables in this *.env* file. However, when using create-react-app, you have to follow their naming constraints. They are using `REACT_APP` as prefix for each key. In your *.env* file, paste the following key value pair whereas the key has to have the prefix `REACT_APP` and the value has to be your personal access token from GitHub.
+Environment variables are defined in this *.env* file. Be sure to follow the correct naming constraints when using create-react-app, which uses `REACT_APP` as prefix for each key.  In your *.env* file, paste the following key value pair. The key has to have the`REACT_APP` prefix, and the value  has to be your personal access token from GitHub.
 
 {{< highlight javascript >}}
 REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN=xxxXXX
@@ -620,13 +620,11 @@ const axiosGitHubGraphQL = axios.create({
 ...
 {{< /highlight >}}
 
-That's it for the initial axios setup. Basically it is the identical setup that you have done in your GraphiQL application before accessing GitHub's GraphQL API with it. There you had to set a header with your personal access token and the endpoint URL as well.
+The initial axios setup is essentially the same as we completed using GraphiQL application before to access GitHub's GraphQL API, when you had to set a header with a personal access token and endpoint URL as well.
 
-Next, let's set up a form for capturing details about a GitHub organization and repository from a user. It should be possible as a user to fill out an input field in order to request a list of (paginated) issues for a specific GitHub repository in an organization. Therefore, there needs to be a form to capture those details before making a first GraphQL query.
+Next, set up a form for capturing details about a GitHub organization and repository from a user. It should be possible to fill out an input field to request a paginated list of issues for a specific GitHub repository. First, there needs to be a form with an input field to enter the organization and repository. The input field has to update React's local state. Second, the form needs a submit button to request data about the organization and repository that the user provided in the input field, which located in the component's local state. Third, it would be convenient to have an initial local state for the organization and repository to request initial data when the component mounts for the first time.
 
-What are the requirements regarding the implementation in a React component for such a feature? First, there needs to be a form with an input field to enter the organization and repository. The input field has to update React's local state. Second, there needs to be a submit button request the data for the organization and repository that the user has given in the input field and thus should be located in the local state of the component. And third, it would be convenient to have an initial local state for the organization and repository to request initial data when the component mounts for the first time.
-
-Let's tackle implementing this scenario in two steps. First, the render method has to render a form with an input field. Furthermore, the form has to have a `onSubmit` handler and the input field a `onChange` handler. Last but not least, the input field has to use the `path` coming from the local state as value in order to be a controlled component. The updating of the `path` value in the local state, which is the value coming from the input field from the `onChange` handler, happens in the second step.
+Let's tackle implementing this scenario in two steps. The render method has to render a form with an input field. The form has to have an `onSubmit` handler, and the input field needs an `onChange` handler. The input field uses the `path` from the local state as a value to be a controlled component. The`path` value in the local state from the `onChange` handler updates in the second step.
 
 {{< highlight javascript >}}
 class App extends Component {
@@ -657,7 +655,7 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-Second, you need to declare the class methods which were used in the render method. Also the `componentDidMount()` lifecycle method can be used to make an initial request when the App component has been mounted. Furthermore, there needs to be an initial state for the input field to make such an initial request in the mentioned lifecycle method in the first place.
+Declare the class methods which were used in the render method. The `componentDidMount()` lifecycle method can be used to make an initial request when the App component mounts. There needs to be an initial state for the input field to make an initial request in this lifecycle method.
 
 {{< highlight javascript >}}
 class App extends Component {
@@ -685,9 +683,9 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-The previous implementation uses a React class component syntax that you might have not used before. If you are not familiar with it, check out this {{% a_blank "GitHub repository" "https://github.com/the-road-to-learn-react/react-alternative-class-component-syntax" %}} to get an understanding of it. By using so called **class field declarations**, you can omit the constructor statement for initializing the local state and don't need to bind your class methods anymore. You can use arrow functions instead which will do the binding for you.
+The previous implementation uses a React class component syntax you might have not used before. If you are not familiar with it, check this {{% a_blank "GitHub repository" "https://github.com/the-road-to-learn-react/react-alternative-class-component-syntax" %}} to gain more understanding. Using **class field declarations** lets you omit the constructor statement for initializing the local state, and eliminates the need to bind class methods. Instead, arrow functions will handle all the binding.
 
-Finally, following a best practice in React, you should make the input field a controlled component. Not the input element should handle its internal state by using the native HTML behavior, but React should be responsible for it.
+Following a best practice in React, make the input field a controlled component. The input element shouldn't be used to handle its internal stateusing native HTML behavior; it should be React.
 
 {{< highlight javascript "hl_lines=5 18" >}}
 class App extends Component {
@@ -723,19 +721,19 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-The previous setup for the form, input field(s), a submit button, `onChange()` and `onSubmit()` class methods is a common way to implement forms in React. The only addition is the initial data fetching in the `componentDidMount()` lifecycle method which only helps to improve the user experience by providing an initial state from a backend. In summary, it is a neat boilerplate to [fetch data in React from a third-party API](https://www.robinwieruch.de/react-fetching-data/).
+The previous setup for the form--using input field(s), a submit button, `onChange()` and `onSubmit()` class methods--is a common way to implement forms in React. The only addition is the initial data fetching in the `componentDidMount()` lifecycle method to improve user experience by providing an initial state from the backend. It is a useful foundation for [fetching data from a third-party API in React](https://www.robinwieruch.de/react-fetching-data/).
 
-When you start the application on the command line, you should see the initial state for the `path` in the input field. Furthermore, you should be able to change the state by entering something else in the input field. Nothing should happen on `componentDidMount()` and submitting the form.
+When you start the application on the command line, you should see the initial state for the `path` in the input field. You should be able to change the state by entering something else in the input field. Nothing should happen on `componentDidMount()` and submitting the form.
 
-You might wonder why there is only one input field to grab the information about two things: the organization and repository. When opening up a repository on GitHub, you can see that the organization and repository are encoded in the URL. That's why it is a convenient way to show the same URL pattern for the input field. Moreover, you can split the `organization/repository` later on at the `/` to get values for the organization and repository to perform the GraphQL query request.
+You might wonder why there is only one input field to grab the information about the organization and repository. When opening up a repository on GitHub, you can see that the organization and repository are encoded in the URL, so it becomes a convenient way to show the same URL pattern for the input field. You can also split the `organization/repository` later at the `/` to get these values and perform the GraphQL query request.
 
 ### Exercises:
 
-* if you are not familiar with React, read up *The Road to learn React*
+* If you are not familiar with React, read up *The Road to learn React*
 
 {{% chapter_header "React GraphQL Query" "react-graphql-query" %}}
 
-In this section, you are going to implement your first GraphQL query in React. As mentioned, you will fetch issues from a repository that belongs to an organization. However, you will not fetch everything at once. You will start by fetching only an organization. Let's define the query as a variable above of the App component.
+In this section, you are going to implement your first GraphQL query in React, fetching issues from an organization's repository, though not all at once. Start by fetching only an organization. Let's define the query as a variable above of the App component.
 
 {{< highlight javascript >}}
 const GET_ORGANIZATION = `
@@ -748,7 +746,7 @@ const GET_ORGANIZATION = `
 `;
 {{< /highlight >}}
 
-You can use template literals in JavaScript to define the query as string with multiple lines. It should be identical to the query that you have used in GraphiQL before. Now, you can use axios to make a POST request to GitHub's GraphiQL API. The configuration for axios already points to the correct API endpoint and uses your personal access token. The only thing left is passing the query to it as payload when doing a POST request. The argument for the endpoint can be an empty string, because you have defined the endpoint before in the configuration. You are going to execute the request when the App component mounted in `componentDidMount()`. After the promise from axios has been resolved, you will only console log the result.
+Use template literals in JavaScript to define the query as string with multiple lines. It should be identical to the query you used before. Now, you can use axios to make a POST request to GitHub's GraphiQL API. The configuration for axios already points to the correct API endpoint and uses your personal access token. The only thing left is passing the query to it as payload during a POST request. The argument for the endpoint can be an empty string, because you defined the endpoint in the configuration. It will execute the request when the App component mounts in `componentDidMount()`. After the promise from axios has been resolved, only a console log of the result remains.
 
 {{< highlight javascript "hl_lines=25 34 35 36 37 38" >}}
 ...
