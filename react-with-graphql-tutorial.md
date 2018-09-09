@@ -655,7 +655,7 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-Declare the class methods which were used in the render method. The `componentDidMount()` lifecycle method can be used to make an initial request when the App component mounts. There needs to be an initial state for the input field to make an initial request in this lifecycle method.
+Declare the class methods to be used in the render method. The `componentDidMount()` lifecycle method can be used to make an initial request when the App component mounts. There needs to be an initial state for the input field to make an initial request in this lifecycle method.
 
 {{< highlight javascript >}}
 class App extends Component {
@@ -792,7 +792,7 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-As you can see, you have used only axios to perform a HTTP POST request with a GraphQL query as payload. Since axios uses promises, the promise resolves eventually and you should have the result from the GraphQL API in your hands. There is nothing magical about it. It's an implementation in plain JavaScript using axios as HTTP client to perform the GraphQL request with plain HTTP.
+used only axios to perform a HTTP POST request with a GraphQL query as payload. Since axios uses promises, the promise resolves eventually and you should have the result from the GraphQL API in your hands. There is nothing magical about it. It's an implementation in plain JavaScript using axios as HTTP client to perform the GraphQL request with plain HTTP.
 
 Start your application again and verify that you have got the result in your developer console log. If you get a {{% a_blank "401 HTTP status code" "https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" %}}, you didn't set up your personal access token properly. Otherwise, if everything went fine, you should see a similar result in your developer console log.
 
@@ -814,9 +814,9 @@ Start your application again and verify that you have got the result in your dev
 }
 {{< /highlight >}}
 
-The top level information is everything axios returns you as meta information for the request. It's all axios and nothing related to GraphQL yet. That's why most of it is substituted with a placeholder. In addition, axios has a `data` property where you can find the result of your axios request. Then again comes a `data` property which reflects the GraphQL result. In the beginning the `data` property seems redundant and repetitive when seeing the result for the first time, but once you examine it you will know that one `data` property comes from axios and the other one from the GraphQL data structure. Finally, you find the result of the GraphQL query in the second `data` property. There you should find the organization with its resolved name and url fields as string properties.
+The top level information is everything axios returns you as meta information for the request. It's all axios, and nothing related to GraphQL yet, which is why most of it is substituted with a placeholder. Axios has a `data` property where that shows the result of your axios request. Then again comes a `data` property which reflects the GraphQL result. At first, the `data` property seems redundant in the first result, but once you examine it you will know that one `data` property comes from axios, while the other comes from the GraphQL data structure. Finally, you find the result of the GraphQL query in the second `data` property. There, you should find the organization with its resolved name and url fields as string properties.
 
-In the next step, you are going to store the result which holds the information about the organization in React's local state. In addition, you will also store potential errors in the state in case something went wrong.
+In the next step, you're going to store the result holding the information about the organization in React's local state. You will also store potential errors in the state if any occur.
 
 {{< highlight javascript "hl_lines=4 5 14 15 16 17" >}}
 class App extends Component {
@@ -870,7 +870,7 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-Moreover, you can introduce the Organization component as a new functional stateless component to keep the render method of the App component concise. Because this application is going to be a simplified GitHub issue tracker, you can already mention it in a short paragraph.
+Introduce the Organization component as a new functional stateless component to keep the render method of the App component concise. Because this application is going to be a simple GitHub issue tracker, you can already mention it in a short paragraph.
 
 {{< highlight javascript "hl_lines=5 6 7 8 9 10 11 12" >}}
 class App extends Component {
@@ -887,7 +887,7 @@ const Organization = ({ organization }) => (
 );
 {{< /highlight >}}
 
-In the third and last step, you have to deal with two edge case which were left out until now. First, what should be rendered when nothing is fetched yet? And second, what should be rendered when errors occur? In order to solve these edge cases, you can use {{% a_blank "conditional rendering" "https://www.robinwieruch.de/conditional-rendering-react/" %}} in React. For the first edge case, simply check whether an `organization` is present or not.
+In final step, you have to decide what should be rendered when nothing is fetched yet,and what should be rendered when errors occur. To solve these edge cases, you can use {{% a_blank "conditional rendering" "https://www.robinwieruch.de/conditional-rendering-react/" %}} in React. For the first edge case, simply check whether an `organization` is present or not.
 
 {{< highlight javascript "hl_lines=5 13 14 15 16 17" >}}
 class App extends Component {
@@ -913,7 +913,7 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-For the second edge case, you have passed the errors to the Organization component. That's why you can let this component deal with the errors. In case there are errors, it should simply render the error message of each error. Otherwise, it should render the organization. In a result of a GraphQL query, there can be multiple errors regarding different fields and circumstances.
+For the second edge case, you have passed the errors to the Organization componentomponent the errors. In case there are errors, it should simply render the error message of each error. Otherwise, it should render the organization. There can be multiple errors regarding different fields and circumstances in GraphQL.
 
 {{< highlight javascript "hl_lines=1 2 3 4 5 6 7 8 9 11 18 19" >}}
 const Organization = ({ organization, errors }) => {
@@ -937,11 +937,11 @@ const Organization = ({ organization, errors }) => {
 };
 {{< /highlight >}}
 
-Congratulations, you performed your first GraphQL query in a React application. The great part about it: There was nothing magical about it. It was a plain HTTP POST request with a query as payload. You have used a configured axios client to perform request with a HTTP POST method. Afterward, you were able to store the result in React's local state in order to display it eventually.
+You performed your first GraphQL query in a React application, a plain HTTP POST request with a query as payload. You have used a configured axios client to perform request with a HTTP POST method. Afterward, you were able to store the result in React's local state to display it later.
 
 {{% sub_chapter_header "GraphQL Nested Objects in React" "react-graphql-nested-objects" %}}
 
-In this section, you are going to request a nested object of the organization. Since the application is going to show issues of a repository eventually, you should fetch a repository of an organization as next step. As you have learned, a query reaches into the GraphQL graph. That's why can nest the `repository` field in the `organization` when the schema defined the relationship between these two entities.
+Next, we'll request a nested object for the organization. Since the application is going to show issues of a repository eventually, you should fetch a repository of an organization as next step. Remember, a query reaches into the GraphQL graph, so we can nest the `repository` field in the `organization` when the schema defined the relationship between these two entities.
 
 {{< highlight javascript "hl_lines=1 6 7 8 9 19" >}}
 const GET_REPOSITORY_OF_ORGANIZATION = `
