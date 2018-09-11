@@ -1,4 +1,4 @@
-+++
+    +++
 title = "A complete React with GraphQL Tutorial"
 description = "This React with GraphQL tutorial shows you how to use GraphQL in your React application by consuming GitHub's GraphQL API. You will not use any clever framework such as Apollo or Relay for your query or mutation. Instead this tutorial focuses on plain GraphQL with only HTTP requests in JS ..."
 date = "2018-04-09T13:50:46+02:00"
@@ -941,7 +941,7 @@ You performed your first GraphQL query in a React application, a plain HTTP POST
 
 {{% sub_chapter_header "GraphQL Nested Objects in React" "react-graphql-nested-objects" %}}
 
-Next, we'll request a nested object for the organization. Since the application is going to show issues of a repository eventually, you should fetch a repository of an organization as next step. Remember, a query reaches into the GraphQL graph, so we can nest the `repository` field in the `organization` when the schema defined the relationship between these two entities.
+Next, we'll request a nested object for the organization. Since the application wil eventually show the issues in a repository, you should fetch a repository of an organization as the next step. Remember, a query reaches into the GraphQL graph, so we can nest the `repository` field in the `organization` when the schema defined the relationship between these two entities.
 
 {{< highlight javascript "hl_lines=1 6 7 8 9 19" >}}
 const GET_REPOSITORY_OF_ORGANIZATION = `
@@ -972,7 +972,7 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-In this case, the repository name is identical to the organization. That's okay for now. Later on, you can define dynamically an organization and repository on your own. In the second step, you can extend the Organization component with another Repository component as child component. After all, the result for the query should have a nested repository object in the organization object now.
+In this case, the repository name is identical to the organization. That's okay for now. Later on, you can define an organization and repository on your own dynamically. In the second step, you can extend the Organization component with another Repository component as child component. The result for the query should now have a nested repository object in the organization object.
 
 {{< highlight javascript "hl_lines=12 17 18 19 20 21 22 23 24" >}}
 const Organization = ({ organization, errors }) => {
@@ -1001,11 +1001,11 @@ const Repository = ({ repository }) => (
 );
 {{< /highlight >}}
 
-Can you see how the GraphQL query structure aligns perfectly with your component tree? It feels almost natural to continue extending the query structure this way, by nesting other objects into the query, and extending the component tree along the structure of the GraphQL query. Since the application should end up as a issue tracker eventually, let's add a list field of issues, which is associated to the repository, to the query. Don't worry too much about the list field yet. You will learn more about using those in React later in this tutorial.
+The GraphQL query structure aligns perfectly with your component tree. It forms a natural fit to continue extending the query structure like this, by nesting other objects into the query, and extending the component tree along the structure of the GraphQL query. Since the application is an issue tracker, we need to add a list field of issues to the query. 
 
-As a side note: If you want to follow the query structure you are implementing more thoughtfully, you can open up the "Docs" sidebar in GraphiQL again to find out about the types `Organization`, `Repository`, `Issue`. The paginated issues list field can be found there as well. It's always good to have an overview of the graph structure.
+If you want to follow the query structure more thoughtfully, open the "Docs" sidebar in GraphiQL to learn   out about the types `Organization`, `Repository`, `Issue`. The paginated issues list field can be found there as well. It's always good to have an overview of the graph structure.
 
-Now let's extend the query with the list field for the issues. These issues are a paginated list in the end. As mentioned, you will learn later more about them. For now, you can nest it in the `repository` field with a `last` argument to fetch the last items of the list.
+Now let's extend the query with the list field for the issues. These issues are a paginated list in the end. We will cover these more later; for now, nest it in the `repository` field with a `last` argument to fetch the last items of the list.
 
 {{< highlight javascript "hl_lines=1 9 10 11 12 13 14 15 16 17" >}}
 const GET_ISSUES_OF_REPOSITORY = `
@@ -1031,7 +1031,7 @@ const GET_ISSUES_OF_REPOSITORY = `
 `;
 {{< /highlight >}}
 
-You can also request an id of each issue by using the `id` field on the issue's `node` field. That way, you can ensure in React to use a `key` attribute for your list of rendered items in the component. That's a {{% a_blank "best practice in React" "https://reactjs.org/docs/lists-and-keys.html" %}} after all. Last but not least, don't forget to adjust the naming of the query variable when its used to perform the request.
+You can also request an id for each issue using the `id` field on the issue's `node` field, to use a `key` attribute for your list of rendered items in the component, which is considered {{% a_blank "best practice in React" "https://reactjs.org/docs/lists-and-keys.html" %}}. Remember to adjust the name of the query variable when its used to perform the request.
 
 {{< highlight javascript "hl_lines=6" >}}
 class App extends Component {
@@ -1049,7 +1049,7 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-The component structure follows the query structure quite naturally again. You can add a list of rendered issues to the Repository component. It is up to you to extract it to its own component as a refactoring to keep your components concise and thus readable and maintainable.
+The component structure follows the query structure quite naturally again. You can add a list of rendered issues to the Repository component. It is up to you to extract it to its own component as a refactoring to keep your components concise, readable, and maintainable.
 
 {{< highlight javascript "hl_lines=8 9 10 11 12 13 14" >}}
 const Repository = ({ repository }) => (
@@ -1070,13 +1070,13 @@ const Repository = ({ repository }) => (
 );
 {{< /highlight >}}
 
-That's it for the nested objects, fields and list fields, in a query. Once you run your application again, you should see the last issues of the specified repository rendered in your browser.
+That's it for the nested objects, fields, and list fields in a query. Once you run your application again, you should see the last issues of the specified repository rendered in your browser.
 
 {{% sub_chapter_header "GraphQL Variables and Arguments in React" "react-graphql-variables-arguments" %}}
 
-For the next steps, it's time to make use of the form and input elements. They should be used to request the data from GitHub's GraphQL API when a user fills in the content and submits it. Furthermore, the content is also used for the initial request in `componentDidMount()` of the App component. So far, the organization `login` and repository `name` were inlined arguments in the query. Now, you should be able to pass in the `path` from the local state to the query to define dynamically an organization and repository. That's where variables in a GraphQL query came into play, do you remember?
+Next we'll make use of the form and input elements. They should be used to request the data from GitHub's GraphQL API when a user fills in content and submits it.  the content is also used for the initial request in `componentDidMount()` of the App component. So far, the organization `login` and repository `name` were inlined arguments in the query. Now, you should be able to pass in the `path` from the local state to the query to define dynamically an organization and repository. That's where variables in a GraphQL query came into play, do you remember?
 
-First, let's use a naive approach by performing string interpolation with JavaScript rather than using GraphQL variables. Therefore, you have to refactor the query from a template literal variable to a function that returns a template literal variable. By using the function, you should be able to pass in an organization and repository.
+First, let's use a naive approach by performing string interpolation with JavaScript rather than using GraphQL variables. To do this, refactor the query from a template literal variable to a function that returns a template literal variable. By using the function, you should be able to pass in an organization and repository.
 
 {{< highlight javascript "hl_lines=1 3 6" >}}
 const getIssuesOfRepositoryQuery = (organization, repository) => `
@@ -1102,7 +1102,7 @@ const getIssuesOfRepositoryQuery = (organization, repository) => `
 `;
 {{< /highlight >}}
 
-Next, you can call the `onFetchFromGitHub()` class method in the submit handler but also when the component has been mounted in `componentDidMount()` with the initial local state of the `path` property. These are the two essential places to fetch the data from the GraphQL API: on initial render and on every other manual submission when clicking the button.
+Next, call the `onFetchFromGitHub()` class method in the submit handle, but also when the component mounts in `componentDidMount()` with the initial local state of the `path` property. These are the two essential places to fetch the data from the GraphQL API on initial render, and on every other manual submission from a button click.
 
 {{< highlight javascript "hl_lines=9 17" >}}
 class App extends Component {
@@ -1128,7 +1128,7 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-Last but not least, you have to call the function that returns the query instead of passing the query string directly as payload. You can use the {{% a_blank "JavaScript's split method on a string" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split" %}} to retrieve the prefix and suffix of the `/` character from the path variable whereas the prefix is the organization and the suffix is the repository.
+Lastly, call the function that returns the query instead of passing the query string directly as payload. Use the {{% a_blank "JavaScript's split method on a string" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split" %}} to retrieve the prefix and suffix of the `/` character from the path variable where the prefix is the organization and the suffix is the repository.
 
 {{< highlight javascript "hl_lines=4 5 9" >}}
 class App extends Component {
@@ -1153,11 +1153,11 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-Since the split returns an array of values (and it is assumed that there is only one slash in the path), the array should consist of two values whereas the first value in the array is the organization and the second value the repository. That's why it is convenient to use a JavaScript array destructuring to pull out both values from the array in the same line.
+Since the split returns an array of values and it is assumed that there is only one slash in the path, the array should consist of two values: the organization and the repository. That's why it is convenient to use a JavaScript array destructuring to pull out both values from an array in the same line.
 
-Note at this point that the application is not built for robustness. It's only a learning experience. For instance, no one hinders a user to input the organization and repository with a different pattern than *organization/repository*. There is no validation included at this point. On the other side, it's a great exercise for you on the side to handle those edge cases yourself.
+Note that the application is not built for to be robust, but is intended only a learning experience. It is unlikely anyone will ask a user to input the organization and repository with a different pattern than *organization/repository*, so there is no validation included yet. Still, it is a good foundation for you to gain experience with the concepts.
 
-If you want to go one step further, you can extract the first part of the class method to its own function which uses axios to perform the request with the query and returns a promise. The promise can be used to resolve the result into the local state by using `this.setState()` in the `then()` resolver block of the promise.
+If you want to go further, you can extract the first part of the class method to its own function, which uses axios to send a request with the query and return a promise. The promise can be used to resolve the result into the local state, using `this.setState()` in the `then()` resolver block of the promise.
 
 {{< highlight javascript "hl_lines=1 2 3 4 5 6 7 13" >}}
 const getIssuesOfRepository = path => {
@@ -1184,7 +1184,7 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-You can always split out smaller parts of your applications, be it functions or components, to make them concise, readable, reusable and [testable](https://www.robinwieruch.de/react-testing-tutorial/). For instance, the function which is passed to `this.setState()` can be extracted as higher-order function. It has to be a higher-order function, because somehow you need to pass in the result of the promise but also provide a function for the `this.setState()` method.
+You can always split your applications into parts, be they functions or components, to make them concise, readable, reusable and [testable](https://www.robinwieruch.de/react-testing-tutorial/). The function that is passed to `this.setState()` can be extracted as higher-order function. It has to be a higher-order function, because you need to pass the result of the promise, but also provide a function for the `this.setState()` method.
 
 {{< highlight javascript "hl_lines=1 2 3 4 10 11" >}}
 const resolveIssuesQuery = queryResult => () => ({
@@ -1205,9 +1205,9 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-Congratulations again, you have made your query flexible by providing dynamic arguments to your query. Try it by starting your application on the command line again and by filling in a different organization with a specific repository (e.g. *facebook/create-react-app*).
+Now you've made your query flexible by providing dynamic arguments to your query. Try it by starting your application on the command line and by filling in a different organization with a specific repository (e.g. *facebook/create-react-app*).
 
-It would be totally fine to keep your query this way. However, there was nothing to see about variables yet. You simply passed the arguments to the query by using a function and string interpolation with template literals. Can you use GraphQL variables instead? Let's refactor the query variable again to a template literal which defines inline variables.
+It's a decent setup, but there was nothing to see about variables yet. You simply passed the arguments to the query using a function and string interpolation with template literals. Now we'll use GraphQL variables instead, to refactor the query variable again to a template literal that defines inline variables.
 
 {{< highlight javascript "hl_lines=1 2 3 6" >}}
 const GET_ISSUES_OF_REPOSITORY = `
@@ -1246,19 +1246,21 @@ const getIssuesOfRepository = path => {
 };
 {{< /highlight >}}
 
-That's it. Finally the query takes variables into account without taking a detour by using a function with string interpolation. Before continuing with the next section, make sure to conduct the exercises. On another note, you haven't used features such as fragments or operation names yet. The application hasn't given any use case for these techniques. But you will use them in another application using Apollo instead of using plain HTTP with axios in the future.
+Finally, the query takes variables into account without detouring into a function with string interpolation. I strongly suggest practicing with the excercises below before continuing to the next section. We've yet to discuss features like fragments or operation names, but we'll soon cover them using Apollo instead of plain HTTP with axios.
 
 ### Exercises:
 
-* explore and add fields to your organization, repository and issues
-  * extend your components to display the additional information
-* read more about {{% a_blank "serving a GraphQL API over HTTP" "http://graphql.org/learn/serving-over-http/" %}}
+* Explore and add fields to your organization, repository and issues
+  * Extend your components to display the additional information
+* Read more about {{% a_blank "serving a GraphQL API over HTTP" "http://graphql.org/learn/serving-over-http/" %}}
 
 {{% chapter_header "React GraphQL Pagination " "react-graphql-pagination" %}}
 
-In the last section, you have already implemented a list field in your GraphQL query. It fitted well into the flow of structuring the query with nested objects and a list along the way with implementing the React components structure where different components were responsible for showing partial results of the query.
+Last section you implemented a list field in your GraphQL query, which fit into the flow of structuring the query with nested objects and a list responsible for showing partial results of the query.
 
-In this section, you will explore pagination with list fields with GraphQL in React in more detail. Initially, you will learn more about the arguments of list fields in general. Furthermore, you are going to add one more nested list field to your query. Last but not least, you are going to fetch another page of the paginated `issues` list with your query. Let' start by extending the `issues` list field in your query with one more argument:
+In this section, you will explore pagination with list fields with GraphQL in React in more detail. Initially, you will learn more about the arguments of list fields. Further, you will add one more nested list field to your query. Finally, you will fetch another page of the paginated `issues` list with your query. 
+
+Let' start by extending the `issues` list field in your query with one more argument:
 
 {{< highlight javascript "hl_lines=9" >}}
 const GET_ISSUES_OF_REPOSITORY = `
@@ -1284,9 +1286,9 @@ const GET_ISSUES_OF_REPOSITORY = `
 `;
 {{< /highlight >}}
 
-If you read up the arguments for the `issues` list field by using the "Docs" sidebar in GraphiQL, you can explore all the different arguments that you can pass (optionally) to the field. One of those arguments is the `states` arguments where you can define whether you want to fetch open or closed issues. Perhaps, when implementing an issue tracker, you may only want to show open issues in the first place. The previous implementation of the query has shown you how to refine the list field for it. You can explore further arguments for the `issues` list field, but also for other list fields, by using the documentation from Github's API.
+If you read the arguments for the `issues` list field using the "Docs" sidebar in GraphiQL, you can explore which arguments that you can pass to the field. One of these is the `states` argument, which defines whether or not to fetch open or closed issues. The previous implementation of the query has shown you how to refine the list field, in case you only want to show open issues. You can explore more arguments for the `issues` list field, but also for other list fields, using the documentation from Github's API.
 
-Now, let's implement another nested list field which could be used for pagination eventually. Each issue in a repository can have reactions, which are basically emoticons, such as a smiley or a thumbs up. Reactions are again a list of paginated items. First, extend the query with the nested list field for reactions:
+Now we'll implement another nested list field that could be used for pagination.  Each issue in a repository can have reactions, essentially emoticons like a smiley or a thumbs up. Reactions can be seen as another list of paginated items. First, extend the query with the nested list field for reactions:
 
 {{< highlight javascript "hl_lines=15 16 17 18 19 20 21 22" >}}
 const GET_ISSUES_OF_REPOSITORY = `
@@ -1320,7 +1322,7 @@ const GET_ISSUES_OF_REPOSITORY = `
 `;
 {{< /highlight >}}
 
-Second, render those list of reactions again in one of your React components. Again, you can implement dedicated List and Item components, such as ReactionsList and ReactionItem, for it. That's up to you as another exercise to keep the code for this application readable and maintainable for yourself.
+Second, render the list of reactions in one of your React components again. Implement dedicated List and Item components, such as ReactionsList and ReactionItem for it. As an exercise, try keeping the code for this application readable and maintainable.
 
 {{< highlight javascript "hl_lines=10 11 12 13 14" >}}
 const Repository = ({ repository }) => (
@@ -1344,9 +1346,9 @@ const Repository = ({ repository }) => (
 );
 {{< /highlight >}}
 
-That's it. You only had to extend the query and React's component structure in order to render the result. It's a straight forward implementation when you are using a GraphQL API as your data source which has a well defined underlying schema for these field relationships.
+You extended the query and React's component structure to render the result. It's a straight forward implementation when you are using a GraphQL API as your data source which has a well defined underlying schema for these field relationships.
 
-Last but not least, you are going to implement real pagination with the `issues` list field. At least, there has to be a button to fetch more issues from the GraphQL API. After all, you want to make the pagination functionality kind of feature complete for your application by fetching more pages of the list eventually. Otherwise, you would always end up with only a couple of issues, or one page of issues, without ever having the ability to show all issues. So what's the best place for fetching more issues? It could be a button in the Repository component below of the rendered list of issues. Clicking the button would result into fetching one more page of issues from the GraphQL API. And clicking it another time should fetch the next page.
+Lastly, you will implement real pagination with the `issues` list field, as there should be a button to fetch more issues from the GraphQL API to make it a function of a completed application. Here is how to implement a button:
 
 {{< highlight javascript "hl_lines=3 12 14" >}}
 const Repository = ({
@@ -1367,7 +1369,7 @@ const Repository = ({
 );
 {{< /highlight >}}
 
-The handler for the button needs to be passed through all the components to reach the Repository component.
+The handler for the button passes through all the components to reach the Repository component:
 
 {{< highlight javascript "hl_lines=4 16" >}}
 const Organization = ({
@@ -1392,7 +1394,7 @@ const Organization = ({
 };
 {{< /highlight >}}
 
-The logic for the function is implemented in the App component as class method. It has to be passed to the Organization component as well.
+Logic for the function is implemented in the App component as class method. It passes to the Organization component as well.
 
 {{< highlight javascript "hl_lines=4 5 6 19" >}}
 class App extends Component {
@@ -1424,7 +1426,7 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-Before implementing the logic for it, there needs to be a way to identify the next page for the paginated list. Do you remember when you have used GraphiQL for it? Yes, there was a way to extend the the inner fields of a list field with fields for meta information such as the `pageInfo` or the `totalCount` information. Whereas you don't need to make use of the `totalCount` in the following scenario, you will have to use the `pageInfo` to define the next page when clicking the button. The `totalCount` is only a nice way to see how many items are overall in the list available.
+Before implementing the logic for it, there needs to be a way to identify the next page of the paginated list. To extend the the inner fields of a list field with fields for meta information such as the `pageInfo` or the `totalCount` information, use `pageInfo` to define the next page on button-click. Also, the `totalCount` is only a nice way to see how many items are in the next list:
 
 {{< highlight javascript "hl_lines=12 13 14 15 16" >}}
 const GET_ISSUES_OF_REPOSITORY = `
@@ -1450,7 +1452,7 @@ const GET_ISSUES_OF_REPOSITORY = `
 `;
 {{< /highlight >}}
 
-Now, you can use the information to fetch the next page of issues by providing the cursor as variable to your query. The cursor, or as you will see in the following adjustments for the query, the `after` argument is used to define the starting point to fetch further items from the paginated list.
+Now, you can use this information to fetch the next page of issues by providing the cursor as a variable to your query. The cursor, or the `after` argument, defines the starting point to fetch more tems from the paginated list.
 
 {{< highlight javascript "hl_lines=5 6 7 9" >}}
 class App extends Component {
@@ -1468,7 +1470,7 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-As you may have noticed, the second argument wasn't introduced yet to the `onFetchFromGitHub()` class method. Let's see how this turns out.
+The second argument wasn't introduced  to the `onFetchFromGitHub()` class method yet. Let's see how that turns out.
 
 {{< highlight javascript "hl_lines=1 6 13 14 15" >}}
 const getIssuesOfRepository = (path, cursor) => {
@@ -1493,7 +1495,7 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-The argument is simply passed to the `getIssuesOfRepository()` function which makes the GraphQL API request and returns the promise with the query result. Now check the other functions that call the `onFetchFromGitHub()` class method. They don't make use of the second argument and thus the cursor parameter will be `undefined` when it's passed to the GraphQL API call. That's fine, because as you will see next, either the query uses the cursor as argument to fetch the next page of a list or it fetches the initial page of a list by having the cursor not defined at all.
+The argument is simply passed to the `getIssuesOfRepository()` function, which makes the GraphQL API request and return the promise with the query result. Check the other functions that call the `onFetchFromGitHub()` class method, and notice hwo they don't make use of the second argument, so the cursor parameter will be `undefined` when it's passed to the GraphQL API call. Either the query uses the cursor as argument to fetch the next page of a list, or it fetches the initial page of a list by having the cursor not defined at all:
 
 {{< highlight javascript "hl_lines=5 12" >}}
 const GET_ISSUES_OF_REPOSITORY = `
@@ -1523,11 +1525,9 @@ const GET_ISSUES_OF_REPOSITORY = `
 `;
 {{< /highlight >}}
 
-In the previous template string, the `cursor` is passed as variable to the query and used as `after` argument for the list field. The variable is not enforced though, because there is no exclamation mark next to it. Thus, it can be `undefined` which happens for the initial page requests for a paginated list where you only want to fetch the first page.
+In the previous template string, the `cursor` is passed as variable to the query and used as `after` argument for the list field. The variable is not enforced though, because there is no exclamation mark next to it, so it can be `undefined`. This happens for the initial page requests for a paginated list where you only want to fetch the first page. Further, the argument `last` has been changed to `first` for the `issues` list field, because there won't be another page after you fetched the last item in the initial request. Thus, you have to start with the first items off the list to fetch more items until you reach the end of the list.
 
-Furthermore, the argument `last` has been changed to `first` for the `issues` list field. That's because there wouldn't be another page of items when you would already fetch the last items in the initial request. Thus, you have to start with the first items of the list in order to fetch more and more items until you reach the end of the list eventually.
-
-That's it for fetching the next page of a paginated list with GraphQL in React. One important step is missing though. Nobody updates the local state of the App component yet regarding the new page of issues. Thus, there are still only the issues from the initial request. In order to have this functionality, you need to implement it on your own. Somehow you have to merge the old page(s) of issues with the new page of issues in the local state of the App component. Furthermore, you have to keep the organization and repository information in the deeply nested state object intact. So where would you do this maneuver in the first place? The perfect time for doing it is when the promise for the query resolves. You already extracted it as a function outside of the App component. Thus you can use this place to handle the incoming result and return a result with your own structure and information. Keep in mind, that the incoming result can be an initial request when the App component mounts for the first time or a request to fetch more issues when the "More" button for the pagination feature is clicked.
+That's it for fetching the next page of a paginated list with GraphQL in React, except one final step.  Nothing updates the local state of the App component about a page of issues yet, so there are still only the issues from the initial request. You want to merge the old pages of issues with the new page of issues in the local state of the App component, while keeping the organization and repository information in the deeply nested state object intact. The perfect time for doing this is when the promise for the query resolves. You already extracted it as a function outside of the App component, so you can use this place to handle the incoming result and return a result with your own structure and information. Keep in mind that the incoming result can be an initial request when the App component mounts for the first time, or after a request to fetch more issues happens, such as when the `More` button is clicked.
 
 {{< highlight javascript "hl_lines=1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28" >}}
 const resolveIssuesQuery = (queryResult, cursor) => state => {
@@ -1560,9 +1560,9 @@ const resolveIssuesQuery = (queryResult, cursor) => state => {
 };
 {{< /highlight >}}
 
-Basically, the whole function is a complete rewrite because the update mechanism is more complex now. Let's break it down. First, you have passed the `cursor` as argument to the function which will in the next parts of the function help you to determine whether it was an initial query or a query to fetch another page of issues. Second, if the `cursor` happens to be `undefined`, the function can return early and return the state object that encapsulates the plain query result. It's basically the same as before. There is nothing to keep intact in the state object from before, because it is an initial request which happens when the App component mounts or when a user submits another request which should overwrite the old state anyway. Third, if it is a fetch more query and the cursor is there, the old and new issues from the state and the query result get merged in an updated list of issues. In this case, a JavaScript destructuring alias is used to make the naming of both issue lists more obvious. Last but not least, the function returns the updated state object. Since it is a deeply nested object where you have to update multiple levels of the object, you can make use of the JavaScript spread operator syntax to update each level with the new query result. Only the `edges` property deep down in the object should be updated with the merged list of issues in the end.
+The function is a complete rewrite, because the update mechanism is more complex now. First, you passed the `cursor` as an argument to the function, which will determines whether it was an initial query or a query to fetch another page of issues. Second, if the `cursor` is `undefined`, the function can return early with the state object that encapsulates the plain query result, same as before. There is nothing to keep intact in the state object from before, because it is an initial request that happens when the App component mounts or when a user submits another request which should overwrite the old state anyway. Third, if it is a fetch more query and the cursor is there, the old and new issues from the state and the query result get merged in an updated list of issues. In this case, a JavaScript destructuring alias is used to make naming both issue lists more obvious. Finally, the function returns the updated state object. Since it is a deeply nested object with multiple levels to update, use the  JavaScript spread operator syntax to update each level with a new query result. Only the `edges` property should be updated with the merged list of issues.
 
-Last but not least, you can use the `hasNextPage` property from the `pageInfo` that you have requested in your query to either show a "More" button or not showing it. In case there are no more issues in the list the button should disappear.
+Next, use the `hasNextPage` property from the `pageInfo` that you requested to show a "More" button (or not). If there are no more issues in the list, the button should disappear.
 
 {{< highlight javascript "hl_lines=7 9" >}}
 const Repository = ({ repository, onFetchMoreIssues }) => (
@@ -1578,18 +1578,18 @@ const Repository = ({ repository, onFetchMoreIssues }) => (
 );
 {{< /highlight >}}
 
-That's it for implementing pagination with GraphQL in React. In the following, you can try out further arguments for your list fields (issues and reactions) on your own. Therefore, check the "Docs" sidebar in GraphiQL to find out about the arguments that you can pass to these list fields. There are arguments that are generic and used for every list (e.g. first, last) but also arguments that are specific for a list (e.g. states). After all, these arguments should again show you how fine-grained you can be on every level of your GraphQL query.
+Now you've implemented pagination with GraphQL in React. For practice, try more arguments for your issues and reactions list fields on your own. Check the "Docs" sidebar in GraphiQL to find out about arguments you can pass tolist fields. Some arguments are generic, but have arguments that are specific for to lists. These arguments should show you how finely-tuned requests can be with a GraphQL query.
 
 ### Exercises:
 
-* explore further arguments, generic or specific for the type, on the `issues` and `reactions` list fields
-  * think about ways to beautify the updating mechanism of deeply nested state objects and {{% a_blank "contribute your thoughts to it" "https://github.com/rwieruch/react-graphql-github-apollo/pull/14" %}}
+* Explore further arguments, generic or specific for the type, on the `issues` and `reactions` list fields
+  * Think about ways to beautify the updating mechanism of deeply nested state objects and {{% a_blank "contribute your thoughts to it" "https://github.com/rwieruch/react-graphql-github-apollo/pull/14" %}}
 
 {{% chapter_header "React GraphQL Mutation" "react-graphql-mutation" %}}
 
-You have fetched a whole lot of data using GraphQL in React by now. That's the larger part of using GraphQL. However, there are always two sides to such an interface: read and write. That's were GraphQL mutations complement the interface. In a previous section, you have already learned about GraphQL mutations by using GraphiQL without React. In this section, you are going to implement such a mutation in your React GraphQL application.
+You fetched a lot of data using GraphQL in React, the larger part of using GraphQL. However, there are always two sides to such an interface: read and write. That's were GraphQL mutations complement the interface. Previously, you learned about GraphQL mutations using GraphiQL without React. In this section, you will implement such a mutation in your React GraphQL application.
 
-You have executed GitHub's `addStar` mutation before in GraphiQL. Let's implement together this mutation in React. Before implementing the mutation, you should query additional information about the repository which is partially required to star the repository in a mutation.
+You have executed GitHub's `addStar` mutation before in GraphiQL. Now, let's implement this mutation in React. Before implementing the mutation, you should query additional information about the repository, which is partially required to star the repository in a mutation.
 
 {{< highlight javascript "hl_lines=11 14" >}}
 const GET_ISSUES_OF_REPOSITORY = `
@@ -1615,9 +1615,9 @@ const GET_ISSUES_OF_REPOSITORY = `
 `;
 {{< /highlight >}}
 
-The `viewerHasStarred` field returns a boolean which indicates whether you as a viewer have starred or not starred the repository. This boolean helps you in the next parts determining whether you want to execute a `addStar` or `removeStar` mutation. For now, you will only implement the `addStar` mutation though. The `removeStar` mutation will be left out as exercise for you. In addition, the `id` field in the query returns the identifier for the repository which you will need to clarify the target repository for your mutation.
+The `viewerHasStarred` field returns a boolean that tells whether the viewer has starred the repository or not. This boolean helps determine whether to execute a `addStar` or `removeStar` mutation in the next steps. For now, you will only implement the `addStar` mutation. The `removeStar` mutation will be left off as part of the excercise. Also, the `id` field in the query returns the identifier for the repository, which you will need to clarify the target repository of your mutation.
 
-So what's the best place to trigger the mutation? It can be a button which either stars or unstars a repository. That's where the `viewerHasStarred` boolean can be used for a conditional rendering to show either a "Star" or "Unstar" button. Since you are going to star a repository, the Repository component might be the best place to trigger the mutation.
+The best place to trigger the mutation is a button that stars or unstars the repository. That's where the `viewerHasStarred` boolean can be used for a conditional rendering to show either a "Star" or "Unstar" button. Since you are going to star a repository, the Repository component is the best place to trigger the mutation.
 
 {{< highlight javascript "hl_lines=4 9 10 11 12 13 14" >}}
 const Repository = ({
@@ -1642,7 +1642,7 @@ const Repository = ({
 );
 {{< /highlight >}}
 
-In order to be able to identify the repository to be starred, the mutation needs to know about the `id` of the repository. Furthermore, you can pass the `viewerHasStarred` property as parameter to the handler. That's because you may want to use the parameter to determine whether you want execute the star or unstar mutation later on.
+To identify the repository to be starred, the mutation needs to know about the `id` of the repository. Pass the `viewerHasStarred` property as a parameter to the handler, since you'll use the parameter to determine whether you want execute the star or unstar mutation later.
 
 {{< highlight javascript "hl_lines=8" >}}
 const Repository = ({ repository, onStarRepository }) => (
@@ -1663,7 +1663,7 @@ const Repository = ({ repository, onStarRepository }) => (
 );
 {{< /highlight >}}
 
-The handler should be defined up in the App component. Thus it has to be passed down through each component until it reaches the Repository component. That's why it reaches through the Organization component too.
+The handler should be defined in the App component. It passes through each component until it reaches the Repository component, also reaching through the Organization component on its way.
 
 {{< highlight javascript "hl_lines=5 15" >}}
 const Organization = ({
@@ -1687,7 +1687,7 @@ const Organization = ({
 };
 {{< /highlight >}}
 
-Now, it can be defined in the App component. At this point, note that the `id` and the `viewerHasStarred` information could have been destructured from the App's local state too. That's how you wouldn't need to pass this information in the handler but use it from the local state instead. However, since the Repository component knew about the information already, it is fine to pass the information in the handler. You can argue that it makes the handler more explicit. Furthermore, in case you end up with multiple repositories and thus Repository components eventually, the handler would have to be specific to determine the correct repository anyway.
+Now it can be defined in the App component. Note that the `id` and the `viewerHasStarred` information can be destructured from the App's local state, too. This is why you wouldn't need to pass this information in the handler, but use it from the local state instead. However, since the Repository component knew about the information already, it is fine to pass the information in the handler, which also handler more explicit. It's also good preparation for dealing with multiple repositories and repository components later, since the handler will need to be more specific in these cases.
 
 {{< highlight javascript "hl_lines=4 5 6 20" >}}
 class App extends Component {
@@ -1720,7 +1720,7 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-Now, you can implement the handler. The part for performing the mutation can be already outsourced from the component. Later on, you can use the `viewerHasStarred` boolean in the handler to either perform a `addStar` or `removeStar` mutation. The execution of the mutation looks similar to performing a GraphQL query from before. The API endpoint is not needed, because it was set once in the beginning when you have configured axios. Furthermore, the mutation can be send in the `query` payload (which might be a bit confusing at this point, but shouldn't bother you). The `variables` property is optional as you know, but in this case, you need to pass the identifier for the repository in order to identify it.
+Now, you can implement the handler. The mutation can be outsourced from the component. Later, you can use the `viewerHasStarred` boolean in the handler to perform a `addStar` or `removeStar` mutation. Executing the mutation looks similar to the GraphQL query from before. The API endpoint is not needed, because it was set in the beginning when you configured axios. The mutation can be sent in the `query` payload, which we'll cover later. The `variables` property is optional, but you need to pass the identifier.
 
 {{< highlight javascript "hl_lines=1 2 3 4 5 6 12" >}}
 const addStarToRepository = repositoryId => {
@@ -1741,7 +1741,7 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-Before you define the `addStar` mutation, check again GitHub's GraphQL API for it. There you will find all information about it: the structure of the mutation, the required arguments and the available fields for the result. For instance, you can include the `viewerHasStarred` field in the returned result to get the updated boolean of the starred or not starred repository.
+Before you define the `addStar` mutation, check GitHub's GraphQL API again. There, you will find all information about the structure of the mutation, the required arguments, and the available fields for the result. For instance, you can include the `viewerHasStarred` field in the returned result to get an updated boolean of a starred or unstarred repository.
 
 {{< highlight javascript >}}
 const ADD_STAR = `
@@ -1755,7 +1755,7 @@ const ADD_STAR = `
 `;
 {{< /highlight >}}
 
-You could already execute the mutation in the browser by clicking the button. If you haven't starred the repository before, it should be starred after clicking the button. You can visit the repository on GitHub to get a visual feedback for it. Otherwise, in your application, you wouldn't see any result reflected yet. The button would still show the "Star" label when the repository wasn't starred before. That's because the `viewerHasStarred` boolean wasn't updated in the local state of the App component after the mutation. That's the next thing you are going to implement. Since axios returns a promise, you can use the `then()` method on the promise to resolve it with your own implementation details.
+You could already execute the mutation in the browser by clicking the button. If you haven't starred the repository before, it should be starred after clicking the button. You can visit the repository on GitHub to get visual feedback, though you won't see any results reflected yet. The button still shows the "Star" label when the repository wasn't starred before, because the `viewerHasStarred` boolean wasn't updated in the local state of the App component after the mutation. That's the next thing you are going to implement. Since axios returns a promise, you can use the `then()` method on the promise to resolve it with your own implementation details.
 
 {{< highlight javascript "hl_lines=1 2 3 9 10 11" >}}
 const resolveAddStarMutation = mutationResult => state => {
@@ -1775,7 +1775,7 @@ class App extends Component {
 }
 {{< /highlight >}}
 
-When resolving the promise from the mutation, you can find out about the `viewerHasStarred` property in the result. That's because you have defined this property as field in your mutation in the first place. Afterward, you can return a new state object for React's local state, because you have used the function in `this.setState()`. You are using the spread operator syntax here to update the deeply nested data structure. Only the `viewerHasStarred` property changes in the state object because that's the one property which was returned by the resolved promise from the successful request. All other parts of the local state stay intact.
+When resolving the promise from the mutation, you can find out about the `viewerHasStarred` property in the result. That's because you defined this property as a field in your mutation. It returns a new state object for React's local state, because you used the function in `this.setState()`. The spread operator syntax is used here, to update the deeply nested data structure. Only the `viewerHasStarred` property changes in the state object, because it's the only property returned by the resolved promise from the successful request. All other parts of the local state stay intact.
 
 {{< highlight javascript "hl_lines=2 3 4 5 6 7 8 9 10 11 12 13 14 15" >}}
 const resolveAddStarMutation = mutationResult => state => {
@@ -1796,9 +1796,9 @@ const resolveAddStarMutation = mutationResult => state => {
 };
 {{< /highlight >}}
 
-Now try to star the repository again. You may have to go on the Github page for the repository first to unstar it. Nevertheless, the button label should adapt to the updated `viewerHasStarred` property from the local state. Thus the button should show either a "Star" or "Unstar" label.
+Now try to star the repository again. You may have to go on the Github page and unstar it first. The button label should adapt to the updated `viewerHasStarred` property from the local state to show a "Star" or "Unstar" label. You can use whate you've learned for starring repositories on implementing a `removeStar` mutation. 
 
-There is one little extra mile that you can take to improve the star mutation from a user experience perspective. The obvious part would be implementing the `removeStar` mutation. But that's your exercise at the end of this section. Another improvement could be showing the current count of people who have starred the repository and updating this count in the `addStar` (and `removeStar`) mutation. First, you can retrieve the total count of stargazers by adding the following fields to your query:
+ We also want to show the current number of people who have starred the repository and updated this count in the `addStar` (and `removeStar`) mutation. First, you can retrieve the total count of stargazers by adding the following fields to your query:
 
 {{< highlight javascript "hl_lines=14 15 16" >}}
 const GET_ISSUES_OF_REPOSITORY = `
@@ -1855,7 +1855,7 @@ const Repository = ({
 );
 {{< /highlight >}}
 
-Last but not least, there is one last implementation missing: the count doesn't update when you star (or unstar) a repository. It is the same issue as the missing update for the `viewerHasStarred` property in the local state of the component after the `addStar` mutation succeeded. That's why you can head over to your mutation resolver again to update the total count of stargazers there as well. Even though the stargazer object isn't returned as a result from the mutation, you can simply increment and decrement the total count on your own after a successful mutation. In the case of the `addStar` mutation, you have to increment the counter.
+Now we want the count to update when you star (or unstar) a repository. It is the same issue as the missing update for the `viewerHasStarred` property in the local state of the component after the `addStar` mutation succeeded. Return to your mutation resolver and update the total count of stargazers there as well. While the stargazer object isn't returned as a result from the mutation, you can increment and decrement the total count after a successful mutation manually using a counter along with the `addStar` mutation.
 
 {{< highlight javascript "hl_lines=6 15 16 17" >}}
 const resolveAddStarMutation = mutationResult => state => {
@@ -1881,46 +1881,44 @@ const resolveAddStarMutation = mutationResult => state => {
 };
 {{< /highlight  >}}
 
-That's it for the mutation. If you check it out in your browser, it should work for you. Congratulations again. You have implemented your first mutation in React with GraphQL.
-
-So far, as mentioned before, you have only implemented the `addStar` mutation. Even though the button already reflects the `viewerHasStarred` boolean by showing a "Star" or "Unstar" label, the button showing "Unstar" should still execute the `addStar` mutation. It's up to you to add the `removeStar` mutation to unstar the repository in the exercises of this section where you will find further instructions.
+You have implemented your first mutation in React with GraphQL. So far, you have just implemented the `addStar` mutation. Even though the button already reflects the `viewerHasStarred` boolean by showing a "Star" or "Unstar" label, the button showing "Unstar" should still execute the `addStar` mutation. The `removeStar` mutation to unstar the repository is one of the practice exercises mentioned below.
 
 ### Exercises:
 
-* implement the `removeStar` mutation, which is used analog to the `addStar` mutation
-  * the `onStarRepository` class method has already access to the `viewerHasStarred` property
-  * you can conditionally execute a `addStar` or `removeStar` mutation in the class handler
-  * you need to resolve again the new state after removing a star from a repository
-  * align your final thoughts with {{% a_blank "this implementation" "https://github.com/rwieruch/react-graphql-github-vanilla" %}}
-* optional: implement the `addReaction` mutation for an issue
-* optional: implement more fine-grained components (e.g. IssueList, IssueItem, ReactionList, ReactionItem)
-  * extract components to their own files and use import and export statements to use them again in the App or other extracted components
+* Implement the `removeStar` mutation, which is used analog to the `addStar` mutation.
+  * The `onStarRepository` class method has already access to the `viewerHasStarred` property.
+  * Conditionally execute a `addStar` or `removeStar` mutation in the class handler.
+  * Resolve the new state after removing a star from a repository.
+  * Align your final thoughts with {{% a_blank "this implementation" "https://github.com/rwieruch/react-graphql-github-vanilla" %}}.
+* Implement the `addReaction` mutation for an issue
+* Implement more fine-grained components (e.g. IssueList, IssueItem, ReactionList, ReactionItem)
+  * Extract components to their own files and use import and export statements to use them again in the App or other extracted components
 
 {{% chapter_header "Shortcomings of GraphQL in React without a GraphQL Client library" "react-graphql-library" %}}
 
-In the last sections, you have implemented a working yet simply GitHub issue tracker which uses React and GraphQL without a dedicated library for the GraphQL part. You have used axios to communicate with the GraphQL API with HTTP POST methods. Personally I believe it is important to work with raw technologies, in this case GraphQL by using plain HTTP methods, before introducing another abstraction on top of it. Especially when learning about those raw technologies in the first place. The Apollo library offers this abstraction that makes using GraphQL in React much easier. That's why you will use Apollo in a following section of this tutorial. For now, using GraphQL with only HTTP has shown you two important things before introducing Apollo for it:
+We implemented a simple GitHub issue tracker that uses React and GraphQL without a dedicated library for GraphQL, using axios to communicate with the GraphQL API with HTTP POST methods. I think it is important to work with raw technologies, in this case GraphQL, using plain HTTP methods, before introducing another abstraction.  The Apollo library offers an abstraction that makes using GraphQL in React much easier, so you will use Apollo in the nex section. For now, using GraphQL with HTTP has shown you two important things before introducing Apollo:
 
-* how does GraphQL work when using its puristic interface which which is nothing else than HTTP
-* what are the shortcomings of using no sophisticated GraphQL Client library in React
+* How GraphQL works when using its puristic interface which which is nothing else than HTTP.
+* The shortcomings of using no sophisticated GraphQL Client library in React.
 
-I want to address briefly the last fact in the list of important things you should have learned by now. What are the shortcomings of using puristic HTTP methods to read and write data to your GraphQL API in a React application? Before reading the following list, make up your mind on your own. Maybe you can contribute to the list your own thoughts later on. The following list states a couple of these shortcomings:
+I want to address the shortcomings of using puristic HTTP methods to read and write data to your GraphQL API in a React application. Before reading this list, make up your mind on your own. Maybe you can contribute to the list your own thoughts later on. The following list states a couple of these shortcomings:
 
-* **Complementary:** In order to call a GraphQL API from your client application, you have to use HTTP methods. There are several quality libraries out there for HTTP requests whereas one of them is axios. That's why you have used axios for the previous application. However, using axios (or any other HTTP client library) doesn't feel like the best fit to complement a GraphQL centred interface. For instance, GraphQL doesn't use the full potential of HTTP. It's just fine to default to HTTP POST and only one API endpoint. It doesn't use resources and methods on those resources like a RESTful interface would do it. That's why it makes no sense to specify a HTTP method and an API endpoint with every request but rather set it up only once in the beginning. After all, GraphQL comes with its own constraints and you could see it as a layer on top of HTTP whereas it isn't important in the end for a developer to know about the underlying HTTP. Although a good developer should know about it.
+* **Complementary:** To call a GraphQL API from your client application, you use HTTP methods. There are several quality libraries out there for HTTP requests, one of which is axios. That's why you have used axios for the previous application. However, using axios (or any other HTTP client library) doesn't feel like the best fit to complement a GraphQL centred interface. For instance, GraphQL doesn't use the full potential of HTTP. It's just fine to default to HTTP POST and only one API endpoint. It doesn't use resources and methods on those resources like a RESTful interface, so it makes no sense to specify a HTTP method and an API endpoint with every request, but to set it up once in the beginning instead. GraphQL comes with its own constraints. You could see it as a layer on top of HTTP when it's not as important for a developer to know about the underlying HTTP. A good developer should know about it anyway, though.
 
-* **Declarative:** Every time you make a query or mutation when using plain HTTP requests, you have to make a dedicated call to the API endpoint using a library such as axios. It's an imperative way of reading and writing data to your backend. However, what if there would be a declarative approach making queries and mutations? What if there would be a way to co-locate queries and mutations to your view-layer components? In the previous application, you have experienced how the query shape aligns perfectly with your component hierarchy shape. What if the queries and mutations would align in the same way? That's the power of co-locating your data-layer with your view-layer and you will find more about it when using a dedicated GraphQL client library for it.
+* **Declarative:** Every time you make a query or mutation when using plain HTTP requests, you have to make a dedicated call to the API endpoint using a library such as axios. It's an imperative way of reading and writing data to your backend. However, what if there was a declarative approach to making queries and mutations? What if there was a way to co-locate queries and mutations to your view-layer components? In the previous application, you experienced how the query shape aligned perfectly with your component hierarchy shape. What if the queries and mutations would align in the same way? That's the power of co-locating your data-layer with your view-layer, and uou will find more about it when you use a dedicated GraphQL client library for it.
 
-* **Feature Support:** When using plain HTTP requests to interact with your GraphQL API, you are not leveraging the full potential of GraphQL. Imagine you would want to split up your query form the previous application into multiple queries that are co-located with their respective components where the data is used. That's when GraphQL would be used in a declarative way in your view-layer. But when you have no library support, you would have to deal with multiple queries on your own, keeping track of all of them, and trying to merge the results in your state-layer eventually. If you consider the previous application, splitting up the query into multiple queries would add a whole layer of complexity to the application. So what if there would be an entity which deals with aggregating the queries for you? That's where a GraphQL client library comes into play.
+* **Feature Support:** When using plain HTTP requests to interact with your GraphQL API, you are not leveraging the full potential of GraphQL. Imagine you want to split your query form the previous application into multiple queries that are co-located with their respective components where the data is used. That's when GraphQL would be used in a declarative way in your view-layer. But when you have no library support, you have to deal with multiple queries on your own, keeping track of all of them, and trying to merge the results in your state-layer. If you consider the previous application, splitting up the query into multiple queries would add a whole layer of complexity to the application. AGraphQL client library deals with aggregating the queries for you.
 
-* **Data Handling:** The naive way for data handling when using puristic HTTP requests is a subcategory of the missing feature support for GraphQL when not using a dedicated library for it. There is no one helping you out with normalizing your data and caching it for identical requests. Updating your state-layer when resolving fetched data from the data-layer becomes a nightmare when not normalizing the data in the first place. You have to deal with deeply nested state objects which lead to the verbose usage of the JavaScript spread operator. When you check the implementation of the application in the GitHub repository again, you will see that the updates of React's local state after a mutation and query are not nice to look at. A normalizing library such as {{% a_blank "normalizr" "https://github.com/paularmstrong/normalizr" %}} could help you to improve the structure of your local state. You learn more about normalizing your state in the book {{% a_blank "Taming the State in React" "https://roadtoreact.com" %}}. In addition to the missing caching and normalizing support, you are missing out on functionalities for pagination and optimistic updates when not using a library for it. These are all the features for data handling that a dedicated GraphQL library would give you.
+* **Data Handling:** The naive way for data handling with puristic HTTP requests is a subcategory of the missing feature support for GraphQL when not using a dedicated library for it. There is no one helping you out with normalizing your data and caching it for identical requests. Updating your state-layer when resolving fetched data from the data-layer becomes a nightmare when not normalizing the data in the first place. You have to deal with deeply nested state objects which lead to the verbose usage of the JavaScript spread operator. When you check the implementation of the application in the GitHub repository again, you will see that the updates of React's local state after a mutation and query are not nice to look at. A normalizing library such as {{% a_blank "normalizr" "https://github.com/paularmstrong/normalizr" %}} could help you to improve the structure of your local state. You learn more about normalizing your state in the book {{% a_blank "Taming the State in React" "https://roadtoreact.com" %}}. In addition to a lack of caching and normalizing support, avoiding libraries means missing out on functionalities for pagination and optimistic updates. A dedicated GraphQL library gives .
 
 * **GraphQL Subscriptions:** While there is the concept of a query and mutation to read and write data with GraphQL, there is a third concept of a GraphQL **subscription** for receiving real-time data in a client-sided application. When you would have to rely on a plain HTTP requests as before, you would have to introduce {{% a_blank "WebSockets" "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API" %}} next to it. It enables you to introduce a long-lived connection for receiving results over time. In conclusion, introducing GraphQL subscriptions would add another tool to your application. However, if you would introduce a GraphQL library for it on the client-side, the library would probably implement GraphQL subscriptions for you.
 
-As I mentioned, the list may be not complete, but I am keen to hear your thoughts about it. In the following, I am looking forward to introduce Apollo as a GraphQL client library to your React application. It will help you out with all the mentioned shortcomings. Although, as mentioned before, I strongly believe that it was good for the learning process to learn about GraphQL in React without a GraphQL library in the beginning.
+ In the following, I am looking forward to introduce Apollo as a GraphQL client library to your React application. It will help with the aforementioned shortcomings. However, I do strongly believe it was good to learn about GraphQL in React without a GraphQL library in the beginning.
 
 <hr class="section-divider">
 
-You can find the final {{% a_blank "repository on GitHub" "https://github.com/rwieruch/react-graphql-github-vanilla" %}}. The repository showcases most of the exercise tasks too. The application is not feature complete, doesn't cover all edge cases and isn't styled. However, I hope the walkthrough of implementing the application with plain GraphQL in React has helped you to understand using GraphQL only on the client-side in React by using only HTTP request. I believe it's important to make this step before using a sophisticated GraphQL client library such as Apollo or Relay.
+You can find the final {{% a_blank "repository on GitHub" "https://github.com/rwieruch/react-graphql-github-vanilla" %}}. The repository showcases most of the exercise tasks too. The application is not feature complete since it doesn't cover all edge cases and isn't styled. However, I hope the implementation walkthrough with plain GraphQL in React has helped you to understand using only GraphQL client-side in React using HTTP requests. It's important to take this step before using a sophisticated GraphQL client library such as Apollo or Relay.
 
-The previous sections should have shown you how to implement a React application with GraphQL and HTTP requests without using a library such as Apollo for it. In the following, you will continue learning about using GraphQL in React by using Apollo instead of basic HTTP requests. The Apollo GraphQL Client makes caching your data, normalizing it, performing optimistic updates and pagination an effortless endeavor. That's by far not all to it. So stay tuned for the next applications you are are going to build with GraphQL.
+I've shown how to implement a React application with GraphQL and HTTP requests without using a library like Apollo. Next, you will continue learning about using GraphQL in React using Apollo instead of basic HTTP requests. The Apollo GraphQL Client makes caching your data, normalizing it, performing optimistic updates, and pagination effortless. That's not all by a long shot, so stay tuned for the next applications you are are going to build with GraphQL.
 
 {{% read_before_2 "This tutorial is part 2 of 3 in this series." "Part 1:" "Getting Started with GitHub's GraphQL API" "https://www.robinwieruch.de/getting-started-github-graphql-api" "Part 3:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial" %}}
