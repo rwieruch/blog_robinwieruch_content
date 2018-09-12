@@ -19,17 +19,17 @@ summary = "The Road to learn React offers you a foundation before you start to d
 
 {{% pin_it_image "react book" "img/posts/the-road-to-learn-react/banner.jpg" "is-src-set" %}}
 
-The Road to learn React book teaches you the fundamentals of React. You will build a real world application in plain React without complicated tooling. Everything from project setup to deployment on a server will be explained for you. The React book comes with additional reading material and exercises with each chapter. After reading the book, you will be able to build your own applications in React. Basically it is a very long read tutorial which is kept up to date by me and the community.
+The Road to learn React teaches the fundamentals of React. You will build a real-world application in plain React without complicated tooling. Everything from project setup to deployment on a server will be explained for you. The book comes with additional referenced reading material and exercises with each chapter. After reading the book, you will be able to build your own applications in React. The material is kept up to date by myself and the community.
 
-In the Road to learn React, I want to offer a foundation before you start to dive into the broader React ecosystem. It has less tooling and less external state management, but a lot of information about React. It explains general concepts, patterns and best practices in a real world React application. It uses create-react-app for avoiding all the setup with Webpack and Babel.
+In the Road to learn React, I offer a foundation before you dive into the broader React ecosystem. The concepts will have less tooling and less external state management, but a lot of information about React. It explains general concepts, patterns, and best practices in a real world React application.
 
-You will learn to build your own React application. It covers real world features like pagination, client-side caching and interactions such as searching and sorting. Additionally, you will transition from JavaScript ES5 to JavaScript ES6 along the way. I hope this book captures my enthusiasm for React and JavaScript and helps you to get started with it.
+Essentially, you will learn to build your own React application from scratch, with features like pagination, client-side caching, and interactions like searching and sorting. Additionally, you will transition from JavaScript ES5 to JavaScript ES6. I hope this book captures my enthusiasm for React and JavaScript, and that it helps you get started with it.
 
 {{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>33.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
 
 {{% chapter_header "React Book Testimonials" "react-book-testimonials" %}}
 
-There are many {{% a_blank "testimonials" "https://roadtoreact.com/" %}}, {{% a_blank "ratings" "https://www.goodreads.com/book/show/37503118-the-road-to-learn-react" %}} and {{% a_blank "reviews" "https://www.amazon.com/dp/B077HJFCQX" %}} about the book which should confirm the quality of it. I am so proud of it, because I never expected such an overwhelming feedback. If you enjoy the book as well, I would love to find your rating/review somewhere as well. It helps me to spread the word about the book. The following shows a short excerpt of these good voices:
+There are many {{% a_blank "testimonials" "https://roadtoreact.com/" %}}, {{% a_blank "ratings" "https://www.goodreads.com/book/show/37503118-the-road-to-learn-react" %}} and {{% a_blank "reviews" "https://amzn.to/2LHjxRB" %}} about the book that you can read to ascertain its quality. I am proud of it, and I never expected such overwhelming feedback. I would love to find your rating/review. It helps me to spread the word about the book and make improvements for future projects. The following shows a short excerpt of these voices:
 
 **[Muhammad Kashif](https://twitter.com/appsdevpk/status/848625244956901376):** "The Road to Learn React is a unique book that I recommend to any student or professional interested in learning react basics to advanced level. It is packed with insightful tips and techniques that are hard to find elsewhere, and remarkably thorough in its use of examples and references to sample problems, i have 17 years of experience in web and desktop app development, and before reading this book i was having trouble in learning react, but this book works like magic."
 
@@ -45,37 +45,29 @@ There are many {{% a_blank "testimonials" "https://roadtoreact.com/" %}}, {{% a_
 
 **[Eric Priou](https://twitter.com/erixtekila/status/840875459730657283):** "The Road to learn React by Robin Wieruch is a must read. Clean and concise for React and JavaScript."
 
-**A Rookie Developer:** "I just finished the book as a rookie developer, thanks for working on this. It was easy to follow and I feel confident in starting a new app from scratch in the coming days. The book was much better than official React.js tutorial that I tried earlier (and couldn't complete due to lack of detail). The exercises at the end of each section were very rewarding."
-
-**Student:** "The best book to start learning ReactJS. The project moves along with the concepts being learnt which helps to grasp the subject. I have found 'Code and learn' as best way to master programming and this book exactly does that."
-
-**[Thomas Lockney](https://www.goodreads.com/review/show/1880673388):** "Pretty solid introduction to React that doesn't try to be comprehensive. I just wanted a taste to understand what it was about and this book gave me exactly that. I didn't follow all the little footnotes to learn about the new ES6 features I've missed ("I wouldn't say I've been missing it, Bob."). But I'm sure for those of you who have fallen behind and are diligent about following those, you can probably learn a lot more than just what the book teaches."
-
 {{% chapter_header "Book FAQ" "book-faq" %}}
 
-**How do I get updates?** You can [subscribe](https://www.getrevue.co/profile/rwieruch) to the Newsletter or follow me on [Twitter](https://twitter.com/rwieruch) for updates. Once you have a copy of the book, it will stay updated when a new edition gets released. But you have to grab the copy again when an update is announced.
+**How to get updates?** I have two channels where I share updates about my content. You can [subscribe to updates by email](https://www.getrevue.co/profile/rwieruch) or [follow me on Twitter](https://twitter.com/rwieruch). Regardless of the channel, my objective is to only share quality content. Once you receive notification the book has changed, you can download a new version of it.
 
-**Does it use the recent React version?** The book always receives an update when the React version got updated. Usually books are outdated pretty soon after their release. Since this book is self-published, I can update it whenever I want.
+**Does it use the recent React version?** The book always receives an update when the React version is updated. Programming books are usually outdated soon after their release, but since this book is self-published, I can update it as needed.
 
-**Does it cover Redux?** It doesn't. Therefore I have written a second book. The Road to learn React should give you a solid foundation before you dive into advanced topics. The implementation of the sample application in the book will show that you don't need Redux to build an application in React. After you have read the book, you should be able to implement a solid application without Redux. Then you can read my second book to learn [Redux](https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE).
+**Does it cover Redux?** It doesn't, so I have written a second book. The Road to learn React should give you a solid foundation before you dive into advanced topics. The implementation of the sample application in the book will show that you don't need Redux to build an application in React. After you have read the book, you should be able to implement a solid application without Redux. Then you can read my second book, Taming the State in React, to learn Redux.
 
-**Does it use JavaScript ES6?** Yes. But don't worry. You will be fine if you are familiar with JavaScript ES5. All JavaScript ES6 features, that I describe on the journey to learn React, will transition from ES5 to ES6 in the book. Every feature along the way will be explained. The book does not only teach React, but also all useful JavaScript ES6 features for React.
-
-**Will you add more chapters in the future?** You can have a look at the Change Log chapter for major updates that already happened. There will be unannounced improvements in between too. In general, it depends on the community whether I continue to work on the book. If there is an acceptance for the book, I will deliver more chapters and improve the old material. I will keep the content up to date with recent best practices, concepts and patterns.
+**Does it use JavaScript ES6?** Yes. Don't worry, though, you will be fine if you are familiar with JavaScript ES5. All JavaScript ES6 features, that I describe in The Journey to Learn React, will transition from ES5 to ES6. The book does not only teach React, but also all useful JavaScript ES6 features.
 
 **What are the reading formats?** In addition to the .pdf, .epub, and .mobi formats, you can read it in pure markdown on GitHub. In general, I recommend reading it on a suitable format, otherwise the code snippets will have ugly line breaks.
 
-**How can I get help while reading the book?** The book has a [Slack Group](https://slack-the-road-to-learn-react.wieruch.com/) for people who are reading the book. You can join the channel to get help or to help others. After all, helping others can improve your learnings too.
+**How can I get help while reading the book?** The book has a [Slack Group](https://slack-the-road-to-learn-react.wieruch.com/) for people who are reading along. You can join the channel to get help, or to help others, as helping others may help you internalize your own understanding. If there is no one available to help you, you can always reach out to me.
 
 **Why is the book pay what you want?** I have put a lot of effort into this and will do so in the future. My desire is to reach as many people as possible. Everyone should be enabled to learn React. Still you could pay, if you can afford it. In addition, the [book attempts to support projects that educate children in the developing world](https://www.robinwieruch.de/giving-back-by-learning-react/). You can have an impact too.
 
-**Can I support the project?** Yes. Feel free to reach out. I invest a lot of my time into open source tutorials and learning resources. You can have a look at my [about me](https://www.robinwieruch.de/about/) page. I would love to have you as my [Patron on Patreon](https://www.patreon.com/rwieruch).
+**How to support the project?** If you believe in the content I create, you can [support me](https://www.robinwieruch.de/about/). It also helps if you spread the word about this book, or you can sign on as my [Patron on Patreon](https://www.patreon.com/rwieruch).
 
 **Is there a call to action?** Yes. I want you to take a moment to think about a person who would be a good match to learn React. The person could have shown the interest already, could be in the middle of learning React or might not yet be aware about wanting to learn React. Reach out to that person and share the book. It would mean a lot to me. The book is intended to be given to others.
 
 {{% chapter_header "Education for Children" "educateChildren" %}}
 
-The book is open source and should enable everyone to learn React. However, not everyone is privileged to use open source resources, because not everyone is educated in the English language in the first place. Even though the book is pay what you want, I want to use it to support projects that teach children English in the developing world.
+The book should enable everyone to learn React. However, not everyone has access to the required resources, because not everyone is educated in the English language. I want to use this project to support other projects that teach children English in the developing world.
 
 * 11. April to 18. April, 2017, [Giving Back, By Learning React](https://www.robinwieruch.de/giving-back-by-learning-react/)
 
@@ -119,7 +111,7 @@ I keep the learning material up to date to the recent changes in the React ecosy
 * 15% improved content
 * 3 new chapters (Bindings, Event Handlers, Error Handling)
 * 190+ pages of learning material
-* {{% a_blank "+9 Source Code Projects" "https://roadtoreact.com/course-details?courseId=THE_ROAD_TO_LEARN_REACT" %}}
+* {{% a_blank "+9 Source Code Projects" "https://roadtoreact.com" %}}
 
 **17. February 2018:**
 
@@ -129,7 +121,12 @@ I keep the learning material up to date to the recent changes in the React ecosy
 * more learning paths
 * extra reading material
 * 1 new chapter (Axios instead of Fetch)
-* {{% a_blank "Amazon Print/E Book" "https://www.amazon.com/dp/B077HJFCQX?tag=21moves-20" %}}
+* {{% a_blank "Amazon Print/E Book" "https://amzn.to/2LHjxRB" %}}
+
+**31. August 2018:**
+
+* professional proofreading and editing by Emmanuel Stalling
+* {{% a_blank "16 Source Code Projects" "https://roadtoreact.com" %}}
 
 {{% chapter_header "What you can expect (so far...) from the React book" "book-expectations" %}}
 
@@ -140,7 +137,7 @@ I keep the learning material up to date to the recent changes in the React ecosy
       <li>no complicated configurations</li>
       <li>create-react-app to bootstrap your application</li>
       <li>efficient lightweight code</li>
-      <li>only React setState as state management (so far...)</li>
+      <li>only React setState as state management</li>
       <li>transition from JavaScript ES5 to ES6 along the way</li>
       <li>the React API with setState and lifecycle methods</li>
       <li>interaction with a real world API (Hacker News)</li>
@@ -213,6 +210,7 @@ I keep the learning material up to date to the recent changes in the React ecosy
   * Snapshot Tests with Jest
   * Unit Tests with Enzyme
   * Component Interface with PropTypes
+  * Debugging with React Developer Tools
 * Advanced React Components
   * Ref a DOM Element
   * Loading …
@@ -231,28 +229,26 @@ I keep the learning material up to date to the recent changes in the React ecosy
 
 My recommended learning paths (extracted from the book) after you have read it:
 
-* **State Management:** You have used React `this.setState()` and `this.state` to manage and access local component state. That's a perfect start. However, in a larger application you will experience the [limits of React's local component state](https://www.robinwieruch.de/learn-react-before-using-redux/). Therefore you can use a third-party state management library such as [Redux or MobX](https://www.robinwieruch.de/redux-mobx-confusion/). On the course platform [Road to React](https://roadtoreact.com/), you will find the course "Taming the State in React" that teaches advanced local state in React, Redux and MobX. The course comes with an ebook as well, but I recommend everyone to dive into the source code and screencasts too. If you liked this book, you should definitely checkout Taming the State in React.
+* **Connecting to a Database and/or Authentication:** In a growing React application, you may want to persist data eventually. The data should be stored in a database so it can survive after a browser session, and so it can be shared across different users using your application. The simplest way to introduce a database is Firebase. In [this tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/), you will find a step-by-step guide on how to use Firebase authentication in React. Beyond that, you can use Firebase's realtime database to store user entities.
 
-* **Connecting to a Database and/or Authentication:** In a growing React application, you may want to persist data eventually. The data should be stored in a database so that it can survive after a browser session and be shared across different users using your application. The simplest way to introduce a database is using Firebase. In [this comprehensive tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/), you will find a step by step guide on how to use Firebase authentication (sign up, sign in, sign out, ...) in React. Beyond that, you will use Firebase's realtime database to store user entities. After that, it's up to you to store more data in the database which is needed by your application.
+* **State Management:** You have used React `this.setState()` and `this.state` to manage and access local component state. That's a good start. In a larger application, however, you will experience the [limits of React's local component state](https://www.robinwieruch.de/learn-react-before-using-redux/). It is imperative you learn to use third-party state management libraries like [Redux or MobX](https://www.robinwieruch.de/redux-mobx-confusion/). On the [Road to React](https://roadtoreact.com/) platform, you will find the course "Taming the State in React" that teaches about advanced local state management using Redux and MobX. The course comes with an ebook as well, but I recommend you dive into the source code and screencasts too.
 
-* **Tooling with Webpack and Babel:** In the book you have used *create-react-app* to set up your application. At some point, when you have learned React, you might want to learn the tooling around it. It enables you to setup your own project without *create-react-app*. I can recommend to follow a minimal setup with [Webpack and Babel](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). Afterward, you can apply more tooling on your own. For instance, you could [use ESLint](https://www.robinwieruch.de/react-eslint-webpack-babel/) to follow a unified code style in your application.
+* **Tooling with Webpack and Babel:** We used *create-react-app* to set up the application we created for this book. At some point you may want to learn the tooling around it, which enables you to setup your own project without *create-react-app*. I recommend a minimal setup with [Webpack and Babel](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/), after which you can apply additional tooling on your own. For instance, you could [use ESLint](https://www.robinwieruch.de/react-eslint-webpack-babel/) to follow a unified code style.
 
-* **React Component Syntax:** The possibilities and best practices to implement React components evolve over time. You will find many ways to write your React components, especially React class components, in other learning resources. You can checkout {{% a_blank "this GitHub repository" "https://github.com/rwieruch/react-alternative-class-component-syntax" %}} to find out about an alternative way to write React class components. By using the class field declarations, you can write them even more concise in the future.
+* **Code Organization:** Recall if you will the chapter about code organization. You can apply these changes now, if you haven't already. It will help organize your components in structured files and folders (modules), and it will help you understand the principles of code splitting, reusability, maintainability, and module API design. Your applications will eventually grow and need to be structured into modules, so it's better to start now.
 
-* **Other Projects:** After learning plain React, it is always good to apply the learnings first in your own projects before learning something new. You could write your own tic-tac-toe game or a simple calculator in React. There are plenty of tutorials out there that use only React to build something exciting. Check out mine about building [a paginated and infinite scrolling list](https://www.robinwieruch.de/react-paginated-list/), [showcasing tweets on a Twitter wall](https://www.robinwieruch.de/react-svg-patterns/) or [connecting your React application to Stripe for charging money](https://www.robinwieruch.de/react-express-stripe-payment/). Experiment with these mini applications to get comfortable in React.
+* **Testing:** The book only scratched the surface of testing. If you are not familiar with the topic, you should dive deeper into unit testing and integration testing, especially with React applications. I would recommend to stick to Enzyme and Jest for implementations, to refine your approaches with unit and snapshot tests.
 
-* **UI Components:** You shouldn't make the mistake to introduce too early a UI component library in your project. First, you should learn how to implement and use a dropdown, checkbox or dialog in React with standard HTML elements from scratch. The major part of these components will manage their own local state. A checkbox has to know whether it is checked or not checked. Thus you should implement them as controlled components. After you went through all the foundational implementations, you can introduce a UI component library which gives you checkboxes and dialogs as React components.
+* **React Component Syntax:** The best practices for implementing React components evolve over time. You will find many ways to write your React components, especially React class components, in other learning resources. A GitHub repository called [react-alternative-class-component-syntax](https://github.com/the-road-to-learn-react/react-alternative-class-component-syntax) is a great way to learn alternative ways to write React class components. By using class field declarations, you can write them even more concisely in the future.
 
-* **Code Organization:** On your way reading the book, you came across one chapter about code organization. You could apply these changes now, if you haven't done it yet. It will organize your components in structured files and folders (modules). In addition, it helps you to understand and learn the principles of code splitting, reusability, maintainability and module API design. Eventually your application will grow in size and you will need to structure it in modules. So it's better you get started now.
+* **UI Components:** Many beginners make the mistake of introducing UI component libraries too early in their projects. It is more practical to learn how to implement and use a dropdown, checkbox, or dialog in React with standard HTML elements. Most of these components will manage their own local state. A checkbox has to know whether it is checked or unchecked, so you should implement them as controlled components. After we covered the foundational implementations, introducing a UI component library with checkboxes and dialogs as React components should be easier.
 
-* **Testing:** The book only scratched the surface of testing. If you are not familiar with the general topic, you could dive deeper into the concepts of unit testing and integration testing, especially in context of React applications. On an implementation level, I would recommend to stick to Enzyme and Jest in order to refine your approach of testing with unit tests and snapshot tests in React.
+* **Routing:** You can implement routing for your application with [react-router](https://github.com/ReactTraining/react-router). So far, there is only one page in your application. React Router helps manage multiple pages across multiple URLs. When you introduce routing to your application, you don't make any requests to your web server to request the next page. The router will do everything for you on the client-side. So get your hands dirty and introduce routing in your application.
 
-* **Routing:** You can implement routing for your application with {{% a_blank "react-router" "https://github.com/ReactTraining/react-router" %}}. So far, you only have one page in your application. React Router helps you to have multiple pages across multiple URLs. When you introduce routing to your application, you don't make any requests to your web server to request the next page. The router will do everything for you on the client-side. So get your hands dirty and introduce routing in your application.
+* **Type Checking:** Earlier, we used React PropTypes to define component interfaces. It is a good practice to prevent bugs, but the PropTypes are only checked on runtime. You can go further by introducing static type checking at compile time. [TypeScript](https://www.typescriptlang.org/) and [Flow](https://flowtype.org/) are popular type systems for React.
 
-* **Type Checking:** In one chapter, you have used React PropTypes to define component interfaces. It is a general good practice to prevent bugs. But the PropTypes are only checked on runtime. You can go one step further to introduce static type checking on compile time. {{% a_blank "TypeScript" "https://www.typescriptlang.org/" %}}" is one popular approach. But in the React ecosystem, people often use {{% a_blank "Flow" "https://flowtype.org/" %}}. I can recommend to give Flow a shot, if you are interested to make your application more robust.
-
-* **React Native:** {{% a_blank "React Native" "https://facebook.github.io/react-native/" %}} brings your application on mobile devices. You can apply your learnings from React to ship iOS and Android applications. The learning curve, once you have learned React, shouldn't be steep in React Native. Both share the same principles. You will only encounter different layout components on mobile than you are used to in web applications.
+* **React Native:** [React Native](https://facebook.github.io/react-native/) brings your application to mobile devices, such as iOS and Android applications. Once you've mastered React, the learning curve for React Native shouldn't be that steep, as they share the same principles. The only difference with mobile are the layout components.
 
 <hr class="section-divider">
 
-Now you should know everything what you can expect from the book. You can pay what you want, because I want to enable everyone to learn React. I would really appreciate your support on social media to reach as many people as possible to grab a version of the book. If you sign up for the Newsletter to grab yourself a version of the book, you should get a confirmation e-mail where you will find the URL to the course platform. There the book can be found as "The Bare Essentials" package without any pricing tag.
+Now you should know everything what you can expect from the book. You can pay what you want, because I want to enable everyone to learn React. I would really appreciate your support on social media to reach as many people as possible to grab a version of the book. If you sign up for the Newsletter to grab yourself a version of the book, you should get a confirmation e-mail where you will find the URL to the course platform. There the book can be found as "The Bare Essentials" package without any pricing tag. Enjoy reading and I promise you will learn lots from it.
