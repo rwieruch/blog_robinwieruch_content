@@ -98,7 +98,7 @@ console.log(me.getName());
 
 A class describes an **entity** which is used as a blueprint to create an **instance** of this entity. Once an instance of the class gets created with the `new` statement, the constructor of the class is called which instantiates the instance of the class. Therefore, a class can have properties which are usually located in its constructor. In addition, class methods (e.g. `getName()`) are used to read (or write) data of the instance. The instance of the class is represented as the `this` object within the class, but outside the instance is just assigned to a JavaScript variable.
 
-Usually classes are used for inheritance in object-oriented programming. They are used for the same in JavaScript whereas the `extends` statement can be used to inherit with one class from another class. The more specialized class with the `extends` statements inherits all the abilities from the more general class, but can add its specialized abilities to it.
+Usually classes are used for inheritance in object-oriented programming. They are used for the same in JavaScript whereas the `extends` statement can be used to inherit with one class from another class. The more specialized class inherits all the abilities from the more general class with the `extends` statement, and can add its specialized abilities to it.
 
 {{< highlight javascript "hl_lines=12 13 14 15 16 18 21" >}}
 class Developer {
@@ -166,9 +166,9 @@ class App extends Component {
 export default App;
 {{< /highlight >}}
 
-Now you know why React uses JavaScript classes for defining React class components. They are used when you need access to React's API (lifecycle methods, `this.state` and `this.setState()`). In the following, you will see how React components can be defined in a different way, without using a JavaScript class, because you may not need always class methods, lifecycle methods and state.
+Now you know why React uses JavaScript classes for defining React class components. They are used when you need access to React's API (lifecycle methods, `this.state` and `this.setState()`). In the following, you will see how React components can be defined in a different way, without using a JavaScript class, because you may not always need class methods, lifecycle methods and state.
 
-After all, JavaScript classes welcome one using inheritance in React, which isn't a desired outcome for React, {{% a_blank "because React favors composition over inheritance" "https://reactjs.org/docs/composition-vs-inheritance.html" %}}. So the only class you should extend from for your React components should be the official React Component.
+After all, JavaScript classes welcome one using inheritance in React, which isn't a desired outcome for React, {{% a_blank "because React favors composition over inheritance" "https://reactjs.org/docs/composition-vs-inheritance.html" %}}. So the only class you should extend from your React components should be the official React Component.
 
 {{% chapter_header "Arrow Functions in React" "react-arrow-functions" %}}
 
@@ -234,7 +234,7 @@ JavaScript arrow functions are a great way of keeping your functional stateless 
 
 {{% chapter_header "React Class Component Syntax" "react-class-component-syntax" %}}
 
-React's way on defining components evolved over time. In its early stages, the `React.createClass()` method was the default way of creating a React class component. Nowadays, it isn't used anymore, because with the rise of JavaScript ES6, the previously used React class component syntax became the default.
+React's way of defining components evolved over time. In its early stages, the `React.createClass()` method was the default way of creating a React class component. Nowadays, it isn't used anymore, because with the rise of JavaScript ES6, the previously used React class component syntax became the default.
 
 However, JavaScript is evolving constantly and thus JavaScript enthusiast pick up new ways of doing things all the time. That's why you will find often different syntaxes for React class components. One way of defining a React class component, with state and class methods, is the following:
 
@@ -939,7 +939,7 @@ class Counter extends Component {
 }
 {{< /highlight >}}
 
-Moving functions around your code base is a great way learning about the benefits of having functions as first class citizens in JavaScript. It's powerful when moving your code towards functional programming.
+Moving functions around your code base is a great way to learn about the benefits of having functions as first class citizens in JavaScript. It's powerful when moving your code towards functional programming.
 
 {{% chapter_header "Destructuring and Spread Operators in React" "react-destructuring-spread-operator" %}}
 
