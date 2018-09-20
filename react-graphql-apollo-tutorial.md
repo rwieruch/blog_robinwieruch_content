@@ -378,7 +378,7 @@ This application will use plain CSS classes and CSS files. By following the plai
 ### Exercises:
 
 * If you are not familiar with React, read up *The Road to learn React*
-* setup the recommended folder/file structure (if you are not going with your own structure and didn't clone the repository)
+* Set up the recommended folder/file structure (if you are not going with your own structure and didn't clone the repository)
   * Create the CSS *style.css* files in their specified folders from the [appendix](#appendix-styling) section of this tutorial
   * Create the *index.js* files for the components
   * Create further folders on your own for non top level components (e.g. Navigation) when conducting the following sections
@@ -389,27 +389,27 @@ This application will use plain CSS classes and CSS files. By following the plai
 
 {{% chapter_header "Configure Apollo Client for React and GitHub's GraphQL API" "react-apollo-client-configuration" %}}
 
-In this section, you will set up a Apollo Client instance as you have done before in the Node.js environment. However, this time you will use Apollo Client directly without the zero-configuration package Apollo Boost. Hence you have to configure the Apollo Client yourself and don't get sensible defaults. Whereas I often believe it's best to use a tool with sensible defaults for the purpose of learning about it, I feel like configuring Apollo yourself will lay out the power of the fine-grained composable ecosystem of Apollo Client to you, how to use them for an initial setup and how to advance your setup with them later on. If you don't understand everything in this section, don't worry too much about it. You can always revisit it later. The thing which matters the most in this section is that you are creating a Apollo Client instance with your own configuration.
+In this section, you will set up a Apollo Client instance in the Node.js environment, same as before. However, this time you will use Apollo Client directly without the zero-configuration package Apollo Boost, meaning you'll need to configure the Apollo Client yourself without sensible defaults. While it's best to use a tool with sensible defaults for learning, configuring Apollo yourself exposes the composable ecosystem of Apollo Client, how to use it for an initial setup, and how to advance this setup later. 
 
-All the Apollo Client setup can be done in the top level *src/index.js* file of your project where you have your React to HTML entry point as well. Before you touch this file, you have to install the Apollo Client on the command line in your project folder:
+The Apollo Client setup can be completed in the top-level *src/index.js* file, where the React to HTML entry point exists as well. First, install the Apollo Client in your project folder using the command line:
 
 {{< highlight javascript >}}
 npm install apollo-client --save
 {{< /highlight >}}
 
-Furthermore, you need two utility packages for two mandatory configurations that are used for the Apollo Client creation. Whereas the {{% a_blank "apollo-cache-inmemory" "https://github.com/apollographql/apollo-client/tree/master/packages/apollo-cache-inmemory" %}} is a recommended cache (read also as: store or state) for your Apollo Client to manage the data, apollo-link-http is used to configure the URI and additional network information once for your Apollo Client instance.
+Two utility packages are requied for two mandatory configurations used to create the Apollo Client. The {{% a_blank "apollo-cache-inmemory" "https://github.com/apollographql/apollo-client/tree/master/packages/apollo-cache-inmemory" %}} is a recommended cache (read also as: store or state) for your Apollo Client to manage the data, while apollo-link-http is used to configure the URI and additional network information once for an Apollo Client instance.
 
 {{< highlight javascript >}}
 npm install apollo-cache-inmemory apollo-link-http --save
 {{< /highlight >}}
 
-As you can see, their is nothing yet mentioned about React. It's only the Apollo Client plus two packages for the configuration of it. Moreover, there are two more packages that you have to install for Apollo Client to work with GraphQL. They are used as internal dependencies by Apollo. However, the latter one is also used to define your queries and mutations later on. Before these utilities came directly from Apollo Boost as you may recall.
+As you can see, nothing has been mentioned about React, only the Apollo Client plus two packages for its configuration. There are two additional packages required for Apollo Client to work with GraphQL, to be used as internal dependencies by Apollo. The latter is also used to define queries and mutations. These utilities came directly from Apollo Boost.
 
 {{< highlight javascript >}}
 npm install graphql graphql-tag --save
 {{< /highlight >}}
 
-That's it for the package installation ceremony. Let's enter the Apollo Client setup and configuration ceremony now. In your top level *src/index.js* file, where all the Apollo Client setup will be done in this section, import the necessary classes for the Apollo Client setup from the previously installed packages.
+That's it for package installation, so now we enter the Apollo Client setup and configuration. In your top level *src/index.js* file, where all the Apollo Client setup will be done in this section, import the necessary classes for the Apollo Client setup from the previously installed packages.
 
 {{< highlight javascript "hl_lines=3 4 5" >}}
 import React from 'react';
@@ -424,7 +424,7 @@ import App from './App';
 ...
 {{< /highlight >}}
 
-Whereas the `ApolloClient` class is used to create the client instance, the `HttpLink` and `InMemoryCache` are used for the two mandatory configurations when creating the client instance. First, you can create a configured `HttpLink` instance. The instance will be fed later to the Apollo Client creation.
+The `ApolloClient` class is used to create the client instance, and the `HttpLink` and `InMemoryCache` are used for its mandatory configurations. First, you can create a configured `HttpLink` instance, which will be fed to the Apollo Client creation.
 
 {{< highlight javascript >}}
 const GITHUB_BASE_URL = 'https://api.github.com/graphql';
@@ -439,15 +439,15 @@ const httpLink = new HttpLink({
 });
 {{< /highlight >}}
 
-You may recall this mandatory configuration from previous applications. The `uri` is a mandatory value to define the one and only GraphQL API endpoint that should be used by the Apollo Client. In this case, Github's GraphQL endpoint is passed as value to it. Furthermore, when consuming the GitHub GraphQL API, you have to authorize yourself with your personal access token. You should have already created the token in a previous section, which you can now define in a *.env* file in your project folder. Afterward, it should be accessible with `process.env`. Keep in mind that you have to use the `REACT_APP` prefix when using create-react-app, because that's how it is required by create-react-app. Otherwise you would be free to choose your very own naming for it.
+You may recall the mandatory configuration from previous applications. The `uri` is a mandatory value to define the only GraphQL API endpoint used by the Apollo Client. In this case, Github's GraphQL endpoint is passed as value. When consuming the GitHub GraphQL API, you have to authorize yourself with your personal access token. You should have already created the token in a previous section, which you can now define in a *.env* file in your project folder. Afterward, it should be accessible with `process.env`. Keep in mind that you have to use the `REACT_APP` prefix when using create-react-app, because that's how it is required by create-react-app. Otherwise, you would be free to choose your own naming for it.
 
-Second, you create the cache as your place where the data is managed in Apollo Client. The cache normalizes your data, caches requests to avoid making a unnecessary request twice and makes it possible to read and write data to the cache as well. You will make use of it multiple times while developing this application. After all, the cache instantiation is straight forward. It doesn't require you to pass any arguments to it, but you can read up the API later to explore further configurations of it.
+Second, create the cache as the place where the data is managed in Apollo Client. The cache normalizes your data, caches requests to avoid duplicates, and makes it possible to read and write data to the cache. You will use it multiple times while developing this application. The cache instantiation is straight forward, as it doesn't require you to pass any arguments to it. Check the API to explore further configurations.
 
 {{< highlight javascript >}}
 const cache = new InMemoryCache();
 {{< /highlight >}}
 
-Finally you can use both instantiated configurations, the link and the cache, to create the instance of the Apollo Client.
+Finally, you can use both instantiated configurations, the link and the cache, to create the instance of the Apollo Client.
 
 {{< highlight javascript >}}
 const client = new ApolloClient({
@@ -456,22 +456,22 @@ const client = new ApolloClient({
 });
 {{< /highlight >}}
 
-In order to initialize Apollo Client, you must specify link and cache properties on the config object. Once you start your application again, everything should run without any errors. If it doesn't check whether you have implemented a basic App component in your *src/App/index.js* file. After all, the `ReactDOM` API needs to hook this component into the HTML.
+To initialize Apollo Client, you must specify link and cache properties on the config object. Once you start your application again, there should be no errors. It doesn't check whether you have implemented a basic App component in your *src/App/index.js* file because the `ReactDOM` API needs to hook this component into the HTML.
 
 ### Exercises:
 
-* read more about {{% a_blank "the network layer configuration in Apollo Client" "https://www.apollographql.com/docs/react/advanced/network-layer.html" %}}
-* invest 3 minutes of your time and take the {{% a_blank "quiz" "https://www.surveymonkey.com/r/5FYZT8T" %}}
+* Read more about {{% a_blank "the network layer configuration in Apollo Client" "https://www.apollographql.com/docs/react/advanced/network-layer.html" %}}
+* Invest 3 minutes of your time and take the {{% a_blank "quiz" "https://www.surveymonkey.com/r/5FYZT8T" %}}
 
 {{% chapter_header "Connect Data-Layer to View-Layer: Introducing React Apollo" "react-apollo-connecting-layers" %}}
 
-Everything you have done before was the framework agnostic part of Apollo Client. However, without connecting React to the Apollo Client, you would have a hard time making use of GraphQL in React in a convenient way. That's why there exists an official library to connect both worlds: {{% a_blank "react-apollo" "https://github.com/apollographql/react-apollo" %}}. The great thing about those connecting libraries: there exist solutions for other view-layer solutions such as Angular and Vue too. Hence you can make use of the Apollo Client in a framework agnostic way. In the following, it needs two steps to connect the Apollo Client with React. First, install the mentioned library on the command line in your project folder:
+All we've donen thus far has been the framework agnostic part of Apollo Client. However, without connecting React to it, you'd have a hard time making effective use of GraphQL. That's why there is an official library to connect both worlds: {{% a_blank "react-apollo" "https://github.com/apollographql/react-apollo" %}}. The great thing about those connecting libraries is that there are solutions for other view-layer solutions like Angular and Vue, too, so you can use the Apollo Client in a framework agnostic way. In the following, it needs two steps to connect the Apollo Client with React. First, install the library in the command line in your project folder:
 
 {{< highlight javascript >}}
 npm install react-apollo --save
 {{< /highlight >}}
 
-Second, import its ApolloProvider component and use it as a composing component around your App component. Under the hood, it uses React's Context API to pass the Apollo Client through your application. You shouldn't forget to pass the client instance to it as prop:
+Second, import its ApolloProvider component, and use it as a composing component around your App component. Under the hood, it uses React's Context API to pass the Apollo Client through your application. Remember to pass the client instance to it as prop:
 
 {{< highlight javascript "hl_lines=3 11 13" >}}
 import React from 'react';
@@ -491,16 +491,16 @@ ReactDOM.render(
 );
 {{< /highlight >}}
 
-That's it. Now you have implicit access to the Apollo Client in your React view-layer. It says implicit, because most often you will not use the client in an explicit way. You will see in the next section what this means.
+ Now you have implicit access to the Apollo Client in your React view-layer. It says implicit because most often you will not use the client explicitly. You will see in the next section what this means.
 
 ### Exercises:
 
-* read more about {{% a_blank "configuring and connecting Apollo Client to React" "https://www.apollographql.com/docs/react/essentials/get-started.html" %}}
-* invest 3 minutes of your time and take the {{% a_blank "quiz" "https://www.surveymonkey.com/r/5FHMHW8" %}}
+* Read more about {{% a_blank "configuring and connecting Apollo Client to React" "https://www.apollographql.com/docs/react/essentials/get-started.html" %}}
+* Invest 3 minutes of your time and take the {{% a_blank "quiz" "https://www.surveymonkey.com/r/5FHMHW8" %}}
 
 {{% chapter_header "GraphQL Query with Apollo Client in React" "react-apollo-client-query" %}}
 
-In this section, you are going to implement your first GraphQL query using Apollo Client in React. In previous sections, you have already seen how different entities, such as the current user (viewer) or repositories, can be queried from GitHub's GraphQL API. This time you will do it in React. A Profile component might be the best place to render the current user and the associated repositories of this user. You can start out by using the not yet implemented Profile component in your App component. Implementing the Profile component will be the next step. It makes sense to extract the Profile component at this early point in time, because the App component will later be the static frame around the application whereas components such as Navigation and Footer are static and components such as Profile and Organization are dynamically rendered based on routing (URLs).
+In this section, you will implement your first GraphQL query using Apollo Client in React. You've seen how different entities, such as the current user (viewer) or repositories, can be queried from GitHub's GraphQL API. This time you will do it in React. A Profile component might be the best place to render current users and their associated repositories. Start by using the not-yet-implemented Profile component in your App component, which we'll take care of next.  It makes sense to extract the Profile component now, because the App component will be the static frame around the application later. Components like Navigation and Footer are static, and components such as Profile and Organization are dynamically rendered based on routing (URLs).
 
 {{< highlight javascript "hl_lines=3 7" >}}
 import React, { Component } from 'react';
@@ -527,7 +527,9 @@ const Profile = () =>
 export default Profile;
 {{< /highlight >}}
 
-The question is how to query data with GraphQL and Apollo Client now? The Apollo Client was provided in a previous section with React's Context API in a top level component. You have implicit access to it but never use it directly for standard queries and mutations. It says "standard" here, because there will be situation where you will use the Apollo Client instance directly while implementing this application. So how to query the data then? That's where React Apollo comes into play. The package gives you access to a Query component, which takes a query as prop and executes this query when it is rendered. That's the important part: It executes the query when it is rendered. Furthermore, it uses React's [render props](https://www.robinwieruch.de/react-render-props-pattern/) pattern. It uses a children as a function implementation where you can access the result of the query as argument eventually.
+Now we'll learn to query data with GraphQL and Apollo Client.  The Apollo Client was provided in a previous section with React's Context API in a top level component. You have implicit access to it, but never use it directly for standard queries and mutations. It says "standard" here, because there will be situations where you use the Apollo Client instance directly while implementing this application. 
+
+ The React Apollo package grants access to a Query component, which takes a query as prop and executes it when its rendered. That's the important part: it executes the query when props is rendered. It uses React's [render props](https://www.robinwieruch.de/react-render-props-pattern/) pattern, using a child as a function implementation where you can access the result of the query as an argument.
 
 {{< highlight javascript "hl_lines=2 5 6 7" >}}
 import React from 'react';
@@ -542,7 +544,7 @@ const Profile = () => (
 export default Profile;
 {{< /highlight >}}
 
-Basically it is a function which returns only JSX again, but you have access to additional information in the function arguments. You will see how to access the query result after the next step. First, you have to define the GraphQL query to request information about you as currently authorized user. Therefore, you can use a previously installed utility package to define the query.
+This is a function that returns only JSX, but you have access to additional information in the function arguments. First, define the GraphQL query to request your authorizations. You can use a previously installed utility package to define the query.
 
 {{< highlight javascript "hl_lines=2 5 6 7 8 9 10 11 12 15" >}}
 import React from 'react';
@@ -567,7 +569,7 @@ const Profile = () => (
 export default Profile;
 {{< /highlight >}}
 
-Afterward, use the children as a function pattern to retrieve the query result as data object and render the information in your JSX.
+Use the children as a function pattern to retrieve the query result as a data object, and render the information in your JSX.
 
 {{< highlight javascript "hl_lines=16 17 18 19 20 21 22 23 24" >}}
 import React from 'react';
@@ -600,7 +602,7 @@ const Profile = () => (
 export default Profile;
 {{< /highlight >}}
 
-Last but not least, you need to make sure that when no data is there yet, that you show something else, because the viewer object is not there.
+Make sure to give some type of visual feedback until you've installed a view layer:
 
 {{< highlight javascript "hl_lines=6 7 8" >}}
 const Profile = () => (
@@ -622,9 +624,11 @@ const Profile = () => (
 );
 {{< /highlight >}}
 
-That's how you define a GraphQL query in a declarative way in React. Once the Query component renders, the request is executed. Under the hood the Apollo Client is used, which was provided in a top level component, to perform the query. The render props pattern makes it possible to access the result of the query in the child function. You can try it in your browser to verify that it actually works for you.
+That's how you define a GraphQL query in a declarative way in React. Once the Query component renders, the request is executed. The Apollo Client is used, provided in a top level component, to perform the query. The render props pattern makes it possible to access the result of the query in the child function. You can try it in your browser to verify that it actually works for you.
 
-There is more information that you can access in the render prop function. You will only explore a few in this tutorial, but if you are interested, you can checkout the official documentation of React Apollo API. So what about showing a loading indicator when the query is pending? You can do it:
+There is more information found in the render prop function. Check the official React Apollo API for addtional information beyond the examples in this tutorial. 
+
+Next, let's show a loading indicator when a query is pending:
 
 {{< highlight javascript "hl_lines=3 6 7 8" >}}
 const Profile = () => (
@@ -646,7 +650,7 @@ const Profile = () => (
 );
 {{< /highlight >}}
 
-Now you are showing a loading indicator when there is no `viewer` object or the `loading` boolean is set to true. As you can assume that the request will be pending when there is no `viewer` yet, you can simply show the loading indicator from the beginning. At this point, it's best to extract the loading indicator as its own component because you will have to reuse it later for other queries as well. You should have created a Loading folder for it before where you can create a *src/Loading/index.js* file. Afterward, make sure to use it in your Profile component.
+The application now shows  a loading indicator when there is no `viewer` object or the `loading` boolean is set to true. As you can assume that the request will be pending when there is no `viewer`, you can show the loading indicator from the beginning. At this point, it's best to extract the loading indicator as its own component because you will have to reuse it later for other queries. You created a Loading folder for it before, which will house the *src/Loading/index.js* file. Then, use it in your Profile component.
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -657,7 +661,7 @@ const Loading = () =>
 export default Loading;
 {{< /highlight >}}
 
-Last but not least, you are going to extend the query with a nested list field for querying your own GitHub repositories. You have done it a few times before, so the query structure shouldn't be any different now. The following query requests a bunch of information that you will use in this application eventually. It's up to you to revisit GitHub's GraphQL API documentation to find out more about those fields that are available on a repository entity.
+Next, extend the query with a nested list field for querying your own GitHub repositories. You have done it a few times before, so the query structure shouldn't be any different now. The following query requests a lot of information you will use in this application:
 
 {{< highlight javascript "hl_lines=1 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" >}}
 const GET_REPOSITORIES_OF_CURRENT_USER = gql`
@@ -696,7 +700,7 @@ const GET_REPOSITORIES_OF_CURRENT_USER = gql`
 `;
 {{< /highlight >}}
 
-Afterward, use this extended and renamed query in your Query component for requesting the additional information about repositories. Furthermore, pass these repositories from the query result to a new RepositoryList component which should do all the rendering for you. It's not the responsibility of the Profile component and furthermore you may want to render a list of repositories somewhere else at some point too.
+Use this extended and renamed query in your Query component to request additional information about repositories. Pass these repositories from the query result to a new RepositoryList component which should do all the rendering for you. It's not the responsibility of the Profile component, and you may want to render a list of repositories somewhere else.
 
 {{< highlight javascript "hl_lines=3 9 17" >}}
 ...
@@ -721,7 +725,7 @@ const Profile = () => (
 );
 {{< /highlight >}}
 
-In your *src/Repository/index.js* file, create your first import/export statements for the RepositoryList component that comes from a dedicated file in this folder. Basically the *index.js* file is used as your entry point to this Repository module. Everything that is used from within this module should be accessible by importing it from this *index.js* file.
+In your *src/Repository/index.js* file, create your first import/export statements for the RepositoryList component from a dedicated file in this folder. The *index.js* file is used as your entry point to this Repository module. Everything used from this module should be accessible by importing it from this *index.js* file.
 
 {{< highlight javascript >}}
 import RepositoryList from './RepositoryList';
@@ -729,7 +733,7 @@ import RepositoryList from './RepositoryList';
 export default RepositoryList;
 {{< /highlight >}}
 
-Next define the RepositoryList component in your *src/Repository/RepositoryList/index.js* file. The component only takes the array of repositories as props, which will be retrieved by the GraphQL query, in order to render a list of RepositoryItem components. The identifier of each repository can be passed as key attribute to the rendered list. Otherwise all props from one repository node are passed to the RepositoryItem by using the JavaScript spread operator.
+Next, define the RepositoryList component in your *src/Repository/RepositoryList/index.js* file. The component only takes the array of repositories as props, which will be retrieved by the GraphQL query to render a list of RepositoryItem components. The identifier of each repository can be passed as key attribute to the rendered list. Otherwise, all props from one repository node are passed to the RepositoryItem using the JavaScript spread operator.
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -748,7 +752,7 @@ const RepositoryList = ({ repositories }) =>
 export default RepositoryList;
 {{< /highlight >}}
 
-Finally, define the RepositoryItem component in the *src/Repository/RepositoryItem/index.js* file to render all the queried information about each repository. The file already uses a couple of stylings which you may have defined in a CSS file as suggested before. Otherwise the component renders only static information for now.
+Finally, define the RepositoryItem component in the *src/Repository/RepositoryItem/index.js* file to render all the queried information about each repository. The file already uses a couple of stylings which you may have defined in a CSS file as suggested before. Otherwise, the component renders only static information for now.
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -805,7 +809,7 @@ const RepositoryItem = ({
 export default RepositoryItem;
 {{< /highlight >}}
 
-As you can see, the anchor element to link to the repository is already extracted as a Link component. The Link component in the *src/Link/index.js* file could look like the following just to make it possible to open up those URLs in an extra browser tab:
+The anchor element to link to the repository is already extracted as a Link component. The Link component in the *src/Link/index.js* file could look like the following, to make it possible to open those URLs in an extra browser tab:
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -819,14 +823,14 @@ const Link = ({ children, ...props }) => (
 export default Link;
 {{< /highlight >}}
 
-Once you start your application again, you should see a styled list of repositories with a name, url, description, the count of stars, owner and used language for the implementation of the project. If you cannot see any repositories, check whether your GitHub account has any public repositories in the first place. If it doesn't, then it's normal that nothing shows up. You can make yourself comfortable with GitHub by creating a couple of repositories for the sake of learning about GitHub but also to have this data available for this tutorial. Another way to create repositories for your own account is forking repositories from other people.
+Once you restart your application, you should see a styled list of repositories with a name, url, description, star count, owner, and the project's implementation language. If you can't see any repositories, check to see if your GitHub account has any public repositories. If it doesn't, then it's normal that nothing showed up. I reccomend you make yourself comfortable with GitHub by creating a couple of repositories, both for the sake of learning about GitHub and to use this data to practice with this tutorial. Another way to create repositories for your own account is forking repositories from other people.
 
-What you have done in the last steps of this section were pure React implementations. This is only one opinionated way on how you can structure your components. The most important part from this section though happens in the Profile component. There you have introduced a Query component which takes a query as prop. Once the Query component renders, it executes the GraphQL query. The result of the query is made accessible as argument within React's render props pattern.
+What you have done in the last steps of this section were pure React implementation, but this is only one opinionated way on how to structure components. The most important part from this section though happens in the Profile component. There, you introduced a Query component that takes a query as prop. Once the Query component renders, it executes the GraphQL query. The result of the query is made accessible as an argument within React's render props pattern.
 
 ### Exercises:
 
-* read more about {{% a_blank "queries with Apollo Client in React" "https://www.apollographql.com/docs/react/essentials/queries.html" %}}
-* invest 3 minutes of your time and take the {{% a_blank "quiz" "https://www.surveymonkey.com/r/53Q6K3V" %}}
+* Read more about {{% a_blank "queries with Apollo Client in React" "https://www.apollographql.com/docs/react/essentials/queries.html" %}}
+* Invest 3 minutes of your time and take the {{% a_blank "quiz" "https://www.surveymonkey.com/r/53Q6K3V" %}}
 
 {{% chapter_header "Apollo Client Error Handling in React" "react-apollo-client-error-handling" %}}
 
