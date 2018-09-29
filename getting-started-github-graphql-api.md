@@ -23,28 +23,28 @@ summary = "Everything you need to get started with GitHub's GraphQL API for lear
 
 {{% read_before_2 "This tutorial is part 1 of 3 in this series." "Part 2:" "A complete React with GraphQL Tutorial" "https://www.robinwieruch.de/react-with-graphql-tutorial/" "Part 3:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial/" %}}
 
-Step-by-step is often the easiest way learn something new, so it's fortunate that learning GraphQL in JavaScript teaches both the client and the server-side of an application. Seeing both sides of the web transactions is useful, but the catch is you have to learn two environments. The step-by-step mentality can be difficult to apply here, so I encourage newcomers to start client-side, by consuming a third-party GraphQL API, before the server side, which is using a GraphQL server. 
+Step-by-step is often the easiest way learn something new, so it's fortunate that learning GraphQL in JavaScript teaches both the client and the server-side of an application. Seeing both sides of the web transactions is useful, but the catch is you have to learn two environments. The step-by-step mentality can be difficult to apply here, so I encourage newcomers to start with a client-side application by consuming a third-party GraphQL API before the server side, which uses a GraphQL server. 
 
-{{% a_blank "GitHub" "https://github.com" %}} is one of the first major tech brands to adopt GraphQL.  They even managed to {{% a_blank "release" "https://githubengineering.com/the-github-graphql-api" %}} a public GraphQL API {{% a_blank "(official documentation)" "https://developer.github.com/v4" %}}, which is quite popular among developers, because most are familiar enough with GitHub from using it for their own projects.
+{{% a_blank "GitHub" "https://github.com" %}} is one of the first major tech brands to adopt GraphQL. They even managed to {{% a_blank "release" "https://githubengineering.com/the-github-graphql-api" %}} a public GraphQL API {{% a_blank "(official documentation)" "https://developer.github.com/v4" %}}, which is quite popular among developers, because most are familiar enough with GitHub from using it for their own projects.
 
-In this chapter, I hope to cover everything you need to get started with GitHub's GraphQL API, and learning to use GraphQL in JavaScript from a client-side perspective.  You should gain understanding about GitHub's terminology, and how to consume account data using its GraphQL API. There are a few more applications we will implement with the GraphQL API, so it makes sense to invest time into this section to avoid any fundamental mistakes.
+In this chapter, I hope to cover everything you need to get started with GitHub's GraphQL API, and learning to use GraphQL in JavaScript from a client-side perspective. You should gain understanding about GitHub's terminology, and how to consume account data using its GraphQL API. There are a few more applications we will implement with the GraphQL API, so it makes sense to invest time into this section to avoid any fundamental mistakes.
 
 {{% chapter_header "Feeding the API with Data on GitHub" "github-api-data" %}}
 
-If you don't have an account on GitHub yet, follow [this guide](https://www.robinwieruch.de/git-essential-commands/) to sign up, follow a beginner's tour, and about a few essential commands for the terminal. This might come in handy if you decide to share projects with others on GitHub in the future.  It is a good way to showcase a development portfolio to potential clients or hiring companies.
+If you don't have an account on GitHub yet, follow [this guide](https://www.robinwieruch.de/git-essential-commands/) to sign up, follow a beginner's tour, and about a few essential commands for the terminal. This might come in handy if you decide to share projects with others on GitHub in the future. It is a good way to showcase a development portfolio to potential clients or hiring companies.
 
 For our interactions with GitHub's GraphQL API, you will use your own account with information to read/write from/to this data. Before that, complete your GitHub profile by providing additional information so you can recongnize it later when it is read by the API.
 
 ### Exercises:
 
-* create a GitHub account if you don't have one
-* provide additional information for your GitHub profile
+* Create a GitHub account if you don't have one
+* Provide additional information for your GitHub profile
 
 {{% sub_chapter_header "GitHub Repositories" "github-repository" %}}
 
-You can also create repositories on GitHub. In the words of their official glossary: *"A repository is the most basic element of GitHub. They're easiest to imagine as a project's folder. A repository contains all of the project files (including documentation), and stores each file's revision history. Repositories can have multiple collaborators and can be either public or private."* {{% a_blank "GitHub's glossary" "https://help.github.com/articles/github-glossary/" %}} will explain the key terms--repository, issue, clone, fork, push--which are necessary to follow along with the upcoming sections. Basically a repository is the place for application source code that can be shared with others.  I encourage you to put a few of your projects into GitHub repositories, so you can access them all later with what you've learned about their GraphQL API
+You can also create repositories on GitHub. In the words of their official glossary: *"A repository is the most basic element of GitHub. They're easiest to imagine as a project's folder. A repository contains all of the project files (including documentation), and stores each file's revision history. Repositories can have multiple collaborators and can be either public or private."* {{% a_blank "GitHub's glossary" "https://help.github.com/articles/github-glossary/" %}} will explain the key terms--repository, issue, clone, fork, push--which are necessary to follow along with the upcoming chapters to learn about GraphQL. Basically a repository is the place for application source code that can be shared with others. I encourage you to put a few of your projects into GitHub repositories, so you can access them all later with what you've learned about their GraphQL API.
 
-If you don't have any projects to upload, you can always 'fork' repositories from other GitHub users and work on copies of them. A fork is basically a clone of a repository where you can add changes without altering the original. There are many public repositories on GitHub that can be cloned to your local machine or forked to your list so you can get an understanding of the mechanic through experimentation. For example, if you visit {{% a_blank "my GitHub profile" "https://github.com/rwieruch" %}}, you can see all my public repositories, though not all of these are mine, because some of them are just forks of others.  Feel free to fork these repositories if you'd like to use them as practice, and if you'd like them to be accessible via GitHub's GraphQL API later.
+If you don't have any projects to upload, you can always 'fork' repositories from other GitHub users and work on copies of them. A fork is basically a clone of a repository where you can add changes without altering the original. There are many public repositories on GitHub that can be cloned to your local machine or forked to your list so you can get an understanding of the mechanic through experimentation. For example, if you visit {{% a_blank "my GitHub profile" "https://github.com/rwieruch" %}}, you can see all my public repositories, though not all of these are mine, because some of them are just forks of others. Feel free to fork these repositories if you'd like to use them as practice, and if you'd like them to be accessible via GitHub's GraphQL API from your own account.
 
 ### Exercises:
 
@@ -54,11 +54,11 @@ If you don't have any projects to upload, you can always 'fork' repositories fro
 
  GitHub's GraphQL API allows you to request multiple repositories at once, which is useful for pagination. Pagination is a programming mechanic invented to work with large lists of items. For example, imagine you have more than a hundred repositories in your GitHub account, but your UI only only shows ten of them. Transferring the whole list across the wire for each request is impractical and inefficient, because only a subset is needed at a time, which pagination allows.
 
-Using pagination with GitHub's GraphQL API lets you adjust the numbers to your own needs, so make sure to adjust the numbers (e.g. limit, offset) to your personal requirements (e.g. available repositories of your GitHub account or available repositories of a GitHub organization).  You at least want to have enough repositories in your collection to see the pagination feature in action, so we recommend more than twenty (20), assuming each page will display ten (10).
+Using pagination with GitHub's GraphQL API lets you adjust the numbers to your own needs, so make sure to adjust the numbers (e.g. limit, offset) to your personal requirements (e.g. available repositories of your GitHub account or available repositories of a GitHub organization). You at least want to have enough repositories in your collection to see the pagination feature in action, so recommend more than twenty (20), assuming each page will display ten (10), or use five(5) repositories when displaying two (2.)
 
 {{% sub_chapter_header "Issues and Pull Requests" "github-issues-pull-requests" %}}
 
-Once you dive deeper into GitHub's GraphQL API and you start to request nested relationships (e.g. issues of repositories, pull requests of repositories), make sure that the repositories have a few issues or pull requests. This is so you'll see something when we implement the feature to show all the issues in a repository.  It might be better to request repositories from a GitHub organization where there will be plenty of issues and pull requests.
+Once you dive deeper into GitHub's GraphQL API and you start to request nested relationships (e.g. issues of repositories, pull requests of repositories), make sure that the repositories have a few issues or pull requests. This is so you'll see something when we implement the feature to show all the issues in a repository. It might be better to request repositories from a GitHub organization where there will be plenty of issues and pull requests.
 
 ### Exercises:
 
@@ -75,13 +75,13 @@ To use GitHub's GraphQL API, you need to generate a personal access token on the
 
 {{% pin_it_image "react graphql github" "img/posts/getting-started-github-graphql-api/github-personal-access-token.jpg" "is-src-set" %}}
 
-Later, the personal access token can be used to interact with GitHub's GraphQL API.  Be careful not to share these authorizations it with any third parties.
+Later, the personal access token can be used to interact with GitHub's GraphQL API. Be careful not to share these authorizations with any third parties.
 
 {{% chapter_header "Interacting with GitHub's GraphQL API" "github-graphql-api" %}}
 
 There are two common ways to interact with the GitHub GraphQL API without writing any source code for it. First, you can use {{% a_blank "GitHub's GraphQL Explorer" "https://developer.github.com/v4/explorer/" %}}. You only need to sign up with your GitHub account to perform a query or mutation to their GraphQL API, and its a good way to simplify you first experience. Second, you can use a generic client in the form of an application. GraphiQL is a client that makes GraphQL requests as integration or as a standalone application. The former can be accomplished {{% a_blank "by setting up GraphiQL directly in your application" "https://github.com/skevy/graphiql-app" %}}; the latter may be more convenient for you by {{% a_blank "using GraphiQL as standalone application" "https://github.com/skevy/graphiql-app" %}}. It's a lightweight shell around GraphiQL that can be downloaded and installed manually or by the command line.
 
-GitHub's GraphQL Explorer knows about your credentials, since you need to sign up using it, but the GraphiQL application needs to know about the personal access token you created. You can add it in your HTTP header for every request inthe headers configuration.
+GitHub's GraphQL Explorer knows about your credentials, since you need to sign up using it, but the GraphiQL application needs to know about the personal access token you created. You can add it in your HTTP header for every request in the headers configuration.
 
 {{% pin_it_image "graphiql headers" "img/posts/getting-started-github-graphql-api/graphiql-headers.jpg" "is-src-set" %}}
 
@@ -89,12 +89,12 @@ In the next step, we add a new header with a name and value to your GraphiQL con
 
 {{% pin_it_image "graphiql authorization" "img/posts/getting-started-github-graphql-api/graphiql-authorization.jpg" "is-src-set" %}}
 
-If you use your own GraphiQL application, you'll need to provide the GraphQL endpoint for GitHub's GraphQL API:`https://api.github.com/graphql`. For GitHub's GraphQL API, use the {{% a_blank "POST HTTP method" "https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods" %}} for queries and mutations, and to transfer data as a payload to your GraphQL endpoint.
+If you use your own GraphiQL application, you'll need to provide the GraphQL endpoint for GitHub's GraphQL API: `https://api.github.com/graphql`. For GitHub's GraphQL API, use the {{% a_blank "POST HTTP method" "https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods" %}} for queries and mutations, and to transfer data as a payload to your GraphQL endpoint.
 
 This section provided you with two ways to interact with GitHub's GraphQL API. Where GitHub's GraphQL Explorer can only be used for GitHub's API, GraphiQL integrated into an application or standalone can be used for any GraphQL API. The difference is that it requires a bit more setup. The GitHub GraphQL Explorer is really nothing more than a hosted standalone GraphiQL application tailored to use GitHub's GraphQL API.
 
 <hr class="section-divider">
 
-After you've set up GitHub to use their GraphQL API to learn about GraphQL, you should be ready to implement your first GraphQL client application. Follow along and create your first (or your next) GraphQL client-side application in React.
+After you've set up GitHub to use their GraphQL API to learn about GraphQL, you should be ready to implement your first GraphQL client application. Follow along and create your first GraphQL client-side application in React.
 
 {{% read_before_2 "This tutorial is part 1 of 3 in this series." "Part 2:" "A complete React with GraphQL Tutorial" "https://www.robinwieruch.de/react-with-graphql-tutorial/" "Part 3:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial/" %}}

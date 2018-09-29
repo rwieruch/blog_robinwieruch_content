@@ -27,25 +27,25 @@ You may have used a GraphQL client library that was at least partly view layer a
 
 * how a GraphQL client library works under the hood
 * how simple a GraphQL client library is to implement your way
-* how it contributes to the GraphQL ecosystem
+* how it is capable of contributing to the GraphQL ecosystem
 
-There is contribute to the GraphQL ecosystem, because the tools surrounding it are still fairly new. A diverse set of tools would speed this along insgtead of the one ecosystem pushing its maturation forward. This is not only a useful addition for your web development skillset, it is alos an opportunity to contribute to the early stages of a software's growth.
+There is contribute to the GraphQL ecosystem, because the tools surrounding it are still fairly new. A diverse set of tools would speed this along, instead of Apollo pushing its maturation forward alone. This is not only a useful addition for your web development skillset, it is also an opportunity to contribute to the early stages of GraphQL.
 
 Before diving into implementing your own GraphQL client for React, consider the essentials for consuming a GraphQL API in a React application:
 
-1. The **GraphQL client** must be used. It can be any HTTP library or even the {{% a_blank "native fetch API" "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" %}}, but it must be able to send HTTP methods with a payload across the wire.  While the GraphQL specification isn't opinionated about the transportation layer, the GitHub GraphQL API you  consume with GraphQL client is using HTTP. Our GraphQL client must be able to execute GraphQL operations by using HTTP methods.
+* A **GraphQL client** must be used. It can be any HTTP library or even the {{% a_blank "native fetch API" "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" %}}, but it must be able to send HTTP methods with a payload across the wire.  While the GraphQL specification isn't opinionated about the transportation layer, the GitHub GraphQL API you consume with a GraphQL client is using HTTP. Our GraphQL client must be able to execute GraphQL operations using HTTP methods.
 
-2. There must be a way to **provide the GraphQL client instance to the React view layer**. It is the perfect use for [React's Context API](https://www.robinwieruch.de/react-context-api/) to provide the GraphQL client instance at the top level of the React component tree, and to consume it in every React component interested in it.
+* There must be a way to **provide the GraphQL client instance to the React view layer**. It is the perfect use for [React's Context API](https://www.robinwieruch.de/react-context-api/) to provide the GraphQL client instance at the top level of the React component tree, and to consume it in every React component interested in it.
 
-3. There must be a way to **execute GraphQL operations, like a query or a mutation, in a declarative way in React**.  You will implement a Query component and a Mutation component that exposes an API to execute the GraphQL operations and to access its result. Because you are implementing these components, you won't touch the GraphQL client provided with React's Context API explicitly in your React components, but only in the Query and Mutation components.
+* There must be a way to **execute GraphQL operations, like a query or a mutation, in a declarative way in React**.  You will implement a Query component and a Mutation component that exposes an API to execute the GraphQL operations and to access its result. Because you are implementing these components, you won't touch the GraphQL client provided with React's Context API explicitly in your React components, but only in the Query and Mutation components.
 
-The first part is React agnostic, but the second and third glue the GraphQL client (data layer) to React (view layer). Compare to the *redux* and *react-redux* or *apollo-client* and *react-apollo* libraries. The former is view layer agnostic, the latter is used to connect it to the view layer.
+The first part is React agnostic, but the second and third glue the GraphQL client (data layer) to React (view layer). It can be seen as an analog to the *redux* and *react-redux* or *apollo-client* and *react-apollo* libraries. The former is view layer agnostic, the latter is used to connect it to the view layer.
 
-While you mplement a GraphQL client for React in the following sections, you will also implement a GitHub client application with React that consumes GitHub's GraphQL API, using GraphQL client. 
+While you implement a GraphQL client for React in the following sections, you will also implement a GitHub client application with React that consumes GitHub's GraphQL API, using GraphQL client. 
 
 {{% chapter_header "Implementing your GraphQL Client" "graphql-client" %}}
 
-Separate the domain specific application (GitHub client) and the GraphQL client with its connecting parts to the React world. The latter could be extracted later as a standalone library and published on npm. It could be even split up into two libraries, where the first part is the view layer agnostic GraphQL client and the second is the connecting view layer part.
+Next, you will separate the domain specific application (GitHub client) and the GraphQL client with its connecting parts to the React world. The latter could be extracted later, as a standalone library, and published on npm. It could even be split up into two libraries, where the first part is the view layer agnostic GraphQL client, and the second is the connecting view layer.
 
 First, bootstrap your React application with {{% a_blank "create-react-app" "https://github.com/facebook/create-react-app" %}} where you will implement your GraphQL client and the connecting parts to the view layer.
 
@@ -65,7 +65,7 @@ const graphQLClient = axios.create();
 export default graphQLClient;
 {{< /highlight >}}
 
-Since you may need greater control for creating the GraphQL client instance, you can expose it also with a function that returns the configured GraphQL client instance.
+Since you may need greater control for creating the GraphQL client instance--passing in the passing in the GraphQL API endpoint or HTTP headers, for example--you can also expose it with a function that returns the configured GraphQL client instance.
 
 {{< highlight javascript >}}
 import axios from 'axios';
@@ -79,7 +79,7 @@ const createGraphQLClient = (baseURL, headers) =>
 export default createGraphQLClient;
 {{< /highlight >}}
 
-Maybe you want to avoid the GraphQL client with HTTP methods (e.g. `graphQLClient.post()`), oryou may want to give another layer for the query and mutation methods called from the outside. That way, you never see the behind the scenes HTTP POST when interacting with the GraphQL client. A JavaScript class makes sense.
+Maybe you want to avoid using the GraphQL client with HTTP methods (e.g. `graphQLClient.post()`), or you may want to give another layer for the query and mutation methods called from the outside. That way, you never see the behind the scenes HTTP POST when interacting with the GraphQL client. For this, JavaScript class makes sense.
 
 {{< highlight javascript >}}
 import axios from 'axios';
@@ -112,9 +112,9 @@ class GraphQLClient {
 export default GraphQLClient;
 {{< /highlight >}}
 
-That's it for the GraphQL client. You created an instance of the GraphQL client and executed GraphQL operations (query and mutation) with it. You may wonder: Where is the state, the caching of requests, and the normalization of the data? You don't need them. The lightweight GraphQL client operates without any extra features, though invite you to extend the feature set of the GraphQL client after you implement it in the following sections. 
+That's it for the GraphQL client. You created an instance of the GraphQL client and executed GraphQL operations (query and mutation) with it. You may wonder: Where is the state, the caching of requests, and the normalization of the data? You don't need them. The lightweight GraphQL client operates without any extra features, though I invite you to extend the feature set of the GraphQL client after you implement it in the following sections. 
 
-Next, use the instantiate the GraphQL Client in your top level React component.
+Next, use the instantiated GraphQL Client in your top level React component.
 
 {{< highlight javascript "hl_lines=5 8 9 10 11 12 13 14 15" >}}
 import React from 'react';
