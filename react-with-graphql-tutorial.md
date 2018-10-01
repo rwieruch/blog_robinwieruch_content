@@ -46,7 +46,7 @@ Along the way, you will build a simplified GitHub client, basically an issue tra
 
 {{% chapter_header "GraphQL Query with GitHub's GraphQL API" "graphql-query-github-api" %}}
 
-In this section, you will interact with the GitHub API using queries and mutations without React, so it can use a GraphiQL application or GitHub's GraphQL Explorer to make GraphQL query requests to GitHub's API. Both tools should be authorized to make request using a personal access token. On the left-hand side of your GraphiQL application, you can fill in GraphQL queries and mutations. Add the following query to request data about yourself.
+In this section, you will interact with the GitHub API using queries and mutations without React, so you can use your GraphiQL application or GitHub's GraphQL Explorer to make GraphQL query requests to GitHub's API. Both tools should be authorized to make request using a personal access token. On the left-hand side of your GraphiQL application, you can fill in GraphQL queries and mutations. Add the following query to request data about yourself.
 
 {{< highlight javascript >}}
 {
@@ -236,7 +236,7 @@ query OrganizationForLearningReact($organization: String!) {
 }
 {{< /highlight >}}
 
-So far you've only accessed one object, an organization that teaches React, with a couple of its fields. The GraphQL schema implements a whole graph, so Let's see how to access a **nested object** from within the graph with a query. It's not much different from before:
+So far you've only accessed one object, an organization with a couple of its fields. The GraphQL schema implements a whole graph, so let's see how to access a **nested object** from within the graph with a query. It's not much different from before:
 
 {{< highlight javascript "hl_lines=3 8 9 10" >}}
 query OrganizationForLearningReact(
