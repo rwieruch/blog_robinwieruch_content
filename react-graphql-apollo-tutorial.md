@@ -112,7 +112,7 @@ Simply define your environment variables in this *.env* file. In your *.env* fil
 GITHUB_PERSONAL_ACCESS_TOKEN=xxxXXX
 {{< /highlight >}}
 
-In any Node.js application, use the key in your source code with the following package: {{% a_blank "dotenv" "https://github.com/motdotla/dotenv" %}}. Follow their instructions to install it for your project. Usually, the process is only a `npm install dotenv`, followed by including `require('dotenv').config()` in your *index.js* file. Afterward use the personal access token from the *.env* file in your *index.js* file. If you run into an error, just continue reading this section to learn how to fix it.
+In any Node.js application, use the key in your source code with the following package: {{% a_blank "dotenv" "https://github.com/motdotla/dotenv" %}}. Follow their instructions to install it for your project. Usually, the process is only a `npm install dotenv`, followed by including require('dotenv').config() or import 'dotenv/config'; in your index.js file.. Afterward use the personal access token from the *.env* file in your *index.js* file. If you run into an error, just continue reading this section to learn how to fix it.
 
 {{< highlight javascript "hl_lines=3 10" >}}
 import ApolloClient from 'apollo-boost';
@@ -371,7 +371,7 @@ You can create your own folder and file structure for your components in the *sr
 * registerServiceWorker.js
 * style.css
 
-The folders primarily represent React components. Some components will be reusable UI components such as the Input and Link components, while other components like Repository and Profile components are domain specific for the GitHub client application. Only the top level folders are specified for now, though more can be introduced later if you choose. Moreover, the 'constants' folder has only one file to specify the application's routes, which will be introduced later. You may want to navigate from a page that shows repositories of an organization (Organization component) to a page which shows repositories of yourself (Profile component).
+The folders primarily represent React components. Some components will be reusable UI components such as the Input and Link components, while other components like Repository and Profile components are domain specific for the GitHub client application. Only the top level folders are specified for now, though more can be introduced later if you choose. Moreover, the *constants* folder has only one file to specify the application's routes, which will be introduced later. You may want to navigate from a page that shows repositories of an organization (Organization component) to a page which shows repositories of yourself (Profile component).
 
 This application will use plain CSS classes and CSS files. By following the plain CSS classes, you can avoid difficulties that may occur with other tools.  You will find all the CSS files and their content in the appendix of this tutorial. The components will use their class names without explaining them. The next sections should be purely dedicated to JavaScript, React, and GraphQL.
 
@@ -456,7 +456,7 @@ const client = new ApolloClient({
 });
 {{< /highlight >}}
 
-To initialize Apollo Client, you must specify link and cache properties on the config object. Once you start your application again, there should be no errors. It doesn't check whether you have implemented a basic App component in your *src/App/index.js* file because the `ReactDOM` API needs to hook this component into the HTML.
+To initialize Apollo Client, you must specify link and cache properties on the config object. Once you start your application again, there should be no errors. If it doesn't, check whether you have implemented a basic App component in your *src/App/index.js* file because the ReactDOM API needs to hook this component into the HTML.
 
 ### Exercises:
 
@@ -471,7 +471,7 @@ All we've donen thus far has been the framework agnostic part of Apollo Client. 
 npm install react-apollo --save
 {{< /highlight >}}
 
-Second, import its ApolloProvider component, and use it as a composing component around your App component. Under the hood, it uses React's Context API to pass the Apollo Client through your application. Remember to pass the client instance to it as prop:
+Second, import its ApolloProvider component, and use it as a composing component around your App component. Under the hood, it uses [React's Context API](https://www.robinwieruch.de/react-context-api/) to pass the Apollo Client through your application.
 
 {{< highlight javascript "hl_lines=3 11 13" >}}
 import React from 'react';
@@ -602,7 +602,7 @@ const Profile = () => (
 export default Profile;
 {{< /highlight >}}
 
-Make sure to give some type of visual feedback until you've installed a view layer:
+Make sure to give some type of visual feedback until your view-layer can be rendered with actual data.:
 
 {{< highlight javascript "hl_lines=6 7 8" >}}
 const Profile = () => (
@@ -982,7 +982,7 @@ const STAR_REPOSITORY = gql`
 ...
 {{< /highlight >}}
 
-The mutation definition takes the `id` variable as input for the `addStar` mutation. As before, you can decide what should be returned in case of a successful mutation. Now, you can use a Mutation component the represents the previously used Query component. You have to pass the mutation prop, but also a variable prop for passing the identifier for the repository.
+The mutation definition takes the `id` variable as input for the `addStar` mutation. As before, you can decide what should be returned in case of a successful mutation. Now, you can use a Mutation component that represents the previously used Query component, but this time for mutations. You have to pass the mutation prop, but also a variable prop for passing the identifier for the repository.
 
 {{< highlight javascript "hl_lines=3 8 26 27 28" >}}
 import React from 'react';
@@ -2133,7 +2133,7 @@ const Organization = ({ organizationName }) => (
 export default Organization;
 {{< /highlight >}}
 
-The Query component in the Organization component takes a query tailored to the organization being the top level field of the query.  It takes a variable to identify the organization, and it uses the newly introduced `skip` prop to skip executing the query if no organization identifier is provided. Later, you will pass an organization identifier from the App component.  It saves lines of code and ensures the returned list of repositories have identical structures to the list of repositories in the Profile component.
+The Query component in the Organization component takes a query tailored to the organization being the top level field of the query.  It takes a variable to identify the organization, and it uses the newly introduced `skip` prop to skip executing the query if no organization identifier is provided. Later, you will pass an organization identifier from the App component.  You may have noticed that the repository fragment you introduced earlier to update the local state in the cache can be reused here. It saves lines of code, and more importantly, ensures the returned list of repositories have identical structures to the list of repositories in the Profile component.
 
 Next, extend the query to fit the requirements of the pagination feature. It requires the `cursor` argument to identify the next page of repositories. The `notifyOnNetworkStatusChange` prop is used to update the `loading` boolean for paginated requests as well.
 
@@ -2615,7 +2615,7 @@ import Issues from './IssueList';
 export default Issues;
 {{< /highlight >}}
 
-Note how the component is named Issues, not IssueList. The naming convention is used to break down the rendering of a list of items: Issues, IssueList and IssueItem. Issues is the container component, where you query the data and filter the issues, and the IssueList and IssueItem are only there as presentational components for rendering. In contrast, the Repository feature module hasn't a Repositories component, because there was no need for it. The list of repositories already came from the Organization and Profile components and the Repository module's components are mainly only there for the rendering.
+Note how the component is named Issues, not IssueList. The naming convention is used to break down the rendering of a list of items: Issues, IssueList and IssueItem. Issues is the container component, where you query the data and filter the issues, and the IssueList and IssueItem are only there as presentational components for rendering. In contrast, the Repository feature module hasn't a Repositories component, because there was no need for it. The list of repositories already came from the Organization and Profile components and the Repository module's components are mainly only there for the rendering. This is only one opinionated approach of naming the components, however.
 
 Let's start implementing Issues and IssueList components in the *src/Issue/IssueList/index.js* file. You could argue to split both components up into their own files, but for the sake of this tutorial, they are kept together in one file.
 
@@ -2752,7 +2752,7 @@ const IssueItem = ({ issue }) => (
 export default IssueItem;
 {{< /highlight >}}
 
-Once you start your application again, you should see the initial page of paginated issues rendered below each repository. That's the performance bottleneck mentioned earlier. Worse, the GraphQL requests  are not bundled in one request, as with the issues list field in the Organization and Profile components. In the next steps you are implementing client-side filtering. The default is to show no issues, but it can toggle between states of showing none, open issues, and closed issues using a button, so the issues will not be queried before toggling one of the issue states.
+Once you start your application again, you should see the initial page of paginated issues rendered below each repository. That's a performance bottleneck. Worse, the GraphQL requests  are not bundled in one request, as with the issues list field in the Organization and Profile components. In the next steps you are implementing client-side filtering. The default is to show no issues, but it can toggle between states of showing none, open issues, and closed issues using a button, so the issues will not be queried before toggling one of the issue states.
 
 ### Exercises:
 
@@ -2927,7 +2927,7 @@ class Issues extends React.Component {
 }
 {{< /highlight >}}
 
-You have implemented client-side filtering. The button is used to toggle between the three states managed in the local state of the component. Only in filtered and rendered states are the issues are queried. In the next step, the existing client-side filtering should be advanced to a server-side filtering, which means the filtered issues are already requested from the server and not filtered afterward on the client.
+You have implemented client-side filtering. The button is used to toggle between the three states managed in the local state of the component.  The issues are only queried in filtered and rendered states. In the next step, the existing client-side filtering should be advanced to a server-side filtering, which means the filtered issues are already requested from the server and not filtered afterward on the client.
 
 ### Exercises:
 
@@ -3112,7 +3112,7 @@ const IssueFilter = ({ issueState, onChangeIssueState }) => (
 );
 {{< /highlight >}}
 
-The `prefetchIssue()` function has to execute the identical GraphQL query executed by the Query component in the Issues component, but this time it is done in an imperative way instead of declarative. Rather than using the Query component for it, use the the Apollo Client instance directly to execute a query. Remember, the Apollo Client instance is  hidden in the component tree, because you used [React's Context API](https://www.robinwieruch.de/react-context-api) to provide the  Apollo Client instance the component tree's top level. The  Query and Mutation components have access to the Apollo Client, even though you have never used it yourself directly. However, this time you use it to query the prefetched data. Use the ApolloConsumer component from the React Apollo package to expose the Apollo Client instance in your component tree. You have used the ApolloProvider somewhere to provide the client instance, and you can use the ApolloConsumer to retrieve it now. In the *src/Issue/IssueList/index.js* file, import the ApolloConsumer component and use it in the IssueFilter component. It gives you access to the Apollo Client instance via its render props child function.
+The `prefetchIssue()` function has to execute the identical GraphQL query executed by the Query component in the Issues component, but this time it is done in an imperative way instead of declarative. Rather than using the Query component for it, use the the Apollo Client instance directly to execute a query. Remember, the Apollo Client instance is  hidden in the component tree, because you used React's Context API to provide the  Apollo Client instance the component tree's top level. The  Query and Mutation components have access to the Apollo Client, even though you have never used it yourself directly. However, this time you use it to query the prefetched data. Use the ApolloConsumer component from the React Apollo package to expose the Apollo Client instance in your component tree. You have used the ApolloProvider somewhere to provide the client instance, and you can use the ApolloConsumer to retrieve it now. In the *src/Issue/IssueList/index.js* file, import the ApolloConsumer component and use it in the IssueFilter component. It gives you access to the Apollo Client instance via its render props child function.
 
 {{< highlight javascript "hl_lines=2 9 10 15 19 20" >}}
 import React from 'react';
@@ -3620,6 +3620,6 @@ pre {
 
 <hr class="section-divider">
 
-You can find the final {{% a_blank "repository on GitHub" "https://github.com/rwieruch/react-graphql-github-apollo" %}} that showcases most of the exercise tasks. The application is not feature-complete and it doesn't cover all edge cases, but it should give insight into using GraphQL with Apollo in React applications. If you want to dive more deeply into different topics like testing and state management with GraphQL on the client-side, you can start here: [A minimal Apollo Client in React Example](https://www.robinwieruch.de/react-apollo-client-example). Try to apply what you've learned in this application (e.g. testing, state management). Otherwise, I encourage you to try to build your own GraphQL client library,which helps you understand more of the GraphQL internals: [How to build a GraphQL client library for React](https://www.robinwieruch.de/react-graphql-client-library). Whichever you decide,  keep tinkering on this application, or start with another GraphQL client application to fortify your skill set.
+You can find the final {{% a_blank "repository on GitHub" "https://github.com/rwieruch/react-graphql-github-apollo" %}} that showcases most of the exercise tasks. The application is not feature-complete and it doesn't cover all edge cases, but it should give insight into using GraphQL with Apollo in React applications. If you want to dive more deeply into different topics like testing and state management with GraphQL on the client-side, you can start here: [A minimal Apollo Client in React Example](https://www.robinwieruch.de/react-apollo-client-example). Try to apply what you've learned in this application (e.g. testing, state management). Otherwise, I encourage you to try to build your own GraphQL client library, which helps you understand more of the GraphQL internals: [How to build a GraphQL client library for React](https://www.robinwieruch.de/react-graphql-client-library). Whichever you decide,  keep tinkering on this application, or start with another GraphQL client application to fortify your skill set.
 
 {{% read_more "GraphQL Server Tutorial with Apollo Server and Express" "https://www.robinwieruch.de/graphql-apollo-server-tutorial" %}}

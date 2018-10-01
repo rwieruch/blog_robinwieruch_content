@@ -23,17 +23,17 @@ summary = "A tutorial on how to build your own GraphQL client for React applicat
 
 {{% read_before_2 "This tutorial is part 3 of 3 in this series." "Part 1:" "A complete React with GraphQL Tutorial" "https://www.robinwieruch.de/react-with-graphql-tutorial/" "Part 2:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial/" %}}
 
-You may have used a GraphQL client library that was at least partly view layer agnostic, but still able to work with React or other view layer solution in the form of applications like Apollo Client, Urql and Relay. The next chapter is to illustrate how to implement a GraphQL client library that works with React. The takeaway shouldn't be "build your own GraphQL client for your production ready applications", however, you should instead learn:
+You may have used a GraphQL client library that was view-layer agnostic and thus able to work with React or other solutions like Angular or Vue. Other GraphQL client libraries like Relay and Urql aren't so powerful, because they are used only for React. The next chapter is to illustrate how to implement a GraphQL client library that works with React. The takeaway shouldn't be "build your own GraphQL client for your production ready applications", however, you should instead learn:
 
 * how a GraphQL client library works under the hood
-* how simple a GraphQL client library is to implement your way
+* how simple a GraphQL client library can be implemented your way
 * how it is capable of contributing to the GraphQL ecosystem
 
-There is contribute to the GraphQL ecosystem, because the tools surrounding it are still fairly new. A diverse set of tools would speed this along, instead of Apollo pushing its maturation forward alone. This is not only a useful addition for your web development skillset, it is also an opportunity to contribute to the early stages of GraphQL.
+There is lots of room to contribute to the GraphQL ecosystem, because the tools surrounding it are still fairly new. A diverse set of tools would speed this along, instead of Apollo pushing its maturation forward alone. This is not only a useful addition for your web development skillset, it is also an opportunity to contribute to the early stages of GraphQL.
 
 Before diving into implementing your own GraphQL client for React, consider the essentials for consuming a GraphQL API in a React application:
 
-* A **GraphQL client** must be used. It can be any HTTP library or even the {{% a_blank "native fetch API" "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" %}}, but it must be able to send HTTP methods with a payload across the wire.  While the GraphQL specification isn't opinionated about the transportation layer, the GitHub GraphQL API you consume with a GraphQL client is using HTTP. Our GraphQL client must be able to execute GraphQL operations using HTTP methods.
+* A **GraphQL client** must be used. It can be any HTTP library or even the {{% a_blank "native fetch API" "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" %}}, but it must be able to send HTTP methods with a payload across the wire.  While the GraphQL specification isn't opinionated about the transportation layer, the GitHub GraphQL API you consume with a GraphQL client is using HTTP. Because we are using their API, our GraphQL client must be able to execute GraphQL operations using HTTP methods.
 
 * There must be a way to **provide the GraphQL client instance to the React view layer**. It is the perfect use for [React's Context API](https://www.robinwieruch.de/react-context-api/) to provide the GraphQL client instance at the top level of the React component tree, and to consume it in every React component interested in it.
 
@@ -45,7 +45,7 @@ While you implement a GraphQL client for React in the following sections, you wi
 
 {{% chapter_header "Implementing your GraphQL Client" "graphql-client" %}}
 
-Next, you will separate the domain specific application (GitHub client) and the GraphQL client with its connecting parts to the React world. The latter could be extracted later, as a standalone library, and published on npm. It could even be split up into two libraries, where the first part is the view layer agnostic GraphQL client, and the second is the connecting view layer.
+Next, you will separate the domain specific application (GitHub client) and the GraphQL client with its connecting parts to the React world. The latter could be extracted later, as a standalone library, and published on {{% a_blank "npm" "https://www.npmjs.com/" %}}. It could even be split up into two libraries, where the first part is the view layer agnostic GraphQL client, and the second is used to connect the former to the view layer..
 
 First, bootstrap your React application with {{% a_blank "create-react-app" "https://github.com/facebook/create-react-app" %}} where you will implement your GraphQL client and the connecting parts to the view layer.
 
@@ -65,7 +65,7 @@ const graphQLClient = axios.create();
 export default graphQLClient;
 {{< /highlight >}}
 
-Since you may need greater control for creating the GraphQL client instance--passing in the passing in the GraphQL API endpoint or HTTP headers, for example--you can also expose it with a function that returns the configured GraphQL client instance.
+Since you may need greater control for creating the GraphQL client instance--passing in the GraphQL API endpoint or HTTP headers, for example--you can also expose it with a function that returns the configured GraphQL client instance.
 
 {{< highlight javascript >}}
 import axios from 'axios';
@@ -79,7 +79,7 @@ const createGraphQLClient = (baseURL, headers) =>
 export default createGraphQLClient;
 {{< /highlight >}}
 
-Maybe you want to avoid using the GraphQL client with HTTP methods (e.g. `graphQLClient.post()`), or you may want to give another layer for the query and mutation methods called from the outside. That way, you never see the behind the scenes HTTP POST when interacting with the GraphQL client. For this, JavaScript class makes sense.
+Maybe you want to avoid using the GraphQL client with HTTP methods (e.g. `graphQLClient.post()`), or you may want to expose different functions for the query and mutation methods (e.g. `graphQLClient.query()`) called from the outside. That way, you never see the behind the scenes HTTP POST when interacting with the GraphQL client. For this, JavaScript class makes sense.
 
 {{< highlight javascript >}}
 import axios from 'axios';
@@ -183,7 +183,7 @@ ReactDOM.render(
 registerServiceWorker();
 {{< /highlight >}}
 
-Since you provided the GraphQL client instance to your React component tree, you can use the Consumer component from the context object to retrieve the client as a value. You can implement a [Higher-Order Component (HOC)](https://www.robinwieruch.de/gentle-introduction-higher-order-components/) to make the GraphQL client instance accessible to React components using this HOC.
+Since you provided the GraphQL client instance to your React component tree, you can use the Consumer component from the context object to retrieve the client as a value. You can implement a [higher-order component (HOC)](https://www.robinwieruch.de/gentle-introduction-higher-order-components/) to make the GraphQL client instance accessible to React components using this HOC.
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -198,7 +198,7 @@ const withClient = Component => props => (
 export default withClient;
 {{< /highlight >}}
 
-Rather than using the Consumer component directly in your React components, use it implicitly with a Higher-Order Component to expose the GraphQL client instance to the props. By now you have implemented all the parts necessary to bridge the data layer to the view layer. You have a Provider component providing the GraphQL client instance for the whole React component tree, and a Higher-Order Component using the Consumer component to make the GraphQL client instance available to all React components interested in it.
+Rather than using the Consumer component directly in your React components, use it implicitly with a higher-order component to expose the GraphQL client instance to the props. By now you have implemented all the parts necessary to bridge the data layer to the view layer. You have a Provider component providing the GraphQL client instance for the whole React component tree, and a higher-order component using the Consumer component to make the GraphQL client instance available to all React components interested in it.
 
 {{% chapter_header "Implementing the Query component in React" "react-query-component" %}}
 
@@ -252,7 +252,7 @@ class Query extends React.Component {
 export default withClient(Query);
 {{< /highlight >}}
 
-The Query component receives a GraphQL query and optional variables as props. Once it mounts, it executes the query  using the GraphQL client instance injected with the `withClient` Higher-Order Component to the props. If the request resolves successfully, all data and GraphQL errors are stored in the local state of the Query component. Otherwise, a network error is stored in the local state, in an array of errors. Also, a `loading` boolean tracks the request state. The Query component uses the render prop as a children function to pass in the local state of the component. The user of the Query component decides what should be rendered in response to the information (data, loading, errors) from the children function.
+The Query component receives a GraphQL query and optional variables as props. Once it mounts, it executes the query  using the GraphQL client instance injected with the `withClient` higher-order component. If the request resolves successfully, all data and GraphQL errors are stored in the local state of the Query component. Otherwise, a network error is stored in the local state, in an array of errors. Also, a `loading` boolean tracks the request state. The Query component uses the render prop as a children function to pass in the local state of the component. The user of the Query component decides what should be rendered in response to the information (data, loading, errors) from the children function.
 
 In your App component's file, you can import the component, pass in a query and optional variables, and let the Query component execute the GraphQL query once it mounts. You will receive the information from the Query component in the children function during each render.
 
@@ -423,7 +423,7 @@ const Repositories = ({ repositories }) => (
 export default App;
 {{< /highlight >}}
 
-The GraphQL query works now, using the Query component. But it only works for the initial request, not when searching for another GitHub organization with the input element. This is because the Query component executes the GraphQL query only when mounts, but notn when the `organizationLogin` variable changes. Let's add this little feature in the Query component.
+The GraphQL query works now, using the Query component. But it only works for the initial request, not when searching for another GitHub organization with the input element. This is because the Query component executes the GraphQL query only when mounts, but not when the `organizationLogin` variable changes. Let's add this little feature in the Query component.
 
 {{< highlight javascript "hl_lines=2 17 18 19 20 21 22 23" >}}
 import React from 'react';
@@ -619,7 +619,7 @@ class App extends Component {
 export default App;
 {{< /highlight  >}}
 
-Third, the Repositories component can use the function to fetch the next page of the paginated list of repositories with a button. The button is becomes available only when there is a next page of the paginated list.
+Third, the Repositories component can use the function to fetch the next page of the paginated list of repositories with a button. The button becomes available only when there is a next page of the paginated list.
 
 {{< highlight javascript "hl_lines=3 11 18 25 26 27" >}}
 const Organization = ({
@@ -917,7 +917,7 @@ const Repositories = ({
 );
 {{< /highlight >}}
 
-Rather than letting a user outside the Mutation component dictate its data, the Mutation component takes over, only usin data provided by its child function for rendering. Once you execute the mutation, the state of the Mutation component should change and the new state should be reflected in the return value of the child function. What's missing is the update to the Mutation component's state using the `resolveMutation` function. It could look like the following, to merge the previous state with the mutation result to a new state object.
+Rather than letting a user outside the Mutation component dictate its data, the Mutation component takes over, only using data provided by its child function for rendering. Once you execute the mutation, the state of the Mutation component should change and the new state should be reflected in the return value of the child function. What's missing is the update to the Mutation component's state using the `resolveMutation` function. It could look like the following, to merge the previous state with the mutation result to a new state object.
 
 {{< highlight javascript "hl_lines=2 3 4 5 6 7 8 9 10 11 12 13" >}}
 const resolveWatchMutation = (data, state) => {
