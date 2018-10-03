@@ -1381,7 +1381,7 @@ const user = (sequelize, DataTypes) => {
   });
 
   User.associate = models => {
-    User.hasMany(models.Message);
+    User.hasMany(models.Message, { onDelete: 'CASCADE' });
   };
 
   return User;
@@ -1638,7 +1638,7 @@ const user = (sequelize, DataTypes) => {
   });
 
   User.associate = models => {
-    User.hasMany(models.Message);
+    User.hasMany(models.Message, { onDelete: 'CASCADE' });
   };
 
   User.findByLogin = async login => {
@@ -4407,6 +4407,34 @@ const server = new ApolloServer({
           loaders.user.batchUsers(keys, models),
         ),
       };
+    }
+  },
+});
+
+...
+{{< /highlight >}}
+
+Last but not least, don't forget to add the loader to your subscriptions too, in case you make use of them over there:
+
+{{< highlight javascript "hl_lines=11 12 13" >}}
+...
+
+const server = new ApolloServer({
+  typeDefs: schema,
+  resolvers,
+  ...
+  context: async ({ req, connection }) => {
+    if (connection) {
+      return {
+        models,
+        user: new DataLoader(keys =>
+          loaders.user.batchUsers(keys, models),
+        ),
+      };
+    }
+
+    if (req) {
+      ...
     }
   },
 });

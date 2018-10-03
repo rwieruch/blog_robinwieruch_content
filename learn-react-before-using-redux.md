@@ -30,7 +30,7 @@ Often people learn React and Redux altogether. But it has drawbacks:
   * thus people will manage (and clutter) **all** of their state in a state container provided by Redux
   * thus people never use the local state management
 
-Because of these drawbacks, you will often get the advice to learn React first and opt-in Redux to your tech stack in a later point in time. But only opt-in Redux if you run into issues scaling your state management. These scaling issues only apply for larger applications. Often you will {{% a_blank "not need a state management library" "https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367" %}} such as Redux on top. The book [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) demonstrates how an application can be build in plain React without external dependencies like Redux.
+Because of these drawbacks, you will often get the advice to learn React first and opt-in Redux to your tech stack in a later point in time. But only opt-in Redux if you run into issues scaling your state management. These scaling issues [only apply for larger applications](https://www.robinwieruch.de/react-global-state-without-redux). Often you will {{% a_blank "not need a state management library" "https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367" %}} such as Redux on top. The book [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) demonstrates how an application can be build in plain React without external dependencies like Redux.
 
 However, now you decided to jump on the Redux train. So here comes my list of what you should know about React before using Redux.
 
@@ -389,4 +389,4 @@ So if you decide to make the step towards Redux or MobX, you can read up the fol
 
 <hr class="section-divider">
 
-Hopefully this article gave you clarification about what you should learn and know before using a state management library like Redux. At this time, I am writing a book about state management in React with local state, but also with Redux and MobX. You can {{% a_blank "subscribe if you don't want to miss its release" "https://www.getrevue.co/profile/rwieruch" %}}.
+Hopefully this article gave you clarification about what you should learn and know before using a state management library like Redux. If you are curious about more Redux and MobX, checkout the ebook/course called Taming the State in React.

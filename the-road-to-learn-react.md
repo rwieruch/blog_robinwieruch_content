@@ -126,7 +126,13 @@ I keep the learning material up to date to the recent changes in the React ecosy
 **31. August 2018:**
 
 * professional proofreading and editing by Emmanuel Stalling
-* {{% a_blank "16 Source Code Projects" "https://roadtoreact.com" %}}
+* {{% a_blank "18 Source Code Projects" "https://roadtoreact.com" %}}
+
+**3. October 2018:**
+
+* upgrade to node 10.11.0
+* upgrade to npm 6.4.1
+* upgrade to create-react-app 2.0.2
 
 {{% chapter_header "What you can expect (so far...) from the React book" "book-expectations" %}}
 

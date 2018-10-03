@@ -1,5 +1,5 @@
 +++
-title = "The minimal React + Webpack 4 + Babel Setup"
+title = "React + Webpack 4 + Babel 7 Setup Tutorial"
 description = "This guide helps you to setup React with Webpack 4 and Babel from 0 to 1. Hot Module Replacement is a bonus. Learn how to use Webpack and Babel in React.js without using create-react-app. Setup your own boilerplate application ..."
 date = "2018-01-18T13:50:46+02:00"
 tags = ["React", "JavaScript", "Tooling"]
@@ -10,7 +10,7 @@ hashtag = "#ReactJs"
 card = "img/posts/minimal-react-webpack-babel-setup/banner_640.jpg"
 banner = "img/posts/minimal-react-webpack-babel-setup/banner.jpg"
 contribute = "minimal-react-webpack-babel-setup.md"
-headline = "The minimal React + Webpack 4 + Babel Setup"
+headline = "React + Webpack 4 + Babel 7 Setup Tutorial"
 
 summary = "Personally I did a lot of React projects in the recent time. Always I had to setup the project from scratch. Eventually I have created my own boilerplate project on GitHub. As you might know, uncountable React boilerplate projects and repositories were created that way. But the article is not my attempt to advertise yet another React boilerplate project."
 +++
@@ -33,7 +33,7 @@ Fourth, the article is not about the boilerplate project itself. The article is 
 
 Last but not least, there is already a great official way introduced by Facebook to start a React project: {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}} comes without any build configuration which I can only recommend for anyone who is getting started with React. If you are a beginner, you probably shouldn't bother with a setup of Webpack and Babel. I use create-react-app to teach plain React in my book [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). You should take the time to read it before you get started with the tooling around React.
 
-That should be enough said about my motivation behind this article. Let's dive into my personal minimal setup for a React project. This tutorial is up to the recent React 16 and Webpack 4 versions. However, you should be able to make it work with Webpack 3 as well.
+That should be enough said about my motivation behind this article. Let's dive into my personal minimal setup for a React project. This tutorial is up to the recent React 16, Webpack 4 and Babel 7 versions.
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
@@ -222,44 +222,41 @@ You are serving your app via Webpack now. You bundle your entry point file *src/
 
 {{% chapter_header "Babel Setup" "babel-react-setup" %}}
 
-{{% a_blank "Babel" "https://babeljs.io/" %}} enables you writing your code in {{% a_blank "ES6 (ES2015)" "https://babeljs.io/docs/learn-es2015/" %}}. With Babel the code will get transpiled back to ES5 so that every browser, without having all ES6 features implemented, can interpret it. Babel even takes it one step further. You can not only use ES6 features, but also the next generations of ES.
+{{% a_blank "Babel" "https://babeljs.io/" %}} enables you writing your code in with JavaScript which isn't supported yet in most browser. Perhaphs you have heard about {{% a_blank "JavaScript ES6 (ES2015)" "https://babeljs.io/docs/learn-es2015/" %}} and beyond. With Babel the code will get transpiled back to vanilla JavaScript so that every browser, without having all JavaScript ES6 and beyond features implemented, can interpret it. In order to get Babel working, you need to install two of its main dependencies.
 
 *From root folder:*
 
 {{< highlight javascript >}}
-npm install --save-dev babel-core babel-loader babel-preset-env
+npm install --save-dev @babel/core @babel/preset-env
 {{< /highlight >}}
 
-Additionally you might want to use some more experimental features in ES6 (e.g. {{% a_blank "object spread" "https://github.com/sebmarkbage/ecmascript-rest-spread" %}}) which can get activated via {{% a_blank "stages" "https://babeljs.io/docs/plugins/preset-stage-0/" %}}. No worries, even though it is experimental, it is already used in create-react-app by Facebook too.
-
-*From root folder:*
+Moreover, in order to hook it up to Webpack, you have to install a so called loader:
 
 {{< highlight javascript >}}
-npm install --save-dev babel-preset-stage-2
+npm install --save-dev babel-loader
 {{< /highlight >}}
 
-As last step, since you want to use React, you need one more configuration to transform the natural React *.jsx* files to *.js* files. It is for the sake of convenience.
+As last step, since you want to use React, you need one more configuration to transform the React's JSX syntax to vanilla JavaScript.
 
 *From root folder:*
 
 {{< highlight javascript >}}
-npm install --save-dev babel-preset-react
+npm install --save-dev @babel/preset-react
 {{< /highlight >}}
 
 Now, with all node packages in place, you need to adjust your *package.json* and *webpack.config.js* to respect the Babel changes. These changes include all packages you have installed.
 
 *package.json*
 
-{{< highlight javascript "hl_lines=5 6 7 8 9 10 11" >}}
+{{< highlight javascript "hl_lines=5 6 7 8 9 10" >}}
 ...
 "keywords": [],
 "author": "",
 "license": "ISC",
 "babel": {
   "presets": [
-    "env",
-    "react",
-    "stage-2"
+    "@babel/preset-env",
+    "@babel/preset-react"
   ]
 },
 "devDependencies": {
@@ -294,7 +291,9 @@ module.exports = {
 };
 {{< /highlight >}}
 
-You can start your application again. Nothing should have changed except for that you can use upcoming ECMAScript functionalities for JavaScript now. An optional step would be to extract your Babel configuration in a separate *.babelrc* configuration file.
+You can start your application again. Nothing should have changed except for that you can use upcoming ECMAScript functionalities for JavaScript now.
+
+An optional step would be to extract your Babel configuration in a separate *.babelrc* configuration file.
 
 *From root folder:*
 
@@ -302,21 +301,20 @@ You can start your application again. Nothing should have changed except for tha
 touch .babelrc
 {{< /highlight >}}
 
-Now you can add the configuration for Babel, which you have previously added in your *package.json*, in the *.babelrc* file. Don't forget to remove the configuration in the *package.json* afterward. It should be configured at only one place.
+Now you can add the configuration for Babel, which you have previously added in your *package.json*, in the *.babelrc* file. Don't forget to remove the configuration in the *package.json* afterward. It needs to be configured at only one place.
 
 *.babelrc*
 
 {{< highlight javascript >}}
 {
   "presets": [
-    "env",
-    "react",
-    "stage-2"
+    "@babel/preset-env",
+    "@babel/preset-react"
   ]
 }
 {{< /highlight >}}
 
-You are set up to build your first React component now.
+Babel enables you to use future JavaScript in your browser, because it transpiles it down to vanilla JavaScript. Now you are set up to build your first React component now.
 
 {{% chapter_header "React Setup in a Webpack + Babel Project" "react-setup" %}}
 

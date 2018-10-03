@@ -24,7 +24,7 @@ Everyone who is new to React is confused by these so called props, because they 
 {{% chapter_header "Table of Contents" "toc" %}}
 
 * [What are Props in React?](#react-props)
-* [Props vs. State](#react-props-vs-state)
+* [React Props vs. State](#react-props-vs-state)
 * [How to pass Props from child to parent Component?](#react-props-child-parent)
 * [Props can be state, props, or derived properties](#react-props-state-derived-properties)
 * [React Props and Code Style](#react-props-code-style)
@@ -187,7 +187,7 @@ Note: It is important to note that is could lead to performance issues, because 
 
 Basically that's how props are passed to React components. As you may have noticed, props are only passed from top to bottom in React's component tree. There is no way to pass props up to a parent component. We will revisit this issue later in this article. In addition, it's important to know that React's props are read only. There is **no way in React to set props** (even though it was possible in the past). After all, props are only used to pass data from one component to another component React, but only from parent to child components down the component tree.
 
-{{% chapter_header "Props vs. State" "react-props-vs-state" %}}
+{{% chapter_header "React Props vs. State" "react-props-vs-state" %}}
 
 Passing only props from component to component doesn't make the component interactive, because nothing is there to change the props. Props are read-only. That's the time when React state comes into play which can be changed. The state is co-located to a React component.
 

@@ -1207,7 +1207,7 @@ const withAuthentication = (Component) => {
   class WithAuthentication extends React.Component {
     render() {
       return (
-        <Component />
+        <Component {...this.props} />
       );
     }
   }
@@ -1245,7 +1245,7 @@ const withAuthentication = (Component) =>
 
     render() {
       return (
-        <Component />
+        <Component {...this.props} />
       );
     }
   }
@@ -1286,7 +1286,7 @@ const withAuthentication = (Component) =>
 
       return (
         <AuthUserContext.Provider value={authUser}>
-          <Component />
+          <Component {...this.props} />
         </AuthUserContext.Provider>
       );
     }
@@ -1601,7 +1601,7 @@ import React from 'react';
 const withAuthorization = () => (Component) => {
   class WithAuthorization extends React.Component {
     render() {
-      return <Component />;
+      return <Component {...this.props} />;
     }
   }
 
@@ -1634,7 +1634,7 @@ const withAuthorization = (authCondition) => (Component) => {
     render() {
       return (
         <AuthUserContext.Consumer>
-          {authUser => authUser ? <Component /> : null}
+          {authUser => authUser ? <Component {...this.props} /> : null}
         </AuthUserContext.Consumer>
       );
     }
@@ -2180,7 +2180,7 @@ const withAuthentication = (Component) => {
 
     render() {
       return (
-        <Component />
+        <Component {...this.props} />
       );
     }
   }
@@ -2294,7 +2294,7 @@ const withAuthorization = (condition) => (Component) => {
     }
 
     render() {
-      return this.props.authUser ? <Component /> : null;
+      return this.props.authUser ? <Component {...this.props} /> : null;
     }
   }
 
@@ -2506,7 +2506,7 @@ const withAuthentication = (Component) => {
 
     render() {
       return (
-        <Component />
+        <Component {...this.props} />
       );
     }
   }
@@ -2613,7 +2613,7 @@ const withAuthorization = (condition) => (Component) => {
     }
 
     render() {
-      return this.props.sessionStore.authUser ? <Component /> : null;
+      return this.props.sessionStore.authUser ? <Component {...this.props} /> : null;
     }
   }
 
