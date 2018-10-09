@@ -1,6 +1,6 @@
 +++
 title = "How to manage React State with Arrays"
-description = "Everything you need to know about React state with arrays. Learn how to manipulate arrays in React by using JavaScript array methods such as concat, map, filter and a few other features such as the spread operator ..."
+description = "Learn how to manipulate arrays in React state by using JavaScript array methods such as concat, map and filter. Whereas vanilla JavaScript is used for the arrays, React is only used to set the new state in the end ..."
 date = "2018-10-04T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
@@ -19,11 +19,11 @@ summary = "After learning how to pass props in React, the next thing is often to
 
 {{% pin_it_image "react state array" "img/posts/react-state-array-add-update-remove/banner.jpg" "is-src-set" %}}
 
-After learning [how to pass props in React](https://www.robinwieruch.de/react-pass-props-to-component/), the next thing is often to learn about state in React. Managing JavaScript primitives such as strings, booleans and, integers in React state are the basics for state management in React. But what about more complex data structures such as JavaScript arrays? There are many questions popping up for React beginners on how to manage arrays in React state. Often the answer is to grab a [fundamental JavaScript function](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/) that does the job for you. It's not always about using React for the task at hand.
+After learning [how to pass props in React](https://www.robinwieruch.de/react-pass-props-to-component/), the next thing you will learn is often state in React. Managing JavaScript primitives such as strings, booleans, and integers in React state are the basics for state management in React. But what about more complex data structures such as JavaScript arrays? There are many questions popping up for React beginners on how to manage arrays in React state. Often the answer is to grab a [fundamental JavaScript function](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/) that does the job for you. It's not always about using React for the task at hand.
 
-This tutorial walks you through the most common scenarios for managing React array state. For each I want to show you a React state array example, such as how to push an item to an array or how to update an item in an array, when React state is used to store it.
+This tutorial walks you through the most common scenarios for managing arrays in React state. For each I want to show you a array example in React state, such as how to push an item to an array or how to update an item in an array, when React state is used to store it.
 
-{{% chapter_header "A React State Array" "react-state-array" %}}
+{{% chapter_header "Arrays in React State" "react-state-array" %}}
 
 Before we are going to manipulate a JavaScript array in React state, let's recap state in React shortly. State in React can be initialized in the [constructor of a React component](https://www.robinwieruch.de/react-state-without-constructor) and afterward used by accessing it via the React component's class instance with the `this` object.
 
@@ -61,17 +61,17 @@ As mentioned, the initial array state is done in the React component's construct
 
 The `this.setState()` method on the component instance is used to update the React state. It does a shallow merge, meaning that when you update one property in the state (e.g. list), the other properties in the state stay intact.
 
-Now, let's see what kind of state manipulations can be done with arrays in React by extending the previous example for different React state array examples. Note that in this case, the array is only a list of integers. However, you can substitute the following examples for other arrays of primitives and arrays of objects.
+Now, let's see what kind of state manipulations can be done with arrays in React by extending the previous example for different React state array examples. Note that in this case, the array is only a list of integers. You can substitute the following examples for other arrays of primitives and arrays of objects.
 
-{{% chapter_header "React State: Empty arrays and initial array state" "react-state-array-empty-initial" %}}
+{{% chapter_header "React State: Empty Arrays and initial Array State" "react-state-array-empty-initial" %}}
 
-There are three questions around an empty array in React state:
+The following three questions often come along when speaking about initial/empty state in React:
 
 * How to initialize an empty array in React state?
 * How to push an empty array in React state?
 * How to create an initial array React state?
 
-The first question can be answered with React's component constructor again by simply initializing the state as as empty array:
+The first question can be answered with React's component constructor by simply initializing the state as as empty array:
 
 {{< highlight javascript "hl_lines=8" >}}
 import React, { Component } from 'react';
@@ -171,7 +171,7 @@ class App extends Component {
 export default App;
 {{< /highlight >}}
 
-You simply set an empty array as React state for the component by having a clear method for it. Building on top of this example, the third question, which asks how to create an initial array state, can be answered too. You have already seen how an initial array is set to state in the component's constructor. How would you reinitialize the initial state again, basically a reset of the state, after you have manipulated the state already? You can extract the initial state and then set it again whenever you want.
+You set an empty array as React state for the component by having a clear method for it. Building on top of this example, the third question, which asks how to create an initial array state, can be answered too. You have already seen how an initial array is set to state in the component's constructor. How would you reinitialize the initial state again, basically a reset of the state, after you have manipulated the state already? You can extract the initial state and then set it again whenever you want.
 
 {{< highlight javascript "hl_lines=3 10 18 19 20 35 36 37" >}}
 import React, { Component } from 'react';
@@ -271,7 +271,7 @@ By using the {{% a_blank "JavaScript spread operator" "https://developer.mozilla
 
 {{% chapter_header "React State: Add item to array" "react-state-array-add-item" %}}
 
-One of the most common examples is to add an item to an array in React state. Since you are not allowed to mutate the state directly, you cannot simply push an item to an array.
+One of the most common questions is how to add an item to an array in React state. Since you are not allowed to mutate the state directly, you cannot simply push an item to an array.
 
 {{< highlight javascript "hl_lines=8 9 13 14 15 17 18 19 20 21 22 23 24 25 26 27 38 39 40 41 42 43 44 45 46 47 48 49" >}}
 import React, { Component } from 'react';
@@ -335,7 +335,7 @@ First, it is not allowed to use the {{% a_blank "array push method" "https://dev
 
 Second, assumed for a moment the array push method would be allowed, the `onAddItem` method still would not work. Take a moment to think about why it wouldn't work this way. In my workshops, I have seen many people stumbling into this problem.
 
-Here comes the answer: The push to array method wouldn't work, because it doesn't return the updated array. Instead, it returns the length of the updated array which is 4 in this case.
+Here comes the answer: The push to array method wouldn't work, because it doesn't return the updated array. Instead, it returns the length of the updated array (which is 4 in this case).
 
 In conclusion, the array push method doesn't work for us. Fortunately there exists a great substitute for it which overcomes both drawbacks of the array push method. It's the {{% a_blank "array concat method" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat" %}}. It creates a new array, leaving the old array intact, but also returning a new array from it.
 
@@ -371,9 +371,9 @@ class App extends Component {
 export default App;
 {{< /highlight >}}
 
-After all, when having immutable data structures (or treating them as immutable), concat is our friend and push our foe when it comes to arrays.
+After all, when having immutable data structures (or treating them as immutable as for React state), concat is our friend and push our foe when it comes to arrays.
 
-One question remains though: how to add an item at the beginning of an array in React state? Same as before, is hasn't to do with React state, but simply with executing the correct JavaScript functionalities. In this case, you can use the {{% a_blank "array spread operator" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax" %}}. Let's see how it works as alternative to the array concat method first.
+One question remains though: how to add an item at the beginning of an array in React state? Same as before, is hasn't to do with React state, but simply with executing the correct JavaScript functionalities. One way would be to exchange places for the concat method from before (e.g. `const list = [state.value].concat(state.list);`). Another way of doing it would be using the {{% a_blank "array spread operator" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax" %}}. Let's see how it works as alternative to the array concat method.
 
 {{< highlight javascript "hl_lines=17" >}}
 import React, { Component } from 'react';
@@ -412,7 +412,7 @@ While the array from the previous state is spread into a new array, so the previ
 
 {{% chapter_header "React State: Update item in array" "react-state-array-update-item" %}}
 
-We will go through two cases to update items in an array:
+In this part of the walkthrough, we will go through two cases to update items in an array:
 
 * How to update the entire array in React state?
 * How to update a specific item in array in React state?
@@ -661,7 +661,7 @@ export default App;
 
 That's it. You destructure the first item and all the remaining items from the array. Then you use all remaining items to store them in React's state. The first item isn't used anymore.
 
-All previous array examples worked on an array of integers. Let's see how to remove an object from a React state array instead. That example is a bit more elaborate, because we can work on identifiers instead of indexes.
+All previous array examples worked on an array of integers. Let's see in a more complex scenario how to remove an object from a React state array instead. That example is better suited for a robust application, because we can work on identifiers instead of indexes.
 
 {{< highlight javascript "hl_lines=9 10 11 16 18 30 31 32 35" >}}
 import React, { Component } from 'react';
@@ -713,7 +713,7 @@ class App extends Component {
 export default App;
 {{< /highlight >}}
 
-The example shows you, that whether working with primitives or objects doesn't make any difference for the previously used JavaScript array methods. You would still use the array concat method to add an item, the array map method to update item(s), and the array filter method to remove an item. However, this time having an identifier for each item gives you more control over the array than having only indexes as before for the array manipulations.
+The example shows you that it doesn't make any difference for whether you are working with primitives or objects when using the previously applied JavaScript array methods. You would still use the array concat method to add an item, the array map method to update item(s), and the array filter method to remove an item. However, this time having an identifier for each item gives you more control over the array than having only indexes as before for the array manipulations.
 
 <hr class="section-divider">
 
