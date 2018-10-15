@@ -1,7 +1,7 @@
 +++
 title = "The Road to GraphQL [Book]"
 description = "The free GraphQL book takes you on a journey to master GraphQL in JavaScript the pragmatic way with React, Node, and Apollo. Grab your free PDF, EPUB, or MOBI and get free updates for new releases. On the road to GraphQL you will learn how to build GraphQL server and client-side applications ..."
-date = "2018-10-16T13:50:46+02:00"
+date = "2018-10-22T13:50:46+02:00"
 tags = ["React", "GraphQL", "Apollo", "JavaScript", "Node"]
 categories = ["React", "GraphQL", "Apollo", "JavaScript", "Node"]
 keywords = ["graphql javascript book", "graphql book pdf", "book about graphql", "books on graphql", "learning graphql book", "graphql books", "graphql apollo book", "react graphql book", "graphql node book", "best graphql book"]
@@ -19,7 +19,7 @@ summary = "The book about GraphQL is not intended to be used as a reference nor 
 
 {{% pin_it_image "best graphql book" "img/posts/the-road-to-graphql-book/banner.jpg" "is-src-set" %}}
 
-Today, I am super happy to announce the release of *The Road to GraphQL - Your journey to master GraphQL in JavaScript*. It was tough writing it, with GraphQL technologies changing all the time, but finally the up-to-date version is there.
+Today, I am super happy to announce the release of *The Road to GraphQL - Your journey to master pragmatic GraphQL in JavaScript*. It was tough writing it, with GraphQL technologies changing all the time, but finally the up-to-date version is there.
 
 Probably the best thing about it: **It is for free.** In my opinion, everyone should have the chance to learn about GraphQL. I believe GraphQL will change how we think about client-server communication and data management in applications in the future, so everyone should get a chance to learn it.
 
