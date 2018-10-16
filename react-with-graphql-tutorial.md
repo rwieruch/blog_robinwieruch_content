@@ -31,7 +31,7 @@ Along the way of this React with GraphQL tutorial, you will build a simplified {
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
-* GrapQL Basics
+* GraphQL Basics
   * [GraphQL Query](#graphql-query-github-api)
   * [GraphQL Mutation](#graphql-mutation-github-api)
   * [GraphQL Pagination](#graphql-pagination)
@@ -96,7 +96,7 @@ The organization when using GitHub's API is identified with a `login`. If you ha
 }
 {{< /highlight >}}
 
-In the previous query, you have passed an argument to a field. As you can imagine, you can add arguments to various fields when using GraphQL. It grants you a huge flexible when structuring your queries, because you can make specifications to your requests not on a request level but on a field level. In addition, arguments can be of different kinds. In case of the organization, you have provided an argument with the type `String`. However, you can pass also types such as enumerations with a fixed set of options, integers or booleans.
+In the previous query, you have passed an argument to a field. As you can imagine, you can add arguments to various fields when using GraphQL. It grants you a huge flexibility when structuring your queries, because you can make specifications to your requests not on a request level but on a field level. In addition, arguments can be of different kinds. In case of the organization, you have provided an argument with the type `String`. However, you can pass also types such as enumerations with a fixed set of options, integers or booleans.
 
 There are further features in structuring your queries which GraphQL has to offer. If you ever wanted to request data about two identical objects, you would have to use so called **aliases** in GraphQL. The following query wouldn't be possible, because GraphQL wouldn't know how to resolve the two organization objects in a result:
 
@@ -145,7 +145,7 @@ The result should be similar to the following:
 }
 {{< /highlight >}}
 
-Next imagine you would have to request lots of fields for both organization. Thus you would have to repeat all fields for each organization which makes the quert repetitive and verbose. Therefore, you can use so called **fragments** to extract reusable parts of a query. That's especially useful when your query becomes deeply nested and uses lots of shared fields.
+Next imagine you would have to request lots of fields for both organization. Thus you would have to repeat all fields for each organization which makes the query repetitive and verbose. Therefore, you can use so called **fragments** to extract reusable parts of a query. That's especially useful when your query becomes deeply nested and uses lots of shared fields.
 
 {{< highlight javascript "hl_lines=3 6 10 11 12 13" >}}
 {
@@ -281,7 +281,7 @@ query OrganizationForLearningReact(
 }
 {{< /highlight >}}
 
-Now you can dynamically decide based on your provided variables whether you want to include the information for the `forCount` field.
+Now you can dynamically decide based on your provided variables whether you want to include the information for the `forkCount` field.
 
 {{< highlight javascript "hl_lines=4" >}}
 {
