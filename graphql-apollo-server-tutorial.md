@@ -2067,9 +2067,11 @@ export default gql`
 `;
 {{< /highlight >}}
 
-The `signUp` mutation takes three non-nullable arguments: username, email and password. All of these things are used to create a user in the database eventually. When a user signs in to the application (after a successful sign up), the user should be able to take the username or email address combined with the password for the login. So what about the return type of the `signUp` mutation? Since we are going to use a token based authentication with GraphQL, it is sufficient to return a token which is nothing more than a string. However, in order to distinguish the token in the GraphQL schema, it has its own GraphQL type. You will learn more about the token in the following, because the token is all about the authentication mechanism for this application.
+The `signUp` mutation takes three non-nullable arguments: username, email, and password. These are used to create a user in the databasw. The user should be able to take the username or email address combined with the password to enable a successful login.
 
-First, you can add the counterpart for your new mutation in the GraphQL schema as resolver function. In your *src/resolvers/user.js* file, add the following resolver function which creates a user in the database and returns an object with the token value as string.
+Now we'll consider the return type of the `signUp` mutation. Since we are going to use a /token-based authentication with GraphQL, it is sufficient to return a token that is nothing more than a string. However, to distinguish the token in the GraphQL schema, it has its own GraphQL type. You will learn more about tokens in the following, because the token is all about the authentication mechanism for this application.
+
+First, add the counterpart for your new mutation in the GraphQL schema as a resolver function. In your *src/resolvers/user.js* file, add the following resolver function that creates a user in the database and returns an object with the token valueas string.
 
 {{< highlight javascript "hl_lines=1 2 3 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24" >}}
 const createToken = async (user) => {
@@ -2101,17 +2103,17 @@ export default {
 };
 {{< /highlight >}}
 
-Basically that's the necessary GraphQL framework around a token based registration. You have created the necessary GraphQL mutation and resolver for it, which creates a user in the database (based on certain validations) and its incoming resolver arguments, and finally creates a token for the registered user. The latter will be explained in the following sections. But for now, all you have set up is sufficient to create (register, sign up) a new user with a GraphQL mutation.
+That's the GraphQL framework around a token-based registration. You created a GraphQL mutation and resolver for it, which creates a user in the database based on certain validations and its incoming resolver arguments. It creates a token for the registered user. For now, the set up is sufficient to create a new user with a GraphQL mutation.
 
 {{% sub_chapter_header "Securing Passwords with Bcrypt" "graphql-token-based-authentication" %}}
 
-There is one major security flaw in this code: the password of a user is stored in plain text in the database. You should never do this, because when your database gets hacked or some other third-party gets access to it, you made it very easy for the attacker to get all the passwords in plain text. That's why you can use something like {{% a_blank "bcrypt" "https://github.com/kelektiv/node.bcrypt.js" %}} for hashing your passwords. First, install it on the command line:
+There is one major security flaw in this code: the user password is stored in plain text in the database, which makes it much easier for third parties to access it. To remedy this, we use add-ons like {{% a_blank "bcrypt" "https://github.com/kelektiv/node.bcrypt.js" %}} to hash passwords. First, install it on the command line:
 
 {{< highlight javascript >}}
 npm install bcrypt --save
 {{< /highlight >}}
 
-Now, it is possible to hash the password with bcrypt in the user's resolver function when it gets created on a `signUp` mutation. However, there is an alternative way of doing it with Sequelize. In your user model, you can define a so called hook function which is executed every time before a user entity is created:
+Now it is possible to hash the password with bcrypt in the user's resolver function when it gets created on a `signUp` mutation. There is also an alternative way with Sequelize. In your user model, define a hook function that is executed every time a user entity is created:
 
 {{< highlight javascript "hl_lines=8 9 10" >}}
 const user = (sequelize, DataTypes) => {
@@ -2131,7 +2133,7 @@ const user = (sequelize, DataTypes) => {
 export default user;
 {{< /highlight >}}
 
-In this hook function, you can add the functionalities to alter your user entity's properties before they reach the database. So let's do it for the hashed password by using bcrypt.
+In this hook function, add the functionalities to alter your user entity's properties before they reach the database. Let's do it for the hashed password by using bcrypt.
 
 {{< highlight javascript "hl_lines=1 10 11 12 14 15 16 17" >}}
 import bcrypt from 'bcrypt';
@@ -2158,25 +2160,23 @@ const user = (sequelize, DataTypes) => {
 export default user;
 {{< /highlight >}}
 
-The bcrypt `hash()` method takes a string (here the user's password) and an integer called salt rounds. What are salt rounds? Basically each salt round makes it more costly to hash the password. In return, it makes it more costly for attackers to decrypt the hash value. A common value for salt rounds nowadays ranged from 10 to 12, because if you would increase the number of salt rounds, you may run into performance issue yourself (and not only the attacker).
+The bcrypt `hash()` method takes a string--the user's password--and an integer called salt rounds. Each salt round makes it more costly to hash the password, which makes it more costly for attackers to decrypt the hash value. A common value for salt rounds nowadays ranged from 10 to 12, as increasoning the number of salt rounds might cause performance issues both ways.
 
-In this implementation, the `generatePasswordHash()` function is added to the user's prototype chain. That's why it is possible to execute the function as method on each user instance and thus you have the user itself available within the method as `this`. You could have used another approach of doing it, for instance as function which takes the user instance with its password as argument (which would be my personal preference), but using JavaScript's prototypal inheritance is sometimes a good task to keep this knowledge in your tool chain as a developer. As for now, every time a user is created in the database, the password is hashed with bcrypt before it gets stored.
+In this implementation, the `generatePasswordHash()` function is added to the user's prototype chain. That's why it is possible to execute the function as method on each user instance, so you have the user itself available within the method as `this`. You can also take the user instance with its password as an argument, which I prefer, though using JavaScript's prototypal inheritance a good tool for any wenb developer. For now, the password is hashed with bcrypt before it gets stored every time a user is created in the database,.
 
 {{% sub_chapter_header "Token based Authentication in GraphQL" "graphql-token-based-authentication" %}}
 
-Now what about the token based authentication? So far, there is only a placeholder in your application for creating the token which should be returned on a sign up (and sign in) mutation.
+We still need to implement the token based authentication. So far, there is only a placeholder in your application for creating the token that is returned on a sign up and sign in mutation. A signed in user can be identified with this token, and is allowed to read and write data from the database. Since a registration will automatically lead to a login, the token is generated in both phases.
 
-Essentially the token is only important for a user who signs in to your application. A signed in user can be identified with this token and thus is able to read and write data from the database. Since a registration (sign up) will automatically lead to a login (sign in), the token is generated already in the registration phase and not only in the login phase. You will see later how the token is generated for a login as well.
+Next are the implementation details for the token-based authentication in GraphQL. Regardless of GraphQL, you are going to use a {{% a_blank "JSON web token (JWT)" "https://jwt.io/" %}} to identify your user. The definition for a JWT from the official website says: *JSON Web Tokens are an open, industry standard RFC 7519 method for representing claims securely between two parties.* In other words, a JWT is a secure way to handle the communication between two parties (e.g. a client and a server application). If you haven't worked on security related applications before, the following section will guide you through the process, and you'll see the token is just a secured JavaScript object with user information.
 
-Let's get into the implementation details for the token based authentication in GraphQL. Regardless of GraphQL, you are going to use a {{% a_blank "JSON web token (JWT)" "https://jwt.io/" %}} to identify your user. This approach is not only used in GraphQL applications. The definition for a JWT from the official website says: *JSON Web Tokens are an open, industry standard RFC 7519 method for representing claims securely between two parties.* In other words, a JWT is a secure way to handle the communication between two parties (e.g. a client and a server application). If you haven't done anything security related before, don't worry too much about it. The following section will guide you through the process and in the end, the token is nothing else than a secured JavaScript object with user information.
-
-In order to create JWT in this application, you are going to use the popular {{% a_blank "jsonwebtoken" "https://github.com/auth0/node-jsonwebtoken" %}} node package, so you can simply install it on the command line:
+To create JWT in this application, we'll use the popular {{% a_blank "jsonwebtoken" "https://github.com/auth0/node-jsonwebtoken" %}} node package. Install it on the command line:
 
 {{< highlight javascript >}}
 npm install jsonwebtoken --save
 {{< /highlight >}}
 
-Now, you can import it in your *src/resolvers/user.js* file and use it for creating the token:
+Now, import it in your *src/resolvers/user.js* file and use it to create the token:
 
 {{< highlight javascript "hl_lines=1 4 5" >}}
 import jwt from 'jsonwebtoken';
@@ -2189,7 +2189,9 @@ const createToken = async user => {
 ...
 {{< /highlight >}}
 
-The first argument to "sign" a token can be any user information except for sensible data such as passwords, because the token ends up on the client side of your application stack too. Signing a token means putting data into it (as you did) and securing it (which you haven't done yet). In order to secure your token, you need to pass in a secret (**any** long string) which is **only available to you and your server**. No third-party should have access to it, because it is used to encode (sign) and decode your token. For instance, you can add the secret to your environment variables in the *.env* file:
+The first argument to "sign" a token can be any user information except sensitive data like passwords, because the token will land on the client side of your application stack. Signing a token means putting data into it, which you've done, and securing it, which you haven't done yet. To secure your token, pass in a secret (**any** long string) that is **only available to you and your server**. No third-party entities should have access, because it is used to encode (sign) and decode your token. 
+
+Add the secret to your environment variables in the *.env* file:
 
 {{< highlight javascript "hl_lines=5" >}}
 DATABASE=postgres
@@ -2199,7 +2201,7 @@ DATABASE_PASSWORD=postgres
 SECRET=wr3r23fwfwefwekwself.2456342.dawqdq
 {{< /highlight >}}
 
-Then, in the *src/index.js* file, you can pass the secret via Apollo Server's context to all resolver functions:
+Then, in the *src/index.js* file, pass the secret via Apollo Server's context to all resolver functions:
 
 {{< highlight javascript "hl_lines=8" >}}
 const server = new ApolloServer({
@@ -2214,7 +2216,7 @@ const server = new ApolloServer({
 });
 {{< /highlight >}}
 
-Next, you can use it in your `signUp` resolver function by passing it to the token creation. The `sign` method of JWT takes care of the rest. In addition, you can pass in a third argument for setting an expiration date for a token. In this case, the token is only valid for 30 minutes. Afterward, a user would need to sign in again.
+Next, use it in your `signUp` resolver function by passing it to the token creation. The `sign` method of JWT handles the rest. You can also pass in a third argument for setting an expiration time or date for a token. In this case, the token is only valid for 30 minutes, after which a user has to sign in again.
 
 {{< highlight javascript "hl_lines=1 3 5 6 7 19 27" >}}
 import jwt from 'jsonwebtoken';
@@ -2253,11 +2255,11 @@ export default {
 
 Now you have secured your information in the token as well. If you would want to decode it, in order to access the secured data (the first argument of the `sign` method), you would need the secret again. Furthermore, the token is only valid for 30 minutes.
 
-That's it for the registration: you are creating a user and return a valid token which can be used from the client application to authenticate the user again. The server can decode the token, which comes with every request, and allows the user to access the more sensible data of the application. You can try out the registration with GraphQL Playground yourself, which should create a user in the database and return a token for it. Furthermore, you can check your database with `psql` whether the user got created and whether the user has a hashed password instead of a plain text password.
+That's it for the registration: you are creating a user and returning a valid token that can be used from the client application to authenticate the user. The server can decode the token that comes with every request and allows the user to access sensitive data. You can try out the registration with GraphQL Playground, which should create a user in the database and return a token for it. Also, you can check your database with `psql` to test if the use was created and with a hashed password.
 
 {{% sub_chapter_header "Login (Sign In) with GraphQL" "graphql-registration-sign-up-authentication" %}}
 
-Before you will dive into the authorization with the token on a per request basis, let's implement the second mutation for completing the authentication mechanism: the `signIn` mutation (or login mutation). Again, first add the GraphQL mutation to your user's schema in the *src/schema/user.js* file:
+Before you dive into the authorization with the token on a per-request basis, let's implement the second mutation for the authentication mechanism: the `signIn` mutation (or login mutation). Again, first we add the GraphQL mutation to your user's schema in the *src/schema/user.js* file:
 
 {{< highlight javascript "hl_lines=13" >}}
 import { gql } from 'apollo-server-express';
@@ -2328,9 +2330,9 @@ export default {
 };
 {{< /highlight >}}
 
-Let's go through the new resolver function for the login step by step. As arguments the resolver has access to the input arguments from the GraphQL mutation (login, password) and the context (models, secret). When a user tries to sign in to your application, the login, which can be either the unique username or unique email, is taken to retrieve a user from the database. If there is no user, the application should throw a error which can be used in the client application to show an error for the login form. If there is an user, the user's password is validated. You will see this method on the user model in a moment. If the password is not valid, the application throws an error again for the client application. If the password is valid, the `signIn` mutation returns a token again (identical to the `signUp` mutation). So after all, the client application either performs a successful login or shows an error message for either the invalid credentials, because no user by username or email is found in the database, or the invalid password. In addition, you can see specific Apollo Server Errors which can be used over generic JavaScript Error classes.
+Let's go through the new resolver function for the login step by step. As arguments, the resolver has access to the input arguments from the GraphQL mutation (login, password) and the context (models, secret). When a user tries to sign in to your application, the login, which can be either the unique username or unique email, is taken to retrieve a user from the database. If there is no user, the application throws an error that can be used in the client application to notify the user. If there is an user, the user's password is validated. You will see this method on the user model in the next example. If the password is not valid, the application throws an error to the client application. If the password is valid, the `signIn` mutation returns a token identical to the `signUp` mutation. The client application either performs a successful login or shows an error message for invalid credentials. You can also see specific Apollo Server Errors used over generic JavaScript Error classes.
 
-Last but not least, what about the `validatePassword()` method on the user instance? Let's implement it in the *src/models/user.js* file, because that's where all the model methods for the user can be implemented (same as the `findByLogin()` method):
+Next, we want to implement the `validatePassword()` method on the user instance. Place it in the *src/models/user.js* file, because that's where all the model methods for the user are stored, same as the `findByLogin()` method.
 
 {{< highlight javascript "hl_lines=29 30 31" >}}
 import bcrypt from 'bcrypt';
@@ -2371,18 +2373,18 @@ const user = (sequelize, DataTypes) => {
 export default user;
 {{< /highlight >}}
 
-Again, it's a JavaScript prototypal inheritance for making a method available on the user instance. In this method, the user (this) and its password can be compared with the incoming password (coming from the GraphQL mutation) by using bcrypt, because the password on the user is the hashed password and the incoming password is the plain text password. After all, bcrypt will tell you whether the password is correct or not when a user signs in.
+Again, it's a prototypical JavaScript inheritance for making a method available in the user instance. In this method, the user (this) and its password can be compared with the incoming password from the GraphQL mutation using bcrypt, because the password on the user is hashed, and the incoming password is plain text. Fortunately, bcrypt will tell you whether the password is correct or not when a user signs in.
 
-Now you have set up everything for the registration (sign up) and login (sign in) for your GraphQL server application. You have used bcrypt to hash (and compare) the plain text password before it reaches the database with a Sequelize hook function and you have used JWT to encrypt user data with a secret to a token. Then the token is returned on every sign up and sign in. Then the client application can save the token (e.g. local storage of the browser) and send it along with every GraphQL query and mutation as authorization.
+Now you have set up registration (sign up) and login (sign in) for your GraphQL server application. You used bcrypt to hash and compare a plain text password before it reaches the database with a Sequelize hook function, and you used JWT to encrypt user data with a secret to a token. Then the token is returned on every sign up and sign in. Then the client application can save the token (e.g. local storage of the browser) and send it along with every GraphQL query and mutation as authorization.
 
-So what should you do with the token once a user is authenticated with your application after a successful registration or login? That's what the next section will teach you about authorization in GraphQL on the server-side.
+The next section will teach you about authorization in GraphQL on the server-side, and what should you do with the token once a user is authenticated with your application after a successful registration or login.
 
 ### Exercises:
 
-* register (sign up) a new user with GraphQL Playground
-* check your users and their hashed passwords in the database with `psql`
-* read more about {{% a_blank "JSON web tokens (JWT)" "https://jwt.io/" %}}
-* login (sign in) a user with GraphQL Playground
+* Register (sign up) a new user with GraphQL Playground
+* Check your users and their hashed passwords in the database with `psql`
+* Read more about {{% a_blank "JSON web tokens (JWT)" "https://jwt.io/" %}}
+* Login (sign in) a user with GraphQL Playground
   * copy and paste the token to the interactive token decoding on the JWT website (conclusion: the information itself isn't secure, that's why you shouldn't put a password in the token)
 
 {{% chapter_header "Authorization with GraphQL and Apollo Server" "apollo-server-authorization" %}}
