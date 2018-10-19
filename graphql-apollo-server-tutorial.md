@@ -2435,21 +2435,19 @@ const server = new ApolloServer({
 ...
 {{< /highlight >}}
 
-In this general authorization on the server-side, you are injecting the `me` user, the authenticated user from the token, with every request to your Apollo Server's context. The `me` user is the user tha tyou encode in the token in your `createToken()` function. It's not a user from the database anymore, which helps because it spares the additional request.
+In this general authorization on the server-side, you are injecting the `me` user, the authenticated user from the token, with every request to your Apollo Server's context. The `me` user is encoded in the token in the `createToken()` function. It's not a user from the database anymore, which spares the additional database request.
 
-In the `getMe()` function, you extract the HTTP header for the authorization, which is called "x-token" in this case (common way of naming it), from the incoming HTTP request. That's because the GraphQL client application will send the token obtained from the registration or login with every other request in a HTTP header along with the actual payload of the HTTP request (e.g. GraphQL operation). Then, in the function, it can be checked whether there is such a HTTP header or not. If not, the function simply continues with the request, but the `me` user will be undefined then. If there is a token, the function verifies the token with its secret and retrieves the user information (which was stored when you created the token) from the token. If the verification fails, because there was a header but the token was invalid or expired, the GraphQL server throws a specific Apollo Server Error. If the verification succeeds, the function continues as well, but this time with the `me` user defined.
+In the `getMe()` function, you extract the HTTP header for the authorization called "x-token" from the incoming HTTP request. The GraphQL client application sends the token obtained from the registration or login with every other request in an HTTP header, along with the payload of the HTTP request (e.g. GraphQL operation). It can then be checked to see if there is such an HTTP header in the function or not. If not, the function continues with the request, but the `me` user is undefined. If there is a token, the function verifies the token with its secret and retrieves the user information that was stored when you created the token. If the verification fails because the token was invalid or expired, the GraphQL server throws a specific Apollo Server Error. If the verification succeeds, the function continues with the `me` user defined.
 
-So the only case when the function returns an error is when the client application sends a HTTP header with a token which is invalid or expired. Otherwise, the function waves the request through, because then on a resolver level it must be checked whether a user is allowed to perform certain operations or not. For instance, a non authenticated user (`me` user is undefined) may be able to retrieve a list of messages, but not to create a new message. So the application is protected at least against invalid and expired tokens now.
+The function returns an error when the client application sends an HTTP header with an invalid or expired token. Otherwise, the function waves the request through, because users must be checked on a resolver to level to see if they're allowed to perform certain actions. A non-authenticated user--where the `me` user is undefined--might be able to retrieve messages but not create new ones. The application is now protected against invalid and expired tokens.
 
-Basically that's it for the most high level authentication and authorization for your GraphQL server application. You are able to authenticate with your GraphQL server from a GraphQL client application with the `signUp` and `signIn` GraphQL mutations and your GraphQL server only allows valid and non expired tokens which are coming with every other GraphQL operation from a GraphQL client application. But what about a more fine-grained authorization for specific GraphQL queries and mutations?
+That's the most high-level authentication for your GraphQL server application. You are able to authenticate with your GraphQL server from a GraphQL client application with the `signUp` and `signIn` GraphQL mutations, and the GraphQL server only allows valid, non-expired tokens from the GraphQL client application. 
 
 {{% sub_chapter_header "GraphQL Authorization on a Resolver Level" "apollo-server-authorization-resolver" %}}
 
-As you have noticed, a GraphQL HTTP request comes through the `getMe()` function even though if it has no HTTP header for a token. It's a good default behavior, because you want to be able to register a new user or login as a user to the application without having a token yet. Moreover, you may want to query messages or users without being authenticated with the application. That's why it's okay to wave through the request even though there is no authorization token. Only when the token is invalid or expired, there will be an error.
+A GraphQL HTTP request comes through the `getMe()` function, even if it has no HTTP header for a token. This is good default behavior, because you want to register new users and login to the application without a token for now. You mig want to query messages or users without being authenticated with the application. It is acceptable and sometimes necessary to wave through some requests without authorization token, to grant different levels of access to different user types. There will be an error only when the token becomes invalid or expires.
 
-However, certain GraphQL operations should have more fine-grained authorization too. For instance, creating a message should only be possible when you are authenticated as a user. Otherwise, who should be the creator of the message in the first place? So let's see how the `createMessage` GraphQL mutation can be protected (also called: guarded) on a GraphQL resolver level.
-
-The naive approach of protecting the GraphQL operation would be to guard it with an if-else statement in the *src/resolvers/message.js* file:
+However, certain GraphQL operations should have more specific authorizations. Creating a message should only be possible for authorized users. Otherwise, or there would be no way to track the messages' authors. The `createMessage` GraphQL mutation can be protected, or "guarded", on a GraphQL resolver level. The naive approach of protecting the GraphQL operation is to guard it with an if-else statement in the *src/resolvers/message.js* file:
 
 {{< highlight javascript "hl_lines=1 10 11 12" >}}
 import { ForbiddenError } from 'apollo-server';
@@ -2478,7 +2476,7 @@ export default {
 };
 {{< /highlight >}}
 
-You can imagine how this becomes repetitive and error prone when using this approach for all the GraphQL operations which are only accessible as authenticated user. You would mix lots of authorization logic into your resolver functions. So how to introduce an authorization abstraction layer for protecting those GraphQL operations? The solutions to it are so called **combined resolvers** or a **resolver middleware**. Without having to implement these things ourselves, let's install a node package for the former solution:
+You can imagine how this becomes repetitive and error prone if it is used for all GraphQL operations that are accessible to an authenticated user, as it mixes lots of authorization logic into the resolver functions. To remedy this, we introduce an authorization abstraction layer for protecting GraphQL operations, with solutions called **combined resolvers** or  **resolver middleware**. Let's install this node package:
 
 {{< highlight javascript >}}
 npm install graphql-resolvers --save
@@ -2494,9 +2492,9 @@ export const isAuthenticated = (parent, args, { me }) =>
   me ? skip : new ForbiddenError('Not authenticated as user.');
 {{< /highlight >}}
 
-Basically the `isAuthenticated()` resolver function acts as some kind of middleware. It either continues with the next resolver (skip) or does something else (return an error). In this case, an error is returned when the `me` user is not available. Since it is a resolver function itself, it has the same arguments as a normal resolver.
+The `isAuthenticated()` resolver function acts as middleware, either continuing with the next resolver (skip), or performing another action, like returning an error. In this case, an error is returned when the `me` user is not available. Since it is a resolver function itself, it has the same arguments as a normal resolver.
 
-Now, this guarding resolver can be used when creating a message in the *src/resolvers/message.js* file. You need to import it along with the `combineResolvers()` from the newly installed node package. Then the new resolver can be used to protect the actual resolver by combining them.
+A guarding resolver can be used when a message is created in the *src/resolvers/message.js* file. Import it with the `combineResolvers()` from the newly installed node package. The new resolver is used to protect the resolver by combining them.
 
 {{< highlight javascript "hl_lines=1 3 11 12 13 14 15 16 17 18 19" >}}
 import { combineResolvers } from 'graphql-resolvers';
@@ -2526,11 +2524,11 @@ export default {
 };
 {{< /highlight >}}
 
-Now the `isAuthenticated()` resolver function always runs before the actual resolver that creates the message associated with the authenticated user in the database. The resolvers get chained after each other. The great thing about it: You can reuse the protecting resolver function wherever you need it. It only adds a small footprint to your actual resolvers and you can change it at one place in your *src/resolvers/authorization.js* file.
+Now the `isAuthenticated()` resolver function always runs before the resolver that creates the message associated with the authenticated user in the database. The resolvers get chained to each other, and you can reuse the protecting resolver function wherever you need it. It only adds a small footprint to your actual resolvers, which can be changed in the *src/resolvers/authorization.js* file.
 
 {{% sub_chapter_header "Permission-based GraphQL Authorization" "apollo-server-authorization-permission" %}}
 
-The previous resolver only checks whether a user is authenticated or not. It is only applicable on a higher level. What about more specific use cases such as permissions? Let's add another protecting resolver which is more specific than the previous one in the *src/resolvers/authorization.js* file:
+The previous resolver only checks if a user is authenticated or not, so it is only applicable to the higher level. Cases like permissions require another protecting resolver that is more specific than the one in the *src/resolvers/authorization.js* file:
 
 {{< highlight javascript "hl_lines=3 4 5 6 7 8 9 10 11 12 13 14 15" >}}
 ...
@@ -2550,7 +2548,9 @@ export const isMessageOwner = async (
 };
 {{< /highlight >}}
 
-This resolver checks whether the authenticated user is a message owner. It's the perfect check before deleting a message if only the message creator should be able to delete it. So the guarding resolver retrieves the message by id, checks the message's associated user with the authenticated user, and either throws an error or continues with the next resolver. Let's protect an actual resolver with this fine-grained authorization permission resolver in the *src/resolvers/message.js* file:
+This resolver checks whether the authenticated user is the message owner. It's a useful check before deleting a message, since you only the message creator to be able to delete it. The guarding resolver retrieves the message by id, checks the message's associated user with the authenticated user, and either throws an error or continues with the next resolver. 
+
+Let's protect a resolver with this fine-tuned authorization permission resolver in the *src/resolvers/message.js* file:
 
 {{< highlight javascript "hl_lines=3 13 14 15 16 17 18" >}}
 import { combineResolvers } from 'graphql-resolvers';
@@ -2577,7 +2577,7 @@ export default {
 };
 {{< /highlight >}}
 
-The `deleteMessage` resolver is protected with an authorization resolver now. Only a message owner, thus a message creator, is allowed to delete a message. But what about if the user isn't authenticated in the first place? Therefore you can stack your protecting resolvers onto each other:
+The `deleteMessage` resolver is protected by an authorization resolver now. Only the message owner, i.e. the message creator, is allowed to delete a message. If the user isn't authenticated, you can stack your protecting resolvers onto each other:
 
 {{< highlight javascript "hl_lines=14" >}}
 import { combineResolvers } from 'graphql-resolvers';
@@ -2605,15 +2605,13 @@ export default {
 };
 {{< /highlight >}}
 
-In this case, first it is checked whether the user is authenticated and second whether the user is the owner of the message before deleting it.
+As an alternate tactic, you can also use the `isAuthenticated` resolver directly in the `isMessageOwner` resolver; then, you can avoid handling it in the actual resolver for deleting a message. I find being explicit to be more practical than hiding knowledge within the authorization resolver. The alternatate route is still explained in the role-based authorization section, however.
 
-Another spin on this would have been using the `isAuthenticated` resolver directly in the `isMessageOwner` resolver, then you would never have to deal with this in the actual resolver for deleting a message. But personally I find it more explicit doing it the other way than hiding this knowledge within the authorization resolver. You will find it the other way around in the role-based authorization section.
-
-The second combined resolver is one way of doing permission checks, because it checks whether the user has the permission to delete the message. There are different approaches to achieve those kind of permission checks and this is only one way of doing it. In other cases, the message itself may have a boolean flag (with respect to the context which is the authenticated user) whether it is possible to delete it.
+The second combined resolver is for permission checks, because it decides whether or not the user has permission to delete the message. This is just one way of doing it, though. In other cases, the message itself could have a boolean flag that decides if the active user has certain permissions.
 
 {{% sub_chapter_header "Role-based GraphQL Authorization" "apollo-server-authorization-role" %}}
 
-Previously you went from a high-level authorization to a more fine-grained authorization with permission based resolver protection. Another way of doing authorization are roles. In the following, you will implement a new GraphQL mutation which needs to have role-based authorization, because it has the ability to delete a user. So who should be able to delete a user? Maybe only a user with an admin role. So let's implement the new GraphQL mutation first, followed by the role-based authorization. You can start in your *src/resolvers/user.js* file with a resolver function which deletes a user in the database by identifier:
+We went from a high-level authorization to a more specific authorization with permission-based resolver protection. Another way of doing authorization are roles. In the following, you will implement a new GraphQL mutation which needs to have role-based authorization, because it has the ability to delete a user. So who should be able to delete a user? Maybe only a user with an admin role. So let's implement the new GraphQL mutation first, followed by the role-based authorization. You can start in your *src/resolvers/user.js* file with a resolver function which deletes a user in the database by identifier:
 
 {{< highlight javascript "hl_lines=11 12 13 14 15" >}}
 ...
