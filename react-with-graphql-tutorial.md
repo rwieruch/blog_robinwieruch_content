@@ -1899,7 +1899,7 @@ So far, as mentioned before, you have only implemented the `addStar` mutation. E
 
 In the last sections, you have implemented a working yet simply GitHub issue tracker which uses React and GraphQL without a dedicated library for the GraphQL part. You have used axios to communicate with the GraphQL API with HTTP POST methods. Personally I believe it is important to work with raw technologies, in this case GraphQL by using plain HTTP methods, before introducing another abstraction on top of it. Especially when learning about those raw technologies in the first place. The Apollo library offers this abstraction that makes using GraphQL in React much easier. That's why you will use Apollo in a following section of this tutorial. For now, using GraphQL with only HTTP has shown you two important things before introducing Apollo for it:
 
-* how does GraphQL work when using its puristic interface which which is nothing else than HTTP
+* how does GraphQL work when using its puristic interface which is nothing else than HTTP
 * what are the shortcomings of using no sophisticated GraphQL Client library in React
 
 I want to address briefly the last fact in the list of important things you should have learned by now. What are the shortcomings of using puristic HTTP methods to read and write data to your GraphQL API in a React application? Before reading the following list, make up your mind on your own. Maybe you can contribute to the list your own thoughts later on. The following list states a couple of these shortcomings:
