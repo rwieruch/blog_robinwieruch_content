@@ -2492,9 +2492,7 @@ export const isAuthenticated = (parent, args, { me }) =>
   me ? skip : new ForbiddenError('Not authenticated as user.');
 {{< /highlight >}}
 
-The `isAuthenticated()` resolver function acts as middleware, either continuing with the next resolver (skip), or performing another action, like returning an error. In this case, an error is returned when the `me` user is not available. Since it is a resolver function itself, it has the same arguments as a normal resolver.
-
-A guarding resolver can be used when a message is created in the *src/resolvers/message.js* file. Import it with the `combineResolvers()` from the newly installed node package. The new resolver is used to protect the resolver by combining them.
+The `isAuthenticated()` resolver function acts as middleware, either continuing with the next resolver (skip), or performing another action, like returning an error. In this case, an error is returned when the `me` user is not available. Since it is a resolver function itself, it has the same arguments as a normal resolver. A guarding resolver can be used when a message is created in the *src/resolvers/message.js* file. Import it with the `combineResolvers()` from the newly installed node package. The new resolver is used to protect the resolvers by combining them.
 
 {{< highlight javascript "hl_lines=1 3 11 12 13 14 15 16 17 18 19" >}}
 import { combineResolvers } from 'graphql-resolvers';
@@ -2607,11 +2605,13 @@ export default {
 
 As an alternate tactic, you can also use the `isAuthenticated` resolver directly in the `isMessageOwner` resolver; then, you can avoid handling it in the actual resolver for deleting a message. I find being explicit to be more practical than hiding knowledge within the authorization resolver. The alternatate route is still explained in the role-based authorization section, however.
 
-The second combined resolver is for permission checks, because it decides whether or not the user has permission to delete the message. This is just one way of doing it, though. In other cases, the message itself could have a boolean flag that decides if the active user has certain permissions.
+The second combined resolver is for permission checks, because it decides whether or not the user has permission to delete the message. This is just one way of doing it, though. In other cases, the message could carry a boolean flag that decides if the active user has certain permissions.
 
 {{% sub_chapter_header "Role-based GraphQL Authorization" "apollo-server-authorization-role" %}}
 
-We went from a high-level authorization to a more specific authorization with permission-based resolver protection. Another way of doing authorization are roles. In the following, you will implement a new GraphQL mutation which needs to have role-based authorization, because it has the ability to delete a user. So who should be able to delete a user? Maybe only a user with an admin role. So let's implement the new GraphQL mutation first, followed by the role-based authorization. You can start in your *src/resolvers/user.js* file with a resolver function which deletes a user in the database by identifier:
+We went from a high-level authorization to a more specific authorization with permission-based resolver protection. Now we'll cover yet another way to enable authorization called **roles**. The next code block is a GraphQL mutation that requires role-based authorization, because it has the ability to delete a user. This allows you to create users with admin roles. 
+
+Let's implement the new GraphQL mutation first, followed by the role-based authorization. You can start in your *src/resolvers/user.js* file with a resolver function that deletes a user in the database by identifier:
 
 {{< highlight javascript "hl_lines=11 12 13 14 15" >}}
 ...
@@ -2635,7 +2635,7 @@ export default {
 };
 {{< /highlight >}}
 
-Every time you implement a new GraphQL operation, you have to do it in your resolvers and schema. So let's add the new mutation in your GraphQL schema in the *src/schema/user.js* file as well. It should only return a boolean which tells you whether the deletion was successful or not:
+New GraphQL operations must be implemented in the resolvers and schema. Next, we'll add the new mutation in the *src/schema/user.js* file. It returns a boolean that tells you whether the deletion was successful or not:
 
 {{< highlight javascript "hl_lines=16" >}}
 import { gql } from 'apollo-server-express';
@@ -2660,7 +2660,7 @@ export default gql`
 `;
 {{< /highlight >}}
 
-Your new GraphQL mutation should work already. But every one is able to execute it. Now, before implementing the role-based protection for it, you have to introduce the actual roles for the user entities. Therefore, add a `role` entry to your user's entity in the *src/models/user.js* file:
+Before you can implement role-based protections for it, you must introduce the actual roles for the user entities. Add a `role` entry to your user's entity in the *src/models/user.js* file:
 
 {{< highlight javascript "hl_lines=14 15 16" >}}
 ...
@@ -2689,7 +2689,7 @@ const user = (sequelize, DataTypes) => {
 export default user;
 {{< /highlight >}}
 
-You may want to add the role to your GraphQL user schema in the *src/schema/user.js* file too:
+Add the role to your GraphQL user schema in the *src/schema/user.js* file too:
 
 {{< highlight javascript "hl_lines=10" >}}
 import { gql } from 'apollo-server-express';
@@ -2707,7 +2707,7 @@ export default gql`
 `;
 {{< /highlight >}}
 
-Since you already have seed data in your *src/index.js* file for two users, you can give one of the two users a role, in this case an admin role, which can be checked later when deleting a user.
+Since you already have seed data in your *src/index.js* file for two users, you can give one of them a role. The admin role used in this case will be checked if the user attempts a delete operation:
 
 {{< highlight javascript "hl_lines=9" >}}
 ...
@@ -2734,7 +2734,7 @@ const createUsersWithMessages = async () => {
 };
 {{< /highlight >}}
 
-Because you are never retrieving the actual `me` user from the database in the *src/index.js* file, but only used the user from the token, you have to add the role information of the user to the token when it gets created in the *src/resolvers/user.js* file:
+Because you are not retrieving the actual `me` user from the database in the *src/index.js* file, but the user from the token instead, you must add the role information of the user for the token when it's created in the *src/resolvers/user.js* file:
 
 {{< highlight javascript "hl_lines=2 3" >}}
 const createToken = async (user, secret, expiresIn) => {
@@ -2745,7 +2745,7 @@ const createToken = async (user, secret, expiresIn) => {
 };
 {{< /highlight >}}
 
-Now you have introduced a new GraphQL mutation for deleting a user and roles for users. One of your users should be an admin user too. In the next steps, you are going to protect the new GraphQL mutation with a role-based authorization. Therefore, create a new guarding resolver in your *src/resolvers/authorization.js* file:
+Next, protect the new GraphQL mutation with a role-based authorization. Create a new guarding resolver in your *src/resolvers/authorization.js* file:
 
 {{< highlight javascript "hl_lines=2 7 8 9 10 11 12 13" >}}
 import { ForbiddenError } from 'apollo-server';
@@ -2777,7 +2777,7 @@ export const isMessageOwner = async (
 };
 {{< /highlight >}}
 
-The new resolver checks whether the authenticated user has the `ADMIN` role or not. If it hasn't the role, the resolver returns an error. If it has the role, the next resolver will be called. In addition, in contrast to the `isMessageOwner` resolver, the `isAdmin` resolver already is a combined resolver which makes use of the `isAuthenticated` resolver. Then you don't need to worry about this check in your actual resolver, which you are going to protect in the next step:
+The new resolver checks to see if the authenticated user has the `ADMIN` role. If it doesn't, the resolver returns an error; If it does, the next resolver is called. Unlike the `isMessageOwner` resolver, the `isAdmin` resolver is already combined, using the `isAuthenticated` resolver. Put this check in your actual resolver, which you are going to protect in the next step:
 
 {{< highlight javascript "hl_lines=2 5 17 18 19 20 21 22 23 24" >}}
 import jwt from 'jsonwebtoken';
@@ -2810,13 +2810,13 @@ export default {
 };
 {{< /highlight >}}
 
-That's it for the role-based authorization in GraphQL with Apollo Server. In this case, the role is only a string which needs to be checked. In a more elaborated role-based architecture, you may want to change the role from a string to an array of multiple roles. Then you don't have to make an equal check anymore but instead check whether the array includes the desired role. That's one way of doing a more sophisticated role-based authorization setup.
+That's the basics of role-based authorization in GraphQL with Apollo Server. In this examplwe, rhe role is only a string that needs to be checked. In a more elaborate role-based architecture, the role might change from a string to an array that contains many roles. It eliminates the need for an equal check, since you can check to see if the array includes a targeted role. Using arrays with a roles is the foundation for a sophisticated role-based authorization setup.
 
 {{% sub_chapter_header "Setting Headers in GraphQL Playground" "graphql-playground-headers" %}}
 
-In the previous sections, you have learned how to setup authorization for your GraphQL application. But how to verify that it is working? You only need to head over to your GraphQL Playground and run through the different scenarios. Let's do it together for the user deletion scenario, but all the remaining scenarios should be verified on your own (exercise).
+You set up authorization for your GraphQL application, and now you just need to to verify that it works. The simplest way to test this type of application is to use GraphQL Playground to run through different scenarios. Let's do it together The user deletion scenario will be used as an example, but you should test all the remaining scenarios for practice.
 
-Before you can delete a user, you need to sign in to the application first. Let's execute a `signIn` mutation in GraphQL Playground but with a non admin user. You can repeat the walkthrough another time with an admin user afterward.
+Before a user can perform a delete action, there must be a sign-n, so we execute a `signIn` mutation in GraphQL Playground with a non admin user. Consider trying this tutorial with an admin user later to see how it performs differently.
 
 {{< highlight javascript >}}
 mutation {
@@ -2826,7 +2826,7 @@ mutation {
 }
 {{< /highlight >}}
 
-In your GraphQL Playground result, you should get the token after the login. For the next GraphQL operations, the token needs to be set in the HTTP header. GraphQL Playground has a panel to add HTTP headers. Since your application is checking for a x-token, you need to set the token as one:
+You should recieive a token after logging into GraphQL Playground. The token needs to be set in the HTTP header for the next GraphQL operation. GraphQL Playground has a panel to add HTTP headers. Since your application is checking for an x-token, set the token as one:
 
 {{< highlight javascript >}}
 {
@@ -2834,7 +2834,7 @@ In your GraphQL Playground result, you should get the token after the login. For
 }
 {{< /highlight >}}
 
-In your case, the token should be different. Since the token is set as HTTP header now, you should be able to delete a user. Let's try it with the following GraphQL mutation in GraphQL Playground. The HTTP header with the token will be send along with the GraphQL operation:
+Your token will be different than the one above, but of a similar format. Since the token is set as an HTTP header now, you should be able to delete a user with the following GraphQL mutation in GraphQL Playground. The HTTP header with the token will be sent with the GraphQL operation:
 
 {{< highlight javascript >}}
 mutation {
@@ -2842,7 +2842,7 @@ mutation {
 }
 {{< /highlight >}}
 
-Instead of seeing a successful request, you should see the following GraphQL error after executing the GraphQL mutation for deleting a user. That's because you haven't logged in as a user with an admin role.
+Instead of a successful request, you will see the following GraphQL error after executing the GraphQL mutation for deleting a user. That's because you haven't logged in as a user with an admin role.
 
 {{< highlight javascript >}}
 {
@@ -2865,20 +2865,20 @@ Instead of seeing a successful request, you should see the following GraphQL err
 }
 {{< /highlight >}}
 
-If you would follow the same sequence with an admin user, which you should do as exercise, you should be able to delete a user entity successfully.
+If you follow the same sequence as an admin user, you can delete a user entity successfully.
 
 {{% pin_it_image "graphql authorization" "img/posts/graphql-apollo-server-tutorial/authorization.jpg" "is-src-set" %}}
 
-That's it for the basic authorization for this application. It has the global authorization for every request before the request hits the GraphQL resolvers and the authorization on a resolver level with protecting resolvers. They check whether a user is authenticated, whether the user is able to delete a message (permission-based authorization) or whether a user is able to delete a user (role-based authorization).
+We've added basic authorization for this application. It has the global authorization before every request hits the GraphQL resolvers; and authorization at the resolver level with protecting resolvers. They check whether a user is authenticated, whether the user is able to delete a message (permission-based authorization), and whether a user is able to delete a user (role-based authorization).
 
-The shown way for doing authorization in GraphQL was only one approach of doing it. If you want to be even more fine-grained than resolver level authorization, checkout **directive-based authorization** or **field level authorization** in GraphQL. Another way would be to apply authorization on a data access level with the help of your ORM (here Sequelize). In the end, it comes down to your requirements and your application on which level of your application you want to introduce authorization.
+If you want to be even more exact than resolver level authorization, check out **directive-based authorization** or **field level authorization** in GraphQL. You can apply authorization at the data-access level with an ORM like Sequelize. Your application's requirements decide which level is most effective for authorization.
 
 ### Exercises:
 
-* read more about {{% a_blank "GraphQL authorization" "https://graphql.github.io/learn/authorization/" %}}
-* play through the different authorization scenarios with GraphQL Playground
-* find out more about field level authorization with Apollo Server and GraphQL
-* find out more about data access level authorization with Apollo Server and GraphQL
+* Read more about {{% a_blank "GraphQL authorization" "https://graphql.github.io/learn/authorization/" %}}
+* Work through the different authorization scenarios with GraphQL Playground
+* Find out more about field level authorization with Apollo Server and GraphQL
+* Find out more about data access level authorization with Apollo Server and GraphQL
 
 {{% chapter_header "Pagination in GraphQL with Apollo Server" "apollo-server-pagination" %}}
 
