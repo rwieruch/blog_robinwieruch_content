@@ -2882,15 +2882,15 @@ If you want to be even more exact than resolver level authorization, check out *
 
 {{% chapter_header "Pagination in GraphQL with Apollo Server" "apollo-server-pagination" %}}
 
-Sooner or later you will run into a feature called pagination when developing applications with lists of items. For instance, the messages in your application for a user, when thinking about a chat application, can become a very long list with lots of messages. When a client application requests the messages of a user in order to display them, you don't want to retrieve all messages at once from the server application (and database), because it will become a performance bottleneck.
+Using GraphQL, you will almost certainly encounter a feature called **pagination** for applications with lists of items. Stored user messages in a chat application become long lists, and when the client application request messages for the display, retrieving all messages from the database at once can lead to severe performance bottlenecks. Pagination allows you to split up a list of items into multiple listss, called pages. A page is usually defined with a limit and an offset. That way, you can request one page of items, and when a user wants to see more, request another page of items.
 
-So what can be done to solve this problem? The feature to solve this is called pagination and allows you to split up a list of items into multiple lists (pages). Such page is usually (depends on the pagination strategy) defined with a limit (how many items) and an offset (index in the list, starting point for the limit). That way, you can request one page of items (100 list items) and later, when a user scrolls through the items in the client application and wants to see more items, request another page of items (next 100 list items with an offset of the first 100 list items). Doesn't sound too complicated, does it?
-
-Let's implement pagination in GraphQL with two approaches in the following sections. The first approach will be the most naive approach (**offset/limit-based pagination**) to implement it. Afterward, you will see an advanced approach (**cursor-based pagination**) which is only one way of doing a more sophisticated pagination implementation.
+You will implement pagination in GraphQL with two different approaches in the following sections. The first approach will be the most naive approach, called **offset/limit-based pagination**. The advanced approach is **cursor-based pagination**. one of many sophisticated ways to allow pagination in an application.
 
 {{% sub_chapter_header "Offset/Limit Pagination with Apollo Server and GraphQL" "apollo-server-offset-limit-pagination" %}}
 
-The offset/limit-based pagination isn't too difficult to implement. As mentioned previously, the limit states how many items you want to retrieve from the entire list and the offset states where to begin in the entire list. By using different offsets, you can shift through the entire list of items and retrieve only a sublist (page) of it with the limit. Therefore, the message schema in the *src/schema/message.js* file has to consider these two new arguments:
+Offset/limit-based pagination isn't too difficult to implement. The limit states how many items you want to retrieve from the entire list, and the offset states where to begin in the whole list. Using different offsets, you can shift through the entire list of items and retrieve a sublist (page) of it with the limit. 
+
+We set the message schema in the *src/schema/message.js* file to consider the two new arguments:
 
 {{< highlight javascript "hl_lines=5" >}}
 import { gql } from 'apollo-server-express';
@@ -2914,7 +2914,7 @@ export default gql`
 `;
 {{< /highlight >}}
 
-Then you can adjust the resolver in the *src/resolvers/message.js* file to deal with these two new arguments:
+Then you can adjust the resolver in the *src/resolvers/message.js* file to handle the new arguments:
 
 {{< highlight javascript "hl_lines=5 6 7 8 9 10 11 12 13" >}}
 ...
@@ -2944,7 +2944,7 @@ export default {
 };
 {{< /highlight >}}
 
-Fortunately your ORM (Sequelize) gives you everything you need to make it happen with the in-house offset and limit functionality. That's it for the offset- and limit-based pagination feature itself. You can try it in GraphQL Playground yourself by adjusting the limit and offset.
+Fortunately, your ORM (Sequelize) gives you everything you need for internal offset and limit functionality. Try it in GraphQL Playground yourself by adjusting the limit and offset.
 
 {{< highlight javascript >}}
 query {
@@ -2954,11 +2954,11 @@ query {
 }
 {{< /highlight >}}
 
-Even though this approach is simpler to implement and understand, it comes with a few disadvantages. For instance, when your offset becomes very long, the database query takes longer. This can lead to a bad performance on the client-side while waiting for the next page of data. In addition, the offset/limit pagination cannot handle the edge case of deleted items in between. For instance, imagine you query the first page of data. Then someone deletes one item in the first page. When requesting the next page of data, the offset would be wrong, because it would miss one item due to the shifted list. You cannot easily overcome this problem with offset- and limit-based pagination. That's why there exists another more sophisticated approach for pagination: cursor-based pagination.
+Even though this approach is simpler, it comes with a few disadvantages. When your offset becomes very long, the database query takes longer, which  can lead to a poor client-side performance while the UI waits for the next page of data. Also, offset/limit pagination cannot handlee deleted items in between queries. For instance, if you query the first page and someone deletes an item, the offset would be wrong on the next page because the item count is off by one. You cannot easily overcome this problem with offset/limit pagination, which is why cursor-based pagination might be necessary.
 
 {{% sub_chapter_header "Cursor-based Pagination with Apollo Server and GraphQL" "apollo-server-cursor-based-pagination" %}}
 
-In cursor-based pagination, you give your offset an identifier (called cursor) rather than just counting the items as in the previous approach. This cursor can be used to say: "give me a limit of X items from cursor Y". So what should be the cursor to identify an item in the list? A common approach is using dates (e.g. creation date of an entity in the database). In our case, each message already has a `createdAt` date which is assigned to the entity when it written to the database. So let's extend the *src/schema/message.js* which this field for a message. Afterward, you should be able to query this field in GraphQL Playground too:
+In cursor-based pagination, the offset is given an identifier called a **cursor** rather counting items like offset/limit pagination. The cursor can be used to expresse  "give me a limit of X items from cursor Y". A common approach to use dates (e.g. creation date of an entity in the database) to identify an item in the list. In our case, each message already has a `createdAt` date that is assigned to the entity when it is written to the database. Now we'll extend the *src/schema/message.js* which uses this field for a message. Afterward, you should be able to query this/ field in GraphQL Playground:
 
 {{< highlight javascript "hl_lines=17" >}}
 import { gql } from 'apollo-server-express';
@@ -2983,7 +2983,7 @@ export default gql`
 `;
 {{< /highlight >}}
 
-Next, in order to test the cursor-based pagination based on the creation date of an entity in a more robust way, you need to adjust your seed data in the *src/index.js* file. At the moment, all seed data is created at once which applies to the messages as well. However, it would be beneficial to have each message created in one second intervals because the creation date should differ for each message to see the effect of the pagination based on this date:
+To test cursor-based pagination based on the creation date of an entity in a more robust way, adjust the seed data in the *src/index.js* file. At the moment, all seed data is created at once, which applies to the messages as well. It would be better to have each message created in one second intervals. The creation date should differ for each message to see the effects of pagination.
 
 {{< highlight javascript "hl_lines=5 23 40 44" >}}
 ...
@@ -3040,7 +3040,7 @@ const createUsersWithMessages = async date => {
 };
 {{< /highlight >}}
 
-That's it for the cursor which will be the creation date of each message. Now, let's advance the previous pagination to cursor-based pagination in the *src/schema/message.js* file. You only need to exchange the offset with the cursor. So instead of having an offset which can only be matched implicitly to an item in a list (and changes once an item is deleted from the list), the cursor has a stable position within the list, because the creation dates of the messages will not change.
+That's the cursor the will be the creation date of each message. Now we have to change the original pagination to cursor-based in the *src/schema/message.js* file. You only need to exchange the offset with the cursor. Instead of an offset that can only be matched implicitly to an item in a list and changes once an item is deleted from the list, the cursor has a stable position within, because the message creation dates won't change.
 
 {{< highlight javascript "hl_lines=5" >}}
 import { gql } from 'apollo-server-express';
@@ -3065,7 +3065,7 @@ export default gql`
 `;
 {{< /highlight >}}
 
-As you have adjusted the schema for the messages, you need to reflect the change in your *src/resolvers/message.js* file too:
+Since you adjusted the schema for the messages, reflect these changes in your *src/resolvers/message.js* file as well:
 
 {{< highlight javascript "hl_lines=1 7 10 11 12 13 14" >}}
 import Sequelize from 'sequelize';
@@ -3097,9 +3097,9 @@ export default {
 };
 {{< /highlight >}}
 
-Instead of using the offset, you are using the cursor which is the `createdAt` property of a message. When using Sequelize (but also any other ORM), it is possible to add a clause to find all items in a list by a starting property (here `createdAt`) with less than (`lt`) or greater than (`gt`, which is not used here) values for this property. In this case, when providing a date as a cursor, the where clause finds all messages **before** this date, because there is the `lt` Sequelize operator.
+Instead of the offset, the cursor is the `createdAt` property of a message. With Sequelize (but also any other ORMs, it is possible to add a clause to find all items in a list by a starting property (`createdAt`) with less than (`lt`) or greater than (`gt`, which is not used here) values for this property. Using a date as a cursor, the where clause finds all messages **before** this date, because there is an `lt` Sequelize operator.
 
-There are two more improvements for making it more robust:
+There are two more improvements we can use to make the code more explicit:
 
 {{< highlight javascript "hl_lines=7 9 10 15" >}}
 ...
@@ -3132,11 +3132,11 @@ export default {
 };
 {{< /highlight >}}
 
-First, the list should be ordered by `createdAt` date, because otherwise the cursor wouldn't help you any way. However, when the list is ordered, you can be sure that requesting the first page of messages without a cursor will lead into the most recent messages. When requesting the next page with the cursor of the last message's creation date from the previous page, you should get the next page of messages ordered by creation date. That's how you can move page by page through the list of messages.
+First, the list should be ordered by `createdAt` date, otherwise the cursor won't help. However, you can be sure that requesting the first page of messages without a cursor will lead to the most recent messages when the list is ordered. When you request the next page with a cursor based on the previous page's final creation date, you get the next page of messages ordered by creation date. That's how you can move page by page through the list of messages.
 
-Second, the ternary operator for the cursor makes sure that the cursor isn't needed for the first page request. As mentioned, the first page only retrieves the most recent messages in the list. Then you can use the creation date of the last message as cursor for the next page of messages.
+Second, the ternary operator for the cursor makes sure the cursor isn't needed for the first page request. As mentioned, the first page only retrieves the most recent messages in the list, so you can use the creation date of the last message as a cursor for the next page of messages.
 
-Moreover, you could extract the where clause from the database query too:
+You can also extract the where clause from the database query:
 
 {{< highlight javascript "hl_lines=6 7 8 9 10 11 12 13 14 19" >}}
 ...
@@ -3173,7 +3173,7 @@ export default {
 };
 {{< /highlight >}}
 
-Now, you should give it a shot yourself in GraphQL Playground. For instance, make the first request to request the most recent messages:
+Now you can test what you've learned in GraphQL Playground to see it in action. Make the first request for the most recent messages:
 
 {{< highlight javascript >}}
 query {
@@ -3214,7 +3214,7 @@ query {
 }
 {{< /highlight >}}
 
-It should give you the last message from the seed data, but not more even though the limit is set to 2, because there are only 3 messages in the database and you already have retrieved 2 of them in the previous page:
+The result gives the last message from the seed data, but the limit is set to 2 messages. This happens because there are only 3 messages in the database and you already have retrieved 2 in the last pagination action:
 
 {{< highlight javascript >}}
 {
@@ -3229,11 +3229,11 @@ It should give you the last message from the seed data, but not more even though
 }
 {{< /highlight >}}
 
-That's the basic implementation of a cursor-based pagination when using the creation date of an item as a stable identifier. Using the creation date is a common approach for this, but there may be alternatives to explore for you as well.
+That's a basic implementation of a cursor-based pagination using the creation date of an item as a stable identifier. The creation date is a common approach, but there are alternatives you should explore as well.
 
 {{% sub_chapter_header "Cursor-based Pagination: Page Info, Connections and Hashes" "cursor-based-pagination-page-info-connections-hashes" %}}
 
-In this last section about pagination in GraphQL, you will advance the cursor-based pagination with a few improvements. As for now, you always have to query all creation dates of the messages in order to use the creation date of the last message for the next page as cursor. So what if you could have the creation date of the last message as meta information? That's where GraphQL connections come into play which add only a structural change to your list fields in GraphQL. Let's use such a GraphQL connection in the *src/schema/message.js* file:
+In this last section about pagination in GraphQL, we advance the cursor-based pagination with a few improvements. Currently, you have query all creation dates of the messages to use the creation date of the last message for the next page as a cursor. GraphQL connections add only a structural change to your list fields in GraphQL that allow you to pass meta information. Let's add a GraphQL connection in the *src/schema/message.js* file:
 
 {{< highlight javascript "hl_lines=5 14 15 16 17 19 20 21" >}}
 import { gql } from 'apollo-server-express';
@@ -3267,7 +3267,7 @@ export default gql`
 `;
 {{< /highlight >}}
 
-Basically you introduce an intermediate layer which holds meta information, which is done with the PageInfo type here, and has the list of items in an edges field. In the intermediate layer, you can introduce the new information such as an `endCursor` (`createdAt` of the last message in the list). Then you don't need to query every `createdAt` date of every message anymore but only the `endCursor`. Let's see how this looks like in the *src/resolvers/message.js* file:
+You introduced an intermediate layer that holds meta information with the PageInfo type, with the list of items in an edges field. In the intermediate layer, you can introduce the new information such as an `endCursor` (`createdAt` of the last message in the list). Then you don't need to query every `createdAt` date of every message anymore but only the `endCursor`. Let's see how this looks like in the *src/resolvers/message.js* file:
 
 {{< highlight javascript "hl_lines=16 22 23 24 25 26 27" >}}
 ...
