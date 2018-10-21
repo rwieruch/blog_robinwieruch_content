@@ -2189,7 +2189,7 @@ const createToken = async user => {
 ...
 {{< /highlight >}}
 
-The first argument to "sign" a token can be any user information except sensitive data like passwords, because the token will land on the client side of your application stack. Signing a token means putting data into it, which you've done, and securing it, which you haven't done yet. To secure your token, pass in a secret (**any** long string) that is **only available to you and your server**. No third-party entities should have access, because it is used to encode (sign) and decode your token. 
+The first argument to "sign" a token can be any user information except sensitive data like passwords, because the token will land on the client side of your application stack. Signing a token means putting data into it, which you've done, and securing it, which you haven't done yet. To secure your token, pass in a secret (**any** long string) that is **only available to you and your server**. No third-party entities should have access, because it is used to encode (sign) and decode your token.
 
 Add the secret to your environment variables in the *.env* file:
 
@@ -2441,7 +2441,7 @@ In the `getMe()` function, you extract the HTTP header for the authorization cal
 
 The function returns an error when the client application sends an HTTP header with an invalid or expired token. Otherwise, the function waves the request through, because users must be checked on a resolver to level to see if they're allowed to perform certain actions. A non-authenticated user--where the `me` user is undefined--might be able to retrieve messages but not create new ones. The application is now protected against invalid and expired tokens.
 
-That's the most high-level authentication for your GraphQL server application. You are able to authenticate with your GraphQL server from a GraphQL client application with the `signUp` and `signIn` GraphQL mutations, and the GraphQL server only allows valid, non-expired tokens from the GraphQL client application. 
+That's the most high-level authentication for your GraphQL server application. You are able to authenticate with your GraphQL server from a GraphQL client application with the `signUp` and `signIn` GraphQL mutations, and the GraphQL server only allows valid, non-expired tokens from the GraphQL client application.
 
 {{% sub_chapter_header "GraphQL Authorization on a Resolver Level" "apollo-server-authorization-resolver" %}}
 
@@ -2546,7 +2546,7 @@ export const isMessageOwner = async (
 };
 {{< /highlight >}}
 
-This resolver checks whether the authenticated user is the message owner. It's a useful check before deleting a message, since you only the message creator to be able to delete it. The guarding resolver retrieves the message by id, checks the message's associated user with the authenticated user, and either throws an error or continues with the next resolver. 
+This resolver checks whether the authenticated user is the message owner. It's a useful check before deleting a message, since you only the message creator to be able to delete it. The guarding resolver retrieves the message by id, checks the message's associated user with the authenticated user, and either throws an error or continues with the next resolver.
 
 Let's protect a resolver with this fine-tuned authorization permission resolver in the *src/resolvers/message.js* file:
 
@@ -2609,7 +2609,7 @@ The second combined resolver is for permission checks, because it decides whethe
 
 {{% sub_chapter_header "Role-based GraphQL Authorization" "apollo-server-authorization-role" %}}
 
-We went from a high-level authorization to a more specific authorization with permission-based resolver protection. Now we'll cover yet another way to enable authorization called **roles**. The next code block is a GraphQL mutation that requires role-based authorization, because it has the ability to delete a user. This allows you to create users with admin roles. 
+We went from a high-level authorization to a more specific authorization with permission-based resolver protection. Now we'll cover yet another way to enable authorization called **roles**. The next code block is a GraphQL mutation that requires role-based authorization, because it has the ability to delete a user. This allows you to create users with admin roles.
 
 Let's implement the new GraphQL mutation first, followed by the role-based authorization. You can start in your *src/resolvers/user.js* file with a resolver function that deletes a user in the database by identifier:
 
@@ -2888,7 +2888,7 @@ You will implement pagination in GraphQL with two different approaches in the fo
 
 {{% sub_chapter_header "Offset/Limit Pagination with Apollo Server and GraphQL" "apollo-server-offset-limit-pagination" %}}
 
-Offset/limit-based pagination isn't too difficult to implement. The limit states how many items you want to retrieve from the entire list, and the offset states where to begin in the whole list. Using different offsets, you can shift through the entire list of items and retrieve a sublist (page) of it with the limit. 
+Offset/limit-based pagination isn't too difficult to implement. The limit states how many items you want to retrieve from the entire list, and the offset states where to begin in the whole list. Using different offsets, you can shift through the entire list of items and retrieve a sublist (page) of it with the limit.
 
 We set the message schema in the *src/schema/message.js* file to consider the two new arguments:
 
@@ -3267,7 +3267,7 @@ export default gql`
 `;
 {{< /highlight >}}
 
-You introduced an intermediate layer that holds meta information with the PageInfo type, with the list of items in an edges field. In the intermediate layer, you can introduce the new information such as an `endCursor` (`createdAt` of the last message in the list). Then you don't need to query every `createdAt` date of every message anymore but only the `endCursor`. Let's see how this looks like in the *src/resolvers/message.js* file:
+You introduced an intermediate layer that holds meta information with the PageInfo type, with the list of items in an edges field. In the intermediate layer, you can introduce the new information such as an `endCursor` (`createdAt` of the last message in the list). Then, you won't need to query every `createdAt` date of every message, only the `endCursor`. Place these changes in the *src/resolvers/message.js* file:
 
 {{< highlight javascript "hl_lines=16 22 23 24 25 26 27" >}}
 ...
@@ -3311,7 +3311,7 @@ export default {
 };
 {{< /highlight >}}
 
-You only give your returned result a new structure with the intermediate `edges` and `pageInfo` fields. The `pageInfo` then has the cursor of the last message in the list. Now you should be able to query the first page the following way:
+You gave the result a new structure with the intermediate `edges` and `pageInfo` fields. The `pageInfo` field now has the cursor of the last message in the list, and you should be able to query the first page the following way:
 
 {{< highlight javascript >}}
 query {
@@ -3326,7 +3326,7 @@ query {
 }
 {{< /highlight >}}
 
-Whereas the result may look like the following:
+The result may look like the following:
 
 {{< highlight javascript >}}
 {
@@ -3348,7 +3348,7 @@ Whereas the result may look like the following:
 }
 {{< /highlight >}}
 
-And you can use the last cursor to query the next page:
+Use the last cursor to query the next page:
 
 {{< highlight javascript >}}
 query {
@@ -3363,9 +3363,9 @@ query {
 }
 {{< /highlight >}}
 
-Which will again only return you the remaining last message in the list. Now you are not required anymore to query the creation date of every message but instead only query the one necessary cursor the last message. In the end, the client application doesn't have to know the implementation details of having to use the cursor of the last message. It only needs to use the `endCursor` now.
+Again, this will only return the remaining last message in the list. You are no longer required to query the creation date of every message, only to query the cursor for the last message. The client application doesn't need the details for the cursor of the last message, as it just needs `endCursor` now.
 
-Since you already have introduced the intermediate GraphQL connection layer, you can add another beneficial information there. Sometimes a GraphQL client needs to know whether there are more pages of a list to query, because every list is finite. So let's add this information to the schema for the message's connection in the *src/schema/message.js* file:
+You can add relevant information in the intermediate GraphQL connection layer. Sometimes, a GraphQL client needs to know whether there are more pages of a list to query, because every list is finite. Let's add this information to the schema for the message's connection in the *src/schema/message.js* file:
 
 {{< highlight javascript "hl_lines=20" >}}
 import { gql } from 'apollo-server-express';
@@ -3395,7 +3395,7 @@ export default gql`
 `;
 {{< /highlight >}}
 
-In the resolver in the *src/resolvers/message.js* file, you can find out about this information with the following implementation:
+In the resolver in the *src/resolvers/message.js* file, you can find this information with the following:
 
 {{< highlight javascript "hl_lines=10 14 15 18 20 21" >}}
 ...
@@ -3435,9 +3435,9 @@ export default {
 };
 {{< /highlight >}}
 
-You only retrieve one more message than defined in the limit. If the list of messages is longer than the limit, then there is a next page. Otherwise there is no next page. Furthermore, you return only the limited messages or all messages in case there is no next page anymore. Now you should be able to include the `hasNextPage` field in the `pageInfo` field. If you query messages with a limit of 2 and no cursor, you should get true for the `hasNextPage` field (in case you are using the seed data). Otherwise, if query messages with a limit of more than 2 and no cursor, you should get false for the `hasNextPage` field. Then your GraphQL client application knows that the list has reached its end.
+You only retrieve one more message than defined in the limit. If the list of messages is longer than the limit, there is a next page. Otherwise there is no next page. You return the limited messages, or all messages if there is no next page. Now you can include the `hasNextPage` field in the `pageInfo` field. If you query messages with a limit of 2 and no cursor, you get true for the `hasNextPage` field. If query messages with a limit of more than 2 and no cursor, the `hasNextPage` field becomes false. Then, your GraphQL client application knows that the list has reached its end.
 
-The last improvements have given your GraphQL client application a more straight forward GraphQL API. The client doesn't need to know about the cursor being the last creation date of a message in a list. It only uses the `endCursor` as `cursor` argument for the next page. However, the cursor is still a creation date property which may lead to confusion on the GraphQL client side. The client shouldn't care about the format or the actual value of the cursor. So let's mask the cursor with a hash function. In this case, it uses a base64 encoding:
+The last improvements gave your GraphQL client application a more straightforward GraphQL API. The client doesn't need to know about the cursor being the last creation date of a message in a list. It only uses the `endCursor` as a `cursor` argument for the next page. However, the cursor is still a creation date property, which may lead to confusion on the GraphQL client side. The client shouldn't care about the format or the actual value of the cursor, so we'll ask the cursor with a hash function that uses a base64 encoding:
 
 {{< highlight javascript "hl_lines=3 5 6 15 27 28 29" >}}
 ...
@@ -3485,9 +3485,9 @@ export default {
 };
 {{< /highlight >}}
 
-The returned cursor as meta information is hashed by the new utility function. Don't forget to stringify the date before hashing it. Then the GraphQL client (try it yourself with your GraphQL Playground) receives a hashed `endCursor` field. The hashed value can be used as cursor the query the next page. In the resolver then, the incoming cursor is reverse hashed to convert it to the actual date which is used for the database query.
+The returned cursor as meta information is hashed by the new utility function. Remember to stringify the date before hashing it. The GraphQL client receives a hashed `endCursor` field. The hashed value can be used as a cursor to query the next page. In the resolver, the incoming cursor is reverse hashed to the actual date, which is used for the database query.
 
-The hashing of the cursor is a common approach for cursor-based pagination, because it hides the implementation details from the client. The (GraphQL) client application only needs to use the hash value as cursor to query the next paginated page.
+Hashing the cursor is a common approach for cursor-based pagination because it hides the details from the client. The (GraphQL) client application only needs to use the hash value as a cursor to query the next paginated page.
 
 ### Exercises:
 
@@ -3495,7 +3495,7 @@ The hashing of the cursor is a common approach for cursor-based pagination, beca
 
 {{% chapter_header "GraphQL Subscriptions" "graphql-subscriptions" %}}
 
-So far, you have used GraphQL to read and write data with queries and mutations. These are the two essential GraphQL operations to get a GraphQL server up and running for CRUD operations. Next you will learn about GraphQL Subscriptions for real-time communication between GraphQL client and server.
+So far, you used GraphQL to read and write data with queries and mutations. These are the two essential GraphQL operations to get a GraphQL server ready for CRUD operations. Next, you will learn about GraphQL Subscriptions for real-time communication between GraphQL client and server.
 
 In the following you are going to implement a real-time communication for created messages. If one user creates a message, another user should get this message in a GraphQL client application as real-time update. To start, we need to add the Subscription root level type to the *src/schema/message.js* schema:
 
