@@ -3435,7 +3435,7 @@ export default {
 };
 {{< /highlight >}}
 
-You only retrieve one more message than defined in the limit. If the list of messages is longer than the limit, there is a next page. Otherwise there is no next page. You return the limited messages, or all messages if there is no next page. Now you can include the `hasNextPage` field in the `pageInfo` field. If you query messages with a limit of 2 and no cursor, you get true for the `hasNextPage` field. If query messages with a limit of more than 2 and no cursor, the `hasNextPage` field becomes false. Then, your GraphQL client application knows that the list has reached its end.
+You only retrieve one more message than defined in the limit. If the list of messages is longer than the limit, there is a next page; otherwise, there is no next page. You return the limited messages, or all messages if there is no next page. Now you can include the `hasNextPage` field in the `pageInfo` field. If you query messages with a limit of 2 and no cursor, you get true for the `hasNextPage` field. If query messages with a limit of more than 2 and no cursor, the `hasNextPage` field becomes false. Then, your GraphQL client application knows that the list has reached its end.
 
 The last improvements gave your GraphQL client application a more straightforward GraphQL API. The client doesn't need to know about the cursor being the last creation date of a message in a list. It only uses the `endCursor` as a `cursor` argument for the next page. However, the cursor is still a creation date property, which may lead to confusion on the GraphQL client side. The client shouldn't care about the format or the actual value of the cursor, so we'll ask the cursor with a hash function that uses a base64 encoding:
 
@@ -3491,7 +3491,7 @@ Hashing the cursor is a common approach for cursor-based pagination because it h
 
 ### Exercises:
 
-* read more about {{% a_blank "GraphQL pagination" "https://graphql.github.io/learn/pagination/" %}}
+* Read more about {{% a_blank "GraphQL pagination" "https://graphql.github.io/learn/pagination/" %}}
 
 {{% chapter_header "GraphQL Subscriptions" "graphql-subscriptions" %}}
 
