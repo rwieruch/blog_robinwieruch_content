@@ -4246,7 +4246,7 @@ const server = new ApolloServer({
 ...
 {{< /highlight >}}
 
-Identical to the models, the loaders act as abstraction on top of the models, and can be passed as context to the resolvers. The user loader in the following example is used instead of the models directly.
+The loaders act as abstraction on top of the models, and can be passed as context to the resolvers. The user loader in the following example is used instead of the models directly.
 
 Now we'll consider the function as argument for the DataLoader instantiation. The function gives you access to a list of keys in its arguments. These keys are your set of identifiers, purged of duplication, which can be used to retrieve items from a database. That's why keys (identifiers) and models (data access layer) are passed to the `batchUser()` function. The function then takes the keys to retrieve the entities via the model from the database. By the end of the function, the keys are mapped in the same order as the retrieved entities. Otherwise, it's possible to return users right after their retrieval from the database, though they have a different order than the incoming keys. As a result, users need to be returned in the same order as their incoming identifiers (keys).
 
@@ -4276,7 +4276,7 @@ export default {
 };
 {{< /highlight >}}
 
-While the `load()` function takes each identifier individually, it will batch all these identifiers into one set and request all users at once. Try it yourself by executing the same GraphQL query in GraphQL Playground again. The GraphQL query result should stay the same, but in your command line output for the GraphQL server you should only see two and not four requests being made to the database:
+While the `load()` function takes each identifier individually, it will batch all these identifiers into one set and request all users at the same time. Try it by executing the same GraphQL query in GraphQL Playground. The result should stay the same, but you should only see 2 instead of 4 requests to the database in your command-line output for the GraphQL server:
 
 {{< highlight javascript >}}
 Executing (default): SELECT "id", "text", "createdAt", "updatedAt", "userId" FROM "messages" AS "message" ORDER BY "message"."createdAt" DESC LIMIT 101;
@@ -4286,7 +4286,7 @@ Executing (default): SELECT "id", "username", "email", "password", "role", "crea
 
 That's the benefit of the batching improvement: instead of fetching each (duplicated) user on its own, you fetch them all at once in one batched request with the dataloader package.
 
-Now let's get into cachin,  which is a difficult topic altogether. The dataloader package we installed before also gives the option to cache requests. It doesn't work yet, though; try to execute the same GraphQL query twice and you should see the database accesses twice on your command line.
+Now let's get into caching. The dataloader package we installed before also gives the option to cache requests. It doesn't work yet, though; try to execute the same GraphQL query twice and you should see the database accesses twice on your command line.
 
 {{< highlight javascript >}}
 Executing (default): SELECT "id", "text", "createdAt", "updatedAt", "userId" FROM "messages" AS "message" ORDER BY "message"."createdAt" DESC LIMIT 101;
@@ -4296,7 +4296,7 @@ Executing (default): SELECT "id", "text", "createdAt", "updatedAt", "userId" FRO
 Executing (default): SELECT "id", "username", "email", "password", "role", "createdAt", "updatedAt" FROM "users" AS "user" WHERE "user"."id" IN (2, 1);
 {{< /highlight >}}
 
-That's happening because for every request a new instance of a dataloader is created within the GraphQL context. If you would move the dataloader instantiation outside, you would get the caching benefit of dataloader for free:
+That's happening because a new instance of the dataloader is created within the GraphQL context for every request. If you move the dataloader instantiation outside, you get the caching benefit of dataloader for free:
 
 {{< highlight javascript "hl_lines=3 22" >}}
 ...
@@ -4330,7 +4330,7 @@ const server = new ApolloServer({
 ...
 {{< /highlight >}}
 
-Try to execute the same GraphQL query twice again. This time you should see only one time the database access (for the places where the loader is used) and the second time it should be cached:
+Try to execute the same GraphQL query twice again. This time you should see only a single database access, for the places where the loader is used; the second time, it should be cached.
 
 {{< highlight javascript >}}
 Executing (default): SELECT "id", "text", "createdAt", "updatedAt", "userId" FROM "messages" AS "message" ORDER BY "message"."createdAt" DESC LIMIT 101;
@@ -4339,11 +4339,11 @@ Executing (default): SELECT "id", "username", "email", "password", "role", "crea
 Executing (default): SELECT "id", "text", "createdAt", "updatedAt", "userId" FROM "messages" AS "message" ORDER BY "message"."createdAt" DESC LIMIT 101;
 {{< /highlight >}}
 
-In this case, the users of the messages are not read from the database twice. Only the messages, because they are not using a dataloader yet. That's how you can achieve caching in GraphQL with dataloader. However, personally I would be careful with it, because choosing a caching strategy isn't simple. For instance, what if a cached user has been updated in between? Your GraphQL client application would still query the cached user.
+In this case, the users are not read from the database twice, only the messages, because they are not using a dataloader yet. That's how you can achieve caching in GraphQL with dataloaders. Choosing a caching strategy isn't quite as simple. For example, if a cached user is updated in between actions, the GraphQL client application still queries the cached user.
 
-It's difficult to find the right timing for invalidating the cache. That's why it's recommended to perform the dataloader instantiation with every incoming GraphQL request. Even though you are loosing the benefit of caching over multiple GraphQL requests then, you are still using the cache for every database access within the one incoming GraphQL request. The dataloader package says it the following way: *"DataLoader caching does not replace Redis, Memcache, or any other shared application-level cache. DataLoader is first and foremost a data loading mechanism, and its cache only serves the purpose of not repeatedly loading the same data in the context of a single request to your Application."* So if you want to get into real caching on database level, you should give {{* a_blank "Redis" "https://redis.io/" *}} a shot.
+It's difficult to find the right timing for invalidating the cache, so I recommended performing the dataloader instantiation with every incoming GraphQL request. You lose the benefit of caching over multiple GraphQL requests, but still use the cache for every database access with one incoming GraphQL request. The dataloader package expresses it like this: *"DataLoader caching does not replace Redis, Memcache, or any other shared application-level cache. DataLoader is first and foremost a data loading mechanism, and its cache only serves the purpose of not repeatedly loading the same data in the context of a single request to your Application."* If you want to get into real caching on the database level, give {{* a_blank "Redis" "https://redis.io/" *}} a shot.
 
-In the end, you can outsource the loaders similar to your models into a different folder/file structure. In a new *src/loaders/user.js* file you can put the batching for the individual users:
+Outsource the loaders into a different folder/file structure. Put the batching for the individual users into a new *src/loaders/user.js* file:
 
 {{< highlight javascript >}}
 export const batchUsers = async (keys, models) => {
@@ -4367,7 +4367,7 @@ import * as user from './user';
 export default { user };
 {{< /highlight >}}
 
-Finally you can import it in your *src/index.js* file again and make use of it:
+Finally, import it in your *src/index.js* file and use it:
 
 {{< highlight javascript "hl_lines=5 26" >}}
 ...
@@ -4405,7 +4405,7 @@ const server = new ApolloServer({
 ...
 {{< /highlight >}}
 
-Last but not least, don't forget to add the loader to your subscriptions too, in case you make use of them over there:
+Remember to add the loader to your subscriptions, in case you use them there:
 
 {{< highlight javascript "hl_lines=11 12 13" >}}
 ...
@@ -4433,28 +4433,26 @@ const server = new ApolloServer({
 ...
 {{< /highlight >}}
 
-That's it. Feel free to add more loaders, maybe also for the message domain, on your own. They give you a great abstraction on top of your models to enable batching and request-based caching.
+Feel free to add more loaders on your own, maybe for the message domain. The practice can provide useful abstraction on top of your models to allow batching and request-based caching.
 
 ### Exercises:
 
-* read more about {{% a_blank "GraphQL and Dataloader" "https://www.apollographql.com/docs/graphql-tools/connectors.html#dataloader" %}}
-* read more about {{% a_blank "GraphQL Best Practices" "https://graphql.github.io/learn/best-practices/" %}}
+* Read more about {{% a_blank "GraphQL and Dataloader" "https://www.apollographql.com/docs/graphql-tools/connectors.html#dataloader" %}}
+* Read more about {{% a_blank "GraphQL Best Practices" "https://graphql.github.io/learn/best-practices/" %}}
 
 {{% chapter_header "GraphQL Server + PostgreSQL Deployment to Heroku" "graphql-server-postgresql-deployment-heroku" %}}
 
-Eventually you want to deploy your GraphQL server somewhere that it can be reached online by others or that it can be used in production. In this section, you will learn how to deploy your GraphQL server to Heroku which is a platform as a service to host applications. The best thing about it: You can host your PostgreSQL there as well.
+Eventually you want to deploy the GraphQL server online, so it can be used in production. In this section, you learn how to deploy a GraphQL server to Heroku, a platform as a service for hosting applications. Heroku allows PostgreSQL as well.
 
-The following section will guide you through the process on the command line. If you want to take the visual route, you can checkout this {{% a_blank "GraphQL server on Heroku deployment tutorial" "https://www.apollographql.com/docs/apollo-server/deployment/heroku.html" %}} which, however, doesn't include the PostgreSQL database deployment.
+This section guides you through the process in the command line. For the visual approach check this {{% a_blank "GraphQL server on Heroku deployment tutorial" "https://www.apollographql.com/docs/apollo-server/deployment/heroku.html" %}} which, however, doesn't include the PostgreSQL database deployment.
 
-Initially you need to complete three requirements for using Heroku:
+Initially you need to complete three requirements to use Heroku:
 
-* [install git for your command line and push your project to GitHub](https://www.robinwieruch.de/git-essential-commands/)
-* create an account for {{% a_blank "Heroku" "https://www.heroku.com/" %}}
-* install the {{% a_blank "Heroku CLI" "https://devcenter.heroku.com/articles/heroku-cli" %}} for accessing Heroku's features on the command line
+* [Install git for your command line and push your project to GitHub](https://www.robinwieruch.de/git-essential-commands/)
+* Create an account for {{% a_blank "Heroku" "https://www.heroku.com/" %}}
+* Install the {{% a_blank "Heroku CLI" "https://devcenter.heroku.com/articles/heroku-cli" %}} for accessing Heroku's features on the command line
 
-On the command line verify your Heroku installation with `heroku version`. If there is a valid installation, sign in to your recently created Heroku account with `heroku login` on the command line. That's it for the general Heroku setup. You should be able to use Heroku for hosting any of your applications now.
-
-Now, in your project's folder, you can create a new Heroku application from the command line. It's up to you to give your application any name:
+In the command line, verify your Heroku installation with `heroku version`. If there is a valid installation, sign in to your Heroku account with `heroku login`. That's it for the general Heroku setup. In your project's folder, create a new Heroku application and give it a name:
 
 {{< highlight javascript >}}
 heroku create graphql-server-node-js
@@ -4466,7 +4464,7 @@ Afterward, you can also install the PostgreSQL add-on for Heroku on the command 
 heroku addons:create heroku-postgresql:hobby-dev
 {{< /highlight >}}
 
-It uses the {{% a_blank "hobby tier" "https://devcenter.heroku.com/articles/heroku-postgres-plans#hobby-tier" %}} which can be upgraded any time but shouldn't cost you anything for the start. The output for the PostgreSQL add-on installation should be similar to:
+It uses the {{% a_blank "hobby tier" "https://devcenter.heroku.com/articles/heroku-postgres-plans#hobby-tier" %}}, a free application that can be upgraded as needed. Output for the PostgreSQL add-on installation should be similar to:
 
 {{< highlight javascript >}}
 Creating heroku-postgresql:hobby-dev on ⬢ graphql-server-node-js... free
@@ -4477,11 +4475,11 @@ Created postgresql-perpendicular-34121 as DATABASE_URL
 Use heroku addons:docs heroku-postgresql to view documentation
 {{< /highlight >}}
 
-As pointed out by the command line output, you can always check the {{% a_blank "Heroku PostgreSQL documentation" "https://devcenter.heroku.com/articles/heroku-postgresql" %}} for more in depth instructions for your database setup. Depending on the plan you have chosen, your database can take a couple of minutes to become available.
+Check the {{% a_blank "Heroku PostgreSQL documentation" "https://devcenter.heroku.com/articles/heroku-postgresql" %}} for more in depth instructions for your database setup.
 
-Now, everything should be set up from a command line perspective to take your application online. By having the PostgreSQL add-on installed, you should have gotten a database URL too. You can find it with `heroku config`. Now, let's step into your GraphQL server's code to make a couple of adjustments for production.
+You are ready to take your application online. With the PostgreSQL add-on, you received a database URL as well. You can find it with `heroku config`. Now, let's step into your GraphQL server's code to make a couple of adjustments for production.
 
-In your *src/models/index.js*, you need to decide between development (coding, testing) and production (live) build. Because you have a new environment variable for your database URL now, you can use this to make the decision:
+In your *src/models/index.js*, you need to decide between development (coding, testing) and production (live) build. Because you have a new environment variable for your database URL, you can use this to make the decision:
 
 {{< highlight javascript "hl_lines=3 4 5 6 7 8 17" >}}
 import Sequelize from 'sequelize';
@@ -4505,11 +4503,11 @@ if (process.env.DATABASE_URL) {
 ...
 {{< /highlight >}}
 
-If you check your *.env* file, you will see that the `DATABASE_URL` environment variable isn't there. But you should see that it is set as Heroku environment variable with `heroku config:get DATABASE_URL`. Once your application is live on Heroku, your environment variables are merged with Heroku's environment variables. That's why the `DATABASE_URL` isn't applied for your local development environment.
+If you check your *.env* file, you will see the `DATABASE_URL` environment variable isn't there. But you should see that it is set as Heroku environment variable with `heroku config:get DATABASE_URL`. Once your application is live on Heroku, your environment variables are merged with Heroku's environment variables, which is why the `DATABASE_URL` isn't applied for your local development environment.
 
-Another environment variable which is used in your *src/index.js* file is the *SECRET* for your authentication strategy. If you haven't included your *.env* file in your project's version control (see .gitignore), you need to set the `SECRET` for your production code in Heroku on the command line too: `heroku config:set SECRET mysecret`.
+Another environment variable used in the *src/index.js* file is called *SECRET* for your authentication strategy. If you haven't included an *.env* file in your project's version control (see .gitignore), you need to set the `SECRET` for your production code in Heroku using `heroku config:set SECRET mysecret`.
 
-Another thing which needs consideration is the application's port which is specified in the *src/index.js* file. In case Heroku adds its own `PORT` environment variable, you should use the port from an environment variable as fallback.
+Also, consider the application's port in the *src/index.js* file. Heroku adds its own `PORT` environment variable, and you should use the port from an environment variable as a fallback.
 
 {{< highlight javascript "hl_lines=3 10 11" >}}
 ...
@@ -4529,7 +4527,7 @@ sequelize.sync({ force: isTest }).then(async () => {
 ...
 {{< /highlight >}}
 
-Last but not least, you can decide whether you want to start with a seeded database, or an empty database on Heroku PostgreSQL. If it should be seeded, you can add an extra flag to the seeding:
+Finally, decide whether you want to start with a seeded database or an empty database on Heroku PostgreSQL. If it is to be seeded, add an extra flag to the seeding:
 
 {{< highlight javascript "hl_lines=4 7 8" >}}
 ...
@@ -4551,24 +4549,22 @@ sequelize.sync({ force: isTest || isProduction }).then(async () => {
 ...
 {{< /highlight >}}
 
-Don't forget to remove the flag afterward, otherwise the database is purged and seeded with every deployment. That's it for the code adjustments. Depending on development or production, you are choosing the correct database, you seed (or seed not) your database and you choose an appropriate port for your GraphQL server. Now let's take it online to Heroku.
+Remember to remove the flag after, or the database will be purged and seeded with every deployment. Depending on development or production, you are choosing a database, seeding it (or not), and selecting a port for your GraphQL server. Before pushing your application to Heroku, push all recent changes to your GitHub repository. After that, push all the changes to your Heroku remote repository as well, since you created a Heroku application before: `git push heroku master`. Open the application with `heroku open`, and add the `/graphql` suffix to your URL in the browser to open up GraphQL Playground.
 
-Before pushing your application to Heroku, you need to push all your recent changes with git on the command line to your GitHub repository (git add, git commit, git push). Afterward, you can push all the changes to your Heroku remote repository too, because you have created a Heroku application before: `git push heroku master`. If everything went successful, you can open the application with `heroku open`. Don't forget to add the `/graphql` suffix to your URL in the browser to open up GraphQL Playground.
+Depending on your seeding strategy, your database will either be empty or contain seeded data. If its empty, register a user and create messages via GraphQL mutations. If its seeded, request a list of messages with a GraphQL query.
 
-Depending on your seeding strategy, your database should be empty or should have seeded data. In case of the former, you need first to register a user and create messages with this user via GraphQL mutations. Otherwise, if your database is seeded, you can start to request a list of messages with a GraphQL query.
-
-Congratulations, your application should be live now. Not only your GraphQL server is running on Heroku, but also your PostgreSQL database. Follow the exercises to learn more about Heroku.
+Congratulations, your application should be live now. Not only is your GraphQL server running on Heroku, but your PostgreSQL database. Follow the exercises to learn more about Heroku.
 
 ### Exercises:
 
-* create sample data in your production database with GraphQL Playground
-* get familiar with the {{% a_blank "Heroku Dashboard" "https://dashboard.heroku.com/apps" %}}
-  * find your application's logs
-  * find your application's environment variables
+* Create sample data in your production database with GraphQL Playground
+* Get familiar with the {{% a_blank "Heroku Dashboard" "https://dashboard.heroku.com/apps" %}}
+  * Find your application's logs
+  * Find your application's environment variables
 * access your PostgreSQL database on Heroku with `heroku pg:psql`
 
 <hr class="section-divider">
 
-Over the last sections, you have built a sophisticated GraphQL server boilerplate project with Express and Apollo Server. Even though GraphQL isn't opinionated about various things, you should have a learned about topics such as authentication, authorization, database access, and pagination now. Most of the things were more straight forward because of using Apollo Server over the GraphQL reference implementation in JavaScript. That's okay, because many people are using Apollo Server nowadays for building their GraphQL servers. You can use this application as starter project to realize your own ideas now. Moreover, you can find the whole starter project with a GraphQL client built in React in {{% a_blank "this GitHub repository" "https://github.com/rwieruch/fullstack-apollo-react-express-boilerplate-project" %}}. My recommendation would be to continue implementing more features for the project to make your own ideas happen or to implement a GraphQL client application with React (or anything else) for it.
+You built a sophisticated GraphQL server boilerplate project with Express and Apollo Server. You should have learned that GraphQL isn't opinionated about various things, and about authentication, authorization, database access, and pagination. Most of the operations we learned were more straightforward because of Apollo Server over the GraphQL reference implementation in JavaScript. That's okay, because many people are using Apollo Server to build GraphQL servers. Use this application as a starter project to realize your own ideas, or find my starter project with a GraphQL client built in React in {{% a_blank "this GitHub repository" "https://github.com/rwieruch/fullstack-apollo-react-express-boilerplate-project" %}}. 
 
 {{% read_more "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial/" %}}
