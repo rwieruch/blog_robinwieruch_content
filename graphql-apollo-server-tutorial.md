@@ -3494,4 +3494,1080 @@ Hashing the cursor is a common approach for cursor-based pagination because it h
 
 {{% chapter_header "GraphQL Subscriptions" "graphql-subscriptions" %}}
 
-So far, you used GraphQL to read and write data with queries and mutations. These are the two essential GraphQL operations to get a GraphQL server ready for CRUD operations. Next, you will learn about GraphQL Subscriptions for real-time communication between 
+So far, you used GraphQL to read and write data with queries and mutations. These are the two essential GraphQL operations to get a GraphQL server ready for CRUD operations. Next, you will learn about GraphQL Subscriptions for real-time communication between GraphQL client and server.
+
+Next, you will implement real-time communication for created messages. If a user creates a message, another user should get this message in a GraphQL client application as a real-time update. To start, we add the Subscription root level type to the *src/schema/message.js* schema:
+
+{{< highlight javascript "hl_lines=21 22 23 25 26 27" >}}
+import { gql } from 'apollo-server-express';
+
+export default gql`
+  extend type Query {
+    ...
+  }
+
+  extend type Mutation {
+    ...
+  }
+
+  ...
+
+  type Message {
+    id: ID!
+    text: String!
+    createdAt: String!
+    user: User!
+  }
+
+  extend type Subscription {
+    messageCreated: MessageCreated!
+  }
+
+  type MessageCreated {
+    message: Message!
+  }
+`;
+{{< /highlight >}}
+
+As a naive GraphQL consumer, a subscription works like a GraphQL query. The difference is that the subscription emits changes (events) over time. Every time a message is created, the subscribed GraphQL client receives the created message as payload. A subscription from a GraphQL client for the schema would look like this:
+
+{{< highlight javascript >}}
+subscription {
+  messageCreated {
+    message {
+      id
+      text
+      createdAt
+      user {
+        id
+        username
+      }
+    }
+  }
+}
+{{< /highlight >}}
+
+In the first part, you'll set up the subscription architecture for your application; then, you'll add the implementation details for the created message subscription. The first step need only be completed once, but the latter will be a recurring when more GraphQL subscriptions are added to your application.
+
+{{% sub_chapter_header "Apollo Server Subscription Setup" "apollo-server-subscriptions" %}}
+
+Because we are using Express as middleware, expose the subscriptions with an advanced HTTP server setup in the *src/index.js* file:
+
+{{< highlight javascript "hl_lines=1 7 8 17" >}}
+import http from 'http';
+
+...
+
+server.applyMiddleware({ app, path: '/graphql' });
+
+const httpServer = http.createServer(app);
+server.installSubscriptionHandlers(httpServer);
+
+const eraseDatabaseOnSync = true;
+
+sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
+  if (eraseDatabaseOnSync) {
+    createUsersWithMessages(new Date());
+  }
+
+  httpServer.listen({ port: 8000 }, () => {
+    console.log('Apollo Server on http://localhost:8000/graphql');
+  });
+});
+
+...
+{{< /highlight >}}
+
+For the context passed to the resolvers, you can distinguish between HTTP requests (GraphQL mutations and queries) and subscriptions in the same file. HTTP requests come with a req and res object, but the subscription comes with a connection object, so you can pass the models as a data access layer for the subscription's context.
+
+{{< highlight javascript "hl_lines=7 8 9 10 11 12 14 22" >}}
+...
+
+const server = new ApolloServer({
+  typeDefs: schema,
+  resolvers,
+  ...
+  context: async ({ req, connection }) => {
+    if (connection) {
+      return {
+        models,
+      };
+    }
+
+    if (req) {
+      const me = await getMe(req);
+
+      return {
+        models,
+        me,
+        secret: process.env.SECRET,
+      };
+    }
+  },
+});
+
+...
+{{< /highlight >}}
+
+To complete the subscription setup, you'll need to use one of the available {{% a_blank "PubSub engines" "https://www.apollographql.com/docs/apollo-server/v2/features/subscriptions.html#PubSub-Implementations" %}} for publishing and subscribing to events. Apollo Server comes with its own by default, but there are links for other options should you find it lacking. In a new *src/subscription/index.js* file, add the following:
+
+{{< highlight javascript >}}
+import { PubSub } from 'apollo-server';
+
+export default new PubSub();
+{{< /highlight >}}
+
+This PubSub instance is your API which enables subscriptions in your application. The overarching setup for subscriptions is done now.
+
+{{% sub_chapter_header "Subscribing and Publishing with PubSub" "apollo-server-pub-sub" %}}
+
+Let's implement the specific subscription for the message creation. It should be possible for another GraphQL client to listen to message creations. For instance, in a chat application it should be possible to see a message of someone else in real-time. Therefore, extend the previous *src/subscription/index.js* file with the following implementation:
+
+{{< highlight javascript "hl_lines=3 5 6 7" >}}
+import { PubSub } from 'apollo-server';
+
+import * as MESSAGE_EVENTS from './message';
+
+export const EVENTS = {
+  MESSAGE: MESSAGE_EVENTS,
+};
+
+export default new PubSub();
+{{< /highlight >}}
+
+And add your first event in a new *src/subscription/message.js* file, which we used earlier:
+
+{{< highlight javascript >}}
+export const CREATED = 'CREATED';
+{{< /highlight >}}
+
+This folder structure allows you to separate your events at the domain level. By exporting all events with their domains, you can import all events elsewhere and make use of the domain-specific events.
+
+The only piece missing is using the event and the PubSub instance in your message resolver. In the beginning of this section, you added the new subscription to the message schema. Now you have to implement its counterpart in the *src/resolvers/message.js* file:
+
+{{< highlight javascript "hl_lines=3 20 21 22 23 24" >}}
+...
+
+import pubsub, { EVENTS } from '../subscription';
+
+...
+
+export default {
+  Query: {
+    ...
+  },
+
+  Mutation: {
+    ...
+  },
+
+  Message: {
+    ...
+  },
+
+  Subscription: {
+    messageCreated: {
+      subscribe: () => pubsub.asyncIterator(EVENTS.MESSAGE.CREATED),
+    },
+  },
+};
+{{< /highlight >}}
+
+The subscribe's function signature has access to the same arguments as the other resolver functions. Models from the context can be accessed here, but it isn't necessary for this application.
+
+The subscription as resolver provides a counterpart for the subscription in the message schema. However, since it uses a publisher-subscriber mechanism (PubSub) for events, you have only implemented the subscribing, not the publishing. It is possible for a GraphQL client to listen for changes, but there are no changes published yet. The best place for publishing a newly created message is in the same file as the created message:
+
+{{< highlight javascript "hl_lines=16 21 22 23 25" >}}
+...
+
+import pubsub, { EVENTS } from '../subscription';
+
+...
+
+export default {
+  Query: {
+    ...
+  },
+
+  Mutation: {
+    createMessage: combineResolvers(
+      isAuthenticated,
+      async (parent, { text }, { models, me }) => {
+        const message = await models.Message.create({
+          text,
+          userId: me.id,
+        });
+
+        pubsub.publish(EVENTS.MESSAGE.CREATED, {
+          messageCreated: { message },
+        });
+
+        return message;
+      },
+    ),
+
+    ...
+  },
+
+  Message: {
+    ...
+  },
+
+  Subscription: {
+    messageCreated: {
+      subscribe: () => pubsub.asyncIterator(EVENTS.MESSAGE.CREATED),
+    },
+  },
+};
+{{< /highlight >}}
+
+You implemented your first subscription in GraphQL with Apollo Server and PubSub. To test it, create a new message with a logged in user. You can try both these GraphQL operations in two separate tabs in GraphQL Playground to compare their output. In the first tab, execute the subscription:
+
+{{< highlight javascript >}}
+subscription {
+  messageCreated {
+    message {
+      id
+      text
+      createdAt
+      user {
+        id
+        username
+      }
+    }
+  }
+}
+{{< /highlight >}}
+
+Results will indicator that the tab is listening for changes. In the second tab, log in a user:
+
+{{< highlight javascript >}}
+mutation {
+  signIn(login: "rwieruch", password: "rwieruch") {
+    token
+  }
+}
+{{< /highlight >}}
+
+Copy the token from the result, and then paste it to the HTTP headers panel in the same tab:
+
+{{< highlight javascript >}}
+{
+  "x-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJoZWxsb0Byb2Jpbi5jb20iLCJ1c2VybmFtZSI6InJ3aWVydWNoIiwicm9sZSI6IkFETUlOIiwiaWF0IjoxNTM0OTQ3NTYyLCJleHAiOjE1MzQ5NDkzNjJ9.mg4M6SfYPJkGf_Z2Zr7ztGNbDRDLksRWdhhDvTbmWbQ"
+}
+{{< /highlight >}}
+
+Then create a message in the second tab:
+
+{{< highlight javascript >}}
+mutation {
+  createMessage(text: "Does my subscription work?") {
+    text
+  }
+}
+{{< /highlight >}}
+
+Afterward, check your first tab again. It should show the created message:
+
+{{< highlight javascript >}}
+{
+  "data": {
+    "messageCreated": {
+      "message": {
+        "id": "4",
+        "text": "Does my subscription work?",
+        "createdAt": "Wed Aug 22 2018 16:22:41 GMT+0200 (CEST)",
+        "user": {
+          "id": "1",
+          "username": "rwieruch"
+        }
+      }
+    }
+  }
+}
+{{< /highlight >}}
+
+You have implemented GraphQL subscriptions. It can be a challenge to wrap your head around them, but once you've worked through some basic operations, you can use these as a foundation to create real-time GraphQL applications.
+
+### Exercises:
+
+* Read more about {{% a_blank "Subscriptions with Apollo Server" "https://www.apollographql.com/docs/apollo-server/v2/features/subscriptions.html" %}}
+* Watch a talk about {{% a_blank "GraphQL Subscriptions" "http://youtu.be/bn8qsi8jVew" %}}
+
+{{% chapter_header "Testing a GraphQL Server" "graphql-server-testing" %}}
+
+Testing often get overlooked in programming insruction, so this section will focus on to end-to-end (E2E) testing of a GraphQL server. While unit and integration tests are the fundamental pillars of the popular testing pyramid, covering all standalone functionalities of your application, E2E tests cover user scenarios for the entire application. An E2E test will assess whether a user is able to sign up for your application, or whether an admin user can delete other users. You don't need to write as many E2E tests, because they cover larger and more complex user scenarios, not just basic functionality. Also, E2E tests cover all the technical corners of your application, such as the GraphQL API, business logic, and databases.
+
+{{% sub_chapter_header "GraphQL Server E2E Test Setup" "graphql-server-e2e-test-setup" %}}
+
+Programs called Mocha and Chai are really all you need to test the application we've created. Mocha is a test runner that lets you execute tests from an npm script, while providing an organized testing structure; Chai gives you all the functionalities to make assertions, e.g. "Expect X to be equal to Y" based on real-world scenarios and run through them.
+
+{{< highlight javascript >}}
+npm install mocha chai --save-dev
+{{< /highlight >}}
+
+To use these programs, you must first install a library called {{% a_blank "axios" "https://github.com/axios/axios" %}} for making requests to the GraphQL API. When testing user sign-up, you can send a GraphQL mutation to the GraphQL API that creates a user in the database and returns their information.
+
+{{< highlight javascript >}}
+npm install axios --save-dev
+{{< /highlight >}}
+
+Mocha is run using npm scripts in your *package.json* file. The pattern used here matches all test files with the suffix *.spec.js* within the *src/* folder.
+
+{{< highlight javascript "hl_lines=5" >}}
+{
+  ...
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js",
+    "test": "mocha --require babel-core/register 'src/**/*.spec.js'"
+  },
+  ...
+}
+{{< /highlight >}}
+
+That should be sufficient to run your first test. Add a *src/tests/user.spec.js* to your application. and write your first test there:
+
+{{< highlight javascript "hl_lines=5" >}}
+import { expect } from 'chai';
+
+describe('users', () => {
+  it('user is user', () => {
+    expect('user').to.eql('user');
+  });
+});
+{{< /highlight >}}
+
+The test is executed by typing `npm test` into the command line. While it doesn't test any logic of your application, the test will verify that Mocha, Chai, and your new npm script are working.
+
+Before you can write end-to-end tests for the GraphQL server, the database must be addressed. Since the tests run against the actual GraphQL server, so you only need to run against a test database rather than the production database. Add an npm script in the *package.json* to start the GraphQL server with a test database:
+
+{{< highlight javascript "hl_lines=5" >}}
+{
+  ...
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js",
+    "test-server": "TEST_DATABASE=mytestdatabase npm start",
+    "test": "mocha --require babel-core/register 'src/**/*.spec.js'"
+  },
+  ...
+}
+{{< /highlight >}}
+
+The script must be started before the E2E GraphQL server tests. If the `TEST_DATABASE` environment flag is set, you have to adjust the database setup in the *src/models/index.js* file to use the test database instead:
+
+{{< highlight javascript "hl_lines=4" >}}
+import Sequelize from 'sequelize';
+
+const sequelize = new Sequelize(
+  process.env.TEST_DATABASE || process.env.DATABASE,
+  process.env.DATABASE_USER,
+  process.env.DATABASE_PASSWORD,
+  {
+    dialect: 'postgres',
+  },
+);
+
+...
+{{< /highlight >}}
+
+You also need to make sure to create such a database. Mine is called *mytestdatabase* in the npm script, which I added in the command line with `psql` and `createdb` or `CREATE DATABASE`.
+
+Finally, you must start with a seeded and consistent database every time you run a test server. To do this, set the database re-seeding flag to depend on the set test database environment variable in the *src/index.js* file:
+
+{{< highlight javascript "hl_lines=3 5 6" >}}
+...
+
+const isTest = !!process.env.TEST_DATABASE;
+
+sequelize.sync({ force: isTest }).then(async () => {
+  if (isTest) {
+    createUsersWithMessages(new Date());
+  }
+
+  httpServer.listen({ port: 8000 }, () => {
+    console.log('Apollo Server on http://localhost:8000/graphql');
+  });
+});
+
+...
+{{< /highlight >}}
+
+Now you are ready to write tests against an actual running test sever (`npm run test-server`) that uses a consistently seeded test database. If you want to use async/await in your test environment, adjust your *.babelrc* file:
+
+{{< highlight javascript >}}
+{
+  "presets": [
+    [
+      "env", {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ], "stage-2"
+  ]
+}
+{{< /highlight >}}
+
+Now you can write tests with asynchronous business logic with async/await.
+
+{{% sub_chapter_header "Testing User Scenarios with E2E Tests" "graphql-server-test-api" %}}
+
+Every E2E test sends an actual request with axios to the API of the running GraphQL test server. Testing your `user` GraphQL query would look like the following in the *src/tests/user.spec.js* file:
+
+{{< highlight javascript "hl_lines=4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21" >}}
+import { expect } from 'chai';
+
+describe('users', () => {
+  describe('user(id: String!): User', () => {
+    it('returns a user when user can be found', async () => {
+      const expectedResult = {
+        data: {
+          user: {
+            id: '1',
+            username: 'rwieruch',
+            email: 'hello@robin.com',
+            role: 'ADMIN',
+          },
+        },
+      };
+
+      const result = await userApi.user({ id: '1' });
+
+      expect(result.data).to.eql(expectedResult);
+    });
+  });
+});
+{{< /highlight >}}
+
+Each test should be as straightforward as this one. You make a GraphQL API request with axios, expecting a query/mutation result from the API. Behind the scenes, data is read or written from or to the database. The business logic such as authentication, authorization, and pagination works in between. A request goes through the whole GraphQL server stack from API to database. An end-to-end test and doesn't test an isolated unit (unit test) or a smaller composition of units (integration test), but the entire pipeline.
+
+The `userApi` function is the final piece needed to set up effective testing for this application. It's not implemented in the test, but in another *src/tests/api.js* file for portability. In this file, you will find all your functions which can be used to run requests against your GraphQL test server.
+
+{{< highlight javascript >}}
+import axios from 'axios';
+
+const API_URL = 'http://localhost:8000/graphql';
+
+export const user = async variables =>
+  axios.post(API_URL, {
+    query: `
+      query ($id: ID!) {
+        user(id: $id) {
+          id
+          username
+          email
+          role
+        }
+      }
+    `,
+    variables,
+  });
+{{< /highlight >}}
+
+You can use basic HTTP to perform GraphQL operations across the network layer. It only needs a payload, which is the query/mutation and the variables. Beyond that, the URL of the GraphQL server must be know. Now, import the user API in your actual test file:
+
+{{< highlight javascript "hl_lines=3" >}}
+import { expect } from 'chai';
+
+import * as userApi from './api';
+
+describe('users', () => {
+  describe('user(id: String!): User', () => {
+    it('returns a user when user can be found', async () => {
+      const expectedResult = {
+        ...
+      };
+
+      const result = await userApi.user({ id: '1' });
+
+      expect(result.data).to.eql(expectedResult);
+    });
+  });
+});
+{{< /highlight >}}
+
+To execute your tests now, run your GraphQL test server in the command line with `npm run test-server`, and execute your tests in another command line tab with `npm test`. The output should appear as such:
+
+{{< highlight javascript >}}
+users
+  user(id: ID!): User
+    ✓ returns a user when user can be found (69ms)
+
+1 passing (123ms)
+{{< /highlight >}}
+
+If your output is erroneous, the console logs may help you figure out what went wrong. Another option is to take the query from the axios request and put it into GraphQL Playground. The error reporting in Playground might make it easier to find problems.
+
+That's your first E2E test against a GraphQL server. The next one uses the same API, and you can see how useful it is to extract the API layer as reusable functions. In your *src/tests/user.spec.js* file add another test:
+
+{{< highlight javascript "hl_lines=17 18 19 20 21 22 23 24 25 26 27" >}}
+import { expect } from 'chai';
+
+import * as userApi from './api';
+
+describe('users', () => {
+  describe('user(id: ID!): User', () => {
+    it('returns a user when user can be found', async () => {
+      const expectedResult = {
+        ...
+      };
+
+      const result = await userApi.user({ id: '1' });
+
+      expect(result.data).to.eql(expectedResult);
+    });
+
+    it('returns null when user cannot be found', async () => {
+      const expectedResult = {
+        data: {
+          user: null,
+        },
+      };
+
+      const result = await userApi.user({ id: '42' });
+
+      expect(result.data).to.eql(expectedResult);
+    });
+  });
+});
+{{< /highlight >}}
+
+It is valuable to test the common path, but also less common edge cases. In this case, the uncommon path didn't return an error, but null for the user.
+
+Let's add another test that verifies non-admin user authorization related to deleting messages. Here you will implement a complete scenario from login to user deletion. First, implement the sign in and delete user API in the *src/tests/api.js* file:
+
+{{< highlight javascript "hl_lines=3 4 5 6 7 8 9 10 11 12 13 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" >}}
+...
+
+export const signIn = async variables =>
+  await axios.post(API_URL, {
+    query: `
+      mutation ($login: String!, $password: String!) {
+        signIn(login: $login, password: $password) {
+          token
+        }
+      }
+    `,
+    variables,
+  });
+
+export const deleteUser = async (variables, token) =>
+  axios.post(
+    API_URL,
+    {
+      query: `
+        mutation ($id: ID!) {
+          deleteUser(id: $id)
+        }
+      `,
+      variables,
+    },
+    {
+      headers: {
+        'x-token': token,
+      },
+    },
+  );
+{{< /highlight >}}
+
+The `deleteUser` mutation needs the token from the `signIn` mutation's result. Next, you can test the whole scenario by executing both APIs in your new E2E test:
+
+{{< highlight javascript "hl_lines=10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29" >}}
+import { expect } from 'chai';
+
+import * as userApi from './api';
+
+describe('users', () => {
+  describe('user(id: ID!): User', () => {
+    ...
+  });
+
+  describe('deleteUser(id: String!): Boolean!', () => {
+    it('returns an error because only admins can delete a user', async () => {
+      const {
+        data: {
+          data: {
+            signIn: { token },
+          },
+        },
+      } = await userApi.signIn({
+        login: 'ddavids',
+        password: 'ddavids',
+      });
+
+      const {
+        data: { errors },
+      } = await userApi.deleteUser({ id: '1' }, token);
+
+      expect(errors[0].message).to.eql('Not authorized as admin.');
+    });
+  });
+});
+{{< /highlight >}}
+
+First, you are using the `signIn` mutation to login a user to the application. The login is fulfilled once the token is returned. The token can then be used for every other GraphQL operation. In this case, it is used for the `deleteUser` mutation. The mutation still fails, however, because the current user is not admin. You can try the same scenario on your own with an admin to test the simple path for reusing APIs.
+
+{{< highlight javascript >}}
+users
+  user(id: String!): User
+    ✓ returns a user when user can be found (81ms)
+    ✓ returns null when user cannot be found
+  deleteUser(id: String!): Boolean!
+    ✓ returns an error because only admins can delete a user (109ms)
+
+3 passing (276ms)
+{{< /highlight >}}
+
+These E2E tests cover scenarios for user domains, going through the GraphQL API over business logic to the database access. However, there is still plenty of room for alternatives. Consider testing other user domain-specific scenarios such as a user sign up (registration), providing a wrong password on sign in (login), or requesting one and another page of paginated messages for the message domain.
+
+This section only covered E2E tests. With Chai and Mocha at your disposal, you can also add smaller unit and integration tests for your different application layers (e.g. resolvers). If you need a library to spy, stub, or mock something, I recommend {{% a_blank "Sinon" "https://sinonjs.org" %}} as a complementary testing library. 
+
+### Exercises:
+
+* Implement tests for the message domain similar to the user domain
+* Write more fine-granular unit/integration tests for both domains
+* Read more about {{% a_blank "GraphQL and HTTP" "https://graphql.github.io/learn/serving-over-http/" %}}
+* Read more about {{% a_blank "Mocking with Apollo Server" "https://www.apollographql.com/docs/apollo-server/v2/features/mocking.html" %}}
+
+{{% chapter_header "Batching and Caching in GraphQL with Data Loader" "graphql-server-data-loader-caching-batching" %}}
+
+The section is about improving the requests to your database. While only one request (e.g. a GraphQL query) hits your GraphQL API, you may end up with multiple database reads and writes to resolve all fields in the resolvers. Let's see this problem in action using the following query in GraphQL Playground:
+
+{{< highlight javascript >}}
+query {
+  messages {
+    edges {
+      user {
+        username
+      }
+    }
+  }
+}
+{{< /highlight >}}
+
+Keep the query open, because you use it as a case study to make improvements. Your query result should be similar to the following:
+
+{{< highlight javascript >}}
+{
+  "data": {
+    "messages": {
+      "edges": [
+        {
+          "user": {
+            "username": "ddavids"
+          }
+        },
+        {
+          "user": {
+            "username": "ddavids"
+          }
+        },
+        {
+          "user": {
+            "username": "rwieruch"
+          }
+        }
+      ]
+    }
+  }
+}
+{{< /highlight >}}
+
+In the command line for the running GraphQL server, four requests were made to the database:
+
+{{< highlight javascript >}}
+Executing (default): SELECT "id", "text", "createdAt", "updatedAt", "userId" FROM "messages" AS "message" ORDER BY "message"."createdAt" DESC LIMIT 101;
+
+Executing (default): SELECT "id", "username", "email", "password", "role", "createdAt", "updatedAt" FROM "users" AS "user" WHERE "user"."id" = 2;
+
+Executing (default): SELECT "id", "username", "email", "password", "role", "createdAt", "updatedAt" FROM "users" AS "user" WHERE "user"."id" = 2;
+
+Executing (default): SELECT "id", "username", "email", "password", "role", "createdAt", "updatedAt" FROM "users" AS "user" WHERE "user"."id" = 1;
+{{< /highlight >}}
+
+There is one request made for the list of messages, and three requests for each individual user. That's the nature of GraphQL. Even though you can nest your GraphQL relationships and query structure, there will still be database requests. Check the resolvers for the message user in your *src/resolvers/message.js* file to see where this is happening. At some point, you may run into performance bottlenecks when nesting GraphQL queries or mutations too deeply, because a lot of items need to be retrieved from your database.
+
+In the following, you will optimize these database accesses with batching. It's a strategy used for a GraphQL server and its database, but also for other programming environments. Compare the query result in GraphQL Playground and your database output in the command line. 
+
+There are two improvements that can be made with batching. First, one author of a message is retrieved twice from the database, which is redundant. Even though there are multiple messages, the author of some of these messages can be the same person. Imagine this problem on a larger scale for 100 messages between two authors in a chat application. There would be one request for the 100 messages and 100 requests for the 100 authors of each message, which would lead to 101 database accesses. If duplicated authors are retrieved only once, it would only need one request for the 100 messages and 2 requests for the authors, which reduces the 101 database hits to just 3. Since you know all the identifiers of the authors, these identifiers can be batched to a set where none are repeated. In this case, the two authors a list of [2, 2, 1] identifiers become a set of [2, 1] identifiers.
+
+Second, every author is read from the database individually, even though the list is purged from its duplications. Reading all authors with only one database request should be possible, because at the time of the GraphQL API request with all messages at your disposal, you know all the identifiers of the authors. This decreases your database accesses from 3 to 2, because now you only request the list of 100 messages and its 2 authors in two requests.
+
+The same two principals can be applied to the 4 database accessesm which should be decreased to 2. On a smaller scale, it might not have much of a performance impact, but for 100 messages with the 2 authors, it would reduces your database accesses from significantly. That's where Facebook's open source {{% a_blank "dataloader" "https://github.com/facebook/dataloader" %}} comes becomes a vital tool. You can install it via npm on the command line:
+
+{{< highlight javascript >}}
+npm install dataloader
+{{< /highlight >}}
+
+Now, in your *src/index.js* file you can import and make use of it:
+
+{{< highlight javascript "hl_lines=1 5 6 7 8 9 10 11 12 13 14 15 33 34 35" >}}
+import DataLoader from 'dataloader';
+
+...
+
+const batchUsers = async (keys, models) => {
+  const users = await models.User.findAll({
+    where: {
+      id: {
+        $in: keys,
+      },
+    },
+  });
+
+  return keys.map(key => users.find(user => user.id === key));
+};
+
+const server = new ApolloServer({
+  typeDefs: schema,
+  resolvers,
+  ...
+  context: async ({ req, connection }) => {
+    if (connection) {
+      ...
+    }
+
+    if (req) {
+      const me = await getMe(req);
+
+      return {
+        models,
+        me,
+        secret: process.env.SECRET,
+        loaders: {
+          user: new DataLoader(keys => batchUsers(keys, models)),
+        },
+      };
+    }
+  },
+});
+
+...
+{{< /highlight >}}
+
+Identical to the models, the loaders act as abstraction on top of the models, and can be passed as context to the resolvers. The user loader in the following example is used instead of the models directly.
+
+Now we'll consider the function as argument for the DataLoader instantiation. The function gives you access to a list of keys in its arguments. These keys are your set of identifiers, purged of duplication, which can be used to retrieve items from a database. That's why keys (identifiers) and models (data access layer) are passed to the `batchUser()` function. The function then takes the keys to retrieve the entities via the model from the database. By the end of the function, the keys are mapped in the same order as the retrieved entities. Otherwise, it's possible to return users right after their retrieval from the database, though they have a different order than the incoming keys. As a result, users need to be returned in the same order as their incoming identifiers (keys).
+
+That's the setup for the loader, an improved abstraction on top of the model. Now, since you are passing the loader for the batched user retrieval as context to the resolvers, you can make use of it in the *src/resolvers/message.js* file:
+
+{{< highlight javascript "hl_lines=13 14" >}}
+...
+
+export default {
+  Query: {
+    ...
+  },
+
+  Mutation: {
+    ...
+  },
+
+  Message: {
+    user: async (message, args, { loaders }) => {
+      return await loaders.user.load(message.userId);
+    },
+  },
+
+  Subscription: {
+    ...
+  },
+};
+{{< /highlight >}}
+
+While the `load()` function takes each identifier individually, it will batch all these identifiers into one set and request all users at once. Try it yourself by executing the same GraphQL query in GraphQL Playground again. The GraphQL query result should stay the same, but in your command line output for the GraphQL server you should only see two and not four requests being made to the database:
+
+{{< highlight javascript >}}
+Executing (default): SELECT "id", "text", "createdAt", "updatedAt", "userId" FROM "messages" AS "message" ORDER BY "message"."createdAt" DESC LIMIT 101;
+
+Executing (default): SELECT "id", "username", "email", "password", "role", "createdAt", "updatedAt" FROM "users" AS "user" WHERE "user"."id" IN (2, 1);
+{{< /highlight >}}
+
+That's the benefit of the batching improvement: instead of fetching each (duplicated) user on its own, you fetch them all at once in one batched request with the dataloader package.
+
+Now let's get into cachin,  which is a difficult topic altogether. The dataloader package we installed before also gives the option to cache requests. It doesn't work yet, though; try to execute the same GraphQL query twice and you should see the database accesses twice on your command line.
+
+{{< highlight javascript >}}
+Executing (default): SELECT "id", "text", "createdAt", "updatedAt", "userId" FROM "messages" AS "message" ORDER BY "message"."createdAt" DESC LIMIT 101;
+Executing (default): SELECT "id", "username", "email", "password", "role", "createdAt", "updatedAt" FROM "users" AS "user" WHERE "user"."id" IN (2, 1);
+
+Executing (default): SELECT "id", "text", "createdAt", "updatedAt", "userId" FROM "messages" AS "message" ORDER BY "message"."createdAt" DESC LIMIT 101;
+Executing (default): SELECT "id", "username", "email", "password", "role", "createdAt", "updatedAt" FROM "users" AS "user" WHERE "user"."id" IN (2, 1);
+{{< /highlight >}}
+
+That's happening because for every request a new instance of a dataloader is created within the GraphQL context. If you would move the dataloader instantiation outside, you would get the caching benefit of dataloader for free:
+
+{{< highlight javascript "hl_lines=3 22" >}}
+...
+
+const userLoader = new DataLoader(keys => batchUsers(keys, models));
+
+const server = new ApolloServer({
+  typeDefs: schema,
+  resolvers,
+  ...
+  context: async ({ req, connection }) => {
+    if (connection) {
+      ...
+    }
+
+    if (req) {
+      const me = await getMe(req);
+
+      return {
+        models,
+        me,
+        secret: process.env.SECRET,
+        loaders: {
+          user: userLoader,
+        },
+      };
+    }
+  },
+});
+
+...
+{{< /highlight >}}
+
+Try to execute the same GraphQL query twice again. This time you should see only one time the database access (for the places where the loader is used) and the second time it should be cached:
+
+{{< highlight javascript >}}
+Executing (default): SELECT "id", "text", "createdAt", "updatedAt", "userId" FROM "messages" AS "message" ORDER BY "message"."createdAt" DESC LIMIT 101;
+Executing (default): SELECT "id", "username", "email", "password", "role", "createdAt", "updatedAt" FROM "users" AS "user" WHERE "user"."id" IN (2, 1);
+
+Executing (default): SELECT "id", "text", "createdAt", "updatedAt", "userId" FROM "messages" AS "message" ORDER BY "message"."createdAt" DESC LIMIT 101;
+{{< /highlight >}}
+
+In this case, the users of the messages are not read from the database twice. Only the messages, because they are not using a dataloader yet. That's how you can achieve caching in GraphQL with dataloader. However, personally I would be careful with it, because choosing a caching strategy isn't simple. For instance, what if a cached user has been updated in between? Your GraphQL client application would still query the cached user.
+
+It's difficult to find the right timing for invalidating the cache. That's why it's recommended to perform the dataloader instantiation with every incoming GraphQL request. Even though you are loosing the benefit of caching over multiple GraphQL requests then, you are still using the cache for every database access within the one incoming GraphQL request. The dataloader package says it the following way: *"DataLoader caching does not replace Redis, Memcache, or any other shared application-level cache. DataLoader is first and foremost a data loading mechanism, and its cache only serves the purpose of not repeatedly loading the same data in the context of a single request to your Application."* So if you want to get into real caching on database level, you should give {{* a_blank "Redis" "https://redis.io/" *}} a shot.
+
+In the end, you can outsource the loaders similar to your models into a different folder/file structure. In a new *src/loaders/user.js* file you can put the batching for the individual users:
+
+{{< highlight javascript >}}
+export const batchUsers = async (keys, models) => {
+  const users = await models.User.findAll({
+    where: {
+      id: {
+        $in: keys,
+      },
+    },
+  });
+
+  return keys.map(key => users.find(user => user.id === key));
+};
+{{< /highlight >}}
+
+And in a new *src/loaders/index.js* file export all the functions:
+
+{{< highlight javascript >}}
+import * as user from './user';
+
+export default { user };
+{{< /highlight >}}
+
+Finally you can import it in your *src/index.js* file again and make use of it:
+
+{{< highlight javascript "hl_lines=5 26" >}}
+...
+import DataLoader from 'dataloader';
+
+...
+import loaders from './loaders';
+
+...
+
+const server = new ApolloServer({
+  typeDefs: schema,
+  resolvers,
+  ...
+  context: async ({ req, connection }) => {
+    if (connection) {
+      ...
+    }
+
+    if (req) {
+      const me = await getMe(req);
+
+      return {
+        models,
+        me,
+        secret: process.env.SECRET,
+        user: new DataLoader(keys =>
+          loaders.user.batchUsers(keys, models),
+        ),
+      };
+    }
+  },
+});
+
+...
+{{< /highlight >}}
+
+Last but not least, don't forget to add the loader to your subscriptions too, in case you make use of them over there:
+
+{{< highlight javascript "hl_lines=11 12 13" >}}
+...
+
+const server = new ApolloServer({
+  typeDefs: schema,
+  resolvers,
+  ...
+  context: async ({ req, connection }) => {
+    if (connection) {
+      return {
+        models,
+        user: new DataLoader(keys =>
+          loaders.user.batchUsers(keys, models),
+        ),
+      };
+    }
+
+    if (req) {
+      ...
+    }
+  },
+});
+
+...
+{{< /highlight >}}
+
+That's it. Feel free to add more loaders, maybe also for the message domain, on your own. They give you a great abstraction on top of your models to enable batching and request-based caching.
+
+### Exercises:
+
+* read more about {{% a_blank "GraphQL and Dataloader" "https://www.apollographql.com/docs/graphql-tools/connectors.html#dataloader" %}}
+* read more about {{% a_blank "GraphQL Best Practices" "https://graphql.github.io/learn/best-practices/" %}}
+
+{{% chapter_header "GraphQL Server + PostgreSQL Deployment to Heroku" "graphql-server-postgresql-deployment-heroku" %}}
+
+Eventually you want to deploy your GraphQL server somewhere that it can be reached online by others or that it can be used in production. In this section, you will learn how to deploy your GraphQL server to Heroku which is a platform as a service to host applications. The best thing about it: You can host your PostgreSQL there as well.
+
+The following section will guide you through the process on the command line. If you want to take the visual route, you can checkout this {{% a_blank "GraphQL server on Heroku deployment tutorial" "https://www.apollographql.com/docs/apollo-server/deployment/heroku.html" %}} which, however, doesn't include the PostgreSQL database deployment.
+
+Initially you need to complete three requirements for using Heroku:
+
+* [install git for your command line and push your project to GitHub](https://www.robinwieruch.de/git-essential-commands/)
+* create an account for {{% a_blank "Heroku" "https://www.heroku.com/" %}}
+* install the {{% a_blank "Heroku CLI" "https://devcenter.heroku.com/articles/heroku-cli" %}} for accessing Heroku's features on the command line
+
+On the command line verify your Heroku installation with `heroku version`. If there is a valid installation, sign in to your recently created Heroku account with `heroku login` on the command line. That's it for the general Heroku setup. You should be able to use Heroku for hosting any of your applications now.
+
+Now, in your project's folder, you can create a new Heroku application from the command line. It's up to you to give your application any name:
+
+{{< highlight javascript >}}
+heroku create graphql-server-node-js
+{{< /highlight >}}
+
+Afterward, you can also install the PostgreSQL add-on for Heroku on the command line for your project:
+
+{{< highlight javascript >}}
+heroku addons:create heroku-postgresql:hobby-dev
+{{< /highlight >}}
+
+It uses the {{% a_blank "hobby tier" "https://devcenter.heroku.com/articles/heroku-postgres-plans#hobby-tier" %}} which can be upgraded any time but shouldn't cost you anything for the start. The output for the PostgreSQL add-on installation should be similar to:
+
+{{< highlight javascript >}}
+Creating heroku-postgresql:hobby-dev on ⬢ graphql-server-node-js... free
+Database has been created and is available
+ ! This database is empty. If upgrading, you can transfer
+ ! data from another database with pg:copy
+Created postgresql-perpendicular-34121 as DATABASE_URL
+Use heroku addons:docs heroku-postgresql to view documentation
+{{< /highlight >}}
+
+As pointed out by the command line output, you can always check the {{% a_blank "Heroku PostgreSQL documentation" "https://devcenter.heroku.com/articles/heroku-postgresql" %}} for more in depth instructions for your database setup. Depending on the plan you have chosen, your database can take a couple of minutes to become available.
+
+Now, everything should be set up from a command line perspective to take your application online. By having the PostgreSQL add-on installed, you should have gotten a database URL too. You can find it with `heroku config`. Now, let's step into your GraphQL server's code to make a couple of adjustments for production.
+
+In your *src/models/index.js*, you need to decide between development (coding, testing) and production (live) build. Because you have a new environment variable for your database URL now, you can use this to make the decision:
+
+{{< highlight javascript "hl_lines=3 4 5 6 7 8 17" >}}
+import Sequelize from 'sequelize';
+
+let sequelize;
+if (process.env.DATABASE_URL) {
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+  });
+} else {
+  sequelize = new Sequelize(
+    process.env.TEST_DATABASE || process.env.DATABASE,
+    process.env.DATABASE_USER,
+    process.env.DATABASE_PASSWORD,
+    {
+      dialect: 'postgres',
+    },
+  );
+}
+
+...
+{{< /highlight >}}
+
+If you check your *.env* file, you will see that the `DATABASE_URL` environment variable isn't there. But you should see that it is set as Heroku environment variable with `heroku config:get DATABASE_URL`. Once your application is live on Heroku, your environment variables are merged with Heroku's environment variables. That's why the `DATABASE_URL` isn't applied for your local development environment.
+
+Another environment variable which is used in your *src/index.js* file is the *SECRET* for your authentication strategy. If you haven't included your *.env* file in your project's version control (see .gitignore), you need to set the `SECRET` for your production code in Heroku on the command line too: `heroku config:set SECRET mysecret`.
+
+Another thing which needs consideration is the application's port which is specified in the *src/index.js* file. In case Heroku adds its own `PORT` environment variable, you should use the port from an environment variable as fallback.
+
+{{< highlight javascript "hl_lines=3 10 11" >}}
+...
+
+const port = process.env.PORT || 8000;
+
+sequelize.sync({ force: isTest }).then(async () => {
+  if (isTest) {
+    createUsersWithMessages(new Date());
+  }
+
+  httpServer.listen({ port }, () => {
+    console.log(`Apollo Server on http://localhost:${port}/graphql`);
+  });
+});
+
+...
+{{< /highlight >}}
+
+Last but not least, you can decide whether you want to start with a seeded database, or an empty database on Heroku PostgreSQL. If it should be seeded, you can add an extra flag to the seeding:
+
+{{< highlight javascript "hl_lines=4 7 8" >}}
+...
+
+const isTest = !!process.env.TEST_DATABASE;
+const isProduction = !!process.env.DATABASE_URL;
+const port = process.env.PORT || 8000;
+
+sequelize.sync({ force: isTest || isProduction }).then(async () => {
+  if (isTest || isProduction) {
+    createUsersWithMessages(new Date());
+  }
+
+  httpServer.listen({ port }, () => {
+    console.log(`Apollo Server on http://localhost:${port}/graphql`);
+  });
+});
+
+...
+{{< /highlight >}}
+
+Don't forget to remove the flag afterward, otherwise the database is purged and seeded with every deployment. That's it for the code adjustments. Depending on development or production, you are choosing the correct database, you seed (or seed not) your database and you choose an appropriate port for your GraphQL server. Now let's take it online to Heroku.
+
+Before pushing your application to Heroku, you need to push all your recent changes with git on the command line to your GitHub repository (git add, git commit, git push). Afterward, you can push all the changes to your Heroku remote repository too, because you have created a Heroku application before: `git push heroku master`. If everything went successful, you can open the application with `heroku open`. Don't forget to add the `/graphql` suffix to your URL in the browser to open up GraphQL Playground.
+
+Depending on your seeding strategy, your database should be empty or should have seeded data. In case of the former, you need first to register a user and create messages with this user via GraphQL mutations. Otherwise, if your database is seeded, you can start to request a list of messages with a GraphQL query.
+
+Congratulations, your application should be live now. Not only your GraphQL server is running on Heroku, but also your PostgreSQL database. Follow the exercises to learn more about Heroku.
+
+### Exercises:
+
+* create sample data in your production database with GraphQL Playground
+* get familiar with the {{% a_blank "Heroku Dashboard" "https://dashboard.heroku.com/apps" %}}
+  * find your application's logs
+  * find your application's environment variables
+* access your PostgreSQL database on Heroku with `heroku pg:psql`
+
+<hr class="section-divider">
+
+Over the last sections, you have built a sophisticated GraphQL server boilerplate project with Express and Apollo Server. Even though GraphQL isn't opinionated about various things, you should have a learned about topics such as authentication, authorization, database access, and pagination now. Most of the things were more straight forward because of using Apollo Server over the GraphQL reference implementation in JavaScript. That's okay, because many people are using Apollo Server nowadays for building their GraphQL servers. You can use this application as starter project to realize your own ideas now. Moreover, you can find the whole starter project with a GraphQL client built in React in {{% a_blank "this GitHub repository" "https://github.com/rwieruch/fullstack-apollo-react-express-boilerplate-project" %}}. My recommendation would be to continue implementing more features for the project to make your own ideas happen or to implement a GraphQL client application with React (or anything else) for it.
+
+{{% read_more "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial/" %}}
