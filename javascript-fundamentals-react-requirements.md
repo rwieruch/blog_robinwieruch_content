@@ -25,6 +25,8 @@ During my workshops a greater part of the material is about JavaScript and not R
 
 The following walkthrough is my attempt giving you an almost extensive yet concise list about all the different JavaScript functionalities to complement your React application. If you have any other things which are not in the list, just leave a comment for this article and I will keep it up to date.
 
+If you want to learn the fundamentals about JavaScript for React.js in an interactive course, you can checkout my course over here: {{% a_blank "JavaScript Fundamentals Before Learning React" "https://www.educative.io/collection/10370001/5637225408626688" %}}.
+
 {{% chapter_header "Table of Contents" "toc" %}}
 
 * [Entering React after learning JavaScript](#react-javascript)

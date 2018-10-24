@@ -1,7 +1,7 @@
 +++
 title = "Prevent React setState on unmounted Component"
 description = "How to avoid the React warning: Can only update a mounted or mounting component. It usually means you have called setState on an unmounted component ..."
-date = "2018-10-07T13:50:46+02:00"
+date = "2018-10-21T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["can't call setstate on an unmounted component", "react prevent setState on unmounted Component"]

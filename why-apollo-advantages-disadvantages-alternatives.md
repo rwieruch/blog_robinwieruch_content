@@ -127,6 +127,8 @@ When it comes to {{% a_blank "Apollo Client" "https://github.com/apollographql/a
 
 * {{% a_blank "urql" "https://github.com/FormidableLabs/urql" %}}: urql is a GraphQL client library from Formidable Labs for consuming GraphQL in React applications. It was open sourced as minimalistic alternative in contrast to the growing Apollo behemoth.
 
+* {{% a_blank "graphql.js" "https://github.com/f/graphql.js/" %}}: graphql.js shouldn't be mistaken for the GraphQL reference implementation. It's a simple GraphQL client for applications without powerful libraries such as Vue, React, or Angular.
+
 * {{% a_blank "AWS Amplify - GraphQL Client" "https://github.com/aws/aws-amplify" %}}: The AWS Amplify family offers libraries for cloud-enabled applications. One of the modules is a GraphQL client which can be used for your general GraphQL server or AWS AppSync API.
 
 {{% sub_chapter_header "Apollo Server Alternatives for Node.js" "apollo-client-alternatives" %}}
@@ -134,6 +136,8 @@ When it comes to {{% a_blank "Apollo Client" "https://github.com/apollographql/a
 When it comes to {{% a_blank "Apollo Server" "https://github.com/apollographql/apollo-server" %}} for Node.js with Express, Koa, Hapi or something else, there are several alternatives you can checkout. Obviously these come with their own advantages and disadvantages whereas these things are not covered here.
 
 * {{% a_blank "express-graphql" "https://github.com/graphql/express-graphql" %}}: The library provides you with the lower level API to connect your GraphQL layer to your Express middleware. It takes the pure GraphQL.js reference implementation for defining your GraphQL schema whereas Apollo Server builds up on top of this to simplify it for you.
+
+* {{% a_blank "graphql-yoga" "https://github.com/prisma/graphql-yoga" %}}: A fully-featured GraphQL Server with focus on easy setup, performance & great developer experience. It builds on top of other GraphQL libraries to take away even more boilerplate code from you.
 
 <hr class="section-divider">
 
