@@ -21,7 +21,7 @@ summary = "The book about GraphQL is not intended to be used as a reference nor 
 
 Today, I am ecstatic to announce the release of *The Road to GraphQL - Your journey to master pragmatic GraphQL in JavaScript*. Writing this book proved to be a challenge with GraphQL technologies changing often, but I managed to get an updated version published in time to keep you ahead of the curve.
 
-Perhaps the best thing about it the book is that it's **free**. I think everyone should have the chance to learn about GraphQL, as it will change how we think about client-server communication and data management in applications. The second best thing about the book is that I self-published this book, which means it will be updated as often as possible, and that I can keep the PDF, EPUB, or MOBI versions in a state of contant improvement.
+Perhaps the best thing about it the book is that it's **free**. I think everyone should have the chance to learn about GraphQL, as it will change how we think about client-server communication and data management in applications. The second best thing about the book is that I self-published this book, which means it will be updated as often as possible, and that I can keep the PDF, EPUB, or MOBI versions in a state of constant improvement.
 
 {{% package_box "The Road to GraphQL" "Your journey to master GraphQL in JavaScript the pragmatic way with React, Node and Apollo by building real world applications." "Get the Book" "img/page/the-road-to-graphql-book.png" "https://roadtoreact.com" %}}
 
