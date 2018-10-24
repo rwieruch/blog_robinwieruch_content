@@ -2391,7 +2391,7 @@ The next section will teach you about authorization in GraphQL on the server-sid
 
 In the last section, you set up GraphQL mutations to enable authentication with the server. You can register a new user with bcrypt hashed passwords and you can login with your user's credentials. Both GraphQL mutations related to authentication return a token (JWT) that secures non-sensitive user information with a secret.
 
-The token, whether its obtained on registration or login, is returned to the client application after a successful GraphQL `signIn` or `signUp` mutation. The client application must store the token somewhere like [the browser's session storage](https://www.robinwieruch.de/local-storage-react)). Every time a request is made to the GraphQL server, the token has to be attached to the HTTP header of the HTTP request. The GraphQL server can then validate the HTTP header, verify its authenticity, and perform a request like a GraphQL operation. If the token is invalid, the GraphQL server must return an error for the GraphQL client. If the client still has a token locally stored, it should remove the token and redirect the user to the login page.
+The token, whether its obtained on registration or login, is returned to the client application after a successful GraphQL `signIn` or `signUp` mutation. The client application must store the token somewhere like [the browser's session storage](https://www.robinwieruch.de/local-storage-react). Every time a request is made to the GraphQL server, the token has to be attached to the HTTP header of the HTTP request. The GraphQL server can then validate the HTTP header, verify its authenticity, and perform a request like a GraphQL operation. If the token is invalid, the GraphQL server must return an error for the GraphQL client. If the client still has a token locally stored, it should remove the token and redirect the user to the login page.
 
 Now we just need to perform the server part of the equation. Let's do it in the *src/index.js* file by adding a global authorization that verifies the incoming token before the request hits the GraphQL resolvers.
 
@@ -2439,13 +2439,13 @@ In this general authorization on the server-side, you are injecting the `me` use
 
 In the `getMe()` function, you extract the HTTP header for the authorization called "x-token" from the incoming HTTP request. The GraphQL client application sends the token obtained from the registration or login with every other request in an HTTP header, along with the payload of the HTTP request (e.g. GraphQL operation). It can then be checked to see if there is such an HTTP header in the function or not. If not, the function continues with the request, but the `me` user is undefined. If there is a token, the function verifies the token with its secret and retrieves the user information that was stored when you created the token. If the verification fails because the token was invalid or expired, the GraphQL server throws a specific Apollo Server Error. If the verification succeeds, the function continues with the `me` user defined.
 
-The function returns an error when the client application sends an HTTP header with an invalid or expired token. Otherwise, the function waves the request through, because users must be checked on a resolver to level to see if they're allowed to perform certain actions. A non-authenticated user--where the `me` user is undefined--might be able to retrieve messages but not create new ones. The application is now protected against invalid and expired tokens.
+The function returns an error when the client application sends an HTTP header with an invalid or expired token. Otherwise, the function waves the request through, because users must be checked at the resolver level to see if they're allowed to perform certain actions. A non-authenticated user--where the `me` user is undefined--might be able to retrieve messages but not create new ones. The application is now protected against invalid and expired tokens.
 
 That's the most high-level authentication for your GraphQL server application. You are able to authenticate with your GraphQL server from a GraphQL client application with the `signUp` and `signIn` GraphQL mutations, and the GraphQL server only allows valid, non-expired tokens from the GraphQL client application.
 
 {{% sub_chapter_header "GraphQL Authorization on a Resolver Level" "apollo-server-authorization-resolver" %}}
 
-A GraphQL HTTP request comes through the `getMe()` function, even if it has no HTTP header for a token. This is good default behavior, because you want to register new users and login to the application without a token for now. You mig want to query messages or users without being authenticated with the application. It is acceptable and sometimes necessary to wave through some requests without authorization token, to grant different levels of access to different user types. There will be an error only when the token becomes invalid or expires.
+A GraphQL HTTP request comes through the `getMe()` function, even if it has no HTTP header for a token. This is good default behavior, because you want to register new users and login to the application without a token for now. You might want to query messages or users without being authenticated with the application. It is acceptable and sometimes necessary to wave through some requests without authorization token, to grant different levels of access to different user types. There will be an error only when the token becomes invalid or expires.
 
 However, certain GraphQL operations should have more specific authorizations. Creating a message should only be possible for authorized users. Otherwise, or there would be no way to track the messages' authors. The `createMessage` GraphQL mutation can be protected, or "guarded", on a GraphQL resolver level. The naive approach of protecting the GraphQL operation is to guard it with an if-else statement in the *src/resolvers/message.js* file:
 
@@ -2546,7 +2546,7 @@ export const isMessageOwner = async (
 };
 {{< /highlight >}}
 
-This resolver checks whether the authenticated user is the message owner. It's a useful check before deleting a message, since you only the message creator to be able to delete it. The guarding resolver retrieves the message by id, checks the message's associated user with the authenticated user, and either throws an error or continues with the next resolver.
+This resolver checks whether the authenticated user is the message owner. It's a useful check before deleting a message, since you only want the message creator to be able to delete it. The guarding resolver retrieves the message by id, checks the message's associated user with the authenticated user, and either throws an error or continues with the next resolver.
 
 Let's protect a resolver with this fine-tuned authorization permission resolver in the *src/resolvers/message.js* file:
 
@@ -2777,7 +2777,7 @@ export const isMessageOwner = async (
 };
 {{< /highlight >}}
 
-The new resolver checks to see if the authenticated user has the `ADMIN` role. If it doesn't, the resolver returns an error; If it does, the next resolver is called. Unlike the `isMessageOwner` resolver, the `isAdmin` resolver is already combined, using the `isAuthenticated` resolver. Put this check in your actual resolver, which you are going to protect in the next step:
+The new resolver checks to see if the authenticated user has the `ADMIN` role. If it doesn't, the resolver returns an error; if it does, the next resolver is called. Unlike the `isMessageOwner` resolver, the `isAdmin` resolver is already combined, using the `isAuthenticated` resolver. Put this check in your actual resolver, which you are going to protect in the next step:
 
 {{< highlight javascript "hl_lines=2 5 17 18 19 20 21 22 23 24" >}}
 import jwt from 'jsonwebtoken';
@@ -2810,13 +2810,13 @@ export default {
 };
 {{< /highlight >}}
 
-That's the basics of role-based authorization in GraphQL with Apollo Server. In this examplwe, rhe role is only a string that needs to be checked. In a more elaborate role-based architecture, the role might change from a string to an array that contains many roles. It eliminates the need for an equal check, since you can check to see if the array includes a targeted role. Using arrays with a roles is the foundation for a sophisticated role-based authorization setup.
+That's the basics of role-based authorization in GraphQL with Apollo Server. In this example, the role is only a string that needs to be checked. In a more elaborate role-based architecture, the role might change from a string to an array that contains many roles. It eliminates the need for an equal check, since you can check to see if the array includes a targeted role. Using arrays with a roles is the foundation for a sophisticated role-based authorization setup.
 
 {{% sub_chapter_header "Setting Headers in GraphQL Playground" "graphql-playground-headers" %}}
 
-You set up authorization for your GraphQL application, and now you just need to to verify that it works. The simplest way to test this type of application is to use GraphQL Playground to run through different scenarios. Let's do it together The user deletion scenario will be used as an example, but you should test all the remaining scenarios for practice.
+You set up authorization for your GraphQL application, and now you just need to verify that it works. The simplest way to test this type of application is to use GraphQL Playground to run through different scenarios. The user deletion scenario will be used as an example, but you should test all the remaining scenarios for practice.
 
-Before a user can perform a delete action, there must be a sign-n, so we execute a `signIn` mutation in GraphQL Playground with a non admin user. Consider trying this tutorial with an admin user later to see how it performs differently.
+Before a user can perform a delete action, there must be a sign-in, so we execute a `signIn` mutation in GraphQL Playground with a non admin user. Consider trying this tutorial with an admin user later to see how it performs differently.
 
 {{< highlight javascript >}}
 mutation {
@@ -2871,7 +2871,7 @@ If you follow the same sequence as an admin user, you can delete a user entity s
 
 We've added basic authorization for this application. It has the global authorization before every request hits the GraphQL resolvers; and authorization at the resolver level with protecting resolvers. They check whether a user is authenticated, whether the user is able to delete a message (permission-based authorization), and whether a user is able to delete a user (role-based authorization).
 
-If you want to be even more exact than resolver level authorization, check out **directive-based authorization** or **field level authorization** in GraphQL. You can apply authorization at the data-access level with an ORM like Sequelize. Your application's requirements decide which level is most effective for authorization.
+If you want to be even more exact than resolver level authorization, check out **directive-based authorization** or **field level authorization** in GraphQL. You can apply authorization at the data-access level with an ORM like Sequelize, too. Your application's requirements decide which level is most effective for authorization.
 
 ### Exercises:
 
@@ -2882,7 +2882,7 @@ If you want to be even more exact than resolver level authorization, check out *
 
 {{% chapter_header "Pagination in GraphQL with Apollo Server" "apollo-server-pagination" %}}
 
-Using GraphQL, you will almost certainly encounter a feature called **pagination** for applications with lists of items. Stored user messages in a chat application become long lists, and when the client application request messages for the display, retrieving all messages from the database at once can lead to severe performance bottlenecks. Pagination allows you to split up a list of items into multiple listss, called pages. A page is usually defined with a limit and an offset. That way, you can request one page of items, and when a user wants to see more, request another page of items.
+Using GraphQL, you will almost certainly encounter a feature called **pagination** for applications with lists of items. Stored user messages in a chat application become long lists, and when the client application request messages for the display, retrieving all messages from the database at once can lead to severe performance bottlenecks. Pagination allows you to split up a list of items into multiple lists, called pages. A page is usually defined with a limit and an offset. That way, you can request one page of items, and when a user wants to see more, request another page of items.
 
 You will implement pagination in GraphQL with two different approaches in the following sections. The first approach will be the most naive approach, called **offset/limit-based pagination**. The advanced approach is **cursor-based pagination**. one of many sophisticated ways to allow pagination in an application.
 
@@ -2954,11 +2954,11 @@ query {
 }
 {{< /highlight >}}
 
-Even though this approach is simpler, it comes with a few disadvantages. When your offset becomes very long, the database query takes longer, which  can lead to a poor client-side performance while the UI waits for the next page of data. Also, offset/limit pagination cannot handlee deleted items in between queries. For instance, if you query the first page and someone deletes an item, the offset would be wrong on the next page because the item count is off by one. You cannot easily overcome this problem with offset/limit pagination, which is why cursor-based pagination might be necessary.
+Even though this approach is simpler, it comes with a few disadvantages. When your offset becomes very long, the database query takes longer, which  can lead to a poor client-side performance while the UI waits for the next page of data. Also, offset/limit pagination cannot handle deleted items in between queries. For instance, if you query the first page and someone deletes an item, the offset would be wrong on the next page because the item count is off by one. You cannot easily overcome this problem with offset/limit pagination, which is why cursor-based pagination might be necessary.
 
 {{% sub_chapter_header "Cursor-based Pagination with Apollo Server and GraphQL" "apollo-server-cursor-based-pagination" %}}
 
-In cursor-based pagination, the offset is given an identifier called a **cursor** rather counting items like offset/limit pagination. The cursor can be used to expresse  "give me a limit of X items from cursor Y". A common approach to use dates (e.g. creation date of an entity in the database) to identify an item in the list. In our case, each message already has a `createdAt` date that is assigned to the entity when it is written to the database. Now we'll extend the *src/schema/message.js* which uses this field for a message. Afterward, you should be able to query this/ field in GraphQL Playground:
+In cursor-based pagination, the offset is given an identifier called a **cursor** rather counting items like offset/limit pagination. The cursor can be used to expresse  "give me a limit of X items from cursor Y". A common approach to use dates (e.g. creation date of an entity in the database) to identify an item in the list. In our case, each message already has a `createdAt` date that is assigned to the entity when it is written to the database. Now we'll extend the *src/schema/message.js* which uses this field for a message. Afterward, you should be able to query this field in GraphQL Playground:
 
 {{< highlight javascript "hl_lines=17" >}}
 import { gql } from 'apollo-server-express';
@@ -3040,7 +3040,7 @@ const createUsersWithMessages = async date => {
 };
 {{< /highlight >}}
 
-That's the cursor the will be the creation date of each message. Now we have to change the original pagination to cursor-based in the *src/schema/message.js* file. You only need to exchange the offset with the cursor. Instead of an offset that can only be matched implicitly to an item in a list and changes once an item is deleted from the list, the cursor has a stable position within, because the message creation dates won't change.
+That's the cursor that will be the creation date of each message. Now we have to change the original pagination to cursor-based in the *src/schema/message.js* file. You only need to exchange the offset with the cursor. Instead of an offset that can only be matched implicitly to an item in a list and changes once an item is deleted from the list, the cursor has a stable position within, because the message creation dates won't change.
 
 {{< highlight javascript "hl_lines=5" >}}
 import { gql } from 'apollo-server-express';
@@ -3097,7 +3097,7 @@ export default {
 };
 {{< /highlight >}}
 
-Instead of the offset, the cursor is the `createdAt` property of a message. With Sequelize (but also any other ORMs, it is possible to add a clause to find all items in a list by a starting property (`createdAt`) with less than (`lt`) or greater than (`gt`, which is not used here) values for this property. Using a date as a cursor, the where clause finds all messages **before** this date, because there is an `lt` Sequelize operator.
+Instead of the offset, the cursor is the `createdAt` property of a message. With Sequelize and other ORMs it is possible to add a clause to find all items in a list by a starting property (`createdAt`) with less than (`lt`) or greater than (`gt`, which is not used here) values for this property. Using a date as a cursor, the where clause finds all messages **before** this date, because there is an `lt` Sequelize operator.
 
 There are two more improvements we can use to make the code more explicit:
 
@@ -3233,7 +3233,7 @@ That's a basic implementation of a cursor-based pagination using the creation da
 
 {{% sub_chapter_header "Cursor-based Pagination: Page Info, Connections and Hashes" "cursor-based-pagination-page-info-connections-hashes" %}}
 
-In this last section about pagination in GraphQL, we advance the cursor-based pagination with a few improvements. Currently, you have query all creation dates of the messages to use the creation date of the last message for the next page as a cursor. GraphQL connections add only a structural change to your list fields in GraphQL that allow you to pass meta information. Let's add a GraphQL connection in the *src/schema/message.js* file:
+In this last section about pagination in GraphQL, we advance the cursor-based pagination with a few improvements. Currently, you have to query all creation dates of the messages to use the creation date of the last message for the next page as a cursor. GraphQL connections add only a structural change to your list fields in GraphQL that allow you to pass meta information. Let's add a GraphQL connection in the *src/schema/message.js* file:
 
 {{< highlight javascript "hl_lines=5 14 15 16 17 19 20 21" >}}
 import { gql } from 'apollo-server-express';
@@ -3267,7 +3267,7 @@ export default gql`
 `;
 {{< /highlight >}}
 
-You introduced an intermediate layer that holds meta information with the PageInfo type, with the list of items in an edges field. In the intermediate layer, you can introduce the new information such as an `endCursor` (`createdAt` of the last message in the list). Then, you won't need to query every `createdAt` date of every message, only the `endCursor`. Place these changes in the *src/resolvers/message.js* file:
+You introduced an intermediate layer that holds meta information with the PageInfo type with the list of items in an edges field. In the intermediate layer, you can introduce the new information such as an `endCursor` (`createdAt` of the last message in the list). Then, you won't need to query every `createdAt` date of every message, only the `endCursor`. Place these changes in the *src/resolvers/message.js* file:
 
 {{< highlight javascript "hl_lines=16 22 23 24 25 26 27" >}}
 ...
@@ -3740,7 +3740,7 @@ subscription {
 }
 {{< /highlight >}}
 
-Results will indicator that the tab is listening for changes. In the second tab, log in a user:
+Results will indicate the tab is listening for changes. In the second tab, log in a user:
 
 {{< highlight javascript >}}
 mutation {
@@ -3797,7 +3797,7 @@ You have implemented GraphQL subscriptions. It can be a challenge to wrap your h
 
 {{% chapter_header "Testing a GraphQL Server" "graphql-server-testing" %}}
 
-Testing often get overlooked in programming insruction, so this section will focus on to end-to-end (E2E) testing of a GraphQL server. While unit and integration tests are the fundamental pillars of the popular testing pyramid, covering all standalone functionalities of your application, E2E tests cover user scenarios for the entire application. An E2E test will assess whether a user is able to sign up for your application, or whether an admin user can delete other users. You don't need to write as many E2E tests, because they cover larger and more complex user scenarios, not just basic functionality. Also, E2E tests cover all the technical corners of your application, such as the GraphQL API, business logic, and databases.
+Testing often get overlooked in programming instruction, so this section will focus on to end-to-end (E2E) testing of a GraphQL server. While unit and integration tests are the fundamental pillars of the popular testing pyramid, covering all standalone functionalities of your application, E2E tests cover user scenarios for the entire application. An E2E test will assess whether a user is able to sign up for your application, or whether an admin user can delete other users. You don't need to write as many E2E tests, because they cover larger and more complex user scenarios, not just basic functionality. Also, E2E tests cover all the technical corners of your application, such as the GraphQL API, business logic, and databases.
 
 {{% sub_chapter_header "GraphQL Server E2E Test Setup" "graphql-server-e2e-test-setup" %}}
 
@@ -3965,7 +3965,7 @@ export const user = async variables =>
   });
 {{< /highlight >}}
 
-You can use basic HTTP to perform GraphQL operations across the network layer. It only needs a payload, which is the query/mutation and the variables. Beyond that, the URL of the GraphQL server must be know. Now, import the user API in your actual test file:
+You can use basic HTTP to perform GraphQL operations across the network layer. It only needs a payload, which is the query/mutation and the variables. Beyond that, the URL of the GraphQL server must be known. Now, import the user API in your actual test file:
 
 {{< highlight javascript "hl_lines=3" >}}
 import { expect } from 'chai';
@@ -4194,7 +4194,7 @@ There are two improvements that can be made with batching. First, one author of 
 
 Second, every author is read from the database individually, even though the list is purged from its duplications. Reading all authors with only one database request should be possible, because at the time of the GraphQL API request with all messages at your disposal, you know all the identifiers of the authors. This decreases your database accesses from 3 to 2, because now you only request the list of 100 messages and its 2 authors in two requests.
 
-The same two principals can be applied to the 4 database accessesm which should be decreased to 2. On a smaller scale, it might not have much of a performance impact, but for 100 messages with the 2 authors, it would reduces your database accesses from significantly. That's where Facebook's open source {{% a_blank "dataloader" "https://github.com/facebook/dataloader" %}} comes becomes a vital tool. You can install it via npm on the command line:
+The same two principals can be applied to the 4 database accesses which should be decreased to 2. On a smaller scale, it might not have much of a performance impact, but for 100 messages with the 2 authors, it reduces your database accesses significantly. That's where Facebook's open source {{% a_blank "dataloader" "https://github.com/facebook/dataloader" %}} becomes a vital tool. You can install it via npm on the command line:
 
 {{< highlight javascript >}}
 npm install dataloader
@@ -4565,6 +4565,6 @@ Congratulations, your application should be live now. Not only is your GraphQL s
 
 <hr class="section-divider">
 
-You built a sophisticated GraphQL server boilerplate project with Express and Apollo Server. You should have learned that GraphQL isn't opinionated about various things, and about authentication, authorization, database access, and pagination. Most of the operations we learned were more straightforward because of Apollo Server over the GraphQL reference implementation in JavaScript. That's okay, because many people are using Apollo Server to build GraphQL servers. Use this application as a starter project to realize your own ideas, or find my starter project with a GraphQL client built in React in {{% a_blank "this GitHub repository" "https://github.com/rwieruch/fullstack-apollo-react-express-boilerplate-project" %}}. 
+You built a sophisticated GraphQL server boilerplate project with Express and Apollo Server. You should have learned that GraphQL isn't opinionated about various things, and about authentication, authorization, database access, and pagination. Most of the operations we learned were more straightforward because of Apollo Server over the GraphQL reference implementation in JavaScript. That's okay, because many people are using Apollo Server to build GraphQL servers. Use this application as a starter project to realize your own ideas, or find my starter project with a GraphQL client built in React in {{% a_blank "this GitHub repository" "https://github.com/rwieruch/fullstack-apollo-react-express-boilerplate-project" %}}.
 
 {{% read_more "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial/" %}}
