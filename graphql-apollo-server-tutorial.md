@@ -27,7 +27,7 @@ Since GraphQL is a query language, its transport layer and data format is undefi
 
 In this chapter, you will implement server-side architecture using GraphQL and Apollo Server. The GraphQL query language is implemented as a reference implementation in JavaScript by Facebook, while Apollo Server builds on it to simplify building GraphQL servers in JavaScript.
 
-In the end, yo should have a fully working GraphQL server boilerplate project that implements authentication, authorization, a data access layer with a database, domain specific entities such as users and messages, different pagination strategies, and real-time abilities due to subscriptions. You can find a working solution of it, as well as a working client-side application in React, in this GitHub repository: {{% a_blank "Full-stack Apollo with React and Express Boilerplate Project" "https://github.com/rwieruch/fullstack-apollo-react-express-boilerplate-project" %}}. I consider it an ideal starter project to realize your own idea.
+In the end, you should have a fully working GraphQL server boilerplate project that implements authentication, authorization, a data access layer with a database, domain specific entities such as users and messages, different pagination strategies, and real-time abilities due to subscriptions. You can find a working solution of it, as well as a working client-side application in React, in this GitHub repository: {{% a_blank "Full-stack Apollo with React and Express Boilerplate Project" "https://github.com/rwieruch/fullstack-apollo-react-express-boilerplate-project" %}}. I consider it an ideal starter project to realize your own idea.
 
 While building this application with me in the following sections, I recommend to verify your implementations with the built-in GraphQL client application (e.g. GraphQL Playground). Once you have your database setup done, you can verify your stored data over there as well. In addition, if you feel comfortable with it, you can implement a client application (in React or something else) which consumes the GraphQL API of this server. So let's get started!
 
@@ -71,7 +71,7 @@ While building this application with me in the following sections, I recommend t
 
 Apollo Server can be used with several popular libraries for Node.js like Express, Koa, Hapi. It is kept library agnostic, so it's possible to connect it with many different third-party libraries in client and server applications. In this application, you will use {{% a_blank "Express" "https://expressjs.com/" %}}, because it is the most popular and common middleware library for Node.js.
 
-Install these two dependencies to the *paIckage.json* file and *node_modules* folder:
+Install these two dependencies to the *package.json* file and *node_modules* folder:
 
 {{< highlight javascript >}}
 npm install apollo-server apollo-server-express --save
@@ -156,7 +156,7 @@ const data = {
 
 In the GraphQL schema for setting up an Apollo Server, **resolvers** are used to return data for fields from the schema. The data source doesn't matter, because the data can be hardcoded, can come from a database, or from another (RESTful) API endpoint. You will learn more about potential data sources later. For now, it only matters that the resolvers are agnostic according to where the data comes from, which separates GraphQL from your typical database query language. Resolvers are functions that resolve data for your GraphQL fields in the schema. In the previous example, only a user object with the username "Robin Wieruch" gets resolved from the `me` field.
 
-Your GraphQL API with Apollo Server and Express should be working now. On the command line, you can always start your application with the `npm start` script to verify it works after you make changes. To verify it without a client application, Apollo Server comes with GraphQL Playground, a built-in client for consuming GraphQL APIs.  It is found by using a GraphQL API endpoint in a browser, at`http://localhost:8000/graphql`. In the application, define your first GraphQL query to see its result:
+Your GraphQL API with Apollo Server and Express should be working now. On the command line, you can always start your application with the `npm start` script to verify it works after you make changes. To verify it without a client application, Apollo Server comes with GraphQL Playground, a built-in client for consuming GraphQL APIs.  It is found by using a GraphQL API endpoint in a browser at `http://localhost:8000/graphql`. In the application, define your first GraphQL query to see its result:
 
 {{< highlight javascript >}}
 {
@@ -285,7 +285,7 @@ const resolvers = {
 };
 {{< /highlight >}}
 
-The first argument called `parent` as well, but you shouldn't worry about it for now. Later, it will be showcased where it can be used in your resolvers. Now, to make the example more realistic, extract a map of sample users and return a user based on the `id` used as a key in the extracted map:
+The first argument is called `parent` as well, but you shouldn't worry about it for now. Later, it will be showcased where it can be used in your resolvers. Now, to make the example more realistic, extract a map of sample users and return a user based on the `id` used as a key in the extracted map:
 
 {{< highlight javascript "hl_lines=1 2 3 4 5 6 7 8 9 10 12 16 17 20" >}}
 let users = {
@@ -532,7 +532,7 @@ The context should be the same for all resolvers now. Every resolver that needs 
 
 The fourth argument in a resolver function, the info argument, isn't used very often, because it only gives you internal information about the GraphQL request. It can be used for debugging, error handling, advanced monitoring, and tracking. You don't need to worry about it for now.
 
-A couple of words about the a resolver's return values: a resolver can return arrays, objects and scalar types, but it has to be defined in the matching type definitions. The type definition has to define an array or non-nullable field to have the resolvers working appropriately. What about JavaScript promises? Often, you will make a request to a data source (database, RESTful API) in a resolver, returning a JavaScript promise in the resolver. GraphQL can deal with it, and waits for the promise to resolve, except the result is mapped to the type definitions. That's why you don't need to worry about asynchronous requests to your data source later.
+A couple of words about the a resolver's return values: a resolver can return arrays, objects and scalar types, but it has to be defined in the matching type definitions. The type definition has to define an array or non-nullable field to have the resolvers working appropriately. What about JavaScript promises? Often, you will make a request to a data source (database, RESTful API) in a resolver, returning a JavaScript promise in the resolver. GraphQL can deal with it, and waits for the promise to resolve. That's why you don't need to worry about asynchronous requests to your data source later.
 
 ### Exercises:
 
@@ -918,7 +918,7 @@ const resolvers = {
 };
 {{< /highlight >}}
 
-The last part is essentially your writing operation to a data source. In this case, you have only updated the sample data, but it it would most likey be a database in practical use. Next, implement the mutation for deleting messages:
+The last part is essentially your writing operation to a data source. In this case, you have only updated the sample data, but it would most likey be a database in practical use. Next, implement the mutation for deleting messages:
 
 {{< highlight javascript "hl_lines=13" >}}
 const schema = gql`
@@ -971,6 +971,7 @@ const resolvers = {
 The resolver finds the message by id from the messages object using destructuring. If there is no message, the resolver returns false. If there is a message, the remaining messages without the deleted message are the updated versions of the messages object. Then, the resolver returns true. Otherwise, if no message is found, the resolver returns false. Mutations in GraphQL and Apollo Server aren't much different from GraphQL queries, except they write data.
 
 There is only one GraphQL operation missing for making the messages features complete. It is possible to read, create, and delete messages, so the only operation left is updating them as an exercise.
+
 ### Exercises:
 
 * Create a message in GraphQL Playground with a mutation
@@ -1320,7 +1321,7 @@ In the last section, you extracted schema and resolvers from your main file and 
   * index.js
 {{< /highlight >}}
 
-You now have a good starting point for a GraphQL server application with Node.js. Yhe last implementations gave you a universally usable GraphQL boilerplate project to serve as a foundation for your own software development projects. As we contintue, the focus becomes connecting GraphQL server to databases, authentication and authorization, and using powerful features like pagination.
+You now have a good starting point for a GraphQL server application with Node.js. The last implementations gave you a universally usable GraphQL boilerplate project to serve as a foundation for your own software development projects. As we contintue, the focus becomes connecting GraphQL server to databases, authentication and authorization, and using powerful features like pagination.
 
 ### Exercises:
 
@@ -1352,7 +1353,7 @@ Once you have installed PostgreSQL on your local machine, you'll also want to ac
 npm install pg sequelize --save
 {{< /highlight >}}
 
-Now you can create models for your the user and message domains. Models are usually the data access layer in applications. Then, set up your models with Sequelize to make read and write operations to your PostgreSQL database. The models can then be used in GraphQL resolvers by passing them through the context object to each resolver. These are the essential steps:
+Now you can create models for the user and message domains. Models are usually the data access layer in applications. Then, set up your models with Sequelize to make read and write operations to your PostgreSQL database. The models can then be used in GraphQL resolvers by passing them through the context object to each resolver. These are the essential steps:
 
 * Creating a model for the user domain
 * Creating a model for the message domain
@@ -1401,7 +1402,7 @@ const message = (sequelize, DataTypes) => {
 export default message;
 {{< /highlight >}}
 
-Both models define the shapes of their entities. The message model has a database column with the name text of type string. You can add multiple database columns horizontally to your model. All columns of a model make up a table row in the database, and each row reflects a database entry, such as a message or user. The database table name is defined by an argument in the Sequelize model definition. The message domain has the table "message". Youcan define relationships between entities with Sequelize using associations. In this case, a message entity belongs to one user, and that user has many messages. That's a minimal database setup with two domains, but since we're focusing on server-side GraphQL, you should consider reading more about databases subjects outside of these tutorials to fully grasp the concept.
+Both models define the shapes of their entities. The message model has a database column with the name text of type string. You can add multiple database columns horizontally to your model. All columns of a model make up a table row in the database, and each row reflects a database entry, such as a message or user. The database table name is defined by an argument in the Sequelize model definition. The message domain has the table "message". You can define relationships between entities with Sequelize using associations. In this case, a message entity belongs to one user, and that user has many messages. That's a minimal database setup with two domains, but since we're focusing on server-side GraphQL, you should consider reading more about databases subjects outside of these tutorials to fully grasp the concept.
 
 Next, connect to your database from within your application in the *src/models/index.js* file. We'll need the database name, a database super user, and the user's password. You may also want to define a database dialect, because Sequelize supports other databases as well.
 
@@ -1667,7 +1668,7 @@ const server = new ApolloServer({
 });
 {{< /highlight >}}
 
-However, this cannot work yet, because the user is read asynchronously from the database, so`me` would be a JavaScript promise rather than the actual user; and because you may want to retrieve the `me` user on a per-request basis from the database. Otherwise, the `me` user has to stay the same after the Apollo Server is created.  Instead, use a function that returns the context object rather than an object for the context in Apollo Server. This function uses the async/await statements. The function is invoked every time a request hits your GraphQL API, so the `me` user is retrieved from the database with every request.
+However, this cannot work yet, because the user is read asynchronously from the database, so `me` would be a JavaScript promise rather than the actual user; and because you may want to retrieve the `me` user on a per-request basis from the database. Otherwise, the `me` user has to stay the same after the Apollo Server is created.  Instead, use a function that returns the context object rather than an object for the context in Apollo Server. This function uses the async/await statements. The function is invoked every time a request hits your GraphQL API, so the `me` user is retrieved from the database with every request.
 
 {{< highlight javascript "hl_lines=4 6 7" >}}
 const server = new ApolloServer({
@@ -2067,11 +2068,11 @@ export default gql`
 `;
 {{< /highlight >}}
 
-The `signUp` mutation takes three non-nullable arguments: username, email, and password. These are used to create a user in the databasw. The user should be able to take the username or email address combined with the password to enable a successful login.
+The `signUp` mutation takes three non-nullable arguments: username, email, and password. These are used to create a user in the database. The user should be able to take the username or email address combined with the password to enable a successful login.
 
 Now we'll consider the return type of the `signUp` mutation. Since we are going to use a /token-based authentication with GraphQL, it is sufficient to return a token that is nothing more than a string. However, to distinguish the token in the GraphQL schema, it has its own GraphQL type. You will learn more about tokens in the following, because the token is all about the authentication mechanism for this application.
 
-First, add the counterpart for your new mutation in the GraphQL schema as a resolver function. In your *src/resolvers/user.js* file, add the following resolver function that creates a user in the database and returns an object with the token valueas string.
+First, add the counterpart for your new mutation in the GraphQL schema as a resolver function. In your *src/resolvers/user.js* file, add the following resolver function that creates a user in the database and returns an object with the token value as string.
 
 {{< highlight javascript "hl_lines=1 2 3 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24" >}}
 const createToken = async (user) => {
@@ -2160,7 +2161,7 @@ const user = (sequelize, DataTypes) => {
 export default user;
 {{< /highlight >}}
 
-The bcrypt `hash()` method takes a string--the user's password--and an integer called salt rounds. Each salt round makes it more costly to hash the password, which makes it more costly for attackers to decrypt the hash value. A common value for salt rounds nowadays ranged from 10 to 12, as increasoning the number of salt rounds might cause performance issues both ways.
+The bcrypt `hash()` method takes a string--the user's password--and an integer called salt rounds. Each salt round makes it more costly to hash the password, which makes it more costly for attackers to decrypt the hash value. A common value for salt rounds nowadays ranged from 10 to 12, as increasing the number of salt rounds might cause performance issues both ways.
 
 In this implementation, the `generatePasswordHash()` function is added to the user's prototype chain. That's why it is possible to execute the function as method on each user instance, so you have the user itself available within the method as `this`. You can also take the user instance with its password as an argument, which I prefer, though using JavaScript's prototypal inheritance a good tool for any wenb developer. For now, the password is hashed with bcrypt before it gets stored every time a user is created in the database,.
 
