@@ -309,9 +309,11 @@ Now you have both helper files for your tests in place. One to expose functions 
 {{< highlight javascript "hl_lines=3" >}}
 "scripts": {
   "start": "webpack-dev-server --config ./webpack.config.js",
-  "test:unit": "mocha --require babel-core/register --require ./test/helpers.js --require ./test/dom.js 'src/**/*.spec.js'"
+  "test:unit": "mocha --require @babel/register --require ./test/helpers.js --require ./test/dom.js 'src/**/*.spec.js'"
 },
 {{< /highlight >}}
+
+If you haven't installed @babel/register which is used in the npm script yet, you can do it with `npm install -save-dev @babel/register`.
 
 As you can see, the script takes both configuration files as required test configuration and executes all test files which end with the suffix "*.spec.js". Basically a test file could be named *App.spec.js* and it has to be somewhere in the */src* folder. Of course, you can come up with your own rules for the test file naming here. It's up to you.
 
@@ -320,7 +322,7 @@ The script can be executed by running `npm run test:unit` on the command line no
 {{< highlight javascript "hl_lines=4" >}}
 "scripts": {
   "start": "webpack-dev-server --config ./webpack.config.js",
-  "test:unit": "mocha --require babel-core/register --require ./test/helpers.js --require ./test/dom.js 'src/**/*.spec.js'",
+  "test:unit": "mocha --require @babel/register --require ./test/helpers.js --require ./test/dom.js 'src/**/*.spec.js'",
   "test:unit:watch": "npm run test:unit -- --watch"
 },
 {{< /highlight >}}
@@ -334,7 +336,7 @@ Last but not least, before diving into testing with Mocha and Chai, there is one
 {{< highlight javascript "hl_lines=3" >}}
 "scripts": {
   "start": "webpack-dev-server --config ./webpack.config.js",
-  "test:unit": "mocha --require babel-core/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
+  "test:unit": "mocha --require @babel/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
   "test:unit:watch": "npm run test:unit -- --watch"
 },
 {{< /highlight >}}
@@ -776,12 +778,18 @@ The `testRegex` configuration is a regular expression that can be used to specif
 
 The `rootDir` configuration is used to specify the root folder where Jest should start to run through all the folders recursively. Since the Jest configuration is located in the *test/* folder, you have to go one folder up the directory chain to be able to access the *src/* folder where your snapshot tests can be found.
 
+Next, you need to install two packages to make it work with Babel. Especially the second package might change in the future, but it must be used for the recent Babel 7 upgrade.
+
+{{< highlight javascript >}}
+npm install --save-dev babel-jest babel-core@^7.0.0-bridge.0
+{{< /highlight >}}
+
 Last but not least, you need to specify a new script in your *package.json* to run your snapshot tests on the command line:
 
 {{< highlight javascript "hl_lines=5 6" >}}
 "scripts": {
   "start": "webpack-dev-server --config ./webpack.config.js",
-  "test:unit": "mocha --require babel-core/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
+  "test:unit": "mocha --require @babel/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
   "test:unit:watch": "npm run test:unit -- --watch",
   "test:snapshot": "jest --config ./test/jest.config.json",
   "test:snapshot:watch": "npm run test:snapshot -- --watch"
@@ -856,7 +864,7 @@ Third, you can add a script for npm to your *package.json* file. That way, you a
 {{< highlight javascript "hl_lines=7" >}}
 "scripts": {
   "start": "webpack-dev-server --config ./webpack.config.js --mode development",
-  "test:unit": "mocha --require babel-core/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
+  "test:unit": "mocha --require @babel/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
   "test:unit:watch": "npm run test:unit -- --watch",
   "test:snapshot": "jest --config ./test/jest.config.json",
   "test:snapshot:watch": "npm run test:snapshot -- --watch",
@@ -917,7 +925,7 @@ If you want, you can add the script slightly for Cypress to run every test by de
 {{< highlight javascript "hl_lines=7" >}}
 "scripts": {
   "start": "webpack-dev-server --config ./webpack.config.js --mode development",
-  "test:unit": "mocha --require babel-core/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
+  "test:unit": "mocha --require @babel/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
   "test:unit:watch": "npm run test:unit -- --watch",
   "test:snapshot": "jest --config ./test/jest.config.json",
   "test:snapshot:watch": "npm run test:snapshot -- --watch",
@@ -933,11 +941,11 @@ You can suppress the video recording in your Cypress configuration file in your 
 touch cypress.json
 {{< /highlight >}}
 
-Now, in the Cypress configuration file, add the `videoRecording` flag and set it to false.
+Now, in the Cypress configuration file, add the `video` flag and set it to false.
 
 {{< highlight javascript >}}
 {
-  "videoRecording": false
+  "video": false
 }
 {{< /highlight >}}
 
@@ -956,7 +964,7 @@ Second, add it to your *package.json* scripts. The library expects the following
 {{< highlight javascript "hl_lines=7 8" >}}
 "scripts": {
   "start": "webpack-dev-server --config ./webpack.config.js --mode development",
-  "test:unit": "mocha --require babel-core/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
+  "test:unit": "mocha --require @babel/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
   "test:unit:watch": "npm run test:unit -- --watch",
   "test:snapshot": "jest --config ./test/jest.config.json",
   "test:snapshot:watch": "npm run test:snapshot -- --watch",
@@ -984,7 +992,7 @@ A best practice in Cypress testing is adding the base URL to your **cypress.json
 
 {{< highlight javascript >}}
 {
-  "videoRecording": false,
+  "video": false,
   "baseUrl": "http://localhost:8080"
 }
 {{< /highlight >}}
@@ -1154,7 +1162,7 @@ Second, add a new script to your *package.json* file to introduce coveralls:
 {{< highlight javascript "hl_lines=7" >}}
 "scripts": {
   "start": "webpack-dev-server --config ./webpack.config.js",
-  "test:unit": "mocha --require babel-core/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
+  "test:unit": "mocha --require @babel/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
   "test:unit:watch": "npm run test:unit -- --watch",
   "test:snapshot": "jest --config ./test/jest.config.json",
   "test:snapshot:watch": "npm run test:snapshot -- --watch",
