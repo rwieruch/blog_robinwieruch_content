@@ -344,7 +344,7 @@ For this application, there is no elaborated React setup needed. You will simply
 * create a new React application with create-react-app
 * create a folder/file structure for your project (recommendation below)
 
-It's up to you to come up with an own folder/file structure for your components in the *src/* folder. The following top level structure is only a recommendation. If you adjust it to your own needs, keep in mind that the JavaScript import statements with their paths may vary for your own application structure. Along the way, you may introduce additional folders and files. If you don't want to create everything (folders, files, styles) yourself, you can clone this {{% a_blank "GitHub repository" "https://github.com/rwieruch/react-graphql-apollo-tutorial-boilerplate" %}} instead and follow its installation instructions.
+It's up to you to come up with an own folder/file structure for your components in the *src/* folder. The following top level structure is only a recommendation. If you adjust it to your own needs, keep in mind that the JavaScript import statements with their paths may vary for your own application structure. Along the way, you may introduce additional folders and files. If you don't want to create everything (folders, files, styles) yourself, you can clone this {{% a_blank "GitHub repository" "https://github.com/the-road-to-graphql/react-graphql-github-apollo-starter-kit" %}} instead and follow its installation instructions.
 
 * App/
   * index.js
