@@ -403,7 +403,7 @@ Two utility packages are requied for two mandatory configurations used to create
 npm install apollo-cache-inmemory apollo-link-http --save
 {{< /highlight >}}
 
-As you can see, nothing has been mentioned about React, only the Apollo Client plus two packages for its configuration. There are two additional packages required for Apollo Client to work with GraphQL, to be used as internal dependencies by Apollo. The latter is also used to define queries and mutations. These utilities came directly from Apollo Boost.
+As you can see, nothing has been mentioned about React, only the Apollo Client plus two packages for its configuration. There are two additional packages required for Apollo Client to work with GraphQL, to be used as internal dependencies by Apollo. The latter is also used to define queries and mutations. Previously, these utilities came directly from Apollo Boost.
 
 {{< highlight javascript >}}
 npm install graphql graphql-tag --save
