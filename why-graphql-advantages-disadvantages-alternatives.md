@@ -2,7 +2,7 @@
 title = "Why GraphQL: Advantages, Disadvantages & Alternatives"
 description = "An overview about the advantages and disadvantages of using GraphQL instead of REST for JavaScript applications. It answers the question: 'What is GraphQL' and 'Why you should use GraphQL' for your next JavaScript application ..."
 date = "2018-07-03T13:50:46+02:00"
-tags = ["React", "GraphQL", "JavaScript"]-
+tags = ["React", "GraphQL", "JavaScript"]
 categories = ["React", "GraphQL", "JavaScript"]
 keywords = ["graphql alternatives", "graphql advantages", "graphql disadvantages", "why graphql", "graphql benefits", "graphql rest"]
 news_keywords = ["graphql alternatives", "graphql advantages", "graphql disadvantages", "why graphql", "graphql benefits", "graphql rest"]
@@ -23,7 +23,7 @@ summary = "Overview about the advantages and disadvantages of using GraphQL inst
 
 {{% read_before "This tutorial is part 1 of 2 in this series." "Part 2:" "Why Apollo: Advantages, Disadvantages & Alternatives" "https://www.robinwieruch.de/why-apollo-advantages-disadvantages-alternatives" %}}
 
-When it comes to network requests between client and server applications, {{% a_blank "REST" "https://en.wikipedia.org/wiki/Representational_state_transfer" %}} is one of the most popular choices to connect both worlds. In REST, everything yevolves around the idea of having resources that are accessible by URLs. You can read a resource with a HTTP GET request, create a resource with a HTTP POST request, and update or delete it with HTTP PUT and DELETE requests. These are called CRUD (Create, Read, Update, Delete) operations. Resources can be anything from authors, articles, or users. The format for transferring data is not opinionated with REST, but most often people will use JSON for it. In the end, REST enables applications to communicate with each other by using plain HTTP with URLs and HTTP methods.
+When it comes to network requests between client and server applications, {{% a_blank "REST" "https://en.wikipedia.org/wiki/Representational_state_transfer" %}} is one of the most popular choices to connect both worlds. In REST, everything evolves around the idea of having resources that are accessible by URLs. You can read a resource with a HTTP GET request, create a resource with a HTTP POST request, and update or delete it with HTTP PUT and DELETE requests. These are called CRUD (Create, Read, Update, Delete) operations. Resources can be anything from authors, articles, or users. The format for transferring data is not opinionated with REST, but most often people will use JSON for it. In the end, REST enables applications to communicate with each other by using plain HTTP with URLs and HTTP methods.
 
 {{< highlight json >}}
 // a RESTful request
@@ -39,7 +39,7 @@ GET https://api.domain.com/authors/7
 }
 {{< /highlight >}}
 
-Though REST was the status quo for a long time, a Facebook techology called GraphQL has recently emerged as a potential successor. The following sections introduce GrapQL's advantages and disadvantages, as well as possible alternatives for developers who need options.
+Though REST was the status quo for a long time, a Facebook techology called GraphQL has recently emerged as a potential successor. The following sections introduce GraphQL's advantages and disadvantages, as well as possible alternatives for developers who need options.
 
 {{% chapter_header "What is GraphQL?" "what-is-graphql" %}}
 
@@ -47,7 +47,9 @@ In short, GraphQL is an open source **query language** created by Facebook, a co
 
 Facebook open-sourced the GraphQL specification and its reference implementation in JavaScript, and multiple major programming languages implemented the specification have followed since then. The ecosystem around GraphQL is growing horizontally by offering multiple programming languages, but also vertically, with libraries on top of GraphQL like Apollo and Relay.
 
-A GraphQL operation is either a query (read), mutation (write), or subscription (continuous read). Each of those operations is only a string that needs to be constructed according to the GraphQL query language specification. Once this GraphQL operation reaches the backend application, it can be interpreted against the entire GraphQL schema there, and resolved with data for the frontend application. GraphQL is not opinionated about the network layer, which is often HTTP, nor about the payload format, which is usually  JSON. It isn't opinionated about the application architecture at all. It is only a query language.
+A GraphQL operation is either a query (read), mutation (write), or subscription (continuous read). Each of those operations is only a string that needs to be constructed according to the GraphQL query language specification.  Fortunately, GraphQL is evolving all the time, so there may be other operations in the future.
+
+Once this GraphQL operation reaches the backend application, it can be interpreted against the entire GraphQL schema there, and resolved with data for the frontend application. GraphQL is not opinionated about the network layer, which is often HTTP, nor about the payload format, which is usually  JSON. It isn't opinionated about the application architecture at all. It is only a query language.
 
 {{< highlight javascript >}}
 // a GraphQL query
@@ -101,11 +103,11 @@ There is no overfetching in GraphQL. A mobile client usually overfetches data wh
 
 {{% sub_chapter_header "GraphQL for React, Angular, Node and Co." "graphql-everywhere" %}}
 
-GraphQL is not just exciting for React developers, though. While Facebook showcased GraphQL on a client-side application with React, it is decoupled from any frontend or backend solution. The reference implementation of GraphQL is written in JavaScript, so the usage of GraphQL in Angular, Vue, Express, Hapi, Koa and other JavaScript libraries on the client-side and server-side is possible, and that's just the JavaScript ecosystem. GraphQL does mimic REST's query language-agnostic interface between two entities, such as client or server. 
+GraphQL is not just exciting for React developers, though. While Facebook showcased GraphQL on a client-side application with React, it is decoupled from any frontend or backend solution. The reference implementation of GraphQL is written in JavaScript, so the usage of GraphQL in Angular, Vue, Express, Hapi, Koa and other JavaScript libraries on the client-side and server-side is possible, and that's just the JavaScript ecosystem. GraphQL does mimic REST's programming language-agnostic interface between two entities, such as client or server. 
 
 {{% sub_chapter_header "Who is using GraphQL?" "graphql-who-is-using" %}}
 
-Facebook is the driving company behind the GraphQL specification and reference implementation in JavaScript, but other well-known companies are also using for their applications. They are invested in the GraphQL ecosystem due to the huge demand for modern applications. Beyond Facebook, GraphQL has also been used by these well-known scompanies:
+Facebook is the driving company behind the GraphQL specification and reference implementation in JavaScript, but other well-known companies are also it for their applications. They are invested in the GraphQL ecosystem due to the huge demand for modern applications. Beyond Facebook, GraphQL has also been used by these well-known companies:
 
 * GitHub {{% a_blank "[1]" "https://githubengineering.com/the-github-graphql-api/" %}} {{% a_blank "[2]" "https://youtu.be/lj41qhtkggU" %}}
 * Shopify {{% a_blank "[1]" "https://shopifyengineering.myshopify.com/blogs/engineering/solving-the-n-1-problem-for-graphql-through-batching" %}} {{% a_blank "[2]" "https://youtu.be/2It9NofBWYg" %}}
@@ -121,7 +123,7 @@ When GraphQL was developed and open sourced by Facebook, other companies ran int
 
 {{% sub_chapter_header "Single Source of Truth" "graphql-single-source-of-truth" %}}
 
-The GraphQL schema is the singular source of truth in GraphQL applications. It provides a central location, where all available data is described. The GraphQL schema is usually defined on server-side, but clients can read (query) and write (mutation) data based on the schema. Essentially, the server-side application offers all information about what is available on its side, and the client-side application asks for part of it by performing GraphQL queries, or alters part of it using GraphQL mutations.
+The GraphQL schema is the single source of truth in GraphQL applications. It provides a central location, where all available data is described. The GraphQL schema is usually defined on server-side, but clients can read (query) and write (mutation) data based on the schema. Essentially, the server-side application offers all information about what is available on its side, and the client-side application asks for part of it by performing GraphQL queries, or alters part of it using GraphQL mutations.
 
 {{% sub_chapter_header "GraphQL embraces modern Trends" "graphql-trends" %}}
 
@@ -133,7 +135,7 @@ Schema stitching makes it possible to create one schema out of multiple schemas.
 
 {{% sub_chapter_header "GraphQL Introspection" "graphql-introspection" %}}
 
-A GraphQL introspection makes it possible to retrieve the GraphQL schema from a GraphQL API. Since the schema has all the information about data available through the GraphQL API, it is a perfect for autogenerating API documentation.  It can also be used to mock the GraphQL schema client-side, for testing or retrieving schemas from multiple microservices during schema stitching.
+A GraphQL introspection makes it possible to retrieve the GraphQL schema from a GraphQL API. Since the schema has all the information about data available through the GraphQL API, it is perfect for autogenerating API documentation.  It can also be used to mock the GraphQL schema client-side, for testing or retrieving schemas from multiple microservices during schema stitching.
 
 {{% sub_chapter_header "Strongly Typed GraphQL" "graphql-strongly-typed" %}}
 
@@ -165,7 +167,7 @@ Another problem is rate limiting. Whereas in REST it is simpler to say "we allow
 
 {{% sub_chapter_header "GraphQL Caching" "graphql-caching" %}}
 
-Implementing a simplified cache with GraphQL is more complex than implementing it in REST. In REST, resources are accessed with URLs,  you would be able to cache on a resource level, because you have the resource URL as identifier. In GraphQL, this becomes complex because each query can be different, even though it operates on the same entity. You may only request just the name of an author in one query, but want to know the email address in the next. That's where you need a more fine-grained cache at field level, which can be difficult to implement. However, most of the libraries built on top of GraphQL offer caching mechanisms out of the box.
+Implementing a simplified cache with GraphQL is more complex than implementing it in REST. In REST, resources are accessed with URLs, so you can cache on a resource level because you have the resource URL as identifier. In GraphQL, this becomes complex because each query can be different, even though it operates on the same entity. You may only request just the name of an author in one query, but want to know the email address in the next. That's where you need a more fine-grained cache at field level, which can be difficult to implement. However, most of the libraries built on top of GraphQL offer caching mechanisms out of the box.
 
 {{% chapter_header "Why not REST?" "why-not-rest" %}}
 
