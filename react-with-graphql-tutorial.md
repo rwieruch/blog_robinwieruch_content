@@ -1259,7 +1259,7 @@ Last section you implemented a list field in your GraphQL query, which fit into 
 
 In this section, you will explore pagination with list fields with GraphQL in React in more detail. Initially, you will learn more about the arguments of list fields. Further, you will add one more nested list field to your query. Finally, you will fetch another page of the paginated `issues` list with your query. 
 
-Let' start by extending the `issues` list field in your query with one more argument:
+Let's start by extending the `issues` list field in your query with one more argument:
 
 {{< highlight javascript "hl_lines=9" >}}
 const GET_ISSUES_OF_REPOSITORY = `
