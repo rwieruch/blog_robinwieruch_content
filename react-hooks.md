@@ -23,13 +23,13 @@ React Hooks were introduced at {{% a_blank "React Conf October 2018" "https://ww
 
 **Note:** React Hooks are in React's alpha version (16.7.) and everything shown in this "how to"-article is under construction. The React team is {{% a_blank "collecting feedback for React Hooks" "https://github.com/reactjs/rfcs/pull/68" %}} which is your opportunity to contribute to this feature. If anything changes to the API, you can leave a hint in the comments below of this article too.
 
-In this walkthrough, I want to explain the motivation behind hooks, what will change in React, and how React hooks can be used in function components by showcasing the most popular React Hooks by example.
+In this walkthrough, I want to explain the motivation behind hooks, what will change in React and why we shouldn't panic, and how React hooks can be used in function components by showcasing common React Hooks such as the state and effect hooks by example.
 
 {{% chapter_header "Why React Hooks?" "why-react-hooks" %}}
 
-React Hooks were invented by the React team to introduce state management and side-effects in function components. It's their way of making it more effortless to use only React function components without the need to refactor a React function component to a React class component for using lifecycle methods or local state. Basically React Hooks enable us to write React applications with only function components.
+React Hooks were invented by the React team to introduce state management and side-effects in function components. It's their way of making it more effortless to use only React function components without the need to refactor a React function component to a React class component for using lifecycle methods, in order to use have side-effects, or local state. React Hooks enable us to write React applications with only function components.
 
-**Unnecessary Component Refactorings:** Previously, only React class components were used for local state management and lifecycle methods.
+**Unnecessary Component Refactorings:** Previously, only React class components were used for local state management and lifecycle methods. The latter have been essential for introducing side-effects, such as listeners or data fetching, in React class components.
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -62,12 +62,12 @@ class Counter extends React.Component {
 export default Counter;
 {{< /highlight >}}
 
-Only if you didn't need state or lifecycle methods, React functional *stateless* components could be used. Since React function components are more lightweight and elegant, people often used function components. This came with the drawback of refactoring components from React function components to React class components every time state or lifecycle methods were needed (and vice versa).
+Only if you didn't need state or lifecycle methods, React functional *stateless* components could be used. And because React function components are more lightweight (and elegant), people already used plenty of function components. This came with the drawback of refactoring components from React function components to React class components every time state or lifecycle methods were needed (and vice versa).
 
 {{< highlight javascript >}}
 import React, { useState } from 'react';
 
-// how to use state in a React function component with hooks
+// how to use the state hook in a React function component
 function Counter() {
   const [count, setCount] = useState(0);
 
@@ -84,18 +84,20 @@ function Counter() {
 export default Counter;
 {{< /highlight >}}
 
-With Hooks there is no need for this refactoring. Side-effects and state are finally available in React function components. That's why a rebranding from functional stateless components to function components for them would be reasonable.
+With Hooks there is no need for this refactoring. Side-effects and state are finally available in React function components. That's why a rebranding from functional stateless components to function components would be reasonable.
 
 **Side-effect Logic:** In React class components, side-effects were mostly introduced in lifecycle methods (e.g. componentDidMount, componentDidUpdate, componentWillUnmount). A side-effect could be [fetching data in React](https://www.robinwieruch.de/react-fetching-data/) or [interacting with the Browser API](https://www.robinwieruch.de/react-intersection-observer-api/). Usually these side-effects came with a setup and clean up phase. For instance, if you would miss to remove your listener, you could run into [React performance issues](https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-component/).
 
 {{< highlight javascript >}}
 // side-effects in a React class component
 class MyComponent extends Component {
+  // setup phase
   componentDidMount() {
     // add listener for feature 1
     // add listener for feature 2
   }
 
+  // clean up phase
   componentWillUnmount() {
     // remove listener for feature 1
     // remove listener for feature 2
@@ -107,20 +109,20 @@ class MyComponent extends Component {
 // side-effects in React function component with React Hooks
 function MyComponent() {
   useEffect(() => {
-    // add listener for feature 1
-    // return function to remove listener for feature 1
+    // add listener for feature 1 (setup)
+    // return function to remove listener for feature 1 (clean up)
   });
 
   useEffect(() => {
-    // add listener for feature 2
-    // return function to remove listener for feature 2
+    // add listener for feature 2 (setup)
+    // return function to remove listener for feature 2 (clean up)
   });
 
   ...
 }
 {{< /highlight >}}
 
-Now, if you would introduce more than one of these side-effects in a React class component's lifecycle methods, all side-effects would be grouped by lifecycle method but not by side-effect. That's what React Hooks are going to change by encapsulating a side-effect in one hook whereas every hook has its own side-effect with a setup and clean up phase. You will see later in a tutorial how this works by adding and removing listeners in a React Hook.
+Now, if you would introduce more than one of these side-effects in a React class component's lifecycle methods, all side-effects would be grouped by lifecycle method but not by side-effect. That's what React Hooks are going to change by encapsulating a side-effect in one hook whereas every hook has its own side-effect with a setup and clean up phase. You will see later in a tutorial how this works for real by adding and removing listeners in a React Hook.
 
 **React's Abstraction Hell:** Abstraction and thus reusability were introduced with [Higher-Order Components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/) and [Render Prop Components](https://www.robinwieruch.de/react-render-props-pattern/) in React. There is also [React's Context with its Provider and Consumer Components](https://www.robinwieruch.de/react-context-api/) that introduce another level of abstraction. All of these advanced patterns in React are using so called wrapping components. The implementation of the following components shouldn't be foreign to developers who are creating larger React applications.
 
@@ -146,7 +148,7 @@ export default compose(
 )(App);
 {{< /highlight >}}
 
-Sophie Alpert coined it "the wrapper hell" in React. You are not only seeing it in the implementation, but also when inspecting your components in the browser. There are dozens of wrapped components due to Render Prop Components (including Consumer components from React's Context) and Higher-Order Components. It becomes an unreadable component tree, because all the abstracted logic is covered up in other React components. So what if these additional components were not needed because the logic is only encapsulated in functions as side-effects instead? Then you would remove all these wrapping components and flatten your component tree's structure.
+Sophie Alpert coined it "the wrapper hell" in React. You are not only seeing it in the implementation, but also when inspecting your components in the browser. There are dozens of wrapped components due to Render Prop Components (including Consumer components from React's Context) and Higher-Order Components. It becomes an unreadable component tree, because all the abstracted logic is covered up in other React components. The actual visible components are hard to track down in the browser's DOM. So what if these additional components were not needed because the logic is only encapsulated in functions as side-effects instead? Then you would remove all these wrapping components and flatten your component tree's structure:
 
 {{< highlight javascript >}}
 function App() {
@@ -164,11 +166,11 @@ function App() {
 export default App;
 {{< /highlight >}}
 
-That's what React Hooks are bringing on the table. All side-effects are sitting directly in the component without introducing other components as container for business logic. The logic just sits in React Hooks that are only functions. {{% a_blank "Andrew Clark already left a statement in favor of React Hooks in his popular Higher-Order Component library called recompose." "https://github.com/acdlite/recompose/commit/7867de653abbb57a49934e52622a60b433bda918" %}}
+That's what React Hooks are bringing on the table. All side-effects are sitting directly in the component without introducing other components as container for business logic. The container disappears and the logic just sits in React Hooks that are only functions. {{% a_blank "Andrew Clark already left a statement in favor of React Hooks in his popular Higher-Order Component library called recompose." "https://github.com/acdlite/recompose/commit/7867de653abbb57a49934e52622a60b433bda918" %}}
 
-**JavaScript Class Confusion:** JavaScript mixes two worlds pretty well: Object-oriented programming (OOP) and functional programming. React introduces many developers to both worlds. On the one side, React (and Redux) introduced people to functional programming (FP) with function compositions, general programming concepts with functions (e.g. higher-order functions, JavaScript built-in methods like map, reduce, filter) and other terms such as immutability and side-effects. React itself didn't really introduce these things, because they are features of the language or programming itself, but they are heavily used in React whereas [every React developer becomes automatically a better JavaScript developer](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/).
+**JavaScript Class Confusion:** JavaScript mixes two worlds pretty well: Object-oriented programming (OOP) and functional programming. React introduces many developers to both worlds. On the one side, React (and Redux) introduced people to functional programming (FP) with function compositions, general programming concepts with functions (e.g. higher-order functions, JavaScript built-in methods like map, reduce, filter) and other terms such as immutability and side-effects. React itself didn't really introduce these things, because they are features of the language or the programming paradigm itself, but they are heavily used in React whereas [every React developer becomes automatically a better JavaScript developer](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/).
 
-On the other side, React uses JavaScript classes as one way to define React components. A class is only the declaration whereas the actual usage of the component is the instantiation of it. It creates a class instance whereas the `this` object of the class instance is used to interact with class methods (e.g. setState, forceUpdate, other custom class methods). However, classes come with a steeper learning curve for React beginners who are not coming from an OOP background. That's why class bindings, the `this` object and inheritance can be confusing. I have [a few chapters in my React book](https://www.robinwieruch.de/the-road-to-learn-react/) focusing only on this aspect of React which seems to be always confusing for React beginners.
+On the other side, React uses JavaScript classes as one way to define React components. A class is only the declaration whereas the actual usage of the component is the instantiation of it. It creates a class instance whereas the `this` object of the class instance is used to interact with class methods (e.g. setState, forceUpdate, other custom class methods). However, classes come with a steeper learning curve for React beginners who are not coming from an OOP background. That's why class bindings, the `this` object and inheritance can be confusing. I have [a few chapters in my React book](https://www.robinwieruch.de/the-road-to-learn-react/) focusing only on this aspect of React which is always the most confusing thing about React for beginners.
 
 {{< highlight javascript >}}
 // I THOUGHT WE ARE USING A CLASS. WHY IS IT EXTENDING FROM SOMETHING?
@@ -176,10 +178,9 @@ class Counter extends Component {
   // WAIT ... THIS WORKS???
   state = { value: 0 };
 
-
   // I THOUGH IT'S THIS WAY, BUT WHY DO I NEED PROPS HERE?
-  // SUPER???
   // constructor(props) {
+  //  SUPER???
   //  super(props);
   //
   //  this.state = {
@@ -189,16 +190,16 @@ class Counter extends Component {
 
   // WHY DO I HAVE TO USE AN ARROW FUNCTION???
   onIncrement = () => {
-    this.setState(prevState => ({
-      value: prevState.value + 1
+    this.setState(state => ({
+      value: state.value + 1
     }));
   };
 
   // SHOULDN'T IT BE this.onDecrement = this.onDecrement.bind(this); in the constructor???
   // WHAT'S this.onDecrement = this.onDecrement.bind(this); DOING ANYWAY?
   onDecrement = () => {
-    this.setState(prevState => ({
-      value: prevState.value - 1
+    this.setState(state => ({
+      value: state.value - 1
     }));
   };
 
@@ -220,13 +221,26 @@ Now, many people argue React shouldn't take JavaScript classes away because peop
 
 {{% chapter_header "What changes due to React Hooks?" "react-hooks-future" %}}
 
-React Hooks will change how we write React applications in the future. But right now, nothing changes, because everything stays backward compatible. You can still write class components with local state and lifecycle methods and advanced patterns such as Higher-Order Components or Render Prop Components. See how I upgraded all my open source projects to React 16.6. from older versions and none of of these projects had problems because the React team made sure everything still works. It will stay the same with React 16.7.
+Every time a new feature is introduced, people are concerned about it. There is one side of the group that is ecstatic about the change, and the other side that fears the change. I heard the most common concerns for React Hooks are:
+
+* Everything changes! *Subtle panic mode ...*
+* React is becoming bloated like Angular!
+* It’s useless, classes worked fine.
+* It’s magic!
+
+**Let me address these concerns here:**
+
+**Everything changes:** React Hooks will change how we write React applications in the future. However, at the moment, nothing changes. You can still write class components with local state and lifecycle methods and deploy advanced patterns such as Higher-Order Components or Render Prop Components. Nobody takes these learnings away from you. See how I upgraded all my open source projects from older versions to React 16.6. and none of of these projects had problems. They are using HOCs, Render Props and I believe even the old context API (correct me if am wrong). Everything I have learned all these years still works. The React team makes sure that React stays backward compatible. It will be the same with React 16.7.
 
 {{% pin_it_image "react backward compatibility" "img/posts/react-hooks/react-upgrades.jpg" "is-src-set" %}}
 
-The React team utilizes hooks as an invention to run a marathon with React an not to win a sprint. Obviously, React Hooks add yet another API to React, but it is in favor to simplify React's API in the future. Maybe there will follow deprecations of React class components and lifecycle methods in a few years in favor of React function components and hooks, but at the moment, the React team keeps React class components in their repertoire of tools.
+**React is becoming bloated like Angular:** React was always seen as a library with a slim API. That's true and shall be true in the future. However, in order to adjust things that were the status quo of building component-based applications a few years ago, and not to be overtaken by other libraries who adapt to the new status quo, React introduces changes in favor of older APIs. If React would start out fresh this year, maybe there would be only function components and hooks. But React was released a couple of years ago and needs to adapt to keep up with the status quo or to invent the status quo. Maybe there will follow deprecations of React class components and lifecycle methods in a few years in favor of React function components and hooks, but at the moment, the React team keeps React class components in their repertoire of tools. After all, the React team utilizes hooks as an invention to run a marathon with React an not to win a sprint. Obviously, React Hooks add yet another API to React, but it is in favor to simplify React's API in the future. I like this transition more than having a React 2 where everything is different.
 
-Imagine you would start from zero to learn React and you would be introduced to React with Hooks. Maybe {{% a_blank "create-react-app" "https://github.com/facebook/create-react-app" %}} wouldn't start out with a React class component but with a React function component. Everything you need to learn for your components would be React Hooks. They manage state and side-effects. Everything a React class component did for you before. It will be simpler for React beginners to learn without all the other overhead that comes with JavaScript classes. Imagine React Hooks as a new way of how to write React components - It's a new mindset.
+**It’s useless, classes worked fine:** Imagine you would start from zero to learn React and you would be introduced to React with Hooks. Maybe {{% a_blank "create-react-app" "https://github.com/facebook/create-react-app" %}} wouldn't start out with a React class component but with a React function component. Everything you need to learn for your components would be React Hooks. They manage state and side-effects, so you would only need to know about the state and the effect hook. It's everything a React class component did for you before. It will be simpler for React beginners to learn React without all the other overhead that comes with JavaScript classes (inheritance, this, bindings, super, ...). Imagine React Hooks as a new way of how to write React components - It's a new mindset. I am a skeptical person myself, but once I wrote a couple of simpler scenarios with React Hooks, I was convinced that this is the simplest way to write but also to learn React. As someone who is doing lots of React workshops, I argue that it takes away all the frustration classes bring on the table for React beginners.
+
+**It’s magic:** React is known to be down to earth with JavaScript. Writing React applications makes you a better JavaScript developer - that's one of the best things about React when someone asks me: "Why should I learn React?". Whether there comes another library in the future or not, everyone is prepared by honing their JavaScript skills and general programming skills when using React. It's one of the things that made Redux, often used in React, popular: There is no magic, it is plain JavaScript. Now these React Hooks come along the way, introduce something stateful in a previously often pure function component, and many don't understand what's going on under the hood. I am honest here and admit: I don't understand it 100% myself yet. But think about it this way: A function component in React is not a mere function. You still have to import React as library to your source code file. It does something with your function, because the function becomes a function component in React land. This function component comes with hidden implementations that were there all the time. How else would it have been possible to use functions as function components as we did it before React Hooks were introduced? And people accepted it too, even though it's kinda magic. Now, the only thing changed (and maybe it has already been this way before) is that these function components come with an extra hidden object that keeps track of hooks.
+
+**Finally, think about it this way:** Component-based solutions such as Angular, Vue, and React are pushing the boundaries of web development with every release. They build up on top of technologies that were invented more than two decades ago. They adapt them to make web development effortless in 2018 and not 1998. They optimize them like crazy to meet the needs in the here and now. We are building web applications with components and not with HTML templates anymore. We are not there yet, but I imagine a future where we sit together and invent a component-based standard for the browser. Angular, Vue and React are only the spearhead of this movement.
 
 In the following, I want to dive into a few popular React Hooks by example to get you up to speed. All examples can be found in this {{% a_blank "GitHub repository" "https://github.com/the-road-to-learn-react/react-hooks-introduction" %}}.
 
@@ -519,7 +533,7 @@ function App() {
 export default App;
 {{< /highlight >}}
 
-Tha's the implementation for the stopwatch that uses the Browser API If you want to continue, you can extend the example by providing a "Reset" button too.
+That's the implementation for the stopwatch that uses the Browser API If you want to continue, you can extend the example by providing a "Reset" button too.
 
 {{< highlight javascript "hl_lines=16 17 18 19 37 38 39" >}}
 import React, { useState, useEffect } from 'react';
@@ -675,3 +689,5 @@ React Hooks being reusable is the best thing about them, because there is the po
 <hr class="section-divider">
 
 Checkout the official {{% a_blank "FAQ" "https://reactjs.org/docs/hooks-faq.html" %}} and {{% a_blank "Rules" "https://reactjs.org/docs/hooks-rules.html" %}} for hooks in React's documentation to learn more about their fine-grained behaviour. In addition, you can checkout {{% a_blank "all officially available React Hooks" "https://reactjs.org/docs/hooks-reference.html" %}} too.
+
+For everyone who is still concerned about React Hooks: Give them a shot yourself. Implement a couple of React function components with state and side-effects. I had to do it myself to understand how they work and to feel comfortable with them. And I must say it feels pretty great to use them.
