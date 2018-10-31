@@ -55,7 +55,7 @@ In this tutorial, you will learn how to combine React with GraphQL in your appli
 
 {{% chapter_header "Starting with Apollo Boost on the Command Line" "graphql-apollo-boost-client" %}}
 
-Apollo is an entire ecosystem built by developers as an infrastructure for GraphQL applications. You can use it on the client-side for a GraphQL client application, or server-side for a GraphQL server application. At the time of writing this tutorial, Apollo offers the richest and most popular ecosystem around GraphQL in JavaScript. There are other libraries for React applications like {{% a_blank "Relay" "http://facebook.github.io/relay" %}} and {{% a_blank "Urql" "https://github.com/FormidableLabs/urql" %}}, but they are just for React applications, and they are not as popular as the Apollo Client. Apollo is framework agnostic, meaning you can use it with other libraries than react.  It can be coupled with other libraries/frameworks like Vue and Angular as well, so everything you learn in this tutorial is likely transferable to the others.
+Apollo is an entire ecosystem built by developers as an infrastructure for GraphQL applications. You can use it on the client-side for a GraphQL client application, or server-side for a GraphQL server application. At the time of writing this tutorial, Apollo offers the richest and most popular ecosystem around GraphQL in JavaScript. There are other libraries for React applications like {{% a_blank "Relay" "http://facebook.github.io/relay" %}} and {{% a_blank "Urql" "https://github.com/FormidableLabs/urql" %}}, but they are just for React applications, and they are not as popular as the Apollo Client. Apollo is framework agnostic, meaning you can use it with other libraries than react. It can be coupled with other libraries/frameworks like Vue and Angular as well, so everything you learn in this tutorial is likely transferable to the others.
 
 This starts by introducing Apollo Client with Apollo Boost. The latter allows you to create a zero-configuration Apollo Client to get started the fastest and most convenient way. This section focuses on the Apollo Client instead of React for the sake of learning. To get started, find the {{% a_blank "Node.js boilerplate project and its installation instructions" "https://github.com/rwieruch/node-babel-server" %}}. You will use Apollo Client on the command line in a Node.js environment for now. On top of the minimal Node.js project, you will introduce the Apollo Client with Apollo Boost to experience the GraphQL client without a view-layer library.
 
@@ -247,7 +247,7 @@ client
   .then(console.log);
 {{< /highlight >}}
 
-That's how you  pass variables to the query using an instance of the Apollo Client in your application. Next, add the nested `repositories` list field to your organization. There, you can request all GitHub repositories in an organization. You may want to rename the query variable as well, but remember to change it when you use the Apollo Client.
+That's how you pass variables to the query using an instance of the Apollo Client in your application. Next, add the nested `repositories` list field to your organization. There, you can request all GitHub repositories in an organization. You may want to rename the query variable as well, but remember to change it when you use the Apollo Client.
 
 {{< highlight javascript "hl_lines=1 6 7 8 9 10 11 12 13 20" >}}
 const GET_REPOSITORIES_OF_ORGANIZATION = gql`
@@ -344,7 +344,7 @@ For this application, no elaborate React setup is needed. Simply use [create-rea
 * Create a new React application with create-react-app
 * Create a folder/file structure for your project (recommendation below)
 
-You can create your own folder and file structure for your components in the *src/* folder; the following top level structure is only a recommendation. If you adjust it to your own needs, keep in mind that the JavaScript import statements with their paths will need to be adjusted to match.  If you don't want to create everything, you can clone this {{% a_blank "GitHub repository" "https://github.com/rwieruch/react-graphql-apollo-tutorial-boilerplate" %}} instead and follow its installation instructions.
+You can create your own folder and file structure for your components in the *src/* folder; the following top level structure is only a recommendation. If you adjust it to your own needs, keep in mind that the JavaScript import statements with their paths will need to be adjusted to match. If you don't want to create everything, you can clone this {{% a_blank "GitHub repository" "https://github.com/rwieruch/react-graphql-apollo-tutorial-boilerplate" %}} instead and follow its installation instructions.
 
 * App/
   * index.js
@@ -373,7 +373,7 @@ You can create your own folder and file structure for your components in the *sr
 
 The folders primarily represent React components. Some components will be reusable UI components such as the Input and Link components, while other components like Repository and Profile components are domain specific for the GitHub client application. Only the top level folders are specified for now, though more can be introduced later if you choose. Moreover, the *constants* folder has only one file to specify the application's routes, which will be introduced later. You may want to navigate from a page that shows repositories of an organization (Organization component) to a page which shows repositories of yourself (Profile component).
 
-This application will use plain CSS classes and CSS files. By following the plain CSS classes, you can avoid difficulties that may occur with other tools.  You will find all the CSS files and their content in the appendix of this tutorial. The components will use their class names without explaining them. The next sections should be purely dedicated to JavaScript, React, and GraphQL.
+This application will use plain CSS classes and CSS files. By following the plain CSS classes, you can avoid difficulties that may occur with other tools. You will find all the CSS files and their content in the appendix of this tutorial. The components will use their class names without explaining them. The next sections should be purely dedicated to JavaScript, React, and GraphQL.
 
 ### Exercises:
 
@@ -397,7 +397,7 @@ The Apollo Client setup can be completed in the top-level *src/index.js* file, w
 npm install apollo-client --save
 {{< /highlight >}}
 
-Two utility packages are requied for two mandatory configurations used to create the Apollo Client. The {{% a_blank "apollo-cache-inmemory" "https://github.com/apollographql/apollo-client/tree/master/packages/apollo-cache-inmemory" %}} is a recommended cache (read also as: store or state) for your Apollo Client to manage the data, while apollo-link-http is used to configure the URI and additional network information once for an Apollo Client instance.
+Two utility packages are required for two mandatory configurations used to create the Apollo Client. The {{% a_blank "apollo-cache-inmemory" "https://github.com/apollographql/apollo-client/tree/master/packages/apollo-cache-inmemory" %}} is a recommended cache (read also as: store or state) for your Apollo Client to manage the data, while apollo-link-http is used to configure the URI and additional network information once for an Apollo Client instance.
 
 {{< highlight javascript >}}
 npm install apollo-cache-inmemory apollo-link-http --save
@@ -500,7 +500,7 @@ ReactDOM.render(
 
 {{% chapter_header "GraphQL Query with Apollo Client in React" "react-apollo-client-query" %}}
 
-In this section, you will implement your first GraphQL query using Apollo Client in React. You've seen how different entities, such as the current user (viewer) or repositories, can be queried from GitHub's GraphQL API. This time you will do it in React. A Profile component might be the best place to render the current user and its associated repositories. Start by using the not-yet-implemented Profile component in your App component, which we'll take care of next.  It makes sense to extract the Profile component now, because the App component will be the static frame around the application later. Components like Navigation and Footer are static, and components such as Profile and Organization are dynamically rendered based on routing (URLs).
+In this section, you will implement your first GraphQL query using Apollo Client in React. You've seen how different entities, such as the current user (viewer) or repositories, can be queried from GitHub's GraphQL API. This time you will do it in React. A Profile component might be the best place to render the current user and its associated repositories. Start by using the not-yet-implemented Profile component in your App component, which we'll take care of next. It makes sense to extract the Profile component now, because the App component will be the static frame around the application later. Components like Navigation and Footer are static, and components such as Profile and Organization are dynamically rendered based on routing (URLs).
 
 {{< highlight javascript "hl_lines=3 7" >}}
 import React, { Component } from 'react';
@@ -527,7 +527,7 @@ const Profile = () =>
 export default Profile;
 {{< /highlight >}}
 
-Now we'll learn to query data with GraphQL and Apollo Client.  The Apollo Client was provided in a previous section with React's Context API in a top level component. You have implicit access to it, but never use it directly for standard queries and mutations. It says "standard" here, because there will be situations where you use the Apollo Client instance directly while implementing this application.
+Now we'll learn to query data with GraphQL and Apollo Client. The Apollo Client was provided in a previous section with React's Context API in a top level component. You have implicit access to it, but never use it directly for standard queries and mutations. It says "standard" here, because there will be situations where you use the Apollo Client instance directly while implementing this application.
 
  The React Apollo package grants access to a Query component, which takes a query as prop and executes it when its rendered. That's the important part: it executes the query when it is rendered. It uses React's [render props](https://www.robinwieruch.de/react-render-props-pattern/) pattern, using a child as a function implementation where you can access the result of the query as an argument.
 
@@ -626,7 +626,7 @@ const Profile = () => (
 
 That's how you define a GraphQL query in a declarative way in React. Once the Query component renders, the request is executed. The Apollo Client is used, provided in a top level component, to perform the query. The render props pattern makes it possible to access the result of the query in the child function. You can try it in your browser to verify that it actually works for you.
 
-There is more information found in the render prop function. Check the official React Apollo API for addtional information beyond the examples in this tutorial.
+There is more information found in the render prop function. Check the official React Apollo API for additional information beyond the examples in this tutorial.
 
 Next, let's show a loading indicator when a query is pending:
 
@@ -650,7 +650,7 @@ const Profile = () => (
 );
 {{< /highlight >}}
 
-The application now shows  a loading indicator when there is no `viewer` object or the `loading` boolean is set to true. As you can assume that the request will be pending when there is no `viewer`, you can show the loading indicator from the beginning. At this point, it's best to extract the loading indicator as its own component because you will have to reuse it later for other queries. You created a Loading folder for it before, which will house the *src/Loading/index.js* file. Then, use it in your Profile component.
+The application now shows a loading indicator when there is no `viewer` object or the `loading` boolean is set to true. As you can assume that the request will be pending when there is no `viewer`, you can show the loading indicator from the beginning. At this point, it's best to extract the loading indicator as its own component because you will have to reuse it later for other queries. You created a Loading folder for it before, which will house the *src/Loading/index.js* file. Then, use it in your Profile component.
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -914,7 +914,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 
 You could differentiate the error handling at the application level into development and production mode. During development, it might be sufficient to console log the errors to a developer console in the browser. In production mode, you can setup a error tracking service like {{% a_blank "Sentry" "https://sentry.io" %}}. It will teach you to identify bugs in a web dashboard more efficient
 
-Now you have two links in your application: `httpLink` and `errorLink`. To combing them for use with the Apollo Client instance, we'll download yet anothe ruseful package in the Apollo ecosystem that makes link compositions possible in the command line:
+Now you have two links in your application: `httpLink` and `errorLink`. To combing them for use with the Apollo Client instance, we'll download yet another useful package in the Apollo ecosystem that makes link compositions possible in the command line:
 
 {{< highlight javascript >}}
 npm install apollo-link --save
@@ -960,7 +960,7 @@ That's how two or multiple links can be composed for creating a Apollo Client in
 
 The previous sections have taught you how to query data with React Apollo and the Apollo Client. In this section, you will learn about mutations. As in other applications before, you will implement starring a repository with GitHub's exposed `addStar` mutation.
 
-The mutation starts out with a variable to identify the repository to be starred. We haven't used a variable in Query component yet,  but the following mutation works the same way, which can be defined in the *src/Repository/RepositoryItem/index.js* file.
+The mutation starts out with a variable to identify the repository to be starred. We haven't used a variable in Query component yet, but the following mutation works the same way, which can be defined in the *src/Repository/RepositoryItem/index.js* file.
 
 {{< highlight javascript "hl_lines=2 6 7 8 9 10 11 12 13 14 15" >}}
 import React from 'react';
@@ -1147,7 +1147,7 @@ const RepositoryItem = ({ ... }) => (
 );
 {{< /highlight >}}
 
-When you star a repository as above, the "Star" button disappears. This is what we want, because it means the `viewerHasStarred` boolean has been updated in Apollo Client's cache for the identified repository.  Apollo Client was able to match the mutation result with the repository identifier to the repository entity in Apollo Client's cache, the props were updated, and the UI re-rendered. Yet, on the other side, the count of stargazers who have starred the repository isn't updated because it cannot be retrieved from GitHub's API. The count must be updated the count in Apollo Client's cache. You will find out more about this topic in one of the following sections.
+When you star a repository as above, the "Star" button disappears. This is what we want, because it means the `viewerHasStarred` boolean has been updated in Apollo Client's cache for the identified repository. Apollo Client was able to match the mutation result with the repository identifier to the repository entity in Apollo Client's cache, the props were updated, and the UI re-rendered. Yet, on the other side, the count of stargazers who have starred the repository isn't updated because it cannot be retrieved from GitHub's API. The count must be updated the count in Apollo Client's cache. You will find out more about this topic in one of the following sections.
 
 ### Exercises:
 
@@ -1180,7 +1180,7 @@ const Profile = ({ data, loading, error }) => {
 };
 {{< /highlight >}}
 
-There is no GraphQL involved here, because all you see is the pure view-layer. Instead, the data-layer logic is extracted into a Higher-Order Component.  We import the `graphql` HOC from the React Apollo package in order to apply it on the Profile component, which takes the query definition as argument.
+There is no GraphQL involved here, because all you see is the pure view-layer. Instead, the data-layer logic is extracted into a Higher-Order Component. We import the `graphql` HOC from the React Apollo package in order to apply it on the Profile component, which takes the query definition as argument.
 
 {{< highlight javascript "hl_lines=3 19" >}}
 import React from 'react';
@@ -1216,9 +1216,9 @@ I find the HOC approach cleaner than the render props, because it co-locates bot
 
 Let's get back to the Repository component. You have experienced that the `viewerHasStarred` boolean updates in the Apollo Client's cache after a mutation was successful. That's great, because Apollo Client handles this for you, based on the mutation result. If you have followed the exercises of the mutation section, you should probably see something like a toggling "Star" and "Unstar" label for the button. All of this happens because you returned the `viewerHasStarred` boolean in your mutation result. Apollo Client is clever enough to update the repository entity, which is normalized accessible in the cache. That's powerful default behavior, isn't it? You don't need to handle the local state management yourself, since Apollo Client figures it out for you as long as you provide useful information in the mutation's result.
 
- Apollo Client doesn't update the count of stars after the mutation, though. Normally, it is assumed that the count of stars increments by one when it is starred, with the opposite for unstarring. Since we don't return a count of stargazers in the mutation result, you have to handle the update in Apollo Client's cache yourself.  Using Apollo Client's `refetchQueries` option is the naive approach for a mutation call, or a Mutation component to trigger a refetch for all queries, where the query result might be affected by the mutation. But that's not the best way to deal with this problem. It costs  another query request to keep the data consistent after a mutation. In a growing application, this approach will eventually become problematic. Fortunately, the Apollo Client offers other functionalities to read/write manually from/to the cache locally without more network requests. The Mutation component offers a prop where you can insert update functionality that has access to the Apollo Client instance for the update mechanism.
+ Apollo Client doesn't update the count of stars after the mutation, though. Normally, it is assumed that the count of stars increments by one when it is starred, with the opposite for unstarring. Since we don't return a count of stargazers in the mutation result, you have to handle the update in Apollo Client's cache yourself. Using Apollo Client's `refetchQueries` option is the naive approach for a mutation call, or a Mutation component to trigger a refetch for all queries, where the query result might be affected by the mutation. But that's not the best way to deal with this problem. It costs another query request to keep the data consistent after a mutation. In a growing application, this approach will eventually become problematic. Fortunately, the Apollo Client offers other functionalities to read/write manually from/to the cache locally without more network requests. The Mutation component offers a prop where you can insert update functionality that has access to the Apollo Client instance for the update mechanism.
 
-Before implementing the update functionality for the local state management, let's refactor another piece of code that will be useful for a local state update mechanism. The query definition next to your Profile component has grown to several fields with multiple object nestings. Previously, you learned about GraphQL fragments, and how they can be used to split parts of a query to reuse later.  Next, we will split all the field information you used for the repository's node. You can define this fragment in the *src/Repository/fragments.js* file to keep it reusable for other components.
+Before implementing the update functionality for the local state management, let's refactor another piece of code that will be useful for a local state update mechanism. The query definition next to your Profile component has grown to several fields with multiple object nestings. Previously, you learned about GraphQL fragments, and how they can be used to split parts of a query to reuse later. Next, we will split all the field information you used for the repository's node. You can define this fragment in the *src/Repository/fragments.js* file to keep it reusable for other components.
 
 {{< highlight javascript >}}
 import gql from 'graphql-tag';
@@ -1252,7 +1252,7 @@ export default REPOSITORY_FRAGMENT;
 
 You split this partial query (fragment), because it is used more often in this application in the next sections for a local state update mechanism, hence the previous refactoring.
 
-The fragment shouldn't be imported directly from the *src/Repository/fragments.js* path to your Profile component, because  the *src/Repository/index.js* file is the preferred entry point to this module.
+The fragment shouldn't be imported directly from the *src/Repository/fragments.js* path to your Profile component, because the *src/Repository/index.js* file is the preferred entry point to this module.
 
 {{< highlight javascript "hl_lines=2 4" >}}
 import RepositoryList from './RepositoryList';
@@ -1294,7 +1294,7 @@ const GET_REPOSITORIES_OF_CURRENT_USER = gql`
 ...
 {{< /highlight >}}
 
-The refactoring is done. Your query is now more concise, and the fragment in its natural repository module can be reused for other places and functionalities.  Next, use Mutation component's `update` prop to pass a function which will update the local cache eventually.
+The refactoring is done. Your query is now more concise, and the fragment in its natural repository module can be reused for other places and functionalities. Next, use Mutation component's `update` prop to pass a function which will update the local cache eventually.
 
 {{< highlight javascript "hl_lines=3 4 5 19" >}}
 ...
@@ -1330,7 +1330,7 @@ const RepositoryItem = ({ ... }) => (
 export default RepositoryItem;
 {{< /highlight >}}
 
-The function is extracted as its own JavaScript variable,  otherwise ends up too verbose in the RepositoryItem component when keeping it inlined in the Mutation component. The function has access to the Apollo Client and the mutation result in its argument, and you need both to update data so you can destructure the mutation result in the function signature. If you don't know how the mutation result looks like, check the `STAR_REPOSITORY` mutation definition again, where you defined all fields that should appear in the mutation result. For now, the `id` of the to be updated repository is the important part.
+The function is extracted as its own JavaScript variable, otherwise ends up too verbose in the RepositoryItem component when keeping it inlined in the Mutation component. The function has access to the Apollo Client and the mutation result in its argument, and you need both to update data so you can destructure the mutation result in the function signature. If you don't know how the mutation result looks like, check the `STAR_REPOSITORY` mutation definition again, where you defined all fields that should appear in the mutation result. For now, the `id` of the to be updated repository is the important part.
 
 {{< highlight javascript "hl_lines=2 3" >}}
 const updateAddStar = (
@@ -1341,9 +1341,9 @@ const updateAddStar = (
 };
 {{< /highlight >}}
 
-You could have passed the `id` of the repository to the `updateAddStar()` function, which was a higher-order function in the Mutation component's render prop child function.  You already have access to the repository's identifier in the Repository component.
+You could have passed the `id` of the repository to the `updateAddStar()` function, which was a higher-order function in the Mutation component's render prop child function. You already have access to the repository's identifier in the Repository component.
 
-Now comes the most exciting part of this section. You can use the Apollo Client to read data from the cache, but also to write data to it. The goal is to read the starred repository from the cache, which is why we need the `id` to increment its stargazers count by one and write the updated repository back to the cache.  You got the repository by its `id` from the cache by extracting the repository fragment. You can use it along with the repository identifier to retrieve the actual repository from Apollo Client's cache without querying all the data with a naive query implementation.
+Now comes the most exciting part of this section. You can use the Apollo Client to read data from the cache, but also to write data to it. The goal is to read the starred repository from the cache, which is why we need the `id` to increment its stargazers count by one and write the updated repository back to the cache. You got the repository by its `id` from the cache by extracting the repository fragment. You can use it along with the repository identifier to retrieve the actual repository from Apollo Client's cache without querying all the data with a naive query implementation.
 
 {{< highlight javascript "hl_lines=3 13 14 15 16" >}}
 ...
@@ -1403,9 +1403,9 @@ const updateAddStar = (
 
 Let's recap all three steps here. First, you have retrieved (read) the repository entity from the Apollo Client using an identifier and the fragment; second, you updated the information of the entity; and third, you wrote back the data with updated information, but kept all remaining information intact using the JavaScript spread operator. This is a manual update mechanism that can be used when a mutation is missing data.
 
-It is a good practice to use an identical fragment for all three parts: the initial query, the `readFragment()`, and `writeFragment()` cache method. Your data structure for the entity stays consistent in your cache. For instance, if you forget to include a property defined by the fragment's fields in data object of the `writeFragment()` method, you  get a warning: *Missing field __typename in ...*.
+It is a good practice to use an identical fragment for all three parts: the initial query, the `readFragment()`, and `writeFragment()` cache method. Your data structure for the entity stays consistent in your cache. For instance, if you forget to include a property defined by the fragment's fields in data object of the `writeFragment()` method, you get a warning: *Missing field __typename in ...*.
 
-On an implementation level, you learned about extracting fragments from a query or mutation. Fragments allow you to define your shared entities by GraphQL types.  You can reuse those in your queries, mutations or local state management methods to update the cache. On a higher level, you learned that Apollo Client's cache normalizes your data, so you can retrieve entities that were fetched with a deeply nested query using their type and identifier as composite key. Without it, you'd have to perform normalizations for all the fetched data before putting it in your store/state.
+On an implementation level, you learned about extracting fragments from a query or mutation. Fragments allow you to define your shared entities by GraphQL types. You can reuse those in your queries, mutations or local state management methods to update the cache. On a higher level, you learned that Apollo Client's cache normalizes your data, so you can retrieve entities that were fetched with a deeply nested query using their type and identifier as composite key. Without it, you'd have to perform normalizations for all the fetched data before putting it in your store/state.
 
 ### Exercises:
 
@@ -1419,7 +1419,7 @@ On an implementation level, you learned about extracting fragments from a query 
 
 {{% chapter_header "Apollo Client Optimistic UI in React" "react-apollo-client-optimistic-ui" %}}
 
-We've covered the basics, so now it's time for the advanced topics. One of those topics is the optimistic UI with React Apollo, which makes everything onscreen more synchronous. For instance, when liking a post on Twitter, the like appears immediately.  As developers, we know there is a request that sends the information for the like to the Twitter backend. This request is asynchronous and doesn't resolve immediately with a result. The optimistic UI immediately assumes a successful request and mimics the result of such request for the frontend so it can update its UI immediately, before the real response arrives later. With a failed request, the optimistic UI performs a rollback and updates itself accordingly. Optimistic UI improves the user experience by omitting inconvenient feedback (e.g. loading indicators) for the user. The good thing is that React Apollo comes with this feature out of the box.
+We've covered the basics, so now it's time for the advanced topics. One of those topics is the optimistic UI with React Apollo, which makes everything onscreen more synchronous. For instance, when liking a post on Twitter, the like appears immediately. As developers, we know there is a request that sends the information for the like to the Twitter backend. This request is asynchronous and doesn't resolve immediately with a result. The optimistic UI immediately assumes a successful request and mimics the result of such request for the frontend so it can update its UI immediately, before the real response arrives later. With a failed request, the optimistic UI performs a rollback and updates itself accordingly. Optimistic UI improves the user experience by omitting inconvenient feedback (e.g. loading indicators) for the user. The good thing is that React Apollo comes with this feature out of the box.
 
 In this section, you will implement an optimistic UI for when a user clicks the watch/unwatch mutation you implemented in a previous exercise. If you haven't, it's time to implement it now, or you can substitute it with the star or unstar mutation. Either way, completing the optimistic UI behavior for all three mutations is the next exercise. For completeness, this is a possible implementation of the watch mutation as a button next to the "Star"/"Unstar" buttons:
 
@@ -1519,7 +1519,7 @@ const RepositoryItem = ({ ... }) => (
 );
 {{< /highlight >}}
 
-Fortunately, the Mutation component offers a prop for the optimistic UI strategy called `optimisticResponse`. It returns the same result, which is accessed as argument in the function passed to the `update` prop of the Mutation component. With a watch mutation, only the `viewerSubscription` status changes to subscribed or unsubscribed.  This is an optimistic UI.
+Fortunately, the Mutation component offers a prop for the optimistic UI strategy called `optimisticResponse`. It returns the same result, which is accessed as argument in the function passed to the `update` prop of the Mutation component. With a watch mutation, only the `viewerSubscription` status changes to subscribed or unsubscribed. This is an optimistic UI.
 
 {{< highlight javascript "hl_lines=17 18 19 20 21 22 23 24 25 26 27 28" >}}
 const RepositoryItem = ({ ... }) => (
@@ -1564,11 +1564,11 @@ const RepositoryItem = ({ ... }) => (
 );
 {{< /highlight >}}
 
-When you start your application and watch a repository, the "Watch" and "Unwatch" label of the button changes immediately after clicking it. This is because the optimistic response arrives synchronously, while the real response is pending and resolves later.  Since the `__typename ` meta field comes with every Apollo request, include those as well.
+When you start your application and watch a repository, the "Watch" and "Unwatch" label of the button changes immediately after clicking it. This is because the optimistic response arrives synchronously, while the real response is pending and resolves later. Since the `__typename ` meta field comes with every Apollo request, include those as well.
 
-An addtional benefit of the optimistic response is that it makes the count of watchers updates optimistic, too. The function used in the `update` prop is called twice now, the first time with the optimistic response, and the second with a response from GitHub's GraphQL API. It makes sense to capture identical information in the optimistic response expected as a mutation result in the function passed to the `update` prop of the Mutation component. For instance, if you don't pass the `id` property in the `optimisticResponse` object, the function passed to the `update` prop throws an error, because it can't retrieve the repository from the cache without an identifier.
+An additional benefit of the optimistic response is that it makes the count of watchers updates optimistic, too. The function used in the `update` prop is called twice now, the first time with the optimistic response, and the second with a response from GitHub's GraphQL API. It makes sense to capture identical information in the optimistic response expected as a mutation result in the function passed to the `update` prop of the Mutation component. For instance, if you don't pass the `id` property in the `optimisticResponse` object, the function passed to the `update` prop throws an error, because it can't retrieve the repository from the cache without an identifier.
 
-At this point, it becomes debatable whether or not the Mutation component becomes too verbose. Using the Render Props pattern co-locates the data layer even more to the view-layer than Higher-Order Components. One could argue it doesn't co-locate the data-layer, but inserts it into the view-layer. When optimizations like the `update` and `optimisticResponse` props are put into the Render Prop Component, it can become too verbose for a scaling application. I advise using techniqes you've learned as well as your own strategies to keep your source code concise. I see four different ways to solve this issue:
+At this point, it becomes debatable whether or not the Mutation component becomes too verbose. Using the Render Props pattern co-locates the data layer even more to the view-layer than Higher-Order Components. One could argue it doesn't co-locate the data-layer, but inserts it into the view-layer. When optimizations like the `update` and `optimisticResponse` props are put into the Render Prop Component, it can become too verbose for a scaling application. I advise using techniques you've learned as well as your own strategies to keep your source code concise. I see four different ways to solve this issue:
 
 * Keep the declarations inlined (see: `optimisticUpdate`)
 * Extracting the inlined declarations as variable (see: `update`).
@@ -1693,7 +1693,7 @@ const RepositoryList = ({ repositories, fetchMore }) => (
 );
 {{< /highlight >}}
 
-If you attempt to click the button, you should get the following error message: *Error: updateQuery option is required.*. The `updateQuery` function is needed to tell Apollo Client how to merge  the previous result with a new one.  Define the function outside of the button, because it would become too verbose otherwise.
+If you attempt to click the button, you should get the following error message: *Error: updateQuery option is required.*. The `updateQuery` function is needed to tell Apollo Client how to merge the previous result with a new one. Define the function outside of the button, because it would become too verbose otherwise.
 
 {{< highlight javascript "hl_lines=1 2 3 17" >}}
 const updateQuery = (previousResult, { fetchMoreResult }) => {
@@ -1765,7 +1765,7 @@ const Profile = () => (
 );
 {{< /highlight >}}
 
-When you run your application again and try the "More" button, you should see odd behavior. Every time you load another page of repositorie, the loading indicator is shown, but the list of repositories disappears entirely, and the merged list is rendered as assumed. Since the `loading` boolean becomes true with the initial and successive requests, the conditional rendering in the Profile component will always show the loading indicator. It returns from the Profile function early, never reaching the code to render the RepositoryList. A quick change from `||` to `&&` of the condition will allow it to show the loading indicator for the initial request only. Every request after that, where the `viewer` object is available, is beyond this condition, so it renders the RepositoryList component.
+When you run your application again and try the "More" button, you should see odd behavior. Every time you load another page of repositories, the loading indicator is shown, but the list of repositories disappears entirely, and the merged list is rendered as assumed. Since the `loading` boolean becomes true with the initial and successive requests, the conditional rendering in the Profile component will always show the loading indicator. It returns from the Profile function early, never reaching the code to render the RepositoryList. A quick change from `||` to `&&` of the condition will allow it to show the loading indicator for the initial request only. Every request after that, where the `viewer` object is available, is beyond this condition, so it renders the RepositoryList component.
 
 {{< highlight javascript "hl_lines=11 17" >}}
 const Profile = () => (
@@ -1825,7 +1825,7 @@ const RepositoryList = ({ repositories, loading, fetchMore }) => (
 
 The pagination feature is complete now, and you are fetching successive pages of an initial page, then merging the results in Apollo Client's cache. In addition, you show your user feedback about pending requests for either the initial request or further page requests.
 
-Now we'll take it a step further, making the button used to fetch more repositories reusable. Let me explain why this would be a neat abstraction. In an upcoming section, you have another list field that could potentially implement the pagination feature. There, you have to  introduce the `More` button, which could be nearly identical to the `More` button you have in the RepositoryList component. Having only one button in a UI would be a satisfying abstraction, but this abstraction wouldn't work in a real-world coding scenario. You would have to introduce a second list field first, implement the pagination feature for it, and then consider an abstraction for the `More` button. For the sake of the tutorial, we  implement this abstraction for the pagination feature only in this section, though you should be aware this is a premature optimization put in place for you to learn it.
+Now we'll take it a step further, making the button used to fetch more repositories reusable. Let me explain why this would be a neat abstraction. In an upcoming section, you have another list field that could potentially implement the pagination feature. There, you have to introduce the `More` button, which could be nearly identical to the `More` button you have in the RepositoryList component. Having only one button in a UI would be a satisfying abstraction, but this abstraction wouldn't work in a real-world coding scenario. You would have to introduce a second list field first, implement the pagination feature for it, and then consider an abstraction for the `More` button. For the sake of the tutorial, we implement this abstraction for the pagination feature only in this section, though you should be aware this is a premature optimization put in place for you to learn it.
 
 For another way, imagine you wanted to extract the functionality of the `More` button into a FetchMore component. The most important thing you would need is the `fetchMore()` function from the query result. The `fetchMore()` function takes an object to pass in the necessary `variables` and `updateQuery` information as a configuration. While the former is used to define the next page by its cursor, the latter is used to define how the results should be merged in the local state. These are the three essential parts: fetchMore, variables, and updateQuery. You may also want to shield away the conditional renderings in the FetchMore component, which happens because of the `loading` or `hasNextPage` booleans. Et voilà! That's how you get the interface to your FetchMore abstraction component.
 
@@ -1955,7 +1955,7 @@ const FetchMore = ({
 export default FetchMore;
 {{< /highlight >}}
 
-That's it for the abstraction of the FetchMore button for paginated lists with Apollo Client. Basically, you pass in everything needed by the `fetchMore()` function, including the function itself. You can also pass all booleans used for conditional renderings.  You end up with a reusable FetchMore button that can be used for every paginated list.
+That's it for the abstraction of the FetchMore button for paginated lists with Apollo Client. Basically, you pass in everything needed by the `fetchMore()` function, including the function itself. You can also pass all booleans used for conditional renderings. You end up with a reusable FetchMore button that can be used for every paginated list.
 
 ### Exercises:
 
@@ -2090,7 +2090,7 @@ export default Navigation;
 
 The Profile page works as before, but the Organization page is empty. In the last step, you defined the two routes as constants, used them in the App component to map to their respective components, and introduced Link components to navigate to them in the Navigation component.
 
-Another great feature of the Apollo Client is that it caches query requests. When navigating from the Profile page to the Organization page and back to the Profile page, the results appear immediately because the Apollo Client checks its cache before making the query to the remote GraphQL API.  It's a pretty powerful tool.
+Another great feature of the Apollo Client is that it caches query requests. When navigating from the Profile page to the Organization page and back to the Profile page, the results appear immediately because the Apollo Client checks its cache before making the query to the remote GraphQL API. It's a pretty powerful tool.
 
 The next part of this section is the Organization component. It is the same as the Profile component, except the query differs because it takes a variable for the organization name to identify the organization's repositories.
 
@@ -2133,7 +2133,7 @@ const Organization = ({ organizationName }) => (
 export default Organization;
 {{< /highlight >}}
 
-The Query component in the Organization component takes a query tailored to the organization being the top level field of the query.  It takes a variable to identify the organization, and it uses the newly introduced `skip` prop to skip executing the query if no organization identifier is provided. Later, you will pass an organization identifier from the App component.  You may have noticed that the repository fragment you introduced earlier to update the local state in the cache can be reused here. It saves lines of code, and more importantly, ensures the returned list of repositories have identical structures to the list of repositories in the Profile component.
+The Query component in the Organization component takes a query tailored to the organization being the top level field of the query. It takes a variable to identify the organization, and it uses the newly introduced `skip` prop to skip executing the query if no organization identifier is provided. Later, you will pass an organization identifier from the App component. You may have noticed that the repository fragment you introduced earlier to update the local state in the cache can be reused here. It saves lines of code, and more importantly, ensures the returned list of repositories have identical structures to the list of repositories in the Profile component.
 
 Next, extend the query to fit the requirements of the pagination feature. It requires the `cursor` argument to identify the next page of repositories. The `notifyOnNetworkStatusChange` prop is used to update the `loading` boolean for paginated requests as well.
 
@@ -2725,7 +2725,7 @@ const IssueList = ({ issues }) => (
 export default Issues;
 {{< /highlight >}}
 
-Finally, implement a basic IssueItem component in the *src/Issue/IssueItem/index.js* file. The snippet belows shows a placeholder where you can implement the Commenting feature, which we'll cover later.
+Finally, implement a basic IssueItem component in the *src/Issue/IssueItem/index.js* file. The snippet below shows a placeholder where you can implement the Commenting feature, which we'll cover later.
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -2752,7 +2752,7 @@ const IssueItem = ({ issue }) => (
 export default IssueItem;
 {{< /highlight >}}
 
-Once you start your application again, you should see the initial page of paginated issues rendered below each repository. That's a performance bottleneck. Worse, the GraphQL requests  are not bundled in one request, as with the issues list field in the Organization and Profile components. In the next steps you are implementing client-side filtering. The default is to show no issues, but it can toggle between states of showing none, open issues, and closed issues using a button, so the issues will not be queried before toggling one of the issue states.
+Once you start your application again, you should see the initial page of paginated issues rendered below each repository. That's a performance bottleneck. Worse, the GraphQL requests are not bundled in one request, as with the issues list field in the Organization and Profile components. In the next steps you are implementing client-side filtering. The default is to show no issues, but it can toggle between states of showing none, open issues, and closed issues using a button, so the issues will not be queried before toggling one of the issue states.
 
 ### Exercises:
 
@@ -2861,7 +2861,7 @@ class Issues extends React.Component {
 }
 {{< /highlight >}}
 
-In the last step, you introduced the button to toggle between the three states.  You used two enumerations, `TRANSITION_LABELS` and `TRANSITION_STATE`, to show an appropriate button label and to define the next state after a state transition. These enumerations can be defined next to the `ISSUE_STATES` enumeration.
+In the last step, you introduced the button to toggle between the three states. You used two enumerations, `TRANSITION_LABELS` and `TRANSITION_STATE`, to show an appropriate button label and to define the next state after a state transition. These enumerations can be defined next to the `ISSUE_STATES` enumeration.
 
 {{< highlight javascript >}}
 const TRANSITION_LABELS = {
@@ -2985,7 +2985,7 @@ const Issues = ({
 ...
 {{< /highlight >}}
 
-The previous section makes writing stateful components, where the state is much more convenient. Next,  advance the filtering from client-side to server-side.  We use the defined GraphQL query and its arguments to make a more exact query by requesting only open or closed issues. In the *src/Issue/IssueList/index.js* file, extend the query with a variable to specify the issue state:
+The previous section makes writing stateful components, where the state is much more convenient. Next, advance the filtering from client-side to server-side. We use the defined GraphQL query and its arguments to make a more exact query by requesting only open or closed issues. In the *src/Issue/IssueList/index.js* file, extend the query with a variable to specify the issue state:
 
 {{< highlight javascript "hl_lines=5 8" >}}
 const GET_ISSUES_OF_REPOSITORY = gql`
@@ -3095,7 +3095,7 @@ const IssueFilter = ({ issueState, onChangeIssueState }) => (
 );
 {{< /highlight >}}
 
-Now it is easier to focus on the IssueFilter component where most of the logic for data prefetching is implemented. Like before, the prefetching should happen when the user hovers over the button. There needs to be a prop for it, and a callback function which is executed when the user hovers over it. There is such a prop (attribute) for a button (element).  We are dealing with HTML elements here.
+Now it is easier to focus on the IssueFilter component where most of the logic for data prefetching is implemented. Like before, the prefetching should happen when the user hovers over the button. There needs to be a prop for it, and a callback function which is executed when the user hovers over it. There is such a prop (attribute) for a button (element). We are dealing with HTML elements here.
 
 {{< highlight javascript "hl_lines=1 8" >}}
 const prefetchIssues = () => {};
@@ -3112,7 +3112,7 @@ const IssueFilter = ({ issueState, onChangeIssueState }) => (
 );
 {{< /highlight >}}
 
-The `prefetchIssue()` function has to execute the identical GraphQL query executed by the Query component in the Issues component, but this time it is done in an imperative way instead of declarative. Rather than using the Query component for it, use the the Apollo Client instance directly to execute a query. Remember, the Apollo Client instance is  hidden in the component tree, because you used React's Context API to provide the  Apollo Client instance the component tree's top level. The  Query and Mutation components have access to the Apollo Client, even though you have never used it yourself directly. However, this time you use it to query the prefetched data. Use the ApolloConsumer component from the React Apollo package to expose the Apollo Client instance in your component tree. You have used the ApolloProvider somewhere to provide the client instance, and you can use the ApolloConsumer to retrieve it now. In the *src/Issue/IssueList/index.js* file, import the ApolloConsumer component and use it in the IssueFilter component. It gives you access to the Apollo Client instance via its render props child function.
+The `prefetchIssue()` function has to execute the identical GraphQL query executed by the Query component in the Issues component, but this time it is done in an imperative way instead of declarative. Rather than using the Query component for it, use the the Apollo Client instance directly to execute a query. Remember, the Apollo Client instance is hidden in the component tree, because you used React's Context API to provide the Apollo Client instance the component tree's top level. The Query and Mutation components have access to the Apollo Client, even though you have never used it yourself directly. However, this time you use it to query the prefetched data. Use the ApolloConsumer component from the React Apollo package to expose the Apollo Client instance in your component tree. You have used the ApolloProvider somewhere to provide the client instance, and you can use the ApolloConsumer to retrieve it now. In the *src/Issue/IssueList/index.js* file, import the ApolloConsumer component and use it in the IssueFilter component. It gives you access to the Apollo Client instance via its render props child function.
 
 {{< highlight javascript "hl_lines=2 9 10 15 19 20" >}}
 import React from 'react';
@@ -3221,8 +3221,8 @@ That's it. Once the button is hovered, it should prefetch the issues for the nex
 
 ### Exercises:
 
-* read more about {{% a_blank "Apollo Prefetching and Query Splitting in React" "https://www.apollographql.com/docs/react/features/performance.html" %}}
-* invest 3 minutes of your time and take the {{% a_blank "quiz" "https://www.surveymonkey.com/r/5PLMBR3" %}}
+* Read more about {{% a_blank "Apollo Prefetching and Query Splitting in React" "https://www.apollographql.com/docs/react/features/performance.html" %}}
+* Invest 3 minutes of your time and take the {{% a_blank "quiz" "https://www.surveymonkey.com/r/5PLMBR3" %}}
 
 {{% chapter_header "Exercise: Commenting Feature" "react-apollo-client-exercise" %}}
 
@@ -3234,7 +3234,7 @@ This last section is for hands-on experience with the application and implementi
 
 * Use the Query component from React Apollo in your container Comments component to fetch a list of comments. It should be similar to the query that fetches the list of issues. You only need to identify the issue for which the comments should be fetched.
 
-* Handle all edge cases in the Comments to show loading indicator, no data, or error messages.  Render the list of comments in the CommentList component and a single comment in the CommentItem component.
+* Handle all edge cases in the Comments to show loading indicator, no data, or error messages. Render the list of comments in the CommentList component and a single comment in the CommentItem component.
 
 * Implement the pagination feature for comments. Add the necessary fields in the query, the additional props and variables to the Query component, and the reusable FetchMore component. Handle the merging of the state in the `updateQuery` prop.
 
@@ -3244,7 +3244,7 @@ This last section is for hands-on experience with the application and implementi
 
 * Improve the AddComment component with the optimistic UI feature (perhaps read again the {{% a_blank "Apollo documentation about the optimistic UI with a list of items" "https://www.apollographql.com/docs/react/features/optimistic-ui.html" %}}). A comment should show up in the list of comments, even if the request is pending.
 
- I hope this section, building your own feature in the application with all the learned tools and techniques, matched your skills and challenged you to implement React applications with Apollo and GraphQL. I would recommend working to improve and extend the existing application. If you haven't implemented a GraphQL server yet, find other third-party APIs that offer a GraphQL API and build your own React with Apollo application by consuming it. Keep youtself challenged to grow your skills as a developer.
+ I hope this section, building your own feature in the application with all the learned tools and techniques, matched your skills and challenged you to implement React applications with Apollo and GraphQL. I would recommend working to improve and extend the existing application. If you haven't implemented a GraphQL server yet, find other third-party APIs that offer a GraphQL API and build your own React with Apollo application by consuming it. Keep yourself challenged to grow your skills as a developer.
 
 {{% chapter_header "Appendix: CSS Files and Styles" "appendix-styling" %}}
 
@@ -3620,6 +3620,6 @@ pre {
 
 <hr class="section-divider">
 
-You can find the final {{% a_blank "repository on GitHub" "https://github.com/rwieruch/react-graphql-github-apollo" %}} that showcases most of the exercise tasks. The application is not feature-complete and it doesn't cover all edge cases, but it should give insight into using GraphQL with Apollo in React applications. If you want to dive more deeply into different topics like testing and state management with GraphQL on the client-side, you can start here: [A minimal Apollo Client in React Example](https://www.robinwieruch.de/react-apollo-client-example). Try to apply what you've learned in this application (e.g. testing, state management). Otherwise, I encourage you to try to build your own GraphQL client library, which helps you understand more of the GraphQL internals: [How to build a GraphQL client library for React](https://www.robinwieruch.de/react-graphql-client-library). Whichever you decide,  keep tinkering on this application, or start with another GraphQL client application to fortify your skill set.
+You can find the final {{% a_blank "repository on GitHub" "https://github.com/rwieruch/react-graphql-github-apollo" %}} that showcases most of the exercise tasks. The application is not feature-complete and it doesn't cover all edge cases, but it should give insight into using GraphQL with Apollo in React applications. If you want to dive more deeply into different topics like testing and state management with GraphQL on the client-side, you can start here: [A minimal Apollo Client in React Example](https://www.robinwieruch.de/react-apollo-client-example). Try to apply what you've learned in this application (e.g. testing, state management). Otherwise, I encourage you to try to build your own GraphQL client library, which helps you understand more of the GraphQL internals: [How to build a GraphQL client library for React](https://www.robinwieruch.de/react-graphql-client-library). Whichever you decide, keep tinkering on this application, or start with another GraphQL client application to fortify your skill set.
 
 {{% read_more "GraphQL Server Tutorial with Apollo Server and Express" "https://www.robinwieruch.de/graphql-apollo-server-tutorial" %}}

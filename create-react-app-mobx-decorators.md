@@ -166,7 +166,7 @@ The current situation is that the maintainers of create-react-app are holding de
 
 But what if you want to use decorators for your create-react-app + MobX application right now?
 
-{{< highlight javascript "hl_lines=5 7"  >}}
+{{< highlight javascript "hl_lines=5 7" >}}
 import React, { Component } from 'react';
 import { observable } from 'mobx';
 import { observer }  from 'mobx-react';

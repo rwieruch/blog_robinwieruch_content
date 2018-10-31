@@ -23,7 +23,7 @@ summary = "Everything you need to get started with GitHub's GraphQL API for lear
 
 {{% read_before_2 "This tutorial is part 1 of 3 in this series." "Part 2:" "A complete React with GraphQL Tutorial" "https://www.robinwieruch.de/react-with-graphql-tutorial/" "Part 3:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial/" %}}
 
-Step-by-step is often the easiest way learn something new, so it's fortunate that learning GraphQL in JavaScript teaches both the client and the server-side of an application. Seeing both sides of the web transactions is useful, but the catch is you have to learn two environments. The step-by-step mentality can be difficult to apply here, so I encourage newcomers to start with a client-side application by consuming a third-party GraphQL API before the server side, which uses a GraphQL server. 
+Step-by-step is often the easiest way learn something new, so it's fortunate that learning GraphQL in JavaScript teaches both the client and the server-side of an application. Seeing both sides of the web transactions is useful, but the catch is you have to learn two environments. The step-by-step mentality can be difficult to apply here, so I encourage newcomers to start with a client-side application by consuming a third-party GraphQL API before the server side, which uses a GraphQL server.
 
 {{% a_blank "GitHub" "https://github.com" %}} is one of the first major tech brands to adopt GraphQL. They even managed to {{% a_blank "release" "https://githubengineering.com/the-github-graphql-api" %}} a public GraphQL API {{% a_blank "(official documentation)" "https://developer.github.com/v4" %}}, which is quite popular among developers, because most are familiar enough with GitHub from using it for their own projects.
 
@@ -33,7 +33,7 @@ In this chapter, I hope to cover everything you need to get started with GitHub'
 
 If you don't have an account on GitHub yet, follow [this guide](https://www.robinwieruch.de/git-essential-commands/) to sign up, follow a beginner's tour, and about a few essential commands for the terminal. This might come in handy if you decide to share projects with others on GitHub in the future. It is a good way to showcase a development portfolio to potential clients or hiring companies.
 
-For our interactions with GitHub's GraphQL API, you will use your own account with information to read/write from/to this data. Before that, complete your GitHub profile by providing additional information so you can recongnize it later when it is read by the API.
+For our interactions with GitHub's GraphQL API, you will use your own account with information to read/write from/to this data. Before that, complete your GitHub profile by providing additional information so you can recognize it later when it is read by the API.
 
 ### Exercises:
 
@@ -48,7 +48,7 @@ If you don't have any projects to upload, you can always 'fork' repositories fro
 
 ### Exercises:
 
-* Create or fork a couple of GitHub repositories, and verify that they show in your account as copies. Copies are indicated by the username that proceeds the repository name in all its titles; for example, a repo called *OringinalAuthor/TestRepo* would be renamed to *YourUserName/TestRepo* once you've forked it.
+* Create or fork a couple of GitHub repositories, and verify that they show in your account as copies. Copies are indicated by the username that proceeds the repository name in all its titles; for example, a repo called *OriginalAuthor/TestRepo* would be renamed to *YourUserName/TestRepo* once you've forked it.
 
 {{% sub_chapter_header "Working with paginated Data" "github-paginated-data" %}}
 
@@ -66,12 +66,12 @@ Once you dive deeper into GitHub's GraphQL API and you start to request nested r
   * What is a GitHub organization and GitHub user?
   * What are repositories, issues and pull requests?
   * What are GitHub repository stars and GitHub repository watchers?
-* Create or fork enough epositories to use the pagination feature.
+* Create or fork enough repositories to use the pagination feature.
 * Create pull requests and issues in a few of your GitHub repositories.
 
 {{% chapter_header "Read/Write Data with GitHub's Personal Access Token" "github-personal-access-token" %}}
 
-To use GitHub's GraphQL API, you need to generate a personal access token on their website. The access token autorizes users to interact with data, to read and write it under your username. {{% a_blank "Follow their step by step instructions" "https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line" %}} to obtain the personal access token, and be sure to check the necessary scopes (permissions) for it, as you will need them to implement a well-rounded GitHub client later.
+To use GitHub's GraphQL API, you need to generate a personal access token on their website. The access token authorizes users to interact with data, to read and write it under your username. {{% a_blank "Follow their step by step instructions" "https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line" %}} to obtain the personal access token, and be sure to check the necessary scopes (permissions) for it, as you will need them to implement a well-rounded GitHub client later.
 
 {{% pin_it_image "react graphql github" "img/posts/getting-started-github-graphql-api/github-personal-access-token.jpg" "is-src-set" %}}
 

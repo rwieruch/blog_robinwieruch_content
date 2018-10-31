@@ -197,7 +197,7 @@ models.sequelize.sync().then(() => {
 });
 {{< /highlight >}}
 
-Once you start your application again, you should see on the command line that the tables in your database got created. You can tap into those tables by using the psql shell and the previously mentioned Meta-Commands. If you want to re-initialize your database on every Express server start, you can add a confition to your sync method: `sequelize.sync({ force: true }).then(...)`.
+Once you start your application again, you should see on the command line that the tables in your database got created. You can tap into those tables by using the psql shell and the previously mentioned Meta-Commands. If you want to re-initialize your database on every Express server start, you can add a condition to your sync method: `sequelize.sync({ force: true }).then(...)`.
 
 <hr class="section-divider">
 

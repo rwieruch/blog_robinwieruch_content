@@ -438,8 +438,8 @@ In the end, you should be able to access the result with the previous implementa
 
 ### Exercises:
 
-* implement select and unselect all repositories in the list mutations
-* implement a batch star and unstar mutation for all selected repositories
+* Implement select and unselect all repositories in the list mutations
+* Implement a batch star and unstar mutation for all selected repositories
 
 {{% chapter_header "Async Query Resolver and Device Data" "apollo-link-state-async-query-resolver" %}}
 

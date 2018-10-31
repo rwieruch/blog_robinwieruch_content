@@ -33,15 +33,15 @@ There is lots of room to contribute to the GraphQL ecosystem, because the tools 
 
 Before diving into implementing your own GraphQL client for React, consider the essentials for consuming a GraphQL API in a React application:
 
-* A **GraphQL client** must be used. It can be any HTTP library or even the {{% a_blank "native fetch API" "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" %}}, but it must be able to send HTTP methods with a payload across the wire.  While the GraphQL specification isn't opinionated about the transportation layer, the GitHub GraphQL API you consume with a GraphQL client is using HTTP. Because we are using their API, our GraphQL client must be able to execute GraphQL operations using HTTP methods.
+* A **GraphQL client** must be used. It can be any HTTP library or even the {{% a_blank "native fetch API" "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" %}}, but it must be able to send HTTP methods with a payload across the wire. While the GraphQL specification isn't opinionated about the transportation layer, the GitHub GraphQL API you consume with a GraphQL client is using HTTP. Because we are using their API, our GraphQL client must be able to execute GraphQL operations using HTTP methods.
 
 * There must be a way to **provide the GraphQL client instance to the React view layer**. It is the perfect use for [React's Context API](https://www.robinwieruch.de/react-context-api/) to provide the GraphQL client instance at the top level of the React component tree, and to consume it in every React component interested in it.
 
-* There must be a way to **execute GraphQL operations, like a query or a mutation, in a declarative way in React**.  You will implement a Query component and a Mutation component that exposes an API to execute the GraphQL operations and to access its result. Because you are implementing these components, you won't touch the GraphQL client provided with React's Context API explicitly in your React components, but only in the Query and Mutation components.
+* There must be a way to **execute GraphQL operations, like a query or a mutation, in a declarative way in React**. You will implement a Query component and a Mutation component that exposes an API to execute the GraphQL operations and to access its result. Because you are implementing these components, you won't touch the GraphQL client provided with React's Context API explicitly in your React components, but only in the Query and Mutation components.
 
 The first part is React agnostic, but the second and third glue the GraphQL client (data layer) to React (view layer). It can be seen as an analog to the *redux* and *react-redux* or *apollo-client* and *react-apollo* libraries. The former is view layer agnostic, the latter is used to connect it to the view layer.
 
-While you implement a GraphQL client for React in the following sections, you will also implement a GitHub client application with React that consumes GitHub's GraphQL API, using GraphQL client. 
+While you implement a GraphQL client for React in the following sections, you will also implement a GitHub client application with React that consumes GitHub's GraphQL API, using GraphQL client.
 
 {{% chapter_header "Implementing your GraphQL Client" "graphql-client" %}}
 
@@ -112,7 +112,7 @@ class GraphQLClient {
 export default GraphQLClient;
 {{< /highlight >}}
 
-That's it for the GraphQL client. You created an instance of the GraphQL client and executed GraphQL operations (query and mutation) with it. You may wonder: Where is the state, the caching of requests, and the normalization of the data? You don't need them. The lightweight GraphQL client operates without any extra features, though I invite you to extend the feature set of the GraphQL client after you implement it in the following sections. 
+That's it for the GraphQL client. You created an instance of the GraphQL client and executed GraphQL operations (query and mutation) with it. You may wonder: Where is the state, the caching of requests, and the normalization of the data? You don't need them. The lightweight GraphQL client operates without any extra features, though I invite you to extend the feature set of the GraphQL client after you implement it in the following sections.
 
 Next, use the instantiated GraphQL Client in your top level React component.
 
@@ -252,7 +252,7 @@ class Query extends React.Component {
 export default withClient(Query);
 {{< /highlight >}}
 
-The Query component receives a GraphQL query and optional variables as props. Once it mounts, it executes the query  using the GraphQL client instance injected with the `withClient` higher-order component. If the request resolves successfully, all data and GraphQL errors are stored in the local state of the Query component. Otherwise, a network error is stored in the local state, in an array of errors. Also, a `loading` boolean tracks the request state. The Query component uses the render prop as a children function to pass in the local state of the component. The user of the Query component decides what should be rendered in response to the information (data, loading, errors) from the children function.
+The Query component receives a GraphQL query and optional variables as props. Once it mounts, it executes the query using the GraphQL client instance injected with the `withClient` higher-order component. If the request resolves successfully, all data and GraphQL errors are stored in the local state of the Query component. Otherwise, a network error is stored in the local state, in an array of errors. Also, a `loading` boolean tracks the request state. The Query component uses the render prop as a children function to pass in the local state of the component. The user of the Query component decides what should be rendered in response to the information (data, loading, errors) from the children function.
 
 In your App component's file, you can import the component, pass in a query and optional variables, and let the Query component execute the GraphQL query once it mounts. You will receive the information from the Query component in the children function during each render.
 
@@ -526,7 +526,7 @@ class Query extends React.Component {
 export default withClient(Query);
 {{< /highlight >}}
 
-The `queryMore()` method, exposed with the children function as `fetchMore()` function, is used similar to the `query()` method. You switch from a declarative query execution to a imperative query execution using the `fetchMore()` function externally now. There, pass in a query and variables with a pagination argument to the function.
+The `queryMore()` method, exposed with the children function as `fetchMore()` function, is used similar to the `query()` method. You switch from a declarative query execution to a imperative query execution using the `fetchMore()` function in React now. There, pass in a query and variables with a pagination argument to the function.
 
 The one crucial difference to the `query()` method is the `resolveFetchMore()` function that is passed to the Query component as prop. It is used when a query resolves successfully, to merge the result with the component state. You can define from the outside how to merge this information.
 
@@ -617,7 +617,7 @@ class App extends Component {
 ...
 
 export default App;
-{{< /highlight  >}}
+{{< /highlight >}}
 
 Third, the Repositories component can use the function to fetch the next page of the paginated list of repositories with a button. The button becomes available only when there is a next page of the paginated list.
 
@@ -803,7 +803,7 @@ const Repositories = ({
 
 The Mutation component grants access to the mutation function and the mutation result in its child as a function. The button can then use the function to watch or unwatch the repository. In this case, the variables are passed in the mutate function, but you could pass them in the Mutation component too.
 
-You may notice your mutation works only once now, as every other mutation keeps same count of watchers, meaning it doesn't toggle between watch and unwatch. This is because the repository prop with the `viewerSubscription` and the `totalCount` properties doesn't change after a mutation, since it is a prop from the Query component above. It is managed in the Query component, not in the Mutation component. You need to manage the data in the Mutation component instead, to update it after a mutation accordingly. 
+You may notice your mutation works only once now, as every other mutation keeps same count of watchers, meaning it doesn't toggle between watch and unwatch. This is because the repository prop with the `viewerSubscription` and the `totalCount` properties doesn't change after a mutation, since it is a prop from the Query component above. It is managed in the Query component, not in the Mutation component. You need to manage the data in the Mutation component instead, to update it after a mutation accordingly.
 
 {{< highlight javascript "hl_lines=10 20 26" >}}
 import React from 'react';
@@ -856,7 +856,7 @@ The previous additions to the Mutation component implemented two requirements:
 
 * The Mutation component has to take over the state of the data to be mutated. In this case, the `initial` prop makes it possible to set an initial state with the data it takes over.
 
-* The Mutation component needs a way to update the state after a successful mutation, to retrieve recent data from it. In this case, the `resolveMutation()` function  is passed as prop to the Mutation component, which is used to merge the Mutation component state with the mutation result into a new Mutation component state. This is similar to the `resolveFetchMore()` function from the Query component used for pagination.
+* The Mutation component needs a way to update the state after a successful mutation, to retrieve recent data from it. In this case, the `resolveMutation()` function is passed as prop to the Mutation component, which is used to merge the Mutation component state with the mutation result into a new Mutation component state. This is similar to the `resolveFetchMore()` function from the Query component used for pagination.
 
 After these improvements, you can update the Mutation component in your GitHub client application. Give it the initial state using the prop for it, which should give all the information needed for the Mutation component's render prop function.
 
@@ -969,7 +969,7 @@ class Mutation extends React.Component {
 export default withClient(Mutation);
 {{< /highlight >}}
 
-Everything is in place for the Mutation component now. It manages its own state, which  is used as data in the Mutation component's render prop function. We've implemented a Mutation component that handles the GraphQL mutation using your GraphQL client in a React application.
+Everything is in place for the Mutation component now. It manages its own state, which is used as data in the Mutation component's render prop function. We've implemented a Mutation component that handles the GraphQL mutation using your GraphQL client in a React application.
 
 <hr class="section-divider">
 

@@ -71,7 +71,7 @@ When you go on the command line again, you can run this file with Node.js from y
 node src/index.js
 {{< /highlight >}}
 
-A statement log appears in the command line after the script is executred. Next, move this script into your *package.json* file, because that's where all your project's scripts will end up eventually.
+A statement log appears in the command line after the script is executed. Next, move this script into your *package.json* file, because that's where all your project's scripts will end up eventually.
 
 {{< highlight javascript "hl_lines=5" >}}
 {
@@ -113,7 +113,7 @@ When you run your application with `npm start` from the command line, it should 
 console.log('Hello ever running Node.js project.');
 {{< /highlight >}}
 
-This little adjustment to the environmetn gives developers a powerful tool, because the node process executes again once you change your code. If you introduce a bug, you will see a stack trace in the command line, and the script runs again without any flaws.
+This little adjustment to the environment gives developers a powerful tool, because the node process executes again once you change your code. If you introduce a bug, you will see a stack trace in the command line, and the script runs again without any flaws.
 
 {{% chapter_header "Node.js with Babel" "node-js-babel" %}}
 

@@ -97,7 +97,7 @@ Last but not least, the Redux store needs to be provided along with Apollo Clien
 npm install react-redux --save
 {{< /highlight >}}
 
-Afterward, you can import the Provider component and use it next to the ApolloProvider to provide the Redux store to the view-layer as its  context. Afterward it can be used implicitly by React components the same as the Apollo Client instance.
+Afterward, you can import the Provider component and use it next to the ApolloProvider to provide the Redux store to the view-layer as its context. Afterward it can be used implicitly by React components the same as the Apollo Client instance.
 
 {{< highlight javascript "hl_lines=1 8 10" >}}
 import { Provider } from 'react-redux';

@@ -23,7 +23,7 @@ summary = "Learn how to build a fully working GraphQL server with Apollo Server 
 
 {{% read_before_3 "This tutorial is part 4 of 4 in this series." "Part 1:" "Why GraphQL: Advantages, Disadvantages & Alternatives" "https://www.robinwieruch.de/why-graphql-advantages-disadvantages-alternatives/" "Part 2:" "Why Apollo: Advantages, Disadvantages & Alternatives" "https://www.robinwieruch.de/why-apollo-advantages-disadvantages-alternatives/" "Part 3:" "The minimal Node.js with Babel Setup" "https://www.robinwieruch.de/minimal-node-js-babel-setup" %}}
 
-Since GraphQL is a query language, its transport layer and data format is undefined. GraphQL isn't opionated about it, but it is used as alternative to the popular REST architecture for client-server communication over HTTP with JSON.
+Since GraphQL is a query language, its transport layer and data format is undefined. GraphQL isn't opinionated about it, but it is used as alternative to the popular REST architecture for client-server communication over HTTP with JSON.
 
 In this chapter, you will implement server-side architecture using GraphQL and Apollo Server. The GraphQL query language is implemented as a reference implementation in JavaScript by Facebook, while Apollo Server builds on it to simplify building GraphQL servers in JavaScript.
 
@@ -156,7 +156,7 @@ const data = {
 
 In the GraphQL schema for setting up an Apollo Server, **resolvers** are used to return data for fields from the schema. The data source doesn't matter, because the data can be hardcoded, can come from a database, or from another (RESTful) API endpoint. You will learn more about potential data sources later. For now, it only matters that the resolvers are agnostic according to where the data comes from, which separates GraphQL from your typical database query language. Resolvers are functions that resolve data for your GraphQL fields in the schema. In the previous example, only a user object with the username "Robin Wieruch" gets resolved from the `me` field.
 
-Your GraphQL API with Apollo Server and Express should be working now. On the command line, you can always start your application with the `npm start` script to verify it works after you make changes. To verify it without a client application, Apollo Server comes with GraphQL Playground, a built-in client for consuming GraphQL APIs.  It is found by using a GraphQL API endpoint in a browser at `http://localhost:8000/graphql`. In the application, define your first GraphQL query to see its result:
+Your GraphQL API with Apollo Server and Express should be working now. On the command line, you can always start your application with the `npm start` script to verify it works after you make changes. To verify it without a client application, Apollo Server comes with GraphQL Playground, a built-in client for consuming GraphQL APIs. It is found by using a GraphQL API endpoint in a browser at `http://localhost:8000/graphql`. In the application, define your first GraphQL query to see its result:
 
 {{< highlight javascript >}}
 {
@@ -918,7 +918,7 @@ const resolvers = {
 };
 {{< /highlight >}}
 
-The last part is essentially your writing operation to a data source. In this case, you have only updated the sample data, but it would most likey be a database in practical use. Next, implement the mutation for deleting messages:
+The last part is essentially your writing operation to a data source. In this case, you have only updated the sample data, but it would most likely be a database in practical use. Next, implement the mutation for deleting messages:
 
 {{< highlight javascript "hl_lines=13" >}}
 const schema = gql`
@@ -1321,7 +1321,7 @@ In the last section, you extracted schema and resolvers from your main file and 
   * index.js
 {{< /highlight >}}
 
-You now have a good starting point for a GraphQL server application with Node.js. The last implementations gave you a universally usable GraphQL boilerplate project to serve as a foundation for your own software development projects. As we contintue, the focus becomes connecting GraphQL server to databases, authentication and authorization, and using powerful features like pagination.
+You now have a good starting point for a GraphQL server application with Node.js. The last implementations gave you a universally usable GraphQL boilerplate project to serve as a foundation for your own software development projects. As we continue, the focus becomes connecting GraphQL server to databases, authentication and authorization, and using powerful features like pagination.
 
 ### Exercises:
 
@@ -1615,7 +1615,7 @@ const createUsersWithMessages = async () => {
 };
 {{< /highlight >}}
 
-The `force` flag in your Sequelize `sync()` method can be used to seed the database on every application startup.  You can either remove the flag or set it to `false` if you want to keep accumulated database changes over time. The flag should be removed for your production database at some point.
+The `force` flag in your Sequelize `sync()` method can be used to seed the database on every application startup. You can either remove the flag or set it to `false` if you want to keep accumulated database changes over time. The flag should be removed for your production database at some point.
 
 Next, we have to handle the `me` user. Before, you used one of the users from the sample data; now, the user will come from a database. It's a good opportunity to write a custom method for your user model in the *src/models/user.js* file:
 
@@ -1668,7 +1668,7 @@ const server = new ApolloServer({
 });
 {{< /highlight >}}
 
-However, this cannot work yet, because the user is read asynchronously from the database, so `me` would be a JavaScript promise rather than the actual user; and because you may want to retrieve the `me` user on a per-request basis from the database. Otherwise, the `me` user has to stay the same after the Apollo Server is created.  Instead, use a function that returns the context object rather than an object for the context in Apollo Server. This function uses the async/await statements. The function is invoked every time a request hits your GraphQL API, so the `me` user is retrieved from the database with every request.
+However, this cannot work yet, because the user is read asynchronously from the database, so `me` would be a JavaScript promise rather than the actual user; and because you may want to retrieve the `me` user on a per-request basis from the database. Otherwise, the `me` user has to stay the same after the Apollo Server is created. Instead, use a function that returns the context object rather than an object for the context in Apollo Server. This function uses the async/await statements. The function is invoked every time a request hits your GraphQL API, so the `me` user is retrieved from the database with every request.
 
 {{< highlight javascript "hl_lines=4 6 7" >}}
 const server = new ApolloServer({
@@ -1939,7 +1939,7 @@ These are the essentials for validation and error handling with GraphQL in Apoll
 
 {{% chapter_header "Apollo Server: Authentication" "apollo-server-authentication" %}}
 
-Authentication in GraphQL is a popular topic. There is no opionated way of doing it, but many people need it for their applications. GraphQL itself isn't opionated about authentication since it is only a query language. If you want authentication in GraphQL, consider using GraphQL mutations. In this section, we use a minimalistic approach to add authentication to your GraphQL server. Afterward, it should be possible to register (sign up) and login (sign in) a user to your application. The previously used `me` user will be the authenticated user.
+Authentication in GraphQL is a popular topic. There is no opinionated way of doing it, but many people need it for their applications. GraphQL itself isn't opinionated about authentication since it is only a query language. If you want authentication in GraphQL, consider using GraphQL mutations. In this section, we use a minimalistic approach to add authentication to your GraphQL server. Afterward, it should be possible to register (sign up) and login (sign in) a user to your application. The previously used `me` user will be the authenticated user.
 
 In preparation for the authentication mechanism with GraphQL, extend the user model in the *src/models/user.js* file. The user needs an email address (as unique identifier) and a password. Both email address and username (another unique identifier) can be used to sign in to the application, which is why both properties were used for the user's `findByLogin()` method.
 
@@ -2163,7 +2163,7 @@ export default user;
 
 The bcrypt `hash()` method takes a string--the user's password--and an integer called salt rounds. Each salt round makes it more costly to hash the password, which makes it more costly for attackers to decrypt the hash value. A common value for salt rounds nowadays ranged from 10 to 12, as increasing the number of salt rounds might cause performance issues both ways.
 
-In this implementation, the `generatePasswordHash()` function is added to the user's prototype chain. That's why it is possible to execute the function as method on each user instance, so you have the user itself available within the method as `this`. You can also take the user instance with its password as an argument, which I prefer, though using JavaScript's prototypal inheritance a good tool for any wenb developer. For now, the password is hashed with bcrypt before it gets stored every time a user is created in the database,.
+In this implementation, the `generatePasswordHash()` function is added to the user's prototype chain. That's why it is possible to execute the function as method on each user instance, so you have the user itself available within the method as `this`. You can also take the user instance with its password as an argument, which I prefer, though using JavaScript's prototypal inheritance a good tool for any web developer. For now, the password is hashed with bcrypt before it gets stored every time a user is created in the database,.
 
 {{% sub_chapter_header "Token based Authentication in GraphQL" "graphql-token-based-authentication" %}}
 
@@ -2477,7 +2477,7 @@ export default {
 };
 {{< /highlight >}}
 
-You can imagine how this becomes repetitive and error prone if it is used for all GraphQL operations that are accessible to an authenticated user, as it mixes lots of authorization logic into the resolver functions. To remedy this, we introduce an authorization abstraction layer for protecting GraphQL operations, with solutions called **combined resolvers** or  **resolver middleware**. Let's install this node package:
+You can imagine how this becomes repetitive and error prone if it is used for all GraphQL operations that are accessible to an authenticated user, as it mixes lots of authorization logic into the resolver functions. To remedy this, we introduce an authorization abstraction layer for protecting GraphQL operations, with solutions called **combined resolvers** or **resolver middleware**. Let's install this node package:
 
 {{< highlight javascript >}}
 npm install graphql-resolvers --save
@@ -2604,7 +2604,7 @@ export default {
 };
 {{< /highlight >}}
 
-As an alternate tactic, you can also use the `isAuthenticated` resolver directly in the `isMessageOwner` resolver; then, you can avoid handling it in the actual resolver for deleting a message. I find being explicit to be more practical than hiding knowledge within the authorization resolver. The alternatate route is still explained in the role-based authorization section, however.
+As an alternate tactic, you can also use the `isAuthenticated` resolver directly in the `isMessageOwner` resolver; then, you can avoid handling it in the actual resolver for deleting a message. I find being explicit to be more practical than hiding knowledge within the authorization resolver. The alternative route is still explained in the role-based authorization section, however.
 
 The second combined resolver is for permission checks, because it decides whether or not the user has permission to delete the message. This is just one way of doing it, though. In other cases, the message could carry a boolean flag that decides if the active user has certain permissions.
 
@@ -2827,7 +2827,7 @@ mutation {
 }
 {{< /highlight >}}
 
-You should recieive a token after logging into GraphQL Playground. The token needs to be set in the HTTP header for the next GraphQL operation. GraphQL Playground has a panel to add HTTP headers. Since your application is checking for an x-token, set the token as one:
+You should receive a token after logging into GraphQL Playground. The token needs to be set in the HTTP header for the next GraphQL operation. GraphQL Playground has a panel to add HTTP headers. Since your application is checking for an x-token, set the token as one:
 
 {{< highlight javascript >}}
 {
@@ -2959,7 +2959,7 @@ Even though this approach is simpler, it comes with a few disadvantages. When yo
 
 {{% sub_chapter_header "Cursor-based Pagination with Apollo Server and GraphQL" "apollo-server-cursor-based-pagination" %}}
 
-In cursor-based pagination, the offset is given an identifier called a **cursor** rather counting items like offset/limit pagination. The cursor can be used to expresse  "give me a limit of X items from cursor Y". A common approach to use dates (e.g. creation date of an entity in the database) to identify an item in the list. In our case, each message already has a `createdAt` date that is assigned to the entity when it is written to the database. Now we'll extend the *src/schema/message.js* which uses this field for a message. Afterward, you should be able to query this field in GraphQL Playground:
+In cursor-based pagination, the offset is given an identifier called a **cursor** rather counting items like offset/limit pagination. The cursor can be used to express "give me a limit of X items from cursor Y". A common approach to use dates (e.g. creation date of an entity in the database) to identify an item in the list. In our case, each message already has a `createdAt` date that is assigned to the entity when it is written to the database. Now we'll extend the *src/schema/message.js* which uses this field for a message. Afterward, you should be able to query this field in GraphQL Playground:
 
 {{< highlight javascript "hl_lines=17" >}}
 import { gql } from 'apollo-server-express';

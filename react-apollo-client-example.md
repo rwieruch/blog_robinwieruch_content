@@ -186,10 +186,10 @@ Nevertheless, there are a couple of potential improvements that you can do as ex
 
 ### Exercises:
 
-* implement the unstar mutation
-* implement a flexible way to query repositories from different organizations
-  * implement a search field that is managed with React's local state
-  * when submitting the value from the search field, pass this value as variable to the Query component to use it as dynamic value for the `login` argument
+* Implement the unstar mutation
+* Implement a flexible way to query repositories from different organizations
+  * Implement a search field that is managed with React's local state
+  * When submitting the value from the search field, pass this value as variable to the Query component to use it as dynamic value for the `login` argument
 
 {{% chapter_header "Starting with React's Local State Management for Local Data" "react-local-data" %}}
 
