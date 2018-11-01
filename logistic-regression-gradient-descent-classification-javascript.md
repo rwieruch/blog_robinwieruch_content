@@ -694,7 +694,7 @@ x1 +
 
 The approach is taken for every class and thus there would be 3 decision boundaries in the end. The classifier h(x) for each category gets trained to predict the probability y of x being in a category. When the hypotheses are trained eventually, a new data point can be classified by picking the class that maximizes the probability.
 
-There is no implementation in JavaScript for a multiclass classification with logistic regression yet. Perhaps thats your chance to contribute to the organization! Reach out to me if you want to {{% a_blank "start a repository" "https://github.com/javascript-machine-learning/" %}} as sample project for other machine learning in JavaScript newcomers.
+There is no implementation in JavaScript for a multiclass classification with logistic regression yet. Perhaps thats your chance to contribute to the organization! Reach out to me if you want to {{% a_blank "start a repository" "https://github.com/javascript-machine-learning/" %}} as sample project for other machine learning in JavaScript beginners.
 
 <hr class="section-divider">
 

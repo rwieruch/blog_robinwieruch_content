@@ -430,7 +430,7 @@ function App() {
 export default App;
 {{< /highlight >}}
 
-In order to remove the interval when the component unmounts, you can return a function in useEffect for anything to be called when the component unmounts. There shouldn't be any memory leak left behind when the component isn't there anymore, so we will clean up the interval.
+In order to remove the interval when the component unmounts (but also after every other render update), you can return a function in useEffect for anything to be called for the clean up. For instance, there shouldn't be any memory leak left behind when the component isn't there anymore.
 
 {{< highlight javascript "hl_lines=7 9" >}}
 import React, { useState, useEffect } from 'react';
@@ -491,11 +491,53 @@ function App() {
 export default App;
 {{< /highlight >}}
 
-In other scenarios, the array can be filled with variables. Then only when one of the variables in the array changes, the effect will run. If you keep the array empty, the effect will only run on mount and unmount, because there is no variable to be checked for running the side-effect again.
+However, since the interval is cleaned up with after every render too, we need to set the interval in our update cycle too. But we can tell the effect to run only when the `isOn` variable changes. Only when one of the variables in the array changes, the effect will run during the update cycle. If you keep the array empty, the effect will only run on mount and unmount, because there is no variable to be checked for running the side-effect again.
+
+{{< highlight javascript "hl_lines=10" >}}
+import React, { useState, useEffect } from 'react';
+
+function App() {
+  const [isOn, setIsOn] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => console.log('tick'), 1000);
+
+    return () => clearInterval(interval);
+  }, [isOn]);
+
+  ...
+}
+
+export default App;
+{{< /highlight >}}
+
+The interval is running whether the `isOn` boolean is true or false. It would be great to only run it when the stopwatch is activated.
+
+{{< highlight javascript "hl_lines=7 9 11" >}}
+import React, { useState, useEffect } from 'react';
+
+function App() {
+  const [isOn, setIsOn] = useState(false);
+
+  useEffect(() => {
+    let interval;
+
+    if (isOn) {
+      interval = setInterval(() => console.log('tick'), 1000);
+    }
+
+    return () => clearInterval(interval);
+  }, [isOn]);
+
+  ...
+}
+
+export default App;
+{{< /highlight >}}
 
 Now introduce another state in your function component to keep track of the timer of the stopwatch. It is used to update the timer, but only when the stopwatch is activated.
 
-{{< highlight javascript "hl_lines=5 9 18" >}}
+{{< highlight javascript "hl_lines=5 12 22" >}}
 import React, { useState, useEffect } from 'react';
 
 function App() {
@@ -503,13 +545,17 @@ function App() {
   const [timer, setTimer] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(
-      () => isOn && setTimer(timer + 1),
-      1000,
-    );
+    let interval;
+
+    if (isOn) {
+      interval = setInterval(
+        () => setTimer(timer + 1),
+        1000,
+      );
+    }
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isOn]);
 
   return (
     <div>
@@ -533,9 +579,9 @@ function App() {
 export default App;
 {{< /highlight >}}
 
-That's the implementation for the stopwatch that uses the Browser API If you want to continue, you can extend the example by providing a "Reset" button too.
+There is still one mistake in the code. When the interval is running, it updates the timer every second by increasing it by one. However, it always relies on a stale state for the timer. Only when the `inOn` boolean flag changes the state is fine. In order to receive always the latest state for the timer when the interval is running, you can use a function instead for the state update function which always has the latest state.
 
-{{< highlight javascript "hl_lines=16 17 18 19 37 38 39" >}}
+{{< highlight javascript "hl_lines=12" >}}
 import React, { useState, useEffect } from 'react';
 
 function App() {
@@ -543,13 +589,73 @@ function App() {
   const [timer, setTimer] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(
-      () => isOn && setTimer(timer + 1),
-      1000,
-    );
+    let interval;
+
+    if (isOn) {
+      interval = setInterval(
+        () => setTimer(timer => timer + 1),
+        1000,
+      );
+    }
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isOn]);
+
+  ...
+}
+
+export default App;
+{{< /highlight >}}
+
+An alternative would have been to run the effect also when the timer changes. Then the effect would receive the latest timer state.
+
+{{< highlight javascript "hl_lines=18" >}}
+import React, { useState, useEffect } from 'react';
+
+function App() {
+  const [isOn, setIsOn] = useState(false);
+  const [timer, setTimer] = useState(0);
+
+  useEffect(() => {
+    let interval;
+
+    if (isOn) {
+      interval = setInterval(
+        () => setTimer(timer + 1),
+        1000,
+      );
+    }
+
+    return () => clearInterval(interval);
+  }, [isOn, timer]);
+
+  ...
+}
+
+export default App;
+{{< /highlight >}}
+
+That's the implementation for the stopwatch that uses the Browser API If you want to continue, you can extend the example by providing a "Reset" button too.
+
+{{< highlight javascript "hl_lines=20 21 22 23 41 42 43" >}}
+import React, { useState, useEffect } from 'react';
+
+function App() {
+  const [isOn, setIsOn] = useState(false);
+  const [timer, setTimer] = useState(0);
+
+  useEffect(() => {
+    let interval;
+
+    if (isOn) {
+      interval = setInterval(
+        () => setTimer(timer => timer + 1),
+        1000,
+      );
+    }
+
+    return () => clearInterval(interval);
+  }, [isOn]);
 
   const onReset = () => {
     setIsOn(false);

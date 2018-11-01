@@ -21,7 +21,7 @@ summary = "A common sense minimal Node.js setup guide. It uses Babel and Nodemon
 
 {{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "My development setup as a JavaScript web developer" "https://www.robinwieruch.de/developer-setup/" %}}
 
-I have always been of the understanding there are no common sense rules about how to create a minimal Node.js application with Babel. In my search for these answers, it seemed that every tutorial I came across showed something different. As a result, I wanted to streamline this project setup for my readers and myself, so I developed a common approach for Node.js applications with Babel. I think it is a good foundation for learning JavaScript on the command line, building sophisticated Node.js projects on top of it, and/or releasing it as node package (library) on npm as an open source project. The final project you are going to implement can be found in this [GitHub repository](https://github.com/rwieruch/node-babel-server).
+I have always been of the understanding there are no common sense rules about how to create a minimal Node.js application with Babel. In my search for these answers, it seemed that every tutorial I came across showed something different. As a result, I wanted to streamline this project setup for my readers and myself, so I developed a common approach for Node.js applications with Babel. I think it is a good foundation for learning JavaScript on the command line, building sophisticated Node.js projects on top of it, releasing it as node package (library) on npm as an open source project, or to build a GraphQL server on top of it. The final project you are going to implement can be found in this [GitHub repository](https://github.com/rwieruch/node-babel-server).
 
 {{% chapter_header "Node.js Project Setup" "node-js-project-setup" %}}
 
@@ -227,7 +227,7 @@ That's a basic understanding of Node.js environment variables. They should be us
 
 <hr class="section-divider">
 
- This guide has shown you how to create a Node.js project from scratch, and how you can introduce upcoming JavaScript features in your Node.js environment using Babel. You have seen how npm scripts are used to start, test, and deploy applications, and how environment variables secure sensible data like private API keys and user credentials. The finished product is a node package that can be open sourced on npm, another rewarding aspect of working with the Node.js ecosystem. It can can be found in this [GitHub repository](https://github.com/rwieruch/node-babel-server).
+This guide has shown you how to create a Node.js project from scratch, and how you can introduce upcoming JavaScript features in your Node.js environment using Babel. You have seen how npm scripts are used to start, test, and deploy applications, and how environment variables secure sensible data like private API keys and user credentials. The finished product is a node package that can be open sourced on npm, another rewarding aspect of working with the Node.js ecosystem. It can can be found in this {{% a_blank "GitHub repository" "https://github.com/rwieruch/node-babel-server" %}}.
 
 {{% read_more "GitHub and Git Setup and Essentials" "https://www.robinwieruch.de/git-essential-commands/" %}}
 

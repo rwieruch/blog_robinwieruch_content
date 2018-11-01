@@ -23,7 +23,7 @@ summary = "This React with GraphQL Tutorial shows you how to use GraphQL in your
 
 {{% read_before_2 "This tutorial is part 2 of 3 in this series." "Part 1:" "Getting Started with GitHub's GraphQL API" "https://www.robinwieruch.de/getting-started-github-graphql-api" "Part 3:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial" %}}
 
-In the client-sided GraphQL application we'll build together, you will learn how to combine React with GraphQL. There is no clever library like {{% a_blank "Apollo Client" "https://github.com/apollographql/apollo-client" %}} or {{% a_blank "Relay" "https://github.com/facebook/relay" %}} to help you get started yet, so instead, you will perform GraphQL queries and mutations with basic HTTP requests. Later I'll introduce Apollo as a GraphQL client for your React.js application. For now, the application we build should should only show how to use GraphQL in React with HTTP.
+In this client-sided GraphQL application we'll build together, you will learn how to combine React with GraphQL. There is no clever library like {{% a_blank "Apollo Client" "https://github.com/apollographql/apollo-client" %}} or {{% a_blank "Relay" "https://github.com/facebook/relay" %}} to help you get started yet, so instead, you will perform GraphQL queries and mutations with basic HTTP requests. Later I'll introduce Apollo as a GraphQL client for your React.js application. For now, the application we build should should only show how to use GraphQL in React with HTTP.
 
 Along the way, you will build a simplified GitHub client, basically an issue tracker for GitHub, that consumes {{% a_blank "GitHub's GraphQL API" "https://developer.github.com/v4/" %}}. You will perform GraphQL queries and mutations to read and write data, and by the end, you should be able to showcase a GraphQL in React example that can be used by other developers as a learning tool. The final application you are going to build can be found in this {{% a_blank "repository on GitHub" "https://github.com/rwieruch/react-graphql-github-vanilla" %}}.
 
@@ -728,6 +728,7 @@ You might wonder why there is only one input field to grab the information about
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/react-graphql-github-vanilla/tree/ca7b278b8f602c46dfac64a1304d39a8e8e0006b" %}}
 * If you are unfamiliar with React, check out *The Road to learn React*
 
 {{% chapter_header "React GraphQL Query" "react-graphql-query" %}}
@@ -1124,6 +1125,14 @@ class App extends Component {
 
     event.preventDefault();
   };
+
+  onFetchFromGitHub = () => {
+    ...
+  }
+
+  render() {
+    ...
+  }
 }
 {{< /highlight >}}
 
@@ -1249,6 +1258,7 @@ Finally, the query takes variables into account without detouring into a functio
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/react-graphql-github-vanilla/tree/c08126a9ec91dde4198ae85bb2f194fa7767c683" %}}
 * Explore and add fields to your organization, repository and issues
   * Extend your components to display the additional information
 * Read more about {{% a_blank "serving a GraphQL API over HTTP" "http://graphql.org/learn/serving-over-http/" %}}
@@ -1581,6 +1591,7 @@ Now you've implemented pagination with GraphQL in React. For practice, try more 
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/react-graphql-github-vanilla/tree/060677346e8955fb1a6c7579859ce92e62e1f406" %}}
 * Explore further arguments, generic or specific for the type, on the `issues` and `reactions` list fields
   * Think about ways to beautify the updating mechanism of deeply nested state objects and {{% a_blank "contribute your thoughts to it" "https://github.com/rwieruch/react-graphql-github-apollo/pull/14" %}}
 
@@ -1884,6 +1895,7 @@ You have implemented your first mutation in React with GraphQL. So far, you have
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/react-graphql-github-vanilla/tree/3dcd95e32ef24d9e716a1e8ac144b62c0f41ca3c" %}}
 * Implement the `removeStar` mutation, which is used analog to the `addStar` mutation.
   * The `onStarRepository` class method has already access to the `viewerHasStarred` property.
   * Conditionally execute a `addStar` or `removeStar` mutation in the class handler.

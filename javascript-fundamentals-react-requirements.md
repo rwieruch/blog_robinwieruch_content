@@ -1,6 +1,6 @@
 +++
 title = "JavaScript fundamentals before learning React"
-description = "All the fundamentals in JavaScript for React applications. Often React newcomers realize that most of the learnings are JavaScript, because React has only a small API ..."
+description = "All the fundamentals in JavaScript for React applications. Often React beginners realize that most of the learnings are JavaScript, because React has only a small API ..."
 date = "2018-07-18T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
@@ -80,7 +80,7 @@ class App extends Component {
 export default App;
 {{< /highlight >}}
 
-Arguably, a React class component may not be the best starting point. There are lots of things to digest for newcomers which are not necessarily React: class statements, class methods and inheritance. Also the import statements are only adding complexity when learning React. Even though the main focus point should be JSX (React's syntax) in the very beginning, often all the things around demand explanations as well. This article is supposed to shed some light into all the things around, most of it JavaScript, without worrying too much about React.
+Arguably, a React class component may not be the best starting point. There are lots of things to digest for beginners which are not necessarily React: class statements, class methods and inheritance. Also the import statements are only adding complexity when learning React. Even though the main focus point should be JSX (React's syntax) in the very beginning, often all the things around demand explanations as well. This article is supposed to shed some light into all the things around, most of it JavaScript, without worrying too much about React.
 
 {{% chapter_header "React and JavaScript Classes" "react-javascript-classes" %}}
 
@@ -199,7 +199,7 @@ const getGreeting = () =>
   'Welcome to JavaScript';
 {{< /highlight >}}
 
-JavaScript arrow functions are often used in React applications for keeping the code concise and readable. I love them, teach them early, but always try to refactor my functions from JavaScript ES5 to ES6 functions along the way. At some point, when the differences between JavaScript ES5 functions and JavaScript ES6 functions are clear, I stick to the JavaScript ES6 way of doing it with arrow functions. However, I always see that too many different syntaxes can be overwhelming for React newcomers. So I try to make the different characteristics of JavaScript functions clear before going all-in using them in React. In the following sections, you will see how JavaScript arrow functions are commonly used in React.
+JavaScript arrow functions are often used in React applications for keeping the code concise and readable. I love them, teach them early, but always try to refactor my functions from JavaScript ES5 to ES6 functions along the way. At some point, when the differences between JavaScript ES5 functions and JavaScript ES6 functions are clear, I stick to the JavaScript ES6 way of doing it with arrow functions. However, I always see that too many different syntaxes can be overwhelming for React beginners. So I try to make the different characteristics of JavaScript functions clear before going all-in using them in React. In the following sections, you will see how JavaScript arrow functions are commonly used in React.
 
 {{% chapter_header "Functions as Components in React" "react-javascript-functional-components" %}}
 
@@ -350,7 +350,7 @@ Basically that's how larger text blocks can be formatted on multiple lines. Othe
 
 {{% chapter_header "Map, Reduce and Filter in React" "react-javascript-map-reduce-filter" %}}
 
-What's the best approach teaching the JSX syntax for React newcomers? Usually I start out with defining a variable in the `render()` method and using it as JavaScript in HTML in the return block.
+What's the best approach teaching the JSX syntax for React beginners? Usually I start out with defining a variable in the `render()` method and using it as JavaScript in HTML in the return block.
 
 {{< highlight javascript "hl_lines=5 8" >}}
 import React, { Component } from 'react';
@@ -466,7 +466,7 @@ In general, that's how React developers are getting used to these JavaScript bui
 
 {{% chapter_header "var, let, and const in React" "react-javascript-variables" %}}
 
-Also the different variable declarations with `var`, `let` and `const` can be confusing for newcomers to React even though they are not React specific. Maybe it is because JavaScript ES6 was introduced when React became popular. In general, I try to introduce `let` and `const` very early in my workshops. It simply starts with exchanging var with const in a React component:
+Also the different variable declarations with `var`, `let` and `const` can be confusing for beginners to React even though they are not React specific. Maybe it is because JavaScript ES6 was introduced when React became popular. In general, I try to introduce `let` and `const` very early in my workshops. It simply starts with exchanging var with const in a React component:
 
 {{< highlight javascript "hl_lines=5" >}}
 import React, { Component } from 'react';

@@ -270,7 +270,7 @@ In conclusion, every time the props or state change, the rendering mechanism of 
 
 {{% chapter_header "How to pass Props from child to parent Component?" "react-props-child-parent" %}}
 
-This a common question for React newcomers and the answer for it is brief: there is **no way to pass props from a child to a parent component**. Let's revisit the previous example, but this time with an additional Button component for the toggle mechanism.
+This a common question for React beginners and the answer for it is brief: there is **no way to pass props from a child to a parent component**. Let's revisit the previous example, but this time with an additional Button component for the toggle mechanism.
 
 {{< highlight javascript "hl_lines=9 11 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37" >}}
 import React, { Component } from 'react';

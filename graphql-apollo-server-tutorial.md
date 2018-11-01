@@ -23,9 +23,7 @@ summary = "Learn how to build a fully working GraphQL server with Apollo Server 
 
 {{% read_before_3 "This tutorial is part 4 of 4 in this series." "Part 1:" "Why GraphQL: Advantages, Disadvantages & Alternatives" "https://www.robinwieruch.de/why-graphql-advantages-disadvantages-alternatives/" "Part 2:" "Why Apollo: Advantages, Disadvantages & Alternatives" "https://www.robinwieruch.de/why-apollo-advantages-disadvantages-alternatives/" "Part 3:" "The minimal Node.js with Babel Setup" "https://www.robinwieruch.de/minimal-node-js-babel-setup" %}}
 
-Since GraphQL is a query language, its transport layer and data format is undefined. GraphQL isn't opinionated about it, but it is used as alternative to the popular REST architecture for client-server communication over HTTP with JSON.
-
-In this chapter, you will implement server-side architecture using GraphQL and Apollo Server. The GraphQL query language is implemented as a reference implementation in JavaScript by Facebook, while Apollo Server builds on it to simplify building GraphQL servers in JavaScript.
+In this chapter, you will implement server-side architecture using GraphQL and Apollo Server. The GraphQL query language is implemented as a reference implementation in JavaScript by Facebook, while Apollo Server builds on it to simplify building GraphQL servers in JavaScript. Since GraphQL is a query language, its transport layer and data format is not set in stone. GraphQL isn't opinionated about it, but it is used as alternative to the popular REST architecture for client-server communication over HTTP with JSON.
 
 In the end, you should have a fully working GraphQL server boilerplate project that implements authentication, authorization, a data access layer with a database, domain specific entities such as users and messages, different pagination strategies, and real-time abilities due to subscriptions. You can find a working solution of it, as well as a working client-side application in React, in this GitHub repository: {{% a_blank "Full-stack Apollo with React and Express Boilerplate Project" "https://github.com/rwieruch/fullstack-apollo-react-express-boilerplate-project" %}}. I consider it an ideal starter project to realize your own idea.
 
@@ -67,8 +65,11 @@ While building this application with me in the following sections, I recommend t
   * [Testing User Scenarios with E2E Tests](#graphql-server-test-api)
 * [Batching and Caching in GraphQL with Data Loader](#graphql-server-data-loader-caching-batching)
 * [GraphQL Server + PostgreSQL Deployment to Heroku](#graphql-server-postgresql-deployment-heroku)
+  * [Heroku Troubleshoot](#heroku-troubleshoot)
 
 {{% chapter_header "Apollo Server Setup with Express" "apollo-server-setup-express" %}}
+
+There are two ways to start out with this application. You can follow my guidance in [this minimal Node.js setup guide step by step](https://www.robinwieruch.de/minimal-node-js-babel-setup) or you can find a starter project in this {{% a_blank "GitHub repository" "https://github.com/rwieruch/node-babel-server" %}} and follow its installation instructions.
 
 Apollo Server can be used with several popular libraries for Node.js like Express, Koa, Hapi. It is kept library agnostic, so it's possible to connect it with many different third-party libraries in client and server applications. In this application, you will use {{% a_blank "Express" "https://expressjs.com/" %}}, because it is the most popular and common middleware library for Node.js.
 
@@ -203,6 +204,7 @@ CORS is needed to perform HTTP requests from another domain than your server dom
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-react-express-boilerplate-project/tree/b6468a84ad77018bf940d951016b7e2c1e07404f" %}}
 * Read more about {{% a_blank "GraphQL" "https://graphql.org/learn" %}}
 * Experiment with the schema and the resolver
   * Add more fields to the user type
@@ -381,6 +383,7 @@ You have three queries that can be used in your GraphQL client (e.g. GraphQL Pla
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-react-express-boilerplate-project/tree/469080f810a0049442f02393fae746cebc391cc0" %}}
 * Read more about {{% a_blank "the GraphQL schema with Apollo Server" "https://www.apollographql.com/docs/apollo-server/v2/essentials/schema.html" %}}
 * Read more about {{% a_blank "the GraphQL mindset: Thinking in Graphs" "https://graphql.github.io/learn/thinking-in-graphs/" %}}
 * Read more about {{% a_blank "nullability in GraphQL" "https://blog.apollographql.com/using-nullability-in-graphql-2254f84c4ed7" %}}
@@ -537,6 +540,7 @@ A couple of words about the a resolver's return values: a resolver can return ar
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-react-express-boilerplate-project/tree/5d8ebc22260455ac6803af20838cbc1f2636be8f" %}}
 * Read more about {{% a_blank "GraphQL resolvers in Apollo" "https://www.apollographql.com/docs/apollo-server/v2/essentials/data.html" %}}
 
 {{% chapter_header "Apollo Server: Type Relationships" "apollo-server-type-relationship" %}}
@@ -664,7 +668,7 @@ const resolvers = {
   },
 
   Message: {
-    user: () => {
+    user: (parent, args, { me }) => {
       return me;
     },
   },
@@ -778,7 +782,7 @@ const schema = gql`
 `;
 {{< /highlight >}}
 
-Since a user entity doesn't have messages, but message identifiers, you can write a custom resolver for it again. In this case, the resolver retrieves all messages from the user from the list of sample messages.
+Since a user entity doesn't have messages, but message identifiers, you can write a custom resolver for the messages of a user again. In this case, the resolver retrieves all messages from the user from the list of sample messages.
 
 {{< highlight javascript "hl_lines=4 5 6 7 8 9 10" >}}
 const resolvers = {
@@ -804,6 +808,7 @@ This section has shown you how to expose relationships in your GraphQL schema. I
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-react-express-boilerplate-project/tree/491d93a90f4ee3413d9226e0a18c10b7407949ef" %}}
 * Query a list of users with their messages
 * Query a list of messages their user
 * Read more about {{% a_blank "the GraphQL schema" "https://graphql.github.io/learn/schema/" %}}
@@ -986,6 +991,7 @@ There is only one GraphQL operation missing for making the messages features com
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-react-express-boilerplate-project/tree/a10c54ec1b82043d98fcff2a6395fcd8e405bfda" %}}
 * Create a message in GraphQL Playground with a mutation
   * Query all messages
   * Query the `me` user with messages
@@ -1337,6 +1343,7 @@ You now have a good starting point for a GraphQL server application with Node.js
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-react-express-boilerplate-project/tree/953ef4b2ac8edc7c6338fb73ecdc1446e9cbdc4d" %}}
 * Read more about {{% a_blank "schema stitching with Apollo Server" "https://www.apollographql.com/docs/graphql-tools/schema-stitching.html" %}}
 * Schema stitching is only a part of **schema delegation**
   * Read more about {{% a_blank "schema delegation" "https://www.apollographql.com/docs/graphql-tools/schema-delegation.html" %}}
@@ -1494,6 +1501,7 @@ We've completed the database setup for a GraphQL server. Next, you'll replace th
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-react-express-boilerplate-project/tree/a1927fc375a62a9d7d8c514f8bf7f576587cca93" %}}
 * Familiarize yourself with databases
   * Try the `psql` command-line interface to access a database
   * Check the Sequelize API by reading through their documentation
@@ -1733,6 +1741,7 @@ In this section, you have used a PostgreSQL database as data source for your Gra
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-react-express-boilerplate-project/tree/27a1372264760879e86be377e069da738270c4f3" %}}
 * Experiment with psql and the seeding of your database
 * Experiment with GraphQL playground and query data which comes from a database now
 * Remove and add the async/await statements in your resolvers and see how they still work
@@ -1942,6 +1951,7 @@ These are the essentials for validation and error handling with GraphQL in Apoll
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-react-express-boilerplate-project/tree/83b2a288ccd65c574ac3f2083c4ceee3197700e7" %}}
 * Add more validation rules to your database models
   * Read more about validation in the Sequelize documentation
 * Read more about {{% a_blank "Error Handling with Apollo Server" "https://www.apollographql.com/docs/apollo-server/v2/features/errors.html" %}}
@@ -2396,6 +2406,7 @@ The next section will teach you about authorization in GraphQL on the server-sid
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-react-express-boilerplate-project/tree/831ab566f0b5c5530d9270a49936d102f7fdf73c" %}}
 * Register (sign up) a new user with GraphQL Playground
 * Check your users and their hashed passwords in the database with `psql`
 * Read more about {{% a_blank "JSON web tokens (JWT)" "https://jwt.io/" %}}
@@ -2890,6 +2901,7 @@ If you want to be even more exact than resolver level authorization, check out *
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-react-express-boilerplate-project/tree/4f6e8e6e7b899faca13e1c8354fe59637e7e23a6" %}}
 * Read more about {{% a_blank "GraphQL authorization" "https://graphql.github.io/learn/authorization/" %}}
 * Work through the different authorization scenarios with GraphQL Playground
 * Find out more about field level authorization with Apollo Server and GraphQL
@@ -3096,6 +3108,7 @@ It's in a readable format now. You can dive deeper into the date formatting that
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-express-postgresql-boilerplate/tree/709a406a8a94e15779d2e93cfb847d49de5aa6ca" %}}
 * Read more about {{% a_blank "custom scalars in GraphQL" "https://www.apollographql.com/docs/apollo-server/features/scalars-enums.html" %}}
 
 {{% chapter_header "Pagination in GraphQL with Apollo Server" "apollo-server-pagination" %}}
@@ -3650,6 +3663,7 @@ Hashing the cursor is a common approach for cursor-based pagination because it h
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-react-express-boilerplate-project/tree/810907cde43b460231b9ed3a2172e62528f81ba4" %}}
 * Read more about {{% a_blank "GraphQL pagination" "https://graphql.github.io/learn/pagination/" %}}
 
 {{% chapter_header "GraphQL Subscriptions" "graphql-subscriptions" %}}
@@ -3951,6 +3965,7 @@ You have implemented GraphQL subscriptions. It can be a challenge to wrap your h
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-react-express-boilerplate-project/tree/eeb50f34a2569fa85141bf8ec3f8e9baaf670170" %}}
 * Read more about {{% a_blank "Subscriptions with Apollo Server" "https://www.apollographql.com/docs/apollo-server/v2/features/subscriptions.html" %}}
 * Watch a talk about {{% a_blank "GraphQL Subscriptions" "http://youtu.be/bn8qsi8jVew" %}}
 
@@ -4284,6 +4299,7 @@ This section only covered E2E tests. With Chai and Mocha at your disposal, you c
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-react-express-boilerplate-project/tree/d11e0487085e014170146ec7479d0154c4a6fce4" %}}
 * Implement tests for the message domain similar to the user domain
 * Write more fine-granular unit/integration tests for both domains
 * Read more about {{% a_blank "GraphQL and HTTP" "https://graphql.github.io/learn/serving-over-http/" %}}
@@ -4600,6 +4616,7 @@ Feel free to add more loaders on your own, maybe for the message domain. The pra
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-react-express-boilerplate-project/tree/9ff0542f620a0d9939c1adcbd21951f8fc1693f4" %}}
 * Read more about {{% a_blank "GraphQL and Dataloader" "https://www.apollographql.com/docs/graphql-tools/connectors.html#dataloader" %}}
 * Read more about {{% a_blank "GraphQL Best Practices" "https://graphql.github.io/learn/best-practices/" %}}
 
@@ -4739,6 +4756,7 @@ In a real world scenario, you would want to use something else to start your app
 
 ### Exercises:
 
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/fullstack-apollo-react-express-boilerplate-project/tree/9dbfb30226cdc4843adbcc09d16871b2a902a4d3" %}}
 * Feedback whether the troubleshooting area for Heroku was useful is very appreciated
 * Create sample data in your production database with GraphQL Playground
 * Get familiar with the {{% a_blank "Heroku Dashboard" "https://dashboard.heroku.com/apps" %}}

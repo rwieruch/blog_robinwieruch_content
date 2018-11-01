@@ -23,7 +23,7 @@ summary = "Finding the right solution a given problem is not always simple, and 
 
 {{% read_before "This tutorial is part 2 of 2 in this series." "Part 1:" "Why GraphQL: Advantages, Disadvantages & Alternatives" "https://www.robinwieruch.de/why-graphql-advantages-disadvantages-alternatives" %}}
 
-Finding the right solution a given problem is not always simple, and web applications like GraphQL are a good example of how changing times make for constantly evolving challenges. Moreover, evolving challenges create a scenario where the solutions must also evolve, so even the number of choices becomes a task. This article will decipher the pros and cons of one such solution: Apollo for GraphQL, with alternative solutions in case you decide against it.
+Finding the right solution a given problem is not always simple, and web applications build with GraphQL are a good example of how changing times make for constantly evolving challenges. Moreover, evolving challenges create a scenario where the solutions must also evolve, so even the number of choices becomes a task. This article will decipher the pros and cons of one such solution: Apollo for GraphQL, with alternative solutions in case you decide against it.
 
 GraphQL is only the query language that has a reference implementation in JavaScript, and Apollo builds its ecosystem on top to make GraphQL available for a wider audience. This includes the client-side as well as the server-side, because they provide a large ecosystem of libraries for both. The libraries provide an intermediate layer too: Apollo Engine, which is a GraphQL gateway. Essentially there's a reason Apollo is one of the most popular choices for using GraphQL in JavaScript applications
 
@@ -37,7 +37,7 @@ While GraphQL is in its early stages, the Apollo ecosystem offers solutions for 
 
 {{% sub_chapter_header "The Company and Community behind Apollo" "apollo-company-community" %}}
 
-The company behind Apollo--Meteor Development Group Inc.--is pouring lots of resources into its success. They are also active in open source, offering in-depth articles about their products, supported by an established presence at the conferences. In general, the GraphQL ecosystem {{% a_blank "seems to be in good shape for the future" "https://techcrunch.com/2018/05/15/prisma" %}}. The community behind GraphQL is growing, as more developers are adopt it and use Apollo for client and server-side JavaScript applications.
+The company behind Apollo is pouring lots of resources into its success. They are also active in open source, offering in-depth articles about their products, supported by an established presence at the conferences. In general, the GraphQL ecosystem {{% a_blank "seems to be in good shape for the future" "https://techcrunch.com/2018/05/15/prisma" %}}. The community behind GraphQL is growing, as more developers are adopt it and use Apollo for client and server-side JavaScript applications.
 
 {{% sub_chapter_header "Who is using Apollo?" "apollo-who-is-using" %}}
 
@@ -51,7 +51,7 @@ Tech-savvy companies are taking advantage of Apollo already. Many were familiar 
 
 {{% sub_chapter_header "Apollo's Documentation" "apollo-documentation" %}}
 
-While Apollo continues to evolve, the team and community behind it keeps the documentation up to date, and they have plenty of insight about how to build applications. In fact, they cover so many areas it can be overwhelming for newcomers.
+While Apollo continues to evolve, the team and community behind it keeps the documentation up to date, and they have plenty of insight about how to build applications. In fact, they cover so many areas it can be overwhelming for beginners.
 
 {{% sub_chapter_header "Apollo Libraries" "apollo-libraries" %}}
 

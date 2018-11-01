@@ -27,7 +27,7 @@ So now I am on the finish line and I am terrified to launch something that I hav
 
 {{% pin_it_image "learn road react" "img/posts/learn-react-redux-mobx-state-management/road-to-react.jpg" "is-src-set" %}}
 
-The bigger idea was to built a course that gives learners a consistent way to study the topic state management. I had the feeling that there exist way too many, partly inconsistent or outdated, tutorials around these topics and it is hard for learners to choose from so many opportunities. I thought, one well structured course should help newcomers to get started easily in the topic of state management with React's local state, Redux and MobX. Afterward, everyone should be on one well set level to build his/her own applications with Redux or MobX.
+The bigger idea was to built a course that gives learners a consistent way to study the topic state management. I had the feeling that there exist way too many, partly inconsistent or outdated, tutorials around these topics and it is hard for learners to choose from so many opportunities. I thought, one well structured course should help beginners to get started easily in the topic of state management with React's local state, Redux and MobX. Afterward, everyone should be on one well set level to build his/her own applications with Redux or MobX.
 
 {{% chapter_header "What will I learn from the course?" "taming-the-state-in-react-learn" %}}
 

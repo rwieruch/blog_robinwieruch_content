@@ -27,7 +27,7 @@ Developers coming from frameworks such as Angular or Ember often have a hard tim
 
 I made this experience myself [when I came from Angular to React](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/). It might help you to understand the reasons behind a change from a framework to a library.
 
-I would argue that React with its ecosystem is a flexible framework. You can choose your libraries to complement your React core. The following article will give you an opinionated approach to select from these libraries to build a sophisticated React application. In the end, you will have an opinionated list of building blocks. Nevertheless, it is up to you to exchange them with your own preferred libraries. After all, the article attempts to give newcomers in the React ecosystem an opinionated overview.
+I would argue that React with its ecosystem is a flexible framework. You can choose your libraries to complement your React core. The following article will give you an opinionated approach to select from these libraries to build a sophisticated React application. In the end, you will have an opinionated list of building blocks. Nevertheless, it is up to you to exchange them with your own preferred libraries. After all, the article attempts to give beginners in the React ecosystem an opinionated overview.
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
@@ -272,7 +272,7 @@ There are many components in web development which you don't want to implement f
 
 {{% chapter_header "React State Management" "react-state-management" %}}
 
-Fortunately React comes with its own local state management in components. This is why it is just fine to learn plain React first. You will only master the fundamentals in React when using `this.state` and `this.setState()` for local state management. [Often newcomers make the mistake to learn React altogether with Redux](https://www.robinwieruch.de/learn-react-before-using-redux/). So don't bother too early with a state management library when you are just starting to use React.
+Fortunately React comes with its own local state management in components. This is why it is just fine to learn plain React first. You will only master the fundamentals in React when using `this.state` and `this.setState()` for local state management. [Often beginners make the mistake to learn React altogether with Redux](https://www.robinwieruch.de/learn-react-before-using-redux/). So don't bother too early with a state management library when you are just starting to use React.
 
 But what comes when you run into first scaling issues in React's local state management? There are two solutions you can choose from: [Redux and MobX](https://www.robinwieruch.de/redux-mobx-confusion/). Both come with their advantages and disadvantages. You can read the linked article to make a more informed decision about them.
 

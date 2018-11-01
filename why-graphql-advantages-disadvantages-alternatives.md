@@ -26,8 +26,8 @@ summary = "Overview about the advantages and disadvantages of using GraphQL inst
 When it comes to network requests between client and server applications, {{% a_blank "REST" "https://en.wikipedia.org/wiki/Representational_state_transfer" %}} is one of the most popular choices to connect both worlds. In REST, everything evolves around the idea of having resources that are accessible by URLs. You can read a resource with a HTTP GET request, create a resource with a HTTP POST request, and update or delete it with HTTP PUT and DELETE requests. These are called CRUD (Create, Read, Update, Delete) operations. Resources can be anything from authors, articles, or users. The format for transferring data is not opinionated with REST, but most often people will use JSON for it. In the end, REST enables applications to communicate with each other by using plain HTTP with URLs and HTTP methods.
 
 {{< highlight json >}}
-// a RESTful request
-GET https://api.domain.com/authors/7
+// a RESTful request with HTTP GET
+https://api.domain.com/authors/7
 
 // the response in JSON
 {
@@ -179,7 +179,7 @@ There are still cases where REST is a valuable approach for connecting client an
 
 {{% chapter_header "GraphQL Alternatives" "graphql-alternatives" %}}
 
-REST is still the most popular alternative for GraphQL, as it is still the most common architectures for connecting client and server applications. It became more popular than networking technologies like {{% a_blank "RPC" "https://en.wikipedia.org/wiki/Remote_procedure_call" %}} and {{% a_blank "SOAP" "https://simple.wikipedia.org/wiki/SOAP_(protocol)" %}} because it used the native features of HTTP, where other protocols like SOAP tried to build their own solution on top of it.
+REST is the most popular alternative for GraphQL, as it is still the most common architectures for connecting client and server applications. It became more popular than networking technologies like {{% a_blank "RPC" "https://en.wikipedia.org/wiki/Remote_procedure_call" %}} and {{% a_blank "SOAP" "https://simple.wikipedia.org/wiki/SOAP_(protocol)" %}} because it used the native features of HTTP, where other protocols like SOAP tried to build their own solution on top of it.
 
 Falcor by Netflix is another alternative, and it was developed at the same time as GraphQL. Netflix ran into similar issues as Facebook, and eventually open-sourced their own solution. There isn't too much traction around Falcor, maybe because GraphQL got so popular, but developers at Netflix have shown great engineering efforts in the past, so it may be worth looking into it.
 
