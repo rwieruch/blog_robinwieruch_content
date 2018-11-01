@@ -1,7 +1,7 @@
 +++
 title = "React + Webpack 4 + Babel 7 Setup Tutorial"
 description = "This guide helps you to setup React with Webpack 4 and Babel from 0 to 1. Hot Module Replacement is a bonus. Learn how to use Webpack and Babel in React.js without using create-react-app. Setup your own boilerplate application ..."
-date = "2018-01-18T13:50:46+02:00"
+date = "2018-10-18T13:50:46+02:00"
 tags = ["React", "JavaScript", "Tooling"]
 categories = ["React", "JavaScript", "Tooling"]
 keywords = ["react webpack babel", "webpack 4"]

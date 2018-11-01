@@ -1,7 +1,7 @@
 +++
 title = "Visual Regression Testing and React Storybook"
 description = "The article gives advice on how to implement visual regression testing in React and UI components with React Storybook. You will get to know React Storybook and all its testing capabilities ..."
-date = "2018-05-16T13:50:46+02:00"
+date = "2018-10-30T13:50:46+02:00"
 tags = ["React", "Tooling", "Web Development", "JavaScript"]
 categories = ["React", "Tooling", "Web Development", "JavaScript"]
 keywords = ["visual regression testing react", "react storybook testing"]
@@ -35,12 +35,6 @@ First, you can install React Storybook on the command line:
 
 {{< highlight javascript >}}
 npm install @storybook/react --save-dev
-{{< /highlight >}}
-
-**Important note:** If you happen to have Webpack 4 in your project, you need to make sure to install Storybook 4 or beyond. Otherwise you will get this or a similar error on your command line: "Cannot read property 'compilation' of undefined". This applies to all the add-ons we are going to install in the following steps too! In the case of the React testing application which uses Webpack 4, you can manually install the latest version of Storybook and all its add-ons later on. At the time of writing this tutorial, it is the following React Storybook version. So you can use this version for the following Storybook add-ons too.
-
-{{< highlight javascript >}}
-npm install @storybook/react@v4.0.0-alpha.6 --save-dev
 {{< /highlight >}}
 
 Second, create a *.storybook/* folder in your project folder. It is the default place for all the Storybook configuration. Later, it is up to you to choose another place for it. In the folder, create a *.storybook/config.js* file. There you can put the following configuration:
@@ -79,7 +73,13 @@ Third, define a story for one of your components. Let's say we have a Checkbox c
 import React, { Component } from 'react';
 
 class Checkbox extends Component {
-  handleChange = event => {
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
     this.props.onCheckboxChange(event.target.checked);
   };
 
@@ -164,17 +164,23 @@ Now you can run it on the command line with `npm run storybook` and visit your R
 
 Surprisingly nothing happens when clicking the checkbox, because it is a stateless component. In this case, the component is implemented in a way where the state is managed outside of the component. In order to make your non developers and designers happy, you can add a wrapping stateful component around your Checkbox component. It can happen in your *stories.js* file which is then only used for your stories but not for the actual application. After all, stories are implemented in JavaScript (and React), so you can add any helpful implementation to it.
 
-{{< highlight javascript "hl_lines=5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 35 37 46 48" >}}
+{{< highlight javascript "hl_lines=5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 41 43 52 54" >}}
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Checkbox from './';
 
 class CheckboxStateful extends React.Component {
-  state = {
-    value: this.props.value,
-  };
+  constructor(props) {
+    super(props);
 
-  onCheckboxChange = value => {
+    this.state = {
+      value: this.props.value,
+    };
+
+    this.onCheckboxChange = this.onCheckboxChange.bind(this);
+  }
+
+  onCheckboxChange(value) {
     this.setState({ value });
 
     this.props.onCheckboxChange(value);
@@ -361,23 +367,37 @@ npm run test:unit
 npm run test:snapshot
 {{< /highlight >}}
 
-Otherwise, you need to make at least sure to have Jest up and running, because it is used for the Storybook Storyshot addon. You can read up every detail about the installation in the {{% a_blank "official documenation of Storyshots" "https://github.com/storybooks/storybook/tree/master/addons/storyshots" %}}.
-
-Afterward, you can install the Storybook Storyshots addon for your project on your command line:
+Otherwise, you need to make at least sure to have Jest up and running, because it is used for the Storybook Storyshot addon. You can read up every detail about the installation in the {{% a_blank "official documenation of Storyshots" "https://github.com/storybooks/storybook/tree/master/addons/storyshots" %}}. In order to get Storyshots running with Jest, you need to install the following package:
 
 {{< highlight javascript >}}
-npm install @storybook/addon-storyshots --save-dev
+npm install babel-plugin-require-context-hook/register --save-dev
 {{< /highlight >}}
 
-In the next step, there needs to be a configurational part where Storybook and Jest are connected to transform the stories into automatic snapshot tests. Therefore, create a *test/jest.setup.js* file for Jest next to your *test/jest.config.json* file. In this new file, you can initialize the Storyshots addon.
+Use it in your *.babelrc* file:
 
-{{< highlight javascript >}}
-import initStoryshots from '@storybook/addon-storyshots';
-
-initStoryshots();
+{{< highlight javascript "hl_lines=6 7 8 9 10" >}}
+{
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "env": {
+    "test": {
+      "plugins": ["require-context-hook"]
+    }
+  }
+}
 {{< /highlight >}}
 
-In order to run the setup file, which initializes and transforms the stories to snapshot tests, before your actual snapshot tests are executed, you need to include the new file in the *test/jest.config.json* file.
+And include it in a new *test/jest.setup* file:
+
+{{< highlight javascript "hl_lines=2 3" >}}
+import registerRequireContextHook from 'babel-plugin-require-context-hook/register';
+
+registerRequireContextHook();
+{{< /highlight >}}
+
+In order to run the setup file, which initializes and transforms the stories to snapshot tests before your actual snapshot tests are executed, you need to include the new file in the *test/jest.config.json* file.
 
 {{< highlight javascript "hl_lines=4" >}}
 {
@@ -387,15 +407,40 @@ In order to run the setup file, which initializes and transforms the stories to 
 }
 {{< /highlight >}}
 
-Afterward, when running your Jest snapshot tests on the command line with `npm run test:snapshot` or your own command, all your stories should be executed as snapshot tests next to your actual snapshot tests. They are grouped under the Storyshots test suite. In conclusion, Storybook not only helps you to document your UI components but also to test them automatically as snapshot tests. It's powerful, isn't it?
+Finally you can install the Storybook Storyshots addon for your project on your command line:
+
+{{< highlight javascript >}}
+npm install @storybook/addon-storyshots --save-dev
+{{< /highlight >}}
+
+In the next step, there needs to be a configurational part where Storybook and Jest are connected to transform the stories into automatic snapshot tests. In the *test/jest.setup.js* file for Jest you can initialize the Storyshots addon.
+
+{{< highlight javascript "hl_lines=2 5" >}}
+import registerRequireContextHook from 'babel-plugin-require-context-hook/register';
+import initStoryshots from '@storybook/addon-storyshots';
+
+registerRequireContextHook();
+initStoryshots();
+{{< /highlight >}}
+
+Now, when running your Jest snapshot tests on the command line with `npm run test:snapshot` or your own command, all your stories should be executed as snapshot tests next to your actual snapshot tests. They are grouped under the Storyshots test suite. In conclusion, Storybook not only helps you to document your UI components but also to test them automatically as snapshot tests. It's powerful, isn't it?
 
 {{% chapter_header "Visual Regression Testing in React with Storybook" "visual-regression-test-react" %}}
 
-Now you will learn how to transform those snapshot tests automatically into visual regression tests. Rather than diffing the rendered DOM elements, a visual regression test will capture a screenshot of your rendered component from the story and diffs this screenshot against another captured screenshot once you run your test again. The only thing to enable the automatic visual regression test is adjusting the *test/jest.setup.js* file:
+Now you will learn how to transform those snapshot tests automatically into visual regression tests. Rather than diffing the rendered DOM elements, a visual regression test will capture a screenshot of your rendered component from the story and diffs this screenshot against another captured screenshot once you run your test again. There are two things to enable the automatic visual regression tests. First, install another addon for it:
 
 {{< highlight javascript >}}
-import initStoryshots, { imageSnapshot } from '@storybook/addon-storyshots';
+npm install @storybook/addon-storyshots-puppeteer --save-dev
+{{< /highlight >}}
 
+And second, adjust the *test/jest.setup.js* file:
+
+{{< highlight javascript "hl_lines=3 6 7 8 9 10 11" >}}
+import registerRequireContextHook from 'babel-plugin-require-context-hook/register';
+import initStoryshots from '@storybook/addon-storyshots';
+import { imageSnapshot } from '@storybook/addon-storyshots-puppeteer';
+
+registerRequireContextHook();
 initStoryshots({
   suite: 'Storyshots',
   test: imageSnapshot({
