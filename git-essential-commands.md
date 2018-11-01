@@ -57,6 +57,8 @@ Last but not least, explore and socialize on GitHub. You can explore different r
 
 In order to socialize, you can follow people who start interesting projects or discussions on GitHub. Try it out {{% a_blank "by following my account to have your first social connection" "https://github.com/rwieruch" %}}. I would be keen to see you using it.
 
+If you have no clue about the workflow with Pull Requests and Issues when working with GitHub, checkout the {{% a_blank "official GitHub Learning Lab" "https://lab.github.com/" %}}. It should offer everything to get you up to speed. It's a great way to get started with GitHub itself.
+
 {{% chapter_header "Initialize a repository with Git and GitHub" "initialize-git-repository" %}}
 
 In the beginning, you somehow have to initialize a Git repository. You can initialize a local repository by using the `git init` command in a project's folder on your local machine.

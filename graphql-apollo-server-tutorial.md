@@ -54,6 +54,7 @@ While building this application with me in the following sections, I recommend t
   * [Permission-based GraphQL Authorization](#apollo-server-authorization-permission)
   * [Role-based GraphQL Authorization](#apollo-server-authorization-role)
   * [Setting Headers in GraphQL Playground](#graphql-playground-headers)
+* [GraphQL Custom Scalars in Apollo Server](#apollo-server-graphql-custom-scalar)
 * [Pagination in GraphQL with Apollo Server](#apollo-server-pagination)
   * [Offset/Limit Pagination with Apollo Server and GraphQL](#apollo-server-offset-limit-pagination)
   * [Cursor-based Pagination with Apollo Server and GraphQL](#apollo-server-cursor-based-pagination)
@@ -918,6 +919,17 @@ const resolvers = {
 };
 {{< /highlight >}}
 
+That's it for the first mutation. You can try it right now in GraphQL Playground:
+
+{{< highlight javascript >}}
+mutation {
+  createMessage (text: "Hello GraphQL!") {
+    id
+    text
+  }
+}
+{{< /highlight >}}
+
 The last part is essentially your writing operation to a data source. In this case, you have only updated the sample data, but it would most likely be a database in practical use. Next, implement the mutation for deleting messages:
 
 {{< highlight javascript "hl_lines=13" >}}
@@ -1236,7 +1248,7 @@ export default [linkSchema, userSchema, messageSchema];
 
 In this file, both schemas are merged with the help of a utility called `linkSchema`. The `linkSchema` defines all types shared within the schemas. It already defines a Subscription type for GraphQL subscriptions, which may be implemented later. As a workaround, there is an empty underscore field with a Boolean type in the merging utility schema, because there is no official way of completing this action yet. The utility schema defines the shared base types, extended with the `extend` statement in the other domain-specific schemas.
 
-This time, the application runs with a stitched schema instead of one global schema. What's missing are the domain separated resolver maps. Let's start with the user domain again, in the *src/resolvers/user.js*:
+This time, the application runs with a stitched schema instead of one global schema. What's missing are the domain separated resolver maps. Let's start with the user domain again in file in the *src/resolvers/user.js* file, whereas I leave out the implementation details for saving space here:
 
 {{< highlight javascript >}}
 export default {
@@ -1296,8 +1308,8 @@ export default {
 Since the Apollo Server accepts a list of resolver maps too, you can import all of your resolver maps in your *src/resolver/index.js* file, and export them as a list of resolver maps again:
 
 {{< highlight javascript >}}
-import userResolvers from '../resolvers/user';
-import messageResolvers from '../resolvers/message';
+import userResolvers from './user';
+import messageResolvers from './message';
 
 export default [userResolvers, messageResolvers];
 {{< /highlight >}}
@@ -2070,7 +2082,7 @@ export default gql`
 
 The `signUp` mutation takes three non-nullable arguments: username, email, and password. These are used to create a user in the database. The user should be able to take the username or email address combined with the password to enable a successful login.
 
-Now we'll consider the return type of the `signUp` mutation. Since we are going to use a /token-based authentication with GraphQL, it is sufficient to return a token that is nothing more than a string. However, to distinguish the token in the GraphQL schema, it has its own GraphQL type. You will learn more about tokens in the following, because the token is all about the authentication mechanism for this application.
+Now we'll consider the return type of the `signUp` mutation. Since we are going to use a token-based authentication with GraphQL, it is sufficient to return a token that is nothing more than a string. However, to distinguish the token in the GraphQL schema, it has its own GraphQL type. You will learn more about tokens in the following, because the token is all about the authentication mechanism for this application.
 
 First, add the counterpart for your new mutation in the GraphQL schema as a resolver function. In your *src/resolvers/user.js* file, add the following resolver function that creates a user in the database and returns an object with the token value as string.
 
@@ -2113,6 +2125,8 @@ There is one major security flaw in this code: the user password is stored in pl
 {{< highlight javascript >}}
 npm install bcrypt --save
 {{< /highlight >}}
+
+Note: If you run into any problems with bcrypt on Windows while installing it, you can try out a substitute called {{% a_blank "bcrypt.js" "https://github.com/dcodeIO/bcrypt.js" %}}. It is slower, but people reported that it works on their machine.
 
 Now it is possible to hash the password with bcrypt in the user's resolver function when it gets created on a `signUp` mutation. There is also an alternative way with Sequelize. In your user model, define a hook function that is executed every time a user entity is created:
 
@@ -2881,85 +2895,9 @@ If you want to be even more exact than resolver level authorization, check out *
 * Find out more about field level authorization with Apollo Server and GraphQL
 * Find out more about data access level authorization with Apollo Server and GraphQL
 
-{{% chapter_header "Pagination in GraphQL with Apollo Server" "apollo-server-pagination" %}}
+{{% chapter_header "GraphQL Custom Scalars in Apollo Server" "apollo-server-graphql-custom-scalar" %}}
 
-Using GraphQL, you will almost certainly encounter a feature called **pagination** for applications with lists of items. Stored user messages in a chat application become long lists, and when the client application request messages for the display, retrieving all messages from the database at once can lead to severe performance bottlenecks. Pagination allows you to split up a list of items into multiple lists, called pages. A page is usually defined with a limit and an offset. That way, you can request one page of items, and when a user wants to see more, request another page of items.
-
-You will implement pagination in GraphQL with two different approaches in the following sections. The first approach will be the most naive approach, called **offset/limit-based pagination**. The advanced approach is **cursor-based pagination**. one of many sophisticated ways to allow pagination in an application.
-
-{{% sub_chapter_header "Offset/Limit Pagination with Apollo Server and GraphQL" "apollo-server-offset-limit-pagination" %}}
-
-Offset/limit-based pagination isn't too difficult to implement. The limit states how many items you want to retrieve from the entire list, and the offset states where to begin in the whole list. Using different offsets, you can shift through the entire list of items and retrieve a sublist (page) of it with the limit.
-
-We set the message schema in the *src/schema/message.js* file to consider the two new arguments:
-
-{{< highlight javascript "hl_lines=5" >}}
-import { gql } from 'apollo-server-express';
-
-export default gql`
-  extend type Query {
-    messages(offset: Int, limit: Int): [Message!]!
-    message(id: ID!): Message!
-  }
-
-  extend type Mutation {
-    createMessage(text: String!): Message!
-    deleteMessage(id: ID!): Boolean!
-  }
-
-  type Message {
-    id: ID!
-    text: String!
-    user: User!
-  }
-`;
-{{< /highlight >}}
-
-Then you can adjust the resolver in the *src/resolvers/message.js* file to handle the new arguments:
-
-{{< highlight javascript "hl_lines=5 6 7 8 9 10 11 12 13" >}}
-...
-
-export default {
-  Query: {
-    messages: async (
-      parent,
-      { offset = 0, limit = 100 },
-      { models },
-    ) => {
-      return await models.Message.findAll({
-        offset,
-        limit,
-      });
-    },
-    message: async (parent, { id }, { models }) => {
-      return await models.Message.findById(id);
-    },
-  },
-
-  Mutation: {
-    ...
-  },
-
-  ...
-};
-{{< /highlight >}}
-
-Fortunately, your ORM (Sequelize) gives you everything you need for internal offset and limit functionality. Try it in GraphQL Playground yourself by adjusting the limit and offset.
-
-{{< highlight javascript >}}
-query {
-  messages(offset: 1, limit: 2){
-    text
-  }
-}
-{{< /highlight >}}
-
-Even though this approach is simpler, it comes with a few disadvantages. When your offset becomes very long, the database query takes longer, which  can lead to a poor client-side performance while the UI waits for the next page of data. Also, offset/limit pagination cannot handle deleted items in between queries. For instance, if you query the first page and someone deletes an item, the offset would be wrong on the next page because the item count is off by one. You cannot easily overcome this problem with offset/limit pagination, which is why cursor-based pagination might be necessary.
-
-{{% sub_chapter_header "Cursor-based Pagination with Apollo Server and GraphQL" "apollo-server-cursor-based-pagination" %}}
-
-In cursor-based pagination, the offset is given an identifier called a **cursor** rather counting items like offset/limit pagination. The cursor can be used to express "give me a limit of X items from cursor Y". A common approach to use dates (e.g. creation date of an entity in the database) to identify an item in the list. In our case, each message already has a `createdAt` date that is assigned to the entity when it is written to the database. Now we'll extend the *src/schema/message.js* which uses this field for a message. Afterward, you should be able to query this field in GraphQL Playground:
+So far, you have used a couple of scalars in your GraphQL application, because each field resolves eventually to a scalar type. Let's add a String scalar for the date when a message got created. First, we'll extend the *src/schema/message.js* which uses this field for a message:
 
 {{< highlight javascript "hl_lines=17" >}}
 import { gql } from 'apollo-server-express';
@@ -2984,9 +2922,9 @@ export default gql`
 `;
 {{< /highlight >}}
 
-To test cursor-based pagination based on the creation date of an entity in a more robust way, adjust the seed data in the *src/index.js* file. At the moment, all seed data is created at once, which applies to the messages as well. It would be better to have each message created in one second intervals. The creation date should differ for each message to see the effects of pagination.
+Second, adjust the seed data in the *src/index.js* file. At the moment, all seed data is created at once, which applies to the messages as well. It would be better to have each message created in one second intervals. The creation date should differ for each message.
 
-{{< highlight javascript "hl_lines=5 23 40 44" >}}
+{{< highlight javascript "hl_lines=5 13 23 40 44" >}}
 ...
 
 sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
@@ -3041,7 +2979,207 @@ const createUsersWithMessages = async date => {
 };
 {{< /highlight >}}
 
-That's the cursor that will be the creation date of each message. Now we have to change the original pagination to cursor-based in the *src/schema/message.js* file. You only need to exchange the offset with the cursor. Instead of an offset that can only be matched implicitly to an item in a list and changes once an item is deleted from the list, the cursor has a stable position within, because the message creation dates won't change.
+Now you should be able to query the `createdAt` of a message in your GraphQL Playground:
+
+{{< highlight javascript >}}
+query {
+  message(id: "1") {
+    id
+    createdAt
+    user {
+      username
+    }
+  }
+}
+
+// query result
+{
+  "data": {
+    "message": {
+      "id": "1",
+      "createdAt": "1540978531448",
+      "user": {
+        "username": "rwieruch"
+      }
+    }
+  }
+}
+{{< /highlight >}}
+
+You may have noticed something odd: While the date returned from a GraphQL Playground has a unix timestamp (e.g. 1540978531448), the date the database for a message (and other entities) has another format (e.g. 2018-10-31 17:35:31.448+08). Check it yourself with psql. That's the internal working of GraphQL which uses its internal formatting rules for dates. You can change this behavior by adding a custom scalar. First, install a popular GraphQL node package for custom date scalars.
+
+{{< highlight javascript >}}
+npm install graphql-iso-date --save
+{{< /highlight >}}
+
+Second, introduce a `Date` scalar in your schema in the *src/schema/index.js* file:
+
+{{< highlight javascript "hl_lines=2" >}}
+const linkSchema = gql`
+  scalar Date
+
+  type Query {
+    _: Boolean
+  }
+
+  type Mutation {
+    _: Boolean
+  }
+
+  type Subscription {
+    _: Boolean
+  }
+`;
+{{< /highlight >}}
+
+Third, define the scalar with the help of the installed node package in your *src/resolvers/index.js* file:
+
+{{< highlight javascript "hl_lines=1 6 7 8 11" >}}
+import { GraphQLDateTime } from 'graphql-iso-date';
+
+import userResolvers from './user';
+import messageResolvers from './message';
+
+const customScalarResolver = {
+  Date: GraphQLDateTime,
+};
+
+export default [
+  customScalarResolver,
+  userResolvers,
+  messageResolvers,
+];
+{{< /highlight >}}
+
+And last but not least, change the scalar type from String to Date for your message schema in the *src/schema/message.js*:
+
+{{< highlight javascript "hl_lines=17" >}}
+import { gql } from 'apollo-server-express';
+
+export default gql`
+  extend type Query {
+    messages(cursor: String, limit: Int): [Message!]!
+    message(id: ID!): Message!
+  }
+
+  extend type Mutation {
+    createMessage(text: String!): Message!
+    deleteMessage(id: ID!): Boolean!
+  }
+
+  type Message {
+    id: ID!
+    text: String!
+    createdAt: Date!
+    user: User!
+  }
+`;
+{{< /highlight >}}
+
+Now, query again your messages. The output for the `createdAt` date should be different.
+
+{{< highlight javascript "hl_lines=5" >}}
+{
+  "data": {
+    "message": {
+      "id": "1",
+      "createdAt": "2018-10-31T11:57:53.043Z",
+      "user": {
+        "username": "rwieruch"
+      }
+    }
+  }
+}
+{{< /highlight >}}
+
+It's in a readable format now. You can dive deeper into the date formatting that can be adjusted with this library by checking out their {{% a_blank "documentation" "https://github.com/excitement-engineer/graphql-iso-date" %}}.
+
+### Exercises:
+
+* Read more about {{% a_blank "custom scalars in GraphQL" "https://www.apollographql.com/docs/apollo-server/features/scalars-enums.html" %}}
+
+{{% chapter_header "Pagination in GraphQL with Apollo Server" "apollo-server-pagination" %}}
+
+Using GraphQL, you will almost certainly encounter a feature called **pagination** for applications with lists of items. Stored user messages in a chat application become long lists, and when the client application request messages for the display, retrieving all messages from the database at once can lead to severe performance bottlenecks. Pagination allows you to split up a list of items into multiple lists, called pages. A page is usually defined with a limit and an offset. That way, you can request one page of items, and when a user wants to see more, request another page of items.
+
+You will implement pagination in GraphQL with two different approaches in the following sections. The first approach will be the most naive approach, called **offset/limit-based pagination**. The advanced approach is **cursor-based pagination**. one of many sophisticated ways to allow pagination in an application.
+
+{{% sub_chapter_header "Offset/Limit Pagination with Apollo Server and GraphQL" "apollo-server-offset-limit-pagination" %}}
+
+Offset/limit-based pagination isn't too difficult to implement. The limit states how many items you want to retrieve from the entire list, and the offset states where to begin in the whole list. Using different offsets, you can shift through the entire list of items and retrieve a sublist (page) of it with the limit.
+
+We set the message schema in the *src/schema/message.js* file to consider the two new arguments:
+
+{{< highlight javascript "hl_lines=5" >}}
+import { gql } from 'apollo-server-express';
+
+export default gql`
+  extend type Query {
+    messages(offset: Int, limit: Int): [Message!]!
+    message(id: ID!): Message!
+  }
+
+  extend type Mutation {
+    createMessage(text: String!): Message!
+    deleteMessage(id: ID!): Boolean!
+  }
+
+  type Message {
+    id: ID!
+    text: String!
+    createdAt: Date!
+    user: User!
+  }
+`;
+{{< /highlight >}}
+
+Then you can adjust the resolver in the *src/resolvers/message.js* file to handle the new arguments:
+
+{{< highlight javascript "hl_lines=5 6 7 8 9 10 11 12 13" >}}
+...
+
+export default {
+  Query: {
+    messages: async (
+      parent,
+      { offset = 0, limit = 100 },
+      { models },
+    ) => {
+      return await models.Message.findAll({
+        offset,
+        limit,
+      });
+    },
+    message: async (parent, { id }, { models }) => {
+      return await models.Message.findById(id);
+    },
+  },
+
+  Mutation: {
+    ...
+  },
+
+  ...
+};
+{{< /highlight >}}
+
+Fortunately, your ORM (Sequelize) gives you everything you need for internal offset and limit functionality. Try it in GraphQL Playground yourself by adjusting the limit and offset.
+
+{{< highlight javascript >}}
+query {
+  messages(offset: 1, limit: 2){
+    text
+  }
+}
+{{< /highlight >}}
+
+Even though this approach is simpler, it comes with a few disadvantages. When your offset becomes very long, the database query takes longer, which  can lead to a poor client-side performance while the UI waits for the next page of data. Also, offset/limit pagination cannot handle deleted items in between queries. For instance, if you query the first page and someone deletes an item, the offset would be wrong on the next page because the item count is off by one. You cannot easily overcome this problem with offset/limit pagination, which is why cursor-based pagination might be necessary.
+
+{{% sub_chapter_header "Cursor-based Pagination with Apollo Server and GraphQL" "apollo-server-cursor-based-pagination" %}}
+
+In cursor-based pagination, the offset is given an identifier called a **cursor** rather counting items like offset/limit pagination. The cursor can be used to express "give me a limit of X items from cursor Y". A common approach to use dates (e.g. creation date of an entity in the database) to identify an item in the list. In our case, each message already has a `createdAt` date that is assigned to the entity when it is written to the database and we expose it already in the schema of the message entity. That's the creation date of each message that will be the cursor.
+
+Now we have to change the original pagination to cursor-based in the *src/schema/message.js* file. You only need to exchange the offset with the cursor. Instead of an offset that can only be matched implicitly to an item in a list and changes once an item is deleted from the list, the cursor has a stable position within, because the message creation dates won't change.
 
 {{< highlight javascript "hl_lines=5" >}}
 import { gql } from 'apollo-server-express';
@@ -3060,7 +3198,7 @@ export default gql`
   type Message {
     id: ID!
     text: String!
-    createdAt: String!
+    createdAt: Date!
     user: User!
   }
 `;
@@ -3098,9 +3236,7 @@ export default {
 };
 {{< /highlight >}}
 
-Instead of the offset, the cursor is the `createdAt` property of a message. With Sequelize and other ORMs it is possible to add a clause to find all items in a list by a starting property (`createdAt`) with less than (`lt`) or greater than (`gt`, which is not used here) values for this property. Using a date as a cursor, the where clause finds all messages **before** this date, because there is an `lt` Sequelize operator.
-
-There are two more improvements we can use to make the code more explicit:
+Instead of the offset, the cursor is the `createdAt` property of a message. With Sequelize and other ORMs it is possible to add a clause to find all items in a list by a starting property (`createdAt`) with less than (`lt`) or greater than (`gt`, which is not used here) values for this property. Using a date as a cursor, the where clause finds all messages **before** this date, because there is an `lt` Sequelize operator. There are two more things to make it work:
 
 {{< highlight javascript "hl_lines=7 9 10 15" >}}
 ...
@@ -3193,11 +3329,11 @@ Which may lead to something like this (be careful, dates should be different fro
     "messages": [
       {
         "text": "Published a complete ...",
-        "createdAt": "Wed Aug 22 2018 11:43:44 GMT+0200 (CEST)"
+        "createdAt": "2018-10-25T08:22:02.484Z"
       },
       {
         "text": "Happy to release ...",
-        "createdAt": "Wed Aug 22 2018 11:43:43 GMT+0200 (CEST)"
+        "createdAt": "2018-10-25T08:22:01.484Z"
       }
     ]
   }
@@ -3208,7 +3344,7 @@ Now you can use the `createdAt` date from the last page to request the next page
 
 {{< highlight javascript >}}
 query {
-  messages(limit: 2, cursor: "Wed Aug 22 2018 11:43:43 GMT+0200 (CEST)") {
+  messages(limit: 2, cursor: "2018-10-25T08:22:01.484Z") {
     text
     createdAt
   }
@@ -3223,7 +3359,7 @@ The result gives the last message from the seed data, but the limit is set to 2 
     "messages": [
       {
         "text": "Published the Road to learn React",
-        "createdAt": "Wed Aug 22 2018 11:43:42 GMT+0200 (CEST)"
+        "createdAt": "2018-10-25T08:22:00.484Z"
       }
     ]
   }
@@ -3256,13 +3392,13 @@ export default gql`
   }
 
   type PageInfo {
-    endCursor: String!
+    endCursor: Date!
   }
 
   type Message {
     id: ID!
     text: String!
-    createdAt: String!
+    createdAt: Date!
     user: User!
   }
 `;
@@ -3342,7 +3478,7 @@ The result may look like the following:
         }
       ],
       "pageInfo": {
-        "endCursor": "Wed Aug 22 2018 12:27:24 GMT+0200 (CEST)"
+        "endCursor": "2018-10-25T08:29:56.771Z"
       }
     }
   }
@@ -3353,7 +3489,7 @@ Use the last cursor to query the next page:
 
 {{< highlight javascript >}}
 query {
-  messages(limit: 2, cursor: "Wed Aug 22 2018 12:27:24 GMT+0200 (CEST)") {
+  messages(limit: 2, cursor: "2018-10-25T08:29:56.771Z") {
     edges {
       text
     }
@@ -3389,7 +3525,7 @@ export default gql`
 
   type PageInfo {
     hasNextPage: Boolean!
-    endCursor: String!
+    endCursor: Date!
   }
 
   ...
@@ -3486,7 +3622,29 @@ export default {
 };
 {{< /highlight >}}
 
-The returned cursor as meta information is hashed by the new utility function. Remember to stringify the date before hashing it. The GraphQL client receives a hashed `endCursor` field. The hashed value can be used as a cursor to query the next page. In the resolver, the incoming cursor is reverse hashed to the actual date, which is used for the database query.
+The returned cursor as meta information is hashed by the new utility function. Remember to stringify the date before hashing it. In addition, the `endCursor` in the *src/schema/message.js* file isn't a Date anymore, but a String scalar again.
+
+{{< highlight javascript "hl_lines=13" >}}
+import { gql } from 'apollo-server-express';
+
+export default gql`
+  ...
+
+  type MessageConnection {
+    edges: [Message!]!
+    pageInfo: PageInfo!
+  }
+
+  type PageInfo {
+    hasNextPage: Boolean!
+    endCursor: String!
+  }
+
+  ...
+`;
+{{< /highlight >}}
+
+The GraphQL client receives a hashed `endCursor` field. The hashed value can be used as a cursor to query the next page. In the resolver, the incoming cursor is reverse hashed to the actual date, which is used for the database query.
 
 Hashing the cursor is a common approach for cursor-based pagination because it hides the details from the client. The (GraphQL) client application only needs to use the hash value as a cursor to query the next paginated page.
 
@@ -3517,7 +3675,7 @@ export default gql`
   type Message {
     id: ID!
     text: String!
-    createdAt: String!
+    createdAt: Date!
     user: User!
   }
 
@@ -3778,7 +3936,7 @@ Afterward, check your first tab again. It should show the created message:
       "message": {
         "id": "4",
         "text": "Does my subscription work?",
-        "createdAt": "Wed Aug 22 2018 16:22:41 GMT+0200 (CEST)",
+        "createdAt": "2018-10-25T08:56:04.786Z",
         "user": {
           "id": "1",
           "username": "rwieruch"
@@ -3821,13 +3979,13 @@ Mocha is run using npm scripts in your *package.json* file. The pattern used her
   ...
   "scripts": {
     "start": "nodemon --exec babel-node src/index.js",
-    "test": "mocha --require babel-core/register 'src/**/*.spec.js'"
+    "test": "mocha --require @babel/register 'src/**/*.spec.js'"
   },
   ...
 }
 {{< /highlight >}}
 
-That should be sufficient to run your first test. Add a *src/tests/user.spec.js* to your application. and write your first test there:
+Don't forget to install the babel node package with `npm install @babel/register --save-dev`. That should be sufficient to run your first test. Add a *src/tests/user.spec.js* to your application. and write your first test there:
 
 {{< highlight javascript "hl_lines=5" >}}
 import { expect } from 'chai';
@@ -3849,7 +4007,7 @@ Before you can write end-to-end tests for the GraphQL server, the database must 
   "scripts": {
     "start": "nodemon --exec babel-node src/index.js",
     "test-server": "TEST_DATABASE=mytestdatabase npm start",
-    "test": "mocha --require babel-core/register 'src/**/*.spec.js'"
+    "test": "mocha --require @babel/register 'src/**/*.spec.js'"
   },
   ...
 }
@@ -3900,12 +4058,12 @@ Now you are ready to write tests against an actual running test sever (`npm run 
 {
   "presets": [
     [
-      "env", {
+      "@babel/preset-env", {
         "targets": {
           "node": "current"
         }
       }
-    ], "stage-2"
+    ]
   ]
 }
 {{< /highlight >}}
@@ -4198,7 +4356,7 @@ Second, every author is read from the database individually, even though the lis
 The same two principals can be applied to the 4 database accesses which should be decreased to 2. On a smaller scale, it might not have much of a performance impact, but for 100 messages with the 2 authors, it reduces your database accesses significantly. That's where Facebook's open source {{% a_blank "dataloader" "https://github.com/facebook/dataloader" %}} becomes a vital tool. You can install it via npm on the command line:
 
 {{< highlight javascript >}}
-npm install dataloader
+npm install dataloader --save
 {{< /highlight >}}
 
 Now, in your *src/index.js* file you can import and make use of it:
@@ -4342,7 +4500,7 @@ Executing (default): SELECT "id", "text", "createdAt", "updatedAt", "userId" FRO
 
 In this case, the users are not read from the database twice, only the messages, because they are not using a dataloader yet. That's how you can achieve caching in GraphQL with dataloaders. Choosing a caching strategy isn't quite as simple. For example, if a cached user is updated in between actions, the GraphQL client application still queries the cached user.
 
-It's difficult to find the right timing for invalidating the cache, so I recommended performing the dataloader instantiation with every incoming GraphQL request. You lose the benefit of caching over multiple GraphQL requests, but still use the cache for every database access with one incoming GraphQL request. The dataloader package expresses it like this: *"DataLoader caching does not replace Redis, Memcache, or any other shared application-level cache. DataLoader is first and foremost a data loading mechanism, and its cache only serves the purpose of not repeatedly loading the same data in the context of a single request to your Application."* If you want to get into real caching on the database level, give {{* a_blank "Redis" "https://redis.io/" *}} a shot.
+It's difficult to find the right timing for invalidating the cache, so I recommended performing the dataloader instantiation with every incoming GraphQL request. You lose the benefit of caching over multiple GraphQL requests, but still use the cache for every database access with one incoming GraphQL request. The dataloader package expresses it like this: *"DataLoader caching does not replace Redis, Memcache, or any other shared application-level cache. DataLoader is first and foremost a data loading mechanism, and its cache only serves the purpose of not repeatedly loading the same data in the context of a single request to your Application."* If you want to get into real caching on the database level, give {{% a_blank "Redis" "https://redis.io/" %}} a shot.
 
 Outsource the loaders into a different folder/file structure. Put the batching for the individual users into a new *src/loaders/user.js* file:
 
@@ -4370,7 +4528,7 @@ export default { user };
 
 Finally, import it in your *src/index.js* file and use it:
 
-{{< highlight javascript "hl_lines=5 26" >}}
+{{< highlight javascript "hl_lines=5 26 27 28" >}}
 ...
 import DataLoader from 'dataloader';
 
@@ -4395,9 +4553,11 @@ const server = new ApolloServer({
         models,
         me,
         secret: process.env.SECRET,
-        user: new DataLoader(keys =>
-          loaders.user.batchUsers(keys, models),
-        ),
+        loaders: {
+          user: new DataLoader(keys =>
+            loaders.user.batchUsers(keys, models),
+          ),
+        },
       };
     }
   },
@@ -4408,7 +4568,7 @@ const server = new ApolloServer({
 
 Remember to add the loader to your subscriptions, in case you use them there:
 
-{{< highlight javascript "hl_lines=11 12 13" >}}
+{{< highlight javascript "hl_lines=11 12 13 14 15" >}}
 ...
 
 const server = new ApolloServer({
@@ -4419,9 +4579,11 @@ const server = new ApolloServer({
     if (connection) {
       return {
         models,
-        user: new DataLoader(keys =>
-          loaders.user.batchUsers(keys, models),
-        ),
+        loaders: {
+          user: new DataLoader(keys =>
+            loaders.user.batchUsers(keys, models),
+          ),
+        },
       };
     }
 
@@ -4478,9 +4640,7 @@ Use heroku addons:docs heroku-postgresql to view documentation
 
 Check the {{% a_blank "Heroku PostgreSQL documentation" "https://devcenter.heroku.com/articles/heroku-postgresql" %}} for more in depth instructions for your database setup.
 
-You are ready to take your application online. With the PostgreSQL add-on, you received a database URL as well. You can find it with `heroku config`. Now, let's step into your GraphQL server's code to make a couple of adjustments for production.
-
-In your *src/models/index.js*, you need to decide between development (coding, testing) and production (live) build. Because you have a new environment variable for your database URL, you can use this to make the decision:
+You are ready to take your application online. With the PostgreSQL add-on, you received a database URL as well. You can find it with `heroku config`. Now, let's step into your GraphQL server's code to make a couple of adjustments for production. In your *src/models/index.js*, you need to decide between development (coding, testing) and production (live) build. Because you have a new environment variable for your database URL, you can use this to make the decision:
 
 {{< highlight javascript "hl_lines=3 4 5 6 7 8 17" >}}
 import Sequelize from 'sequelize';
@@ -4506,7 +4666,7 @@ if (process.env.DATABASE_URL) {
 
 If you check your *.env* file, you will see the `DATABASE_URL` environment variable isn't there. But you should see that it is set as Heroku environment variable with `heroku config:get DATABASE_URL`. Once your application is live on Heroku, your environment variables are merged with Heroku's environment variables, which is why the `DATABASE_URL` isn't applied for your local development environment.
 
-Another environment variable used in the *src/index.js* file is called *SECRET* for your authentication strategy. If you haven't included an *.env* file in your project's version control (see .gitignore), you need to set the `SECRET` for your production code in Heroku using `heroku config:set SECRET mysecret`.
+Another environment variable used in the *src/index.js* file is called *SECRET* for your authentication strategy. If you haven't included an *.env* file in your project's version control (see .gitignore), you need to set the `SECRET` for your production code in Heroku using `heroku config:set SECRET=wr3r23fwfwefwekwself.2456342.dawqdq`. The secret is just made up and you can choose your own custom string for it.
 
 Also, consider the application's port in the *src/index.js* file. Heroku adds its own `PORT` environment variable, and you should use the port from an environment variable as a fallback.
 
@@ -4550,14 +4710,36 @@ sequelize.sync({ force: isTest || isProduction }).then(async () => {
 ...
 {{< /highlight >}}
 
-Remember to remove the flag after, or the database will be purged and seeded with every deployment. Depending on development or production, you are choosing a database, seeding it (or not), and selecting a port for your GraphQL server. Before pushing your application to Heroku, push all recent changes to your GitHub repository. After that, push all the changes to your Heroku remote repository as well, since you created a Heroku application before: `git push heroku master`. Open the application with `heroku open`, and add the `/graphql` suffix to your URL in the browser to open up GraphQL Playground.
+Remember to remove the flag after, or the database will be purged and seeded with every deployment. Depending on development or production, you are choosing a database, seeding it (or not), and selecting a port for your GraphQL server. Before pushing your application to Heroku, push all recent changes to your GitHub repository. After that, push all the changes to your Heroku remote repository as well, since you created a Heroku application before: `git push heroku master`. Open the application with `heroku open`, and add the `/graphql` suffix to your URL in the browser to open up GraphQL Playground. If it doesn't work, check the troubleshoot area below.
 
 Depending on your seeding strategy, your database will either be empty or contain seeded data. If its empty, register a user and create messages via GraphQL mutations. If its seeded, request a list of messages with a GraphQL query.
 
 Congratulations, your application should be live now. Not only is your GraphQL server running on Heroku, but your PostgreSQL database. Follow the exercises to learn more about Heroku.
 
+{{% sub_chapter_header "Heroku Troubleshoot" "heroku-troubleshoot" %}}
+
+It can happen that the GraphQL schema is not available in GraphQL Playground for application in production. It's because the `introspection` flag for Apollo Server is disabled for production. In order to fix it, you can set it to true:
+
+{{< highlight javascript "hl_lines=2" >}}
+const server = new ApolloServer({
+  introspection: true,
+  typeDefs: schema,
+  resolvers,
+  ...
+});
+{{< /highlight >}}
+
+Another issue may be that Heroku doesn't install the dev dependencies for production. Although it does install the dev dependencies for building the application on Heroku, it purges the dev dependencies afterward. However, in our case, in order to start the application (npm start script), we rely on a few dev dependencies that need to be available in production. {{% a_blank "You can tell Heroku to keep the dev dependencies:" "https://devcenter.heroku.com/articles/nodejs-support#package-installation" %}}
+
+{{< highlight javascript >}}
+heroku config:set NPM_CONFIG_PRODUCTION=false YARN_PRODUCTION=false
+{{< /highlight >}}
+
+In a real world scenario, you would want to use something else to start your application and not rely on any dev dependencies.
+
 ### Exercises:
 
+* Feedback whether the troubleshooting area for Heroku was useful is very appreciated
 * Create sample data in your production database with GraphQL Playground
 * Get familiar with the {{% a_blank "Heroku Dashboard" "https://dashboard.heroku.com/apps" %}}
   * Find your application's logs

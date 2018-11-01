@@ -33,6 +33,8 @@ In this chapter, I hope to cover everything you need to get started with GitHub'
 
 If you don't have an account on GitHub yet, follow [this guide](https://www.robinwieruch.de/git-essential-commands/) to sign up, follow a beginner's tour, and about a few essential commands for the terminal. This might come in handy if you decide to share projects with others on GitHub in the future. It is a good way to showcase a development portfolio to potential clients or hiring companies.
 
+If you have no clue about the workflow with Pull Requests and Issues when working with GitHub, checkout the {{% a_blank "official GitHub Learning Lab" "https://lab.github.com/" %}}. It should offer everything to get you up to speed. It's not only valuable for this book when you start to interact with the GitHub API, but also to learn Git and GitHub itself.
+
 For our interactions with GitHub's GraphQL API, you will use your own account with information to read/write from/to this data. Before that, complete your GitHub profile by providing additional information so you can recognize it later when it is read by the API.
 
 ### Exercises:

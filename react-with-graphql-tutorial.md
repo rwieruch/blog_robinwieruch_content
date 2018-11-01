@@ -1898,7 +1898,7 @@ You have implemented your first mutation in React with GraphQL. So far, you have
 We implemented a simple GitHub issue tracker that uses React and GraphQL without a dedicated library for GraphQL, using only axios to communicate with the GraphQL API with HTTP POST methods. I think it is important to work with raw technologies, in this case GraphQL, using plain HTTP methods, before introducing another abstraction. The Apollo library offers an abstraction that makes using GraphQL in React much easier, so you will use Apollo for your next application. For now, using GraphQL with HTTP has shown you two important things before introducing Apollo:
 
 * How GraphQL works when using a puristic interface such as HTTP.
-* The shortcomings of using no sophisticated GraphQL Client library in React.
+* The shortcomings of using no sophisticated GraphQL Client library in React, because you have to do everything yourself.
 
 Before we move on, I want to address the shortcomings of using puristic HTTP methods to read and write data to your GraphQL API in a React application:
 

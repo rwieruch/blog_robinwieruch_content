@@ -112,12 +112,12 @@ Simply define your environment variables in this *.env* file. In your *.env* fil
 GITHUB_PERSONAL_ACCESS_TOKEN=xxxXXX
 {{< /highlight >}}
 
-In any Node.js application, use the key in your source code with the following package: {{% a_blank "dotenv" "https://github.com/motdotla/dotenv" %}}. Follow their instructions to install it for your project. Usually, the process is only a `npm install dotenv`, followed by including `require('dotenv').config() or import 'dotenv/config'; in your index.js file.. Afterward use the personal access token from the *.env* file in your *index.js* file. If you run into an error, just continue reading this section to learn how to fix it.
+In any Node.js application, use the key as environment variable in your source code with the following package: {{% a_blank "dotenv" "https://github.com/motdotla/dotenv" %}}. Follow their instructions to install it for your project. Usually, the process is only a `npm install dotenv`, followed by including `import 'dotenv/config';` at the top of your *index.js* file. Afterward, you can use the personal access token from the *.env* file in your *index.js* file. If you run into an error, just continue reading this section to learn how to fix it.
 
 {{< highlight javascript "hl_lines=3 10" >}}
 import ApolloClient from 'apollo-boost';
 
-require('dotenv').config();
+import 'dotenv/config';
 
 const client = new ApolloClient({
   uri: 'https://api.github.com/graphql',
