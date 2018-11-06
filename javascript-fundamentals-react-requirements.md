@@ -43,7 +43,7 @@ If you want to learn the fundamentals about JavaScript for React.js in an intera
 * [Destructuring and Spread Operators in React](#react-destructuring-spread-operator)
 * [There is more JavaScript than React](#react-javascript-learn)
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>33.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>33.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://roadtoreact.com/" %}}
 
 {{% chapter_header "Entering React after learning JavaScript" "react-javascript" %}}
 

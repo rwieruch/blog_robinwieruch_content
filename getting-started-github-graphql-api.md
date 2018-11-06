@@ -21,7 +21,7 @@ summary = "Everything you need to get started with GitHub's GraphQL API for lear
 
 {{% react-graphql-book %}}
 
-{{% read_before_2 "This tutorial is part 1 of 3 in this series." "Part 2:" "A complete React with GraphQL Tutorial" "https://www.robinwieruch.de/react-with-graphql-tutorial/" "Part 3:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial/" %}}
+{{% read_before_4 "This tutorial is part 1 of 5 in this series." "Part 2:" "A GraphQL Tutorial for Beginners" "https://www.robinwieruch.de/graphql-tutorial/" "Part 3:" "A complete React with GraphQL Tutorial" "https://www.robinwieruch.de/react-with-graphql-tutorial/" "Part 4:" "A Apollo Client Tutorial for Beginners" "https://www.robinwieruch.de/graphql-apollo-client-tutorial/" "Part 5:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial/" %}}
 
 Step-by-step is often the easiest way learn something new, so it's fortunate that learning GraphQL in JavaScript teaches both the client and the server-side of an application. Seeing both sides of the web transactions is useful, but the catch is you have to learn two environments. The step-by-step mentality can be difficult to apply here, so I encourage beginners to start with a client-side application by consuming a third-party GraphQL API before the server side, which uses a GraphQL server.
 
@@ -31,7 +31,7 @@ In this chapter, I hope to cover everything you need to get started with GitHub'
 
 {{% chapter_header "Feeding the API with Data on GitHub" "github-api-data" %}}
 
-If you don't have an account on GitHub yet, follow [this guide](https://www.robinwieruch.de/git-essential-commands/) to sign up, follow a beginner's tour, and about a few essential commands for the terminal. This might come in handy if you decide to share projects with others on GitHub in the future. It is a good way to showcase a development portfolio to potential clients or hiring companies.
+If you don't have an account on GitHub yet, and don't know much about its ecosystem, follow [this official GitHub Learning Lab](https://lab.github.com/). If you want to dive deeper into Git and its essential commands, checkout [this guide](https://www.robinwieruch.de/git-essential-commands/) about it. This might come in handy if you decide to share projects with others on GitHub in the future. It is a good way to showcase a development portfolio to potential clients or hiring companies.
 
 For our interactions with GitHub's GraphQL API, you will use your own account with information to read/write from/to this data. Before that, complete your GitHub profile by providing additional information so you can recognize it later when it is read by the API.
 
@@ -39,7 +39,6 @@ For our interactions with GitHub's GraphQL API, you will use your own account wi
 
 * Create a GitHub account if you don't have one
 * Provide additional information for your GitHub profile
-* If you have no clue about the workflow with Pull Requests and Issues when working with GitHub, checkout the {{% a_blank "official GitHub Learning Lab" "https://lab.github.com/" %}}
 
 {{% sub_chapter_header "GitHub Repositories" "github-repository" %}}
 
@@ -49,9 +48,9 @@ If you don't have any projects to upload, you can always 'fork' repositories fro
 
 ### Exercises:
 
-* Create or fork a couple of GitHub repositories, and verify that they show in your account as copies. Copies are indicated by the username that proceeds the repository name in all its titles; for example, a repo called *OriginalAuthor/TestRepo* would be renamed to *YourUserName/TestRepo* once you've forked it.
+* Create/Fork a couple of GitHub repositories, and verify that they show in your account as copies. Copies are indicated by the username that proceeds the repository name in all its titles; for example, a repo called *OriginalAuthor/TestRepo* would be renamed to *YourUserName/TestRepo* once you've forked it.
 
-{{% sub_chapter_header "Working with paginated Data" "github-paginated-data" %}}
+{{% sub_chapter_header "Paginated Data" "github-paginated-data" %}}
 
 GitHub's GraphQL API allows you to request multiple repositories at once, which is useful for pagination. Pagination is a programming mechanic invented to work with large lists of items. For example, imagine you have more than a hundred repositories in your GitHub account, but your UI only only shows ten of them. Transferring the whole list across the wire for each request is impractical and inefficient, because only a subset is needed at a time, which pagination allows.
 
@@ -96,6 +95,6 @@ This section provided you with two ways to interact with GitHub's GraphQL API. W
 
 <hr class="section-divider">
 
-After you've set up GitHub to use their GraphQL API to learn about GraphQL, you should be ready to implement your first GraphQL client application. Follow along and create your first GraphQL client-side application in React.
+After you've set up GitHub to use their GraphQL API to learn about GraphQL, you should be ready to implement your first GraphQL client interactions. Follow along and create your first GraphQL client-side application with the tools you have just set up but also with React.
 
-{{% read_before_2 "This tutorial is part 1 of 3 in this series." "Part 2:" "A complete React with GraphQL Tutorial" "https://www.robinwieruch.de/react-with-graphql-tutorial/" "Part 3:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial/" %}}
+{{% read_before_4 "This tutorial is part 1 of 5 in this series." "Part 2:" "A GraphQL Tutorial for Beginners" "https://www.robinwieruch.de/graphql-tutorial/" "Part 3:" "A complete React with GraphQL Tutorial" "https://www.robinwieruch.de/react-with-graphql-tutorial/" "Part 4:" "A Apollo Client Tutorial for Beginners" "https://www.robinwieruch.de/graphql-apollo-client-tutorial/" "Part 5:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial/" %}}

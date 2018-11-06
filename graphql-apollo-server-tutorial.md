@@ -1311,7 +1311,7 @@ export default {
 };
 {{< /highlight >}}
 
-Since the Apollo Server accepts a list of resolver maps too, you can import all of your resolver maps in your *src/resolver/index.js* file, and export them as a list of resolver maps again:
+Since the Apollo Server accepts a list of resolver maps too, you can import all of your resolver maps in your *src/resolvers/index.js* file, and export them as a list of resolver maps again:
 
 {{< highlight javascript >}}
 import userResolvers from './user';
@@ -1955,7 +1955,7 @@ These are the essentials for validation and error handling with GraphQL in Apoll
 * Add more validation rules to your database models
   * Read more about validation in the Sequelize documentation
 * Read more about {{% a_blank "Error Handling with Apollo Server" "https://www.apollographql.com/docs/apollo-server/v2/features/errors.html" %}}
- * Get to know the different custom errors in Apollo Server
+  * Get to know the different custom errors in Apollo Server
 * Read more about {{% a_blank "GraphQL field level validation with custom directives" "https://blog.apollographql.com/graphql-validation-using-directives-4908fd5c1055" %}}
   * Read more about {{% a_blank "custom schema directives" "https://www.apollographql.com/docs/apollo-server/v2/features/directives.html" %}}
 

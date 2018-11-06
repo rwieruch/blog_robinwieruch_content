@@ -83,7 +83,7 @@ The whole tutorial contains a lot of information. I wouldn't suggest to do every
 
 Additionally I can recommend to read *The Road to learn React* before you dive into Redux. It teaches React by building a Hacker News App without configuration, tooling and Redux. If you are new to React, do yourself a favour and learn React first.
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>33.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>33.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://roadtoreact.com/" %}}
 
 {{% chapter_header "Let’s get started" "getStarted" %}}
 

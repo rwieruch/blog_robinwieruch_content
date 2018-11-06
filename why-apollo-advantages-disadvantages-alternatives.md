@@ -29,7 +29,7 @@ GraphQL is only the query language that has a reference implementation in JavaSc
 
 {{% chapter_header "Apollo Advantages" "apollo-advantages" %}}
 
-Major advantages of using Apollo.
+The following topics show you some of the advantages of using Apollo, to provide a well-rounded pro and con list. Feel free to contact me if you think anything is missing from either list.
 
 {{% sub_chapter_header "Apollo's Ecosystem" "apollo-ecosystem" %}}
 

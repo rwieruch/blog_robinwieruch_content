@@ -44,7 +44,7 @@ The requirements for this tutorial are a working [editor or IDE, a running comma
 * [React's Context API](https://www.robinwieruch.de/react-context-api/)
 * [A gentle introduction to React's Higher Order Components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/)
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>33.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://www.getrevue.co/profile/rwieruch" %}}
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>33.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://roadtoreact.com/" %}}
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
