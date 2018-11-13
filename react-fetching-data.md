@@ -296,6 +296,8 @@ export default App;
 
 Even though the `render()` method already ran once before the `componentDidMount()` method, you don't run into any null pointer exceptions because you have initialized the `hits` property in the local state with an empty array.
 
+**Note:** If you want to get to know data fetching with a feature called React Hooks, checkout this comprehensive tutorial: [How to fetch data with React Hooks?](https://www.robinwieruch.de/react-hooks-fetch-data/)
+
 {{% chapter_header "What about loading spinner and error handling?" "react-fetch-data-loading-error" %}}
 
 Of course you need the fetched data in your local state. But what else? There are two more properties that you could store in the state: loading state and error state. Both will improve your user experience for end-users of your application.
