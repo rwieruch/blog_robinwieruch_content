@@ -250,6 +250,99 @@ For now, let's make do with `bs-css` as a styling solution, but it's always good
 
 ## Stateful Component
 
+Now, let's build the search form. We're gonna do this directly inside of `App.re` for simplicity's sake, so we'll be converting `<App />` from a stateless component to a stateful component.
+
+ReasonReact calls its' binding around stateful components a *reducer component*. In my opinion, reducer components showcase the benefit of adding the battleproof type-safety of Reason/OCaml to our React code. It's easier to be a little more comfortable going without type-safety when you're writing a simple card component, but once you start adding business logic to your components that type-safety helps protect us from making silly mistakes.
+
+As we dive into statefulness with reducer components I find it helpful to think of [Redux]() reducers and how they work. You'll see that reducer components feel very similar to Redux, except that they're contained within the component itself rather carrying the overhead of a global store. If you're unfamiliar with Redux or want a refresher on how it works, check out ["Tips to learn React + Redux in 2018"](https://www.robinwieruch.de/tips-to-learn-react-redux/).
+
+The first thing that we'll need to do to turn our `<App />` component into a reducer component is create a couple type declarations. The first one we'll need to create is a `state` type to describe what our component's state looks like.
+
+```reason
+type state = {
+  input: string,
+  loading: bool,
+}
+```
+
+The second type we'll need to make is an `action` type. Similar to a Redux action, this will describe the types of state updates we can run. We'll define the `action` type as a [variant](TODO link) with all of our possible actions.
+
+For now, we'll have two possible action to update our component's state, `UpdateInput` and `Search`. `UpdateInput` will represent when the user types into the search bar, passing the value of the `input` field as an argument. `Search` will represent when the search query is actually submitted and we hit the GitHub API to grab the search results.
+
+```reason
+type action =
+  | UpdateInput(string)
+  | Search
+```
+
+Then we need to switch our component template to create a reducer component template. To do that we'll need to change `ReasonReact.statelessComponent("App")` to use the `reducerComponent` template. It's not a big change, `reducerComponent` takes the exact same argument as `statelessComponent`: the name we want our component to have.
+
+```reason
+let component = ReasonReact.reducerComponent("App");
+```
+
+Now we're using the reducer component template! We're not quite done converting our stateless component just yet though. For a reducer component, we do need to provide a couple extra keys to our component record in addition to `render`.
+
+The first thing we'll need to add is an `initialState` key. This key has to be a function and must return the same type as the `state` that we defined earlier.
+
+```reason
+let make = _children => {
+  ...component,
+  TODO -- highlight line
+  initialState: () => {input: "", loading: false},
+  render: ...
+};
+```
+
+<!-- TODO -- fact-check on update type -->
+The second thing we'll need to add is a `reducer` function. This works exactly the same as a Redux reducer&mdash;it takes an `action` and `state` as its' arguments and returns an updated state. Technically it returns a special `update` type that manages the `setState` that you would normally do. However, the argument to the `update` type is the next state that you would like your component to have.
+
+Inside of our reducer, we'll use [pattern-matching](TODO link) to declare our state updates for each action. The pattern-matching syntax looks a little bit like a JavaScript `switch` statement. However, unlike a `switch` statement, Reason's pattern-matching is&mdash;you guessed it&mdash;100% type safe. The compiler will even warn us if we forgot to declare a state update for one of our actions!
+
+```reason
+let make = _children => {
+  ...component,
+  initialState: () => {input: "", loading: false},
+  TODO -- highlight lines
+  reducer: (action, state) =>
+    switch (action) {
+    | UpdateInput(newInput) => ReasonReact.Update({...state, input: newInput})
+    | Search => ReasonReact.Update({...state, loading: true})
+    },
+  render: ...
+};
+```
+
+The last thing left to do to convert our component is to modify our `render` function to use the state that we just added. Since this step is a little more involved, we'll make sure to do it in stages.
+
+Let's start by replacing our `<Card />` with a form containing an input and a submit button. The input field will be hooked up our `state.input`. Don't worry about the event handlers just yet, we'll get there! For now, let's just get the elements hooked up to state correctly.
+
+```reason
+render: self => {
+  <div>
+    <form>
+      <label htmlFor="search"> {ReasonReact.string("Search")} </label>
+      <input id="search" name="search " value={self.state.input} />
+      <button type_="submit">
+        {ReasonReact.string("Submit Search")}
+      </button>
+    </form>
+  </div>
+}
+```
+
+A couple things to note in this example. Since Reason doesn't come with the concept of `this` the way JavaScript does, we'll have to use the `self` argument to `render` to access our component's state. Think of `self` as your workaround for `this`, without all of the baggage and confusion about context.
+
+Another little "gotcha" is the `type_` attribute on the `<button>` tag. Since `type` is a keyword in Reason the Reason team has built in a workaround for variables (and props!) that match keywords: just append an underscore at the end and you're good to go!
+
+This is all cool and all, but our form isn't really going to be much use if we can't update or submit it! Let's add a couple event handlers to make our form work as intended. For readability's sake, let's define the handlers *outside of render* as plain functions. We can just put them up above the `make` function.
+
+The first event handler we'll add is on the `input` field.
+
+TODO form submit handler.
+
+TODO loading state on/off
+
 ## Data Fetching
 
 ## Gluing it all together (aka Conclusion)
