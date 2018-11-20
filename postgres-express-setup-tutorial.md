@@ -29,7 +29,7 @@ I recommend {{% a_blank "Homebrew" "https://brew.sh/" %}} for installing and man
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 {{< /highlight >}}
 
-The terminal will go through a series of installation operations, and will probably create folders in your local machine to accommodate Homebrews storage requirements. You can find more detailed instructions [here](https://www.robinwieruch.de/developer-setup/). After it's installed, update  the Homebrew dependencies and install PostgreSQL on the command line:
+The terminal runs through a series of installation operations, and will probably create folders in your local machine to accommodate Homebrews storage requirements. You can find more detailed instructions [here](https://www.robinwieruch.de/developer-setup/). After it's installed, update  the Homebrew dependencies and install PostgreSQL on the command line:
 
 {{< highlight javascript >}}
 brew update
@@ -40,10 +40,18 @@ Next, check your PostgreSQL version:
 
 {{< highlight javascript >}}
 postgres --version
-postgres (PostgreSQL) 10.5
+postgres (PostgreSQL) 11.1
 {{< /highlight >}}
 
-The version at the time of this publication is PostgreSQL 10.5.  I look forward to continually updating this checklist as more versions are releasded.
+The version at the time of this publication is PostgreSQL 11.1.  I recommed using the latest version of libraries and software whenever possible to avoid compatibility issues with client-side applications.
+
+[placeholder-Windows-related header?]
+
+For Microsoft Windows, it is possible to run an unattended install using the command prompt or PowerShell. However, since it will still require a manual download of the installation files, it's easier to [download the .exe from the PostgreSQL Development Group]   (https://www.postgresql.org/download/windows/).  It comes with an installation wizard that covers the base setup, and you can still perform command-line operations on the directory after its installed. 
+
+To use PosgresQL on Windows, two of its directories must be included under the `path` in the environmental variables: the _bin_ folder and the _lib_ folder.  To do this navigate to System Properities and find the Advanced tab, where the Environmental Variables button can be seen at the bottom of the Window below Startup and Recovery.  Add the directories `C:\Program Files\PostgreSQL\11\bin` and `C:\Program Files\PostgreSQL\11\lib` under the system variable `Path`, next to to the default paths, and separate them by a semicolon (;).  You can verify the installation in the command prompt by navigating to the PostgreSQL installation folder and entering the same version check as before.
+
+You may also need to manually install [Node.js](https://nodejs.org) for the `npm` operations we'll be using later.  Like the PosgreSQL installation, the link is to a straightforward .exe installer that can be verified with a similar version check (`node --version`) in the command prompt's default directory. If you find that any of these steps are giving errors, try logging out and back in to confirm the environmental variables and registry changes. While the remaining tutorial will focus on MacOS, you should be able to follow along on windows with minimal alterations to satisfy naming conventions.
 
 {{% chapter_header "Setting up PostgreSQL as physical Database" "postgresql-create-database" %}}
 
@@ -55,20 +63,20 @@ initdb /usr/local/var/postgres
 
 You will see the error message: 'initdb: directory "/usr/local/var/postgres" exists but is not empty' if the database was already created when you installed postgreSQL.  It means the folder where you are attempting to create a database already has one.  You can verify this by navigating to to 'usr/local/var/postgres' on your local machine and verifying the folder is not empty, at which point you can move on to the next step.
 
-When you connect to this physical database later on, you will see an {{% a_blank "actual database" "https://stackoverflow.com/questions/50210158/whats-the-difference-between-initdb-usr-local-var-db-and-createdb-db" %}} which is called "postgres" as well. The postgres database is meant to be the default database for any third-party tools that you are using in combination with PostgreSQL. These tools attempt to make the default connection to this default database, so you shouldn't delete it.
+When you connect to this physical database later, you will see an {{% a_blank "actual database" "https://stackoverflow.com/questions/50210158/whats-the-difference-between-initdb-usr-local-var-db-and-createdb-db" %}} which is called "postgres" as well. The postgres database is meant to be the default database for any third-party tools that you are using in combination with PostgreSQL. These tools attempt to make the default connection to this default database, so you shouldn't delete it.
 
-You can manually start and stop your Postgres database server with the following commands on the command line:
+Manually start and stop your Postgres database server with the following commands:
 
 {{< highlight javascript >}}
 pg_ctl -D /usr/local/var/postgres start
 pg_ctl -D /usr/local/var/postgres stop
 {{< /highlight >}}
 
-The terminal will confirm these operations with `server started` and `server stopped` feedback. You start the server each time you boot up the machine with certain commands, but I like to control over when to start and stop my database server to avoid any complications.
+The terminal will confirm these operations with `server started` and `server stopped` feedback. You start the server each time you boot up the machine, but I like to control over when to start and stop my database server to avoid complications.
 
 {{% chapter_header "Creating your PostgreSQL Database" "postgres-create-database" %}}
 
-Next, set up the actual database that can be used in applications. Make sure the server is started first, then type this in the command line:
+Next, set up the database you will use for applications. Make sure the server is started first, then type this in the command line:
 
 {{< highlight javascript >}}
 createdb mydatabasename
@@ -97,9 +105,9 @@ To list all your databases, you can type `\list`. Your will see any new database
 
 {{% chapter_header "A minimal Postgres with Sequelize in Express Setup" "postgres-sequelize-express" %}}
 
-An ORM is short for Object Related Mapping, a technique that programmers use to create a sort of "virtual" database, useful for converting data among incompatible types.  More specifically, ORMs mimic the actual database so a developer can operate within a programming language and worry about conversions after the fact.  This reduces the amount of code needed for communication between the Object-Domain Model (ODM) and Relational Models, and decreases runtimes immediately.  The downside is added code abstraction, but this shouldn't be a problem for simple JavaScript applications.
+To connect PostgreSQL to your Express application, use an {{% a_blank "ORM" "https://en.wikipedia.org/wiki/Object-relational_mapping" %}} to convert information from the database to a JavaScript application without SQL statements. An ORM is short for Object Related Mapping, a technique that programmers use to create a sort of "virtual" database, useful for converting data among incompatible types.  More specifically, ORMs mimic the actual database so a developer can operate within a programming language and worry about conversions after the fact.  This reduces the amount of code needed for communication between the Object-Domain Model (ODM) and Relational Models, and decreases runtimes dramatically  The downside is added code abstraction, but this shouldn't be a problem for simple JavaScript applications.
 
-To connect PostgreSQL to your Express application, use an {{% a_blank "ORM" "https://en.wikipedia.org/wiki/Object-relational_mapping" %}} to convert your information from the database to your JavaScript application without performing SQL statements. {{% a_blank "Sequelize" "https://github.com/sequelize/sequelize.git" %}} is an ORM that supports multiple dialects, and PostgreSQL is one of those dialects. In general, Sequelize gives you a comfortable API to work with your actual PostgreSQL database from setup to execution.
+For this application, we'll use {{% a_blank "Sequelize" "https://github.com/sequelize/sequelize.git" %}}, as it supports multiple dialects, one of which is PostgreSQL. Sequelize provides a comfortable API to work with PostgreSQL databases from setup to execution, but there are [many ORMs to choose](https://en.wikipedia.org/wiki/List_of_object-relational_mapping_software) from if you want to expand your toolbelt.
 
 Before you can implement database usage in your Node.js application, install sequelize and pg (postgres client for Node.js) on the command line  using npm:
 
@@ -107,48 +115,56 @@ Before you can implement database usage in your Node.js application, install seq
 npm install pg sequelize --save
 {{< /highlight >}}
 
-The following case implements a database for a Twitter clone application with two models: Author and Tweet. Usually, there is a folder in your Node.js application called *src/models/* that contains files for each model in your database (e.g. *src/models/author.js* and *src/models/tweet.js*). There is alos a file (e.g. *src/models/index.js*) that combines all models and exports all the necessary information to the Express server.
+[placeholder:UML related header?]
 
-Let's start with the two models in the *src/models/[modelname].js* files. The Author model could look like the following:
+The following case implements a database for a Twitter clone application with two models: User and Message. Usually, there is a folder in your Node.js application called *src/models/* that contains files for each model in your database (e.g. *src/models/user.js* and *src/models/message.js*). There is also a file (e.g. *src/models/index.js*) that combines all models and exports all the necessary information to the Express server.
+
+Before diving into the code for your application, it's always a good idea to map the relationships between objects and how to handle the data that must pass between them.  A UML diagram (short for Unifified Modeling Language) is a straightforward way to express relationships between entities in a way that can be referenced quickly as you type them out. This is useful for the person laying the groundwork for an application as well as anyone who wants to add to it. For our Twitter clone application, the UML diagram would appear as such:
+
+[placeholder: UML image]
+
+Note that the models User and Message have attributes that define both their identity within the construct and their relationships to each other.  
+
+Now that we have our relationships mapped, we can start with the two models in the *src/models/[modelname].js* files, which could be expressed like the following:
 
 {{< highlight javascript >}}
-const author = (sequelize, DataTypes) => {
-  const Author = sequelize.define('author', {
+const user = (sequelize, DataTypes) => {
+  const user = sequelize.define('user', {
     username: {
       type: DataTypes.STRING,
       unique: true,
     },
   });
 
-  Author.associate = models => {
-    Author.hasMany(models.Tweet);
+  user.associate = models => {
+    user.hasMany(models.Message);
   };
 
-  return Author;
+  return user;
 };
 
-export default author;
+export default user;
 {{< /highlight >}}
 
-And the Tweet model looks quite similar to it:
+The Message model looks quite similar:
 
 {{< highlight javascript >}}
-const tweet = (sequelize, DataTypes) => {
-  const Tweet = sequelize.define('tweet', {
+const message = (sequelize, DataTypes) => {
+  const Message = sequelize.define('message', {
     text: DataTypes.STRING,
   });
 
-  Tweet.associate = models => {
-    Tweet.belongsTo(models.Author);
+  Message.associate = models => {
+    Message.belongsTo(models.user);
   };
 
-  return Tweet;
+  return Message;
 };
 
-export default tweet;
+export default message;
 {{< /highlight >}}
 
-Sequelize is used to define the model with its content (composed of `DataTypes` and optional configuration such as the `unique` flag for the username). Furthermore, the associate property is used to create relations between models. An Author can have multiple Tweets, but a Tweet belongs to only one Author. You can dive deeper into these concepts in the {{% a_blank "Sequelize documentation" "http://docs.sequelizejs.com/" %}}. Next, in your *src/models/index.js* file, import and combine those models and resolve their associations using the Sequelize API:
+Sequelize is used to define the model with its content (composed of `DataTypes` and optional configuration such as the `unique` flag for the username). Furthermore, the associate property is used to create relations between models. An user can have multiple Messages, but a Message belongs to only one user. You can dive deeper into these concepts in the {{% a_blank "Sequelize documentation" "http://docs.sequelizejs.com/" %}}. Next, in your *src/models/index.js* file, import and combine those models and resolve their associations using the Sequelize API:
 
 {{< highlight javascript >}}
 import Sequelize from 'sequelize';
@@ -158,8 +174,8 @@ const sequelize = new Sequelize('twitter', 'postgres', 'postgres', {
 });
 
 const models = {
-  Author: sequelize.import('./author'),
-  Tweet: sequelize.import('./tweet'),
+  user: sequelize.import('./user'),
+  Message: sequelize.import('./message'),
 };
 
 Object.keys(models).forEach(key => {
@@ -207,4 +223,4 @@ Once you start your application again, the command line results will show how th
 
 <hr class="section-divider">
 
-That's it for the short checklist. If you have any further tips or improvements for it, I encourage you to leave a comment below, especially if you have improvements for the terminology or additional Meta-Commands you use regularly. Otherwise, I hope this walkthrough helped to set up PostgreSQL with Sequelize (or any other ORM) in your Express application on MacOS.
+If you have any further tips or improvements for it, I encourage you to leave a comment below, especially if you have improvements for the terminology or additional Meta-Commands you use regularly. Otherwise, I hope this walkthrough helped to set up PostgreSQL with Sequelize or any other ORM in your Express application on MacOS.
