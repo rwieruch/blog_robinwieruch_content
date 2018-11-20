@@ -337,12 +337,23 @@ Another little "gotcha" is the `type_` attribute on the `<button>` tag. Since `t
 
 This is all cool and all, but our form isn't really going to be much use if we can't update or submit it! Let's add a couple event handlers to make our form work as intended. For readability's sake, let's define the handlers *outside of render* as plain functions. We can just put them up above the `make` function.
 
-The first event handler we'll add is on the `input` field.
+The first event handler we'll add is on the `input` field. We'll just take the value out of `input.target.value` and trigger a state update with our `UpdateInput` action. Let's call our function `onUpdateInput`
+
+```reason
+let onUpdateInput = (ev, self) => {
+  ope
+}
+```
 
 TODO form submit handler.
 
 TODO loading state on/off
 
 ## Data Fetching
+
+TODO add keys to state for results
+TODO add bs-json for decoding. talk about decoding json
+TODO add form handler & update state
+TODO update render with the new data!
 
 ## Gluing it all together (aka Conclusion)
