@@ -15,25 +15,31 @@ You can leave out all the meta information (frontmatter) that I use for my blog 
 
 Don't use images for code. Instead use a code snippet the following way:
 
+```
 {{< highlight javascript >}}
 const helloWorld = "Hello World!";
 {{< /highlight >}}
+```
 
 If you want to highlight changes in the code, that's what I usually do in my tutorials, then you can do it by providing the numbers of lines you want to highlight:
 
+```
 {{< highlight javascript "hl_lines=3" >}}
 const helloWorld = "Hello World!";
 
 console.log(helloWorld);
 {{< /highlight >}}
+```
 
 If you move around from file to file in your tutorial, don't forget to mention the place where you edit/create the next code snippet. Something like:
 
 Now we are going to implement user model in the *src/models/user.js* file:
 
+```
 {{< highlight javascript >}}
 const user = createModel('user');
 {{< /highlight >}}
+```
 
 ### Images
 
