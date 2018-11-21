@@ -25,11 +25,11 @@ In the Road to learn React, I offer a foundation before you dive into the broade
 
 Essentially, you will learn to build your own React application from scratch, with features like pagination, client-side caching, and interactions like searching and sorting. Additionally, you will transition from JavaScript ES5 to JavaScript ES6. I hope this book captures my enthusiasm for React and JavaScript, and that it helps you get started with it.
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 190+ pages of learning material. Pay what you want like <strong>33.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://roadtoreact.com/" %}}
+{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 200+ pages of learning material. Pay what you want like <strong>50.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://roadtoreact.com/" %}}
 
 {{% chapter_header "React Book Testimonials" "react-book-testimonials" %}}
 
-There are many {{% a_blank "testimonials" "https://roadtoreact.com/" %}}, {{% a_blank "ratings" "https://www.goodreads.com/book/show/37503118-the-road-to-learn-react" %}} and {{% a_blank "reviews" "https://amzn.to/2JHlP42" %}} about the book that you can read to ascertain its quality. I am proud of it, and I never expected such overwhelming feedback. I would love to find your rating/review. It helps me to spread the word about the book and make improvements for future projects. The following shows a short excerpt of these voices:
+There are many {{% a_blank "testimonials" "https://roadtoreact.com/" %}}, {{% a_blank "ratings" "https://www.goodreads.com/book/show/37503118-the-road-to-learn-react" %}} and {{% a_blank "reviews" "https://amzn.to/2QY2ONp" %}} about the book that you can read to ascertain its quality. I am proud of it, and I never expected such overwhelming feedback. I would love to find your rating/review. It helps me to spread the word about the book and make improvements for future projects. The following shows a short excerpt of these voices:
 
 **[Muhammad Kashif](https://twitter.com/appsdevpk/status/848625244956901376):** "The Road to Learn React is a unique book that I recommend to any student or professional interested in learning react basics to advanced level. It is packed with insightful tips and techniques that are hard to find elsewhere, and remarkably thorough in its use of examples and references to sample problems, i have 17 years of experience in web and desktop app development, and before reading this book i was having trouble in learning react, but this book works like magic."
 
@@ -110,7 +110,7 @@ I keep the learning material up to date to the recent changes in the React ecosy
 * 15% more content
 * 15% improved content
 * 3 new chapters (Bindings, Event Handlers, Error Handling)
-* 190+ pages of learning material
+* 200+ pages of learning material
 * {{% a_blank "+9 Source Code Projects" "https://roadtoreact.com" %}}
 
 **17. February 2018:**
@@ -121,7 +121,7 @@ I keep the learning material up to date to the recent changes in the React ecosy
 * more learning paths
 * extra reading material
 * 1 new chapter (Axios instead of Fetch)
-* {{% a_blank "Amazon Print/E Book" "https://amzn.to/2JHlP42" %}}
+* {{% a_blank "Amazon Print/E Book" "https://amzn.to/2QY2ONp" %}}
 
 **31. August 2018:**
 

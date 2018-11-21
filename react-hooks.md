@@ -794,6 +794,8 @@ React Hooks being reusable is the best thing about them, because there is the po
 
 <hr class="section-divider">
 
+If you want to dive deeper into the state and effect hooks, checkout my tutorial on [how to fetch data with React Hooks](https://www.robinwieruch.de/react-hooks-fetch-data).
+
 Checkout the official {{% a_blank "FAQ" "https://reactjs.org/docs/hooks-faq.html" %}} and {{% a_blank "Rules" "https://reactjs.org/docs/hooks-rules.html" %}} for hooks in React's documentation to learn more about their fine-grained behaviour. In addition, you can checkout {{% a_blank "all officially available React Hooks" "https://reactjs.org/docs/hooks-reference.html" %}} too.
 
 For everyone who is still concerned about React Hooks: Give them a shot yourself. Implement a couple of React function components with state and side-effects. I had to do it myself to understand how they work and to feel comfortable with them. And I must say it feels pretty great to use them.

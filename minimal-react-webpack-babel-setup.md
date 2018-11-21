@@ -99,7 +99,7 @@ The created file should have the following content:
   </head>
   <body>
     <div id="app"></div>
-    <script src="/bundle.js"></script>
+    <script src="./bundle.js"></script>
   </body>
 </html>
 {{< /highlight >}}
