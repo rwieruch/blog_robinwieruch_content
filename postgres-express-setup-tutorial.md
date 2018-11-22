@@ -1,11 +1,11 @@
 +++
 title = "Setup PostgreSQL with Sequelize in Express Tutorial"
-description = "The article is a checklist for myself, but for anyone else setting up PostgreSQL 10 on MacOS for having a SQL database in an Express.js application. Leave out the Express part to just set up Postgres on MacOS ..."
-date = "2018-05-07T13:50:46+02:00"
+description = "A comprehensive checklist for a  PostgreSQL on MacOS or Windows setup for having a SQL database in an Express.js application. Leave out the Express part to just set up Postgres on MacOS ..."
+date = "2018-11-21T13:50:46+02:00"
 tags = ["Node", "JavaScript"]
 categories = ["Node", "JavaScript"]
-keywords = ["postgres express", "postgresql express", "postgres macos", "postgresql macos", "postgres express sequelize"]
-news_keywords = ["postgres express", "postgresql express", "postgres macos", "postgresql macos", "postgres express sequelize"]
+keywords = ["postgres express", "postgresql express", "postgres macos", "postgresql macos", "postgres windows", "postgresql windows", "postgres express sequelize"]
+news_keywords = ["postgres express", "postgresql express", "postgres macos", "postgresql macos", "postgres windows", "postgresql windows", "postgres express sequelize"]
 hashtag = "#NodeJs"
 card = "img/posts/postgres-express-setup-tutorial/banner_640.jpg"
 banner = "img/posts/postgres-express-setup-tutorial/banner.jpg"
@@ -47,7 +47,7 @@ The command line results will show the version you have installed on your local 
 
 {{% chapter_header "Postgres Setup on Windows" "postgres-setup-windows" %}}
 
-For Microsoft Windows, it is possible to run an unattended install using the command prompt or PowerShell. However, since it will still require a manual download of the installation files, it's easier to [download the .exe from the PostgreSQL Development Group]   (https://www.postgresql.org/download/windows/).  It comes with an installation wizard that covers the base setup, and you can still perform command-line operations on the directory after its installed. 
+For Microsoft Windows, it is possible to run an unattended install using the command prompt or PowerShell. However, since it will still require a manual download of the installation files, it's easier to [download the .exe from the PostgreSQL Development Group]   (https://www.postgresql.org/download/windows/).  It comes with an installation wizard that covers the base setup, and you can still perform command-line operations on the directory after its installed.
 
 To use PosgresQL on Windows, two of its directories must be included under the `path` in the environmental variables: the *bin* folder and the *lib* folder.  To do this navigate to System Properities and find the Advanced tab, where the Environmental Variables button can be seen at the bottom of the Window below Startup and Recovery.  Add the directories `C:\Program Files\PostgreSQL\11\bin` and `C:\Program Files\PostgreSQL\11\lib` under the system variable `Path`, next to to the default paths, and separate them by a semicolon (;).  You can verify the installation in the command prompt by navigating to the PostgreSQL installation folder and entering the same version check as before.
 
@@ -119,9 +119,13 @@ The following case implements a database for a chat application with two models:
 
 Before diving into the code for your application, it's always a good idea to map the relationships between objects and how to handle the data that must pass between them.  A UML diagram (short for Unifified Modeling Language) is a straightforward way to express relationships between entities in a way that can be referenced quickly as you type them out. This is useful for the person laying the groundwork for an application as well as anyone who wants to add to it. For our chat application, the UML diagram would appear as such:
 
-[placeholder: UML image]
+<div class="row">
+  <div class="col-xs-8 col-centered">
+    {{% pin_it_image "database uml" "img/posts/postgres-express-setup-tutorial/uml.png" "is-src-set" %}}
+  </div>
+</div>
 
-Note that the models User and Message have attributes that define both their identity within the construct and their relationships to each other.  
+Note that the models User and Message have attributes that define both their identity within the construct and their relationships to each other.
 
 Now that we have our relationships mapped, we can start with the two models in the *src/models/[modelname].js* files, which could be expressed like the following:
 
@@ -221,4 +225,4 @@ Once you start your application again, the command line results will show how th
 
 <hr class="section-divider">
 
-If you have any further tips or improvements for it, I encourage you to leave a comment below, especially if you have improvements for the terminology or additional Meta-Commands you use regularly. Otherwise, I hope this walkthrough helped to set up PostgreSQL with Sequelize or any other ORM in your Express application on MacOS.
+If you have any further tips or improvements for it, I encourage you to leave a comment below, especially if you have improvements for the terminology or additional Meta-Commands you use regularly. Otherwise, I hope this walkthrough helped to set up PostgreSQL with Sequelize or any other ORM in your Express application on MacOS and Windows.
