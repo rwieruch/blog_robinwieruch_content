@@ -1,21 +1,17 @@
 +++
 title = "A Beginners Guide to ReasonReact"
-description = "A tutorial on using Reason "
+description = "A tutorial on using Reason to create React components"
 +++
 
 ## Intro & PreRequisites
 
-<!-- _AKA what this article isn't and what it is_ -->
-
-First off, this tutorial assumes that you have some knowledge of how React works. If you're just getting started to React, I'd highly recommend reading through "[The Road to learn React](https://roadtoreact.com/)" before trying to dive into ReasonReact. After all, ReasonReact is an abstraction _on top of React_!
+First off, this tutorial assumes that you have some knowledge of how React works. If you're just getting started to React, I'd highly recommend reading through "[The Road to learn React](https://roadtoreact.com/)" before trying to dive into ReasonReact. It's really important to have at least a basic foundational understanding of React before we start diving into ReasonReact. After all, ReasonReact is an abstraction _on top of React_!
 
 Kinda reminds me of this Kyle Simpson quote from "[You Don't Know JS: Async & Performance](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/README.md)"
 
 > It's impossible to effectively use any abstraction if you don't understand what it's abstracting, and why.
 
-<!-- TODO -- work this section. -->
-
-In addition, another prerequisite this article assumes is that you know a little bit about Reason. If you're just getting started with Reason I'd recommend having the [Reason docs](https://reasonml.github.io/docs/en/what-and-why) up as you read this article, just in case you need any refreshers on the syntax or language semantics. I also have an [introductory article](https://blog.logrocket.com/what-makes-reasonml-so-great-c2c2fc215ccb) to Reason that may be a good read if you're just starting out with Reason and want to know what all the hype is about.
+The other abstraction that's important to know about is Reason itself, since ReasonReact is *React in Reason*.  If you're just getting started with Reason I'd recommend having the [Reason docs](https://reasonml.github.io/docs/en/what-and-why) up as you read this article, just in case you need any refreshers on the syntax or language semantics. I also have an [introductory article](https://blog.logrocket.com/what-makes-reasonml-so-great-c2c2fc215ccb) to Reason that may be a good read if you're just starting out with Reason and want to know what all the hype is about.
 
 <!-- TODO -- add disclaimer about Reason & OCaml being the exact same thing! -->
 <!-- TODO -- add warning about Reason being cutting-edge & "rough around the edges" -->
@@ -28,7 +24,7 @@ I find it helpful to build an app of this size whenever I'm learning something n
 
 If you're looking to follow along with the source code you can check out the repo [here](https://github.com/benjamminj/reason-react-tutorial). To code along check out the `getting-started` branch — this will only contain the boilerplate to get a "hello world" on the screen.
 
-{{ <highlight javascript > }}
+{{ < highlight javascript > }}
 git clone https://github.com/benjamminj/reason-react-tutorial.git
 
 cd reason-react-tutorial
@@ -264,7 +260,7 @@ The first thing that we'll need to do to turn our `<App />` component into a red
 {{< highlight javascript >}}
 type state = {
   input: string,
-  loading: bool,
+  isLoading: bool,
 }
 {{< /highlight >}}
 
@@ -291,7 +287,7 @@ The first thing we'll need to add is an `initialState` key. This key has to be a
 {{< highlight javascript "hl_lines=3" >}}
 let make = _children => {
   ...component,
-  initialState: () => {input: "", loading: false},
+  initialState: () => {input: "", isLoading: false},
   render: ...
 };
 {{< /highlight >}}
@@ -303,11 +299,11 @@ Inside of our reducer, we'll use [pattern-matching](https://reasonml.github.io/d
 {{< highlight javascript "hl_lines="3 4 5 6 7 8" >}}
 let make = _children => {
   ...component,
-  initialState: () => {input: "", loading: false},
+  initialState: () => {input: "", isLoading: false},
   reducer: (action, state) =>
     switch (action) {
     | UpdateInput(newInput) => ReasonReact.Update({...state, input: newInput})
-    | Search => ReasonReact.Update({...state, loading: true})
+    | Search => ReasonReact.Update({...state, isLoading: true})
     },
   render: ...
 };
@@ -331,7 +327,7 @@ render: self => {
     </form>
     <div>
       {
-        self.state.loading ?
+        self.state.isLoading ?
           ReasonReact.string("Loading...") : ReasonReact.null
       }
     </div>
@@ -343,7 +339,7 @@ A couple things to note in this example. Since Reason doesn't come with the conc
 
 Another little "gotcha" is the `type_` attribute on the `<button>` tag. Since `type` is a keyword in Reason the Reason team has built in a workaround for variables (and props!) that match keywords: just append an underscore at the end and you're good to go!
 
-Lastly, the loading text isn't quite as simple as the `{state.loading && "Loading..."}` that we would see in JavaScript. This comes down to the type system as well&mdash;we can rely on JavaScript casting falsy statements into `null` which will render nothing in React. In Reason we have to explicitly say that we want to render `null` using `ReasonReact.null` and a ternary statement.
+Lastly, the loading text isn't quite as simple as the `{state.isLoading && "Loading..."}` that we would see in JavaScript. This comes down to the type system as well&mdash;we can rely on JavaScript casting falsy statements into `null` which will render nothing in React. In Reason we have to explicitly say that we want to render `null` using `ReasonReact.null` and a ternary statement.
 
 This is all cool and all, but our form isn't really going to be much use if we can't update or submit it! Let's add a couple event handlers to make our form work as intended. For readability's sake, let's define the handlers _outside of render_ as plain functions. We can just put them up above the `make` function.
 
@@ -406,7 +402,7 @@ reducer: (action, state) =>
   | UpdateInput(input) => ReasonReact.Update({...state, input})
   | Search =>
     ReasonReact.UpdateWithSideEffects(
-      {...state, loading: true},
+      {...state, isLoading: true},
       (
         self => {
           let value = self.state.input;
@@ -484,7 +480,7 @@ reducer: (action, state) =>
     | UpdateInput(input) => ReasonReact.Update({...state, input})
     | Search =>
       ReasonReact.UpdateWithSideEffects(
-        {...state, loading: true},
+        {...state, isLoading: true},
         (
           self => {
             let value = self.state.input;
@@ -607,7 +603,7 @@ Speaking of using the data, we're coming down the home stretch on our data handl
 {{< highlight javascript "hl_lines=4" >}}
 type state = {
   input: string,
-  loading: bool,
+  isLoading: bool,
   results: list(repository),
 }
 {{< /highlight >}}
@@ -616,7 +612,7 @@ type state = {
 We'll also likely see a compiler error that we need to update our `initialState` function since we changed the `state`. Let's just start off with an empty list.
 
 {{< highlight javascript >}}
-initialState: () => {input: "", loading: false, results: []},
+initialState: () => {input: "", isLoading: false, results: []},
 {{< /highlight >}}
 
 
@@ -636,10 +632,10 @@ type action =
 reducer: (action, state) =>
     switch (action) {
     | UpdateInput(input) => ReasonReact.Update({...state, input})
-    | UpdateResults(results) => ReasonReact.Update({...state, loading: false, results})
+    | UpdateResults(results) => ReasonReact.Update({...state, isLoading: false, results})
     | Search =>
       ReasonReact.UpdateWithSideEffects(
-        {...state, loading: true},
+        {...state, isLoading: true},
         (
           self => {
             let value = self.state.input;
@@ -675,7 +671,7 @@ render: self =>
     </form>
     <div>
       {
-        self.state.loading ?
+        self.state.isLoading ?
           ReasonReact.string("Loading...") :
           self.state.results
           /* Convert to list to an array for ReasonReact's type bindings */ 
