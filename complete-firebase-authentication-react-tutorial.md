@@ -530,7 +530,7 @@ import React from 'react';
 
 import  { FirebaseContext } from '../Firebase';
 
-const SomeComponent = () =>
+const SomeComponent = () => (
   <FirebaseContext.Consumer>
     {firebase => {
       return <div>I've access to Firebase and render something.</div>;
