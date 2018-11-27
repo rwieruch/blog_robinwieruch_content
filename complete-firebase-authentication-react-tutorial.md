@@ -44,7 +44,7 @@ The requirements for this tutorial are a working [editor or IDE, a running comma
 {{% chapter_header "Table of Contents" "toc" %}}
 
 * [React Application Setup: create-react-app](#react-application-setup)
-* [React Router, Routing and Routes](#react-router-setup)
+* [React Router for Firebase Auth](#react-router-setup)
 * Firebase Setup
   * [Firebase in React](#react-firebase)
   * [Provide Firebase in React](#react-firebase-context-api)
@@ -169,7 +169,7 @@ Now everything is set up for this application. Run your application on the comma
 * Optionally introduce [CSS Modules](https://www.robinwieruch.de/create-react-app-css-modules/), [SASS](https://www.robinwieruch.de/create-react-app-with-sass-support/) or {{% a_blank "Styled Components" "https://www.styled-components.com" %}} and style the application yourself
 * Optionally introduce [Git and keep track of your changes by having your project on GitHub](https://www.robinwieruch.de/git-essential-commands/)
 
-{{% chapter_header "React Router, Routing and Routes" "react-router-setup" %}}
+{{% chapter_header "React Router for Firebase Auth" "react-router-setup" %}}
 
 Since we are building a larger application in all the following sections, it would be great to have a couple of pages (e.g. landing page, account page, admin page, sign up page, sign in page) to split up the application into multiple URLs (e.g. /landing, /account, /admin). These URLs or subpaths of a domain are also called routes in a client-side web application. Therefore, let's implement the routing with {{% a_blank "React Router" "https://github.com/ReactTraining/react-router" %}} before we dive into Firebase for the realtime database and authentication/authorization afterward. If you haven't used React Router before, don't worry and just follow my guidance in this section. You will have more time in the exercises of this section to learn React Router.
 
@@ -2037,13 +2037,12 @@ The improvement in the render method was necessary to avoid showing the protecte
 
 Both routes are protected now. That's why could render properties of the authenticated user in the AccountPage component without having a null check for the authenticated user in place. You know that the user should be there, otherwise the higher-order component would redirect to a public route.
 
-{{< highlight javascript "hl_lines=3 9 10 12 16 17" >}}
+{{< highlight javascript "hl_lines=3 8 9 11 15 16" >}}
 import React from 'react';
 
-import { AuthUserContext } from '../Session';
+import { AuthUserContext, withAuthorization } from '../Session';
 import { PasswordForgetForm } from '../PasswordForget';
 import PasswordChangeForm from '../PasswordChange';
-import { withAuthorization } from '../Session';
 
 const AccountPage = () => (
   <AuthUserContext.Consumer>
@@ -2175,7 +2174,7 @@ The paths given in the `ref()` method match the location where your entities (us
 
 Now, use these references in your React components to create and get users from Firebase's realtime database. Let's start with the user creation. The best place to do it would be the SignUpForm component. It is the most natural place to create a user in the database after the sign up that happens via the Firebase authentication API. Just add another API request to create a user when the user signed up was successful. In *src/components/SignUp/index.js* file:
 
-{{< highlight javascript "hl_lines=17 18 19 20 21 22 23 24 25 26 27 28 29 30" >}}
+{{< highlight javascript "hl_lines=15 16 17 18 19 20 21 22 23" >}}
 ...
 
 class SignUpFormBase extends Component {
@@ -2191,22 +2190,17 @@ class SignUpFormBase extends Component {
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-
         // Create a user in your Firebase realtime database
-        this.props.firebase
+        return this.props.firebase
           .user(authUser.user.uid)
           .set({
             username,
             email,
-          })
-          .then(() => {
-            this.setState({ ...INITIAL_STATE });
-            this.props.history.push(ROUTES.HOME);
-          })
-          .catch(error => {
-            this.setState({ error });
           });
-
+      })
+      .then(() => {
+        this.setState({ ...INITIAL_STATE });
+        this.props.history.push(ROUTES.HOME);
       })
       .catch(error => {
         this.setState({ error });

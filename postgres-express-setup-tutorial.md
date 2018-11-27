@@ -19,9 +19,9 @@ summary = "The article is a checklist for myself, but for anyone else setting up
 
 {{% pin_it_image "postgres express tutorial" "img/posts/postgres-express-setup-tutorial/banner.jpg" "is-src-set" %}}
 
-The article started as a checklist I put together for myself, which I've decided to share with everyone who needs help setting up PostgreSQL on MacOS, to use SQL database in a Express.js application. If you're just setting up Postgres on MacOS, you can leave out the part about Express. If you want to run Postgres on Windows, you will find guidance here as well. You might be wondering why there's a need for another setup guide for Postgres in the first place, since there are a few across the web. I found many tutorials and guides on how to set it up, but found most of them to be unclear and outdated, based on old Postgres versions. The checklist is not comprehensive, though, as it pertains to my own way of doing things, so any feedback on simpler or more universal means is always welcome.
+The article is a checklist for setting up PostgreSQL 10/11 on MacOS, with an SQL database in an Express.js application. Leave out the Express part to just set up Postgres on MacOS, If you want to run Postgres on Windows, you will find guidance here as well. You might be wondering why there's a need for another setup guide for Postgres in the first place, since there are a few across the web. I found many tutorials and guides on how to set it up, but found most of them to be unclear and outdated, based on old Postgres versions. The checklist is not comprehensive, though, as it pertains to my own way of doing things, so any feedback on simpler or more universal means is always welcome.
 
-{{% chapter_header "Postgres Setup on MacOS" "postgres-setup-macos" %}}
+{{% chapter_header "MacOS Postgres Setup" "postgres-setup-macos" %}}
 
 I recommend {{% a_blank "Homebrew" "https://brew.sh/" %}} for installing and managing applications on MacOS. It is installed using the following command in the MacOS terminal:
 
@@ -45,7 +45,7 @@ postgres (PostgreSQL) 11.1
 
 The command line results will show the version you have installed on your local machine. I recommed using the latest version of libraries and software whenever possible to avoid compatibility issues with client-side applications.
 
-{{% chapter_header "Postgres Setup on Windows" "postgres-setup-windows" %}}
+{{% chapter_header "Windows Postgres Setup" "postgres-setup-windows" %}}
 
 For Microsoft Windows, it is possible to run an unattended install using the command prompt or PowerShell. However, since it will still require a manual download of the installation files, it's easier to [download the .exe from the PostgreSQL Development Group]   (https://www.postgresql.org/download/windows/).  It comes with an installation wizard that covers the base setup, and you can still perform command-line operations on the directory after its installed.
 
