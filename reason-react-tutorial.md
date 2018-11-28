@@ -388,41 +388,43 @@ reducer: (action, state) =>
       (
         self => {
           let value = self.state.input;
+          /* This function needs to return a "unit" type, wo we'll insert it here */
+          ();
         }
       ),
     )
   },
 {{< /highlight >}}
 
-`UpdateWithSideEffects` allows us to pass a second argument to our state update&mdash;a callback to be executed _after_ the state is set (If you're familiar with a [`setState` callback](https://reactjs.org/docs/react-component.html#setstate), this is very similar). Triggering our side effects this way is the preferred method since it keeps most of our app's logic contained inside the `reducer` method. In addition, it's a little safer as far as preparing for the future of React with async rendering.
+`UpdateWithSideEffects` allows us to pass a second argument to our state update&mdash;a callback to be executed _after_ the state is set (If you're familiar with a [`setState` callback](https://reactjs.org/docs/react-component.html#setstate), this works similarly). Triggering our side effects this way sis the preferred method since it keeps most of our app's logic contained inside the `reducer` method. In addition, it's a little safer as far as preparing for the future of React with async rendering.
 
 The first thing we've done inside of our side effect is pull our input value out of `self.state.input`. We'll use this for our API query coming up.
 
 ## Data Fetching
 
-We've come a long way! We've got an operating form triggering our loading state and a `<Card />` component to display the results. The only thing left to do is actually get the real data from GitHub and use it in our app.
+We've come a long way! We've got an operating form that triggers our loading state and a `<Card />` component for once we've got a list of results. Now we just need to connect the dots and get the real data from GitHub's API into our app.
 
-Data fetching in Reason is a lot easier said than done. Actually calling the API isn't too hard, but the trickiness starts once we recieve a response. Because Reason is statically typed it needs some code to make sure that the API response is correctly mapped into valid OCaml types. We call this process of parsing the JSON and transforming it into valid types on the Reason side **JSON decoding**.
+Data fetching in Reason is a lot easier said than done. Actually calling the API isn't too hard, but the trickiness starts once we recieve a response. Because Reason is statically typed it needs to make sure that the API response is correctly mapped into valid Reason/OCaml types. We call this process of parsing the JSON and transforming it into valid types **JSON decoding**.
 
-JSON decoding can be kind of tricky. The "proper" way to do it is to declare every single key* in the JSON that you care about. Then you try to map each key to the type you want it to be on the Reason side. If it maps, great! But if it doesn't map correctly you assume it's bad data and throw out the entire key in favor of a default value or throw an error. Although verbose, this method ensures that you do *something\* to handle any malformed data when it comes into your app instead of letting it cause bugs later on.
+JSON decoding can be kind of tricky. The "proper" way to do it is to declare every single key* in the JSON that you care about. Then you try to map each key to the type you want it to be on the Reason side. If it maps, great! But if it doesn't map correctly you assume it's bad data and throw out the entire key, potentially replacing it with a default value. This can get really verbose, but this method ensures that you handle any malformed data when it enters your app instead of letting it cause bugs later on.
 
-Granted, you could write some external bindings and essentially tell the compiler "this is what my JSON looks like and it will never be different than this type". But when it comes to data from external APIs rarely can we safely assume that the API is _always_ return _exactly_ what we expect. Sometimes external APIs crash or return 500 errors. Sometimes that key we expected to contain a number is actually `null`. Cutting corners on type bindings here might be terribly convenient, but one of the main selling points of using a language like Reason is the compiler and the safety a type system brings to the table.
+Granted, you could write some [external bindings](https://bucklescript.github.io/docs/en/intro-to-external#special-identity-external) and essentially tell the compiler "this is what my JSON looks like and it will never be different than this type". But rarely in the real world do our external APIs _always_ returns _exactly_ what we expect. Sometimes they crash or return 500 errors. Sometimes that key we expected to contain a number is actually `null`. Cutting corners on type bindings here might be convenient, but one of the main selling points of using a typed language like Reason is the compiler and the safety a it brings to the table.
 
-All that said, since we're doing this tutorial to get a flavor of what ReasonReact feels like, we'll do the full JSON decoding. There's a few community libraries to make our JSON decoding and API fetching a bit easier. So before we jump into our fetching logic, lets install `bs-fetch` and `bs-json`. The first is a thin wrapper around the native `window.fetch` function, and the second will give us a ton of utility functions to make our decoding task a little simpler.
+All that said, since we're doing this tutorial to get a flavor of what ReasonReact feels like, we'll do the full JSON decoding. There's a few community libraries to make our JSON decoding and API fetching a bit easier. So before we jump into our fetching logic, lets install `bs-fetch` and `@glennsl/bs-json`. The first is a thin wrapper around the native `window.fetch` function, and the second will give us a bunch of utility functions to ease the decoding process.
 
 {{< highlight javascript >}}
-npm i bs-fetch bs-json
+npm i bs-fetch @glennsl/bs-json
 {{< /highlight >}}
 
 
 We'll also need to add them to the `bs-dependencies` field of our `bsconfig.json`.
 
 {{< highlight javascript >}}
-"bs-dependencies": ["reason-react", "bs-css", "bs-fetch", "bs-json"],
+"bs-dependencies": ["reason-react", "bs-css", "bs-fetch", "@glennsl/bs-json"],
 {{< /highlight >}}
 
 
-Now we're ready to face this data fetching and JSON decoding head-on. Since the data fetching and JSON decoding is gonna be quite a bit of code, let's create a local `Api` module inside of our `App.re` component. This will help encapsulate it and keep our code from getting too far nested. You can just put it between the `let component` declaration and the `make` function.
+Since the data fetching and JSON decoding is gonna be quite a bit of code, let's create a local `Api` module inside of our `App.re` component. This will help encapsulate it and keep our code from getting too far nested. You can just put it between the `let component` declaration and the `make` function.
 
 {{< highlight javascript "hl_lines=3">}}
 let component = ReasonReact.reducerComponent("App");
@@ -435,11 +437,12 @@ let make = _children => {
 {{< /highlight >}}
 
 
-Next thing we'll want to do is set up a function to make the API call. We'll use the `bs-fetch` module to send off this request. For now, we can just convert the response to JSON and resolve the promise.
+Next thing we'll want to do is set up a function to make the API call. We'll use the `bs-fetch` module to send the request. For now, we can just convert the response to JSON and resolve the promise.
 
 {{< highlight javascript >}}
 module Api = {
   let getResults = query =>
+    /* This is a local "open", it makes the Js.Promise module available inside of the parentheses */
     Js.Promise.(
       Fetch.fetch("https://api.github.com/search/repositories?q=" ++ query)
       |> then_(Fetch.Response.json)
@@ -452,9 +455,9 @@ module Api = {
 {{< /highlight >}}
 
 
-Sadly, Reason doesn't have a full-fledged async/await syntax just yet, although it's in progress (see this [PR](https://github.com/facebook/reason/issues/1321)). So we'll have to live with regular promises in Reason until a proper async/await solution is actually implemented.
+Sadly, Reason doesn't have a full-fledged async/await syntax just yet, although it's in progress (see this [PR](https://github.com/facebook/reason/issues/1321)). So we'll have to live with regular promises in Reason until a proper async/await solution is implemented.
 
-Let's make sure our `getResults` function is actually fired when we submit the form. That way we can make sure our query is actually getting a response before we dive into decoding the response. We'll call `Api.getResults` from our reducer side effect.
+Let's make sure our `getResults` function is actually fired when we submit the form. That way we can make sure our query is  getting a response before we start writing our decoders. We'll call `Api.getResults` from our reducer side effect.
 
 {{< highlight javascript "hl_lines=10">}}
 reducer: (action, state) =>
@@ -478,7 +481,7 @@ reducer: (action, state) =>
 
 If you fill out the search input and submit the form, you'll see the API request triggered in your DevTools, as well as the response in the console! That means we can start decoding our results and turning them into something that Reason can accurately use for its' type system.
 
-Before we write our decoder functions, we'll need to add a type declaration for the shape that we would like our data to look like on the Reason side of things. This will be the return type of our JSON decoder and we'll eventually add it to our component state. Let's create a `repository` type that contains 3 keys: a repository name, the repository URL, and a short description. We can add it up by our `state` declaration.
+Before we write our decoder functions, we'll need to add a type declaration for the shape that we would like our data to be. This will be the return type of our JSON decoder and we'll eventually add it to our component state. Let's create a `repository` type that contains 3 keys: a name, the URL, and a short description. We can add it up above our `state` declaration.
 
 {{< highlight javascript >}}
 type repository = {
@@ -508,7 +511,7 @@ module Api = {
 {{< /highlight >}}
 
 
-In the decoder function itself, we'll do a couple things. The part of the API response that we want is inside the `items` array. Each object in the `items` array contains a lot of data, but we only care about those 3 keys. What we need to do is tell Reason to look at the `items` field of the JSON and turn it into an `array` of our `repository` type. 
+In the decoder function itself, we'll do a couple things. The part of the API response that we want is inside the `items` array. Each object in the `items` array contains a lot of data, but we only care about those 3 keys from our `repository` type. What we need to do is tell Reason to look at the `items` field of the JSON and turn it into a `list` of our `repository` type. 
 
 However, if any of our fields inside of the `repository` record isn't converted correctly, we don't want to convert the data! Because of this we'll wrap our `repository` decoder inside a special `optional` wrapper. This basically says to return an [`option` type](https://reasonml.github.io/docs/en/null-undefined-option), so that we can have `Some(repository)` or `None` if the conversion was invalid.
 
@@ -554,11 +557,11 @@ let getResults = query =>
      * This is similar to `open Json.Decode`, it allows the Promise functions
      * to be available within the parentheses
      */
-    Promise.(
+    Js.Promise.(
       Fetch.fetch("https://api.github.com/search/repositories?q=" ++ query)
-      |> Promise.then_(Fetch.Response.json)
-      |> Promise.then_(json => decodeResults(json) |> resolve)
-      |> Promise.then_(results =>
+      |> then_(json => decodeResults(json) |> resolve)
+      |> then_(Fetch.Response.json)
+      |> then_(results =>
            results
            |> List.filter(optionalItem =>
                 switch (optionalItem) {
@@ -578,7 +581,7 @@ let getResults = query =>
 {{< /highlight >}}
 
 
-And that's it! Our JSON will now be available through the resolved promise as a valid Reason data structure&mdash;an `array` of `respository` records, to be exact. While the actual decoding function isn't too large all by itself, I found that when I was first jumping into Reason decoding JSON was extremely tricky because I wasn't familiar with it coming from JavaScript. Compared to JavaScript it can easily feel like a lot of verbosity just to get some data into your app. In our case it was only 3 keys per item, but imagine if you needed 20 keys, or if you had data nested further inside of objects! All that said, the practice of sanitizing data when it comes into our apps is a good thing to practice, and having to do this decoding step forces us to verify that the data is the way we expect it to be later on when we use it.
+And that's it! Our JSON will now be available through the resolved promise as a valid Reason data structure&mdash;a `list` of `respository` records, to be exact. While the actual decoding function isn't too large all by itself, I found that when I was first jumping into Reason decoding JSON was extremely tricky because I wasn't familiar with it yet. Compared to JavaScript it can easily feel like a lot of verbosity just to get some data into your app. In our case it was only 3 keys per item, but imagine if you needed 20 keys, or if you had data nested further inside of objects! That said, the practice of sanitizing data when it comes into our apps is a good thing to do, and having to do this decoding step forces us to verify that the data is the way we expect it to be later on when we use it.
 
 Speaking of using the data, we're coming down the home stretch on our data handling! All that's left to do is add the data to our component's state. Since we're gonna want to store it in state, we'll need to update our `state` type to reflect this new data.
 
@@ -604,7 +607,7 @@ While we could cram all the state updates in with our API-calling code, that cou
 
 The only thing we'll do in our API-calling part of the `reducer` is trigger another action with `self.send`, this time telling the component to update state with our new `UpdateResults` action and our decoded JSON data.
 
-{{< highlight javascript "hl_lines=10 17 18 19 20 21 22" >}}
+{{< highlight javascript "hl_lines=3 10 17 18 19 20 21 22" >}}
 type action =
   | UpdateInput(string)
   | UpdateResults(list(repository))
@@ -635,7 +638,7 @@ reducer: (action, state) =>
 {{< /highlight >}}
 
 
-Whew. Give yourself a pat on the back. You've successfully fetched the JSON and brought it into your component's state. This is why I personally like to build something more like this GitHub search app when learning  a new framework or language&mdash;it's simple enough you don't spend weeks on a project, but complex enough that you get a feel for things like data handling and state management. Having data handling be a complex task isn't actually too uncommon for static compile-to-JavaScript languages like Reason&mdash;believe it or not Reason is *less verbose* at decoding JSON than other languages!
+Whew. Give yourself a pat on the back. You've successfully fetched the JSON and brought it into your component's state. This is why I personally like to build this GitHub search app when learning  a new framework or language&mdash;it's simple enough you don't spend weeks on a project, but complex enough that you get a feel for more difficult things like data handling and state management. Having complex decoding steps is actually fairly common for static compile-to-JavaScript languages like Reason&mdash;believe it or not Reason is *less verbose* at decoding JSON than some others!
 
 The *final* thing to do for our component is display our repository results inside of `render`. Since we've already built the stateless `<Card />` component we can just hook it up to our data.
 
@@ -670,9 +673,9 @@ render: self =>
 {{< /highlight >}}
 
 
-That's it for our intro to ReasonReact. Although this was a simple app with barebones styling, we've covered a ton of ground. We saw what a stateless component looks like in ReasonReact and how ReasonReact handles statefulness with reducer components. In addition, we went through the ceremony of data fetching and normalization that comes along with bringing unsafe JSON into a type-safe world. 
+That's it for our intro to ReasonReact. Although this was a simple app with barebones styling, we've covered a ton of ground. We saw what a stateless component looks like in ReasonReact and how ReasonReact handles statefulness with reducer components. We also went through the ceremony of data fetching and normalization that comes along with bringing unsafe JSON into a type-safe world. 
 
-If you're interested in adding Reason to a side-project or moving parts of a codebase into Reason, you're in luck! Reason compiles to plain JavaScript files, so you can incrementally introduce ReasonReact to a codebase without needing to rewrite massive sections of your app or without needing to ship multiple versions of React! Just compile your ReasonReact components down to JavaScript and import them from your JavaScript React components!
+If you're interested in adding Reason to a side-project or moving parts of a codebase into Reason, you're in luck! Since Reason compiles to plain JavaScript files you can incrementally introduce ReasonReact little by little. This means you can skip the massive rewrite and start playing with this new technology in a non-invasive manner. Just compile your ReasonReact components down to JavaScript and import them from your JavaScript React components!
 
-I hope that throughout this article you've enjoyed getting a feel for ReasonReact and the value that it can bring to some logic-heavy components. Or at the very least I hope that peeking into ReasonReact's approach to state management and data handling brought some new approaches you can bring back with you to JavaScript codebases. Reason might not be fully mature enough to go all-in on just yet but it seems like it's got a bright future ahead of it. Lastly, if you have any ideas or if you know of better ways to do set up the components we wrote today, let me know&mdash;I'd love to hear!
+I hope that throughout this article you've enjoyed getting a feel for ReasonReact and the value that it can bring to some logic-heavy components. Or at the very least I hope that peeking into ReasonReact's approach to state management and data handling brought some new approaches you can bring back with you to JavaScript codebases. Reason might not be fully mature enough to go all-in on just yet but it seems like it's got a bright future ahead of it. Lastly, if you have any ideas or if you know of better ways to do set up the components we wrote today, let me know&mdash;I'd love to hear! Feel free to follow me on [Medium](https://medium.com/@benjamin.d.johnson) or check out my [Twitter](https://mobile.twitter.com/benjamminj).
 
