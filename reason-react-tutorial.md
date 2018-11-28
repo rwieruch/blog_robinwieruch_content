@@ -148,7 +148,7 @@ We also didn't need to import our `<Card>` because every file in Reason is autom
 
 When we check out the page we can see that our card is indeed on the page correctly, although it's a little bare.
 
-<!-- TODO -- image -->
+![image of bare card](https://res.cloudinary.com/da2iq7dge/image/upload/v1543390295/Screen_Shot_2018-11-25_at_11.17.07_PM_cpo0mi.png)
 
 ## Adding some CSS
 
