@@ -4,8 +4,8 @@ description = "A tutorial on how to use authorization with roles and permissions
 date = "2018-11-26T07:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
-keywords = ["react firebase authorization", "react firebase protected routes", "react firebase permissions"]
-news_keywords = ["react firebase authorization", "react firebase protected routes", "react firebase permissions"]
+keywords = ["react firebase authorization", "react firebase protected routes", "react firebase permissions", "firebase set user properties"]
+news_keywords = ["react firebase authorization", "react firebase protected routes", "react firebase permissions", "firebase set user properties"]
 hashtag = "#ReactJs"
 card = "img/posts/react-firebase-authorization-roles-permissions/banner_640.jpg"
 banner = "img/posts/react-firebase-authorization-roles-permissions/banner.jpg"
@@ -25,7 +25,7 @@ summary = "A tutorial on how to use authorization with roles and permissions whe
 
 So far, you have used broad-grained authorization rules that check whether a user is in general authenticated or not. If the user is not authenticated, the a dedicated authorization higher-order component redirects the user to the login page.
 
-In this section, you are going to apply a more fine-grained authorization mechanism. It will work with roles (e.g. Admin, Author) that are assigned to a user, but could also work with permissions. Again if the user doesn't fit a role for your authorization condition in your authorization higher-order component, the user gets redirected as well. Let's revisit the *src/components/Session/withAuthorization.js* higher-order component again:
+In this section, you are going to apply a more fine-grained authorization mechanism. It will work with roles (e.g. Admin, Author) that are assigned to a user, but could also work with permissions (e.g. user is allowed to write an article). Again if the user doesn't fit a role for your authorization condition in your authorization higher-order component, the user will be redirected. Let's revisit the *src/components/Session/withAuthorization.js* higher-order component that we have implemented so far:
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -72,7 +72,7 @@ const withAuthorization = condition => Component => {
 export default withAuthorization;
 {{< /highlight >}}
 
-The Firebase listener gives us always the recent authenticated user. We don't know whether the user is null though, that's why we have deployed the broader authorization rules for a few routes (e.g. */home*) of the application before.
+The Firebase listener always gives us the recent authenticated user. We don't know whether the user is null though, that's why we have deployed the broader authorization rules for a few routes (e.g. */home*) of the application before. If a user is not authenticated in the first place, we redirect the user to the login page.
 
 {{< highlight javascript >}}
 const condition = authUser => !!authUser;
@@ -85,19 +85,19 @@ const condition = authUser =>
   authUser && authUser.roles.includes(ROLES.ADMIN);
 {{< /highlight >}}
 
-It could be a straight forward task, if we were able to assign properties (e.g. roles) to the authenticated user itself. But as we have learned in previous sections, the authenticated user is managed internally by Firebase where we are not able to alter its properties. That's why we started to manage the users ourselves in Firebase's realtime database. If you go to your Firebase project's dashboard, you can see that users are managed in the Authentication and Database tabs. We introduced the latter to keep track of the users ourselves and to assign them additional properties too.
+It could be a straight forward task, if we were able to assign properties (e.g. an array of roles) to the authenticated user itself. But as we have learned in previous sections, the authenticated user is managed internally by Firebase where we are not able to alter its properties. That's why we started to manage users ourselves in Firebase's realtime database. If you go to your Firebase project's dashboard, you can see that users are managed in the Authentication and Database tabs. We introduced the latter to keep track of the users ourselves and to assign them additional properties too.
 
-The section will be split up into three parts:
+This section will be split up into three parts:
 
-* Assign a user on sign up a roles property.
-* Merge authenticated user and database user so that it can be authorized with its roles in the authorization higher-order component.
-* Showcase a role authorization for one of our routes.
+* Assign a user on sign up (registration) a roles (admin role) property.
+* Merge authenticated user and database user so that they can be authorized with their roles in the authorization higher-order component.
+* Showcase a role authorization for one of our routes (only allowed for admin users).
 
-Note: Firebase has also an official way to introduce roles to your authenticated user. But I am not very comfortable with it, because it uses lots of Firebase internals. Rather I want to show you how to store roles directly to your user entities in your Firebase database. Doing it this way, you will have an easier time migrating away from Firebase if you decide to roll out a backend application yourself.
+Note: Firebase has also an official way to introduce roles to your authenticated user. But I am not very comfortable with it, because it uses lots of Firebase internals and enhanced the effect of a vendor lock-in. Rather I want to show you how to store roles directly to your user entities in your Firebase database. Doing it this way, you will have an easier time migrating away from Firebase if you decide to roll out a backend application with a database yourself eventually.
 
-{{% chapter_header "Database Users have Roles" "firebase-user-roles" %}}
+{{% chapter_header "Firebase Database Users with Roles" "firebase-database-user-role" %}}
 
-We will use roles instead of a single role, because a user may have more than one role in our system. For instance, a user could be an admin but also an author with access to admin and author areas. Let's assign a `roles` property to our users when they get created in the realtime database on sign up. First, we keep track of a checkbox state in our component:
+We will use multiple roles instead of a single role, because a user may have more than one role in our system. For instance, a user could be an admin but also an author with access to admin and author areas. Let's assign a `roles` property to our users when they get created in the realtime database on a sign up. First, we keep track of a checkbox state for such a role in our component:
 
 {{< highlight javascript "hl_lines=6" >}}
 const INITIAL_STATE = {
@@ -110,7 +110,7 @@ const INITIAL_STATE = {
 };
 {{< /highlight >}}
 
-Second, add a checkbox to toggle the user role:
+Second, add a checkbox to toggle the user role in the UI:
 
 {{< highlight javascript "hl_lines=5 6 7 15 24 25 26 27 28 29 30 31 32" >}}
 class SignUpFormBase extends Component {
@@ -158,9 +158,9 @@ class SignUpFormBase extends Component {
 ...
 {{< /highlight >}}
 
-Arguably it's not the best idea to give users the power to sign up as as admin users themselves, but for the sake of learning about it, we keep it this way. At what place or under which circumstances you assign roles to users is up to you later.
+Arguably it's not the best idea to give users the power to sign up as admin users themselves, but for the sake of learning about it, we keep it this way. At what place or under which circumstances you assign roles to users is up to you later.
 
-Third, add the roles property to your user when it gets created in the database. Since we want to have an array of roles, we can initialize it as empty array and push conditional roles to it:
+Third, add the roles property to your user when they get gets created in the database. Since we want to have an array of roles, we can initialize it as empty array and push conditional roles to it:
 
 {{< highlight javascript "hl_lines=7 15 16 18 19 20 31" >}}
 import React, { Component } from 'react';
@@ -213,17 +213,17 @@ class SignUpFormBase extends Component {
 ...
 {{< /highlight >}}
 
-Last, collect all your roles in a separate *src/constants/roles.js* file that we have imported in the step before:
+Last, collect all your roles in a separate *src/constants/roles.js* file that we have imported in the step before. It can be used to assign roles, as you did before, but also to protect routes later on.
 
 {{< highlight javascript "hl_lines=1" >}}
 export const ADMIN = 'ADMIN';
 {{< /highlight >}}
 
-Okay, you should be able to create users with admin privileges now. Let's head over how we can merge this user from our database with the authenticated user from the Firebase authentication.
+You should be able to create users with admin privileges now. Let's head over how we can merge this user from our database with the authenticated user from the Firebase authentication.
 
-{{% chapter_header "Merge Authenticated User with Database User" "firebase-user-merge" %}}
+{{% chapter_header "How to merge authenticated user with database user?" "firebase-user-merge" %}}
 
-Since we need to check the roles only in the authorization higher-order component, it's best to merge authentication user and database user in this component before checking for its privileges.
+Since we need to check the roles only in the authorization higher-order component, it's best to merge authentication user and database user in this component before checking for its privileges (roles, permissions).
 
 {{< highlight javascript "hl_lines=8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33" >}}
 ...
@@ -272,9 +272,9 @@ const withAuthorization = condition => Component => {
 ...
 {{< /highlight >}}
 
-Let's get through it step by step. Every time the authenticated user changes, the function within the listener is called. If the user is null, we redirect immediately. If the user is not null, we will get the database user with the help of the authenticated user's unique identifier. Afterward, we merge both users whereas we merge everything from the database user and only the unique identifier and the email from the authenticated user. Maybe you will need more properties from the authenticated user later, but at this point, the unique identifier and the email are sufficient. Last but not least, we are running as before our conditional check whether the user is authorized or not. However, now we have all the properties from the database user (e.g. roles) at our disposal. If the conditions are not met, we redirect the user. If the conditions are met, the user stays on the page component that is wrapped with this authorization higher-order component.
+Let's get through it step by step. Every time the authenticated user changes, the function within the listener is called. If the user is null, we redirect immediately. If the user is not null, we will get the database user with the help of the authenticated user's unique identifier. Afterward, we merge both users whereas we merge everything from the database user and only the unique identifier and the email from the authenticated user. Maybe you will need more properties from the authenticated user later, and you will for sure in the next sections, but at this point, the unique identifier and the email are sufficient. Last but not least, we are running as before our conditional check whether the user is authorized or not. However, now we have all the properties from the database user (e.g. roles) at our disposal. If the conditions are not met, we redirect the user. If the conditions are met, the user stays on the page component that is enhanced with this authorization higher-order component.
 
-That would be it for merging the user in the authorization higher-order component. But what about the authentication higher-order component that provides the authenticated for actual usage to all our components? Maybe we want to show or not show something based on the authenticated user (e.g. link to admin page in navigation). Let's implement the merging in this higher-order component too:
+That would be it for merging the user in the authorization higher-order component. But what about the authentication higher-order component that provides the authenticated for actual usage to all our components? Maybe we want to show or not show something based on the authenticated user (e.g. not showing the link to admin page in the navigation). Let's implement the merging in this higher-order component too:
 
 {{< highlight javascript "hl_lines=8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33" >}}
 ...
@@ -321,7 +321,7 @@ const withAuthentication = Component => {
 ...
 {{< /highlight >}}
 
-Now the authenticated user extended with the database user is provided via React's Context API to all our components. As you may have noticed, the implementation was quite repetitive to the authorization higher-order component. The only thing changed was the local state usage instead of the redirects. Let's see how we can extract the common implementation to our Firebase class without touching the implementation details with the local state (authentication higher-order component) and the redirect (authorization higher-order component).
+Now the authenticated user extended with the database user is provided via React's Context API to all our components. As you may have noticed, the implementation was quite repetitive to the authorization higher-order component. The only thing changed was the local state usage instead of the redirects. Let's see how we can extract the common implementation to our Firebase class without touching the implementation details with the local state (authentication higher-order component) and the redirection (authorization higher-order component).
 
 {{< highlight javascript "hl_lines=10 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37" >}}
 ...
@@ -370,7 +370,7 @@ class Firebase {
 export default Firebase;
 {{< /highlight >}}
 
-Check yourself which common implementation details where taken from the two higher-order components. The only thing changed in this extracted function are the `next()` and `fallback()` callback functions. That's where we can implement the specific implementation details of every higher-order component (local state for authentication, redirect for authorization) that uses this Firebase instance method now. Let's use this function first in the authentication higher-order component:
+Check yourself which common implementation details where taken from the two higher-order components. The only thing changed in this extracted function are the `next()` and `fallback()` callback functions. That's where we can implement the specific implementation details of every higher-order component (local state for authentication, redirect for authorization) that uses this new method now. Let's use this function first in the authentication higher-order component and provide both callback functions as "next" and "fallback":
 
 {{< highlight javascript "hl_lines=8 9 10 11 12 13 14 15" >}}
 ...
@@ -474,9 +474,9 @@ export default compose(
 )(AdminPage);
 {{< /highlight >}}
 
-If you try to access the admin page as non authenticated user or as non admin user without the necessary role, it should redirect you to the login page. If you access it as user with admin privileges, you should be able to see it.
+If you try to access the admin page as non authenticated user or as non admin user without the necessary role, it should redirect you to the login page. If you access it as user with admin privileges, you should be able to see it. That's what the authorization higher-order component made possible now.
 
-That's what the authorization higher-order component made possible now. What about securing the route to the admin page in the Navigation component as well? That's where the (merged) authenticated user from the authentication higher-order component comes into play:
+What about securing the route to the admin page in the Navigation component as well? That's where the (merged) authenticated user from the authentication higher-order component comes into play. By using React's Context that is used in this higher-order component, you can access the extended authenticated user:
 
 {{< highlight javascript "hl_lines=6 12 20 31 32 33 34 35" >}}
 ...
@@ -534,9 +534,9 @@ const NavigationNonAuth = () => (
 export default Navigation;
 {{< /highlight >}}
 
-You have successfully assigned roles to your users, merged authentication user with database user in your higher-order components, and applied authorization rules with redirects and conditional renderings in your applications.
+You have successfully assigned roles to your users, merged authentication user with database user in your higher-order components, and applied authorization rules with redirects and conditional renderings in your applications. Another great thing about it: Everything you add to your database user will be available when you launch your application. Basically you are allowed to set user properties to your Firebase user now.
 
 ### Exercises:
 
-* Walk through a scenario where the role-based authorization could be replaced with a permission-based authorization (e.g. authUser.permissions.canEditUser)
+* Walk through a scenario where the role-based authorization could be replaced with a permission-based authorization (e.g. `authUser.permissions.canEditUser`)
 * Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/6188752284edadfcbe4c6f5235ed54593a9adc2d" %}}

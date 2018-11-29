@@ -176,13 +176,13 @@ Since we are building a larger application in all the following sections, it wou
 The application should have multiple routes. For instance, a user should be able to visit a landing page, but also the sign up and sign in pages to enter the application as an authenticated and authorized user. If a user is authenticated, it is possible to visit protected pages such as account or admin pages. Therefore, you can consolidate all the routes of your application in a well-defined *src/constants/routes.js* constants file:
 
 {{< highlight javascript >}}
+export const LANDING = '/';
 export const SIGN_UP = '/signup';
 export const SIGN_IN = '/signin';
-export const LANDING = '/';
 export const HOME = '/home';
 export const ACCOUNT = '/account';
-export const ADMIN = '/admin';
 export const PASSWORD_FORGET = '/pw-forget';
+export const ADMIN = '/admin';
 {{< /highlight >}}
 
 Each route represents a page in your application. For instance, the sign up page should be reachable in development mode via *http://localhost:3000/signup* and later in production mode via *http://yourdomain/signup*. Let's walk through the routes step by step.
@@ -299,12 +299,12 @@ const App = () => (
       <hr />
 
       <Route exact path={ROUTES.LANDING} component={LandingPage} />
-      <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
-      <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
-      <Route exact path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-      <Route exact path={ROUTES.HOME} component={HomePage} />
-      <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
-      <Route exact path={ROUTES.ADMIN} component={AdminPage} />
+      <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+      <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+      <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
+      <Route path={ROUTES.HOME} component={HomePage} />
+      <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+      <Route path={ROUTES.ADMIN} component={AdminPage} />
     </div>
   </Router>
 );
@@ -1573,7 +1573,7 @@ export { AuthUserContext, withAuthentication };
 
 The App component becomes a function component again without the additional business logic for the authenticated user. Now it uses the higher-order component to make the authenticated user available for all other components that are below of the App component:
 
-{{< highlight javascript "hl_lines=1 14 16 36 38" >}}
+{{< highlight javascript "hl_lines=1 14 16 35 37" >}}
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -1597,16 +1597,15 @@ const App = () => (
       <hr />
 
       <Route exact path={ROUTES.LANDING} component={LandingPage} />
-      <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
-      <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
+      <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+      <Route path={ROUTES.SIGN_IN} component={SignInPage} />
       <Route
-        exact
         path={ROUTES.PASSWORD_FORGET}
         component={PasswordForgetPage}
       />
-      <Route exact path={ROUTES.HOME} component={HomePage} />
-      <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
-      <Route exact path={ROUTES.ADMIN} component={AdminPage} />
+      <Route path={ROUTES.HOME} component={HomePage} />
+      <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+      <Route path={ROUTES.ADMIN} component={AdminPage} />
     </div>
   </Router>
 );
