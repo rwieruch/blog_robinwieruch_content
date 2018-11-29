@@ -92,7 +92,7 @@ let make = (~name, ~description, ~href, _children) => {
 
 Let's take a quick look at the JSX first. It's built-in to Reason at the language level but you might notice a few differences from the JSX you're used to.
 
-First off, Reason JSX supports _punning_&mdash;when the prop name matches the variable that's being passed as its' value, you can just write the prop once instead of twice! So since we already a variable named `href` we don't need to write `make={make}` when applying it to our `<a>` tag. Instead, we can just do `<a href>`.
+First off, Reason JSX supports *punning*&mdash;when the prop name matches the variable that's being passed as its' value, you can just write the prop once instead of twice! So since we already a variable named `href` we don't need to write `make={make}` when applying it to our `<a>` tag. Instead, we can just do `<a href>`.
 
 In addition, Reason JSX doesn't require prop assignments to be inside curly braces. So instead of `href={link}` you could do `href=link` and it will work exactly the same. If you prefer the curly braces go ahead, both are valid syntax!
 
@@ -187,9 +187,9 @@ let make = (~name, ~description, ~href, _children) => {
 
 `ReactDOMRe.Style.make` is a function that takes a number of optional labelled arguments. Each argument directly maps to a CSS property. The last argument to `ReactDOMRe.Style.make` is a little different, it's a value called _unit_ `()`. Believe it or not, this is a pretty common convention in the Reason/OCaml community for managing large amounts of labelled optional arguments. That said, it looks a little strange if you've never seen it before.
 
-Basically, the reason that the final argument has to be unit is to signal when to stop currying the function. Since Reason function arguments are automatically [curried](https://github.com/getify/Functional-Light-JS/blob/13a3bdafb4edb83207db76212312472aab20d06a/manuscript/ch3.md/#one-at-a-time), calling `ReactDOMRe.Style.make(~padding="1rem");` returns _a new function_ that we could pass more CSS properties into. Using functions like this lets us progressively apply values into our function throughout our application rather than all at once.
+Basically, the reason that the final argument has to be unit is to signal when to stop currying the function. Since Reason function arguments are automatically [curried](https://github.com/getify/Functional-Light-JS/blob/13a3bdafb4edb83207db76212312472aab20d06a/manuscript/ch3.md/#one-at-a-time), calling `ReactDOMRe.Style.make(~padding="1rem");` returns *a new function* that we could pass more CSS properties into. Using functions like this lets us progressively apply values into our function throughout our application rather than all at once.
 
-If we wanted to pull our styles outside of `render`, I've found it helpful to use a _[local module](https://reasonml.github.io/docs/en/module)_. This can help add some readability to our `render` if styles are getting a little long.
+If we wanted to pull our styles outside of `render`, I've found it helpful to use a *[local module](https://reasonml.github.io/docs/en/module)*. This can help add some readability to our `render` if styles are getting a little long.
 
 {{< highlight javascript >}}
 /* Inside of `Card.re` */
