@@ -415,7 +415,7 @@ Granted, you could write some [external bindings](https://bucklescript.github.io
 All that said, since we're doing this tutorial to get a flavor of what ReasonReact feels like, we'll do the full JSON decoding. There's a few community libraries to make our JSON decoding and API fetching a bit easier. So before we jump into our fetching logic, lets install `bs-fetch` and `@glennsl/bs-json`. The first is a thin wrapper around the native `window.fetch` function, and the second will give us a bunch of utility functions to ease the decoding process.
 
 {{< highlight javascript >}}
-npm i bs-fetch @glennsl/bs-json
+npm install bs-fetch @glennsl/bs-json
 {{< /highlight >}}
 
 
