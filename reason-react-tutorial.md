@@ -237,7 +237,11 @@ module Styles = {
 <div className={Styles.card}>
 {{< /highlight >}}
 
-Sidenote&mdash;if your IDE is yelling about an unbound module warning after you added `bs-css`, try reloading it or re-opening the file. I use VSCode and I commonly get this error after installing new Reason packages. The reason (no pun intended) has to do with the IDE loading dependencies when a file is first opened and you adding dependencies after the file was opened.
+Sidenote&mdash;if your IDE is yelling about an unbound module warning after you added `bs-css`, try reloading it or re-opening the file. I use VSCode and I commonly get this error after installing new Reason packages. The reason (no pun intended) has to do with the IDE loading dependencies when a file is first opened and you adding dependencies after the file was opened. Chances are the compiler error will look like this:
+
+{{< highlight javascript >}}
+Error: Unbound module Css
+{{</ highlight >}}
 
 That said, there's a lot of other ways to manage styles in ReasonReact! These are only two of commonly-used methods. I've personally used a [custom binding](https://github.com/benjamminj/solitaire/blob/master/src/__packages__/emotion.re) to Emotion that provides a little less type safety for style rules, but feels a little closer to the tagged template literal API.
 
