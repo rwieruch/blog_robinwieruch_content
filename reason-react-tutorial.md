@@ -41,9 +41,9 @@ That should start a simple dev server at http://localhost:8000 with a very plain
 
 {{% chapter_header "Making our first stateless ReasonReact component" "stateless-reason-react-component" %}}
 
-Let's start by making a stateless component. We're gonna create one of the cards that contain the list results. We'll add a new file to the `src` directory named `Card.re`.
+Let's start by making a stateless component. We're gonna create one of the cards that contain the list results. We'll add a new file to the *src* directory named *Card.re*.
 
-You'll notice that while the dev server is running adding our `Card.re` file will generate a `Card.bs.js` file right next to it. This is the compiled Reason code for our `Card.re` file. The BuckleScript build system generates a JavaScript file per Reason file; this makes it easy to introduce Reason into a JavaScript codebase!
+You'll notice that while the dev server is running adding our *src/Card.re* file will generate a `Card.bs.js` file right next to it. This is the compiled Reason code for our *src/Card.re* file. The BuckleScript build system generates a JavaScript file per Reason file; this makes it easy to introduce Reason into a JavaScript codebase!
 
 The first thing we have to do for a ReasonReact component is create a component "template". You can think of this as the `React.Component` that you would extend off of when creating a class component in JavaScript. ReasonReact doesn't use classes, so this template is a [record](https://reasonml.github.io/docs/en/record) (similar to a JS object, but immutable) that we can override with our custom component code!
 
@@ -119,7 +119,7 @@ let make = (~name, ~description, ~href, _children) => {
 };
 {{< /highlight >}}
 
-Let's integrate it into our app so we can see it in action. If you cloned the repo head on over to `src/App.re`. You'll notice it's pretty bare right now.
+Let's integrate it into our app so we can see it in action. If you cloned the repo head on over to *src/App.re*. You'll notice it's pretty bare right now.
 
 {{< highlight javascript >}}
 let component = ReasonReact.statelessComponent("App");
@@ -154,10 +154,10 @@ Let's add some styles to our `<Card />` before we go any further. Any real app w
 
 There's a few methods of styling in Reason, although I have yet to see a single method "win" as "the official way" to do styling just yet.
 
-As a simple styling solution there's always inline styles. ReasonReact includes a way to create the same style object that React uses under the hood. This is what an inline style declaration woul look like.
+As a simple styling solution there's always inline styles. ReasonReact includes a way to create the same style object that React uses under the hood. This is what an inline style declaration would look like.
 
 {{< highlight javascript "hl_lines=6 7 8 9 10 11 12 13 14" >}}
-/* Inside of `Card.re`*/
+/* Inside of src/Card.re */
 
 let make = (~name, ~description, ~href, _children) => {
   ...component,
@@ -190,7 +190,7 @@ Basically, the reason that the final argument has to be unit is to signal when t
 If we wanted to pull our styles outside of `render`, I've found it helpful to use a *[local module](https://reasonml.github.io/docs/en/module)*. This can help add some readability to our `render` if styles are getting a little long.
 
 {{< highlight javascript >}}
-/* Inside of `Card.re` */
+/* Inside of src/Card.re */
 module Styles = {
   let card =
     ReactDOMRe.Style.make(
@@ -220,7 +220,7 @@ And then we will need to add `bs-css` to the `"bs-dependencies"` field in our `b
 Now we can go convert our styles to use `bs-css`, which will generate a string that we can use as a `className`. Using `bs-css` gives a little more type safety to our css styles, if that's something that you're looking for.
 
 {{< highlight javascript >}}
-/* Inside `Card.re` */
+/* Inside src/Card.re */
 
 module Styles = {
   open Css;
@@ -249,13 +249,13 @@ For now, let's make do with `bs-css` as a styling solution, but it's always good
 
 {{% chapter_header "Managing statefulness" "managing-statefulness" %}}
 
-Now, let's build the search form. We're gonna do this directly inside of `App.re` for simplicity's sake, so we'll be converting `<App />` from a stateless component to a stateful component.
+Now, let's build the search form. We're gonna do this directly inside of *src/App.re* for simplicity's sake, so we'll be converting `<App />` from a stateless component to a stateful component.
 
 ReasonReact calls its' stateful components _reducer components_. In my opinion, reducer components showcase the benefit of adding the battleproof type-safety of Reason/OCaml to our React code. It's easier to sacrifice type-safety when you're writing a simple card component, but once you start adding business logic to your components that type-safety helps protect us from silly mistakes.
 
 As we dive into reducer components I find it helpful to think of the way that  [Redux](https://redux.js.org/basics/reducers) reducers work. Reducer components feel very similar to Redux, except that they're contained within the component itself instead of being connect to a global state store. If you're unfamiliar with Redux or want a refresher on how it works, check out ["Taming the State in React"](https://roadtoreact.com/).
 
-The first thing that we'll need to do to turn our `<App />` component into a reducer component is create a couple type declarations. The first one we'll need to create is a `state` type to describe what our component's state looks like. Let's just add it at the very top of the `App.re` file.
+The first thing that we'll need to do to turn our `<App />` component into a reducer component is create a couple type declarations. The first one we'll need to create is a `state` type to describe what our component's state looks like. Let's just add it at the very top of the *src/App.re* file.
 
 {{< highlight javascript >}}
 type state = {
@@ -426,7 +426,7 @@ We'll also need to add them to the `bs-dependencies` field of our `bsconfig.json
 {{< /highlight >}}
 
 
-Since the data fetching and JSON decoding is gonna be quite a bit of code, let's create a local `Api` module inside of our `App.re` component. This will help encapsulate it and keep our code from getting too far nested. You can just put it between the `let component` declaration and the `make` function.
+Since the data fetching and JSON decoding is gonna be quite a bit of code, let's create a local `Api` module inside of our *src/App.re* component. This will help encapsulate it and keep our code from getting too far nested. You can just put it between the `let component` declaration and the `make` function.
 
 {{< highlight javascript "hl_lines=3">}}
 let component = ReasonReact.reducerComponent("App");
