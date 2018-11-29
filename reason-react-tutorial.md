@@ -253,7 +253,7 @@ Now, let's build the search form. We're gonna do this directly inside of `App.re
 
 ReasonReact calls its' stateful components _reducer components_. In my opinion, reducer components showcase the benefit of adding the battleproof type-safety of Reason/OCaml to our React code. It's easier to sacrifice type-safety when you're writing a simple card component, but once you start adding business logic to your components that type-safety helps protect us from silly mistakes.
 
-As we dive into reducer components I find it helpful to think of the way that  [Redux](https://redux.js.org/basics/reducers) reducers work. Reducer components feel very similar to Redux, except that they're contained within the component itself instead of being connect to a global state store. If you're unfamiliar with Redux or want a refresher on how it works, check out ["Tips to learn React + Redux in 2018"](https://www.robinwieruch.de/tips-to-learn-react-redux/).
+As we dive into reducer components I find it helpful to think of the way that  [Redux](https://redux.js.org/basics/reducers) reducers work. Reducer components feel very similar to Redux, except that they're contained within the component itself instead of being connect to a global state store. If you're unfamiliar with Redux or want a refresher on how it works, check out ["Taming the State in React"](https://roadtoreact.com/).
 
 The first thing that we'll need to do to turn our `<App />` component into a reducer component is create a couple type declarations. The first one we'll need to create is a `state` type to describe what our component's state looks like. Let's just add it at the very top of the `App.re` file.
 
