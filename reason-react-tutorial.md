@@ -96,7 +96,7 @@ First off, Reason JSX supports *punning*&mdash;when the prop name matches the va
 
 In addition, Reason JSX doesn't require prop assignments to be inside curly braces. So instead of `href={link}` you could do `href=link` and it will work exactly the same. If you prefer the curly braces go ahead, both are valid syntax!
 
-However, there is one big difference from ReasonReact has compared to React JSX. What's all this `{ReasonReact.string(description)` business? Once again, this has to do with type safety and being in a compiled language. Since each component's `render` _has to return a React element_ ReasonReact provides a series of utility functions to convert strings, arrays, and null into the correct type for ReasonReact to use it correctly. It does feel a little awkward at first, especially coming from regular JSX. However, I will say the awkwardness does wear off a little bit, especially when you realize the absolute type safetly Reason is adding to your app.
+However, there is one big difference from ReasonReact has compared to React JSX. What's all this `{ReasonReact.string(description)` business? Once again, this has to do with type safety and being in a compiled language. Since each component's `render` _has to return a React element_ ReasonReact provides a series of utility functions to convert strings, arrays, and null into the correct type for ReasonReact to use it correctly. It does feel a little awkward at first, especially coming from regular JSX. However, I will say the awkwardness does wear off a little bit, especially when you realize the absolute type safety Reason is adding to your app.
 
 If you're still annoyed by having to write `{ReasonReact.string(description)`, you can create a `<Str string={description} />` component that just wraps `ReasonReact.string()`. This might feel a little less awkward and boils down to essentially the same thing.
 
@@ -119,7 +119,7 @@ let make = (~name, ~description, ~href, _children) => {
 };
 {{< /highlight >}}
 
-Let's integrate it into our app so we can see it in action. If you cloned the repo head on over to *src/App.re*. You'll notice it's pretty bare right now.
+Let's integrate it into our app so we can see it in action. If you cloned the repo go check out the *src/App.re* file. You'll notice it's pretty bare right now.
 
 {{< highlight javascript >}}
 let component = ReasonReact.statelessComponent("App");
@@ -406,7 +406,7 @@ The first thing we've done inside of our side effect is pull our input value out
 
 We've come a long way! We've got an operating form that triggers our loading state and a `<Card />` component for once we've got a list of results. Now we just need to connect the dots and get the real data from GitHub's API into our app.
 
-Data fetching in Reason is a lot easier said than done. Actually calling the API isn't too hard, but the trickiness starts once we recieve a response. Because Reason is statically typed it needs to make sure that the API response is correctly mapped into valid Reason/OCaml types. We call this process of parsing the JSON and transforming it into valid types **JSON decoding**.
+Data fetching in Reason is a lot easier said than done. Actually calling the API isn't too hard, but the trickiness starts once we receive a response. Because Reason is statically typed it needs to make sure that the API response is correctly mapped into valid Reason/OCaml types. We call this process of parsing the JSON and transforming it into valid types **JSON decoding**.
 
 JSON decoding can be kind of tricky. The "proper" way to do it is to declare every single key* in the JSON that you care about. Then you try to map each key to the type you want it to be on the Reason side. If it maps, great! But if it doesn't map correctly you assume it's bad data and throw out the entire key, potentially replacing it with a default value. This can get really verbose, but this method ensures that you handle any malformed data when it enters your app instead of letting it cause bugs later on.
 
@@ -583,7 +583,7 @@ let getResults = query =>
 {{< /highlight >}}
 
 
-And that's it! Our JSON will now be available through the resolved promise as a valid Reason data structure&mdash;a `list` of `respository` records, to be exact. While the actual decoding function isn't too large all by itself, I found that when I was first jumping into Reason decoding JSON was extremely tricky because I wasn't familiar with it yet. Compared to JavaScript it can easily feel like a lot of verbosity just to get some data into your app. In our case it was only 3 keys per item, but imagine if you needed 20 keys, or if you had data nested further inside of objects! That said, the practice of sanitizing data when it comes into our apps is a good thing to do, and having to do this decoding step forces us to verify that the data is the way we expect it to be later on when we use it.
+And that's it! Our JSON will now be available through the resolved promise as a valid Reason data structure&mdash;a `list` of `repository` records, to be exact. While the actual decoding function isn't too large all by itself, I found that when I was first jumping into Reason decoding JSON was extremely tricky because I wasn't familiar with it yet. Compared to JavaScript it can easily feel like a lot of verbosity just to get some data into your app. In our case it was only 3 keys per item, but imagine if you needed 20 keys, or if you had data nested further inside of objects! That said, the practice of sanitizing data when it comes into our apps is a good thing to do, and having to do this decoding step forces us to verify that the data is the way we expect it to be later on when we use it.
 
 Speaking of using the data, we're coming down the home stretch on our data handling! All that's left to do is add the data to our component's state. Since we're gonna want to store it in state, we'll need to update our `state` type to reflect this new data.
 
