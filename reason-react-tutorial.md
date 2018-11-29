@@ -3,7 +3,7 @@ title = "A Beginners Guide to ReasonReact"
 description = "A tutorial on using Reason to create React components"
 +++
 
-## Before we begin
+{{% chapter_header "Before we begin" "before-we-begin" %}}
 
 First off, this tutorial assumes that you have some knowledge of how React works. If you're just getting started to React, I'd highly recommend reading through "[The Road to learn React](https://roadtoreact.com/)" before trying to dive into ReasonReact. It's really important to have at least a basic foundational understanding of React before we start diving into ReasonReact. After all, ReasonReact is an abstraction _on top of React_!
 
@@ -13,9 +13,9 @@ Kinda reminds me of this Kyle Simpson quote from "[You Don't Know JS: Async & Pe
 
 The other abstraction that's important to know about is Reason itself, since ReasonReact is *React in Reason*.  If you're just getting started with Reason I'd recommend having the [Reason docs](https://reasonml.github.io/docs/en/what-and-why) up as you read this article, just in case you need any refreshers on the syntax or language mechanics. I also have an [introductory article](https://blog.logrocket.com/what-makes-reasonml-so-great-c2c2fc215ccb) to Reason that may be a good read if you're just starting out with Reason and want to know what all the hype is about.
 
-In addition, there's one disclaimer I'd like to add. We'll definitely see some "rough edges" and not-quite-finished language features as we go through this tutorial. This is largely because Reason is a newer community, even though it's based on OCaml's more mature community. It's important to remember that the teams behind Reason and ReasonReact are aware of the pain points and awkardness around certain parts of the language, and are working hard to fix them. While certain parts (like async/await or CSS) aren't fully solved yet, there's a lot of really smart people working to solve them right now.
+In addition, there's one disclaimer I'd like to add. We'll definitely see some "rough edges" and not-quite-finished language features as we go through this tutorial. This is largely because Reason is a newer community, even though it's based on OCaml's more mature community. It's important to remember that the teams behind Reason and ReasonReact are aware of the pain points and awkwardness around certain parts of the language, and are working hard to fix them. While certain parts (like async/await or CSS) aren't fully solved yet, there's a lot of really smart people working to solve them right now.
 
-## Getting Started
+{{% chapter_header "Getting started" "getting-started" %}}
 
 For this tutorial, we'll be building a Github Search app. This app will have a search bar at the top that takes any topic your heart desires. Then, when the search entry is submitted, we'll query the GitHub REST API and display a list of repositories matching that topic.
 
@@ -39,7 +39,7 @@ npm run dev
 
 That should start a simple dev server at http://localhost:8000 with a very plain "Hello World" on the screen.
 
-## Making our first stateless ReasonReact component
+{{% chapter_header "Making our first stateless ReasonReact component" "stateless-reason-react-component" %}}
 
 Let's start by making a stateless component. We're gonna create one of the cards that contain the list results. We'll add a new file to the `src` directory named `Card.re`.
 
@@ -148,7 +148,7 @@ We also didn't need to import our `<Card>` because every file in Reason is autom
 
 When we check out the page we can see that our card is indeed on the page correctly, although it's a little bare.
 
-## Adding some CSS
+{{% chapter_header "Adding some CSS" "adding-some-CSS" %}}
 
 Let's add some styles to our `<Card />` before we go any further. Any real app will have styles, so it wouldn't feel right if I skipped over some of ReasonReact's styling approaches.
 
@@ -239,7 +239,7 @@ Sidenote&mdash;if your IDE is yelling about an unbound module warning after you 
 
 {{< highlight javascript >}}
 Error: Unbound module Css
-{{</ highlight >}}
+{{< /highlight >}}
 
 That said, there's a lot of other ways to manage styles in ReasonReact! These are only two of commonly-used methods. I've personally used a [custom binding](https://github.com/benjamminj/solitaire/blob/master/src/__packages__/emotion.re) to Emotion that provides a little less type safety for style rules, but feels a little closer to the tagged template literal API.
 
@@ -247,7 +247,7 @@ There's also a really promising project for a [PPX transform for CSS](https://gi
 
 For now, let's make do with `bs-css` as a styling solution, but it's always good to know that other options exist if `bs-css` isn't your cup of tea.
 
-## Managing statefulness
+{{% chapter_header "Managing statefulness" "managing-statefulness" %}}
 
 Now, let's build the search form. We're gonna do this directly inside of `App.re` for simplicity's sake, so we'll be converting `<App />` from a stateless component to a stateful component.
 
@@ -402,7 +402,7 @@ reducer: (action, state) =>
 
 The first thing we've done inside of our side effect is pull our input value out of `self.state.input`. We'll use this for our API query coming up.
 
-## Data Fetching
+{{% chapter_header "Data fetching" "data-fetching" %}}
 
 We've come a long way! We've got an operating form that triggers our loading state and a `<Card />` component for once we've got a list of results. Now we just need to connect the dots and get the real data from GitHub's API into our app.
 
@@ -639,7 +639,6 @@ reducer: (action, state) =>
     },
 {{< /highlight >}}
 
-
 Whew. Give yourself a pat on the back. You've successfully fetched the JSON and brought it into your component's state. This is why I personally like to build this GitHub search app when learning  a new framework or language&mdash;it's simple enough you don't spend weeks on a project, but complex enough that you get a feel for more difficult things like data handling and state management. Having complex decoding steps is actually fairly common for static compile-to-JavaScript languages like Reason&mdash;believe it or not Reason is *less verbose* at decoding JSON than some others!
 
 The *final* thing to do for our component is display our repository results inside of `render`. Since we've already built the stateless `<Card />` component we can just hook it up to our data.
@@ -674,10 +673,11 @@ render: self =>
   </div>,
 {{< /highlight >}}
 
+<hr class="section-divider">
 
 That's it for our intro to ReasonReact. Although this was a simple app with barebones styling, we've covered a ton of ground. We saw what a stateless component looks like in ReasonReact and how ReasonReact handles statefulness with reducer components. We also went through the ceremony of data fetching and normalization that comes along with bringing unsafe JSON into a type-safe world. 
 
-If you're interested in adding Reason to a side-project or moving parts of a codebase into Reason, you're in luck! Since Reason compiles to plain JavaScript files you can incrementally introduce ReasonReact little by little. This means you can skip the massive rewrite and start playing with this new technology in a non-invasive manner. Just compile your ReasonReact components down to JavaScript and import them from your JavaScript React components!
+If you're interested in adding Reason to a side-project or moving parts of a codebase into Reason, you're in luck! Since Reason compiles to plain JavaScript files you can incrementally introduce ReasonReact to your codebase. This means you can skip the massive rewrite and start playing with this new technology in a non-invasive manner. Just compile your ReasonReact components down to JavaScript and import them from your JavaScript React components!
 
 I hope that throughout this article you've enjoyed getting a feel for ReasonReact and the value that it can bring to some logic-heavy components. Or at the very least I hope that peeking into ReasonReact's approach to state management and data handling brought some new approaches you can bring back with you to JavaScript codebases. Reason might not be fully mature enough to go all-in on just yet but it seems like it's got a bright future ahead of it. Lastly, if you have any ideas or if you know of better ways to do set up the components we wrote today, let me know&mdash;I'd love to hear! Feel free to follow me on [Medium](https://medium.com/@benjamin.d.johnson) or check out my [Twitter](https://mobile.twitter.com/benjamminj).
 
