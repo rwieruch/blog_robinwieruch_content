@@ -1,6 +1,6 @@
 +++
 title = "React Firebase Authorization with Roles"
-description = "A tutorial on how to use authorization with roles and permissions when using Firebase in React. You will learn how to protect your routes and pages with authorization rules ..."
+description = "A tutorial on how to use authorization with roles and permissions when using Firebase in React. Learn how to protect routes with authorization rules and how to set properties to Firebase user ..."
 date = "2018-11-26T07:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
@@ -12,7 +12,7 @@ banner = "img/posts/react-firebase-authorization-roles-permissions/banner.jpg"
 contribute = "react-firebase-authorization-roles-permissions.md"
 headline = "React Firebase Authorization with Roles"
 
-summary = "A tutorial on how to use authorization with roles and permissions when using Firebase in React. You will learn how to protect your routes and pages with authorization rules."
+summary = "A tutorial on how to use authorization with roles and permissions when using Firebase in React. Learn how to protect routes with authorization rules and how to set properties to Firebase users."
 +++
 
 {{% sponsorship %}}
