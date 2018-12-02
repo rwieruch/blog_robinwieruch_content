@@ -229,6 +229,6 @@ That's a basic understanding of Node.js environment variables. They should be us
 
 This guide has shown you how to create a Node.js project from scratch, and how you can introduce upcoming JavaScript features in your Node.js environment using Babel. You have seen how npm scripts are used to start, test, and deploy applications, and how environment variables secure sensible data like private API keys and user credentials. The finished product is a node package that can be open sourced on npm, another rewarding aspect of working with the Node.js ecosystem. It can can be found in this {{% a_blank "GitHub repository" "https://github.com/rwieruch/node-babel-server" %}}.
 
-{{% read_more "GitHub and Git Setup and Essentials" "https://www.robinwieruch.de/git-essential-commands/" %}}
+{{% read_more "GraphQL Server Tutorial with Apollo Server and Express" "https://www.robinwieruch.de/graphql-apollo-server-tutorial/" %}}
 
 {{% read_more "The minimal React + Webpack 4 + Babel Setup" "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" %}}
