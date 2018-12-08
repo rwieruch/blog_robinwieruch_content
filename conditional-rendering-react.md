@@ -1,5 +1,5 @@
 +++
-title = "All the Conditional Renderings in React"
+title = "All React Conditional Rendering Techniques"
 description = "Wondering how to perform a conditional render in React? The article is an exhaustive list of conditional renderings in React's JSX. How to use ternary operators, switch case and if else in React.js? You will see various use cases where and how to use these conditional renderings and advanced techniques ..."
 date = "2018-09-21T13:50:46+02:00"
 tags = ["React", "JavaScript"]
@@ -10,7 +10,7 @@ hashtag = "#ReactJs"
 card = "img/posts/conditional-rendering-react/banner_640.jpg"
 banner = "img/posts/conditional-rendering-react/banner.jpg"
 contribute = "conditional-rendering-react.md"
-headline = "All the Conditional Renderings in React"
+headline = "All React Conditional Rendering Techniques"
 
 summary = "Conditional rendering in React is no witchcraft. In JSX you can use pure JavaScript. In JavaScript you should be familiar with if-else or switch case statements. You can use it in JSX as well, since JSX only mixes HTML and JavaScript. But what is conditional rendering in React? In a conditional render a component decides based on one or several conditions which elements it will return."
 +++

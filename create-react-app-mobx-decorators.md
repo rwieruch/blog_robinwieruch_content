@@ -203,13 +203,13 @@ Running this code in a plain create-react-app application will yield a `Unexpect
 **Basically there are four steps to use decorators in create-react-app:**
 
 * type `npm run eject` on the command line, if you have bootstrapped your app with create-react-app
-* install the necessary Babel plugin `npm install --save-dev babel-plugin-transform-decorators-legacy`
+* install the necessary Babel plugin `npm install --save-dev @babel/plugin-proposal-decorators`
 * add the following Babel configuration to your *package.json*
 
 {{< highlight javascript "hl_lines=2 3 4" >}}
 "babel": {
   "plugins": [
-    "transform-decorators-legacy"
+    "@babel/plugin-proposal-decorators"
   ],
   "presets": [
     "react-app"

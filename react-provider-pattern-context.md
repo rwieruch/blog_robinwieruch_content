@@ -181,7 +181,7 @@ class C extends React.Component {
   render() {
     return (
       <div style={{ color: this.context.coloredTheme }}>
-        {this.children}
+        {this.props.children}
       </div>
     );
   }

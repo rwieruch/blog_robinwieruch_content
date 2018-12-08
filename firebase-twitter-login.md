@@ -21,7 +21,7 @@ summary = "A tutorial on how to activate Twitter login for Firebase or Firestore
 
 In this short visual guide, I want to show you how to activate the Twitter authentication for your Firebase or Firestore application. It should only take you a couple of minutes to set up the Twitter as web login for your app. Afterward, there is no email needed for your users to authenticate with your application.
 
-First, on your Firebase project's dashboard, navigate to the Authentication/Sign-in method option. There you can enable the Twitter sign in method that enables you to login people via Twitter to your Firebase application.
+First, on your Firebase project's dashboard, navigate to the Authentication/Sign-in method option. There you can enable the Twitter sign in method that enables you to login people via Twitter to your [Firebase application](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial).
 
 {{% pin_it_image "firebase sign in methods" "img/posts/firebase-twitter-login/banner.jpg" "is-src-set" %}}
 

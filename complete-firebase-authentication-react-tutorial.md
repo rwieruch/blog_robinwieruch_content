@@ -25,7 +25,7 @@ This comprehensive tutorial walks you through a real world application using Rea
 
 React beginners often wonder what's next after learning React. That's when I highly recommend people to get started with a advanced topics such as authentication, authorization and connecting your React application to a database. These are the fundamentals that real business applications need in the end. However, I don't want you to worry about implementing the backend application which manages everything yourself. A perfect alternative may be Firebase instead. I have seen people creating real businesses from zero to profitable with only React and Firebase; myself included. There was no need to implement a backend application with Node.js yourself. And that's what I want to teach you in this tutorial.
 
-70% of the outcome of this tutorial can be checked out over {{% a_blank "here" "https://react-firebase-authentication.wieruch.com/" %}}. It doesn't included everything due to security reasons and because the remaining material can be found in the book.
+50% of the outcome of this tutorial can be checked out over {{% a_blank "here" "https://react-firebase-authentication.wieruch.com/" %}}. It doesn't included everything due to security reasons and because the remaining material can be found in the book.
 
 In order to keep the guide updated, here is a list of the primary libraries and their versions which are used in this tutorial.
 
@@ -325,7 +325,7 @@ Previously, you have created basic components for each page component used by ou
 
 It's all about using Firebase in React for this application we are going to build together. Firebase, bought by Google in 2014, is your enabler for having a realtime database in React, for having extensive authentication and authorization, and even for deploying your application. You will be able to build real world applications with React and Firebase without worrying about implementing a backend application yourself. All the things a backend application would handle for you, authentication and a database, is taken care of by Firebase. There are plenty of businesses out there who are using React and Firebase to power their applications. It the ultimate combination to launch a {{% a_blank "MVP" "https://en.wikipedia.org/wiki/Minimum_viable_product" %}}.
 
-Take your time to sign up on the {{% a_blank "official Firebase website" "https://firebase.google.com/" %}}. After you have created an account on their platform, you should be able to create projects and you should have access to your project dashboard. Now, create a project for this application on their platform whereas the project can have any name. In the case of this application, run it on the free pricing plan. If you want to scale your application later on, you can change the plan.
+Take your time to sign up on the {{% a_blank "official Firebase website" "https://firebase.google.com/" %}}. After you have created an account on their platform, you should be able to create projects and you should have access to your project dashboard. Now, create a project for this application on their platform whereas the project can have any name. In the case of this application, run it on the free pricing plan. If you want to scale your application later on, you can change the plan. Follow this [visual Firebase setup and introduction guide](https://www.robinwieruch.de/firebase-tutorial) to learn more about Firebase's dashboard and features.
 
 Next, find the project's configuration in the settings on your dashboard. There you have access to all the necessary information: secrets, keys, ids and other details to set up your application. You will copy these in the next step to your React application.
 
@@ -2002,7 +2002,7 @@ const withAuthorization = condition => Component => {
   class WithAuthorization extends React.Component {
     componentDidMount() {
       this.listener = firebase.auth.onAuthStateChanged(authUser => {
-        if (!authCondition(authUser)) {
+        if (!condition(authUser)) {
           this.props.history.push(ROUTES.SIGN_IN);
         }
       });
@@ -2055,9 +2055,9 @@ const AccountPage = () => (
   </AuthUserContext.Consumer>
 );
 
-const authCondition = authUser => !!authUser;
+const condition = authUser => !!authUser;
 
-export default withAuthorization(authCondition)(AccountPage);
+export default withAuthorization(condition)(AccountPage);
 {{< /highlight >}}
 
 You can try it yourself by signing out from your application and trying to access the */account* or */home* routes of your application. Both should redirect you to the */signin* route. Also when you stay on one of the routes, it should redirect you automatically.
