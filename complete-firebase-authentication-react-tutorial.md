@@ -2403,34 +2403,27 @@ That's it for the user management. You are in full control of your users now. It
 
 {{% chapter_header "What's next?" "react-firebase-authentication-advanced" %}}
 
-Everything essential is in place in terms of Firebase authentication and Firebase realtime database for user management. If you want to continue with this application on your own, I am curious what you will build on top of it. So let me know about! If you want to continue to follow this tutorial, {{% a_blank "subscribe to my Newsletter" "https://www.getrevue.co/profile/rwieruch" %}} where I will announce the launch of the complete Firebase in React book in the next month.
+Everything essential is in place in terms of Firebase authentication and Firebase realtime database for user management. If you want to continue with this application on your own, I am curious what you will build on top of it. So let me know about it! If you want to continue to follow this tutorial, {{% a_blank "subscribe to my Newsletter" "https://www.getrevue.co/profile/rwieruch" %}} where I will announce the launch of the complete Firebase in React book.
 
 **What's else will be included in the book?**
 
-* Users and Messages: Next to the user management, you will introduce a second entity for messages to your application. By having both entities, user and message, we can build a chat application together.
-
 * Role-based Authorization: So far, you have only authorized your application on a broader level by checking for an authenticated user. In the book, you will learn how to assign roles to your users and how to give them additional privileges.
+
+* User Management: In order to get more control over your users, I will show you how to merge authentication user and database user. Then you can always assign new properties to your database user while having access to it on your user after authentication too.
+
+* Users and Messages: Next to the user management, you will introduce a second entity for messages to your application. By having both entities, user and message, we can build a chat application together.
 
 * Read and Write Operations: In the application, you have created a user and display a list of users with real-time capabilities. The book continuous with the usual delete and update operations to organize your users in the realtime database.
 
-* Offline, Double Opt-In, Social Logins: The book adds further Firebase functionalities like offline capabilities, double opt-in sign ups and social sign ups/ins via third-parties such as Facebook or Google.
+* Offline, Double Opt-In, Social Logins: The book adds further Firebase functionalities like offline capabilities, double opt-in with email vwerifications on sign ups, and social sign ups/ins via third-parties such as Facebook, Google and Twitter.
 
-* Firebase Deployment: The final step in the book would be to deploy your application with Firebase. The books walks you through the process step by step to see your project finally online.
-
-**What's may be included in the book?**
+* Firebase Deployment: The final step in the book would be to deploy your application with Firebase Hosting. The books walks you through the process step by step to see your project finally online.
 
 * Firestore: Firebase's Firestore is the new Firebase Realtime Database. In the book, I may show you a way to migrate to this new tech stack. Then it is up to you whether you want to use Firestore or Firebase's Realtime Database.
 
-* Cloud Functions: If I can come up with an example on how to use Firebase Cloud Functions in this application, I will include it in the book too. So far, I have no idea what it could be, so if you have any idea, leave me a comment below.
-
-* Tech Stack Walkthroughs: This application is only build with React and Firebase. But what about taking it on the next level to enable it for real businesses? That's where I want to show you how to migrate the project to Redux, MobX, Gatsby.js, or Next.js.
-
-**What may be included in the complete course package?**
-
-* Source Code: You will get access to variations of this application that will have additional tech:
+* Source Code Projects: This application is only build with React and Firebase. But what about taking it on the next level to enable it for real businesses? That's where I want to show you how to migrate the project to Redux, MobX, or Gatsby.js. You will get access to variations of this application that will have additional tech:
   * Gatsby + Firebase
   * React + Redux + Firebase
-  * Next.js + Firebase
   * React + MobX + Firebase
   * React + Semantic UI + Firebase
 
