@@ -43,9 +43,9 @@ Though REST was the status quo for a long time, a Facebook technology called Gra
 
 {{% chapter_header "What is GraphQL?" "what-is-graphql" %}}
 
-In short, GraphQL is an open source **query language** created by Facebook, a company that unsurprisingly remains at the pinnacle of web-based software development. Before GraphQL went open source in 2015, Facebook used it internally for their mobile applications since 2012, as an alternative to the common REST architecture. It allows requests for specific data, giving clients more control over what information is sent. This is more difficult with a RESTful architecture because the backend defines what data is available for each resource on each URL, while the frontend always has to request all the information in a resource, even if only a part of it is needed. This problem is called overfetching. In the worst case scenario, an client application has to read multiple resources through multiple network requests. This is overfetching, but also adds the need for waterfall network requests. A query language like GraphQL on the server-side and client-side lets the client decide which data it needs by making a single request to the server. Network usage was reduced dramatically for Facebook's mobile applications as a result, because GraphQL made it more efficient with data transfers.
+In short, GraphQL is an open source **query language** created by Facebook, a company that unsurprisingly remains at the pinnacle of web-based software development. Before GraphQL went open source in 2015, Facebook used it internally for their mobile applications since 2012, as an alternative to the common REST architecture. It allows requests for specific data, giving clients more control over what information is sent. This is more difficult with a RESTful architecture because the backend defines what data is available for each resource on each URL, while the frontend always has to request all the information in a resource, even if only a part of it is needed. This problem is called overfetching. In the worst case scenario, a client application has to read multiple resources through multiple network requests. This is overfetching, but also adds the need for waterfall network requests. A query language like GraphQL on the server-side and client-side lets the client decide which data it needs by making a single request to the server. Network usage was reduced dramatically for Facebook's mobile applications as a result, because GraphQL made it more efficient with data transfers.
 
-Facebook open-sourced the GraphQL specification and its reference implementation in JavaScript, and multiple major programming languages implemented the specification have followed since then. The ecosystem around GraphQL is growing horizontally by offering multiple programming languages, but also vertically, with libraries on top of GraphQL like Apollo and Relay.
+Facebook open-sourced the GraphQL specification and its reference implementation in JavaScript, and multiple major programming languages implemented the specification have implemented since then. The ecosystem around GraphQL is growing horizontally by offering multiple programming languages, but also vertically, with libraries on top of GraphQL like Apollo and Relay.
 
 A GraphQL operation is either a query (read), mutation (write), or subscription (continuous read). Each of those operations is only a string that needs to be constructed according to the GraphQL query language specification. Fortunately, GraphQL is evolving all the time, so there may be other operations in the future.
 
@@ -107,7 +107,7 @@ GraphQL is not just exciting for React developers, though. While Facebook showca
 
 {{% sub_chapter_header "Who is using GraphQL?" "graphql-who-is-using" %}}
 
-Facebook is the driving company behind the GraphQL specification and reference implementation in JavaScript, but other well-known companies are also it for their applications. They are invested in the GraphQL ecosystem due to the huge demand for modern applications. Beyond Facebook, GraphQL has also been used by these well-known companies:
+Facebook is the driving company behind the GraphQL specification and reference implementation in JavaScript, but other well-known companies are also using it for their applications. They are invested in the GraphQL ecosystem due to the huge demand for modern applications. Beyond Facebook, GraphQL has also been used by these well-known companies:
 
 * GitHub {{% a_blank "[1]" "https://githubengineering.com/the-github-graphql-api/" %}} {{% a_blank "[2]" "https://youtu.be/lj41qhtkggU" %}}
 * Shopify {{% a_blank "[1]" "https://shopifyengineering.myshopify.com/blogs/engineering/solving-the-n-1-problem-for-graphql-through-batching" %}} {{% a_blank "[2]" "https://youtu.be/2It9NofBWYg" %}}
@@ -131,7 +131,7 @@ GraphQL embraces modern trends on how applications are built. You may only have 
 
 {{% sub_chapter_header "GraphQL Schema Stitching" "graphql-schema-stitching" %}}
 
-Schema stitching makes it possible to create one schema out of multiple schemas. Think about a microservices architecture for your backend where microservice handles the business logic and data for a specific domain. In this case, each microservice can define its own GraphQL schema, after which you'd use schema stitching to weave them into one that is accessed by the client. Each microservice can have its own GraphQL endpoint, where one GraphQL API gateway consolidates all schemas into one global schema.
+Schema stitching makes it possible to create one schema out of multiple schemas. Think about a microservices architecture for your backend where each microservice handles the business logic and data for a specific domain. In this case, each microservice can define its own GraphQL schema, after which you'd use schema stitching to weave them into one that is accessed by the client. Each microservice can have its own GraphQL endpoint, where one GraphQL API gateway consolidates all schemas into one global schema.
 
 {{% sub_chapter_header "GraphQL Introspection" "graphql-introspection" %}}
 
@@ -143,7 +143,7 @@ GraphQL is a strongly typed query language because it is written in the expressi
 
 {{% sub_chapter_header "GraphQL Versioning" "graphql-versioning" %}}
 
-In GraphQL there are no API versions as there used to be in REST. In REST it is normal to offer multiple versions of an API (e.g. api.domain.com/v1/, api.domain.com/v2/), because the resources or the structure of the resources may change over time. In GraphQL it is possible to deprecate the API on a field level. Thus a client receives a deprecation warning when querying a deprecated field. After a while, the deprecated field may be removed from the schema when not many clients are using it anymore. This makes it possible to evolve a GraphQL API over time without the need for a versioning.
+In GraphQL there are no API versions as there used to be in REST. In REST it is normal to offer multiple versions of an API (e.g. api.domain.com/v1/, api.domain.com/v2/), because the resources or the structure of the resources may change over time. In GraphQL it is possible to deprecate the API on a field level. Thus a client receives a deprecation warning when querying a deprecated field. After a while, the deprecated field may be removed from the schema when not many clients are using it anymore. This makes it possible to evolve a GraphQL API over time without the need for versioning.
 
 {{% sub_chapter_header "A growing GraphQL Ecosystem" "graphql-ecosystem" %}}
 
@@ -155,7 +155,7 @@ Adopting GraphQL for an existing tech stack is not an "all-in" process. Migratin
 
 {{% chapter_header "GraphQL Disadvantages" "graphql-disadvantages" %}}
 
-The following topics show you some of the disadvantages for using GraphQL.
+The following topics show you some of the disadvantages of using GraphQL.
 
 {{% sub_chapter_header "GraphQL Query Complexity" "graphql-query-complexity" %}}
 
@@ -179,7 +179,7 @@ There are still cases where REST is a valuable approach for connecting client an
 
 {{% chapter_header "GraphQL Alternatives" "graphql-alternatives" %}}
 
-REST is the most popular alternative for GraphQL, as it is still the most common architectures for connecting client and server applications. It became more popular than networking technologies like {{% a_blank "RPC" "https://en.wikipedia.org/wiki/Remote_procedure_call" %}} and {{% a_blank "SOAP" "https://simple.wikipedia.org/wiki/SOAP_(protocol)" %}} because it used the native features of HTTP, where other protocols like SOAP tried to build their own solution on top of it.
+REST is the most popular alternative for GraphQL, as it is still the most common architecture for connecting client and server applications. It became more popular than networking technologies like {{% a_blank "RPC" "https://en.wikipedia.org/wiki/Remote_procedure_call" %}} and {{% a_blank "SOAP" "https://simple.wikipedia.org/wiki/SOAP_(protocol)" %}} because it used the native features of HTTP, where other protocols like SOAP tried to build their own solution on top of it.
 
 Falcor by Netflix is another alternative, and it was developed at the same time as GraphQL. Netflix ran into similar issues as Facebook, and eventually open-sourced their own solution. There isn't too much traction around Falcor, maybe because GraphQL got so popular, but developers at Netflix have shown great engineering efforts in the past, so it may be worth looking into it.
 

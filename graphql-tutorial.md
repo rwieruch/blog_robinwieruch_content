@@ -23,13 +23,13 @@ summary = "This GraphQL tutorial for beginners takes you on a journey to learn G
 
 {{% read_before_4 "This tutorial is part 2 of 5 in this series." "Part 1:" "Getting Started with GitHub's GraphQL API" "https://www.robinwieruch.de/getting-started-github-graphql-api" "Part 3:" "A complete React with GraphQL Tutorial" "https://www.robinwieruch.de/react-with-graphql-tutorial" "Part 4:" "A Apollo Client Tutorial for Beginners" "https://www.robinwieruch.de/graphql-apollo-client-tutorial" "Part 5:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial" %}}
 
-Before we start to build full-fledged GraphQL applications, on the client- and server-side, let's explore GraphQL with the tools we have installed in the previous sections. You can either use GraphiQL or the GitHub's GraphQL Explorer. In the following, you will learn about GraphQL's fundamentals by executing your first GraphQL queries, mutations and even by exploring features such as pagination, in context of GitHub's GraphQL API.
+Before we start to build full-fledged GraphQL applications, on the client- and server-side, let's explore GraphQL with the tools we have installed in the previous sections. You can either use GraphiQL or the GitHub's GraphQL Explorer. In the following, you will learn about GraphQL's fundamentals by executing your first GraphQL queries, mutations and even by exploring features such as pagination, in the context of GitHub's GraphQL API.
 
 {{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 200+ pages of learning material. Pay what you want like <strong>50.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://roadtoreact.com/" %}}
 
 {{% chapter_header "GraphQL Query with GitHub's GraphQL API" "graphql-query-github-api" %}}
 
-In this section, you will interact with the GitHub API using queries and mutations without React, so you can use your GraphiQL application or GitHub's GraphQL Explorer to make GraphQL query requests to GitHub's API. Both tools should be authorized to make request using a personal access token. On the left-hand side of your GraphiQL application, you can fill in GraphQL queries and mutations. Add the following query to request data about yourself.
+In this section, you will interact with the GitHub API using queries and mutations without React, so you can use your GraphiQL application or GitHub's GraphQL Explorer to make GraphQL query requests to GitHub's API. Both tools should be authorized to make requests using a personal access token. On the left-hand side of your GraphiQL application, you can fill in GraphQL queries and mutations. Add the following query to request data about yourself.
 
 {{< highlight javascript >}}
 {
@@ -42,7 +42,7 @@ In this section, you will interact with the GitHub API using queries and mutatio
 
 The `viewer` object can be used to request data about the currently authorized user. Since you are authorized by your personal access token, it should show data about your account. The `viewer` is an **object** in GraphQL terms. Objects hold data about an entity. This data is accessed using a so-called **field** in GraphQL. Fields are used to ask for specific properties in objects. For instance, the `viewer` object exposes a wide range of fields. Two fields for the object--`name` and `url`--were used in the query. In its most basic form, a query is just objects and fields, and objects can also be called fields.
 
-Once you run the query in GraphiQL, you should see output similar to the one below, where your name and url are in the place of mine:
+Once you run the query in GraphiQL, you should see output similar to the one below, where your name and URL are in the place of mine:
 
 {{< highlight javascript >}}
 {
@@ -55,7 +55,7 @@ Once you run the query in GraphiQL, you should see output similar to the one bel
 }
 {{< /highlight >}}
 
-Congratulations, you have performed your first query to access fields from your own user data. Now, let's see how to request data from another source other than yourself, like a public GitHub organization. To specify a GitHub organization, you can pass an **argument** to fields:
+Congratulations, you have performed your first query to access fields from your own user data. Now, let's see how to request data from a source other than yourself, like a public GitHub organization. To specify a GitHub organization, you can pass an **argument** to fields:
 
 {{< highlight javascript >}}
 {
@@ -292,7 +292,7 @@ The query in GraphQL gives you all you need to read data from a GraphQL API. The
 
 {{% chapter_header "GraphQL Mutation with GitHub's GraphQL API" "graphql-mutation-github-api" %}}
 
-This section introduces the GraphQL mutation. It complements the GraphQL query because it is used for writing data instead of reading it. The mutation shares the same principles as the query: it has fields and objects, arguments and variables, fragments and operation names, as well as directives and nested objects for the returned result. With mutations you can specify data as fields and objects that should be returned after it 'mutates' into something acceptable. Before you start making your first mutation, be aware that you are using live GitHub data, so if you follow a person on GitHub using your experimental mutation, you will follow this person for real. Fortunately this sort of behavior is encouraged on Github.
+This section introduces the GraphQL mutation. It complements the GraphQL query because it is used for writing data instead of reading it. The mutation shares the same principles as the query: it has fields and objects, arguments and variables, fragments and operation names, as well as directives and nested objects for the returned result. With mutations you can specify data as fields and objects that should be returned after it 'mutates' into something acceptable. Before you start making your first mutation, be aware that you are using live GitHub data, so if you follow a person on GitHub using your experimental mutation, you will follow this person for real. Fortunately this sort of behavior is encouraged on GitHub.
 
 In this section, you will star a repository on GitHub, the same one you used a query to request before, using a mutation {{% a_blank "from GitHub's API" "https://developer.github.com/v4/mutation/addstar" %}}. You can find the `addStar` mutation in the "Docs" sidebar. The repository is a project for teaching developers about the fundamentals of React, so starring it should prove useful.
 
@@ -453,8 +453,8 @@ query OrganizationForLearningReact {
 
 In the previous result, only the second item is retrieved, as well as a new third item. The first item isn't retrieved because you have used its cursor as `after` argument to retrieve all items after it. Now you can imagine how to make successive queries for paginated lists:
 
-* execute the initial query without a cursor argument
-* execute every following query with the cursor of the **last** item's cursor from the previous query result
+* Execute the initial query without a cursor argument
+* Execute every following query with the cursor of the **last** item's cursor from the previous query result
 
 To keep the query dynamic, we extract its arguments as variables. Afterward, you can use the query with a dynamic `cursor` argument by providing a variable for it. The `after` argument can be `undefined` to retrieve the first page. In conclusion, that would be everything you need to fetch pages of lists from one large list by using a feature called pagination. You need a mandatory argument specifying how many items should be retrieved and an optional argument, in this case the `after` argument, specifying the starting point for the list.
 
@@ -502,6 +502,6 @@ This meta information completes the pagination implementation. Information is ma
 
 <hr class="section-divider">
 
-Interacting with GitHub's GraphQL API via GraphiQL or GitHub's GraphQL Explorer is only the beginning. You should be familiar with the fundamental GraphQL concepts now. But there are a lot more exciting concepts to explore. In the next chapters, you will implement fully working GraphQL client application with React that interacts with GitHub's API.
+Interacting with GitHub's GraphQL API via GraphiQL or GitHub's GraphQL Explorer is only the beginning. You should be familiar with the fundamental GraphQL concepts now. But there are a lot more exciting concepts to explore. In the next chapters, you will implement a fully working GraphQL client application with React that interacts with GitHub's API.
 
 {{% read_before_4 "This tutorial is part 2 of 5 in this series." "Part 1:" "Getting Started with GitHub's GraphQL API" "https://www.robinwieruch.de/getting-started-github-graphql-api" "Part 3:" "A complete React with GraphQL Tutorial" "https://www.robinwieruch.de/react-with-graphql-tutorial" "Part 4:" "A Apollo Client Tutorial for Beginners" "https://www.robinwieruch.de/graphql-apollo-client-tutorial" "Part 5:" "A complete React with Apollo and GraphQL Tutorial" "https://www.robinwieruch.de/react-graphql-apollo-tutorial" %}}

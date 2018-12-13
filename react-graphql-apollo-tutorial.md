@@ -627,7 +627,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 
 You could differentiate the error handling at the application level into development and production mode. During development, it might be sufficient to console log the errors to a developer console in the browser. In production mode, you can setup a error tracking service like {{% a_blank "Sentry" "https://sentry.io" %}}. It will teach you to identify bugs in a web dashboard more efficient
 
-Now you have two links in your application: `httpLink` and `errorLink`. To combing them for use with the Apollo Client instance, we'll download yet another useful package in the Apollo ecosystem that makes link compositions possible in the command line:
+Now you have two links in your application: `httpLink` and `errorLink`. To combine them for use with the Apollo Client instance, we'll download yet another useful package in the Apollo ecosystem that makes link compositions possible in the command line:
 
 {{< highlight javascript >}}
 npm install apollo-link --save
