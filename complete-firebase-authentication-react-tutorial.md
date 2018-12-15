@@ -65,7 +65,7 @@ The requirements for this tutorial are a working [editor or IDE/terminal](https:
 
 {{% chapter_header "React Application Setup: create-react-app" "react-application-setup" %}}
 
-There are two ways to begin the lesson for this application: either follow my guidance in this section; or find a starter project in this {{% a_blank "GitHub repository" "hhttps://github.com/the-road-to-react-with-firebase/react-firebase-authentication-starter-kit" %}} and follow its installation instructions. This section will show how to set up a project from scratch, whereas the starter project grants instant access without setting up the folder/file structure yourself.
+There are two ways to begin the lesson for this application: either follow my guidance in this section; or find a starter project in this {{% a_blank "GitHub repository" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication-starter-kit" %}} and follow its installation instructions. This section will show how to set up a project from scratch, whereas the starter project grants instant access without setting up the folder/file structure yourself.
 
 The application we are going to build with React and Firebase will be set up with Facebook's official React boilerplate project, called {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}}. You can install it globally on the command line once, after which it becomes available whenever you need it.
 
