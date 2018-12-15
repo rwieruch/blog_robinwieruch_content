@@ -25,7 +25,7 @@ This comprehensive tutorial walks you through a real-world application using Rea
 
 After you've mastered the basics of React, I always recommend moving on to advanced topics like authentication, authorization, and connecting React applications to databases. These operations make up the fundamentals real business applications need. Don't worry about implementing the backend application that manages it all yourself, as Firebase provides the perfect alternative. I have seen real businesses go from zero to profitable with only React and Firebase as their tools, myself included. No backend application with Node.js was needed, and this tutorial was created to show you how.
 
-70% of this tutorial's outcome can seen {{% a_blank "here" "https://react-firebase-authentication.wieruch.com/" %}}.  Security reasons prevent me from showing everything there, though the remaining material can be found in the book.
+50% of this tutorial's outcome can seen {{% a_blank "here" "https://react-firebase-authentication.wieruch.com/" %}}. Security reasons prevent me from showing everything there, though the remaining material can be found in the book.
 
 To keep the guide updated, here is a list of the primary libraries and their versions used in this tutorial:
 
@@ -171,7 +171,7 @@ The application is set up, and you can verify this by running it on the command 
 
 {{% chapter_header "React Router for Firebase Auth" "react-router-setup" %}}
 
-Since we are building a larger application in the following sections, it would be great to have a couple of pages (e.g. landing page, account page, admin page, sign up page, sign in page) to split the application into multiple URLs (e.g. /landing, /account, /admin). These URLs or subpaths of a domain are called routes in a client-side web application. Let's implement the routing with {{% a_blank "React Router" "https://github.com/ReactTraining/react-router" %}} before we dive into Firebase for the realtime database and authentication/authorization. 
+Since we are building a larger application in the following sections, it would be great to have a couple of pages (e.g. landing page, account page, admin page, sign up page, sign in page) to split the application into multiple URLs (e.g. /landing, /account, /admin). These URLs or subpaths of a domain are called routes in a client-side web application. Let's implement the routing with {{% a_blank "React Router" "https://github.com/ReactTraining/react-router" %}} before we dive into Firebase for the realtime database and authentication/authorization.
 
 The application should have multiple routes. For instance, a user should be able to visit a landing page, and also use sign up and sign in pages to enter the application as an authenticated user. If a user is authenticated, it is possible to visit protected pages like account or admin pages. You can consolidate all the routes of your application in a well-defined *src/constants/routes.js* constants file:
 
@@ -186,7 +186,7 @@ export const PASSWORD_FORGET = '/pw-forget';
 export const ADMIN = '/admin';
 {{< /highlight >}}
 
-Each route represents a page in your application. For instance, the sign up page should be reachable in development mode via *http://localhost:3000/signup*, and in production mode via *http://yourdomain/signup*. 
+Each route represents a page in your application. For instance, the sign up page should be reachable in development mode via *http://localhost:3000/signup*, and in production mode via *http://yourdomain/signup*.
 
 First, you will have a **sign up page** (register page) and a **sign in page** (login page). You can take any web application as the blueprint to structure these routes for well-rounded authentication. Take the following scenario: A user visits your web application, is convinced by your service, and finds the button in the top-level navigation bar to sign in to your application. But the user has no account yet, so a sign up button is presented as an alternative on the sign in page.
 
@@ -300,12 +300,12 @@ const App = () => (
       <hr />
 
       <Route exact path={ROUTES.LANDING} component={LandingPage} />
-      <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
-      <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
-      <Route exact path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
-      <Route exact path={ROUTES.HOME} component={HomePage} />
-      <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
-      <Route exact path={ROUTES.ADMIN} component={AdminPage} />
+      <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+      <Route path={ROUTES.SIGN_IN} component={SignInPage} />
+      <Route path={ROUTES.PASSWORD_FORGET} component={PasswordForgetPage} />
+      <Route path={ROUTES.HOME} component={HomePage} />
+      <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+      <Route path={ROUTES.ADMIN} component={AdminPage} />
     </div>
   </Router>
 );
@@ -326,7 +326,7 @@ Previously, you created basic components for each page component used by our rou
 
 The main focus here is using Firebase in React for the application we'll build together. Firebase, bought by Google in 2014, enables realtime databases in React, which can be used for extensive authentication and authorization, and even for deployment. You can build real-world applications with React and Firebase without worrying about implementing a backend application. All the things a backend application would handle, like authentication and a database, is handled by Firebase. Many businesses use React and Firebase to power their applications, as it is the ultimate combination to launch an {{% a_blank "MVP" "https://en.wikipedia.org/wiki/Minimum_viable_product" %}}.
 
-To start, sign up on the {{% a_blank "official Firebase website" "https://firebase.google.com/" %}}. After you have created a Firebase account, you should be able to create projects and be granted access to the project dashboard. We'll begin by creating a project for this application on their platform whereas the project can have any name. In the case of this application, run it on the free pricing plan. If you want to scale your application later, you can change the plan.
+To start, sign up on the {{% a_blank "official Firebase website" "https://firebase.google.com/" %}}. After you have created a Firebase account, you should be able to create projects and be granted access to the project dashboard. We'll begin by creating a project for this application on their platform whereas the project can have any name. In the case of this application, run it on the free pricing plan. If you want to scale your application later, you can change the plan. Follow this [visual Firebase setup and introduction guide](https://www.robinwieruch.de/firebase-tutorial) to learn more about Firebase's dashboard and features.
 
 Next, find the project's configuration in the settings on your dashboard. There, you'll have access to all the necessary information: secrets, keys, ids and other details to set up your application. Copy these in the next step to your React application.
 
@@ -385,7 +385,7 @@ REACT_APP_STORAGE_BUCKET=xxxxXXXX.appspot.com
 REACT_APP_MESSAGING_SENDER_ID=xxxxXXXX
 {{< /highlight >}}
 
-You can define the configuration inline or as environment variables. Environmental variables are more secure, and should be used when uploading your project to a version control system like GitHub, though we will be continuing with the Firebase setup. 
+You can define the configuration inline or as environment variables. Environmental variables are more secure, and should be used when uploading your project to a version control system like GitHub, though we will be continuing with the Firebase setup.
 
 Import firebase from the library you installed earlier, and then use it within your new Firebase class to initialize firebase with the configuration:
 
@@ -856,7 +856,7 @@ Let's take the last implemented code block apart. All the input fields implement
 
 In the last part of the form, there is an optional error message from an error object. The error objects from Firebase have this message property by default, so you can rely on it to display the proper text for your application's user. However, the message is only shown when there is an actual error using a [conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/).
 
-One piece in the form is missing: validation. Let's use an `isInvalid` boolean to enable or disable the submit button. 
+One piece in the form is missing: validation. Let's use an `isInvalid` boolean to enable or disable the submit button.
 
 {{< highlight javascript "hl_lines=16 17 18 19 20 26" >}}
 ...
@@ -1273,7 +1273,7 @@ Regarding components, everything is set to fulfil a full authentication roundtri
 
 {{% chapter_header "Session Handling with Firebase/React" "react-firebase-session-handling" %}}
 
-This section is the most important one for the authentication process. You have all the components needed to fulfil an authentication roundtrip in React, and all that's missing is an overseer for the session state.  Logic regarding the current authenticated user needs to be stored and made accessible to other components. This is often the point where developers start to use a state management library like [Redux or MobX](https://www.robinwieruch.de/redux-mobx-confusion/). Without these, we'll make due using [global state](https://www.robinwieruch.de/react-global-state-without-redux/) instead of state management libraries. 
+This section is the most important one for the authentication process. You have all the components needed to fulfil an authentication roundtrip in React, and all that's missing is an overseer for the session state.  Logic regarding the current authenticated user needs to be stored and made accessible to other components. This is often the point where developers start to use a state management library like [Redux or MobX](https://www.robinwieruch.de/redux-mobx-confusion/). Without these, we'll make due using [global state](https://www.robinwieruch.de/react-global-state-without-redux/) instead of state management libraries.
 
 Since our application is made under the umbrella of App component, it's sufficient to manage the session state in the App component using React's local state. The App component only needs to keep track of an authenticated user (session). If a user is authenticated, store it in the local state and pass the authenticated user object down to all components that are interested in it. Otherwise, pass the authenticated user down as `null`. That way, all components interested in it can adjust their behavior (e.g. use conditional rendering) based on the session state. For instance, the Navigation component is interested because it has to show different options to authenticated and non authenticated users. The SignOut component shouldn't show up for a non authenticated user, for example.
 
@@ -1572,7 +1572,7 @@ export { AuthUserContext, withAuthentication };
 
 The App component becomes a function component again, without the additional business logic for the authenticated user. Now, it uses the higher-order component to make the authenticated user available for all other components below of the App component:
 
-{{< highlight javascript "hl_lines=1 14 16 36 38" >}}
+{{< highlight javascript "hl_lines=1 14 16 35 37" >}}
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -1596,16 +1596,15 @@ const App = () => (
       <hr />
 
       <Route exact path={ROUTES.LANDING} component={LandingPage} />
-      <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
-      <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
+      <Route path={ROUTES.SIGN_UP} component={SignUpPage} />
+      <Route path={ROUTES.SIGN_IN} component={SignInPage} />
       <Route
-        exact
         path={ROUTES.PASSWORD_FORGET}
         component={PasswordForgetPage}
       />
-      <Route exact path={ROUTES.HOME} component={HomePage} />
-      <Route exact path={ROUTES.ACCOUNT} component={AccountPage} />
-      <Route exact path={ROUTES.ADMIN} component={AdminPage} />
+      <Route path={ROUTES.HOME} component={HomePage} />
+      <Route path={ROUTES.ACCOUNT} component={AccountPage} />
+      <Route path={ROUTES.ADMIN} component={AdminPage} />
     </div>
   </Router>
 );
@@ -1993,7 +1992,7 @@ const withAuthorization = condition => Component => {
   class WithAuthorization extends React.Component {
     componentDidMount() {
       this.listener = firebase.auth.onAuthStateChanged(authUser => {
-        if (!authCondition(authUser)) {
+        if (!condition(authUser)) {
           this.props.history.push(ROUTES.SIGN_IN);
         }
       });
@@ -2046,7 +2045,7 @@ const AccountPage = () => (
   </AuthUserContext.Consumer>
 );
 
-const authCondition = authUser => !!authUser;
+const condition = authUser => !!authUser;
 
 export default withAuthorization(condition)(AccountPage);
 {{< /highlight >}}
@@ -2394,13 +2393,15 @@ You have gained full control of your users now. It is possible to create and ret
 
 {{% chapter_header "What's next?" "react-firebase-authentication-advanced" %}}
 
-Everything essential is in place for Firebase authentication and Firebase realtime database for user management. I am interested in seeing what you will build on top of it! If you want to continue to follow this tutorial, {{% a_blank "subscribe to my Newsletter" "https://www.getrevue.co/profile/rwieruch" %}} where I will announce the launch of the complete Firebase in React book in the next month.
+Everything essential is in place for Firebase authentication and Firebase realtime database for user management. I am interested in seeing what you will build on top of it! If you want to continue to follow this tutorial, {{% a_blank "subscribe to my Newsletter" "https://www.getrevue.co/profile/rwieruch" %}} where I will announce the launch of the complete Firebase in React book.
 
 **What's else will be included in the book?**
 
-* Users and Messages: Next to the user management, you will introduce a second entity for messages to your application. By using both entities, user and message, we can build a chat application.
-
 * Role-based Authorization: So far, you have only authorized your application on a broad level, by checking for an authenticated user. In the book, you will learn how to assign roles to your users and how to give them additional privileges.
+
+* User Management: In order to get more control over your users, I will show you how to merge authentication user and database user. Then you can always assign new properties to your database user while having access to it on your user after authentication too.
+
+* Users and Messages: Next to the user management, you will introduce a second entity for messages to your application. By using both entities, user and message, we can build a chat application.
 
 * Read and Write Operations: In the application, you created a user and display a list of users with real-time capabilities. The book continuous with the usual delete and update operations to organize your users in the realtime database.
 
@@ -2408,20 +2409,11 @@ Everything essential is in place for Firebase authentication and Firebase realti
 
 * Firebase Deployment: The final step in the book is  to deploy an application with Firebase. The books walks you through the process step-by-step to see your project online.
 
-**What may be included in the book?**
+* Firestore: Firebase's Firestore is the new Firebase Realtime Database. In the book, I may show you a way to migrate to this new tech stack. Then it is up to you whether you want to use Firestore or Firebase's Realtime Database.
 
-* Firestore: Firebase's Firestore is the new Firebase Realtime Database. In the book, I would like to show how to migrate to this tech stack.
-
-* Cloud Functions: If I can come up with an example on how to use Firebase Cloud Functions in this application, I will include it in the book. So far, I have no idea what it could be, so if you have any idea, leave me a comment below.
-
-* Tech Stack Walkthroughs: This application is only build with React and Firebase. I want to show you how to migrate the project to Redux, MobX, Gatsby.js, or Next.js, so you can get understanding how it works for real businesses.
-
-**What may be included in the complete course package?**
-
-* Source Code: You will get access to variations of this application that will have additional tech:
+* Source Code Projects: This application is only build with React and Firebase. But what about taking it on the next level to enable it for real businesses? That's where I want to show you how to migrate the project to Redux, MobX, or Gatsby.js. You will get access to variations of this application that will have additional tech:
   * Gatsby + Firebase
   * React + Redux + Firebase
-  * Next.js + Firebase
   * React + MobX + Firebase
   * React + Semantic UI + Firebase
 
