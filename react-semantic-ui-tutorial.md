@@ -195,32 +195,11 @@ The output can be seen {{% a_blank "here" "https://codesandbox.io/embed/x9jjqzr4
 * `<u>as</u>`: This specifies the element type to render the content in.
 * `<u>circular</u>`: This prop when applied makes a button circular.
 * `<u>className</u>`: Enables additional classes for the button.
-* `<u>color</u>`: This is used to set the color of the button. It expects one of the following values:
-  * `red`
-  * `orange`
-  * `yellow`
-  * `olive`
-  * `green`
-  * `teal`
-  * `blue`
-  * `violet`
-  * `purple`
-  * `pink`
-  * `brown`
-  * `grey`
-  * `black`
+* `<u>color</u>`: This is used to set the color of the button.
 * `<u>disabled</u>`: This prop, when set to true, can make a button unable to be interacted with.
 * `<u>loading</u>`: Adds a loading indicator to the button.
 * `<u>primary</u>`: This prop formats a button to show different levels of emphasis.
-* `<u>size</u>`: This prop is used to specify the size of the button. It accepts any of these values:
-  * `mini`
-  * `tiny`
-  * `small`
-  * `medium`
-  * `large`
-  * `big`
-  * `huge `
-  * `massive`
+* `<u>size</u>`: This prop is used to specify the size of the button.
 
 **Semantic UI Image**
 
@@ -237,19 +216,11 @@ const ImageExample = () => (
 
 The output can be seen {{% a_blank "here" "https://codesandbox.io/embed/q3o0n4v3xj" %}}. It accepts the following props:
 
-* `<u>bordered</u>`: When this prop is present and set to true, a border is automatically added to the image.
+* `<u>bordered</u>`: When this prop is present, a border is automatically added to the image.
 * `<u>centered</u>`: This prop sets the image centrally in a content block.
 * `<u>circular</u>`: Displays the image in a circular format.
 * `<u>className</u>`: Used to add additional classes.
-* `<u>size</u>`: This is used to determine the image size. It can accept any of the following values:
-  * `mini`
-  * `tiny`
-  * `small`
-  * `medium`
-  * `large`
-  * `big`
-  * `huge`
-  * `massive`
+* `<u>size</u>`: This is used to determine the image size.
 
 **Semantic UI Header**
 
@@ -273,22 +244,9 @@ const HeaderExample = () => (
 
 The output can be seen {{% a_blank "here" "https://codesandbox.io/embed/wn2qmnxxp8" %}}. It accepts the following props:
 
-* `<u>as</u>`: This specifies the element type to render the content in. It takes in values from `h1` down to `h6` and even the `p` tag.
+* `<u>as</u>`: This specifies the element type to render the content in. It takes values from `h1` to `h6` and even the `p` tag.
 * `<u>className</u>`: Used to add additional classes.
-* `<u>color</u>`: This is used to set the color of the header. It expects any of the following values:
-  * `red`
-  * `orange`
-  * `yellow`
-  * `olive`
-  * `green`
-  * `teal`
-  * `blue`
-  * `violet`
-  * `purple`
-  * `pink`
-  * `brown`
-  * `grey`
-  * `black`
+* `<u>color</u>`: This is used to set the color of the header.
 * `<u>dividing</u>`: This can be used to create a divider between the header and the content.
 * `<u>textAlign</u>`: Used to align the header content. Value can be any of the following:
   * `left`
@@ -396,14 +354,7 @@ The output can be seen {{% a_blank "here" "https://codesandbox.io/embed/jq54zy45
 * `<u>className</u>`: Additional classnames that might be needed.
 * `<u>loading</u>`: If this prop is added, it automatically shows a loading indicator.
 * `<u>onSubmit</u>`: This prop is used to set a submit handler for the HTML form.
-* `<u>size</u>`: The form can vary in size. It accepts any of these values:
-  * `mini`
-  * `tiny`
-  * `small`
-  * `large`
-  * `big`
-  * `huge`
-  * `massive`.
+* `<u>size</u>`: The form can vary in size.
 
 The full list of props can be seen on the documentation page {{% a_blank "here" "https://react.semantic-ui.com/collections/form/#shorthand-field-control-html" %}}.
 
@@ -481,9 +432,7 @@ The output can be seen {{% a_blank "here" "https://codesandbox.io/embed/x9mj9z8y
 
 **Semantic UI Modals**
 
-Modals are used to create dialogs, popovers or lightboxes that help convey some information. The use of a modal temporarily blocks interactions with the main view of a site whilst showing some content.
-
-A Semantic UI modal can be created using the Modal component as seen in the code block below.
+Modals are used to create dialogs, popovers or lightboxes that help convey some information. The use of a modal temporarily blocks interactions with the main view of a site whilst showing some content. A Semantic UI modal can be created using the Modal component as seen in the code block below.
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -520,12 +469,7 @@ The output can be seen {{% a_blank "here" "https://codesandbox.io/embed/ojk0mw86
 * `<u>className</u>`: This is used to set additional class names.
 * `<u>content</u>`: The actual content for the Modal.
 * `<u>header</u>`: The text displayed above the content in bold.
-* `<u>size</u>`: The size prop allows us to determine the size of the modal. It accepts any of the following values:
-  * `mini`
-  * `tiny`
-  * `small`
-  * `large`
-  * `fullscreen`
+* `<u>size</u>`: The size prop allows us to determine the size of the modal.
 * `<u>trigger</u>`: The trigger prop as the name suggests is what is used to trigger the opening of the modal. It's displayed in place of the modal. In the example above, it was set to a button.
 
 The full list of configs with the Modal component can be seen on the documentation {{% a_blank "here" "https://react.semantic-ui.com/modules/modal/#types-modal" %}}.
@@ -578,13 +522,7 @@ The Menu component allows us to create navigation menus and grouped navigation a
   * `bottom`
   * `top`
 * `<u>inverted</u>`: If the `inverted` prop is present, the colors of the menu are inverted so as to show greater a contrast.
-* `<u>size</u>`: This is used to determine the size of the menu. It accepts any of the following values:
-  * `mini`
-  * `tiny`
-  * `small`
-  * `large`
-  * `huge`
-  * `massive`
+* `<u>size</u>`: This is used to determine the size of the menu.
 
 The full list of configs with the Menu component can be seen on the documentation {{% a_blank "here" "https://react.semantic-ui.com/collections/menu/" %}}.
 
