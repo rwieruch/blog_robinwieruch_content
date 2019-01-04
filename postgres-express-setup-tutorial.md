@@ -1,6 +1,6 @@
 +++
 title = "Setup PostgreSQL with Sequelize in Express Tutorial"
-description = "A comprehensive checklist for a  PostgreSQL on MacOS or Windows setup for having a SQL database in an Express.js application. Leave out the Express part to just set up Postgres on MacOS ..."
+description = "A comprehensive checklist for a PostgreSQL on MacOS or Windows setup for having a SQL database in an Express.js application. Leave out the Express part to just set up Postgres on MacOS ..."
 date = "2018-11-21T13:50:46+02:00"
 tags = ["Node", "JavaScript"]
 categories = ["Node", "JavaScript"]
@@ -19,7 +19,7 @@ summary = "The article is a checklist for myself, but for anyone else setting up
 
 {{% pin_it_image "postgres express tutorial" "img/posts/postgres-express-setup-tutorial/banner.jpg" "is-src-set" %}}
 
-The article is a checklist for setting up PostgreSQL 10/11 on MacOS, with an SQL database in an Express.js application. Leave out the Express part to just set up Postgres on MacOS, If you want to run Postgres on Windows, you will find guidance here as well. You might be wondering why there's a need for another setup guide for Postgres in the first place, since there are a few across the web. I found many tutorials and guides on how to set it up, but found most of them to be unclear and outdated, based on old Postgres versions. The checklist is not comprehensive, though, as it pertains to my own way of doing things, so any feedback on simpler or more universal means is always welcome.
+The tutorial is a checklist for setting up PostgreSQL 10 or 11 on MacOS, with an SQL database in an Express.js application. Leave out the Express part to just set up Postgres on MacOS, If you want to run Postgres on Windows, you will find guidance here as well. You might be wondering why there's a need for another setup guide for Postgres in the first place, since there are a few across the web. I found many tutorials and guides on how to set it up, but found most of them to be unclear and outdated, based on old Postgres versions. The checklist is not comprehensive, though, as it pertains to my own way of doing things, so any feedback on simpler or more universal means is always welcome.
 
 {{% chapter_header "MacOS Postgres Setup" "postgres-setup-macos" %}}
 
@@ -202,6 +202,7 @@ If you haven't named the chat database yet, you can create it on the command lin
 
 {{< highlight javascript >}}
 import express from 'express';
+
 ...
 // here you have your express related imports
 ...
