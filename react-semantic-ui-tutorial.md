@@ -74,7 +74,7 @@ Once that's done, run the commands from above to install Semantic UI React and C
 Next, we'll start creating the required components. Navigate into the `src` folder and create a `Login.js` file and edit with the following.
 
 {{< highlight javascript >}}
-import React from "react";
+import React from 'react';
 import {
   Button,
   Form,
@@ -82,58 +82,64 @@ import {
   Header,
   Image,
   Message,
-  Segment
-} from "semantic-ui-react";
+  Segment,
+} from 'semantic-ui-react';
 
 const LoginForm = () => (
-  <div className="login-form">
-    {/*
-      Heads up! The styles below are necessary for the correct render of this example.
-      You can do same with CSS, the main idea is that all the elements up to the `Grid`
-      below must have a height of 100%.
-    */}
-    <style>{`
-      body > div,
-      body > div > div,
-      body > div > div > div.login-form {
-        height: 100%;
-      }
-    `}</style>
-    <Grid textAlign="center" style={{ height: "100%" }} verticalAlign="middle">
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h2" color="blue" textAlign="center">
-         <Image src="logo.png" /> Login
-        </Header>
-        <Form size="large">
-          <Segment stacked>
-            <Form.Input
-              fluid
-              icon="user"
-              iconPosition="left"
-              placeholder="Email address"
-            />
-            <Form.Input
-              fluid
-              icon="lock"
-              iconPosition="left"
-              placeholder="Password"
-              type="password"
-            />
+  <Grid textAlign="center">
+    <Grid.Column style={{ maxWidth: 450 }}>
+      <Header as="h2" color="blue" textAlign="center">
+        <Image src="logo.png" /> Login
+      </Header>
+      <Form size="large">
+        <Segment>
+          <Form.Input
+            fluid
+            icon="user"
+            iconPosition="left"
+            placeholder="Email address"
+          />
+          <Form.Input
+            fluid
+            icon="lock"
+            iconPosition="left"
+            placeholder="Password"
+            type="password"
+          />
 
-            <Button color="blue" fluid size="large">
-              Login
-            </Button>
-          </Segment>
-        </Form>
-        <Message>
-          Not registered yet? <a href="#">Sign Up</a>
-        </Message>
-      </Grid.Column>
-    </Grid>
-  </div>
+          <Button color="blue" fluid size="large">
+            Login
+          </Button>
+        </Segment>
+      </Form>
+      <Message>
+        Not registered yet? <a href="#">Sign Up</a>
+      </Message>
+    </Grid.Column>
+  </Grid>
 );
 
 export default LoginForm;
+{{< /highlight >}}
+
+In your App component, import the new form component and display it.
+
+{{< highlight javascript "hl_lines=5 10" >}}
+import React from 'react';
+
+import './App.css';
+
+import LoginForm from './Login';
+
+function App() {
+  return (
+    <div className="App">
+      <LoginForm />
+    </div>
+  );
+}
+
+export default App;
 {{< /highlight >}}
 
 The output can be seen {{% a_blank "here" "https://codesandbox.io/embed/911vwwnzm4" %}}. In the code block above, we are building a simple login form. We start by importing some Semantic components that will be used to build the login form. We'll highlight the components imported and discuss them.
