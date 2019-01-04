@@ -21,7 +21,7 @@ summary = "A tutorial to guide you through styling your React application with S
 
 {{% a_blank "Semantic UI" "https://semantic-ui.com/" %}} is a UI component framework for theming websites. Semantic UI enables developers to build websites with fast and concise HTML, along with a complete mobile responsive experience. Semantic UI treats words and classes as exchangeable concepts. Classes use syntax from natural languages like noun/modifier relationships, word order, and plurality to link concepts intuitively.
 
-{{% chapter_header "Getting Started with Semantic UI React" "semantic-ui-react" %}}
+{{% chapter_header "Semantic UI in React Installation" "semantic-ui-react-installation" %}}
 
 In order to use Semantic UI in a React app, we'd have to make use of {{% a_blank "Semantic UI React" "https://react.semantic-ui.com/" %}}, a React integration of the original Semantic UI library. Semantic UI React provides several prebuilt components that we can use to speed up our development process whilst building a React app.
 
@@ -31,11 +31,25 @@ The best way to get started with Semantic UI React is by running the command bel
 npm install semantic-ui-react
 {{< /highlight >}}
 
-Semantic UI React needs the Semantic UI stylesheet for it to work properly. That can be done by placing the CDN link below in the `head` of your app.
+Semantic UI React needs the Semantic UI stylesheet for it to work properly. That can be done by installing the Semantic UI CSS package too.
 
-{{< highlight html >}}
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.0/dist/semantic.min.css"></link>
+{{< highlight javascript >}}
+npm install semantic-ui-css
 {{< /highlight >}}
+
+Then it can be imported in your React entry point file where React hooks into the DOM:
+
+{{< highlight javascript "hl_lines=3" >}}
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'semantic-ui-css/semantic.min.css';
+
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+{{< /highlight >}}
+
+Afterward, Semantic UI can be used in your React application.
 
 {{% chapter_header "Overview of Semantic UI React Components" "semantic-ui-react-components" %}}
 
@@ -45,25 +59,15 @@ It's also going to feature Semantic UI components so we get to see how the compo
 
 {{% pin_it_image "react semantic ui login" "img/posts/react-semantic-ui-tutorial/react-login.png" "is-src-set" %}}
 
-We'll start by creating a React app using the {{% a_blank "create-react-app" "https://github.com/facebook/create-react-app" %}} utility. Create React App enables developers to easily create React apps with zero build config.
+We'll start by creating a React app using the {{% a_blank "create-react-app" "https://github.com/facebook/create-react-app" %}} utility. Create React App enables developers to easily create React apps with zero build config. If you haven't set it up yet, checkout these [MacOS](https://www.robinwieruch.de/react-js-macos-setup/) and [Windows](https://www.robinwieruch.de/react-js-windows-setup/) Setup Guides.
 
 {{< highlight javascript >}}
-npx create-react-app react-semanticapp
-cd my-app
+create-react-app react-semantic-ui-app
+cd react-semantic-ui-app
 npm start
 {{< /highlight >}}
 
-Once that's done, run the command below to install Semantic UI React into the React app.
-
-{{< highlight javascript >}}
-npm install semantic-ui-react
-{{< /highlight >}}
-
-Then, add this to the `index.html` located in the `public` folder.
-
-{{< highlight html >}}
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.0/dist/semantic.min.css">
-{{< /highlight >}}
+Once that's done, run the commands from above to install Semantic UI React and CSS for your application. Don't forget to import the Semantic UI CSS in your main React file.
 
 {{% sub_chapter_header "Semantic UI: Login Form" "semantic-ui-react-login-form" %}}
 
