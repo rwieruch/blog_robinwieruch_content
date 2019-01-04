@@ -17,6 +17,8 @@ summary = "A tutorial to guide you through styling your React application with S
 
 {{% sponsorship %}}
 
+{{% guest "Yomi Eluwande" "https://twitter.com/yomieluwande" %}}
+
 {{% pin_it_image "react semantic ui tutorial" "img/posts/react-semantic-ui-tutorial/banner.jpg" "is-src-set" %}}
 
 {{% a_blank "Semantic UI" "https://semantic-ui.com/" %}} is a UI component framework for theming websites. Semantic UI enables developers to build websites with fast and concise HTML, along with a complete mobile responsive experience. Semantic UI treats words and classes as exchangeable concepts. Classes use syntax from natural languages like noun/modifier relationships, word order, and plurality to link concepts intuitively.
