@@ -86,9 +86,9 @@ import {
 } from 'semantic-ui-react';
 
 const LoginForm = () => (
-  <Grid textAlign="center">
-    <Grid.Column style={{ maxWidth: 450 }}>
-      <Header as="h2" color="blue" textAlign="center">
+  <Grid centered columns={2}>
+    <Grid.Column>
+      <Header as="h2" textAlign="center">
         <Image src="logo.png" /> Login
       </Header>
       <Form size="large">
@@ -124,22 +124,20 @@ export default LoginForm;
 
 In your App component, import the new form component and display it.
 
-{{< highlight javascript "hl_lines=5 10" >}}
+{{< highlight javascript "hl_lines=2 4 7 8 9" >}}
 import React from 'react';
-
-import './App.css';
+import { Container } from 'semantic-ui-react';
 
 import LoginForm from './Login';
 
-function App() {
-  return (
-    <div className="App">
-      <LoginForm />
-    </div>
-  );
-}
+const App = () => (
+  <Container>
+    <LoginForm />
+  </Container>
+);
 
 export default App;
+
 {{< /highlight >}}
 
 The output can be seen {{% a_blank "here" "https://codesandbox.io/embed/911vwwnzm4" %}}. In the code block above, we are building a simple login form. We start by importing some Semantic components that will be used to build the login form. We'll highlight the components imported and discuss them.
