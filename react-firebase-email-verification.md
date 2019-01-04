@@ -1,8 +1,7 @@
 +++
-draft = true
 title = "Email Verification with Firebase in React"
 description = "A Firebase React tutorial on how to enable email verification. Only users that confirmed their email address with a email confirmation have access to your application. Every other user who is using a fake email is not authorized ..."
-date = "2018-11-30T07:52:46+02:00"
+date = "2018-12-20T07:52:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["react firebase email verification", "react firebase email confirmation", "react firebase double opt in"]

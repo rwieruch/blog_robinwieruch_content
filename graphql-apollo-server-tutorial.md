@@ -4735,11 +4735,12 @@ Congratulations, your application should be live now. Not only is your GraphQL s
 
 {{% sub_chapter_header "Heroku Troubleshoot" "heroku-troubleshoot" %}}
 
-It can happen that the GraphQL schema is not available in GraphQL Playground for application in production. It's because the `introspection` flag for Apollo Server is disabled for production. In order to fix it, you can set it to true:
+It can happen that the GraphQL schema is not available in GraphQL Playground for application in production. It's because the `introspection` flag for Apollo Server is disabled. In order to fix it, you can set it to true. Another improvement to add may be the `playground` flag to enable GraphQL Playground for Heroku:
 
-{{< highlight javascript "hl_lines=2" >}}
+{{< highlight javascript "hl_lines=2 3" >}}
 const server = new ApolloServer({
   introspection: true,
+  playground: true,
   typeDefs: schema,
   resolvers,
   ...

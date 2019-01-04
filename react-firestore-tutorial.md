@@ -22,6 +22,8 @@ summary = "A beginners tutorial to learn Firestore in React for business applica
 
 {{% react-firebase-book %}}
 
+{{% read_before_9 "This tutorial is part 10 of 10 in this series." "Part 1:" "A Firebase in React Tutorial for Beginners" "https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial" "Part 2:" "React Firebase Authorization with Roles" "https://www.robinwieruch.de/react-firebase-authorization-roles-permissions" "Part 3:" "React Firebase Auth Persistence with Local Storage" "https://www.robinwieruch.de/react-firebase-auth-persistence" "Part 4:" "React Firebase Social Login: Google, Facebook, Twitter" "https://www.robinwieruch.de/react-firebase-social-login" "Part 5:" "React Firebase: Link Social Logins" "https://www.robinwieruch.de/react-firebase-link-social-logins" "Part 6:" "React Firebase: Email Verification" "https://www.robinwieruch.de/react-firebase-email-verification" "Part 7:" "How to use React Router with Firebase" "https://www.robinwieruch.de/react-firebase-router" "Part 8:" "How to use Firebase Realtime Database in React" "https://www.robinwieruch.de/react-firebase-realtime-database" "Part 9:" "How to deploy a React application to Firebase" "https://www.robinwieruch.de/firebase-deploy-react-js" %}}
+
 People who follow my content know that I make heavily use of the good old Firebase Realtime Database in React applications. I am saying good old here, because there is this new cool kid on the block: **Firebase's Cloud Firestore**. It can be used as **alternative to Firebase's Realtime Database**. Looking into Google's documentation, there are four major advantages of using Cloud Firestore over Firebase's Realtime Database:
 
 * more intuitive data model

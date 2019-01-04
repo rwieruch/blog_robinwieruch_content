@@ -19,13 +19,11 @@ summary = "React with its ecosystem is a flexible framework. You can choose your
 
 {{% pin_it_image "react js libraries" "img/posts/essential-react-libraries-framework/banner.jpg" "is-src-set" %}}
 
-React.js is only a view-layer library. Thus React only enables you to build component driven user interfaces. It comes with a couple of built-in solutions though, for instance local state management and syntactic events to make interactions happen, but after all you are only dealing with a view-layer library.
+React has been around for a while and since then a well-rounded, also perceived as chaotic, ecosystem has evolved around the component driven library. It's not always simple to pick a library that solves your problem in the React world, but once you get to know all the options, its ecosystem becomes a powerful choice of tools. That's why I want to give every year a new overview of the most popular libraries used to complement a React application.
 
-It is often said that plain React is sufficient when building applications in JS. In the open source book [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) it is showcased that plain React suffices to build an application. But in the end, when implementing a larger application, you need a couple of more libraries to have a sophisticated web application with React as its core.
+React only enables you to build component driven user interfaces. It comes with a couple of built-in solutions though, for instance local state management and syntactic events to make interactions happen, but after all you are only dealing with components. It is often said that plain React is sufficient when building applications in JS. In [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) it is showcased that only React suffices to build an application. But in the end, when implementing a larger application, you need a couple of more libraries to have a sophisticated web application with React as its core.
 
-Developers coming from frameworks such as Angular or Ember often have a hard time to figure out all the building blocks they will need to build a sophisticated web application with React as its core. Coming from a framework, you are used to have all necessary functionalities at your disposal. However, React is only a view-layer library. Thus you would need to figure out all the other building blocks, to be more specific: all the other libraries that are needed to complement React. Nevertheless I think it is one of the crucial advantages of React in staying flexible when choosing your libraries to complement your React application.
-
-I made this experience myself [when I came from Angular to React](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/). It might help you to understand the reasons behind a change from a framework to a library.
+Developers coming from frameworks such as Angular or Ember often have a hard time to figure out all the building blocks they will need to build a sophisticated web application with React at its core. Coming from a framework, you are used to have all necessary functionalities at your disposal. However, React is only a component library. Thus you would need to figure out all the other building blocks, to be more specific: all the other libraries that are needed to complement React. Nevertheless I think it is one of the crucial advantages of React in staying flexible when choosing your libraries to complement your React application. I made this experience myself [when I came from Angular to React](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/). It might help you to understand the reasons behind a change from a framework to a library.
 
 I would argue that React with its ecosystem is a flexible framework. You can choose your libraries to complement your React core. The following article will give you an opinionated approach to select from these libraries to build a sophisticated React application. In the end, you will have an opinionated list of building blocks. Nevertheless, it is up to you to exchange them with your own preferred libraries. After all, the article attempts to give beginners in the React ecosystem an opinionated overview.
 
@@ -47,7 +45,7 @@ I would argue that React with its ecosystem is a flexible framework. You can cho
 
 {{% chapter_header "React's Boilerplate Decision" "react-boilerplate-decision" %}}
 
-Even nowadays developers struggle on making a decision on how to setup their React project when joining the React community. There are thousands of boilerplate projects to choose from and every boilerplate project attempts to fulfil different needs. They vary in a range of minimalistic to almost bloated projects.
+Developers still struggle on making a decision on how to setup their React project when joining the React community. There are thousands of boilerplate projects to choose from and every boilerplate project attempts to fulfil different needs. They vary in a range of minimalistic to almost bloated projects.
 
 The status quo in the community is by starting your project with {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}}. It comes with a zero-configuration setup and gives you a minimalistic up and running React application out of the box. You can always decide to lay open the tool set by using its eject functionality. Afterward, you can alter the underlying tool set.
 
@@ -62,12 +60,10 @@ If you are tempted to choose a custom boilerplate for your own doings, try to na
 * create-react-app
 * Gatsby.js for static websites in React
 * Next.js for server-side rendered React
-* create your own minimal boilerplate, when having a solid understanding of React
-* otherwise narrow down your requirements and choose a minimal boilerplate for it
 
 {{% chapter_header "Utility Libraries for React" "react-utility-libraries" %}}
 
-JavaScript ES6 and beyond gives you tons of built-in functionalities dealing with arrays, objects, numbers, objects, strings etc. One of the most used JavaScript built-in functionalities in React is the {{% a_blank "map() method of arrays" "https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/map" %}}. Why? Because you always have to render a list of items in a component. Since JSX is a mixture of HTML and JavaScript, you can use JavaScript to map over your items and return JSX.
+JavaScript ES6 and beyond gives you plenty of built-in functionalities dealing with arrays, objects, numbers, objects and strings. One of the most used JavaScript built-in functionalities in React is the {{% a_blank "built-in map() Array" "https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/map" %}}. Why? Because you always have to render a list of items in a component. Since JSX is a mixture of HTML and JavaScript, you can use JavaScript to map over your items and return JSX.
 
 {{< highlight javascript >}}
 const List = ({ list }) =>
@@ -76,7 +72,7 @@ const List = ({ list }) =>
   </div>
 {{< /highlight >}}
 
-However, you might come to the point to choose a utility library that gives you more elaborated functionalities. You might even want to be more flexible when chaining these utility functions or even compose them dynamically into each other. That's the point in time where you would introduce a utility library. My personal recommendations are two libraries.
+However, you might come to a point where you have to choose a utility library that gives you more elaborate functionalities. You might even want to be more flexible when chaining these utility functions or even compose them dynamically into each other. That's the point in time where you would introduce a utility library. My personal recommendations are two libraries.
 
 The first recommendation is {{% a_blank "Lodash" "https://lodash.com/" %}}. It is the most widespread utility library in JavaScript. I guess there are people who know more about Lodash than about the native JavaScript functionalities, because people often learn libraries before learning a programming language, but also because JavaScript introduced new functionalities in its recent versions. Nevertheless, Lodash comes with a powerful set of functions to access, manipulate and compose.
 
@@ -86,9 +82,9 @@ So when introducing a utility library to your React core, you could make the dec
 
 **Recommendations:**
 
-* JavaScript ES6 and beyond
+* JavaScript
 * Lodash
-* Ramda for functional programming
+* Ramda for FP
 
 {{% chapter_header "Styling in React" "react-styling" %}}
 

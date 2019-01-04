@@ -17,7 +17,7 @@ summary = "Learn how to build a Reason React application with this tutorial. You
 
 {{% sponsorship %}}
 
-{{% guest "Benjamin Johnson" "https://mobile.twitter.com/benjamminj" %}}
+{{% guest "Benjamin Johnson" "https://twitter.com/benjamminj" %}}
 
 {{% pin_it_image "reason react tutorial" "img/posts/reason-react-tutorial/banner.jpg" "is-src-set" %}}
 

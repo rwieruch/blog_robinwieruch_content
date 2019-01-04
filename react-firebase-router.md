@@ -1,8 +1,7 @@
 +++
-draft = true
 title = "How to use React Router with Firebase"
 description = "A React tutorial on how to combine React Router and Firebase to navigate a user through the application while fetching data from the Firebase database or even passing data through React Router ..."
-date = "2018-12-01T07:52:46+02:00"
+date = "2019-01-01T07:52:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["react firebase router", "react router firebase"]
