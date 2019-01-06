@@ -139,7 +139,7 @@ const user = (sequelize, DataTypes) => {
   });
 
   User.associate = models => {
-    User.hasMany(models.Message);
+    User.hasMany(models.Message, { onDelete: 'CASCADE' });
   };
 
   return User;
@@ -186,8 +186,7 @@ Object.keys(models).forEach(key => {
   }
 });
 
-models.sequelize = sequelize;
-models.Sequelize = Sequelize;
+export { sequelize };
 
 export default models;
 {{< /highlight >}}
@@ -206,7 +205,7 @@ import express from 'express';
 // here you have your express related imports
 ...
 
-import models from './models';
+import models, { sequelize } from './models';
 
 const app = express();
 
@@ -214,7 +213,7 @@ const app = express();
 // here you do your express server setup
 ...
 
-models.sequelize.sync().then(() => {
+sequelize.sync().then(() => {
   app.listen(3000, () => {
     console.log('Your Server is up and running');
   });
