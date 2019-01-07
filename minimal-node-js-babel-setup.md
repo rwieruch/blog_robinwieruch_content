@@ -21,7 +21,7 @@ summary = "A common sense minimal Node.js setup guide. It uses Babel and Nodemon
 
 {{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "My development setup as a JavaScript web developer" "https://www.robinwieruch.de/developer-setup/" %}}
 
-I have always been of the understanding there are no common sense rules about how to create a minimal Node.js application with Babel. In my search for these answers, it seemed that every tutorial I came across showed something different. As a result, I wanted to streamline this project setup for my readers and myself, so I developed a common approach for Node.js applications with Babel. I think it is a good foundation for learning JavaScript on the command line, building sophisticated Node.js projects on top of it, releasing it as node package (library) on npm as an open source project, or to build a GraphQL server on top of it. The final project you are going to implement can be found in this [GitHub repository](https://github.com/rwieruch/node-babel-server).
+I have always been of the understanding there are no common sense rules about how to create a minimal Node.js application with Babel. In my search for these answers, it seemed that every tutorial I came across showed something different. As a result, I wanted to streamline this project setup for my readers and myself, so I developed a common approach for Node.js applications with Babel. I think it is a good foundation for learning JavaScript on the command line, building sophisticated Node.js projects on top of it, releasing it as node package (library) on npm as an open source project, or to build a RESTful or GraphQL server on top of it. The final project you are going to implement here can be found in this [GitHub repository](https://github.com/rwieruch/node-babel-server).
 
 {{% chapter_header "Node.js Project Setup" "node-js-project-setup" %}}
 
@@ -78,16 +78,19 @@ A statement log appears in the command line after the script is executed. Next, 
   ...
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   ...
 }
 {{< /highlight >}}
 
-On the command line, run the same script as before, except with `npm start` . Every time you change the underlying start script in the *package.json* file's npm scripts, you only need to type `npm start` on the command line without the specifics of the script. Try creating more npm scripts for your needs like testing and deploying in the *package.json* file for this project.
+On the command line, run the same script as before, except with `npm start` . Every time you change the underlying start script in the *package.json* file's npm scripts, you only need to type `npm start` on the command line without the specifics of the script. Try creating more npm scripts for your needs like testing and deploying in the *package.json* file for this project later.
 
-The only remaining concern is that you have start the script every time you want to test your source code. You can change this with an always-running node process. To remedy this, install the commonly used {{% a_blank "nodemon" "https://github.com/remy/nodemon" %}} library on the command line as {{% a_blank "development dependency" "https://docs.npmjs.com/files/package.json#dependencies" %}} to your project.
+{{% chapter_header "Node.js with Nodemon" "node-js-nodemon" %}}
+
+The only remaining concern is that you have start the script every time you want to try your source code. You can change this with an always-running node process. To remedy this, install the commonly used {{% a_blank "nodemon" "https://github.com/remy/nodemon" %}} library on the command line as {{% a_blank "development dependency" "https://docs.npmjs.com/files/package.json#dependencies" %}} to your project.
 
 {{< highlight javascript >}}
 npm install nodemon --save-dev
@@ -100,7 +103,8 @@ Next, exchange node with nodemon in your npm start script:
   ...
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   ...
@@ -117,10 +121,10 @@ This little adjustment to the environment gives developers a powerful tool, beca
 
 {{% chapter_header "Node.js with Babel" "node-js-babel" %}}
 
-You should be able to develop a Node.js application by now, but there is more to setting up a sophisticated Node.js project with recent JavaScript language features (ECMAScript) like {{% a_blank "async/await" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function" %}} or the object {{% a_blank "spread operator" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax" %}}. That's where {{% a_blank "Babel" "https://babeljs.io/" %}} becomes useful. You can install {{% a_blank "babel-cli" "https://babeljs.io/docs/en/babel-cli" %}} from the command line for your project's development dependencies.
+You should be able to develop a Node.js application by now, but there is more to setting up a sophisticated Node.js project that is capable of using recent JavaScript language features (ECMAScript) that are not included in the recent Node.js versions. That's where {{% a_blank "Babel" "https://babeljs.io/" %}} becomes useful. You can install it from the command line for your project's development dependencies.
 
 {{< highlight javascript >}}
-npm install babel-cli --save-dev
+npm install @babel/core @babel/node --save-dev
 {{< /highlight >}}
 
 Next, add it to your npm start script:
@@ -130,36 +134,22 @@ Next, add it to your npm start script:
   ...
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js"
+    "start": "nodemon --exec babel-node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   ...
 }
 {{< /highlight >}}
 
-Nothing should change when you run the application again, thought that's just the surface. Under the hood, Babel transpiles your code to vanilla JavaScript. When you use an upcoming JavaScript language feature, which hasn't been introduced in Node.js, you can still use the feature in your source code. Babel makes sure that Node.js understands it. However, there is still one crucial step to include upcoming language features with Babel. New features in the JavaScript language are introduced in {{% a_blank "stages" "https://babeljs.io/docs/en/plugins/" %}}. To use features from JavaScript in your application, you'll need to the stage at which it appears.
-
-The following walkthrough shows how to introduce JavaScript features up to Stage 2. First, install the necessary dependencies in the command line:
+Nothing should change when you run the application again, thought that's just the surface. Under the hood, Babel transpiles your code to vanilla JavaScript. When you use an upcoming JavaScript language feature, which hasn't been introduced in Node.js, you can still use the feature in your source code. Babel makes sure that Node.js understands it. However, there is still one crucial step to include upcoming language features with Babel. You can activate different upcoming JavaScript features by adding them as presets to Babel. Let's add the most common used Babel preset to your application:
 
 {{< highlight javascript >}}
-npm install babel-preset-env babel-preset-stage-2 --save-dev
+npm install @babel/preset-env --save-dev
 {{< /highlight >}}
 
-Next, use these dependencies directly in your npm start script:
 
-{{< highlight javascript >}}
-{
-  ...
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon --exec babel-node --presets env,stage-2 src/index.js"
-  },
-  "keywords": [],
-  ...
-}
-{{< /highlight >}}
-
-Now, let's see if we can find a more elegant way to complete this task. In the project's root folder, create a *.babelrc* file in the command line:
+Now, in the project's root folder, create a *.babelrc* file in the command line:
 
 {{< highlight javascript >}}
 touch .babelrc
@@ -169,11 +159,13 @@ In this configuration file for Babel, you can include the two recently installed
 
 {{< highlight javascript >}}
 {
- "presets": ["env", "stage-2"]
+  "presets": [
+    "@babel/preset-env"
+  ]
 }
 {{< /highlight >}}
 
-Now include some of these upcoming JavaScript features in your *src/index.js* file. If you run into problems, make sure the features are included in the Stage 2 specification from your *.babelrc* file. The application runs with `npm start` on the command line.
+Now you can include upcoming JavaScript features in your *src/index.js* file. If you run into problems because your desired feature is not working, check whether there exists a dedicated Babel preset for it.
 
 {{% chapter_header "Environment Variables in Node.js" "node-js-environment-variables" %}}
 
@@ -186,7 +178,7 @@ touch .env
 Now you can place any key value pair that you don't want in your source code in this new file.
 
 {{< highlight javascript >}}
-MY_DATABASE_PASSWORD=mysupersecretpassword
+MY_SECRET=mysupersecretpassword
 {{< /highlight >}}
 
 {{% a_blank "dotenv" "https://github.com/motdotla/dotenv" %}} is another helpful library to make environmental variables accessible in the source code. First, install it on the command line as a normal dependency:
@@ -202,7 +194,7 @@ import 'dotenv/config';
 
 console.log('Hello Node.js project.');
 
-console.log(process.env.MY_DATABASE_PASSWORD);
+console.log(process.env.MY_SECRET);
 {{< /highlight >}}
 
 Start the npm script again, and you should see the environmental variable in the command line. Now you are able to store sensible data separate from the source code.
@@ -225,10 +217,21 @@ import saySomething from './my-other-file.js'
 
 That's a basic understanding of Node.js environment variables. They should be used to keep sensible data secure in JavaScript applications, but shouldn't be shared on public GitHub repositories when using git.
 
+### Exercises:
+
+* Confirm your {{% a_blank "source code" "https://github.com/rwieruch/node-babel-server" %}}
+* Ask yourself:
+  * What's `npm init` doing when you setup your Node.js project?
+  * What benefit is Nodemon giving us?
+  * Why do we need Babel?
+  * Why do we need Environment Variables?
+
 <hr class="section-divider">
 
-This guide has shown you how to create a Node.js project from scratch, and how you can introduce upcoming JavaScript features in your Node.js environment using Babel. You have seen how npm scripts are used to start, test, and deploy applications, and how environment variables secure sensible data like private API keys and user credentials. The finished product is a node package that can be open sourced on npm, another rewarding aspect of working with the Node.js ecosystem. It can can be found in this {{% a_blank "GitHub repository" "https://github.com/rwieruch/node-babel-server" %}}.
+This guide has shown you how to create a Node.js project from scratch, and how you can introduce upcoming JavaScript features in your Node.js environment using Babel. You have seen how npm scripts are used to start, test, and deploy applications, and how environment variables secure sensible data like private API keys and user credentials. The finished product is a node package that can be open sourced on npm, another rewarding aspect of working with the Node.js ecosystem.
 
-{{% read_more "GraphQL Server Tutorial with Apollo Server and Express" "https://www.robinwieruch.de/graphql-apollo-server-tutorial/" %}}
+{{% read_before "This tutorial is part 1 of 2 in the series." "Part 2:" "GraphQL Server Tutorial with Apollo Server and Express" "https://www.robinwieruch.de/graphql-apollo-server-tutorial/" %}}
+
+{{% read_before "This tutorial is part 1 of 2 in the series." "Part 2:" "How to setup Express.js in Node.js" "https://www.robinwieruch.de/node-js-express-tutorial/" %}}
 
 {{% read_more "The minimal React + Webpack 4 + Babel Setup" "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" %}}
