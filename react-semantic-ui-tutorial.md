@@ -451,7 +451,7 @@ The full list of configs with the Modal component can be seen on the documentati
 
 {{% chapter_header "Semantic UI: Navigation Menu" "semantic-ui-react-navigation-menu" %}}
 
-For the navigation menu, we have a brand logo and two menu links to the far right. To accomplish that we'll be using the Menu component. In the `src` folder, create a file named `Header.js` and edit it with the code block below.
+For the navigation menu, we have a brand logo and two menu links to the far right. To accomplish that we'll be using the Menu component. In the `src` folder, create a file named `Menu.js` and edit it with the code block below.
 
 {{< highlight javascript >}}
 import React from 'react';

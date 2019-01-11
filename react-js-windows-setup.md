@@ -1,5 +1,5 @@
 +++
-title = "A simple React.js on Windows Setup"
+title = "How to setup React.js on Windows"
 description = "A concise step by step guide on how to setup React.js on Windows for your PC. In a few steps, you will install Visual Studio Code, Node.js, NPM, Git, Prettier and create-react-app for building React applications with Windows ..."
 date = "2018-02-20T13:50:46+02:00"
 tags = ["React", "Web Development"]
@@ -10,7 +10,7 @@ hashtag = "#ReactJs"
 card = "img/posts/react-js-windows-setup/banner_640.jpg"
 banner = "img/posts/react-js-windows-setup/banner.jpg"
 contribute = "react-js-windows-setup.md"
-headline = "A simple React.js on Windows Setup"
+headline = "How to setup React.js on Windows"
 
 summary = "In this article, you will find a concise step by step guide on how to setup React on Windows. There are plenty of articles out there on how to setup your web development environment on MacOS, but very few on how to setup it on Windows. Especially when people want to enter the world of React.js. This articles helps you to setup everything on your PC."
 +++

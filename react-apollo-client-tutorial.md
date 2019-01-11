@@ -19,7 +19,7 @@ summary = ",,,"
 
 {{% pin_it_image "react shouldcomponentupdate" "img/posts/react-shouldcomponentupdate/banner.jpg" "is-src-set" %}}
 
-{{% read_before "This tutorial is part 2 of 2 in this series." "Part 1:" "A simple React.js on Windows Setup" "https://www.robinwieruch.de/graphql-apollo-server-tutorial/" %}}
+{{% read_before "This tutorial is part 2 of 2 in this series." "Part 1:" "How to setup React.js on Windows" "https://www.robinwieruch.de/graphql-apollo-server-tutorial/" %}}
 
 -TODO maybe rename to apollo-client-react-tutorial.md to match the server tutorial naming
 - introduction/motivation

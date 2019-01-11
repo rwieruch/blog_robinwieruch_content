@@ -1,6 +1,6 @@
 +++
 title = "Setup MongoDB with Mongoose in Express Tutorial"
-description = "A comprehensive checklist for a MongoDB on MacOS or Windows setup for having a NoSQL database in an Express.js application. Leave out the Express part to just set up MongoDB on MacOS ..."
+description = "A checklist for a MongoDB on MacOS or Windows setup for having a NoSQL database in an Express.js application. Leave out the Express part to just set up MongoDB on MacOS ..."
 date = "2019-01-03T13:50:46+02:00"
 tags = ["Node", "JavaScript"]
 categories = ["Node", "JavaScript"]
@@ -132,9 +132,9 @@ mongoose.connect('mongodb://localhost/my_database')
 
 Note: The *my_database* will be the name of your database. If the database already exists MongoDB will connect your app to that database. Otherwise, it will create a new database for you. You don't need to handle this manually.
 
-To store objects in MongoDB, we need to deﬁne a Mongoose schema ﬁrst. The schema deﬁnes the shape of documents in MongoDB. The following case implements a database for a chat application with two Schemas: User and Message. Usually, there is a folder in your Node.js application called src/models/ that contains files for each schema in your database (e.g. *src/models/user.js* and *src/models/message.js*).
+To store objects in MongoDB, we need to deﬁne a Mongoose schema ﬁrst. The schema deﬁnes the shape of documents in MongoDB. The following case implements a database for a application with two models: User and Message. Usually, there is a folder in your Node.js application called src/models/ that contains files for each schema in your database (e.g. *src/models/user.js* and *src/models/message.js*).
 
-Before diving into the code for your application, it's always a good idea to map the relationships between objects and how to handle the data that must pass between them. A UML diagram (short for Unified Modeling Language) is a straightforward way to express relationships between entities in a way that can be referenced quickly as you type them out. This is useful for the person laying the groundwork for an application as well as anyone who wants to add to it. For our chat application, the UML diagram would appear as such:
+Before diving into the code for your application, it's always a good idea to map the relationships between entities and how to handle the data that must pass between them. A UML diagram (short for Unified Modeling Language) is a straightforward way to express relationships between entities in a way that can be referenced quickly as you type them out. This is useful for the person laying the groundwork for an application as well as anyone who wants to add to it. For our chat application, the UML diagram would appear as such:
 
 <div class="row">
   <div class="col-xs-8 col-centered">
@@ -142,9 +142,7 @@ Before diving into the code for your application, it's always a good idea to map
   </div>
 </div>
 
-Note that the models User and Message have attributes that define both their identity within the construct and their relationships to each other.
-
-Now that we have our relationships mapped, we can start with the two models in the src/models/[modelname].js files, which could be expressed like the following:
+Note that the models User and Message have attributes that define both their identity within the construct and their relationships to each other. Now that we have our relationships mapped, we can start with the two models in the src/models/[modelname].js files, which could be expressed like the following:
 
 {{< highlight javascript >}}
 import mongoose from 'mongoose';

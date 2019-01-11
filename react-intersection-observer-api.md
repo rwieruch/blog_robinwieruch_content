@@ -19,7 +19,7 @@ summary = "A tutorial to learn about the Intersection Observer API in React. You
 
 {{% pin_it_image "react intersection observer api" "img/posts/react-intersection-observer-api/banner.jpg" "is-src-set" %}}
 
-{{% read_before_2 "This tutorial is part 2 of 2 in this series." "Part 1a:" "A simple React.js on Windows Setup" "https://www.robinwieruch.de/react-js-windows-setup/" "Part 1b:" "A simple React.js on MacOS Setup" "https://www.robinwieruch.de/react-js-macos-setup/" %}}
+{{% read_before_2 "This tutorial is part 2 of 2 in this series." "Part 1a:" "How to setup React.js on Windows" "https://www.robinwieruch.de/react-js-windows-setup/" "Part 1b:" "How to setup React.js on MacOS" "https://www.robinwieruch.de/react-js-macos-setup/" %}}
 
 The Intersection Observer API is a browser API which can be used to track the position of HTML elements in context to the actual viewport of the browser. The {{% a_blank "official documentation" "https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API" %}} says: *"The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document's viewport."*
 
