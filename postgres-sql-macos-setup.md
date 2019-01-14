@@ -19,7 +19,7 @@ summary = "The article is a checklist for myself, but for anyone else setting up
 
 {{% pin_it_image "postgres macos" "img/posts/postgres-sql-macos-setup/banner.jpg" "is-src-set" %}}
 
-This is a tutorial for setting up PostgreSQL 11 on MacOS. You might be wondering why there's a need for another setup guide for Postgres in the first place, since there are a few across the web. I found many tutorials and guides on how to set it up, but found most of them to be unclear and outdated, based on old PostgreSQL versions. The checklist is not comprehensive, though, as it is used for several tutorials on my website, I keep it updated with the recent versions of PostgreSQL. If you spot any flaws in this guide, a comment below the article would be very helpful to keep it up to date for other developers.
+This is a tutorial for setting up PostgreSQL 11 on MacOS. You might be wondering why there's a need for another setup guide for Postgres in the first place, since there are a few across the web. I found many tutorials and guides on how to set it up, but found most of them to be unclear and outdated, based on old PostgreSQL versions. The checklist is not comprehensive, though, as it is used for several tutorials on my website, I keep it updated with the recent versions of PostgreSQL. If you spot any flaws in this guide, a comment below would be very helpful to keep it up to date for other developers.
 
 If you want to run PostgreSQL on Windows instead, you will find guidance over here: [How to setup PostgreSQL on Windows](https://www.robinwieruch.de/postgres-sql-windows-setup).
 

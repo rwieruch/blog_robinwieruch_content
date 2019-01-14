@@ -34,6 +34,6 @@ postgres --version
 postgres (PostgreSQL) 11.1
 {{< /highlight >}}
 
-The command line results will show the version you have installed on your local machine. I recommed using the latest version of libraries and software whenever possible to avoid compatibility issues with client-side applications.
+The command line results will show the version you have installed on your local machine. I recommed using the latest version of libraries and software whenever possible to avoid compatibility issues with client-side applications. If you find that any of these steps are giving errors, try logging out and back in to confirm the environmental variables and registry changes.
 
-If you find that any of these steps are giving errors, try logging out and back in to confirm the environmental variables and registry changes. While the remaining tutorial will focus on MacOS, you should be able to follow along on windows with minimal alterations to satisfy naming conventions.
+{{% read_more "PostgreSQL with Sequelize in Express Tutorial" "https://www.robinwieruch.de/postgres-express-setup-tutorial/" %}}

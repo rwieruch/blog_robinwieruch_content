@@ -49,8 +49,6 @@ The following case implements a database for your application with two database 
 
 * Database Entity: A database entity is actual instance of a stored item in the database that is created with a database schema. Each database entity uses a row in the database table whereas each field of the entity is defined by a column. A relationship to another entity is often described with an identifier of the other entity and ends up as field in the database as well.
 
-Let's get back to our Express application. Usually, there is a folder in your Node.js application called *src/models/* that contains files for each model in your database (e.g. *src/models/user.js* and *src/models/message.js*). Each model is implemented as a schema that defines the fields and relationships. There is often also a file (e.g. *src/models/index.js*) that combines all models and exports all them as database interface to the Express application.
-
 Before diving into the code for your application, it's always a good idea to map the relationships between entities and how to handle the data that must pass between them. A {{% a_blank "UML (Unified Modeling Language)" "https://en.wikipedia.org/wiki/Unified_Modeling_Language" %}} diagram is a straightforward way to express relationships between entities in a way that can be referenced quickly as you type them out. This is useful for the person laying the groundwork for an application as well as anyone who wants to additional information in the database schema to it. An UML diagram could appear as such:
 
 <div class="row">
@@ -59,7 +57,7 @@ Before diving into the code for your application, it's always a good idea to map
   </div>
 </div>
 
-The User and Message entities have fields that define both their identity within the construct and their relationships as association to each other. Now, we can start with the two models in the *src/models/[modelname].js* files, which could be expressed like the following without covering all the fields from the UML diagram for the sake of keeping it simple. First, the user model in the *src/models/user.js* file:
+The User and Message entities have fields that define both their identity within the construct and their relationships to each other. Let's get back to our Express application. Usually, there is a folder in your Node.js application called *src/models/* that contains files for each model in your database (e.g. *src/models/user.js* and *src/models/message.js*). Each model is implemented as a schema that defines the fields and relationships. There is often also a file (e.g. *src/models/index.js*) that combines all models and exports all them as database interface to the Express application. We can start with the two models in the *src/models/[modelname].js* files, which could be expressed like the following without covering all the fields from the UML diagram for the sake of keeping it simple. First, the user model in the *src/models/user.js* file:
 
 {{< highlight javascript >}}
 const user = (sequelize, DataTypes) => {
@@ -88,7 +86,7 @@ const user = (sequelize, DataTypes) => {
   });
 
   User.associate = models => {
-    User.hasMany(models.Message, { onDelete: 'CASCADE' });
+    User.hasMany(models.Message);
   };
 
   return User;
@@ -100,6 +98,59 @@ export default user;
 We can also implement additional methods on our model. Let's assume our user entity ends up with an email field in the future. Then we could add a method that finds a user by their an abstract "login" term, which is the username or email in the end, in the database. That's helpful when users are able to login to your application via username *or* email adress. You can implement it as method for your model. After, this method would be available next to all the other build-in methods that come from your chosen ORM:
 
 {{< highlight javascript "hl_lines=13 14 15 16 17 18 19 20 21 22 23 24 25" >}}
+const user = (sequelize, DataTypes) => {
+  const User = sequelize.define('user', {
+    username: {
+      type: DataTypes.STRING,
+      unique: true,
+    },
+  });
+
+  User.associate = models => {
+    User.hasMany(models.Message);
+  };
+
+  User.findByLogin = async login => {
+    let user = await User.findOne({
+      where: { username: login },
+    });
+
+    if (!user) {
+      user = await User.findOne({
+        where: { email: login },
+      });
+    }
+
+    return user;
+  };
+
+  return User;
+};
+
+export default user;
+{{< /highlight >}}
+
+The message model looks quite similar, even though we don't add any custom methods to it and the fields are pretty straightforward with only a text field and another message to user association:
+
+{{< highlight javascript >}}
+const message = (sequelize, DataTypes) => {
+  const Message = sequelize.define('message', {
+    text: DataTypes.STRING,
+  });
+
+  Message.associate = models => {
+    Message.belongsTo(models.User);
+  };
+
+  return Message;
+};
+
+export default message;
+{{< /highlight >}}
+
+Now, in case a user is deleted, we may want to perform a so called cascade delete for all messages in relation to the user. That's why you can extend schemas with a CASCADE flag. In this case, we add the flag to our user schema to remove all messages of this user on its deletion:
+
+{{< highlight javascript "hl_lines=10" >}}
 const user = (sequelize, DataTypes) => {
   const User = sequelize.define('user', {
     username: {
@@ -132,24 +183,6 @@ const user = (sequelize, DataTypes) => {
 export default user;
 {{< /highlight >}}
 
-The message model looks quite similar, even though we don't add any custom methods to it and the fields are pretty straightforward with only a text field:
-
-{{< highlight javascript >}}
-const message = (sequelize, DataTypes) => {
-  const Message = sequelize.define('message', {
-    text: DataTypes.STRING,
-  });
-
-  Message.associate = models => {
-    Message.belongsTo(models.User);
-  };
-
-  return Message;
-};
-
-export default message;
-{{< /highlight >}}
-
 Sequelize is used to define the model with its content (composed of `DataTypes` and optional configuration). Furthermore, additional methods can be added to shape the database interface and the associate property is used to create relations between models. An user can have multiple messages, but a Message belongs to only one user. You can dive deeper into these concepts in the {{% a_blank "Sequelize documentation" "http://docs.sequelizejs.com/" %}}. Next, in your *src/models/index.js* file, import and combine those models and resolve their associations using the Sequelize API:
 
 {{< highlight javascript >}}
@@ -180,9 +213,15 @@ export { sequelize };
 export default models;
 {{< /highlight >}}
 
-At the top of the file, you create a Sequelize instance by passing mandatory arguments (database name, database superuser, database superuser's password and additional configuration) to the constructor. For instance, you need to tell Sequelize the dialect of your database, which is postgres rather than mysql or sqlite. In our case, we are using environment variables, but you can pass these variables as strings in the source code too.
+At the top of the file, you create a Sequelize instance by passing mandatory arguments (database name, database superuser, database superuser's password and additional configuration) to the constructor. For instance, you need to tell Sequelize the dialect of your database, which is postgres rather than mysql or sqlite. In our case, we are using environment variables, but you can pass these arguments as strings in the source code too. For example, the environment variables could look like the following in an *.env* file:
 
-Note: If you don't have a superuser or dedicated database for your application yet, head over to the PostgreSQL setup guide to create them. You only have to create a superuser once, but every of your applications should have its own database.
+{{< highlight javascript >}}
+DATABASE=mydatabase
+DATABASE_USER=postgres
+DATABASE_PASSWORD=postgres
+{{< /highlight >}}
+
+Note: If you don't have a super user or dedicated database for your application yet, head over to the PostgreSQL setup guide to create them. You only have to create a superuser once, but every of your applications should have its own database.
 
 Lastly, use the created Sequelize instance in your Express application. It connects to the database asynchronously and once this is done you can start your Express application.
 
@@ -201,10 +240,24 @@ const app = express();
 ...
 
 sequelize.sync().then(() => {
-  app.listen(3000, () => {
-    console.log('Your Server is up and running');
+  app.listen(process.env.PORT, () => {
+    console.log(`Example app listening on port ${process.env.PORT}!`),
   });
 });
 {{< /highlight >}}
 
-If you want to re-initialize your database on every Express server start, you can add a condition to your sync method: `sequelize.sync({ force: true }).then(...)`. That's it for defining your database models for your Express application and for connecting everything to the database once you start your application. Once you start your application again, the command line results will show how the tables in your database were created. You can tap into those tables using the psql shell and the Meta-Commands.
+If you want to re-initialize your database on every Express server start, you can add a condition to your sync method:
+
+{{< highlight javascript "hl_lines=3 5" >}}
+...
+
+const eraseDatabaseOnSync = true;
+
+sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
+  app.listen(process.env.PORT, () =>
+    console.log(`Example app listening on port ${process.env.PORT}!`),
+  );
+});
+{{< /highlight >}}
+
+That's it for defining your database models for your Express application and for connecting everything to the database once you start your application. Once you start your application again, the command line results will show how the tables in your database were created.
