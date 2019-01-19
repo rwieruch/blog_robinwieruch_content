@@ -108,7 +108,7 @@ const withAuthentication = Component => {
 ...
 {{< /highlight >}}
 
-Every time Firebase's listener is invoked, the authenticated user is not only stored in the local state, ready to be passed to React's Context API, but  it's also stored in the browser's local storage. You can use the local storage's API with `setItem` and `removeItem` to store and delete something identified by a key. You also need to format the authenticated user to JSON before you can put it into the local storage of the browser.
+Every time Firebase's listener is invoked, the authenticated user is not only stored in the local state, ready to be passed to React's Context API, but it's also stored in the browser's local storage. You can use the local storage's API with `setItem` and `removeItem` to store and delete something identified by a key. You also need to format the authenticated user to JSON before you can put it into the local storage of the browser.
 
 The flicker is still there, because we're not really taking advantage of having the authenticated user earlier at our disposal. Let's change this by retrieving it from the local storage in the higher-order component's constructor earlier:
 
