@@ -44,7 +44,7 @@ Next associate the Firebase CLI with a Firebase account (Google account):
 firebase login
 {{< /highlight >}}
 
-There should be a URL in your command line that opens in a webbrowser. If this doesn't happen, Firebase CLI may open up the URL automatically. Choose your Google account you used earlier to create a Firebase project\, and give Google the necessary permissions. You should see a confirmation for a successful setup. Return to the command line to verify a successful login.
+There should be a URL in your command line that opens in a webbrowser. If this doesn't happen, Firebase CLI may open up the URL automatically. Choose your Google account you used earlier to create a Firebase project, and give Google the necessary permissions. You should see a confirmation for a successful setup. Return to the command line to verify a successful login.
 
 Next, move to the project's folder and execute the following command, which initializes a Firebase project that can be used for the Firebase hosting features:
 
@@ -83,7 +83,7 @@ There are a few other configuration steps to define. Instead of using the defaul
 ? File public/index.html already exists. Overwrite? No
 {{< /highlight >}}
 
-The create-react-app application creates a *build/* folder after you perfrom the`npm run build` for the first time. There you will find all the merged content from the *public/* folder and the *src/* folder. Since it is a single page application, we want to redirect the user always to the *index.html* file. From there React Router takes over for the client-side routing.
+The create-react-app application creates a *build/* folder after you perfrom the `npm run build` for the first time. There you will find all the merged content from the *public/* folder and the *src/* folder. Since it is a single page application, we want to redirect the user always to the *index.html* file. From there React Router takes over for the client-side routing.
 
 Now your Firebase initialization is complete. This step created a few configuration files for Firebase Hosting in your project's folder. You can read more about them in {{% a_blank "Firebase's documentation" "https://firebase.google.com/docs/hosting/full-config" %}} for configuring redirects, a 404 page, or headers. Finally, deploy your React application with Firebase on the command line:
 
