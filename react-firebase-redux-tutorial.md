@@ -525,7 +525,7 @@ class UserList extends Component {
 
 The users are no longer managed in the local state of the component, but are now handled in Redux. You set the users with a dispatchable action from `mapDispatchToProps` and access them again in `mapStateToProps`. Both state and actions are passed as props to your component.
 
-The users and loading indicator are rendered as before, but only the loading statecomes from the local state.The Link component only navigates to the UserItem component, but it doesn't send any user objects. We wanted the user at our disposal via the Link component, and we want to let Redux handle it.
+The users and loading indicator are rendered as before, but only the loading state comes from the local state. The Link component only navigates to the UserItem component, but it doesn't send any user objects. We wanted the user at our disposal via the Link component, and we want to let Redux handle it.
 
 {{< highlight javascript "hl_lines=3 23" >}}
 class UserList extends Component {
@@ -593,7 +593,7 @@ export default compose(
 )(UserItem);
 {{< /highlight >}}
 
-Similar to the UserList component,treceives a function that is a dispatchable action that sets a user instead of users. Check the user reducer to see what's happening when this action is dispatched. The component receives a single user from the Redux store. Because the initial state of users in the Redux store is null, we have to conditionally choose an empty object for not running into null pointer exceptions.
+Similar to the UserList component, it receives a function that is a dispatchable action that sets a user instead of users. Check the user reducer to see what's happening when this action is dispatched. The component receives a single user from the Redux store. Because the initial state of users in the Redux store is null, we have to conditionally choose an empty object for not running into null pointer exceptions.
 
 Let's make sure the user is fetched from Firebase's realtime database and persisted in the Redux store with our new dispatchable action.
 
@@ -671,11 +671,7 @@ class UserItem extends Component {
 }
 {{< /highlight >}}
 
-That's it for the UserItem component. It renders a user, fetches the recent user from Firebase with a realtime connection, but stores the result into the Redux store.
-
-<hr class="section-divider">
-
-The advantage of using Redux instead of React's local state a persistent state of users between routes. That means you don't need to fetch the users every time you navigate from UserItem to UserList or any other route, because they remain in Redux's global state after they are fetched the first time.
+That's it for the UserItem component. It renders a user, fetches the recent user from Firebase with a realtime connection, but stores the result into the Redux store. The advantage of using Redux instead of React's local state is a persistent state of users between routes. That means you don't need to fetch the users every time you navigate from UserItem to UserList or any other route, because they remain in Redux's global state.
 
 ### Exercises:
 
