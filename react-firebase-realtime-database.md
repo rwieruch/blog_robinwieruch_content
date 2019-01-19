@@ -145,7 +145,7 @@ const MessageItem = ({ message }) => (
 );
 {{< /highlight >}}
 
-If you run the application, the loading indicator disappears after a few seconds when the Firebase realtime database listener is called for the first time. Every other time the loading indicator isn't shown, because it is only`true` when the component mounts and the first message fetching starts.
+If you run the application, the loading indicator disappears after a few seconds when the Firebase realtime database listener is called for the first time. Every other time the loading indicator isn't shown, because it is only `true` when the component mounts and the first message fetching starts.
 
 It could be hat there are no messages yet, which is the case for this application since we didn't use the message API to create a message yet. We're only showing the messages for now. To show conditional feedback to users, we need to know if the list of messages is empty (see constructor), if the message API didn't return any messages and the local state is changed from an empty array to null:
 
@@ -232,7 +232,7 @@ Since you have no messages, nothing shows up. Creating chat messages is our next
 
 {{% chapter_header "Create an Item in a List in Firebase Realtime Database" "firebase-realtime-database-create-item-in-list" %}}
 
-We were able to get all messages from the Firebase realtime database. It's even pdated for us using the Firebase listener on a reference with the `on` and not `once` method. Next, let's implement a React form that lets us create a message entity in the Firebase realtime database:
+We were able to get all messages from the Firebase realtime database. It's even updated for us using the Firebase listener on a reference with the `on` and not `once` method. Next, let's implement a React form that lets us create a message entity in the Firebase realtime database:
 
 {{< highlight javascript "hl_lines=5 17 18 19 20 21 22 23 24" >}}
 class MessagesBase extends Component {
@@ -786,7 +786,7 @@ class MessageItem extends Component {
 
 As before, we could have used Firebase directly in the MessageItem component.  It's also good to keep the MessageItem component encapsulated with its own business logic. Only the message itself and the other functions to alter the message are passed from above to the component, and only the Messages component speaks to the outside world (e.g. Firebase).
 
-You have implement the popular CRUD operations: create, read, update, delete, which is everything you need to manage the new message entity in your Firebase database. Alos, you have learned how to assign dates to your Firebase entities, and how to listen for real-time updates when a messages has been added, edited or removed.
+You have implemented the popular CRUD operations: create, read, update, delete, which is everything you need to manage the new message entity in your Firebase database. Also, you have learned how to assign dates to your Firebase entities, and how to listen for real-time updates when a message has been added, edited or removed.
 
 {{% chapter_header "Ordering with Firebase Realtime Database" "firebase-realtime-database-ordering" %}}
 
