@@ -612,11 +612,7 @@ class UserItem extends Component {
 }
 {{< /highlight >}}
 
-That's it for the UserItem component. It renders a user, fetches the recent user from Firebase with a realtime connection, only it stores the result into the MobX store.
-
-<hr class="section-divider">
-
-You can see that the whole advantage here of using MobX instead of React's local state is to persist the state of users between routes. You don't need to fetch the users every time you navigate from UserItem to UserList, or a different route, since they remain in MobX's global state after they are fetched the first time.
+That's it for the UserItem component. It renders a user, fetches the recent user from Firebase with a realtime connection, only it stores the result into the MobX store. The advantage in using MobX instead of React's local state is that user states persist between routes. This means you won't need to fetch them when you navigate from UserItem to UserList or a different route, since they remain in MobX's global state.
 
 ### Exercises:
 
