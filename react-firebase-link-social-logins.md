@@ -136,7 +136,7 @@ class SignUpFormBase extends Component {
 ...
 {{< /highlight >}}
 
-Now users can use the same email address for different sign-in methods.  Next, et's head to the account page, where we'll create an area to manage and activate/deactivate all the sign-in methods (social sign-ins, email/password sign-in). Introduce all available sign-in methods and their optional providers (see Firebase class) as list of objects:
+Now users can use the same email address for different sign-in methods. Next, let's head to the account page, where we'll create an area to manage and activate/deactivate all the sign-in methods (social sign-ins, email/password sign-in). Introduce all available sign-in methods and their optional providers (see Firebase class) as list of objects:
 
 {{< highlight javascript "hl_lines=3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 29" >}}
 ...
@@ -389,7 +389,7 @@ class LoginManagementBase extends Component {
 }
 {{< /highlight >}}
 
-Also, we added an improvement to avoid getting locked out of the application. If only one sign-in method is left as activate, disable all deactivation buttons because there needs to be at least one sign-in method. Now let's implement the class methods for linking and unlinking accounts:
+Also, we added an improvement to avoid getting locked out of the application. If only one sign-in method is left as active, disable all deactivation buttons because there needs to be at least one sign-in method. Now let's implement the class methods for linking and unlinking accounts:
 
 {{< highlight javascript "hl_lines=5 6 7 8 12 13 14 15" >}}
 class LoginManagementBase extends Component {
