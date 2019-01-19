@@ -32,7 +32,7 @@ In this section, I want to guide you through deploying your React application to
 npm install -g firebase-tools
 {{< /highlight >}}
 
-Using a global installation of the Firebase CLI, you can deploy any application without worrying the dependency in your project. For any global installed node package, remember to update the it occasionally to a newer version with the identical command:
+Using a global installation of the Firebase CLI, you can deploy any application without worrying about the dependency in your project. For any global installed node package, remember to update it occasionally to a newer version with the identical command:
 
 {{< highlight javascript >}}
 npm install -g firebase-tools
