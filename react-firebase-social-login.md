@@ -39,7 +39,7 @@ There are a few errors that could show up for while setting up Google, Facebook 
 
 **Info:** *The current domain is not authorized for OAuth operations. This will prevent signInWithPopup, signInWithRedirect, linkWithPopup and linkWithRedirect from working. Add your domain (localhost) to the OAuth redirect domains list in the Firebase console -> Auth section -> Sign in method tab.*
 
-On your Firebase dashboard, you will find an Authentication tab to get a list of all your authenticated users, sign up methods and other configuration. Click the Authentication tab and scroll down to "Authorised domains" and add "localhost" there. Then your development domain should be authorized to perform the OAuth oprations with third-parties.
+On your Firebase dashboard, you will find an Authentication tab to get a list of all your authenticated users, sign up methods and other configuration. Click the Authentication tab and scroll down to "Authorised domains" and add "localhost" there. Then your development domain should be authorized to perform the Auth oprations with third-parties.
 
 {{% pin_it_image "react firebase google social login authorized domains" "img/posts/react-firebase-social-login/firebase-google-social-login-authorized-domains.jpg" "is-src-set" %}}
 
