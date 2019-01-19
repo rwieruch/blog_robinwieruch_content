@@ -151,7 +151,7 @@ class Firebase {
 export default Firebase;
 {{< /highlight >}}
 
-To protect your routes from users who have no verified email address? We will do it with a new higher-order component in *src/components/Session/withEmailVerification.js* that has access to Firebase and the authenticated user:
+To protect your routes from users who have no verified email address, we will do it with a new higher-order component in *src/components/Session/withEmailVerification.js* that has access to Firebase and the authenticated user:
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -187,7 +187,7 @@ const needsEmailVerification = authUser =>
     .includes('password');
 {{< /highlight >}}
 
-If this is true, don't render the component passed to this higher-order component, but a message that reminds users to verify t their email addresses.
+If this is true, don't render the component passed to this higher-order component, but a message that reminds users to verify their email addresses.
 
 {{< highlight javascript "hl_lines=5 6 7 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30" >}}
 ...
@@ -232,7 +232,7 @@ const withEmailVerification = Component => {
 export default withEmailVerification;
 {{< /highlight >}}
 
-Optionally, we can provide a button to resend a verification email to the user. Let's improve the user experience. After the button is clicked to resend the verification email, users should receive feedback, and be prohibited from sending b another email. First, add a local state to the higher-order component that tracks whether the button was clicked:
+Optionally, we can provide a button to resend a verification email to the user. Let's improve the user experience. After the button is clicked to resend the verification email, users should receive feedback, and be prohibited from sending another email. First, add a local state to the higher-order component that tracks whether the button was clicked:
 
 {{< highlight javascript "hl_lines=5 6 7 8 9 14" >}}
 ...
@@ -312,7 +312,6 @@ const withEmailVerification = Component => {
 
 export default withEmailVerification;
 {{< /highlight >}}
-
 
 Lastly, make the new higher-order component available in your Session folder's *index.js* file:
 
@@ -401,7 +400,7 @@ export default compose(
 )(AccountPage);
 {{< /highlight >}}
 
-All the sensible routes for authenticated users now require a confirmed email. Finally,m your application can be only used by users with read email addresses.
+All the sensible routes for authenticated users now require a confirmed email. Finally, your application can be only used by users with real email addresses.
 
 ### Exercises:
 
