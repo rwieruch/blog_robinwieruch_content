@@ -26,7 +26,7 @@ summary = "The tutorial shows you how to deploy a React.js application to Fireba
 
 After we built a full-fledged Firebase application in React, the final step is deployment, the tipping point of getting your ideas out into the world, from consuming tutorials to producing applications. Since you have already used Firebase extensively for your application, why not choosing Firebase Hosting for the deployment?
 
-In this section, I want to guide you through deploying your React to Firebase. It works for create-react-app too. Also it should work for any other library and framework such as Angular or Vue. First, install the Firebase CLI globally to your node modules:
+In this section, I want to guide you through deploying your React application to Firebase. It works for create-react-app too. Also it should work for any other library and framework such as Angular or Vue. First, install the Firebase CLI globally to your node modules:
 
 {{< highlight javascript >}}
 npm install -g firebase-tools
