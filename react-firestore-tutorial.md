@@ -530,7 +530,7 @@ class HomePage extends Component {
 }
 {{< /highlight >}}
 
-In this component, we don't want to transform the collection into a list of items but keep it as object that can be accessed using identifiers in the form of a dictionary later. The Messages component  fetches our other collection that we adjusted in the beginning in the Firebase class:
+In this component, we don't want to transform the collection into a list of items but keep it as object that can be accessed using identifiers in the form of a dictionary later. The Messages component fetches our other collection that we adjusted in the beginning in the Firebase class:
 
 {{< highlight javascript "hl_lines=11 13 14 15 16 17 18 19 20 23 33" >}}
 class Messages extends Component {
