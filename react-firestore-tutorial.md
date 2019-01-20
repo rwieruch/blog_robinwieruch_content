@@ -301,7 +301,7 @@ class SignUpFormBase extends Component {
 
 However, as seen in the code snippet, Cloud Firestore comes with a merge option. If you are not sure whether your document already exists, pass the merge option to avoid overwriting the entire document. New content is merged into the entity if the entity is already there. We don't use the `update()` method because it fails if the document doesn't exist.
 
-In our case, the merge operation makes sense because we can't be sure if a user is signing up for the first time  or if they've signed up with a social login such as Google or Facebook. To handle this, we migrate our user creations for the social logins in the sign in form to use the merge option too.
+In our case, the merge operation makes sense because we can't be sure if a user is signing up for the first time or if they've signed up with a social login such as Google or Facebook. To handle this, we migrate our user creations for the social logins in the sign in form to use the merge option too.
 
 {{< highlight javascript "hl_lines=19" >}}
 class SignInGoogleBase extends Component {
