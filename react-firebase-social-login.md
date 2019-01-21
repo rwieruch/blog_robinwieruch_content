@@ -27,7 +27,7 @@ So far, you have used a email/password combination to authenticated with the app
 
 Note: The following sections show API keys, secrets, URIs and other sensible data that you shouldn't share with other people. They should be kept secret. That's why all the sensible data shown in the following sections is fake.
 
-Firebase has the restriction to allow only one E-Mail address per user. If you try to use another sign in method next to the default email/password sign in method, you may see the following error: "An account already exists with the same email address but different sign-in credentials. Sign in using a provider associated with this email address." It's because your E-Mail address from your Google account may be the same as for Facebook account or your default email/password combination. In order to overcome this behavior, only for this section though, you can deactivate it in your Firebase dashboard on the Authentication tab. There you can allow more than one account for the same E-Mail address:
+Firebase has the restriction to allow only one E-Mail address per user. If you try to use another sign in method next to the default email/password sign in method, you may see the following error: "An account already exists with the same email address but different sign in credentials. Sign in using a provider associated with this email address." It's because your E-Mail address from your Google account may be the same as for Facebook account or your default email/password combination. In order to overcome this behavior, only for this section though, you can deactivate it in your Firebase dashboard on the Authentication tab. There you can allow more than one account for the same E-Mail address:
 
 {{% pin_it_image "react firebase one account per email" "img/posts/react-firebase-social-login/firebase-one-account-per-email.jpg" "is-src-set" %}}
 
@@ -39,7 +39,7 @@ There are a few errors that could show up for while setting up Google, Facebook 
 
 **Info:** *The current domain is not authorized for OAuth operations. This will prevent signInWithPopup, signInWithRedirect, linkWithPopup and linkWithRedirect from working. Add your domain (localhost) to the OAuth redirect domains list in the Firebase console -> Auth section -> Sign in method tab.*
 
-On your Firebase dashboard, you will find an Authentication tab to get a list of all your authenticated users, sign up methods and other configuration. Click the Authentication tab and scroll down to "Authorised domains" and add "localhost" there. Then your development domain should be authorized to perform the Auth oprations with third-parties.
+On your Firebase dashboard, you will find an Authentication tab to get a list of all your authenticated users, sign up methods and other configuration. Click the Authentication tab and scroll down to "Authorised domains" and add "localhost" there. Then your development domain should be authorized to perform the Auth operations with third-parties.
 
 {{% pin_it_image "react firebase google social login authorized domains" "img/posts/react-firebase-social-login/firebase-google-social-login-authorized-domains.jpg" "is-src-set" %}}
 

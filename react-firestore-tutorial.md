@@ -354,7 +354,7 @@ class SignInGoogleBase extends Component {
 }
 {{< /highlight >}}
 
-Conduct the same migration for the Facebook and Twitter sign-in methods. Then you can be assured that every time a user signs in with one of the available sign in methods, the latest properties from the authenticated user will be merged into the database user.
+Conduct the same migration for the Facebook and Twitter sign in methods. Then you can be assured that every time a user signs in with one of the available sign in methods, the latest properties from the authenticated user will be merged into the database user.
 
 We have some more set and update methods that were used for the Realtime Database in our application, but they stay the same for the Firestore Database. Only the sign in and sign up methods have changed, because it is more convenient to always merge the latest authenticated user to our database user document.
 

@@ -60,11 +60,9 @@ You have seen how multiple functions can be composed together to achieve somethi
 
   <button type="submit">Send</button>
 </form>
-
-<!-- fingers crossed that this is valid HTML without trying it -->
 {{< /highlight >}}
 
-However, it's not only the form element but all of its ingredients and their arrangement as well. It's the input field, the button, and the form that contribute to a greater goal: submit data. The example is taken a bit out of context, not so like the following React example, but I think you get the idea. In React, a Form as React component which is rendered within a general App component could look like the following:
+However, it's not only the form element but all of its ingredients and their arrangement as well. It's the input field, the button, and the form that contribute to a greater goal: submit data. The example is taken a bit out of context, not so the following React example, but I think you get the idea. In React, a Form as React component which is rendered within a general App component could look like the following:
 
 {{< highlight javascript >}}
 import React, { useState } from 'react';
@@ -110,7 +108,7 @@ export default App;
 
 Now, wherever we use the Form component, we can capture the username of a user. It's identical to the HTML form from before, isn't it? Think about it for a moment.
 
-No, it isn't. At the moment, the Form is only capable of doing one thing. We did loose all the benefits from the HTML element composition, because we ended up with a specialized Form component. It can be reused anywhere in our React application (here in App component), but it handles only one case. To make it even clearer, we would have to rename the Form component.
+No, it isn't. At the moment, the Form is only capable of doing one thing. We did loose all the benefits from the HTML element composition, because we ended up with a specialized Form component. It can be reused anywhere in our React application, but it handles only one case. To make it even clearer, we would have to rename the Form component.
 
 {{< highlight javascript "hl_lines=6 9" >}}
 import React, { useState } from 'react';
@@ -152,7 +150,7 @@ How do we get back what we had in the HTML form? After all, we don't want to hav
 
 {{% chapter_header "Entering React Component Composition?" "react-component-composition" %}}
 
-There is one property ([React prop](https://www.robinwieruch.de/react-pass-props-to-component/)) that helps us out with this dilemma for our React component: **the React children prop**. It's one special prop provided by React **to render something within a component whereas the component isn't aware ahead of time what it will be**. A basic example may be the following:
+There is one property ([React prop](https://www.robinwieruch.de/react-pass-props-to-component/)) that helps us out with this dilemma for our React component: **the React children prop**. It's one special prop provided by React to render something within a component whereas the component isn't aware ahead of time what it will be. A basic example may be the following:
 
 {{< highlight javascript >}}
 const Button = ({ onClick, type = 'button', children }) => (
@@ -288,7 +286,7 @@ const InputField = ({ value, onChange, children }) => (
 ...
 {{< /highlight >}}
 
-As you can see, the InputField component becomes generic/abstract while all props are passed to the component to specialize it. In addition, the component takes it one step further than the Form and Button components, because it offers a new kind of "HTML element" that encapsulates a label with an input field into one component. It can be reused as such in our Form component but anywhere else too.
+As you can see, the InputField component becomes generic/abstract while all props are passed to the component to specialize it. In addition, the component takes it one step further than the Form and Button components, because it offers a new kind of "HTML element" composition that encapsulates a label with an input field into one component. It can be reused as such in our Form component but anywhere else too.
 
 All three steps from before made our Form a composable React component. The Form renders the HTML form element, but everything within is rendered with React's children. The same applies to the components within the Form component, which follow the same principle of composition in themselves, by just rendering anything that's passed to them with the children property.
 

@@ -1,8 +1,7 @@
 +++
-draft = true
 title = "How to use React Router with Firebase"
 description = "A React tutorial on how to combine React Router and Firebase to navigate a user through the application while fetching data from the Firebase database or even passing data through React Router ..."
-date = "2018-12-01T07:52:46+02:00"
+date = "2019-01-01T07:52:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["react firebase router", "react router firebase"]
@@ -26,7 +25,7 @@ summary = "A React tutorial on how to combine React Router and Firebase to navig
 
 Before we dive deeper into Firebase's realtime database and the domain-related business logic of our application, it makes sense to invest more time into React Router. So far, we have split up our application into top-level routes to manage our whole authentication flow with login, logout, and registration. Additionally, we protected top-level routes with authorization that checks for authenticated users, confirmed email addresses, and admin users.
 
-In this section, we'll implement more specific routing for the admin page. So far, this page only shows a list of users, retrieved from the Firebase realtime database. Basically, it is the overview of our users. However, a list of users alone doesn't help that much, and a detail page would be much more useful. Then, it would be possible to trigger further actions for the usre on the detail page instead of the overview page. To start, define a new child route in the *src/constants/routes.js* file:
+In this section, we'll implement more specific routing for the admin page. So far, this page only shows a list of users, retrieved from the Firebase realtime database. Basically, it is the overview of our users. However, a list of users alone doesn't help that much, and a detail page would be much more useful. Then, it would be possible to trigger further actions for the user on the detail page instead of the overview page. To start, define a new child route in the *src/constants/routes.js* file:
 
 {{< highlight javascript "hl_lines=8" >}}
 export const LANDING = '/';
@@ -371,6 +370,6 @@ This section has shown you how to implement more specific routes with React Rout
 
 ### Exercises:
 
-* Learn more about {{% a_blank "React Router" "https://reacttraining.com/react-router/web/guides/quick-start" %}}.
-* Read more about {{% a_blank "Firebase's Admin SDK" "https://firebase.google.com/docs/auth/admin/" %}}.
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/3061e4bcc047f984958503277a6e820172ddcb28" %}}.
+* Learn more about {{% a_blank "React Router" "https://reacttraining.com/react-router/web/guides/quick-start" %}}
+* Read more about {{% a_blank "Firebase's Admin SDK" "https://firebase.google.com/docs/auth/admin/" %}}
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/3061e4bcc047f984958503277a6e820172ddcb28" %}}

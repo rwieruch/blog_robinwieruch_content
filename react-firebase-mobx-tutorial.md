@@ -38,7 +38,7 @@ If you are not familiar with MobX, I recommend {{% a_blank "Taming the State in 
 
 First, follow this [short guide to enable decorators in create-react-app](https://www.robinwieruch.de/create-react-app-mobx-decorators/). You can also take the alternative way of not using decorators, to avoid the eject process, but this tutorial only reflects the usage **with decorators**. After you went through the MobX setup tutorial, you should have installed {{% a_blank "mobx" "https://mobx.js.org/" %}} and {{% a_blank "mobx-react" "https://github.com/mobxjs/mobx-react" %}}.
 
-For this runthrough, we focus on the MobX setup without worrying about Firebase or React. First, you need the MobX stores, so we create a folder with files. From your *src/* folder type:
+For this run through, we focus on the MobX setup without worrying about Firebase or React. First, you need the MobX stores, so we create a folder with files. From your *src/* folder type:
 
 {{< highlight javascript >}}
 mkdir stores
@@ -182,7 +182,7 @@ That's it for connecting both worlds. Next, we'll refactor almost everything fro
 
 {{% chapter_header "Manage Firebase's authenticated User in MobX's Session Store" "firebase-authenticated-user-mobx-store" %}}
 
-So far, we have managed the authenticated user with React's Context API. We provided the authenticated user in a Provider component and consumed with a Consumer component. Let's change this by storing the authenticated user in MobX's session store instead, and injecting the store to all components who are interested in it.  
+So far, we have managed the authenticated user with React's Context API. We provided the authenticated user in a Provider component and consumed with a Consumer component. Let's change this by storing the authenticated user in MobX's session store instead, and injecting the store to all components who are interested in it.
 
 In the authentication higher-order component, we make the session store in the props of the component:
 
@@ -275,7 +275,7 @@ export default compose(
 )(Navigation);
 {{< /highlight  >}}
 
-MobX injects the store in the Navigation component with the inject higher-order componen to make a decision for the conditional rendering, but also to pass the authenticated user to the child components. In addition, the observer higher-order component makes sure that the component updates when something in the session store has changed. We can do the same in our other components that are interested in the authenticated user. For instance, the authorization higher-order component can rely on the MobX session store as well:
+MobX injects the store in the Navigation component with the inject higher-order component to make a decision for the conditional rendering, but also to pass the authenticated user to the child components. In addition, the observer higher-order component makes sure that the component updates when something in the session store has changed. We can do the same in our other components that are interested in the authenticated user. For instance, the authorization higher-order component can rely on the MobX session store as well:
 
 {{< highlight javascript "hl_lines=3 14 15 16 23 24" >}}
 import React from 'react';
@@ -342,7 +342,7 @@ const withEmailVerification = Component => {
 export default withEmailVerification;
 {{< /highlight >}}
 
-The AccountPage component displays the authenticated user, but also renders the component that manages sign-in methods for the user:
+The AccountPage component displays the authenticated user, but also renders the component that manages sign in methods for the user:
 
 {{< highlight javascript "hl_lines=2 12 14 17 26 27" >}}
 import React, { Component } from 'react';
@@ -439,7 +439,7 @@ class UserList extends Component {
 }
 {{< /highlight >}}
 
-Now every time the Firebase listener is called or because a user was added, edited, or removed from the list, the most recent user object with users from Firebase is stored to the MobX user store. 
+Now every time the Firebase listener is called or because a user was added, edited, or removed from the list, the most recent user object with users from Firebase is stored to the MobX user store.
 
 Another user experience improvement is adding a loading indicator when there are no users in the store. Every other time, when there are users in the store but the Firebase listener is updating the MobX store with a new user object, we don't show any loading indicator:
 
@@ -830,7 +830,7 @@ The MessageList and MessageItem components didn't change at all, only the HomePa
 
 ### Exercises:
 
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-mobx-firebase-authentication/tree/0b8ce7fea347d067bd187d709fa3583034c8bfd8" %}}.
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-mobx-firebase-authentication/tree/0b8ce7fea347d067bd187d709fa3583034c8bfd8" %}}
 
 <hr class="section-divider">
 

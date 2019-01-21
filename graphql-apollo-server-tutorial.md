@@ -2842,7 +2842,7 @@ That's the basics of role-based authorization in GraphQL with Apollo Server. In 
 
 You set up authorization for your GraphQL application, and now you just need to verify that it works. The simplest way to test this type of application is to use GraphQL Playground to run through different scenarios. The user deletion scenario will be used as an example, but you should test all the remaining scenarios for practice.
 
-Before a user can perform a delete action, there must be a sign-in, so we execute a `signIn` mutation in GraphQL Playground with a non admin user. Consider trying this tutorial with an admin user later to see how it performs differently.
+Before a user can perform a delete action, there must be a sign in, so we execute a `signIn` mutation in GraphQL Playground with a non admin user. Consider trying this tutorial with an admin user later to see how it performs differently.
 
 {{< highlight javascript >}}
 mutation {

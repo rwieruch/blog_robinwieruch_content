@@ -1,8 +1,7 @@
 +++
-draft = true
 title = "How to deploy a React application to Firebase"
 description = "The tutorial shows you how to deploy a React.js application to Firebase Hosting. You will use Firebase CLI to perform the deployment for a create-react-app app ..."
-date = "2018-12-03T07:52:46+02:00"
+date = "2019-01-20T07:52:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["firebase deploy react", "firebase react js deployment", "create-react-app firebase deploy"]
@@ -44,7 +43,7 @@ Next associate the Firebase CLI with a Firebase account (Google account):
 firebase login
 {{< /highlight >}}
 
-There should be a URL in your command line that opens in a webbrowser. If this doesn't happen, Firebase CLI may open up the URL automatically. Choose your Google account you used earlier to create a Firebase project, and give Google the necessary permissions. You should see a confirmation for a successful setup. Return to the command line to verify a successful login.
+There should be a URL in your command line that opens in a browser. If this doesn't happen, Firebase CLI may open up the URL automatically. Choose your Google account you used earlier to create a Firebase project, and give Google the necessary permissions. You should see a confirmation for a successful setup. Return to the command line to verify a successful login.
 
 Next, move to the project's folder and execute the following command, which initializes a Firebase project that can be used for the Firebase hosting features:
 
@@ -83,7 +82,7 @@ There are a few other configuration steps to define. Instead of using the defaul
 ? File public/index.html already exists. Overwrite? No
 {{< /highlight >}}
 
-The create-react-app application creates a *build/* folder after you perfrom the `npm run build` for the first time. There you will find all the merged content from the *public/* folder and the *src/* folder. Since it is a single page application, we want to redirect the user always to the *index.html* file. From there React Router takes over for the client-side routing.
+The create-react-app application creates a *build/* folder after you perform the `npm run build` for the first time. There you will find all the merged content from the *public/* folder and the *src/* folder. Since it is a single page application, we want to redirect the user always to the *index.html* file. From there React Router takes over for the client-side routing.
 
 Now your Firebase initialization is complete. This step created a few configuration files for Firebase Hosting in your project's folder. You can read more about them in {{% a_blank "Firebase's documentation" "https://firebase.google.com/docs/hosting/full-config" %}} for configuring redirects, a 404 page, or headers. Finally, deploy your React application with Firebase on the command line:
 
@@ -104,6 +103,6 @@ If you only see a blank page for your deployed React application, see if the `pu
 
 ### Exercises
 
-* Read more about {{% a_blank "Firebase Hosting Features" "https://firebase.google.com/docs/hosting/" %}}.
-* Read more about {{% a_blank "how to host with Firebase Hosting" "https://firebase.google.com/docs/hosting/quickstart" %}}.
-* {{% a_blank "Connect your domain to your Firebase deployed application" "https://firebase.google.com/docs/hosting/custom-domain" %}}.
+* Read more about {{% a_blank "Firebase Hosting Features" "https://firebase.google.com/docs/hosting/" %}}
+* Read more about {{% a_blank "how to host with Firebase Hosting" "https://firebase.google.com/docs/hosting/quickstart" %}}
+* {{% a_blank "Connect your domain to your Firebase deployed application" "https://firebase.google.com/docs/hosting/custom-domain" %}}

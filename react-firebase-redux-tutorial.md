@@ -50,7 +50,7 @@ cd store
 touch index.js
 {{< /highlight >}}
 
-Second, add the store in the new file as singleton instance, because there should be only one Redux store. The store creation takes a root reducer which isn't defined.  
+Second, add the store in the new file as singleton instance, because there should be only one Redux store. The store creation takes a root reducer which isn't defined.
 
 {{< highlight javascript >}}
 import { createStore } from 'redux';
@@ -380,7 +380,7 @@ const withEmailVerification = Component => {
 export default withEmailVerification;
 {{< /highlight >}}
 
-And last but not least, the AccountPage component which displays the authenticated user but also renders the component that manages all the sign-in methods for the user:
+And last but not least, the AccountPage component which displays the authenticated user but also renders the component that manages all the sign in methods for the user:
 
 {{< highlight javascript "hl_lines=2 12 23 24 25 30" >}}
 import React, { Component } from 'react';

@@ -1,8 +1,7 @@
 +++
-draft = false
 title = "How to use Firebase Realtime Database in React"
 description = "A React with Firebase tutorial on how to work with Firebase's realtime database in React. Learn about the get, create, update and remove operations, how to enable pagination and how to order your list of data, and how fo associate items with each other ..."
-date = "2018-11-02T07:52:46+02:00"
+date = "2019-01-16T07:52:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["react firebase realtime database", "react firebase associate", "react firebase data fetching"]
@@ -147,7 +146,7 @@ const MessageItem = ({ message }) => (
 
 If you run the application, the loading indicator disappears after a few seconds when the Firebase realtime database listener is called for the first time. Every other time the loading indicator isn't shown, because it is only `true` when the component mounts and the first message fetching starts.
 
-It could be hat there are no messages yet, which is the case for this application since we didn't use the message API to create a message yet. We're only showing the messages for now. To show conditional feedback to users, we need to know if the list of messages is empty (see constructor), if the message API didn't return any messages and the local state is changed from an empty array to null:
+It could be that there are no messages yet, which is the case for this application since we didn't use the message API to create a message yet. We're only showing the messages for now. To show conditional feedback to users, we need to know if the list of messages is empty (see constructor), if the message API didn't return any messages and the local state is changed from an empty array to null:
 
 {{< highlight javascript "hl_lines=15 17 18 19 20 21 22 23 36 38 39 40" >}}
 class MessagesBase extends Component {
@@ -525,7 +524,7 @@ const MessageList = ({
 );
 {{< /highlight >}}
 
-Editing a message involves a few more rendered elements, business logic,- and state in the MessageItem component. That's why we refactor it to a class component:
+Editing a message involves a few more rendered elements, business logic, and state in the MessageItem component. That's why we refactor it to a class component:
 
 {{< highlight javascript "hl_lines=1 3" >}}
 class MessageItem extends Component {
@@ -707,9 +706,7 @@ class MessagesBase extends Component {
 }
 {{< /highlight >}}
 
-If we set new text for the message, all other properties (userId, uid) would be lost. 
-
-We can add `createdAt` and `editedAt` dates. The second date gives users feedback that someone changed a chat message:
+If we set only the new text for the message, all other properties (userId, uid) would be lost. Also we can add `createdAt` and `editedAt` dates. The second date gives users feedback that someone changed a chat message:
 
 {{< highlight javascript "hl_lines=8 20" >}}
 class MessagesBase extends Component {
@@ -784,7 +781,7 @@ class MessageItem extends Component {
 }
 {{< /highlight >}}
 
-As before, we could have used Firebase directly in the MessageItem component.  It's also good to keep the MessageItem component encapsulated with its own business logic. Only the message itself and the other functions to alter the message are passed from above to the component, and only the Messages component speaks to the outside world (e.g. Firebase).
+As before, we could have used Firebase directly in the MessageItem component. It's also good to keep the MessageItem component encapsulated with its own business logic. Only the message itself and the other functions to alter the message are passed from above to the component, and only the Messages component speaks to the outside world (e.g. Firebase).
 
 You have implemented the popular CRUD operations: create, read, update, delete, which is everything you need to manage the new message entity in your Firebase database. Also, you have learned how to assign dates to your Firebase entities, and how to listen for real-time updates when a message has been added, edited or removed.
 
@@ -853,7 +850,7 @@ class MessagesBase extends Component {
 }
 {{< /highlight >}}
 
-Limiting the items is half the task for enabling pagination for our chat application. We also need to move the limit to the local state of the component to adjust it later with user interactions to fetch more than five(5) items:
+Limiting the items is half the task for enabling pagination for our chat application. We also need to move the limit to the local state of the component to adjust it later with user interactions to fetch more than five items:
 
 {{< highlight javascript "hl_lines=9 19" >}}
 class MessagesBase extends Component {
@@ -885,7 +882,7 @@ class MessagesBase extends Component {
 }
 {{< /highlight >}}
 
-Move this functionality outside of the lifecycle method to make it reusable for other user interaction, and to use it outside of just when the component mounts:
+Move this functionality outside of the lifecycle method to make it reusable for other user interaction, and to use it outside of when the component mounts:
 
 {{< highlight javascript "hl_lines=5 8 18" >}}
 class MessagesBase extends Component {
@@ -1096,14 +1093,14 @@ Everything you have learned in this section should make you proficient with stru
 
 ### Exercises:
 
-* Read more about {{% a_blank "structuring data in Firebase" "https://firebase.google.com/docs/database/web/structure-data" %}}.
-* Read more about {{% a_blank "working with lists of data in Firebase" "https://firebase.google.com/docs/database/web/lists-of-data" %}}.
-* Read more about {{% a_blank "indexing your Firebase data" "https://firebase.google.com/docs/database/security/indexing-data" %}}.
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/ee909897dd697e47a59cb7d38ed2b5fe9656d1bb" %}}.
+* Read more about {{% a_blank "structuring data in Firebase" "https://firebase.google.com/docs/database/web/structure-data" %}}
+* Read more about {{% a_blank "working with lists of data in Firebase" "https://firebase.google.com/docs/database/web/lists-of-data" %}}
+* Read more about {{% a_blank "indexing your Firebase data" "https://firebase.google.com/docs/database/security/indexing-data" %}}
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/ee909897dd697e47a59cb7d38ed2b5fe9656d1bb" %}}
 * Refactoring:
   * Move all user related components on the AdminPage to their own folder/file module.
   * Move all message related components on the HomePage to their own folder/file module.
-  * Confirm your {{% a_blank "source code for this refactoring" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/6f66bb9f7dacc172e47018e2328a4353fbeb9dda" %}}.
+  * Confirm your {{% a_blank "source code for this refactoring" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/6f66bb9f7dacc172e47018e2328a4353fbeb9dda" %}}
 * Make deleting and editing a message only possible for the owner of the message.
   * Don't render the needed elements to perform these actions.
   * Don't allow it programmatically to perform these actions in the class methods.

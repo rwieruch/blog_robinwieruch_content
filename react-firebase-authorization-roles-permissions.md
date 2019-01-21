@@ -83,7 +83,7 @@ const condition = authUser =>
   authUser && authUser.roles.includes(ROLES.ADMIN);
 {{< /highlight >}}
 
-Assigning properties like an array of roles to authenticated users is a straightforward task. However, as we learned in previous sections, authenticated users are managed internally by Firebase.  We are not able to alter user properties, so we manage them in Firebase's realtime database. If you go to your Firebase project's dashboard, you can see that users are managed in the Authentication and Database tabs. We introduced the latter to keep track of the users and assign them additional properties.
+Assigning properties like an array of roles to authenticated users is a straightforward task. However, as we learned in previous sections, authenticated users are managed internally by Firebase. We are not able to alter user properties, so we manage them in Firebase's realtime database. If you go to your Firebase project's dashboard, you can see that users are managed in the Authentication and Database tabs. We introduced the latter to keep track of the users and assign them additional properties.
 
 This section is split up into three parts:
 
@@ -397,7 +397,7 @@ const withAuthentication = Component => {
 ...
 {{< /highlight >}}
 
-The higher-order component uses this new method from the Firebase instance, providing only two callback functions as parameters. The first callback function is used for the merged user; the is used when the authenticated user is null. Let's use the new method in the authorization higher-order component as well:
+The higher-order component uses this new method from the Firebase instance, providing only two callback functions as parameters. The first callback function is used for the merged user; the second is used when the authenticated user is null. Let's use the new method in the authorization higher-order component as well:
 
 {{< highlight javascript "hl_lines=8 9 10 11 12 13 14 15" >}}
 ...
@@ -537,4 +537,4 @@ You have successfully assigned roles to your users, merged authentication user w
 ### Exercises:
 
 * Walk through a scenario where the role-based authorization could be replaced with a permission-based authorization (e.g. `authUser.permissions.canEditUser`).
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/6188752284edadfcbe4c6f5235ed54593a9adc2d" %}}.
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/6188752284edadfcbe4c6f5235ed54593a9adc2d" %}}

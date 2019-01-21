@@ -268,7 +268,7 @@ class LoginManagementBase extends Component {
 ...
 {{< /highlight >}}
 
-Next, differentiate between active sign-in methods and the remaining sign-n methods not in the listed of fetched sign-in methods. You can show an error message with a conditional rendering as well:
+Next, differentiate between active sign-in methods and the remaining sign-in methods not in the list of fetched sign-in methods. You can show an error message with a conditional rendering as well:
 
 {{< highlight javascript "hl_lines=5 12 13 14 18 19 20 21 22 23 24 25 26 31" >}}
 class LoginManagementBase extends Component {
@@ -615,5 +615,5 @@ Now you can link and unlink different sign-in methods using only one account and
 
 * Try to link and unlink different sign-in methods and check if you are able to sign-in with this method afterwards.
 * Implement loading indicators for each button that activate and deactivate the sign-in methods for a better user experience.
-* Read more about {{% a_blank "social account linking in Firebase" "https://firebase.google.com/docs/auth/web/account-linking" %}}.
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/f3d2ec472754604c7740dbdc7a1e5bf792d787f4" %}}.
+* Read more about {{% a_blank "social account linking in Firebase" "https://firebase.google.com/docs/auth/web/account-linking" %}}
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/f3d2ec472754604c7740dbdc7a1e5bf792d787f4" %}}
