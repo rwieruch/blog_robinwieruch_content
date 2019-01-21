@@ -1,8 +1,7 @@
 +++
-draft = false
 title = "How to use Firebase Realtime Database in React"
 description = "A React with Firebase tutorial on how to work with Firebase's realtime database in React. Learn about the get, create, update and remove operations, how to enable pagination and how to order your list of data, and how fo associate items with each other ..."
-date = "2018-11-02T07:52:46+02:00"
+date = "2019-01-16T07:52:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["react firebase realtime database", "react firebase associate", "react firebase data fetching"]

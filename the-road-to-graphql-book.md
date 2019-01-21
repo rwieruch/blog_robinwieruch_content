@@ -17,19 +17,19 @@ summary = "The book about GraphQL is not intended to be used as a reference nor 
 
 {{% sponsorship %}}
 
-{{% pin_it_image "best graphql book" "img/posts/the-road-to-graphql-book/banner.jpg" "is-src-set" %}}
+{{% pin_it_image "graphql book" "img/posts/the-road-to-graphql-book/banner.jpg" "is-src-set" %}}
 
 Today, I am super excited to announce the release of *The Road to GraphQL - Your journey to master pragmatic GraphQL in JavaScript with React.js and Node.js*. Writing this book proved to be a challenge with GraphQL technologies changing often, but I managed to get an updated version published in time to keep you ahead of the curve.
 
-Perhaps the best thing about it the book is that I **release it for free**. I think everyone should have the chance to learn about GraphQL, as it will change how we think about client-server communication and data management in applications, so grab your copy of it as long as it is available for free. The second best thing about the book is that I self-published this book, which means it will be updated as often as possible, and that I can keep the PDF, EPUB, or MOBI versions in a state of constant improvement.
+Perhaps the best thing about the book is that I **release it for free**. I think everyone should have the chance to learn about GraphQL, as it will change how we think about client-server communication and data management in applications, so grab your copy of it as long as it is available for free. The second best thing about the book is that I self-published it, which means it will be updated as often as possible, and that I can keep the PDF, EPUB, or MOBI versions in a state of constant improvement.
 
-{{% package_box "The Road to GraphQL" "Your journey to master GraphQL in JavaScript the pragmatic way with React, Node and Apollo by building real world applications." "Get the Book" "img/page/the-road-to-graphql-book.png" "https://roadtoreact.com/course-details?courseId=THE_ROAD_TO_GRAPHQL" %}}
+{{% package_box "The Road to GraphQL" "Your journey to master GraphQL in JavaScript the pragmatic way with React, Node and Apollo by building real world applications." "Get the Book" "img/page/the-road-to-graphql-book.jpg" "https://roadtoreact.com/course-details?courseId=THE_ROAD_TO_GRAPHQL" %}}
 
 I wrote the *The Road to GraphQL* over the last year, while building several GraphQL applications for my clients and for myself. During this time, I came to understand the practical genius of GraphQL, and how it dramatically improves communication in client-server architectures. Not only does it improve the interface between the client and the server, it also enhances client-side state management by eliminating remote data management. Sophisticated GraphQL libraries like Apollo Client provide powerful features like caching, optimistic UI, and data prefetching for free. This book covers the fundamentals of GraphQL itself, as well as its ecosystem.
 
 {{% chapter_header "What's in the book?" "graphql-book-content" %}}
 
-The book comes with 350 pages, 45+ exercises, 400+ code snippets, 4 applications you are going to build along the way and various source code applications if you decide to buy the complete course. I applied the same principles as my other books:
+The book comes with 350 pages, 45+ exercises, 400+ code snippets, 4 applications you are going to build along the way and various source code applications if you decide to buy the complete course. I applied the same principles as for my other books:
 
 * Stay pragmatic
 * Keep it simple
