@@ -24,21 +24,21 @@ summary = "The tutorial shows you how to migrate a React with Firebase applicati
 
 {{% read_before_9 "This tutorial is part 10 of 10 in this series." "Part 1:" "A Firebase in React Tutorial for Beginners" "https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial" "Part 2:" "React Firebase Authorization with Roles" "https://www.robinwieruch.de/react-firebase-authorization-roles-permissions" "Part 3:" "React Firebase Auth Persistence with Local Storage" "https://www.robinwieruch.de/react-firebase-auth-persistence" "Part 4:" "React Firebase Social Login: Google, Facebook, Twitter" "https://www.robinwieruch.de/react-firebase-social-login" "Part 5:" "React Firebase: Link Social Logins" "https://www.robinwieruch.de/react-firebase-link-social-logins" "Part 6:" "React Firebase: Email Verification" "https://www.robinwieruch.de/react-firebase-email-verification" "Part 7:" "How to use React Router with Firebase" "https://www.robinwieruch.de/react-firebase-router" "Part 8:" "How to use Firebase Realtime Database in React" "https://www.robinwieruch.de/react-firebase-realtime-database" "Part 9:" "How to deploy a React application to Firebase" "https://www.robinwieruch.de/firebase-deploy-react-js" %}}
 
-The previous tutorial series has covered a lot of ground for Firebase in React. So far, it was totally fine to rely only on React's local state and React's Context API. And maybe it's just okay to keep it this way. However, this tutorial dives into using MobX on top of React and Firebase for the state management. Basically, you will exchange React's local state (e.g. users on admin page, messages on home page) and React's context (e.g. session management for authenticated user) with MobX. It should show you how to accomplish the same thing with MobX in case you want to integrate it in your tech stack.
+So far, it was fine to rely only on React's local state and React's Context API. This tutorial dives into using MobX on top of React and Firebase for the state management. We'll exchange React's local state (e.g. users on admin page, messages on home page) and React's context (e.g. session management for authenticated user) with MobX. It will how you how to accomplish the same thing with MobX, so you can integrate it in your tech stack.
 
-This section is divided into two parts: The first part will setup MobX. You will implement the state layer separately from the view layer. Afterward, you will connect MobX with React by providing the MobX stores with React's Context API to your React components. The second part exchanges the current React state layer with the MobX state layer:
+The first section will setup MobX, where we'll add a state layer separately from the view layer and connect MobX with React by providing the MobX stores React's Context API to the React components. The second part exchanges the current React state layer with the MobX state layer:
 
 * Users in React Local State -> Users in MobX User Store
 * Messages in React Local State -> Messages in MobX Message Store
 * Authenticated User in React Local State + React Context -> Authenticated User in MobX Session Store
 
-If you are not familiar with MobX, I highly recommend to checkout {{% a_blank "Taming the State in React" "http://roadtoreact.com" %}}. Most of the MobX knowledge is required for the following migration from only using React to MobX.
+If you are not familiar with MobX, I recommend {{% a_blank "Taming the State in React" "http://roadtoreact.com" %}}. Most of the MobX knowledge is required for the migration from only using React to MobX.
 
 {{% chapter_header "MobX Setup in React Firebase Application" "react-firebase-mobx-setup" %}}
 
-First of all, you should follow this [short guide to enable decorators in create-react-app](https://www.robinwieruch.de/create-react-app-mobx-decorators/). You can also take the alternative way of not using decorators, to avoid the eject process, but this tutorial only reflects the usage **with decorators**. After you went through the MobX setup tutorial, you should have installed {{% a_blank "mobx" "https://mobx.js.org/" %}} and {{% a_blank "mobx-react" "https://github.com/mobxjs/mobx-react" %}}.
+First, follow this [short guide to enable decorators in create-react-app](https://www.robinwieruch.de/create-react-app-mobx-decorators/). You can also take the alternative way of not using decorators, to avoid the eject process, but this tutorial only reflects the usage **with decorators**. After you went through the MobX setup tutorial, you should have installed {{% a_blank "mobx" "https://mobx.js.org/" %}} and {{% a_blank "mobx-react" "https://github.com/mobxjs/mobx-react" %}}.
 
-Then we put our focus on the MobX setup without worrying about Firebase or React. First of all, you need the MobX stores implementation. Therefore, create a folder and files for it. From your *src/* folder type:
+For this runthrough, we focus on the MobX setup without worrying about Firebase or React. First, you need the MobX stores, so we create a folder with files. From your *src/* folder type:
 
 {{< highlight javascript >}}
 mkdir stores
@@ -46,7 +46,7 @@ cd stores
 touch index.js sessionStore.js userStore.js messageStore.js
 {{< /highlight >}}
 
-You will have a store for the session state (e.g. authenticated user), a store for the user state (e.g. list of users from the database), and a store for the message state (e.g. list of messages from the database). In addition, you will have an entry point file to the module to combine those stores as root store. First, the session store which manages the authenticated user. The authenticated user represents the session in the application.
+There's a store for the session state (e.g. authenticated user), a store for the user state (e.g. list of users from the database), and a store for the message state (e.g. list of messages from the database). There is also an entry point file to the module to combine those stores as root store, the session store which manages the authenticated user. The authenticated user represents the session in the application.
 
 {{< highlight javascript >}}
 import { observable, action } from 'mobx';
@@ -66,7 +66,7 @@ class SessionStore {
 export default SessionStore;
 {{< /highlight >}}
 
-Second, the user store which deals with the list of users from the Firebase realtime database. It sets either the whole object of users as dictionary or a single user identified by a unique identifier. It also has a `userList` property to retrieve the user object as transformed list of users:
+Next is the user store that deals with the list of users from the Firebase realtime database. It sets either the object of users as a dictionary or a single user identified by a unique identifier. It also has a `userList` property to retrieve the user object as a transformed list of users:
 
 {{< highlight javascript >}}
 import { observable, action, computed } from 'mobx';
@@ -101,7 +101,7 @@ class UserStore {
 export default UserStore;
 {{< /highlight >}}
 
-Third, the message store that is similar to the user store. It manages one more property for the pagination feature though:
+Third, the message store that is similar to the user store. It manages one more property for the pagination feature:
 
 {{< highlight javascript >}}
 import { observable, action, computed } from 'mobx';
@@ -133,7 +133,7 @@ class MessageStore {
 export default MessageStore;
 {{< /highlight >}}
 
-Finally, combine all three stores in a root store. This can be used to make the stores communicate to each other, but also to provide a way to import only one store (root store) to have access to all of its combined stores later on. In *src/stores/index.js* file:
+Finally, combine all three stores in a root store. This can be used to make the stores communicate with each other, but also to provide a way to import only one store (root store) to have access to all of its combined stores later. In *src/stores/index.js* file:
 
 {{< highlight javascript >}}
 import SessionStore from './sessionStore';
@@ -153,7 +153,7 @@ const rootStore = new RootStore();
 export default rootStore;
 {{< /highlight >}}
 
-The MobX setup is done. Now, you can connect your state layer with your view layer. The MobX stores can be provided to the component hierarchy by using MobX's Provider component. This time the Provider component from the MobX library passes down the all stores instead of only the authenticated user. In *src/index.js* file:
+The MobX setup is done. Now, you can connect your state layer with your view layer. The MobX stores can be provided to the component hierarchy using MobX's Provider component. This time, the Provider component from the MobX library passes down the all stores instead of only the authenticated user. In *src/index.js* file:
 
 {{< highlight javascript "hl_lines=3 5 10 14" >}}
 import React from 'react';
@@ -174,7 +174,7 @@ ReactDOM.render(
 );
 {{< /highlight >}}
 
-That's it for connecting both worlds. Next, let's refactor almost everything from React's local state to MobX. We want to have everything in the MobX stores that should be persisted when we navigate from route to route. This includes users, messages, and the authenticated user, but maybe not the loading states.
+That's it for connecting both worlds. Next, we'll refactor almost everything from React's local state to MobX. We want to have everything in the MobX stores that should be persisted when we navigate from route to route. This includes users, messages, and the authenticated user, but maybe not the loading states.
 
 ### Exercises:
 
@@ -182,7 +182,9 @@ That's it for connecting both worlds. Next, let's refactor almost everything fro
 
 {{% chapter_header "Manage Firebase's authenticated User in MobX's Session Store" "firebase-authenticated-user-mobx-store" %}}
 
-So far, we are managing the authenticated user with React's Context API. We provide the authenticated user in a Provider component and consume it wherever we want with a Consumer component. Let's change this by storing the authenticated user in MobX's session store instead and injecting the store to all components who are interested in it. First, in the authentication higher-order component, we make the session store in the props of the component:
+So far, we have managed the authenticated user with React's Context API. We provided the authenticated user in a Provider component and consumed with a Consumer component. Let's change this by storing the authenticated user in MobX's session store instead, and injecting the store to all components who are interested in it.  
+
+In the authentication higher-order component, we make the session store in the props of the component:
 
 {{< highlight javascript "hl_lines=2 3 12 14 15" >}}
 import React from 'react';
@@ -205,7 +207,7 @@ const withAuthentication = Component => {
 export default withAuthentication;
 {{< /highlight >}}
 
-Second, we use the store to persist the authenticated user as we did before by setting it to React's local state. In addition, we don't need to provide the authenticated user anymore with React's Context Provider component, because it will be available for every component that connects to the store:
+Then, we use the store to persist the authenticated user like before, by setting it to React's local state. We don't need to provide the authenticated user with React's Context Provider component, because it will be available for every component that connects to the store:
 
 {{< highlight javascript "hl_lines=6 7 8 15 19 29" >}}
 const withAuthentication = Component => {
@@ -246,7 +248,7 @@ const withAuthentication = Component => {
 export default withAuthentication;
 {{< /highlight >}}
 
-That's it for storing and providing the authenticated user in and with the MobX session store. Let's see how we can consume it in the Navigation component for the conditional rendering of the routes without React's Context and with the store instead:
+We've stored and provided the authenticated user to the MobX session store. Let's see how we can consume it in the Navigation component for the conditional rendering of the routes without React's Context:
 
 {{< highlight javascript "hl_lines=3 4 10 11 12 19 20 21 22" >}}
 import React from 'react';
@@ -273,7 +275,7 @@ export default compose(
 )(Navigation);
 {{< /highlight  >}}
 
-MobX injects the store in the Navigation component with the inject higher-order component in order to make a decision for the conditional rendering but also to pass the authenticated user to the child components. In addition, the observer higher-order component makes sure that the component updates when something in the session store has changed. We can do the same in our other components that are interested in the authenticated user. For instance, the authorization higher-order component can rely on the MobX session store as well:
+MobX injects the store in the Navigation component with the inject higher-order componen to make a decision for the conditional rendering, but also to pass the authenticated user to the child components. In addition, the observer higher-order component makes sure that the component updates when something in the session store has changed. We can do the same in our other components that are interested in the authenticated user. For instance, the authorization higher-order component can rely on the MobX session store as well:
 
 {{< highlight javascript "hl_lines=3 14 15 16 23 24" >}}
 import React from 'react';
@@ -306,7 +308,7 @@ const withAuthorization = condition => Component => {
 export default withAuthorization;
 {{< /highlight >}}
 
-Also our other authorization component for the email verification can make use of it:
+Also, our other authorization component for the email verification can make use of it:
 
 {{< highlight javascript "hl_lines=2 3 15 22 24 25 26" >}}
 import React from 'react';
@@ -340,7 +342,7 @@ const withEmailVerification = Component => {
 export default withEmailVerification;
 {{< /highlight >}}
 
-And last but not least, the AccountPage component which displays the authenticated user but also renders the component that manages all the sign in methods for the user:
+The AccountPage component displays the authenticated user, but also renders the component that manages sign-in methods for the user:
 
 {{< highlight javascript "hl_lines=2 12 14 17 26 27" >}}
 import React, { Component } from 'react';
@@ -375,7 +377,7 @@ export default compose(
 )(AccountPage);
 {{< /highlight >}}
 
-In the end, you can remove the React Context that we have used before for providing and consuming the authenticated user in the *src/components/Session/context.js* and *src/components/Session/index.js* files:
+You can remove the React Context we used for providing and consuming the authenticated user in the *src/components/Session/context.js* and *src/components/Session/index.js* files:
 
 {{< highlight javascript >}}
 import withAuthentication from './withAuthentication';
@@ -397,7 +399,7 @@ That's it for storing the authenticated user in our MobX session store which tak
 
 {{% chapter_header "Manage Firebase's Users in MobX's User Store" "firebase-users-mobx-store" %}}
 
-We have implemented the session management with the authenticated user with MobX instead of React's local state and context API. Next we will migrate the user management over to MobX. The users are mainly used in the AdminPage component's UserList and UserItem components. They are also used in the HomePage component for associating them to messages, but we will deal with this later. Our goal here is to navigate from UserList to UserItem back and forth with React Router without loosing the state of the users. Whereas the UserList component (fetches and) shows a list of users, the UserItem component (fetches and) shows a single user entity. If the data is already available in the MobX user store, we only keep track of new data with the realtime feature of the Firebase database. We begin with the UserList component:
+We have implemented the session management with the authenticated user with MobX instead of React's local state and context API. Next, we will migrate the user management over to MobX. The users are mainly used in the AdminPage component's UserList and UserItem components. They are also used in the HomePage component for associating them with messages, but we will deal with later. Our goal here is to navigate from UserList to UserItem with React Router without loosing the state of the users. The UserList component fetches and shows a list of users, the UserItem component fetches and shows a single user entity. If the data is already available in the MobX user store, we only need to keep track of new data with the realtime feature of the Firebase database. We begin with the UserList component:
 
 {{< highlight javascript "hl_lines=3 4 13 15 16 17" >}}
 import React, { Component } from 'react';
@@ -419,7 +421,7 @@ export default compose(
 )(UserList);
 {{< /highlight >}}
 
-React MobX's inject higher-order component is used to marry React with MobX and the observer higher-order component makes sure to update the component when something in the store has changed. Next make sure the users are fetched from Firebase's realtime database and persisted in the MobX store:
+React MobX's inject higher-order component is used to marry React with MobX and the observer higher-order component makes sure to update the component if the store has changed. Next, make sure users are fetched from Firebase's real-time database and persisted in the MobX store:
 
 {{< highlight javascript "hl_lines=4" >}}
 class UserList extends Component {
@@ -437,7 +439,9 @@ class UserList extends Component {
 }
 {{< /highlight >}}
 
-Now every time the Firebase listener is called initially or because a user got added, edited or removed from the list, the most recent user object that has all users from Firebase is stored to the MobX user store. Another UX improvement is the loading indicator when there are no users in the store. Every other time, when there are users in the store but the Firebase listener is updating the MobX store with a new user object, we don't show any loading indicator though:
+Now every time the Firebase listener is called or because a user was added, edited, or removed from the list, the most recent user object with users from Firebase is stored to the MobX user store. 
+
+Another user experience improvement is adding a loading indicator when there are no users in the store. Every other time, when there are users in the store but the Firebase listener is updating the MobX store with a new user object, we don't show any loading indicator:
 
 {{< highlight javascript "hl_lines=2 3 4 5 6 7 8 11 12 13 18" >}}
 class UserList extends Component {
@@ -465,9 +469,7 @@ class UserList extends Component {
 }
 {{< /highlight >}}
 
-As you can see here as well, the users are not managed in the local state of the component anymore. Instead, MobX takes care of them now.
-
-The users and loading indicator are rendered as before, but only the loading state is coming from the local state. In addition, the Link component only navigates to the UserItem component but doesn't send any user object along the way. Whereas we wanted to have the user at our disposal before via the Link component, we want to let MobX handle it this time for us.
+The users are not managed in the local state of the component anymore, but in MobX instead. The users and loading indicator are rendered like before, but only the loading state comes from the local state. The Link component only navigates to the UserItem component, but it doesn't send any user objects. We wanted the user at our disposal before via the Link component, we want to let MobX handle it this time.
 
 {{< highlight javascript "hl_lines=3 23" >}}
 class UserList extends Component {
@@ -505,7 +507,7 @@ class UserList extends Component {
 }
 {{< /highlight >}}
 
-That's it for the UserList component. It renders a list of users as before, fetches the recent user object, which has all users, from Firebase with a realtime connection, but stores the result into the MobX user store this time instead of React's local state. Let's continue with the UserItem component that shall be connected to the MobX user store too:
+That's it for the UserList component. It renders a list of users as before, fetches the recent user object with all users from Firebase with a realtime connection, except it stores the result into the MobX user store instead of React's local state. Let's continue with the UserItem component that will also connect to the MobX user store:
 
 {{< highlight javascript "hl_lines=2 3 11 13 14 15" >}}
 import React, { Component } from 'react';
@@ -525,7 +527,7 @@ export default compose(
 )(UserItem);
 {{< /highlight >}}
 
-Similar to the UserList component, it receives the MobX user store. Check again your user store to see what's happening when setting users or a single user or when retrieving users with the computed methods. Next, let's make sure the user is fetched from Firebase's realtime database and persisted in the MobX store:
+Similar to the UserList component, the UserItem component receives the MobX user store. Check again your user store to see what's happening when setting users or a single user or when retrieving users with the computed methods. Next, let's make sure the user is fetched from Firebase's realtime database and persisted in the MobX store:
 
 {{< highlight javascript "hl_lines=6 7 8 9" >}}
 class UserItem extends Component {
@@ -544,7 +546,7 @@ class UserItem extends Component {
 }
 {{< /highlight  >}}
 
-When the component mounts, we register Firebase's listener to the realtime database. Every time the user changes, we update it in the MobX user store. If there is already a user, we don't show a loading indicator. If there is no user, we show it:
+When the component mounts, we register Firebase's listener to the real-time database. When the user changes, we update it in the MobX user store. If there is already a user, we don't show a loading indicator. If there is no user, we show it:
 
 {{< highlight javascript "hl_lines=2 3 4 5 6 7 8 11 12 13 14 15 16 17 18 28" >}}
 class UserItem extends Component {
@@ -582,7 +584,7 @@ class UserItem extends Component {
 }
 {{< /highlight  >}}
 
-In the end, we can render user and loading state as before, but the user comes from the user store which comes from the props:
+We can render user and loading state as before, except the user comes from the user store which comes from the props:
 
 {{< highlight javascript "hl_lines=3 4 5 9 10 11" >}}
 class UserItem extends Component {
@@ -610,21 +612,17 @@ class UserItem extends Component {
 }
 {{< /highlight >}}
 
-That's it for the UserItem component. It renders a user as before, fetches the recent user from Firebase with a realtime connection, but stores the result into the MobX store.
-
-<hr class="section-divider">
-
-You can see that the whole advantage here of using MobX instead of React's local state is to persist the state of users between routes. You don't need to fetch the users every time you navigate from UserItem to UserList, vice versa, or to some other route. They are already in MobX's global state after you have fetched them for the first time.
+That's it for the UserItem component. It renders a user, fetches the recent user from Firebase with a realtime connection, only it stores the result into the MobX store. The advantage in using MobX instead of React's local state is that user states persist between routes. This means you won't need to fetch them when you navigate from UserItem to UserList or a different route, since they remain in MobX's global state.
 
 ### Exercises:
 
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-mobx-firebase-authentication/tree/3c97f29600de58a3199c981687c49ae45fa3193b" %}}
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-mobx-firebase-authentication/tree/3c97f29600de58a3199c981687c49ae45fa3193b" %}}.
 
 {{% chapter_header "Manage Message Entities in MobX's Message Store" "message-entities-mobx-store" %}}
 
-We have migrated the users and session management from React's local state and React's Context API over to MobX. Last we have to migrate the message entities that are coming from the Firebase database too. It makes use of the authenticated user too; that's why we have refactored the session management earlier.
+We migrated the users and session management from React's local state and React's Context API over to MobX. Finally, we'll migrate the message entities from the Firebase database. It uses the authenticated user as well, which is why we have refactored the session management earlier.
 
-Let's migrate the HomePage component and all its content over to using MobX instead of React's local state. Let's start with the HomePage that needs to inject the MobX user store, because it fetches users in order to associated them to the messages.
+Let's migrate the HomePage component and its content to MobX instead of React's local state, starting with the HomePage that needs to inject the MobX user store, because it fetches users in order to associated them to the messages.
 
 {{< highlight javascript "hl_lines=2 17 18" >}}
 import React, { Component } from 'react';
@@ -650,7 +648,7 @@ export default compose(
 )(HomePage);
 {{< /highlight >}}
 
-Then fetch and store users to the MobX user store, because they are later used to associate them to the message entities:
+Next, fetch and store users to the MobX user store, which will be used to associate them with messages entities later:
 
 {{< highlight javascript "hl_lines=4 18" >}}
 class HomePage extends Component {
@@ -677,9 +675,9 @@ class HomePage extends Component {
 }
 {{< /highlight >}}
 
-It's the same we have done before in the UserList component. Only this time we are not interested in transforming the users object to a user array, because we want to keep it as dictionary where it's possible to access user's by their identifiers. Let's continue with the Messages components. That's why we are using `users` and not `userList` from the MobX user store.
+It's the same we did with the UserList component, except this time we are not interested in transforming the users object to a user array, because we want to keep it as a dictionary to access user's by their identifiers. We're continuing Messages components, so we'll use `users` and not `userList` from the MobX user store.
 
-We have all users at our disposal in the Messages component now. What's missing is connecting the Messages component to the MobX message store in order to store and get messages in and from the store:
+We have all users at our disposal in the Messages component now. What's missing is a connected Messages component to the MobX message store to store and get messages:
 
 {{< highlight javascript "hl_lines=2 3 12 14 15 16" >}}
 import React, { Component } from 'react';
@@ -700,7 +698,7 @@ export default compose(
 )(Messages);
 {{< /highlight >}}
 
-The Messages component has access to the session store too; which is later used for associating the user to the written message. Because we are using lots of things from the MobX stores, only a couple of properties are left in the local state of the component:
+The Messages component has access to the session store, too, which is later used for associating the user to the written message. Because we are using the MobX stores, only a couple of properties are left in the local state of the component:
 
 {{< highlight javascript >}}
 class Messages extends Component {
@@ -717,7 +715,7 @@ class Messages extends Component {
 }
 {{< /highlight >}}
 
-The Messages component only deals with the loading indicator and the text for the message that can be written from within the component as local state. Everything else will be managed with MobX.
+The Messages component only deals with the loading indicator and the text for the message written from within the component as local state. Everything else will be managed with MobX.
 
 {{< highlight javascript "hl_lines=5 6 7 16 18 20" >}}
 class Messages extends Component {
@@ -751,7 +749,7 @@ class Messages extends Component {
 }
 {{< /highlight >}}
 
-The other logic for creating, updating and removing a message stays the same, because it only uses the Firebase API. The listener of the Firebase database makes sure to update all messages in the MobX message store again. Only the class method to update the limit uses the method provided by the MobX message store:
+The other logic for creating, updating, and removing a message stays the same, because it only uses the Firebase API. The listener of the Firebase database makes sure to update all messages in the MobX message store. Only the class method to update the limit uses the method provided by the MobX message store:
 
 {{< highlight javascript "hl_lines=5 6 7" >}}
 class Messages extends Component {
@@ -767,7 +765,7 @@ class Messages extends Component {
 }
 {{< /highlight >}}
 
-Every time this state in the MobX message store changes, we receive the new limit in the Messages component as props due to the connect higher-order component. If the limit changes, we register a new Firebase listener with the new limit:
+Every time this state in the MobX message store changes, we receive the new limit in the Messages component as props due to the connected higher-order component. If the limit changes, we register a new Firebase listener with the new limit:
 
 {{< highlight javascript "hl_lines=4 5 6 7 8" >}}
 class Messages extends Component {
@@ -783,7 +781,7 @@ class Messages extends Component {
 }
 {{< /highlight >}}
 
-The rendering of the component didn't change a lot. It only receives the messages from the message store from the props instead of from the local state now.
+Rendering the component didn't change much, except now it receives the messages from the message store from the props instead of the local state.
 
 {{< highlight javascript "hl_lines=5 6 7 27" >}}
 class Messages extends Component {
@@ -828,13 +826,13 @@ class Messages extends Component {
 }
 {{< /highlight >}}
 
-The other components, the MessageList and MessageItem components, didn't change at all. In the end, only the HomePage and the Messages inject the MobX stores and observe their changes. Every time a Firebase listener that receives the latest entities from the Firebase database is called, it stores the result in on of the MobX stores. It happens as well when a user creates, edits or deletes a message. If the limit for the pagination feature changes, the listener is registered with this new limit again. Everything else, such as the text of the new message or the loading indicator, is still managed in the local state of React.
+The MessageList and MessageItem components didn't change at all, only the HomePage and the Messages inject the MobX stores and observe their changes. Every time a Firebase listener that receives the latest entities from the Firebase database is called, it stores the result in on of the MobX stores. It happens as well when a user creates, edits or deletes a message. If the limit for the pagination feature changes, the listener is registered with this new limit again. Everything else, including the text of the new message or the loading indicator, is still managed in React's local state.
 
 ### Exercises:
 
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-mobx-firebase-authentication/tree/0b8ce7fea347d067bd187d709fa3583034c8bfd8" %}}
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-mobx-firebase-authentication/tree/0b8ce7fea347d067bd187d709fa3583034c8bfd8" %}}.
 
 <hr class="section-divider">
 
-That's it for the React Firebase with MobX tutorial. You have introduced MobX as state management library to manage your session, user and message state. Instead of relying on React's context API for the authenticated user object and React's local state for the list of users and messages from the Firebase database, you are storing these objects in the MobX stores. You can find the project in this {{% a_blank "GitHub repository" "https://github.com/the-road-to-react-with-firebase/react-mobx-firebase-authentication" %}}.
+You've introduced MobX as state management library to manage your session, user, and message state. Instead of relying on React's context API for the authenticated user object and React's local state for the list of users and messages from the Firebase database, these objects are kept in the MobX stores. The project is found in {{% a_blank "GitHub repository" "https://github.com/the-road-to-react-with-firebase/react-mobx-firebase-authentication" %}}.
 

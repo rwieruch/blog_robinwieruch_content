@@ -1,7 +1,8 @@
 +++
+draft = true
 title = "Email Verification with Firebase in React"
 description = "A Firebase React tutorial on how to enable email verification. Only users that confirmed their email address with a email confirmation have access to your application. Every other user who is using a fake email is not authorized ..."
-date = "2018-12-20T07:52:46+02:00"
+date = "2018-11-30T07:52:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["react firebase email verification", "react firebase email confirmation", "react firebase double opt in"]
@@ -23,9 +24,9 @@ summary = "A Firebase React tutorial on how to enable email verification. Only u
 
 {{% read_before_5 "This tutorial is part 6 of 6 in this series." "Part 1:" "A Firebase in React Tutorial for Beginners" "https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial" "Part 2:" "React Firebase Authorization with Roles" "https://www.robinwieruch.de/react-firebase-authorization-roles-permissions" "Part 3:" "React Firebase Auth Persistence with Local Storage" "https://www.robinwieruch.de/react-firebase-auth-persistence" "Part 4:" "React Firebase Social Login: Google, Facebook, Twitter" "https://www.robinwieruch.de/react-firebase-social-login" "Part 5:" "React Firebase: Link Social Logins" "https://www.robinwieruch.de/react-firebase-link-social-logins" %}}
 
-Users using your application can use a email/password combination but also social logins to get access to your service or product. The email address associated with the social logins is often confirmed by the social platform (Google, Facebook, Twitter) itself and you can be sure that this email address really exists. But what about the email address used in combination with the password? Because users are not willing to provide a real email address, it can be a made up by them. That's how you never get access to their real email address to provide them with further information via email or to integrate them with other third-party integrations where a real email address is required. In this section, I want to show you how to confirm the email address of your users before they are able to access your application. Only after doing the email verification with a so called double opt-in send by email, users are authorized to use your application.
+In your application, users can employ an email/password combination, but also social logins to get access to your service or product. Often, the email address associated with the social logins is confirmed by the social platform (Google, Facebook, Twitter) and you know this email address really exists. But what about the email address used with the password? Because users are sometimes unwilling to provide real email addresses, they'll simply make one  up, so you can't provide them with further information via email or to integrate them with third-parties where a valid email address is required. In this section, I will show you how to confirm user email addresses before they can access your application. After an email verification with a double opt-in send by email, users are authorized to use your application.
 
-Because the Firebase API already provides this functionality, we can add it to our Firebase class to make it available for our React application. Provide an optional redirect URL which is used then to navigate the user to the application after the email confirmation:
+Because the Firebase API already provides this functionality, we can add it to our Firebase class to make it available for our React application. Provide an optional redirect URL that is used to navigate to the application after email confirmation:
 
 {{< highlight javascript "hl_lines=10 11 12 13" >}}
 ...
@@ -48,7 +49,7 @@ class Firebase {
 export default Firebase;
 {{< /highlight >}}
 
-You can inline this URL but also put it into your *.env* file(s). I prefer to use environment variables for development (*.env.development*) and production (*.env.production*). The development environment would receive the localhost URL:
+You can inline this URL, but also put it into your *.env* file(s). I prefer environmental variables for development (*.env.development*) and production (*.env.production*). The development environment receives the localhost URL:
 
 {{< highlight javascript "hl_lines=3" >}}
 ...
@@ -64,7 +65,7 @@ And the production environment receives an actual domain:
 REACT_APP_CONFIRMATION_EMAIL_REDIRECT=https://mydomain.com
 {{< /highlight >}}
 
-That's it for the API. Now the best place to guide users through the email verification is where they sign up to your application with an actual email and password:
+That's all we need to do for the API. The best place to guide users through the email verification is during email and password sign-up:
 
 {{< highlight javascript "hl_lines=19 20 21" >}}
 ...
@@ -105,7 +106,7 @@ class SignUpFormBase extends Component {
 ...
 {{< /highlight >}}
 
-Now users receive a verification email when they register for your application. In order to know whether a user has a verified email, you can retrieve this information from the actual authenticated user in your Firebase class. Merge this additional information to your user to know later whether a email/password sign in method is used by the user in the first place and whether a user a confirmed the email address.
+Users will receive a verification email when they register for your application. To find out if a user has a verified email, you can retrieve this information from the authenticated user in your Firebase class:
 
 {{< highlight javascript "hl_lines=25 26" >}}
 ...
@@ -150,7 +151,7 @@ class Firebase {
 export default Firebase;
 {{< /highlight >}}
 
-The verification should work, but how to protect your routes from users who have no verified email address? We will do it with a new higher-order component in *src/components/Session/withEmailVerification.js* that has access to Firebase and the authenticated user:
+To protect your routes from users who have no verified email address, we will do it with a new higher-order component in *src/components/Session/withEmailVerification.js* that has access to Firebase and the authenticated user:
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -175,7 +176,7 @@ const withEmailVerification = Component => {
 export default withEmailVerification;
 {{< /highlight >}}
 
-Add a function in this file which checks whether the authenticated user has a verified email and if the user has used the email/password sign in method in the first place. If the user has only social logins as sign in methods, it doesn't matter if the email is not verified.
+Add a function in this file that checks if the authenticated user has a verified email and an email/password sign-in on file. If the user has only social logins, it doesn't matter if the email is not verified.
 
 {{< highlight javascript "hl_lines=1 2 3 4 5 6" >}}
 const needsEmailVerification = authUser =>
@@ -186,7 +187,7 @@ const needsEmailVerification = authUser =>
     .includes('password');
 {{< /highlight >}}
 
-If this is true, don't render the component which is passed to this higher-order component, but a message that reminds you to verify your email address first.
+If this is true, don't render the component passed to this higher-order component, but a message that reminds users to verify their email addresses.
 
 {{< highlight javascript "hl_lines=5 6 7 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30" >}}
 ...
@@ -231,7 +232,7 @@ const withEmailVerification = Component => {
 export default withEmailVerification;
 {{< /highlight >}}
 
-Optionally we provide a button to resend a verification email to the user. Last but not least, let's improve the UX: After the button is clicked to resend the verification email, a user should get some feedback and not be able to send another email. First, add a local state to the higher-order component that tracks whether the button was clicked:
+Optionally, we can provide a button to resend a verification email to the user. Let's improve the user experience. After the button is clicked to resend the verification email, users should receive feedback, and be prohibited from sending another email. First, add a local state to the higher-order component that tracks whether the button was clicked:
 
 {{< highlight javascript "hl_lines=5 6 7 8 9 14" >}}
 ...
@@ -259,7 +260,7 @@ const withEmailVerification = Component => {
 export default withEmailVerification;
 {{< /highlight >}}
 
-And second, show another message with a conditional rendering if a user has sent another verification email:
+Second, show another message with a conditional rendering if a user has sent another verification email:
 
 {{< highlight javascript "hl_lines=14 15 16 17 18 19 20 26 31" >}}
 ...
@@ -312,8 +313,7 @@ const withEmailVerification = Component => {
 export default withEmailVerification;
 {{< /highlight >}}
 
-
-Last, make the new higher-order component available in your Session folder's *index.js* file:
+Lastly, make the new higher-order component available in your Session folder's *index.js* file:
 
 {{< highlight javascript "hl_lines=4 10" >}}
 import AuthUserContext from './context';
@@ -330,7 +330,7 @@ export {
 
 {{< /highlight >}}
 
-Now you send a confirmation email once a user signs up with a email/password combination and you also have a higher-order component in place that is used for authorization and optionally resending a confirmation email. Next you can secure all pages/routes that should be only accessible with a confirmed email. Let's begin with the home page:
+Send a confirmation email once a user signs up with a email/password combination. You also have a higher-order component used for authorization and optionally resending a confirmation email. Next, secure all pages/routes that should be only accessible with a confirmed email. Let's begin with the home page:
 
 {{< highlight javascript "hl_lines=2 4 15 16 17 18" >}}
 import React from 'react';
@@ -400,12 +400,12 @@ export default compose(
 )(AccountPage);
 {{< /highlight >}}
 
-All your sensible routes that where previously only authorized for authenticated users require to have a confirmed email as well. Finally your application can be only used by users with read email addresses.
+All the sensible routes for authenticated users now require a confirmed email. Finally, your application can be only used by users with real email addresses.
 
 ### Exercises:
 
-* Get comfortable with the new flow by deleting your user from the Authentication and Realtime Databases and sign up again
-* Check if everything still works if you sign up with a social login instead of the email/password combination but activate the email/password sign in method later on the account page
-* Read more about {{% a_blank "Firebase's verification E-Mail" "https://firebase.google.com/docs/auth/web/manage-users" %}}
-* Read more about {{% a_blank "additional configuration for the verification E-Mail" "https://firebase.google.com/docs/auth/web/passing-state-in-email-actions" %}}
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/316a1759d4391fc4bf5ea55731608c8c227f24a8" %}}
+* Familiarize yourself with the new flow by deleting your user from the Authentication and Realtime Databases and sign up again.
+* Sign up with a social login instead of the email/password combination, but activate the email/password sign-in method later on the account page.
+* Read more about {{% a_blank "Firebase's verification E-Mail" "https://firebase.google.com/docs/auth/web/manage-users" %}}.
+* Read more about {{% a_blank "additional configuration for the verification E-Mail" "https://firebase.google.com/docs/auth/web/passing-state-in-email-actions" %}}.
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/316a1759d4391fc4bf5ea55731608c8c227f24a8" %}}.

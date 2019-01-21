@@ -1,6 +1,6 @@
 +++
 title = "How to link Social Logins with Firebase in React"
-description = "A Firebase React tutorial on how to link social logins with each other under one account. The example covers linking Google, Facebook, Twitter and email/password sign in methods ..."
+description = "A Firebase React tutorial on how to link social logins with each other under one account. The example covers linking Google, Facebook, Twitter and email/password sign-in methods ..."
 date = "2018-12-06T07:52:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
@@ -12,7 +12,7 @@ banner = "img/posts/react-firebase-link-social-logins/banner.jpg"
 contribute = "react-firebase-link-social-logins.md"
 headline = "How to link Social Logins with Firebase in React"
 
-summary = "A Firebase React tutorial on how to link social logins with each other under one account. The example covers linking Google, Facebook, Twitter and email/password sign in methods."
+summary = "A Firebase React tutorial on how to link social logins with each other under one account. The example covers linking Google, Facebook, Twitter and email/password sign-in methods."
 +++
 
 {{% sponsorship %}}
@@ -23,13 +23,13 @@ summary = "A Firebase React tutorial on how to link social logins with each othe
 
 {{% read_before_4 "This tutorial is part 5 of 5 in this series." "Part 1:" "A Firebase in React Tutorial for Beginners" "https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial" "Part 2:" "React Firebase Authorization with Roles" "https://www.robinwieruch.de/react-firebase-authorization-roles-permissions" "Part 3:" "React Firebase Auth Persistence with Local Storage" "https://www.robinwieruch.de/react-firebase-auth-persistence" "Part 4:" "React Firebase Social Login: Google, Facebook, Twitter" "https://www.robinwieruch.de/react-firebase-social-login" %}}
 
-The last section walked you through implementing social logins for Google, Facebook, and Twitter next to being able to sign up/in with a email/password combination. However, since you have enabled to have multiple accounts for one E-Mail address, there is not only one account associated to your email which can lead to bugs for your service/product. Imagine a user signs in with Google, buys a ebook on your website, is able to download the book as signed in user, and signs out again. The next time the user signs in with the email/password combination but doesn't see the downloadable ebook anymore. What happened? The user has two accounts on your website: While one account is associated to Google, the other one is associated to the email/password combination.
+The last section walked you through implementing social logins for Google, Facebook, and Twitter to being able to sign up/in with a email/password combination. However, since you have enabled multiple accounts for one email address, there is more than one account associated to your email, which can lead to bugs for your service/product. Imagine a user signs in with Google, buys a ebook on your website, is able to download the book as signed in user, and then signs out again. The next sign-in with the email/password combination won't show the e-book anymore. This is because the user has two accounts on your website. While one account is associated with Google, the other one is associated with the email/password combination.
 
-**Let's walk you through this scenario.** Take one of your social accounts (Google, Facebook, Twitter) to login to the Firebase in React application. Check the account page and copy the email address that is associated to your social account. Then logout and login again (maybe you need to register before) with your email/password combination but using the same email as for your social login. It's possible, because we enabled to have multiple accounts for the same email address on the Firebase dashboard previously. When you check the account page again, you should see the same email as before when logging in with the social account. Head over to your Firebase dashboard and check the "Authentication" tab. You should find two accounts associated to the same email you have used before. The same applies for the "Database" tab.
+To walk through this scenario, take one of your social accounts (Google, Facebook, Twitter) and log into the Firebase in React application. Check the account page and copy the email address that is associated to your social account. Log out and log in again with your email/password combination, using the same email as for your social login. It's possible because we enabled multiple accounts for the same email address in the Firebase dashboard. When you check the account page again, you should see the same email as when you logged in with the social account. Head to your Firebase dashboard and check the "Authentication" tab. You should find two accounts associated to the same email you used before. The same applies for the "Database" tab.
 
-In this section, we want to prevent this behavior by having only one email address per user while still being able to sign in via email/password, Google, Facebook or Twitter. It shouldn't matter which sign in you take. The account should be the same. That's where the linking of all the social accounts comes into play.
+In this section, we want to prevent this behavior by using only one email address per user, while still being able to sign-in via email/password, Google, Facebook or Twitter. It shouldn't matter which sign-in you take, as the account should be the same. That's where the linking of all the social accounts comes in.
 
-Before we get started, head over to the Authentication and Database tabs on your Firebase dashboard and delete the user you have used with your personal email address. We will use this email address later again, but this time it will only end up once in both tabs for one account. First of all, disable the setting on your Firebase dashboard that encourages having email addresses associated to more than one account.
+Before we get started, head to the Authentication and Database tabs on your Firebase dashboard and delete the user you used with your personal email address. We will use this email address later, except this time it will end up once in both tabs for one account. First, disable the setting on your Firebase dashboard that encourages email addresses associated to more than one account.
 
 {{% pin_it_image "firebase only one email" "img/posts/react-firebase-link-social-logins/firebase-only-one-email.jpg" "is-src-set" %}}
 
@@ -47,7 +47,7 @@ const ERROR_MSG_ACCOUNT_EXISTS = `
 `;
 {{< /highlight >}}
 
-Second, show the custom error message when the error code shows up. That's because we prevent to have more than one email address for one account now:
+Next, show the custom error message when the error code shows up. That's because we prevent more than one email address for one account:
 
 {{< highlight javascript "hl_lines=16 17 18" >}}
 ...
@@ -81,7 +81,7 @@ class SignInGoogleBase extends Component {
 ...
 {{< /highlight >}}
 
-Repeat this for the other social logins (Facebook, Twitter) too. If a user signs in with one of the social logins, but there is already an account in the system with this email address, the custom error message shows up. The user has to login with the correct sign in method instead and link all the other desired social accounts to this account on the account page. We will add this feature later on the account page, but before we need to show a similar custom error message for the sign up page too. It can happen that a user uses a social login first and later attempts to sign up with an email address (email/password sign up) that has been used by the social login before.
+Repeat this for the other social logins (Facebook, Twitter) as well. If a user signs in with one of the social logins, but there is already an account in the system with this email address, the custom error message shows up. The user has to log in with the correct sign-in method and link all other desired social accounts to this account on the account page. We will add this feature later in the account page, but before this, we need to show a similar custom error message for the sign up page as well. The user might use a social login first and later attempt to sign up with an email address (email/password sign up) that has been used by the social login already.
 
 {{< highlight javascript "hl_lines=1 3 4 5 6 7 8 9" >}}
 const ERROR_CODE_ACCOUNT_EXISTS = 'auth/email-already-in-use';
@@ -90,12 +90,12 @@ const ERROR_MSG_ACCOUNT_EXISTS = `
   An account with this E-Mail address already exists.
   Try to login with this account instead. If you think the
   account is already used from one of the social logins, try
-  to sign in with one of them. Afterward, associate your accounts
+  to sign-in with one of them. Afterward, associate your accounts
   on your personal account page.
 `;
 {{< /highlight >}}
 
-Use the custom error message when the error code happens on a sign up:
+Use the custom error message when the error code happens on sign-up:
 
 {{< highlight javascript "hl_lines=23 24 25" >}}
 ...
@@ -136,9 +136,7 @@ class SignUpFormBase extends Component {
 ...
 {{< /highlight >}}
 
-Now the user knows what to do when already having an account associated to the email address in the system, but attempting to use the same email address for another sign in method.
-
-Let's head over to the account page where we will implement an area to manage and activate/deactivate all the sign in methods (social sign ins, email/password sign in). Introduce all available sign in methods and their optional providers (see Firebase class) as list of objects:
+Now users can use the same email address for different sign-in methods. Next, let's head to the account page, where we'll create an area to manage and activate/deactivate all the sign-in methods (social sign-ins, email/password sign-in). Introduce all available sign-in methods and their optional providers (see Firebase class) as list of objects:
 
 {{< highlight javascript "hl_lines=3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 29" >}}
 ...
@@ -178,7 +176,7 @@ const AccountPage = () => (
 ...
 {{< /highlight >}}
 
-Now implement the new component and render all available sign in methods as buttons which are doing nothing:
+Now implement the new component and render all available sign-in methods as buttons which are doing nothing:
 
 {{< highlight javascript "hl_lines=1 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24" >}}
 import React, { Component } from 'react';
@@ -209,7 +207,7 @@ class LoginManagement extends Component {
 ...
 {{< /highlight >}}
 
-Don't forget to make the Firebase instance available to the component, because we need to use it in the next step:
+Remember to make the Firebase instance available to the component, because we need to use it in the next step:
 
 {{< highlight javascript "hl_lines=4 10 24" >}}
 import React, { Component } from 'react';
@@ -240,7 +238,7 @@ const LoginManagement = withFirebase(LoginManagementBase);
 ...
 {{< /highlight >}}
 
-Then fetch all active sign in methods for the user's email address. Fortunately Firebase has an API for it:
+Then, fetch all active sign-in methods for the user's email address. Firebase has an API for it:
 
 {{< highlight javascript "hl_lines=4 5 6 7 8 9 10 11 13 14 15 16 17 18 19 20" >}}
 ...
@@ -270,7 +268,7 @@ class LoginManagementBase extends Component {
 ...
 {{< /highlight >}}
 
-Next differentiate between active sign in methods and the remaining sign in methods that are not in the listed of fetched sign in methods. You can show an error message with a conditional rendering as well:
+Next, differentiate between active sign-in methods and the remaining sign-n methods not in the listed of fetched sign-in methods. You can show an error message with a conditional rendering as well:
 
 {{< highlight javascript "hl_lines=5 12 13 14 18 19 20 21 22 23 24 25 26 31" >}}
 class LoginManagementBase extends Component {
@@ -310,7 +308,7 @@ class LoginManagementBase extends Component {
 }
 {{< /highlight >}}
 
-While all available sign in methods are displayed, they differentiate between active and non active sign in methods. Sign in methods that are actively used by the user can be deactivated. On the other hand, sign in methods that are available but not used by the user can be linked instead to make them active. We will implement both details in the next step:
+While all available sign-in methods are displayed, they differentiate between active and non-active. The active methods can be deactivated. On the other hand, sign-in methods that are available but not used by the user can be linked instead to make them active. We will implement both details in the next step:
 
 {{< highlight javascript "hl_lines=4 5 6 8 15 17 18 19 21 22 23" >}}
 class LoginManagementBase extends Component {
@@ -341,7 +339,7 @@ class LoginManagementBase extends Component {
 }
 {{< /highlight >}}
 
-Extract the fetch method, because we will use it after we linked (activated) or unlinked (deactivated) sign in methods. Then the new class methods can be used by the buttons:
+Extract the fetch method, because we will use it after we linked (activated) or unlinked (deactivated) sign-in methods. Then the new class methods can be used by the buttons:
 
 {{< highlight javascript "hl_lines=12 22 23 30 31 32" >}}
 class LoginManagementBase extends Component {
@@ -391,7 +389,7 @@ class LoginManagementBase extends Component {
 }
 {{< /highlight >}}
 
-Also we added one little improvement to avoid locking us out of the application. If only one sign in method is left as activate, disable all deactivation buttons because there needs to be at least one sign in method. Now let's implement the class methods for linking and unlinking accounts:
+Also, we added an improvement to avoid getting locked out of the application. If only one sign-in method is left as active, disable all deactivation buttons because there needs to be at least one sign-in method. Now let's implement the class methods for linking and unlinking accounts:
 
 {{< highlight javascript "hl_lines=5 6 7 8 12 13 14 15" >}}
 class LoginManagementBase extends Component {
@@ -415,9 +413,9 @@ class LoginManagementBase extends Component {
 }
 {{< /highlight >}}
 
-Finally we are able to link and unlink accounts. Afterward, all active sign in methods are fetched again. That's why we have extracted this class method from the `componentDidMount()` lifecycle method before. It's reusable now. The linking of the sign in methods should work for Google, Facebook and Twitter now. However, it doesn't work for the email/password combination yet, because this one isn't done by a simple button click. If the user has only active social sign in methods but no email/password sign in method yet, the user has to provide a email/password combination in the first place. Then it is possible to link this sign in method to the other social sign in methods.
+Finally we are able to link and unlink accounts. Afterward, all active sign-in methods are fetched again. That's why we have extracted this class method from the `componentDidMount()` lifecycle method before, which is reusable now. The linking of the sign-in methods should work for Google, Facebook and Twitter now. However, it doesn't work for the email/password combination yet, because this one isn't done by a simple button click. If the user has only active social sign-in methods but no email/password sign-in method, an email/password combination must be provided; then it is possible to link this sign-in method to the other social sign-in methods.
 
-First, extract the social sign in methods to its own component and add a conditional rendering for the password sign in method:
+First, extract the social sign-in methods to its own component and add a conditional rendering for the password sign-in method:
 
 {{< highlight javascript "hl_lines=4 5 6 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36" >}}
 class LoginManagementBase extends Component {
@@ -467,7 +465,7 @@ class LoginManagementBase extends Component {
 }
 {{< /highlight >}}
 
-See how the DefaultLoginToggle component will use a different `onLink` handler than the SocialLoginToggle component, but the `onUnlink` stays the same. We will implement DefaultLoginToggle component and its missing handler in a moment, but first let's extract the SocialLoginToggle component:
+The DefaultLoginToggle component will use a different `onLink` handler than the SocialLoginToggle component, but the `onUnlink` stays the same. We will implement DefaultLoginToggle component and its missing handler in a moment, but first let's extract the SocialLoginToggle component:
 
 {{< highlight javascript "hl_lines=1 2 3 4 5 6 7 11 19" >}}
 const SocialLoginToggle = ({
@@ -495,7 +493,7 @@ const SocialLoginToggle = ({
   );
 {{< /highlight >}}
 
-The implementation details didn't change, but the component is standalone now. Next, let's implement the other component for the email/password sign in. When this sign in method is activated, it's sufficient to render only a button similar to the social sign in methods to unlink (deactivate) this sign in method. But if this sign in method isn't activated, you need to retrieve the user's desired email and password combination to link it as account to the other social accounts. It's very similar to our sign up form then:
+The implementation details didn't change, but the component is standalone now. Next, let's implement the other component for the email/password sign-in. When this sign-in method is activated, it's sufficient to render only a button similar to the social sign-in methods to unlink (deactivate) this sign-in method. If this sign-in method isn't activated, you need to retrieve the user's desired email and password combination to link it as account to the other social accounts. It's very similar to our sign up form then:
 
 {{< highlight javascript >}}
 class DefaultLoginToggle extends Component {
@@ -563,7 +561,7 @@ class DefaultLoginToggle extends Component {
 }
 {{< /highlight >}}
 
-Last, let's implement the handler in the parent component for the default sign in via email/password. It receives a password from the child component which is added to the authenticated user's email address:
+Next, let's implement the handler in the parent component for the default sign-in via email/password. It receives a password from the child component, which is added to the authenticated user's email address:
 
 {{< highlight javascript "hl_lines=4 5 6 7 8 9 10 11 12 13 14" >}}
 class LoginManagementBase extends Component {
@@ -585,9 +583,9 @@ class LoginManagementBase extends Component {
 }
 {{< /highlight >}}
 
-The Firebase API is not super elegant here, but it's okay to know that it creates a credential from the user's email and desired password. Afterward, it links it to the other accounts. Then all active sign in methods are fetched again to keep everything updated.
+The Firebase API is not too elegant here, but it's good to know that it creates a credential from the user's email and desired password. Afterward, it links it to the other accounts. Then all active sign-in methods are fetched again to keep everything updated.
 
-One last workaround is missing. Previously when we have set up our Firebase class, we have overridden its `auth` property with `app.auth()`. However, in order to create the credential from the email and password in the component, we need to get access to the Firebase internal `auth` which has the `EmailAuthProvider` property. That's why reference it before we override it with `app.auth()` in the next lines.
+Previously, when we set up our Firebase class, we overrode its `auth` property with `app.auth()`. However, to create the credential from the email and password in the component, we need access to the Firebase internal `auth`, which has the `EmailAuthProvider` property, so we reference it before we override it with `app.auth()` in the next lines.
 
 {{< highlight javascript "hl_lines=7" >}}
 ...
@@ -611,11 +609,11 @@ class Firebase {
 ...
 {{< /highlight  >}}
 
-Finally you are able to link/unlink different sign in methods with each other by having only one account and email address associated to it.
+Now you can link and unlink different sign-in methods using only one account and email address.
 
 ### Exercises:
 
-* Try to link/unlink different sign in methods and check if you are able to sign in with this method afterward
-* Implement loading indicators for each button which activates/deactivates the sign in methods for a better UX
-* Read more about {{% a_blank "social account linking in Firebase" "https://firebase.google.com/docs/auth/web/account-linking" %}}
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/f3d2ec472754604c7740dbdc7a1e5bf792d787f4" %}}
+* Try to link and unlink different sign-in methods and check if you are able to sign-in with this method afterwards.
+* Implement loading indicators for each button that activate and deactivate the sign-in methods for a better user experience.
+* Read more about {{% a_blank "social account linking in Firebase" "https://firebase.google.com/docs/auth/web/account-linking" %}}.
+* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/f3d2ec472754604c7740dbdc7a1e5bf792d787f4" %}}.

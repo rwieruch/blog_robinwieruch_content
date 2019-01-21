@@ -22,27 +22,25 @@ summary = "A beginners tutorial to learn Firestore in React for business applica
 
 {{% react-firebase-book %}}
 
-{{% read_before_9 "This tutorial is part 10 of 10 in this series." "Part 1:" "A Firebase in React Tutorial for Beginners" "https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial" "Part 2:" "React Firebase Authorization with Roles" "https://www.robinwieruch.de/react-firebase-authorization-roles-permissions" "Part 3:" "React Firebase Auth Persistence with Local Storage" "https://www.robinwieruch.de/react-firebase-auth-persistence" "Part 4:" "React Firebase Social Login: Google, Facebook, Twitter" "https://www.robinwieruch.de/react-firebase-social-login" "Part 5:" "React Firebase: Link Social Logins" "https://www.robinwieruch.de/react-firebase-link-social-logins" "Part 6:" "React Firebase: Email Verification" "https://www.robinwieruch.de/react-firebase-email-verification" "Part 7:" "How to use React Router with Firebase" "https://www.robinwieruch.de/react-firebase-router" "Part 8:" "How to use Firebase Realtime Database in React" "https://www.robinwieruch.de/react-firebase-realtime-database" "Part 9:" "How to deploy a React application to Firebase" "https://www.robinwieruch.de/firebase-deploy-react-js" %}}
-
-People who follow my content know that I make heavily use of the good old Firebase Realtime Database in React applications. I am saying good old here, because there is this new cool kid on the block: **Firebase's Cloud Firestore**. It can be used as **alternative to Firebase's Realtime Database**. Looking into Google's documentation, there are four major advantages of using Cloud Firestore over Firebase's Realtime Database:
+Those who follow my content know that I always use the good old Firebase Realtime Database in React applications. I am saying good old here, because there is this new cool kid on the block: **Firebase's Cloud Firestore**. It can be used as **alternative to Firebase's Realtime Database**. According to Google's documentation, there are four major advantages of using Cloud Firestore over Firebase's Realtime Database:
 
 * more intuitive data model
 * more features
 * faster queries
 * scales better for larger applications
 
-I have experienced the first argument myself from a code perspective, but also when inspecting the database entries on my Firebase project's dashboard, because it shifts the focus from JSON to document-oriented database. You can read more about which database to choose in {{% a_blank "this comprehensive article that pivots Firebase's Cloud Firestore vs. Realtime Database" "https://firebase.google.com/docs/database/rtdb-vs-firestore" %}}.
+I experienced the first argument from a code perspective, but also when inspecting the database entries on my Firebase project's dashboard, because it shifts the focus from JSON to document-oriented database. You can read more about which database to choose in {{% a_blank "this comprehensive article that pivots Firebase's Cloud Firestore vs. Realtime Database" "https://firebase.google.com/docs/database/rtdb-vs-firestore" %}}.
 
-Now, before I migrate all my React tutorials and books from the older Realtime Database to Cloud Firestore, I rather want to show you a **straight forward migration path** regarding the source code. That's how you can still make use of all the educational content I have written about Firebase and Firebase's Realtime Database, but exchange the database with Firebase's Cloud Firestore. That's why I will not build a React application with Cloud Firestore from scratch, but migrate this [feature-rich React with Firebase application](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/) which uses Firebase's Realtime Database over to Firebase's Cloud Firestore. Both versions are accessible as source code on GitHub:
+Before I migrate my React tutorials and books from the older Realtime Database to Cloud Firestore, I'd like to show you a **straight forward migration path** regarding the source code. That's how you can still use all the educational content I have written about Firebase and Firebase's Realtime Database, but exchange the database with Firebase's Cloud Firestore. As a result, I am not building a React application with Cloud Firestore from scratch, but migrating a [feature-rich React with Firebase application](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/) that uses Firebase's Realtime Database over to Firebase's Cloud Firestore. Both versions are accessible as source code on GitHub:
 
-* {{% a_blank "React with Firebase Realtime Database" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication" %}}
-* {{% a_blank "React with Firebase Cloud Firestore" "https://github.com/the-road-to-react-with-firebase/react-firestore-authentication" %}}
+* {{% a_blank "React with Firebase Realtime Database" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication" %}}.
+* {{% a_blank "React with Firebase Cloud Firestore" "https://github.com/the-road-to-react-with-firebase/react-firestore-authentication" %}}.
 
-Except for the database, everything else, such as authentication with sign in, sign up and sign out, but also password reset, social logins with Facebook, Google, and Twitter, email verification, and hosting stay the same. Only the database changes; so as mentioned before, everything else you have learned from my other React Firebase tutorials is still up-to-date. Let's dive into the migration. Before you start, checkout this [visual Firebase tutorial](https://www.robinwieruch.de/firebase-tutorial/) to setup your Firebase project with Cloud Firestore.
+Except for the database, everything else stays the same; thus, everything else you learned from my previous React Firebase tutorials is still up-to-date. Before we start with migration, consider reading through this [visual Firebase tutorial](https://www.robinwieruch.de/firebase-tutorial/) to set up your Firebase project with Cloud Firestore.
 
 {{% chapter_header "Migration from Realtime Database to Cloud Firestore" "firebase-cloud-firestore-migration" %}}
 
-First, our project has a Firebase class that connects our React application with the Firebase API (e.g. authentication API, database API). At the moment, it uses Firebase's Realtime Database:
+First, our project has a Firebase class that connects our React application with the Firebase API (e.g. authentication API, database API). It currently 0uses Firebase's Realtime Database:
 
 {{< highlight javascript "hl_lines=3 20 26 70 72 97 99 103 105" >}}
 import app from 'firebase/app';
@@ -155,7 +153,7 @@ class Firebase {
 export default Firebase;
 {{< /highlight >}}
 
-The previous code snippet has all the lines highlighted that need to be changed for the Firestore migration. It's not much, because all the other authentication related code stays the same. Only the database setup changes when using Cloud Firestore and the API to read and write on user and message entities. Let's exchange the setup first. The usual `npm install firebase` node package already comes with the Cloud Firestore and Realtime Database. That's why we can exchange this one straight forward.
+The previous code snippet has all the lines highlighted that need to be changed for the Firestore migration. It's not much, because all the other authentication related code stays the same. Only the database setup changes when using Cloud Firestore and the API to read and write on user and message entities. Let's exchange the setup first. The usual `npm install firebase` node package comes with the Cloud Firestore and Realtime Database, so we can exchange this one straight forward.
 
 {{< highlight javascript "hl_lines=3 13 19 20" >}}
 import app from 'firebase/app';
@@ -192,7 +190,7 @@ class Firebase {
 export default Firebase;
 {{< /highlight >}}
 
-Also the set up for using timestamps, in this case for the `createdData` property for our message entities, has changed slightly. Now, only the other previously highlighted sections have to change on how we interact with the new Firestore instead of the Realtime Database.
+The set up for using timestamps, in this case for the `createdData` property for our message entities, has also changed slightly. Now, only the other previously highlighted sections have to change, to interact with the new Firestore instead of the Realtime Database.
 
 {{< highlight javascript "hl_lines=9 11 36 38 42 44" >}}
 class Firebase {
@@ -242,13 +240,13 @@ class Firebase {
 }
 {{< /highlight >}}
 
-Instead of working on references that are used to locate the JSON objects in Firebase's Realtime Database, Firestore introduces the concept of Collections (Lists, Arrays) and Documents (Item, Entity, Object). By having these two new concepts, we can use the usual {{% a_blank "CRUD (Create, Read, Update, Delete) Operations" "https://en.wikipedia.org/wiki/Create,_read,_update_and_delete" %}} on them with with set, get, update, delete methods.
+Instead of working on references that are used to locate the JSON objects in Firebase's Realtime Database, Firestore introduces Collections (Lists, Arrays) and Documents (Item, Entity, Object). With these new concepts, we can use the usual {{% a_blank "CRUD (Create, Read, Update, Delete) Operations" "https://en.wikipedia.org/wiki/Create,_read,_update_and_delete" %}} on them with with set, get, update, delete methods.
 
 {{% chapter_header "Write Data to Firestore: Set or Update? Merge!" "firebase-cloud-firestore-write-data" %}}
 
 Cloud Firestore uses set and update methods to create and edit documents in the database. For instance, when you sign up to Firebase authentication, in our application, in the sign up form, we made sure to create a new user in the database.
 
-Essentially this works as before when using the Cloud Firestore now, because it offers the same method to set a new entity in the database. The `set()` method creates a new document in the Firestore database. If the document already exists, its content will be entirely overwritten. If the document doesn't exist, it will be created.
+It works the same as before with Cloud Firestore, because it offers the same method , where the`set()` method creates a new document in the Firestore database. If the document already exists, its content will be overwritten. If the document doesn't exist, it will be created.
 
 {{< highlight javascript "hl_lines=22" >}}
 class SignUpFormBase extends Component {
@@ -301,9 +299,9 @@ class SignUpFormBase extends Component {
 }
 {{< /highlight >}}
 
-However, as seen in the code snippet, Cloud Firestore comes with another neat addition called the merge option. If you are not sure whether your document already exists, pass the merge option to avoid overwriting the entire document. Then new content is merged into the entity, if the entity is already there. You may wonder why you wouldn't use the `update()` method, but update would fail if the document doesn't exist.
+However, as seen in the code snippet, Cloud Firestore comes with a merge option. If you are not sure whether your document already exists, pass the merge option to avoid overwriting the entire document. New content is merged into the entity if the entity is already there. We don't use the `update()` method because it fails if the document doesn't exist.
 
-In our case, the merge operation makes sense, because we cannot be sure -- when a user signs up for the first time with an email/password combination -- whether the user hasn't been created already in the database due to signing up with a social login such as Google or Facebook before. That's why we migrate our user creations for the social logins in the sign in form to use the merge option too.
+In our case, the merge operation makes sense because we can't be sure if a user is signing up for the first time or if they've signed up with a social login such as Google or Facebook. To handle this, we migrate our user creations for the social logins in the sign in form to use the merge option too.
 
 {{< highlight javascript "hl_lines=19" >}}
 class SignInGoogleBase extends Component {
@@ -356,13 +354,13 @@ class SignInGoogleBase extends Component {
 }
 {{< /highlight >}}
 
-You would need to conduct the same migration for the Facebook and Twitter sign in methods. Then you can be assured, that every time a user signs in with one of the available sign in methods, the latest properties from the freshly authenticated user will be merged into the database user.
+Conduct the same migration for the Facebook and Twitter sign-in methods. Then you can be assured that every time a user signs in with one of the available sign in methods, the latest properties from the authenticated user will be merged into the database user.
 
 We have some more set and update methods that were used for the Realtime Database in our application, but they stay the same for the Firestore Database. Only the sign in and sign up methods have changed, because it is more convenient to always merge the latest authenticated user to our database user document.
 
 {{% chapter_header "Read Data from Firestore" "firebase-cloud-firestore-read-data" %}}
 
-After we have learned how to write data to Firestore with set, update and merge, we need to know how to read data from Firestore as well. Let's migrate all our React components which are reading data from the Realtime Database to read data from Firebase's Firestore. Let's start with the UserList component that looks for Firebase's Realtime Database like the following:
+After we have learned how to write data to Firestore with set, update, and merge, we need to know how to read data from Firestore as well. Let's migrate all our React components that are reading data from the Realtime Database to read data from Firebase's Firestore, starting with the UserList component that looks for Firebase's Realtime Database like the following:
 
 {{< highlight javascript >}}
 class UserList extends Component {
@@ -403,7 +401,7 @@ class UserList extends Component {
 }
 {{< /highlight >}}
 
-Firebase's Realtime Database always returns an object that represents your data. It doesn't matter whether you request a single entity or a list on entities. For instance, a list of entities would always be a dictionary of the entities that are accessible by their identifiers. Now, when using Cloud Firestore instead, transforming the data collection to a list of items is different:
+Firebase's Realtime Database always returns an object that represents your data. It doesn't matter whether you request a single entity or a list of entities. For instance, a list of entities would always be a dictionary of the entities accessible by their identifiers. Now, when using Cloud Firestore instead, transforming the data collection to a list of items is different:
 
 {{< highlight javascript "hl_lines=14 16 17 19 20 21 24 31" >}}
 class UserList extends Component {
@@ -447,9 +445,9 @@ class UserList extends Component {
 
 The snapshot offers a forEach method to iterate through the collection (documents/entities). Unfortunately there are no map, reduce or filter methods. Using the forEach method, you can create your list of items and keep track of the identifier of the document too.
 
-Identical to the Realtime Database, the Cloud Firestore is realtime as well. But it uses more common sense of creating the listener, which is just the return value of the function call, that can be used in React's other lifecycle method to remove the listener again.
+Identical to the Realtime Database, the Cloud Firestore is realtime as well. But it uses more common sense of creating the listener, which is just the return value of the function call that can be used in React's other lifecycle method to remove the listener.
 
-Now we have seen how this works for lists (collection) when using Firebase's Firestore. How does it look for a single item (document)? Let's see how the UserItem component fetches data with the new Firestore:
+Now we have seen how this works for lists (collection) when using Firebase's Firestore, but not a single item (document)? Let's see how the UserItem component fetches data with the new Firestore:
 
 {{< highlight javascript "hl_lines=19 21 23 30" >}}
 class UserItem extends Component {
@@ -488,9 +486,9 @@ class UserItem extends Component {
 }
 {{< /highlight >}}
 
-As before, if there is a user coming from React Router's state, the user is not fetched again. But also not kept up to date with a Firebase realtime listener. That's why unsubscribing the listener is a conditional operation. The actual data fetching doesn't look much different from the previous version. Only the method names have changed to `onSnapshot()` and `data()`.
+If there is a user coming from React Router's state, the user is not fetched again. But also not kept up to date with a Firebase realtime listener. That's why unsubscribing the listener is a conditional operation. The data fetching doesn't look much different from the previous version, except the method names changed to `onSnapshot()` and `data()`.
 
-Now we have seen how collections and single documents are read from Firestore. We need to apply the same refactorings to our other React components from the application. First, the HomePage component that fetches users to associate them later with written messages:
+Now we have seen how collections and single documents are read from Firestore, so we need to apply the same refactorings to our other React components from the application. First, the HomePage component that fetches users to associate them later with written messages:
 
 {{< highlight javascript "hl_lines=11 13 14 15 18 24" >}}
 class HomePage extends Component {
@@ -532,9 +530,7 @@ class HomePage extends Component {
 }
 {{< /highlight >}}
 
-In this component, we don't want to transform the collection into a list of items, but rather keep it as object which can be accessed by using identifiers in the form of a dictionary later.
-
-Last, the Messages component that fetches our other collection, the messages, that we have adjusted in the beginning in the Firebase class:
+In this component, we don't want to transform the collection into a list of items but keep it as object that can be accessed using identifiers in the form of a dictionary later. The Messages component fetches our other collection that we adjusted in the beginning in the Firebase class:
 
 {{< highlight javascript "hl_lines=11 13 14 15 16 17 18 19 20 23 33" >}}
 class Messages extends Component {
@@ -576,10 +572,10 @@ class Messages extends Component {
 }
 {{< /highlight >}}
 
-As for the other components using Firestore now, the transformation changes, subscribing to and unsubscribing from the listener, and a couple of property and method namings change too. Everything else stays fairly the same as before.
+As for the other components using Firestore now, the transformation changes, subscribing to and unsubscribing from the listener, and a couple of property and method namings change, too. Everything else stays fairly the same as before.
 
 <hr class="section-divider">
 
-I hope you have seen that migrating a larger application from Firebase's Realtime Database to Firebase Cloud Firestore isn't a complex undertaking. Only the database layer with its setup and operations changes, but all the other Firebase features such as authentication, authorization and hosting stay identical. Also reading data from and writing data to the Firestore isn't much different from the Realtime Database. It only adds more convenience by having a more elegant API and data structure with collections and documents. As exercise, I encourage you to go through my Firebase + React tutorial and migrate it over to Firestore afterward, if you are interested in learning about Firestore.
+Migrating a larger application from Firebase's Realtime Database to Firebase Cloud Firestore isn't that complex. The database layer with its setup and operations changes, but all the other Firebase features such as authentication, authorization, and hosting stay identical. Reading and writing data with the Firestore isn't much different from the Realtime Database, but it adds more convenience using a more elegant API and data structure with collections and documents. As an exercise, I encourage you to go through my Firebase + React tutorial and migrate it to Firestore to learn more.
 
-Checkout the {{% a_blank "official Firestore documentation" "https://firebase.google.com/docs/firestore/" %}} to learn more about how it structures data, how to read and write data, and how to integrate it with more advanced features. You can also checkout again both projects, the Firebase Realtime Database project and the Firebase Cloud Firestore project, on GitHub from the beginning of this tutorial.
+Check out the {{% a_blank "official Firestore documentation" "https://firebase.google.com/docs/firestore/" %}} to learn more about how it structures data, how to read and write data, and how to integrate it with more advanced features. You can also check out the Firebase Realtime Database project and the Firebase Cloud Firestore project on GitHub from the beginning of this tutorial.
