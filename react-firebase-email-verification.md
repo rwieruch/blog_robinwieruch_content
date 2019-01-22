@@ -404,7 +404,7 @@ All the sensible routes for authenticated users now require a confirmed email. F
 ### Exercises:
 
 * Familiarize yourself with the new flow by deleting your user from the Authentication and Realtime Databases and sign up again.
-* Sign up with a social login instead of the email/password combination, but activate the email/password sign in method later on the account page.
+  * For example, sign up with a social login instead of the email/password combination, but activate the email/password sign in method later on the account page.
 * Read more about {{% a_blank "Firebase's verification E-Mail" "https://firebase.google.com/docs/auth/web/manage-users" %}}
 * Read more about {{% a_blank "additional configuration for the verification E-Mail" "https://firebase.google.com/docs/auth/web/passing-state-in-email-actions" %}}
 * Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/316a1759d4391fc4bf5ea55731608c8c227f24a8" %}}

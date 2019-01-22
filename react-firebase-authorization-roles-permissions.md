@@ -83,19 +83,19 @@ const condition = authUser =>
   authUser && authUser.roles.includes(ROLES.ADMIN);
 {{< /highlight >}}
 
-Assigning properties like an array of roles to authenticated users is a straightforward task. However, as we learned in previous sections, authenticated users are managed internally by Firebase. We are not able to alter user properties, so we manage them in Firebase's realtime database. If you go to your Firebase project's dashboard, you can see that users are managed in the Authentication and Database tabs. We introduced the latter to keep track of the users and assign them additional properties.
+Assigning properties like an array of roles to authenticated users is a straightforward task. However, as we learned in previous sections, authenticated users are managed internally by Firebase. We are not able to alter user properties, so we manage them in Firebase's realtime database. If you go to your Firebase project's dashboard, you can see that users are managed in the Authentication and Database tabs. We introduced the latter to keep track of the users and assign them additional properties ourselves.
 
 This section is split up into three parts:
 
-* Assign a user on sign up (registration) a roles (admin role) property.
+* Assign a user on sign up a roles (e.g. admin role) property.
 * Merge the authenticated user and database user so they can be authorized with their roles in the authorization higher-order component.
-* Showcase a role authorization for one of our routes (only allowed for admin users).
+* Showcase a role authorization for one of our routes (e.g. only allowed for admin users).
 
-Firebase contains a way to introduce roles to your authenticated user. I am not very comfortable with it, though, because it uses lots of Firebase internals and increases the effect of vendor lock-ins. Instead, I prefer storing roles directly into the user entities in the Firebase database. This way, you'll have an easier time migrating away from Firebase if you decide to roll out a backend application with a database.
+Firebase has an official way to introduce roles to your authenticated user. I am not very comfortable with it, though, because it uses lots of Firebase internals and increases the effect of vendor lock-ins. Instead, I prefer storing roles directly into the user entities in the Firebase database. This way, you'll have an easier time migrating away from Firebase if you decide to roll out a backend application with a database.
 
 {{% chapter_header "Firebase Database Users with Roles" "firebase-database-user-role" %}}
 
-We'll use multiple roles because users may have more than one role in the application or system. For instance, a user could be an admin, but also an author with access to admin and author areas. Let's assign a `roles` property to our users when they are created in the realtime database on sign-up. First, we'll track a checkbox state for this type of role in our component:
+We'll use multiple roles because users may have more than one role in the application or system. For instance, a user could be an admin, but also an author with access to admin and author areas. Let's assign a `roles` property to our users when they are created in the realtime database on sign-up. First, we'll track a checkbox state for this type of role in our component in the *src/components/SignUp/index.js* file:
 
 {{< highlight javascript "hl_lines=6" >}}
 const INITIAL_STATE = {
@@ -156,9 +156,7 @@ class SignUpFormBase extends Component {
 ...
 {{< /highlight >}}
 
-We don't want to grant any user the power to sign up as admin, but we'll keep it simple for now, and you can decide which circumstances prompt you to assign roles to users later.
-
-Next, add the roles property to your user when they are created in the database. Since we need an array of roles, we'll initialize it as an empty array and push conditional roles to it:
+We don't want to grant any user the power to sign up as admin, but we'll keep it simple for now, and you can decide which circumstances prompt you to assign roles to users later. Next, add the roles property to your user when they are created in the database. Since we need an array of roles, we'll initialize it as an empty array and push conditional roles to it:
 
 {{< highlight javascript "hl_lines=7 15 16 18 19 20 31" >}}
 import React, { Component } from 'react';
@@ -274,7 +272,7 @@ When the authenticated user changes, the function within the listener is called.
 
 We've covered merging the user in the authorization higher-order component. Next, we'll consider the authentication higher-order component that provides authentication for all our components. Maybe we want to show something to the user based on their level of authentication like a link to admin page in the navigation. Let's implement the merging in this higher-order component, too:
 
-{{< highlight javascript "hl_lines=8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33" >}}
+{{< highlight javascript "hl_lines=8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31" >}}
 ...
 
 const withAuthentication = Component => {
@@ -319,7 +317,7 @@ const withAuthentication = Component => {
 ...
 {{< /highlight >}}
 
-Now the authenticated user is provided via React's Context API extended with the database user  to all our components. As you may have noticed, implementation was quite repetitive to the authorization higher-order component. The only thing we changed was the local state usage instead of the redirects. Let's see how we can extract the common implementation to our Firebase class without touching the implementation details with the local state (authentication higher-order component) and the redirection (authorization higher-order component).
+Now the authenticated user is provided via React's Context API extended with the database user  to all our components. As you may have noticed, the implementation was quite repetitive to the authorization higher-order component. The only thing we changed was the local state usage instead of the redirects. Let's see how we can extract the common implementation to our Firebase class without touching the implementation details with the local state (authentication higher-order component) and the redirection (authorization higher-order component).
 
 {{< highlight javascript "hl_lines=10 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37" >}}
 ...

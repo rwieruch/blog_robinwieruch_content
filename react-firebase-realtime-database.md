@@ -25,7 +25,7 @@ summary = "A React with Firebase tutorial on how to work with Firebase's realtim
 
 Now we've worked with a list of data and single entities with the Firebase's realtime database to create an admin dashboard in the previous sections. To dig deeper, check the Firebase admin SDK to manage the authenticated users too.
 
-In this section, I want to introduce a new entity to demonstrate a business-related feature for a Firebase in React application, a message entity that lets you create a chat application, which you can take a step further by introducing a channel entity that defines different chat rooms. For now, let's focus on the message entity. We'll cover how to interact with Firebase's realtime database; specifically, how to structure data, work with lists of data, and how to create, update, and remove data. Also, you will see how ordering and pagination works with Firebase.
+In this section, I want to introduce a new entity to demonstrate a business-related feature for a Firebase in React application, a message entity that lets you create a chat application. We'll cover how to interact with Firebase's realtime database; specifically, how to structure data, work with lists of data, and how to create, update, and remove data. Also, you will see how ordering and pagination works with Firebase. In the end, it's up to you to decide whether your application should become a chat application with a message entity or a book application with a book entity in the database. The message entity is only there as example.
 
 {{% chapter_header "Defining a Firebase Realtime Database API" "firebase-realtime-database-api" %}}
 
