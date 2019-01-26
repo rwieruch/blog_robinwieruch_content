@@ -35,7 +35,7 @@ Hopefully, the journey makes a good story that along the way introduces you  to 
 
 When I started to study computer science, everyone was euphoric about the first hands-on coding course. Personally, I had no background in programming at all. I felt that everyone else in the room was way more experienced. What I didn't know: They were just as clueless as I was. At least most of them.
 
-The course was about creating and controlling a Lego Mindstorms robot. After coming up with teams that had to be maintained during the course, as you can imagine, people were rushing with their ideas and implementations. It was intimidating for people without any background in programming. Even more when you are an introverted person. After all, you had to come along with your peers during the next months in the course. You didn't wanted to be the one who couldn't contribute anything at all.
+The course was about creating and controlling a Lego Mindstorms robot. After coming up with teams that had to be maintained during the course, as you can imagine, people were rushing with their ideas and implementations. It was intimidating for people without any background in programming. Even more when you are an introverted person. After all, you had to come along with your peers during the next months in the course. You didn't want to be the one who couldn't contribute anything at all.
 
 A handful of older students taught the class in successive sessions controlling the robot. It happened often that they referred to an API when people asked questions. Referring to the API became the default answer.
 
