@@ -607,7 +607,7 @@ class Firebase {
 }
 
 ...
-{{< /highlight  >}}
+{{< /highlight >}}
 
 Now you can link and unlink different sign-in methods using only one account and email address.
 

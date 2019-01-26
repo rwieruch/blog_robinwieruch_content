@@ -31,14 +31,16 @@ I wrote the The Road to React with Firebase over the last two years. During this
 
 TODO
 
-The book comes with XXX pages, XX+ exercises and XXX+ code snippets and various source code applications if you decide to buy the complete course. I applied the same principles as for my other books:
+The book comes with 200 pages, 25+ exercises and 200+ code snippets, 1 application you are going to build along the way and various source code applications if you decide to buy the complete course. I applied the same principles as for my other books:
 
 * Stay pragmatic
 * Keep it simple
 * Answer the why, not just the how
 * Experience a problem, solve a problem
 
-This book is not intended to be an end-all reference for the Firebase API. Instead, its purpose is to journey through learning Firebase with React the pragmatic way, building an entire application on this tech stack yourself. The endresult is the foundation to make your business application a reality.
+This book is not intended to be an end-all reference for the Firebase API nor an in-depth guide about the internals of Firebase. Instead, its purpose is to journey through learning Firebase with React the pragmatic way, building an entire application on this tech stack yourself. The endresult is the foundation to make your business application a reality.
+
+I also have the feeling that the book is a valuable advanced React learning resource. It dives deeply into advanced React concepts such as higher-order components, render prop components, and component composition which are applied in context of the application we are going to build together in this book. Getting through this book should make you more comfortable with advanced React applications and various advanced techniques.
 
 The book covers lots of facets about Firebase in React that are important for building modern applications. If you have just learned React for your frontend application, you may be in need to add a backend application to persist your data. Normally you would jump straight into full-stack development by setting up a backend application with a database yourself. However, many developers new to JavaScript find this step intimidating, because it comes with a lot of new tech choices and learnings.
 
@@ -46,8 +48,46 @@ Using Firebase instead takes all the pain away of building a backend application
 
 {{% sub_chapter_header "Table of Contents" "toc" %}}
 
-* Foo
-  * Bar
+* Application Setup
+* React Router in React
+* Firebase
+* Firebase in React
+* Firebase’s Authentication API
+  * Sign Up with React and Firebase
+  * Sign In with React and Firebase
+  * Sign Out with React and Firebase
+  * Session Handling
+  * Session Handling with Higher-Order Components
+* Password Management
+  * Password Forget
+  * Password Change
+* Authorization (1): General Authorization and Route Protection
+* Firebase Realtime Database (1): Basic
+  * User Management with Firebase
+* Authorization (2): Roles and Permissions
+  * Database Users with Roles
+  * How to merge authenticated user with database user?
+  * Authorize a Firebase User based on a Role
+* Session Persistence
+* Social Logins
+  * Troubleshoot
+  * Google Social Login
+  * Facebook Social Login
+  * Twitter Social Login
+  * Linking Social Logins to one Account
+* Email Verification
+* Admin Dashboard
+* Firebase Realtime Database (2): Advanced
+  * Defining the API
+  * How to fetch a List
+  * Creating an Item in a List
+  * Relationships
+  * Removing an Item in a List
+  * Editing an Item in a List
+  * Ordering
+  * Pagination
+  * Fetch Data across Relationships
+* Firebase Hosting
 
 <hr class="section-divider">
 

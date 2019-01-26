@@ -1737,7 +1737,6 @@ The password forget page is already matched in the App component, so you can dro
 Next we'll add the password change feature, which is also in your Firebase interface. You only need a form component to use it. Again, the form component isn't any different from the sign in, sign up, and password forget forms. In the *src/components/PasswordChange/index.js* file add the following component:
 
 {{< highlight javascript >}}
-
 import React, { Component } from 'react';
 
 import { withFirebase } from '../Firebase';

@@ -1,7 +1,7 @@
 +++
 title = "How to setup MongoDB on Windows"
 description = "A installation guide for a MongoDB on Windows setup for having a NoSQL database available on your OS. It comes with everything that's needed to connect a Node.js application to your database in JavaScript ..."
-date = "2019-01-10T13:50:46+02:00"
+date = "2019-01-25T13:50:46+02:00"
 tags = ["Node", "JavaScript"]
 categories = ["Node", "JavaScript"]
 keywords = ["mongodb windows", "mongodb setup", "mongodb os setup"]

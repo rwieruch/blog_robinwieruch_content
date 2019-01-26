@@ -1,7 +1,7 @@
 +++
 title = "Setup MongoDB with Mongoose in Express"
 description = "A tutorial on how to setup MongoDB for Express.js in a Node.js application. It comes with the database installation and how to connect it to Express with Mongoose as ORM. You can choose to use another ORM, if you want to ..."
-date = "2019-01-10T13:50:46+02:00"
+date = "2019-01-26T13:50:46+02:00"
 tags = ["Node", "JavaScript"]
 categories = ["Node", "JavaScript"]
 keywords = ["mongodb express", "mongodb mongoose", "node mongodb"]
@@ -107,7 +107,10 @@ The message model looks quite similar, even though we don't add any custom metho
 import mongoose from 'mongoose';
 
 const messageSchema = new mongoose.Schema({
-  text: String,
+  text: {
+    type: String,
+    required: true,
+  },
 });
 
 const Message = mongoose.model('Message', messageSchema);
@@ -117,11 +120,14 @@ export default Message;
 
 However, we may want to associate the message with a user:
 
-{{< highlight javascript "hl_lines=5" >}}
+{{< highlight javascript "hl_lines=8" >}}
 import mongoose from 'mongoose';
 
 const messageSchema = new mongoose.Schema({
-  text: String,
+  text: {
+    type: String,
+    required: true,
+  },
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 });
 
@@ -235,3 +241,115 @@ connectDb().then(async () => {
 {{< /highlight >}}
 
 That's it for defining your database models for your Express application and for connecting everything to the database once you start your application. Once you start your application again, the command line results will show how the tables in your database were created.
+
+{{% chapter_header "How to seed a MongoDB Database?" "mongodb-seeding-database" %}}
+
+Last but not least, you may want to seed your MongoDB database with initial data to start with. Otherwise, you will always start with a blank slate when purging your database (e.g. eraseDatabaseOnSync) with every application start.
+
+In our case, we have user and message entities in our database. Each message is associated to a user. Now, every time you start your application, your database is connected to your physical database. That's where you decided to purge all your data with a boolean flag in your source code. Also this could be the place for seeding your database with initial data.
+
+{{< highlight javascript "hl_lines=6 7 8 15 16 17" >}}
+...
+
+const eraseDatabaseOnSync = true;
+
+sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
+  if (eraseDatabaseOnSync) {
+    createUsersWithMessages();
+  }
+
+  app.listen(process.env.PORT, () =>
+    console.log(`Example app listening on port ${process.env.PORT}!`),
+  );
+});
+
+const createUsersWithMessages = async () => {
+  ...
+};
+{{< /highlight >}}
+
+The `createUsersWithMessages()` function will be used to seed our database. The seeding happens asynchronously, because creating data in the database is not a synchronous task. Let's see how we can create our first user in MongoDB with Mongoose:
+
+{{< highlight javascript "hl_lines=4 5 6 8" >}}
+...
+
+const createUsersWithMessages = async () => {
+  const user1 = new models.User({
+    username: 'rwieruch',
+  });
+
+  await user1.save();
+};
+{{< /highlight >}}
+
+Each of our user entities has only a username as property. But what about the message(s) for this user? We can create them in another function which associates the message to a user by reference (e.g. user identifier):
+
+{{< highlight javascript "hl_lines=8 9 10 11 13" >}}
+...
+
+const createUsersWithMessages = async () => {
+  const user1 = new models.User({
+    username: 'rwieruch',
+  });
+
+  const message1 = new models.Message({
+    text: 'Published the Road to learn React',
+    user: user1.id,
+  });
+
+  await message1.save();
+
+  await user1.save();
+};
+{{< /highlight >}}
+
+We can create each entity on its own but associate them with the neccassary information to each other. Then we can save all entities to the actual database. Let's create a second user, but this time with two messages:
+
+{{< highlight javascript "hl_lines=8 9 10 17 18 19 20 22 23 24 25 28 29 32" >}}
+...
+
+const createUsersWithMessages = async () => {
+  const user1 = new models.User({
+    username: 'rwieruch',
+  });
+
+  const user2 = new models.User({
+    username: 'ddavids',
+  });
+
+  const message1 = new models.Message({
+    text: 'Published the Road to learn React',
+    user: user1.id,
+  });
+
+  const message2 = new models.Message({
+    text: 'Happy to release ...',
+    user: user2.id,
+  });
+
+  const message3 = new models.Message({
+    text: 'Published a complete ...',
+    user: user2.id,
+  });
+
+  await message1.save();
+  await message2.save();
+  await message3.save();
+
+  await user1.save();
+  await user2.save();
+};
+{{< /highlight >}}
+
+That's it. In our case, we have used our models to create users with associated messages. It happens when the application starts and we want to start with a clean slate; it's called database seeding. However, the API of our models is used the same way later in our application to create users and messages.
+
+### Exercises:
+
+* Confirm your {{% a_blank "source code" "https://github.com/rwieruch/node-express-mongodb-server" %}}
+* Explore:
+ * What else could be used instead of Mongoose as ORM alternative?
+ * What else could be used instead of MongoDB as database alternative?
+ * Compare your source code with the source code from the {{% a_blank "PostgreSQL + Sequelize alternative" "https://github.com/rwieruch/node-express-postgresql-server" %}}.
+* Ask yourself:
+  * When would you seed an application in a production ready environment?
+  * Are ORMs like Mongoose essential to connect your application to a database?

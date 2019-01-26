@@ -1,7 +1,7 @@
 +++
 title = "Setup PostgreSQL with Sequelize in Express"
 description = "A tutorial on how to setup PostgreSQL for Express.js in a Node.js application. It comes with the database installation and how to connect it to Express with Sequelize as ORM. You can choose to use another ORM, if you want to ..."
-date = "2019-01-08T13:50:46+02:00"
+date = "2019-01-26T13:50:46+02:00"
 tags = ["Node", "JavaScript"]
 categories = ["Node", "JavaScript"]
 keywords = ["postgresql express", "postgres express", "postgres sequelize", "postgresql sequelize", "node postgresql", "node postgres"]
@@ -261,3 +261,117 @@ sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
 {{< /highlight >}}
 
 That's it for defining your database models for your Express application and for connecting everything to the database once you start your application. Once you start your application again, the command line results will show how the tables in your database were created.
+
+{{% chapter_header "How to seed a PostgreSQL Database?" "postgresql-seeding-database" %}}
+
+Last but not least, you may want to seed your PostgreSQL database with initial data to start with. Otherwise, you will always start with a blank slate when purging your database (e.g. eraseDatabaseOnSync) with every application start.
+
+In our case, we have user and message entities in our database. Each message is associated to a user. Now, every time you start your application, your database is connected to your physical database. That's where you decided to purge all your data with a boolean flag in your source code. Also this could be the place for seeding your database with initial data.
+
+{{< highlight javascript "hl_lines=6 7 8 15 16 17" >}}
+...
+
+const eraseDatabaseOnSync = true;
+
+sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
+  if (eraseDatabaseOnSync) {
+    createUsersWithMessages();
+  }
+
+  app.listen(process.env.PORT, () =>
+    console.log(`Example app listening on port ${process.env.PORT}!`),
+  );
+});
+
+const createUsersWithMessages = async () => {
+  ...
+};
+{{< /highlight >}}
+
+The `createUsersWithMessages()` function will be used to seed our database. The seeding happens asynchronously, because creating data in the database is not a synchronous task. Let's see how we can create our first user in PostgreSQL with Sequelize:
+
+{{< highlight javascript "hl_lines=4 5 6 7 8" >}}
+...
+
+const createUsersWithMessages = async () => {
+  await models.User.create(
+    {
+      username: 'rwieruch',
+    },
+  );
+};
+{{< /highlight >}}
+
+Each of our user entities has only a username as property. But what about the message(s) for this user? We can create them in one function with the user:
+
+{{< highlight javascript "hl_lines=7 8 9 10 11 13 14 15" >}}
+...
+
+const createUsersWithMessages = async () => {
+  await models.User.create(
+    {
+      username: 'rwieruch',
+      messages: [
+        {
+          text: 'Published the Road to learn React',
+        },
+      ],
+    },
+    {
+      include: [models.Message],
+    },
+  );
+};
+{{< /highlight >}}
+
+We can say that our user entity should be created with message entities. Since a message has only a text, we can pass these texts as array to the user creation. Each message entity will then be associated to a user with a user identifier. Let's create a second user, but this time with two messages:
+
+{{< highlight javascript "hl_lines=18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33" >}}
+...
+
+const createUsersWithMessages = async () => {
+  await models.User.create(
+    {
+      username: 'rwieruch',
+      messages: [
+        {
+          text: 'Published the Road to learn React',
+        },
+      ],
+    },
+    {
+      include: [models.Message],
+    },
+  );
+
+  await models.User.create(
+    {
+      username: 'ddavids',
+      messages: [
+        {
+          text: 'Happy to release ...',
+        },
+        {
+          text: 'Published a complete ...',
+        },
+      ],
+    },
+    {
+      include: [models.Message],
+    },
+  );
+};
+{{< /highlight >}}
+
+That's it. In our case, we have used our models to create users with associated messages. It happens when the application starts and we want to start with a clean slate; it's called database seeding. However, the API of our models is used the same way later in our application to create users and messages.
+
+### Exercises:
+
+* Confirm your {{% a_blank "source code" "https://github.com/rwieruch/node-express-postgresql-server" %}}
+* Explore:
+ * What else could be used instead of Sequelize as ORM alternative?
+ * What else could be used instead of PostgreSQL as database alternative?
+ * Compare your source code with the source code from the {{% a_blank "MongoDB + Mongoose alternative" "https://github.com/rwieruch/node-express-mongodb-server" %}}.
+* Ask yourself:
+  * When would you seed an application in a production ready environment?
+  * Are ORMs like Sequelize essential to connect your application to a database?

@@ -598,7 +598,7 @@ class MessageItem extends Component {
 
 Later, we will see why we send the message with the edited text. Next, let's implement the render method of the MessageItem component. Make sure that the button to delete a message is not displayed in edit mode:
 
-{{< highlight javascript "hl_lines=4 5 6 8 14 21 23" >}}
+{{< highlight javascript "hl_lines=4 5 6 8 14 21 23 24" >}}
 class MessageItem extends Component {
   ...
 
