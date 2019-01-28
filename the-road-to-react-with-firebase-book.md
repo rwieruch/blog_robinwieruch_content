@@ -17,11 +17,9 @@ summary = "The free React with Firebase book takes you on a journey to master a 
 
 {{% pin_it_image "react firebase book" "img/posts/the-road-to-react-with-firebase-book/banner.jpg" "is-src-set" %}}
 
-Today I am thrilled to announce The Road to React with Firebase. What I started as tutorial in 2017 matured into an entire book with course material in late 2018. The tutorial is one of my most read articles on my website, well-received by everyone who went through it, so I thought to release it as full-blown book by adding plenty of content to it.
+Today, I am thrilled to announce The Road to React with Firebase, my book that started as a tutorial in 2017 and has evolved into course material. The tutorial has been one of the most-read and well-received articles on my website, and this gave me the idea to add enough content to make a complete volume. I have been using React and Firebase as minimal tech stack for a while. Just these two applications power my business applications, and I heard several success stories from readers who used my tutorials as a foundation to power their own businesses. I wanted to pass on what I had learned about minimal tech stacks to a wider audience.
 
-I wrote the book because I have been using React and Firebase as minimal tech stack myself for a while now. It powers my business applications with just these two technologies and I heard several success stories from people using my tutorial as foundation to power their businesses as well. I wanted to give more people the opportunity to get started on realizing their ideas by mastering this minimal tech stack.
-
-The best thing about the book: I **release it for free**. I think everyone should have the chance to learn Firebase, because it enables you to build full-fledged applications. The second best thing about the book is that I self-published it, which means it will be updated as often as possible, and that I can keep the PDF, EPUB, or MOBI versions in a state of constant improvement.
+**The book is free**, because I think everyone should have the chance to learn Firebase. Because I self-published it, I can update the PDF, EPUB, or MOBI versions as often as possible, and I can keep the e-book versions in a state of constant improvement.
 
 {{% package_box "The Road to React with Firebase" "Your journey to master web applications with a minimal tech stack to get you started with your business and MVPs." "Get the Book" "img/page/the-road-to-react-with-firebase-book.jpg" "https://roadtoreact.com/course-details?courseId=THE_ROAD_TO_REACT_WITH_FIREBASE" %}}
 
@@ -29,22 +27,20 @@ I wrote the The Road to React with Firebase over the last two years. During this
 
 {{% chapter_header "What's in the book?" "graphql-book-content" %}}
 
-TODO
-
-The book comes with 200 pages, 25+ exercises and 200+ code snippets, 1 application you are going to build along the way and various source code applications if you decide to buy the complete course. I applied the same principles as for my other books:
+The book is 200 pages containing more than 25 exercises and more than 200 code snippets, 1 application you are going to build along the way and various source code applications if you decide to buy the complete course. I applied the same principles as for my other books:
 
 * Stay pragmatic
 * Keep it simple
 * Answer the why, not just the how
 * Experience a problem, solve a problem
 
-This book is not intended to be an end-all reference for the Firebase API nor an in-depth guide about the internals of Firebase. Instead, its purpose is to journey through learning Firebase with React the pragmatic way, building an entire application on this tech stack yourself. The endresult is the foundation to make your business application a reality.
+This book is not intended to be an end-all reference for the Firebase API nor an in-depth guide about the internals of Firebase. Instead, its purpose is to journey through learning Firebase with React the pragmatic way, building an entire application on this tech stack yourself. The end result is the foundation to make your business application a reality.
 
 I also have the feeling that the book is a valuable advanced React learning resource. It dives deeply into advanced React concepts such as higher-order components, render prop components, and component composition which are applied in context of the application we are going to build together in this book. Getting through this book should make you more comfortable with advanced React applications and various advanced techniques.
 
-The book covers lots of facets about Firebase in React that are important for building modern applications. If you have just learned React for your frontend application, you may be in need to add a backend application to persist your data. Normally you would jump straight into full-stack development by setting up a backend application with a database yourself. However, many developers new to JavaScript find this step intimidating, because it comes with a lot of new tech choices and learnings.
+The book covers lots of facets about Firebase in React that are important for building modern applications. If you have just learned React for your front-end application, you may be in need to add a backend application to persist your data. Normally you would jump straight into full-stack development by setting up a backend application with a database yourself. However, many developers new to JavaScript find this step intimidating, because it comes with a lot of new tech choices and learnings.
 
-Using Firebase instead takes all the pain away of building a backend application yourself. Firebase gives your application a real-time database, authentication, hosting and much more. You will learn about all these things yourself in the book by setting up a React application with user management, authorization based on permissions and roles, and other powerful features such as password resets, email verification and social logins via Facebook/Google/Twitter. It's the perfect starter kit to get you started with your MVP.
+Using Firebase makes building a backend application easier. It provides a real-time database, authentication, hosting, and much more. Setting up a React application with user management, permission and role-based authorization, password resets, email verification, and social logins via Facebook/Google/Twitter all equal the perfect starter kit.
 
 {{% sub_chapter_header "Table of Contents" "toc" %}}
 
@@ -91,8 +87,5 @@ Using Firebase instead takes all the pain away of building a backend application
 
 <hr class="section-divider">
 
-I hope "The Road to React with Firebase" captures my enthusiasm for the topic, and that it becomes a valuable resource among other courses, tutorials, and books on the pragmatic use of Firebase for web applications. As always, feedback through any of the available platforms is welcome and encouraged!
-
-
-
+The Road to React with Firebase is an expression of my enthusiasm for the topic. I hope it becomes a valuable resource among other courses, tutorials, and books on the pragmatic use of Firebase for web applications. As always, feedback through any of the available platforms is welcome and encouraged :)
 
