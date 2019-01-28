@@ -1,8 +1,7 @@
 +++
-draft = true
 title = "A Firestore in React Tutorial for Beginners [2018]"
 description = "A beginners tutorial to learn Firestore in React for business application with authentication, authorization and a real-time database. The tutorial gives you the perfect React Firestore boilerplate project ..."
-date = "2018-12-08T07:50:46+02:00"
+date = "2019-01-26T07:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["react firestore", "react firestore tutorial", "react authentication", "react firestore authentication tutorial", "react session", "react authorization", "react protected routes"]

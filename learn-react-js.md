@@ -131,7 +131,7 @@ After you went through the beginner tutorial in React's docs and started to impl
 
 * Learn about React's JSX syntax
 * Learn about React Components
-* Learn about React Component Composition
+* [Learn about React Component Composition](https://www.robinwieruch.de/react-component-composition/)
 * [Learn about React Props](https://www.robinwieruch.de/react-pass-props-to-component/)
 * Learn about React State
 
