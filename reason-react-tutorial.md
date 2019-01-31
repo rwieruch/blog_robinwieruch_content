@@ -571,8 +571,8 @@ let getResults = query =>
      */
     Js.Promise.(
       Fetch.fetch("https://api.github.com/search/repositories?q=" ++ query)
-      |> then_(json => decodeResults(json) |> resolve)
       |> then_(Fetch.Response.json)
+      |> then_(json => decodeResults(json) |> resolve)
       |> then_(results =>
            results
            |> List.filter(optionalItem =>
@@ -674,7 +674,7 @@ render: self =>
           |> Array.of_list
           /* Map each array item to a <Card /> component */
           |> Array.map(({name, href, description}) =>
-                <Card key={name} name href description />
+                <Card key={href} name href description />
               )
           /* Transform the array into a valid React node, similar to ReasonReact.string */
           |> ReasonReact.array
