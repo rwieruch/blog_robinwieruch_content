@@ -1,7 +1,7 @@
 +++
 title = "React Component Composition"
 description = "A guide that explains React Component Composition step by step. Learn the React Composition Pattern by example which helps you to render components within each other ..."
-date = "2019-01-17T13:50:46+02:00"
+date = "2019-01-30T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["react component composition", "react component composition example", "react dynamic component composition", "react component composition pattern"]
