@@ -365,9 +365,11 @@ const createUsersWithMessages = async () => {
 
 That's it. In our case, we have used our models to create users with associated messages. It happens when the application starts and we want to start with a clean slate; it's called database seeding. However, the API of our models is used the same way later in our application to create users and messages.
 
+In the end, we have set up PostgreSQL in a Node.js with Express application. What's missing is connecting the database to Express for enabling users to operate on the database with the API rather than operating on sample data.
+
 ### Exercises:
 
-* Confirm your {{% a_blank "source code" "https://github.com/rwieruch/node-express-postgresql-server" %}}
+* Confirm your {{% a_blank "source code" "https://github.com/rwieruch/node-express-postgresql-server" %}}, but keep in mind that we didn't connect the API to PostgreSQL in this section yet.
 * Explore:
  * What else could be used instead of Sequelize as ORM alternative?
  * What else could be used instead of PostgreSQL as database alternative?
@@ -375,3 +377,5 @@ That's it. In our case, we have used our models to create users with associated 
 * Ask yourself:
   * When would you seed an application in a production ready environment?
   * Are ORMs like Sequelize essential to connect your application to a database?
+
+{{% read_before_4 "This tutorial is part 4 of 5 in this series." "Part 1:" "The minimal Node.js with Babel Setup" "https://www.robinwieruch.de/minimal-node-js-babel-setup/" "Part 2:" "How to setup Express.js in Node.js" "https://www.robinwieruch.de/node-js-express-tutorial/" "Part 3:" "How to create a REST API with Express.js in Node.js" "https://www.robinwieruch.de/node-express-server-rest-api/" "Part 5:" "Creating a REST API with Express.js and PostgreSQL" "https://www.robinwieruch.de/postgresql-express-node-rest-api/" %}}

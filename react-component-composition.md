@@ -19,11 +19,11 @@ summary = "A guide that explains React Component Composition step by step. Learn
 
 {{% pin_it_image "react component composition" "img/posts/react-component-composition/banner.jpg" "is-src-set" %}}
 
-There are various advanced concepts and patterns in React to master on becoming a React developer. In this tutorial, I want to step through React's Component Composition step by step by evolving examples around this React pattern. You can find more about the topic in the {{% a_blank "official React documentation" "https://reactjs.org/docs/composition-vs-inheritance.html" %}} too.
+There are various advanced concepts and patterns in React to master on becoming a React developer. In this tutorial, I want to go through React's Component Composition step by step by evolving one example around this React pattern. You can find more about the topic in the {{% a_blank "official React documentation" "https://reactjs.org/docs/composition-vs-inheritance.html" %}} as well.
 
 {{% chapter_header "What's Composition in Code?" "composition-code" %}}
 
-Let's take on step backwards before tackling Composition in React. What's composition in general? It's the ingredients and the arrangement of these ingredients to create something bigger out of it. It's the samples in a piece of music that make up a track. It's the fruits that end up in the mixer for the perfect smoothie. It's the choreography of dancers in a musical. And it's the internals of a function in programming that need to be arranged in a way to get the desired output:
+Let's take on step backwards before tackling composition in React. What's composition in general? It's the ingredients and the arrangement of these ingredients to create something bigger out of it. It's the samples in a piece of music that make up a track. It's the fruits that are used for the perfect smoothie. It's the choreography of dancers in a musical. And it's the internals of a function in programming that need to be arranged in a way to get the desired output:
 
 {{< highlight javascript >}}
 const convertCurrency = (amount, fromCurrency, toCurrency) => {
@@ -34,23 +34,20 @@ const convertCurrency = (amount, fromCurrency, toCurrency) => {
 };
 {{< /highlight >}}
 
-In functional programming composition of functions is ubiquitous.
+In functional programming, the composition of functions is ubiquitous:
 
 {{< highlight javascript >}}
 const convertCurrency = (amount, fromCurrency, toCurrency) => compose(
     applyConversionRate(amount),
     getConversionRate(fromCurrency, toCurrency),
   );
-
-// whereas compose applies the functions
-// from right to left (here bottom to top)
 {{< /highlight >}}
 
-And suddenly we arrived in programming, code and functions. As you can see, everything you do within a function is a composition of ingredients and their arrangement as well. This becomes even more true when a function is made up of functions. Then it's the composition of functions within a function.
+And suddenly we are in the domain of programming, code and functions. As you can see, everything you do within a function is a composition of ingredients and their arrangement as well. This becomes even more true when a function is made up of functions. Then it's the composition of functions within a function.
 
 {{% chapter_header "Why React Component Composition?" "why-react-component-composition" %}}
 
-You have seen how multiple functions can be composed together to achieve something bigger. The same applies to HTML elements and beyond to React components. Let's encounter both, HTML element composition and React component composition with a form to submit data as example. In HTML that form element could look like the following:
+You have seen how multiple functions can be composed together to achieve something bigger. The same applies to HTML elements and beyond to React components too. Let's encounter both, HTML element composition and React component composition, with a form that submits data. In HTML that form element could look like the following:
 
 {{< highlight html >}}
 <form action="javascript:onSubmit();">
@@ -62,7 +59,7 @@ You have seen how multiple functions can be composed together to achieve somethi
 </form>
 {{< /highlight >}}
 
-However, it's not only the form element but all of its ingredients and their arrangement as well. It's the input field, the button, and the form that contribute to a greater goal: submit data. The example is taken a bit out of context, not so the following React example, but I think you get the idea. In React, a Form as React component which is rendered within a general App component could look like the following:
+However, it's not only the form element but all of its other ingredients and their arrangement as well. It's the input field, the button, and the form that contribute to a greater goal: submit data. The example is taken a bit out of context, because the JavaScript function is missing, but not so the following React example. In React, a Form as React component which is rendered within a App component could look like the following:
 
 {{< highlight javascript >}}
 import React, { useState } from 'react';
@@ -106,9 +103,7 @@ export default App;
 
 *Note: The Form component uses React Hooks that are not released yet. If you want, you can learn more about [React Hooks](https://www.robinwieruch.de/react-hooks/). Essentially they enable you to have function components with state and side-effects.*
 
-Now, wherever we use the Form component, we can capture the username of a user. It's identical to the HTML form from before, isn't it? Think about it for a moment.
-
-No, it isn't. At the moment, the Form is only capable of doing one thing. We did loose all the benefits from the HTML element composition, because we ended up with a specialized Form component. It can be reused anywhere in our React application, but it handles only one case. To make it even clearer, we would have to rename the Form component.
+Now, wherever we use the Form component, we can capture the username of a user. It's identical to the HTML form from before, isn't it? Not really. At the moment, the Form is only capable of doing one thing. We did loose all the benefits from the HTML element composition from before, because we ended up with a specialized Form component. It can be reused anywhere in our React application, but it handles only one case. To make it effortless to see the difference, we would have to rename the Form component:
 
 {{< highlight javascript "hl_lines=6 9" >}}
 import React, { useState } from 'react';
@@ -146,7 +141,7 @@ const UsernameForm = ({ onSubmit }) => {
 export default App;
 {{< /highlight >}}
 
-How do we get back what we had in the HTML form? After all, we don't want to have one specialized form, but a more general applicable form that can be reused for different scenarios.
+Since we encapsulated everything in one React component, it's difficult to tear everything apart to serve another purpose than capturing the name of a user. How do we get back what we had with the HTML form? After all, we don't want to have one specialized form, but a more general applicable form that can be reused for different scenarios.
 
 {{% chapter_header "Entering React Component Composition?" "react-component-composition" %}}
 
@@ -160,7 +155,7 @@ const Button = ({ onClick, type = 'button', children }) => (
 );
 {{< /highlight >}}
 
-Let's use it for our previous example to substitute our HTML form element with a Form component that renders all its inner content with React's children prop.
+The button element becomes a reusable Button component whereas the Button component doesn't know what it renders except for the button. Let's use the children prop for our previous example to substitute our HTML form element with a Form component that renders all its inner content with React's children prop:
 
 {{< highlight javascript "hl_lines=7 23 27 28 29" >}}
 ...
