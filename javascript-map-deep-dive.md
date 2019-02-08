@@ -1,3 +1,7 @@
++++
+title = "All about the JavaScript `Array.map` method [2019]"
++++
+
 {{% chapter_header "What is the `.map` method?" "what-is-the-map-method" %}}
 
 The `map` method is one of the many methods existing on the JavaScript `Array` prototype. If you want to do a deep dive on prototypical inheritance, here's a great read by Kyle Simpson on how prototypes work under the hood. For this article it'll be sufficient to know that the methods on the `Array` prototype are available to _every array_ that we declare in our code!
@@ -435,4 +439,8 @@ All we have to do is add the `console.log(value)` with a `||` in front of our no
 
 <hr class="section-divider">
 
-TK outro
+The JavaScript `Array.map` method is extremely useful for operating and transforming sets of data. I'm a huge fan of using `map` all over the place—it's one of my favorite tools to have in my toolbelt.
+
+If you're interested in seeing more of my writing or want to hit me up with any questions about the `map` method, please feel free to contact me! You can reach me on {{% a_blank "Twitter" "https://mobile.twitter.com/benjamminj" %}} or follow my {{% a_blank "Medium" "https://medium.com/@benjamin.d.johnson" %}}.
+
+
