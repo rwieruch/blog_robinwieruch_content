@@ -1,8 +1,7 @@
 +++
-draft = true
 title = "How to use Redux in React Firebase"
 description = "The tutorial shows you how to migrate a React with Firebase application, which uses only React's local state, to Redux for its state management. Also React's Context API is replaced with Redux ..."
-date = "2018-12-04T07:52:46+02:00"
+date = "2019-02-10T07:52:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["react firebase redux tutorial"]
