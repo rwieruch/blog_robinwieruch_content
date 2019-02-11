@@ -1,7 +1,7 @@
 +++
 title = "Setup PostgreSQL with Sequelize in Express"
 description = "A tutorial on how to setup PostgreSQL for Express.js in a Node.js application. It comes with the database installation and how to connect it to Express with Sequelize as ORM. You can choose to use another ORM, if you want to ..."
-date = "2019-01-26T13:50:46+02:00"
+date = "2019-02-10T13:50:46+02:00"
 tags = ["Node", "JavaScript"]
 categories = ["Node", "JavaScript"]
 keywords = ["postgresql express", "postgres express", "postgres sequelize", "postgresql sequelize", "node postgresql", "node postgres"]
@@ -363,9 +363,7 @@ const createUsersWithMessages = async () => {
 };
 {{< /highlight >}}
 
-That's it. In our case, we have used our models to create users with associated messages. It happens when the application starts and we want to start with a clean slate; it's called database seeding. However, the API of our models is used the same way later in our application to create users and messages.
-
-In the end, we have set up PostgreSQL in a Node.js with Express application. What's missing is connecting the database to Express for enabling users to operate on the database with the API rather than operating on sample data.
+That's it. In our case, we have used our models to create users with associated messages. It happens when the application starts and we want to start with a clean slate; it's called database seeding. However, the API of our models is used the same way later in our application to create users and messages. In the end, we have set up PostgreSQL in a Node.js with Express application. What's missing is connecting the database to Express for enabling users to operate on the database with the API rather than operating on sample data.
 
 ### Exercises:
 

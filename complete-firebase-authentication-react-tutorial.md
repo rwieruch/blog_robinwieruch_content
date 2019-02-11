@@ -1029,7 +1029,7 @@ import * as ROUTES from '../../constants/routes';
 
 ...
 
-class SignUpForm extends Component {
+class SignUpFormBase extends Component {
 
   ...
 
