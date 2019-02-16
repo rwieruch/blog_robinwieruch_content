@@ -7,9 +7,9 @@ categories = ["JavaScript"]
 keywords = ["map javascript", "array map javascript", "array map method", "array map function"]
 news_keywords = ["map javascript", "array map javascript", "array map method", "array map function"]
 hashtag = "#JavaScript"
-card = "img/posts/javascript-map/banner_640.jpg"
-banner = "img/posts/javascript-map/banner.jpg"
-contribute = "javascript-map.md"
+card = "img/posts/javascript-map-array/banner_640.jpg"
+banner = "img/posts/javascript-map-array/banner.jpg"
+contribute = "javascript-map-array.md"
 headline = "Deep Dive into JavaScript's Array Map Method"
 
 summary = "An extensive walkthrough for JavaScript developers who want to get to know the Array's Map Method to transform data. You will learn about the Callback Function's Arguments, usages of Map with other Array Methods, and useful tips and tricks for debugging the Map Method."
@@ -19,7 +19,7 @@ summary = "An extensive walkthrough for JavaScript developers who want to get to
 
 {{% guest "Benjamin Johnson" "https://twitter.com/benjamminj" %}}
 
-{{% pin_it_image "javascript map" "img/posts/javascript-map/banner.jpg" "is-src-set" %}}
+{{% pin_it_image "javascript map" "img/posts/javascript-map-array/banner.jpg" "is-src-set" %}}
 
 The **Map Function** is one of the **many Methods** existing on the **JavaScript Array prototype**. If you want to do a deep dive on prototypical inheritance, here's a great read by Kyle Simpson on {{% a_blank "how prototypes work under the hood" "https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch5.md" %}}. For this article it will be sufficient to know that the methods on the Array prototype are available to every array that we declare in our code.
 
