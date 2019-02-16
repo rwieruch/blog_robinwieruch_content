@@ -21,7 +21,7 @@ summary = "An extensive walkthrough for JavaScript developers who want to get to
 
 {{% pin_it_image "javascript map" "img/posts/javascript-map/banner.jpg" "is-src-set" %}}
 
-The **Map Function** is one of the **many Methods** existing on the **JavaScript Array prototype**. If you want to do a deep dive on prototypical inheritance, here's a great read by Kyle Simpson on {{% a_blank "how prototypes work under the hood" "" %}} TODO. For this article it will be sufficient to know that the methods on the Array prototype are available to every array that we declare in our code.
+The **Map Function** is one of the **many Methods** existing on the **JavaScript Array prototype**. If you want to do a deep dive on prototypical inheritance, here's a great read by Kyle Simpson on {{% a_blank "how prototypes work under the hood" "https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch5.md" %}}. For this article it will be sufficient to know that the methods on the Array prototype are available to every array that we declare in our code.
 
 Specifically, the Array Map Method operates on an array to run a transformation on every element of the array. It does so through use of a *callback function* which is called for each item of the array. After running the callback function on each item, the Map Method returns *the transformed array*, leaving the *original array* unchanged. Let's take a quick look at how that looks in practice:
 
