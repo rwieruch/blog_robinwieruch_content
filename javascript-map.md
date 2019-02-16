@@ -15,6 +15,12 @@ headline = "Deep Dive into JavaScript's Array Map Method"
 summary = "An extensive walkthrough for JavaScript developers who want to get to know the Array's Map Method to transform data. You will learn about the Callback Function's Arguments, usages of Map with other Array Methods, and useful tips and tricks for debugging the Map Method."
 +++
 
+{{% sponsorship %}}
+
+{{% guest "Benjamin Johnson" "https://twitter.com/benjamminj" %}}
+
+{{% pin_it_image "javascript map" "img/posts/javascript-map/banner.jpg" "is-src-set" %}}
+
 The **Map Function** is one of the **many Methods** existing on the **JavaScript Array prototype**. If you want to do a deep dive on prototypical inheritance, here's a great read by Kyle Simpson on {{% a_blank "how prototypes work under the hood" "" %}} TODO. For this article it will be sufficient to know that the methods on the Array prototype are available to every array that we declare in our code.
 
 Specifically, the Array Map Method operates on an array to run a transformation on every element of the array. It does so through use of a *callback function* which is called for each item of the array. After running the callback function on each item, the Map Method returns *the transformed array*, leaving the *original array* unchanged. Let's take a quick look at how that looks in practice:
@@ -43,7 +49,7 @@ console.log(originalArray); // [1, 2, 3, 4, 5]
 console.log(newArray); // [2, 3, 4, 5, 6]
 {{< /highlight >}}
 
-However, if you decide to extract the callback function as standalone fucntion declared as a variable, you have to name it again in order to pass it to the map method:
+However, if you decide to extract the callback function as standalone function declared as a variable, you have to name it again in order to pass it to the map method:
 
 {{< highlight javascript "hl_lines=3 4 5 7" >}}
 const originalArray = [1, 2, 3, 4, 5];
