@@ -1,6 +1,6 @@
 +++
-title = "Understanding JavaScript Map Function for Arrays"
-description = " ..."
+title = "Deep Dive into JavaScript's Array Map Method"
+description = "An extensive walkthrough for JavaScript developers who want to get to know the Array's Map Method to transform data. You will learn about the Callback Function's Arguments, usages of Map with other Array Methods, and ..."
 date = "2019-02-14T07:52:46+02:00"
 tags = ["JavaScript"]
 categories = ["JavaScript"]
@@ -10,9 +10,9 @@ hashtag = "#JavaScript"
 card = "img/posts/javascript-map/banner_640.jpg"
 banner = "img/posts/javascript-map/banner.jpg"
 contribute = "javascript-map.md"
-headline = "Understanding JavaScript Map Function for Arrays"
+headline = "Deep Dive into JavaScript's Array Map Method"
 
-summary = "."
+summary = "An extensive walkthrough for JavaScript developers who want to get to know the Array's Map Method to transform data. You will learn about the Callback Function's Arguments, usages of Map with other Array Methods, and useful tips and tricks for debugging the Map Method."
 +++
 
 The **Map Function** is one of the **many Methods** existing on the **JavaScript Array prototype**. If you want to do a deep dive on prototypical inheritance, here's a great read by Kyle Simpson on {{% a_blank "how prototypes work under the hood" "" %}} TODO. For this article it will be sufficient to know that the methods on the Array prototype are available to every array that we declare in our code.
