@@ -90,6 +90,10 @@ Motivation
 Outro
 ```
 
+### Links
+
+Links referencing articles that are on my domain can be used as `[my article name](url)`. However, if a link points to an article outside of this domain, use `{{% a_blank "my article name" "url" %}}`
+
 ### Italics
 
 I usually use italics with `*` for folders and files like `src/models/user.index/js` or `src/`.
