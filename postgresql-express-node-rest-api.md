@@ -1,7 +1,7 @@
 +++
 title = "Creating a REST API with Express.js and PostgreSQL"
 description = "A Node.js with Express and PostgreSQL tutorial to learn step by step how to create a REST API for CRUD operations which can be consumed by a client application ..."
-date = "2019-02-04T07:50:46+02:00"
+date = "2019-02-24T07:50:46+02:00"
 tags = ["Node", "JavaScript"]
 categories = ["Node", "JavaScript"]
 keywords = ["express postgresql rest api", "express postgresql rest", "express postgresql crud"]

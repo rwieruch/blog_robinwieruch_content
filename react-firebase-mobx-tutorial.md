@@ -1,8 +1,7 @@
 +++
-draft = true
 title = "How to use MobX in React Firebase"
 description = "The tutorial shows you how to migrate a React with Firebase application, which uses only React's local state, to MobX for its state management. Also React's Context API is replaced with MobX ..."
-date = "2018-12-04T07:52:46+02:00"
+date = "2019-02-10T07:52:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["react firebase mobx tutorial"]

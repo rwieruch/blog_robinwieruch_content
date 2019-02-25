@@ -1,7 +1,7 @@
 +++
 title = "Setup MongoDB with Mongoose in Express"
 description = "A tutorial on how to setup MongoDB for Express.js in a Node.js application. It comes with the database installation and how to connect it to Express with Mongoose as ORM. You can choose to use another ORM, if you want to ..."
-date = "2019-01-26T13:50:46+02:00"
+date = "2019-02-16T13:50:46+02:00"
 tags = ["Node", "JavaScript"]
 categories = ["Node", "JavaScript"]
 keywords = ["mongodb express", "mongodb mongoose", "node mongodb"]
