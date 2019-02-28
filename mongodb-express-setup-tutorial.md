@@ -248,13 +248,18 @@ Last but not least, you may want to seed your MongoDB database with initial data
 
 In our case, we have user and message entities in our database. Each message is associated to a user. Now, every time you start your application, your database is connected to your physical database. That's where you decided to purge all your data with a boolean flag in your source code. Also this could be the place for seeding your database with initial data.
 
-{{< highlight javascript "hl_lines=6 7 8 15 16 17" >}}
+{{< highlight javascript "hl_lines=12 20 21 22" >}}
 ...
 
 const eraseDatabaseOnSync = true;
 
-sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
+connectDb().then(async () => {
   if (eraseDatabaseOnSync) {
+    await Promise.all([
+      models.User.deleteMany({}),
+      models.Message.deleteMany({}),
+    ]);
+
     createUsersWithMessages();
   }
 
