@@ -1,7 +1,7 @@
 +++
 title = "Deep Dive into JavaScript's Array Map Method"
 description = "An extensive walkthrough for JavaScript developers who want to get to know the Array's Map Method to transform data. You will learn about the Callback Function's Arguments, usages of Map with other Array Methods, and ..."
-date = "2019-02-24T07:52:46+02:00"
+date = "2019-03-06T07:52:46+02:00"
 tags = ["JavaScript"]
 categories = ["JavaScript"]
 keywords = ["map javascript", "array map javascript", "array map method", "array map function"]

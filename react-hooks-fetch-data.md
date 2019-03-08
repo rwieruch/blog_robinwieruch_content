@@ -1,7 +1,7 @@
 +++
 title = "How to fetch data with React Hooks?"
 description = "A tutorial on how to fetch data in React with Hooks from third-party APIs. You will use state and effect hooks for the data request from a real API ..."
-date = "2018-11-12T13:50:46+02:00"
+date = "2019-03-07T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["react fetch data hooks"]
@@ -22,8 +22,6 @@ summary = "A tutorial on how to fetch data with React Hooks by using local state
 In this tutorial, I want to show you **how to fetch data in React with Hooks** by using the {{% a_blank "state" "https://reactjs.org/docs/hooks-state.html" %}} and {{% a_blank "effect" "https://reactjs.org/docs/hooks-effect.html" %}} hooks. We will use the widely known {{% a_blank "Hacker News API" "https://hn.algolia.com/api" %}} to fetch popular articles from the tech world. You will also implement your custom hook for the data fetching that can be reused anywhere in your application or published on npm as standalone node package.
 
 If you don't know anything about this new React feature, checkout this [introduction to React Hooks](https://www.robinwieruch.de/react-hooks/). If you want to checkout the finished project for the showcased examples that show how to fetch data in React with Hooks, checkout this {{% a_blank "GitHub repository" "https://github.com/the-road-to-learn-react/react-hooks-introduction" %}}.
-
-**Note:** React Hooks are in React's alpha version (16.7.) and everything shown in this "how to"-article is under construction. The React team is {{% a_blank "collecting feedback for React Hooks" "https://github.com/reactjs/rfcs/pull/68" %}} which is your opportunity to contribute to this feature. If anything changes to the API, you can leave a hint in the comments below of this article too.
 
 **Note:** In the future, React Hooks are not be intended for data fetching in React. Instead, a feature called Suspense will be in charge for it. The following walkthrough is nonetheless a great way to learn more about state and effect hooks in React.
 
@@ -121,22 +119,22 @@ The second argument can be used to define all the variables (allocated in this a
 
 There is one last catch. In the code, we are using async/await to fetch data from a third-party API. According to the documentation every function annotated with async returns an implicit promise: *"The async function declaration defines an asynchronous function, which returns an AsyncFunction object. An asynchronous function is a function which operates asynchronously via the event loop, using an implicit Promise to return its result. "*. However, an effect hook should return nothing or a clean up function. That's why you may see the following warning in your developer console log: **07:41:22.910 index.js:1452 Warning: useEffect function must return a cleanup function or nothing. Promises and useEffect(async () => ...) are not supported, but you can call an async function inside an effect.**. That's why using async directly in the `useEffect` function isn't allowed. Let's implement a workaround for it, by using the async function inside the effect.
 
-{{< highlight javascript "hl_lines=7 8 9 10 11 12 13 15 16" >}}
+{{< highlight javascript "hl_lines=8 9 10 11 12 13 14 16" >}}
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function App() {
   const [data, setData] = useState({ hits: [] });
 
-  const fetchData = async () => {
-    const result = await axios(
-      'http://hn.algolia.com/api/v1/search?query=redux',
-    );
-
-    setData(result.data);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        'http://hn.algolia.com/api/v1/search?query=redux',
+      );
+
+      setData(result.data);
+    };
+
     fetchData();
   }, []);
 
@@ -168,15 +166,15 @@ function App() {
   const [data, setData] = useState({ hits: [] });
   const [query, setQuery] = useState('redux');
 
-  const fetchData = async () => {
-    const result = await axios(
-      'http://hn.algolia.com/api/v1/search?query=redux',
-    );
-
-    setData(result.data);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        'http://hn.algolia.com/api/v1/search?query=redux',
+      );
+
+      setData(result.data);
+    };
+
     fetchData();
   }, []);
 
@@ -203,22 +201,22 @@ export default App;
 
 At the moment, both states are independent from each other, but now you want to couple them to only fetch articles that are specified by the query in the input field. With the following change, the component should fetch all articles by query term once it mounted.
 
-{{< highlight javascript "hl_lines=9" >}}
+{{< highlight javascript "hl_lines=10" >}}
 ...
 
 function App() {
   const [data, setData] = useState({ hits: [] });
   const [query, setQuery] = useState('redux');
 
-  const fetchData = async () => {
-    const result = await axios(
-      `http://hn.algolia.com/api/v1/search?query=${query}`,
-    );
-
-    setData(result.data);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        `http://hn.algolia.com/api/v1/search?query=${query}`,
+      );
+
+      setData(result.data);
+    };
+
     fetchData();
   }, []);
 
@@ -239,15 +237,15 @@ function App() {
   const [data, setData] = useState({ hits: [] });
   const [query, setQuery] = useState('redux');
 
-  const fetchData = async () => {
-    const result = await axios(
-      `http://hn.algolia.com/api/v1/search?query=${query}`,
-    );
-
-    setData(result.data);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        `http://hn.algolia.com/api/v1/search?query=${query}`,
+      );
+
+      setData(result.data);
+    };
+
     fetchData();
   }, [query]);
 
@@ -267,15 +265,15 @@ function App() {
   const [query, setQuery] = useState('redux');
   const [search, setSearch] = useState('');
 
-  const fetchData = async () => {
-    const result = await axios(
-      `http://hn.algolia.com/api/v1/search?query=${query}`,
-    );
-
-    setData(result.data);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        `http://hn.algolia.com/api/v1/search?query=${query}`,
+      );
+
+      setData(result.data);
+    };
+
     fetchData();
   }, [query]);
 
@@ -304,7 +302,7 @@ function App() {
 
 Now, make the effect dependant on the search state rather than the fluctuant query state that changes with every key stroke in the input field. Once the user clicks the button, the new search state is set and should trigger the effect hook kinda manually.
 
-{{< highlight javascript "hl_lines=6 10 18" >}}
+{{< highlight javascript "hl_lines=6 11 18" >}}
 ...
 
 function App() {
@@ -312,15 +310,15 @@ function App() {
   const [query, setQuery] = useState('redux');
   const [search, setSearch] = useState('redux');
 
-  const fetchData = async () => {
-    const result = await axios(
-      `http://hn.algolia.com/api/v1/search?query=${search}`,
-    );
-
-    setData(result.data);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        `http://hn.algolia.com/api/v1/search?query=${search}`,
+      );
+
+      setData(result.data);
+    };
+
     fetchData();
   }, [search]);
 
@@ -334,7 +332,7 @@ export default App;
 
 Also the initial state of the search state is set to the same state as the query state, because the component fetches data also on mount and therefore the result should mirror the value in the input field. However, having a similar query and search state is kinda confusing. Why not set the actual URL as state instead of the search state?
 
-{{< highlight javascript "hl_lines=4 5 6 9 16 28" >}}
+{{< highlight javascript "hl_lines=4 5 6 10 16 28" >}}
 function App() {
   const [data, setData] = useState({ hits: [] });
   const [query, setQuery] = useState('redux');
@@ -342,13 +340,13 @@ function App() {
     'http://hn.algolia.com/api/v1/search?query=redux',
   );
 
-  const fetchData = async () => {
-    const result = await axios(url);
-
-    setData(result.data);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(url);
+
+      setData(result.data);
+    };
+
     fetchData();
   }, [url]);
 
@@ -386,7 +384,7 @@ That's if for the implicit programmatic data fetching with the effect hook. You 
 
 Let's introduce a loading indicator to the data fetching. It's just another state that is manage by a state hook. The loading flag is used to render a loading indicator in the App component.
 
-{{< highlight javascript "hl_lines=10 13 18 41 42 43 51" >}}
+{{< highlight javascript "hl_lines=10 14 19 41 42 43 51" >}}
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -398,16 +396,16 @@ function App() {
   );
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchData = async () => {
-    setIsLoading(true);
-
-    const result = await axios(url);
-
-    setData(result.data);
-    setIsLoading(false);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+
+      const result = await axios(url);
+
+      setData(result.data);
+      setIsLoading(false);
+    };
+
     fetchData();
   }, [url]);
 
@@ -451,7 +449,7 @@ Once the effect is called for data fetching, which happens when the component mo
 
 What about error handling for data fetching with a React hook? The error is just another state initialized with a state hook. Once there is an error state, the App component can render feedback for the user. When using async/await, it is common to use try/catch blocks for error handling. You can do it within the effect:
 
-{{< highlight javascript "hl_lines=11 15 17 21 22 23 48" >}}
+{{< highlight javascript "hl_lines=11 15 18 22 23 24 48" >}}
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -464,22 +462,22 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const fetchData = async () => {
-    setIsError(false);
-    setIsLoading(true);
-
-    try {
-      const result = await axios(url);
-
-      setData(result.data);
-    } catch (error) {
-      setIsError(true);
-    }
-
-    setIsLoading(false);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      setIsError(false);
+      setIsLoading(true);
+
+      try {
+        const result = await axios(url);
+
+        setData(result.data);
+      } catch (error) {
+        setIsError(true);
+      }
+
+      setIsLoading(false);
+    };
+
     fetchData();
   }, [url]);
 
@@ -597,22 +595,22 @@ const useHackerNewsApi = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const fetchData = async () => {
-    setIsError(false);
-    setIsLoading(true);
-
-    try {
-      const result = await axios(url);
-
-      setData(result.data);
-    } catch (error) {
-      setIsError(true);
-    }
-
-    setIsLoading(false);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      setIsError(false);
+      setIsLoading(true);
+
+      try {
+        const result = await axios(url);
+
+        setData(result.data);
+      } catch (error) {
+        setIsError(true);
+      }
+
+      setIsLoading(false);
+    };
+
     fetchData();
   }, [url]);
 
@@ -698,22 +696,22 @@ const useDataApi = (initialUrl, initialData) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const fetchData = async () => {
-    setIsError(false);
-    setIsLoading(true);
-
-    try {
-      const result = await axios(url);
-
-      setData(result.data);
-    } catch (error) {
-      setIsError(true);
-    }
-
-    setIsLoading(false);
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      setIsError(false);
+      setIsLoading(true);
+
+      try {
+        const result = await axios(url);
+
+        setData(result.data);
+      } catch (error) {
+        setIsError(true);
+      }
+
+      setIsLoading(false);
+    };
+
     fetchData();
   }, [url]);
 
@@ -771,6 +769,203 @@ export default App;
 {{< /highlight >}}
 
 That's it for the data fetching with a custom hook. The hook itself doesn't know anything about the API. It receives all parameters from the outside and only manages necessary states such as the data, loading and error state. It executes the request and returns the data to the component using it as custom data fetching hook.
+
+{{% chapter_header "Reducer Hook for Data Fetching" "react-hooks-reducer-hook" %}}
+
+So far, we have used various state hooks to manage our data fetching state for the data, loading and error state. However, somehow all these states, managed with their own state hook, belong together because they care about the same cause. As you can see, they are all used within the data fetching function. A good indicator that they belong together is that they are used one after another (e.g. `setIsError`, `setIsLoading`). Let's combine all three of them with a Reducer Hook instead.
+
+A Reducer Hook returns us a state object and a function to alter the state object. The function -- called dispatch function -- takes an action which has a type and an optional payload. All this information is used in the actual reducer function to distill a new state from the previous state, the action's optional payload and type. Let's see how this works in code:
+
+{{< highlight javascript "hl_lines=5 9 10 11 16 17 18 19 20" >}}
+import React, {
+  Fragment,
+  useState,
+  useEffect,
+  useReducer,
+} from 'react';
+import axios from 'axios';
+
+const dataFetchReducer = (state, action) => {
+  ...
+};
+
+const useDataApi = (initialUrl, initialData) => {
+  const [url, setUrl] = useState(initialUrl);
+
+  const [state, dispatch] = useReducer(dataFetchReducer, {
+    isLoading: false,
+    isError: false,
+    data: initialData,
+  });
+
+  ...
+};
+{{< /highlight >}}
+
+The Reducer Hook takes the reducer function and an initial state object as parameters. In our case, the arguments of the initial states for the data, loading and error state didn't change, but they have been aggregated to one state object managed by one reducer hook instead of single state hooks.
+
+{{< highlight javascript "hl_lines=16 21 23" >}}
+const dataFetchReducer = (state, action) => {
+  ...
+};
+
+const useDataApi = (initialUrl, initialData) => {
+  const [url, setUrl] = useState(initialUrl);
+
+  const [state, dispatch] = useReducer(dataFetchReducer, {
+    isLoading: false,
+    isError: false,
+    data: initialData,
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      dispatch({ type: 'FETCH_INIT' });
+
+      try {
+        const result = await axios(url);
+
+        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+      } catch (error) {
+        dispatch({ type: 'FETCH_FAILURE' });
+      }
+    };
+
+    fetchData();
+  }, [url]);
+
+  ...
+};
+{{< /highlight >}}
+
+Now, when fetching data, the dispatch function can be used to send information to the reducer function. The object being send with the dispatch function has a mandatory `type` property and an optional `payload` property. The type tells the reducer function which state transition needs to be applied and the payload can additionally be used by the reducer to distill the new state. After all, we only have three state transitions: initializing the fetching process, notifying about a successful data fetching result, and notifying about an errornous data fetching result.
+
+In the end of the custom hook, the state is returned as before, but because we have a state object and not the standalone states anymore, the state object is returned as destrcutured object. This way, the one who calls the `useDataApi` custom hook still gets access to `data`, `isLoading` and `isError`:
+
+{{< highlight javascript "hl_lines=17" >}}
+const useDataApi = (initialUrl, initialData) => {
+  const [url, setUrl] = useState(initialUrl);
+
+  const [state, dispatch] = useReducer(dataFetchReducer, {
+    isLoading: false,
+    isError: false,
+    data: initialData,
+  });
+
+  ...
+
+  const doGet = (event, url) => {
+    setUrl(url);
+    event.preventDefault();
+  };
+
+  return { ...state, doGet };
+};
+{{< /highlight >}}
+
+Last but not least, the implementation of the reducer function is missing. It needs to act on three different state transitions called `FETCH_INIT`, `FETCH_SUCCESS` and `FETCH_FAILURE`. Each state transition needs to return a new state object. Let's see how this can be implemented with a switch case statement:
+
+{{< highlight javascript "hl_lines=2 3 4 5 6 7 8 9 10 11" >}}
+const dataFetchReducer = (state, action) => {
+  switch (action.type) {
+    case 'FETCH_INIT':
+      return { ...state };
+    case 'FETCH_SUCCESS':
+      return { ...state };
+    case 'FETCH_FAILURE':
+      return { ...state };
+    default:
+      throw new Error();
+  }
+};
+{{< /highlight >}}
+
+A reducer function has access to the current state and the incoming action via its arguments. So far, in out switch case statement each state transition only returns the previous state. A destructuring statement is used to keep the state object immutable -- meaning the state is never directly mutated -- to enforce best practices. Now let's override a few of the current's state returned properties to alter the state with each state transition:
+
+{{< highlight javascript "hl_lines=6 7 12 13 14 19 20" >}}
+const dataFetchReducer = (state, action) => {
+  switch (action.type) {
+    case 'FETCH_INIT':
+      return {
+        ...state,
+        isLoading: true,
+        isError: false
+      };
+    case 'FETCH_SUCCESS':
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        data: action.payload,
+      };
+    case 'FETCH_FAILURE':
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+      };
+    default:
+      throw new Error();
+  }
+};
+{{< /highlight >}}
+
+Now every state transition, decided by the action's type, returns a new state based on the previous state and the optional payload. For instance, in the case of a successful request, the payload is used to set the data of the new state object.
+
+In conclusion, the Reducer Hook makes sure that this portion of the state management is encapsulated with its own logic. By providing action types and optional payloads, you will always end up with a predicatbale state change. In addition, you will never run into invalid states. For instance, previously it would have been possible to accidently set the `isLoading` and `isError` states to true. What should be displayed in the UI for this case? Now, each state transition defined by the reducer function leads to a valid state object.
+
+{{% chapter_header "Abort Data Fetching in Effect Hook" "react-hooks-abort-data-fetching" %}}
+
+It's a common problem in React that component state is set even though the component got already unmounted (e.g. due to navigating away with React Router). I have written about this issue previously over here which describes [how to prevent setting state for unmounted components](https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-component/) in various scenarios. Let's see how we can prevent to set state in our custom hook for the data fetching:
+
+{{< highlight javascript "hl_lines=11 19 21 23 25 31 32 33" >}}
+const useDataApi = (initialUrl, initialData) => {
+  const [url, setUrl] = useState(initialUrl);
+
+  const [state, dispatch] = useReducer(dataFetchReducer, {
+    isLoading: false,
+    isError: false,
+    data: initialData,
+  });
+
+  useEffect(() => {
+    let didCancel = false;
+
+    const fetchData = async () => {
+      dispatch({ type: 'FETCH_INIT' });
+
+      try {
+        const result = await axios(url);
+
+        if (!didCancel) {
+          dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+        }
+      } catch (error) {
+        if (!didCancel) {
+          dispatch({ type: 'FETCH_FAILURE' });
+        }
+      }
+    };
+
+    fetchData();
+
+    return () => {
+      didCancel = true;
+    };
+  }, [url]);
+
+  const doGet = (event, url) => {
+    setUrl(url);
+    event.preventDefault();
+  };
+
+  return { ...state, doGet };
+};
+{{< /highlight >}}
+
+Every Effect Hook comes with a clean up function which runs when a component unmounts. The clean up function is the one function returned from the hook. In our case, we use a boolean flag called `didCancel` to let our data fetching logic know about the state (mounted/unmounted) of the component. If the component did unmount, the flag should be set to `true` which results in preventing to set the component state after the data fetching has been asynchronously resolved eventually.
+
+*Note: Actually not the data fetching is aborted -- which could be achieved with {{% a_blank "Axios Cancellation" "https://github.com/axios/axios#cancellation" %}} -- but the state transition is not performed anymore for the unmounted component. Since Axios Cancellation has not the best API in my eyes, this boolean flag to prevent setting state does the job as well.*
 
 <hr class="section-divider">
 
