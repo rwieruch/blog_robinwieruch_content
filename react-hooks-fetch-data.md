@@ -552,18 +552,21 @@ function App() {
 
 But now the browser reloads when clicking the submit button, because that's the native behavior of the browser when submitting a form. In order to prevent the default behavior, we can invoke a function on the React event. That's how you do it in React class components too.
 
-{{< highlight javascript "hl_lines=4 5 6 7 11" >}}
+{{< highlight javascript "hl_lines=4 5 6 7 10 11 12 13 14" >}}
 function App() {
   ...
 
-  const doGet = event => {
+  const doFetch = () => {
     setUrl(`http://hn.algolia.com/api/v1/search?query=${query}`);
-    event.preventDefault();
   };
 
   return (
     <Fragment>
-      <form onSubmit={doGet}>
+      <form onSubmit={event => {
+        doFetch();
+
+        event.preventDefault();
+      }}>
         <input
           type="text"
           value={query}
@@ -586,7 +589,7 @@ Now the browser shouldn't reload anymore when you click the submit button. It wo
 
 In order to extract a custom hook for data fetching, move everything that belongs to the data fetching, except for the query state that belongs to the input field, but including the loading indicator and error handling, to its own function. Also make sure you return all the necessary variables from the function that are used in the App component.
 
-{{< highlight javascript "hl_lines=1 33 34" >}}
+{{< highlight javascript "hl_lines=1 32 33" >}}
 const useHackerNewsApi = () => {
   const [data, setData] = useState({ hits: [] });
   const [url, setUrl] = useState(
@@ -614,12 +617,11 @@ const useHackerNewsApi = () => {
     fetchData();
   }, [url]);
 
-  const doGet = event => {
+  const doFetch = () => {
     setUrl(`http://hn.algolia.com/api/v1/search?query=${query}`);
-    event.preventDefault();
   };
 
-  return { data, isLoading, isError, doGet };
+  return { data, isLoading, isError, doFetch };
 }
 {{< /highlight >}}
 
@@ -628,7 +630,7 @@ Now, your new hook can be used in the App component again:
 {{< highlight javascript "hl_lines=3" >}}
 function App() {
   const [query, setQuery] = useState('redux');
-  const { data, isLoading, isError, doGet } = useHackerNewsApi();
+  const { data, isLoading, isError, doFetch } = useHackerNewsApi();
 
   return (
     <Fragment>
@@ -638,9 +640,9 @@ function App() {
 }
 {{< /highlight >}}
 
-Next, pass the URL state from the outside the `doGet` function:
+Next, pass the URL state from the outside the `doFetch` function:
 
-{{< highlight javascript "hl_lines=8 9 23 24 25 26 27 28" >}}
+{{< highlight javascript "hl_lines=8 9 24" >}}
 const useHackerNewsApi = () => {
   ...
 
@@ -648,27 +650,27 @@ const useHackerNewsApi = () => {
     ...
   );
 
-  const doGet = (event, url) => {
+  const doFetch = url => {
     setUrl(url);
-    event.preventDefault();
   };
 
-  return { data, isLoading, isError, doGet };
+  return { data, isLoading, isError, doFetch };
 };
 
 function App() {
   const [query, setQuery] = useState('redux');
-  const { data, isLoading, isError, doGet } = useHackerNewsApi();
+  const { data, isLoading, isError, doFetch } = useHackerNewsApi();
 
   return (
     <Fragment>
       <form
-        onSubmit={event =>
-          doGet(
-            event,
+        onSubmit={event => {
+          doFetch(
             `http://hn.algolia.com/api/v1/search?query=${query}`,
-          )
-        }
+          );
+
+          event.preventDefault();
+        }}
       >
         <input
           type="text"
@@ -686,7 +688,7 @@ function App() {
 
 The initial state can be made generic too. Pass it simply to the new custom hook:
 
-{{< highlight javascript "hl_lines=4 5 6 39 40 41 42" >}}
+{{< highlight javascript "hl_lines=4 5 6 38 39 40 41" >}}
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -715,17 +717,16 @@ const useDataApi = (initialUrl, initialData) => {
     fetchData();
   }, [url]);
 
-  const doGet = (event, url) => {
+  const doFetch = url => {
     setUrl(url);
-    event.preventDefault();
   };
 
-  return { data, isLoading, isError, doGet };
+  return { data, isLoading, isError, doFetch };
 };
 
 function App() {
   const [query, setQuery] = useState('redux');
-  const { data, isLoading, isError, doGet } = useDataApi(
+  const { data, isLoading, isError, doFetch } = useDataApi(
     'http://hn.algolia.com/api/v1/search?query=redux',
     { hits: [] },
   );
@@ -733,12 +734,13 @@ function App() {
   return (
     <Fragment>
       <form
-        onSubmit={event =>
-          doGet(
-            event,
+        onSubmit={event => {
+          doFetch(
             `http://hn.algolia.com/api/v1/search?query=${query}`,
-          )
-        }
+          );
+
+          event.preventDefault();
+        }}
       >
         <input
           type="text"
@@ -842,7 +844,7 @@ Now, when fetching data, the dispatch function can be used to send information t
 
 In the end of the custom hook, the state is returned as before, but because we have a state object and not the standalone states anymore, the state object is returned as destrcutured object. This way, the one who calls the `useDataApi` custom hook still gets access to `data`, `isLoading` and `isError`:
 
-{{< highlight javascript "hl_lines=17" >}}
+{{< highlight javascript "hl_lines=16" >}}
 const useDataApi = (initialUrl, initialData) => {
   const [url, setUrl] = useState(initialUrl);
 
@@ -854,12 +856,11 @@ const useDataApi = (initialUrl, initialData) => {
 
   ...
 
-  const doGet = (event, url) => {
+  const doFetch = url => {
     setUrl(url);
-    event.preventDefault();
   };
 
-  return { ...state, doGet };
+  return { ...state, doFetch };
 };
 {{< /highlight >}}
 
@@ -954,12 +955,11 @@ const useDataApi = (initialUrl, initialData) => {
     };
   }, [url]);
 
-  const doGet = (event, url) => {
+  const doFetch = url => {
     setUrl(url);
-    event.preventDefault();
   };
 
-  return { ...state, doGet };
+  return { ...state, doFetch };
 };
 {{< /highlight >}}
 
