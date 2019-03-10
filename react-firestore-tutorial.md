@@ -39,7 +39,7 @@ Except for the database, everything else stays the same; thus, everything else y
 
 {{% chapter_header "Migration from Realtime Database to Cloud Firestore" "firebase-cloud-firestore-migration" %}}
 
-First, our project has a Firebase class that connects our React application with the Firebase API (e.g. authentication API, database API). It currently 0uses Firebase's Realtime Database:
+First, our project has a Firebase class that connects our React application with the Firebase API (e.g. authentication API, database API). It currently uses Firebase's Realtime Database:
 
 {{< highlight javascript "hl_lines=3 20 26 70 72 97 99 103 105" >}}
 import app from 'firebase/app';
