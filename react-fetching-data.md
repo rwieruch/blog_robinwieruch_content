@@ -863,7 +863,7 @@ const DEFAULT_QUERY = 'redux';
 
 ...
 
-const RenderPropApproach = ({ data, isLoading, error }) =>
+const RenderPropApproach = () =>
   <Fetcher url={API + DEFAULT_QUERY}>
     {({ data, isLoading, error }) => {
       if (!data) {
