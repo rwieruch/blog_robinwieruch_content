@@ -1,25 +1,25 @@
 +++
-title = "How to learn React, Angular or Vue in 2018?"
+title = "How to learn React, Angular or Vue in 2019?"
 description = "How to learn React, Vue, Angular or any other framework? For many developers this question pops up every day. The article should give actionable guidance on how to escape the analysis paralysis and how to get from consuming to producing by following a simple learning framework ..."
 date = "2018-01-31T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript", "Vue", "Angular"]
-keywords = ["learn react 2018", "react book", "reactjs book"]
-news_keywords = ["react", "learn react 2018"]
+keywords = ["learn react", "react book", "reactjs book"]
+news_keywords = ["react", "learn react"]
 hashtag = "#ReactJs #VueJs #AngularJs"
 card = "img/posts/how-to-learn-framework/banner_640.jpg"
 banner = "img/posts/how-to-learn-framework/banner.jpg"
 contribute = "how-to-learn-framework.md"
-headline = "How to learn React, Angular or Vue in 2018?"
+headline = "How to learn React, Angular or Vue in 2019?"
 
 summary = "The article gives people guidance on how to approach learning React, Vue or Angular. It should help you to escape the analysis paralysis and get from consuming to producing. It gives you a suggestion of actually starting to code applications in your chosen framework."
 +++
 
 {{% sponsorship %}}
 
-{{% pin_it_image "learn react 2018" "img/posts/how-to-learn-framework/banner.jpg" "is-src-set" %}}
+{{% pin_it_image "learn react" "img/posts/how-to-learn-framework/banner.jpg" "is-src-set" %}}
 
-We have 2018 and the JavaScript and web development community settled down on the major three: React, Angular and Vue. They are frameworks and libraries with [full fledged ecosystems](https://www.robinwieruch.de/essential-react-libraries-framework/). Because of that, I call all of these candidates frameworks. These major three are backed by big companies and {{% a_blank "communities/individuals" "https://www.patreon.com/evanyou" %}}. It almost seems as if the JavaScript fatigue has settled down for a bit now. Many people believe that it will stay like that until the full adoption of {{% a_blank "WebAssembly (WASM)" "http://webassembly.org/" %}}. So enjoy the halt for a moment but keep your eyes open for WASM because {{% a_blank "we are not far away from it" "https://github.com/DenisKolodin/yew" %}}.
+The JavaScript and web development community settled down on the major three: React, Angular and Vue. They are frameworks and libraries with [full fledged ecosystems](https://www.robinwieruch.de/essential-react-libraries-framework/). Because of that, I call all of these candidates frameworks. These major three are backed by big companies and {{% a_blank "communities/individuals" "https://www.patreon.com/evanyou" %}}. It almost seems as if the JavaScript fatigue has settled down for a bit now. Many people believe that it will stay like that until the full adoption of {{% a_blank "WebAssembly (WASM)" "http://webassembly.org/" %}}. So enjoy the halt for a moment but keep your eyes open for WASM because {{% a_blank "we are not far away from it" "https://github.com/DenisKolodin/yew" %}}.
 
 There are many people learning those major three frameworks nowadays. They are not only computer science graduates, like it used to be in the past, but also self-taught programmers coming from bootcamps and other backgrounds. I find it amazing that the barrier entering the field is made much more accessible in the recent years by all the opportunities organizations and companies are providing in the western world. I am saying western world here, because often it's not obvious that there is less education about those topics in other countries. It's a [huge privilege to work in this field](https://www.robinwieruch.de/giving-back-by-learning-react/) and therefore I hope people treasure it and do everything possible to {{% a_blank "enable others for this privilege around the world" "https://github.com/rwieruch/purchasing-power-parity" %}}.
 

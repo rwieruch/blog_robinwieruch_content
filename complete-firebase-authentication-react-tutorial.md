@@ -1,5 +1,5 @@
 +++
-title = "A Firebase in React Tutorial for Beginners [2018]"
+title = "A Firebase in React Tutorial for Beginners [2019]"
 description = "A beginners tutorial to learn Firebase in React for business application with authentication, authorization and a real-time database. The tutorial gives you the perfect React Firebase boilerplate project ..."
 date = "2018-11-20T07:50:46+02:00"
 tags = ["React", "JavaScript"]
@@ -10,7 +10,7 @@ hashtag = "#ReactJs"
 card = "img/posts/complete-firebase-authentication-react-tutorial/banner_640.jpg"
 banner = "img/posts/complete-firebase-authentication-react-tutorial/banner.jpg"
 contribute = "complete-firebase-authentication-react-tutorial.md"
-headline = "A Firebase in React Tutorial for Beginners [2018]"
+headline = "A Firebase in React Tutorial for Beginners [2019]"
 
 summary = "A beginners tutorial to learn Firebase in React for business application with authentication, authorization and a real-time database. The tutorial gives you the perfect React Firebase boilerplate project."
 +++

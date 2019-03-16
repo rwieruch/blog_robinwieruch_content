@@ -21,8 +21,6 @@ summary = "A walkthrough on React hooks which are used to add side-effects to Re
 
 React Hooks were introduced at {{% a_blank "React Conf October 2018" "https://www.youtube.com/watch?v=dpw9EHDh2bM" %}} as a way to use state and side-effects in React function components. Whereas function components have been called functional stateless components (FSC) before, they are finally able to use state with React Hooks. Therefore, many people refer to them as function components now.
 
-**Note:** React Hooks are in React's alpha version (16.7.) and everything shown in this "how to"-article is under construction. The React team is {{% a_blank "collecting feedback for React Hooks" "https://github.com/reactjs/rfcs/pull/68" %}} which is your opportunity to contribute to this feature. If anything changes to the API, you can leave a hint in the comments below of this article too.
-
 In this walkthrough, I want to explain the motivation behind hooks, what will change in React and why we shouldn't panic, and how React hooks can be used in function components by showcasing common React Hooks such as the state and effect hooks by example.
 
 {{% chapter_header "Why React Hooks?" "why-react-hooks" %}}

@@ -1,5 +1,5 @@
 +++
-title = "Essential React Libraries in 2018"
+title = "Essential React Libraries in 2019"
 description = "Often it is difficult to find all the relevant libraries to complement your React.js application, because React's ecosystem is a flexible yet large framework. The article gives you an opinionated React setup by choosing essential libraries: Redux, MobX, React Router, Flow, Styled Components, Lodash, Ramda, Prettier, Axios, ..."
 date = "2018-01-11T13:50:46+02:00"
 tags = ["React", "Redux", "JavaScript"]
@@ -10,7 +10,7 @@ hashtag = "#ReactJs"
 card = "img/posts/essential-react-libraries-framework/banner_640.jpg"
 banner = "img/posts/essential-react-libraries-framework/banner.jpg"
 contribute = "essential-react-libraries-framework.md"
-headline = "Essential React Libraries in 2018"
+headline = "Essential React Libraries in 2019"
 
 summary = "React with its ecosystem is a flexible framework. You can choose your libraries to complement your React core. The following article will give you an opinionated approach to select from these libraries to build a sophisticated React application."
 +++

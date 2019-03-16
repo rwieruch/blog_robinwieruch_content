@@ -1,5 +1,5 @@
 +++
-title = "React Redux Tutorial for Beginners [2018]"
+title = "React Redux Tutorial for Beginners [2019]"
 description = "A complete React Redux tutorial for beginners: Learn how to build React Redux applications from scratch by following this step by step implementation of an example application ..."
 date = "2018-12-13T13:50:46+02:00"
 tags = ["React", "Redux", "JavaScript"]
@@ -10,7 +10,7 @@ hashtag = "#ReactJs"
 card = "img/posts/react-redux-tutorial/banner_640.jpg"
 banner = "img/posts/react-redux-tutorial/banner.jpg"
 contribute = "react-redux-tutorial.md"
-headline = "React Redux Tutorial for Beginners [2018]"
+headline = "React Redux Tutorial for Beginners [2019]"
 
 summary = "I had always trouble to reference beginners to a React Redux tutorial. There are many great tutorials and courses out there. But the best case for me would always have been to have a tutorial that I wished to have when I was learning Redux myself. That's what I try to accomplish with this pragmatic React Redux tutorial for beginners."
 +++

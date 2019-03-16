@@ -1,5 +1,5 @@
 +++
-title = "A Firestore in React Tutorial for Beginners [2018]"
+title = "A Firestore in React Tutorial for Beginners [2019]"
 description = "A beginners tutorial to learn Firestore in React for business application with authentication, authorization and a real-time database. The tutorial gives you the perfect React Firestore boilerplate project ..."
 date = "2019-01-26T07:50:46+02:00"
 tags = ["React", "JavaScript"]
@@ -10,7 +10,7 @@ hashtag = "#ReactJs"
 card = "img/posts/react-firestore-tutorial/banner_640.jpg"
 banner = "img/posts/react-firestore-tutorial/banner.jpg"
 contribute = "react-firestore-tutorial.md"
-headline = "A Firestore in React Tutorial for Beginners [2018]"
+headline = "A Firestore in React Tutorial for Beginners [2019]"
 
 summary = "A beginners tutorial to learn Firestore in React for business application with authentication, authorization and a real-time database. The tutorial gives you the perfect React Firestore boilerplate project."
 +++

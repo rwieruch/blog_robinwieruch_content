@@ -1,5 +1,5 @@
 +++
-title = "Tips to learn React + Redux in 2018"
+title = "Tips to learn React + Redux in 2019"
 description = "An extensive guide of tips, tricks and resources to learn React.js and Redux in 2018. The tutorial covers various topics in React, JavaScript ES6 and Redux to give you a great start in those topics. In addition, you will find courses for React and Redux to learn more about those topics in depth ..."
 date = "2018-01-09T13:50:46+02:00"
 tags = ["React", "Redux", "JavaScript"]
@@ -10,14 +10,14 @@ hashtag = "#ReactJs"
 card = "img/posts/tips-to-learn-react-redux/banner_640.jpg"
 banner = "img/posts/tips-to-learn-react-redux/banner.jpg"
 contribute = "tips-to-learn-react-redux.md"
-headline = "Tips to learn React + Redux in 2018"
+headline = "Tips to learn React + Redux in 2019"
 
 summary = "I am doing React + Redux for quite some time now. My learnings are subjective, but I thought they may help people to learn or advance in React + Redux. Redux is not strictly coupled to React, but it happens to be that a lot of people are using both libraries in combination. The article is opinionated, maybe it doesn't match every time your thoughts, but I hope to get feedback on it to improve myself as well."
 +++
 
 {{% sponsorship %}}
 
-{{% pin_it_image "learn react redux 2018" "img/posts/tips-to-learn-react-redux/banner.jpg" "is-src-set" %}}
+{{% pin_it_image "learn react redux" "img/posts/tips-to-learn-react-redux/banner.jpg" "is-src-set" %}}
 
 For quite some time now, I have been implementing applications in React and Redux. Over the last few years, I have written two ebooks about it and released a {{% a_blank "course platform" "https://roadtoreact.com/" %}} for learning React and its ecosystem. The course platform is even [built in React and Redux](https://www.robinwieruch.de/how-to-build-your-own-course-platform/). My personal learnings are subjective, but I thought they may help people to learn or advance in React and Redux as well. Redux is not strictly coupled to React, but it happens to be that a lot of people are using both libraries in combination.
 
