@@ -27,6 +27,14 @@ In this guide, I want to give React beginners an historical overview of differen
 
 Everything started out with **React's createClass Components**. The `createClass` method provided developers with a factory method to create React class components without using a JavaScript class. It was the status quo for creating React components prior JavaScript ES6, because in JavaScript ES5 there was no class syntax available:
 
+{{% chapter_header "Table of Contents" "toc" %}}
+
+* [React createClass Components](react-createclass-component)
+  * [React Mixins](react-mixins)
+* [React Class Components](react-class-components)
+  * [React Higher-Order Components](react-higher-order-components)
+* [React Function Components](react-function-components)
+
 {{< highlight javascript >}}
 var App = React.createClass({
   getInitialState: function() {
