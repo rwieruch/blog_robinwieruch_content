@@ -1,7 +1,7 @@
 +++
 title = "React Function Components by Example"
 description = "Everything you need to know about React Function Components -- also known as React Functional Components. You will learn about them step by step with examples along the way ..."
-date = "2019-03-12T07:50:46+02:00"
+date = "2019-03-18T07:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["react function component", "react functional component", "react arrow function component", "react js function component"]
@@ -25,9 +25,26 @@ This in-depth guide shows you everything about React Function Components -- whic
 
 *Note: There are several synonyms for this kind of component in React. You may have seen different variations such as "React Function only Component" or "React Component as Function".*
 
+{{% chapter_header "Table of Contents" "toc" %}}
+
+* [Example](react-function-component-example)
+* [Props](react-function-component-props)
+* [Arrow Function Component](react-arrow-function-component)
+* [Stateless Function Component](react-stateless-function-component)
+* [State](react-function-component-state)
+* [Event Handler](react-function-component-event-handler)
+* [Callback Function](react-function-component-callback-function)
+* [Lifecycle](react-function-component-lifecycle)
+* [Pure React Function Component](react-function-component-pure)
+* [Export and Import](react-function-component-export-import)
+* [Ref](react-function-component-ref)
+* [PropTypes](react-function-component-proptypes)
+* [TypeScript](react-function-component-typescript)
+* [Function Component vs Class Component](react-function-component-vs-class-component)
+
 {{% chapter_header "React Function Component Example" "react-function-component-example" %}}
 
-Let's start with a simple example of a Functional Component in React which returns JSX:
+Let's start with a simple example of a Functional Component in React defined as App which returns JSX:
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -87,7 +104,7 @@ export default App;
 
 Props are the React Function Component's parameters. Whereas the component can stay generic, we decide from the outside what it should render (or how it should behave). When rendering a component (e.g. Headline in App component), you can pass props as HTML attributes to the component. Then in the Function Component the props object is available as argument in the function signature.
 
-Since props are always coming as object, and most often you need to extract the information from the props, {{% a_blank "JavaScript object destructuring" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring" %}} comes in handy. You can directly use it in the function signature for the props object:
+Since props are always coming as object, and most often you need to extract the information from the props anyway, {{% a_blank "JavaScript object destructuring" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring" %}} comes in handy. You can directly use it in the function signature for the props object:
 
 {{< highlight javascript "hl_lines=9 10" >}}
 import React from 'react';
@@ -111,7 +128,7 @@ If you want to learn more tricks and tips about React props, again check out the
 
 {{% chapter_header "React Arrow Function Component" "react-arrow-function-component" %}}
 
-With the introduction of JavaScript ES6, [new coding concepts were introduced to JavaScript and therefore to React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/). For instance, a JavaScript function can be expressed as lambda ({{% a_blank "arrow function" "https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions" %}}). That's why a Function Component is sometimes called Arrow Function Components or Lambda Function Component as well. Let's see our refactored React Component with an Arrow Function:
+With the introduction of JavaScript ES6, [new coding concepts were introduced to JavaScript and therefore to React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/). For instance, a JavaScript function can be expressed as lambda ({{% a_blank "arrow function" "https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions" %}}). That's why a Function Component is sometimes called Arrow Function Components (or maybe also Lambda Function Component). Let's see our refactored React Component with an Arrow Function:
 
 {{< highlight javascript "hl_lines=3 9" >}}
 import React from 'react';
@@ -152,7 +169,7 @@ When using arrow functions for React components, nothing changes for the props. 
 
 {{% chapter_header "React Stateless Function Component" "react-stateless-function-component" %}}
 
-Every component we have seen so far can be called Stateless Function Component. They just receive an input as props and return an output as JSX: `(props) => JSX`. The input, only if available in form of props, shapes the rendered output. These kind of components don't manage state and don't have any side-effects (e.g. accessing the browser's local storage). People call them Functional Stateless Components, because they are stateless and expressed by a function. However, feature additions to React made it possible to have state in Function Components.
+Every component we have seen so far can be called Stateless Function Component. They just receive an input as props and return an output as JSX: `(props) => JSX`. The input, only if available in form of props, shapes the rendered output. These kind of components don't manage state and don't have any side-effects (e.g. accessing the browser's local storage). People call them Functional Stateless Components, because they are stateless and expressed by a function. However, React Hooks made it possible to have state in Function Components.
 
 {{% chapter_header "React Function Component: state" "react-function-component-state" %}}
 
@@ -194,7 +211,9 @@ const Headline = () => {
 export default App;
 {{< /highlight >}}
 
-The usState hook takes an initial state as parameter and returns an array which holds the current state as first item and a function to change the state as second item. Let's add an input field to change the state with the `setGreeting()` function:
+The useState hook takes an initial state as parameter and returns an array which holds the current state as first item and a function to change the state as second item. We are using {{% a_blank "JavaScript array destructuring" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" %}} to access both items with a shorthand expression. In addition, the destructuring let's us name the variables ourselves.
+
+Let's add an input field to change the state with the `setGreeting()` function:
 
 {{< highlight javascript "hl_lines=13 16 17 18 19 20 21" >}}
 import React, { useState } from 'react';
@@ -270,7 +289,7 @@ We have used an arrow function to define the function within the component. If y
 
 {{% chapter_header "React Function Component: Callback Function" "react-function-component-callback-function" %}}
 
-Everything happens in our Child Function Component. There are no props passed to it, even though you have seen before how a string variable for the greeting can be passed from the Parent Component to the Child Component. Is it possible to pass a function to a component as prop as well? Somehow it must be possible to call a component function from outside as well! Let's see how this works:
+Everything happens in our Child Function Component. There are no props passed to it, even though you have seen before how a string variable for the greeting can be passed from the Parent Component to the Child Component. Is it possible to pass a function to a component as prop as well? Somehow it must be possible to call a component function from the outside! Let's see how this works:
 
 {{< highlight javascript "hl_lines=4 5 6 8 11 15 17 19" >}}
 import React, { useState } from 'react';
@@ -341,7 +360,7 @@ I find this is a perfect yet minimal example to illustrate how to pass functions
 
 It's shouldn't happen often, but I have heard people asking me this question. How would you override a component's function? You need to take the same approach as for overriding any other passed prop to a component by giving it a default value:
 
-{{< highlight javascript >}}
+{{< highlight javascript "hl_lines=12" >}}
 import React from 'react';
 
 const App = () => {
@@ -367,7 +386,7 @@ export default App;
 
 You can assign the default value in the function signature for the destructuring as well:
 
-{{< highlight javascript >}}
+{{< highlight javascript "hl_lines=9" >}}
 import React from 'react';
 
 const App = () => {
@@ -387,7 +406,7 @@ export default App;
 
 You can also give a React Function Component default props -- which is another alternative:
 
-{{< highlight javascript >}}
+{{< highlight javascript "hl_lines=15 16 17" >}}
 import React from 'react';
 
 const App = () => {
@@ -434,7 +453,7 @@ const Button = ({ handleClick }) => (
 export default App;
 {{< /highlight >}}
 
-The function executes delayed without any further instructions from your side within the component. The component will also rerender asynchronously in case props or state have changed:
+The function executes delayed without any further instructions from your side within the component. The component will also rerender asynchronously in case props or state have changed. Take the following code as example to see how we set state with a artificial delay by using `setTimeout`:
 
 {{< highlight javascript >}}
 import React, { useState } from 'react';
@@ -473,11 +492,11 @@ const Button = ({ handleClick, children }) => (
 export default App;
 {{< /highlight >}}
 
-We are using a callback function within the `setCount` state function to access the current state. Since setter functions from `useState` are executed asynchronously by nature, you want to make sure to perform your state change on the current state and not on any stale state.
+Also note that we are using a callback function within the `setCount` state function to access the current state. Since setter functions from `useState` are executed asynchronously by nature, you want to make sure to perform your state change on the current state and not on any stale state.
 
-*Experiment: If you wouldn't use the callback function within the State Hook, but rather act upon the count variable directly (e.g. count + 1), you wouldn't be able to increase the value from 0 to 2 with a quick double click, because both times the function would be executed on a count state of 0.*
+*Experiment: If you wouldn't use the callback function within the State Hook, but rather act upon the count variable directly (e.g. `setCount(count + 1)`), you wouldn't be able to increase the value from 0 to 2 with a quick double click, because both times the function would be executed on a count state of 0.*
 
-Check out [how to fetch data with Function Components with React Hooks](https://www.robinwieruch.de/react-hooks-fetch-data/)!
+Read more about [how to fetch data with Function Components with React Hooks](https://www.robinwieruch.de/react-hooks-fetch-data/).
 
 {{% chapter_header "React Function Component: Lifecycle" "react-function-component-lifecycle" %}}
 

@@ -23,17 +23,19 @@ Even though React didn't introduce a lot of breaking changes since it has been r
 
 In this guide, I want to give React beginners an historical overview of different React Components and React Patterns. The goal is to give clarity about what React Component Types developers have at their disposal, which are still used in modern React applications, and why some of them are not used anymore. In the end, you should be able to identify different React Components from legacy tutorials/applications and be able to write modern React component with confidence yourself.
 
-{{% chapter_header "React createClass Components" "react-createclass-component" %}}
-
-Everything started out with **React's createClass Components**. The `createClass` method provided developers with a factory method to create React class components without using a JavaScript class. It was the status quo for creating React components prior JavaScript ES6, because in JavaScript ES5 there was no class syntax available:
-
 {{% chapter_header "Table of Contents" "toc" %}}
 
 * [React createClass Components](react-createclass-component)
   * [React Mixins](react-mixins)
 * [React Class Components](react-class-components)
   * [React Higher-Order Components](react-higher-order-components)
+  * React Render Prop Components
 * [React Function Components](react-function-components)
+* React Hooks
+
+{{% chapter_header "React createClass Components" "react-createclass-component" %}}
+
+Everything started out with **React's createClass Components**. The `createClass` method provided developers with a factory method to create React class components without using a JavaScript class. It was the status quo for creating React components prior JavaScript ES6, because in JavaScript ES5 there was no class syntax available:
 
 {{< highlight javascript >}}
 var App = React.createClass({
