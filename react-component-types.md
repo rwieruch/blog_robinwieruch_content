@@ -25,12 +25,12 @@ In this guide, I want to give React beginners an historical overview of differen
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
-* [React createClass Components](react-createclass-component)
-  * [React Mixins](react-mixins)
-* [React Class Components](react-class-components)
-  * [React Higher-Order Components](react-higher-order-components)
+* [React createClass Components](#react-createclass-component)
+  * [React Mixins](#react-mixins)
+* [React Class Components](#react-class-components)
+  * [React Higher-Order Components](#react-higher-order-components)
   * React Render Prop Components
-* [React Function Components](react-function-components)
+* [React Function Components](#react-function-components)
 * React Hooks
 
 {{% chapter_header "React createClass Components" "react-createclass-component" %}}

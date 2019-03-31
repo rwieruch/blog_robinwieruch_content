@@ -1,7 +1,7 @@
 +++
 title = "React Hooks: Migration from Class to Function Components"
 description = "React Hooks change how we will write React applications in the future. This tutorial shows how to migrate from React class components to React Function components with React Hooks ..."
-date = "2019-02-21T07:50:46+02:00"
+date = "2019-03-26T07:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["react hooks", "react hooks migration", "react hooks class component", "react hooks function component"]

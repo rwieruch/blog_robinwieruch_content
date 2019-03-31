@@ -27,20 +27,20 @@ This in-depth guide shows you everything about React Function Components -- whic
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
-* [Example](react-function-component-example)
-* [Props](react-function-component-props)
-* [Arrow Function Component](react-arrow-function-component)
-* [Stateless Function Component](react-stateless-function-component)
-* [State](react-function-component-state)
-* [Event Handler](react-function-component-event-handler)
-* [Callback Function](react-function-component-callback-function)
-* [Lifecycle](react-function-component-lifecycle)
-* [Pure React Function Component](react-function-component-pure)
-* [Export and Import](react-function-component-export-import)
-* [Ref](react-function-component-ref)
-* [PropTypes](react-function-component-proptypes)
-* [TypeScript](react-function-component-typescript)
-* [Function Component vs Class Component](react-function-component-vs-class-component)
+* [Example](#react-function-component-example)
+* [Props](#react-function-component-props)
+* [Arrow Function Component](#react-arrow-function-component)
+* [Stateless Function Component](#react-stateless-function-component)
+* [State](#react-function-component-state)
+* [Event Handler](#react-function-component-event-handler)
+* [Callback Function](#react-function-component-callback-function)
+* [Lifecycle](#react-function-component-lifecycle)
+* [Pure React Function Component](#react-function-component-pure)
+* [Export and Import](#react-function-component-export-import)
+* [Ref](#react-function-component-ref)
+* [PropTypes](#react-function-component-proptypes)
+* [TypeScript](#react-function-component-typescript)
+* [Function Component vs Class Component](#react-function-component-vs-class-component)
 
 {{% chapter_header "React Function Component Example" "react-function-component-example" %}}
 
@@ -692,7 +692,7 @@ By using the second argument of the {{% a_blank "Effect Hook with care" "https:/
 * only on mount and unmount (`[]` argument)
 * only when a certain variable changes (e.g. `[count]` argument)
 
-*Note: A React Function Component force update can be executed by using the {{% a_blank "useForceUpdate Effect" "useForceUpdate" %}}.*
+*Note: A React Function Component force update can be done by using this {{% a_blank "neat trick" "https://reactjs.org/docs/hooks-faq.html#is-there-something-like-forceupdate" %}}. However, you should be careful when applying this pattern, because maybe you can solve the problem a different way.*
 
 {{% chapter_header "Pure React Function Component" "react-function-component-pure" %}}
 
@@ -1118,7 +1118,7 @@ const App = () => {
 };
 {{< /highlight >}}
 
-If you are interested in moving from Class Components to Function Components, check out this guide: [A migration path from React Class Components to Function Components with React Hooks](https://www.robinwieruch.de/react-hooks-migration). However, there is no need to panic because you have to migrate all your React components now. Maybe it's a better idea to start implementing your future components as Function Components instead.
+If you are interested in moving from Class Components to Function Components, check out this guide: [A migration path from React Class Components to Function Components with React Hooks](https://www.robinwieruch.de/react-hooks-migration). However, there is no need to panic because you don't have to migrate all your React components now. Maybe it's a better idea to start implementing your future components as Function Components instead.
 
 <hr class="section-divider">
 
