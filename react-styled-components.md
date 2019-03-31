@@ -1,18 +1,18 @@
 +++
 title = "React Styled Components Tutorial"
-description = " ..."
+description = "A beginner friendly tutorial for CSS-in-JS with Styled Components in React. While learning about it, you will build an Instagram Clone ..."
 date = "2019-03-30T07:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
-keywords = ["react styled components tutorial"]
-news_keywords = ["react styled components tutorial"]
+keywords = ["react styled components", "react styled components tutorial"]
+news_keywords = ["react styled components", "react styled components tutorial"]
 hashtag = "#ReactJs"
 card = "img/posts/react-styled-components/banner_640.jpg"
 banner = "img/posts/react-styled-components/banner.jpg"
 contribute = "react-styled-components.md"
 headline = "React Styled Components Tutorial"
 
-summary = ""
+summary = "A beginner friendly tutorial for CSS-in-JS with Styled Components in React. While learning about it, you will build an Instagram Clone."
 +++
 
 {{% sponsorship %}}
