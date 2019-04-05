@@ -103,7 +103,7 @@ If you only see a blank page for your deployed React application, see if the `pu
 
 ### Exercises
 
-* Add the following {{% a_blank "security rules from the installation instructions" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication" %}} to your Firebase Database
+* Add the {{% a_blank "security rules from the installation instructions" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication" %}} to your Firebase Project's Dashboard for your Database.
 * Read more about {{% a_blank "Firebase Hosting Features" "https://firebase.google.com/docs/hosting/" %}}
 * Read more about {{% a_blank "how to host with Firebase Hosting" "https://firebase.google.com/docs/hosting/quickstart" %}}
 * {{% a_blank "Connect your domain to your Firebase deployed application" "https://firebase.google.com/docs/hosting/custom-domain" %}}

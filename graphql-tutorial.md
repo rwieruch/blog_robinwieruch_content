@@ -66,7 +66,13 @@ Congratulations, you have performed your first query to access fields from your 
 }
 {{< /highlight >}}
 
-When using GitHub's API, an organization is identified with a `login`. If you have used GitHub before, you might know this is a part of the organization URL: `https://github.com/the-road-to-learn-react`. By providing a `login` to identify the organization, you can request data about it. In this example, you have specified two fields to access data about the organization's `name` and `url`. The request should return something similar to the following output:
+When using GitHub's API, an organization is identified with a `login`. If you have used GitHub before, you might know this is a part of the organization URL:
+
+{{< highlight javascript >}}
+https://github.com/the-road-to-learn-react
+{{< /highlight >}}
+
+By providing a `login` to identify the organization, you can request data about it. In this example, you have specified two fields to access data about the organization's `name` and `url`. The request should return something similar to the following output:
 
 {{< highlight javascript >}}
 {
@@ -311,7 +317,13 @@ query {
 }
 {{< /highlight >}}
 
-In the results for the query in GraphiQL, you should see the identifier for the repository: `"MDEwOlJlcG9zaXRvcnk2MzM1MjkwNw=="`. Before using the identifier as a variable, you can structure your mutation in GraphiQL the following way:
+In the results for the query in GraphiQL, you should see the identifier for the repository:
+
+{{< highlight javascript >}}
+MDEwOlJlcG9zaXRvcnk2MzM1MjkwNw==
+{{< /highlight >}}
+
+Before using the identifier as a variable, you can structure your mutation in GraphiQL the following way:
 
 {{< highlight javascript >}}
 mutation AddStar($repositoryId: ID!) {

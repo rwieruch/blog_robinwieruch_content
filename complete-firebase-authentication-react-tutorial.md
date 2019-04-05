@@ -2150,7 +2150,7 @@ The paths in the `ref()` method match the location where your entities (users) w
 ### Exercises:
 
 * Activate [Firebase's Realtime Database](https://www.robinwieruch.de/firebase-tutorial/) on your Firebase Dashboard
-  * Set your Database Rules on your Firebase Project's Dashboard to `{ "rules": { ".read": true, ".write": true } }`
+  * Set your Database Rules on your Firebase Project's Dashboard to `{ "rules": { ".read": true, ".write": true } }` to give everyone read and write access for now.
 * Read more about {{% a_blank "Firebase's realtime database setup for Web" "https://firebase.google.com/docs/database/web/start" %}}
 * Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VpDkdW" %}}
 

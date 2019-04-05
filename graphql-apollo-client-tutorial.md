@@ -129,7 +129,8 @@ The error should disappear when you start the application from the command line,
 
 ### Exercises:
 
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/node-apollo-boost-github-graphql-api/tree/fd067ec045861e9832cc0b202b25f8d8efd651c9" %}}
+* Confirm your [source code for the last section](http://bit.ly/2D2pRSh)
+  * Confirm the [changes from the last section](http://bit.ly/2VqyY6i)
 * Read more about {{% a_blank "other view integrations such as Angular and Vue" "https://www.apollographql.com/docs/react/integrations.html" %}}
 * Invest a few minutes of your time and take the {{% a_blank "quiz" "https://www.surveymonkey.com/r/5T3W9BB" %}}
 
@@ -192,7 +193,8 @@ More meta information about the request can be found next to the `data` object. 
 
 ### Exercises:
 
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/node-apollo-boost-github-graphql-api/tree/7a800c78e0e09f84b47f4e714abac1d23f5e599e" %}}
+* Confirm your [source code for the last section](http://bit.ly/2Da7Em3)
+  * Confirm the [changes from the last section](http://bit.ly/2VnYqcV)
 * Explore GitHub's GraphQL API
   * Get comfortable navigating through their documentation
   * Add other fields for the `organization` field
@@ -262,7 +264,8 @@ You have seen a similar query structure in the application we created earlier, s
 
 ### Exercises:
 
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/node-apollo-boost-github-graphql-api/tree/a5b1ce61a3dae3ead1b9795f5bf6e0d090c5d24f" %}}
+* Confirm your [source code for the last section](http://bit.ly/2CYRr2V)
+  * Confirm the [changes from the last section](http://bit.ly/2Vneiw4)
 * Explore GitHub's GraphQL API
   * Extend the `repositories` list field by querying an ordered list of repositories which is ordered by the number of stargazers
 * Extract the content of a repository `node` to a GraphQL a reusable fragment
@@ -312,7 +315,8 @@ Remember, Apollo Client can be used as a standalone GraphQL client without conne
 
 ### Exercises:
 
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-graphql/node-apollo-boost-github-graphql-api/tree/ed3363c9981c552223117e5e775bb8c535f79ff5" %}}
+* Confirm your [source code for the last section](http://bit.ly/2CYSgZz)
+  * Confirm the [changes from the last section](http://bit.ly/2VnNsUB)
 * Implement the `removeStar` mutation next to the `addStar` mutation
 * Invest three minutes of your time and take the {{% a_blank "quiz" "https://www.surveymonkey.com/r/5XMNFSY" %}}
 
