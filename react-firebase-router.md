@@ -151,7 +151,7 @@ Remember, the UserList receives access to the Firebase instance, and the AdminPa
 ...
 
 const condition = authUser =>
-  authUser && authUser.roles.includes(ROLES.ADMIN);
+  authUser && !!authUser.roles[ROLES.ADMIN];
 
 const UserList = withFirebase(UserListBase);
 
@@ -372,4 +372,4 @@ This section has shown you how to implement more specific routes with React Rout
 
 * Learn more about {{% a_blank "React Router" "https://reacttraining.com/react-router/web/guides/quick-start" %}}
 * Read more about {{% a_blank "Firebase's Admin SDK" "https://firebase.google.com/docs/auth/admin/" %}}
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/3061e4bcc047f984958503277a6e820172ddcb28" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VnfIqw" %}}

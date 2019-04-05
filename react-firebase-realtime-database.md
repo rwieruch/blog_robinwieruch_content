@@ -23,9 +23,7 @@ summary = "A React with Firebase tutorial on how to work with Firebase's realtim
 
 {{% read_before_7 "This tutorial is part 8 of 8 in this series." "Part 1:" "A Firebase in React Tutorial for Beginners" "https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial" "Part 2:" "React Firebase Authorization with Roles" "https://www.robinwieruch.de/react-firebase-authorization-roles-permissions" "Part 3:" "React Firebase Auth Persistence with Local Storage" "https://www.robinwieruch.de/react-firebase-auth-persistence" "Part 4:" "React Firebase Social Login: Google, Facebook, Twitter" "https://www.robinwieruch.de/react-firebase-social-login" "Part 5:" "React Firebase: Link Social Logins" "https://www.robinwieruch.de/react-firebase-link-social-logins" "Part 6:" "React Firebase: Email Verification" "https://www.robinwieruch.de/react-firebase-email-verification" "Part 7:" "How to use React Router with Firebase" "https://www.robinwieruch.de/react-firebase-router" %}}
 
-Now we've worked with a list of data and single entities with the Firebase's realtime database to create an admin dashboard in the previous sections. To dig deeper, check the Firebase admin SDK to manage the authenticated users too.
-
-In this section, I want to introduce a new entity to demonstrate a business-related feature for a Firebase in React application, a message entity that lets you create a chat application. We'll cover how to interact with Firebase's realtime database; specifically, how to structure data, work with lists of data, and how to create, update, and remove data. Also, you will see how ordering and pagination works with Firebase. In the end, it's up to you to decide whether your application should become a chat application with a message entity or a book application with a book entity in the database. The message entity is only there as example.
+Now we've worked with a list of data and single entities with the Firebase's realtime database to create an admin dashboard in the previous sections. In this section, I want to introduce a new entity to demonstrate a business-related feature for a Firebase in React application, a message entity that lets you create a chat application. We'll cover how to interact with Firebase's realtime database; specifically, how to structure data, work with lists of data, and how to create, update, and remove data. Also, you will see how ordering and pagination works with Firebase. In the end, it's up to you to decide whether your application should become a chat application with a message entity or a book application with a book entity in the database. The message entity is only there as example.
 
 {{% chapter_header "Defining a Firebase Realtime Database API" "firebase-realtime-database-api" %}}
 
@@ -49,7 +47,7 @@ class Firebase {
 }
 {{< /highlight >}}
 
-Messages are readable and writeable on two API endpoints: messages and messages/:messageId. You will retrieve a list of message and create a message with the `messages` reference, but you will edit and remove messages with the `messages/:messageId` reference.
+Messages are readable and writeable on two API endpoints: messages and messages/:messageId. You will retrieve a list of messages and create a message with the `messages` reference, but you will edit and remove messages with the `messages/:messageId` reference.
 
 If you want to be more specific, put more informative class methods for the message API in your Firebase class. For instance, there could be one class method for creating, updating, and removing a message. We will keep it general, however, and perform the specifics in the React components.
 
@@ -691,13 +689,15 @@ class MessageItem extends Component {
 
 Now we can edit the text in edit mode, and we can also reset the whole thing using a button. If we save the edited text, the text and the message will be sent through the MessageList component to the Messages component, where the message can be identified by id to be edited with the text property. Using the spread operator, all other properties of the message entity are kept as before:
 
-{{< highlight javascript "hl_lines=4 5 6 7 8 9" >}}
+{{< highlight javascript "hl_lines=4 5 6 7 8 9 10 11" >}}
 class MessagesBase extends Component {
   ...
 
   onEditMessage = (message, text) => {
+    const { uid, ...messageSnapshot } = message;
+
     this.props.firebase.message(message.uid).set({
-      ...message,
+      ...messageSnapshot,
       text,
     });
   };
@@ -706,9 +706,9 @@ class MessagesBase extends Component {
 }
 {{< /highlight >}}
 
-If we set only the new text for the message, all other properties (userId, uid) would be lost. Also we can add `createdAt` and `editedAt` dates. The second date gives users feedback that someone changed a chat message:
+If we set only the new text for the message, all other properties (e.g. userId) would be lost. Also we can add `createdAt` and `editedAt` dates. The second date gives users feedback that someone changed a chat message:
 
-{{< highlight javascript "hl_lines=8 20" >}}
+{{< highlight javascript "hl_lines=8 22" >}}
 class MessagesBase extends Component {
   ...
 
@@ -725,8 +725,10 @@ class MessagesBase extends Component {
   };
 
   onEditMessage = (message, text) => {
+    const { uid, ...messageSnapshot } = message;
+
     this.props.firebase.message(message.uid).set({
-      ...message,
+      ...messageSnapshot,
       text,
       editedAt: this.props.firebase.serverValue.TIMESTAMP,
     });
@@ -784,6 +786,109 @@ class MessageItem extends Component {
 As before, we could have used Firebase directly in the MessageItem component. It's also good to keep the MessageItem component encapsulated with its own business logic. Only the message itself and the other functions to alter the message are passed from above to the component, and only the Messages component speaks to the outside world (e.g. Firebase).
 
 You have implemented the popular CRUD operations: create, read, update, delete, which is everything you need to manage the new message entity in your Firebase database. Also, you have learned how to assign dates to your Firebase entities, and how to listen for real-time updates when a message has been added, edited or removed.
+
+{{% chapter_header "Securing User Interactions" "firebase-securing-user-interactions" %}}
+
+So far, every user can edit and remove messages. Let's change this by giving only owner of messages the power to perform these operations within the UI. Therefore, we need the authenticated user in the MessageItem component. Since we already have the authenticated user in the Messages component, let's pass it down to the MessageList component:
+
+{{< highlight javascript "hl_lines=15" >}}
+class MessagesBase extends Component {
+  ...
+
+  render() {
+    const { text, messages, loading } = this.state;
+
+    return (
+      <AuthUserContext.Consumer>
+        {authUser => (
+          <div>
+            ...
+
+            {messages ? (
+              <MessageList
+                authUser={authUser}
+                messages={messages}
+                onEditMessage={this.onEditMessage}
+                onRemoveMessage={this.onRemoveMessage}
+              />
+            ) : (
+              <div>There are no messages ...</div>
+            )}
+
+            ...
+          </div>
+        )}
+      </AuthUserContext.Consumer>
+    );
+  }
+}
+{{< /highlight >}}
+
+And from there down to the MessageItem component:
+
+{{< highlight javascript "hl_lines=2 10" >}}
+const MessageList = ({
+  authUser,
+  messages,
+  onEditMessage,
+  onRemoveMessage,
+}) => (
+  <ul>
+    {messages.map(message => (
+      <MessageItem
+        authUser={authUser}
+        key={message.uid}
+        message={message}
+        onEditMessage={onEditMessage}
+        onRemoveMessage={onRemoveMessage}
+      />
+    ))}
+  </ul>
+);
+{{< /highlight >}}
+
+Now in your MessageItem component, you can secure the buttons to edit and remove messages by comparing the message's `userId` with the authenticated user's id:
+
+{{< highlight javascript "hl_lines=5 12 13 31 32" >}}
+class MessageItem extends Component {
+  ...
+
+  render() {
+    const { authUser, message, onRemoveMessage } = this.props;
+    const { editMode, editText } = this.state;
+
+    return (
+      <li>
+        ...
+
+        {authUser.uid === message.userId && (
+          <span>
+            {editMode ? (
+              <span>
+                <button onClick={this.onSaveEditText}>Save</button>
+                <button onClick={this.onToggleEditMode}>Reset</button>
+              </span>
+            ) : (
+              <button onClick={this.onToggleEditMode}>Edit</button>
+            )}
+
+            {!editMode && (
+              <button
+                type="button"
+                onClick={() => onRemoveMessage(message.uid)}
+              >
+                Delete
+              </button>
+            )}
+          </span>
+        )}
+      </li>
+    );
+  }
+}
+{{< /highlight >}}
+
+That's it for only enabling users who are owners of a message to edit and delete the message in the UI. You will see later how you can secure the Firebase API endpoint as well to not allow users to edit/delete entities; otherwise it would still be possible to alter the source code in the browser to show the buttons for deleting and editing messages even though the user has no permission to perform it.
 
 {{% chapter_header "Ordering with Firebase Realtime Database" "firebase-realtime-database-ordering" %}}
 
@@ -945,163 +1050,16 @@ class MessagesBase extends Component {
 
 The button uses a new class method that increases the limit by five again. Afterward, using the second argument of React's setState method, we can renew the Firebase listener with the new limit from the local state. We know that the second function in this React-specific method runs when the asynchronous state update happens, at which point the listener can use the correct limit from the local state.
 
-{{% chapter_header "Fetch Data across Relationships with Firebase and React" "firebase-realtime-database-pagination-ordering" %}}
-
-Previously, we associated a message with a user by providing a user's identifier as a property to that message. This works the other way around as well, by providing users with a list of identifiers for messages written by them. Since we have the association, it would be great to not only show user identifiers associated with messages, but their real usernames. That's why we need to fetch users associated with messages from the Firebase database. Give the HomePage component access to the Firebase instance using our higher-order component:
-
-{{< highlight javascript "hl_lines=1 2 3 10 11 12 17" >}}
-class HomePage extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Home Page</h1>
-        <p>The Home Page is accessible by every signed in user.</p>
-
-        <Messages />
-      </div>
-    );
-  }
-}
-
-...
-
-export default compose(
-  withFirebase,
-  withEmailVerification,
-  withAuthorization(condition),
-)(HomePage);
-{{< /highlight >}}
-
-We could also fetch the users in the Messages component that has access to the Firebase instance, but it's better to let the Messages component stick to dealing with messages. The HomePage component can fetch users and distribute it to all child components (Messages component) who are interested in them.
-
-{{< highlight javascript "hl_lines=2 3 4 5 6 7 8 10 11 12 13 14 15 16 18 19 20" >}}
-class HomePage extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      users: null,
-    };
-  }
-
-  componentDidMount() {
-    this.props.firebase.users().on('value', snapshot => {
-      this.setState({
-        users: snapshot.val(),
-      });
-    });
-  }
-
-  componentWillUnmount() {
-    this.props.firebase.users().off();
-  }
-
-  ...
-}
-{{< /highlight >}}
-
-The data fetching isn't much different from the Message and AdminPage components. The only difference is that we don't care about converting the object to an array. For us, it will be fine to have an object as a dictionary of users accessible by user identifiers. That's how we can later retrieve users efficiently from the object using the user identifier from the message.
-
-{{< highlight javascript "hl_lines=10" >}}
-class HomePage extends Component {
-  ...
-
-  render() {
-    return (
-      <div>
-        <h1>Home Page</h1>
-        <p>The Home Page is accessible by every signed in user.</p>
-
-        <Messages users={this.state.users} />
-      </div>
-    );
-  }
-}
-{{< /highlight >}}
-
-The association of messages and users happens before we pass the enhanced list of messages to the MessageList component. In a function within a map method, we can spread all message properties to a new message object, but also add the user as property. If there are users, we will use them to associate the user object with the message. If there are no users yet, because they are still being fetched, we fake the user object with a user identifier as a placeholder:
-
-{{< highlight javascript "hl_lines=5 18 19 20 21 22 23" >}}
-class MessagesBase extends Component {
-  ...
-
-  render() {
-    const { users } = this.props;
-    const { text, messages, loading } = this.state;
-
-    return (
-      <AuthUserContext.Consumer>
-        {authUser => (
-          <div>
-            ...
-
-            {loading && <div>Loading ...</div>}
-
-            {messages && (
-              <MessageList
-                messages={messages.map(message => ({
-                  ...message,
-                  user: users
-                    ? users[message.userId]
-                    : { userId: message.userId },
-                }))}
-                onEditMessage={this.onEditMessage}
-                onRemoveMessage={this.onRemoveMessage}
-              />
-            )}
-
-            {!messages && <div>There are no messages ...</div>}
-
-            ...
-          </div>
-        )}
-      </AuthUserContext.Consumer>
-    );
-  }
-}
-{{< /highlight >}}
-
-Finally, display the username, and as fallback, the user identifier from the fake user object. When users are loaded, the message has access to the whole associated user object:
-
-{{< highlight javascript "hl_lines=13" >}}
-class MessageItem extends Component {
-  ...
-
-  render() {
-    const { message, onRemoveMessage } = this.props;
-    const { editMode, editText } = this.state;
-
-    return (
-      <li>
-        {editMode ? ( ... ) : (
-          <span>
-            <strong>
-              {message.user.username || message.user.userId}
-            </strong>
-            {message.text} {message.editedAt && <span>(Edited)</span>}
-          </span>
-        )}
-
-        ...
-      </li>
-    );
-  }
-}
-{{< /highlight >}}
-
-Everything you have learned in this section should make you proficient with structured and list data in Firebase's realtime database. You have learned how to get, create, update and remove entities in a Firebase realtime database, and how to keep a synchronized connection to Firebase and always show the latest entities. Finally, we went through the scenario of associating entities with each other and how to fetch additional data across these associations. The last touch gave the pagination and ordering features offered by Firebase.
+Everything you have learned in this chapter should make you proficient with structured and list data in Firebase's realtime database. You have learned how to get, create, update and remove entities in a Firebase realtime database, and how to keep a synchronized connection to Firebase and always show the latest entities. Finally, we went through the pagination and ordering features offered by Firebase.
 
 ### Exercises:
 
 * Read more about {{% a_blank "structuring data in Firebase" "https://firebase.google.com/docs/database/web/structure-data" %}}
 * Read more about {{% a_blank "working with lists of data in Firebase" "https://firebase.google.com/docs/database/web/lists-of-data" %}}
 * Read more about {{% a_blank "indexing your Firebase data" "https://firebase.google.com/docs/database/security/indexing-data" %}}
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/ee909897dd697e47a59cb7d38ed2b5fe9656d1bb" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2Vng1Sc" %}}
 * Refactoring:
   * Move all user related components on the AdminPage to their own folder/file module.
   * Move all message related components on the HomePage to their own folder/file module.
-  * Confirm your {{% a_blank "source code for this refactoring" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/6f66bb9f7dacc172e47018e2328a4353fbeb9dda" %}}
-* Make deleting and editing a message only possible for the owner of the message.
-  * Don't render the needed elements to perform these actions.
-  * Don't allow it programmatically to perform these actions in the class methods.
+  * Confirm your {{% a_blank "source code for this refactoring" "http://bit.ly/2VplDLI" %}}
 * Prevent fetching more items with the "More" button when there are no more items available.

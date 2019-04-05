@@ -105,10 +105,10 @@ class SignUpFormBase extends Component {
 
   onSubmit = event => {
     const { username, email, passwordOne, isAdmin } = this.state;
-    const roles = [];
+    const roles = {};
 
     if (isAdmin) {
-      roles.push(ROLES.ADMIN);
+      roles[ROLES.ADMIN] = ROLES.ADMIN;
     }
 
     this.props.firebase
@@ -616,4 +616,4 @@ Now you can link and unlink different sign-in methods using only one account and
 * Try to link and unlink different sign-in methods and check if you are able to sign-in with this method afterwards.
 * Implement loading indicators for each button that activate and deactivate the sign-in methods for a better user experience.
 * Read more about {{% a_blank "social account linking in Firebase" "https://firebase.google.com/docs/auth/web/account-linking" %}}
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/f3d2ec472754604c7740dbdc7a1e5bf792d787f4" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VnF3Rf" %}}

@@ -1,7 +1,7 @@
 +++
 title = "Session Storage and Local Storage in React"
-description = "An article to showcase the usage of the session storage and local storage in React to persist your local state, to cache it for browser reloads and to make it expire ..."
-date = "2017-04-27T13:50:46+02:00"
+description = "Tutorial to showcase the usage of session storage and local storage in React to persist your local state, to cache it for browser reloads, and to make it expire for sessions ..."
+date = "2019-04-03T13:50:46+02:00"
 tags = ["React", "JavaScript"]
 categories = ["React", "JavaScript"]
 keywords = ["react local storage", "react session storage"]
@@ -12,90 +12,27 @@ banner = "img/posts/local-storage-react/banner.jpg"
 contribute = "local-storage-react.md"
 headline = "Session Storage and Local Storage in React"
 
-summary = "After reading the Road to learn React, a few readers approached me with a question: How can I persist state in React? Obviously it would be possible by having a backend to persist it in a database. Once the app starts, the React app would make a request to the backend to retrieve the state. Then it could be stored in the local component state or via a state management library like Redux or MobX. But a simpler yet most of the times sufficient solution could be to use the native local storage of the browser. No backend and no additional library needed."
+summary = "The article gives you a step by step showcase on how to persist state in React with local storage, how to use it as a cache for data in a more elaborate example, and how to make it expire by using the session storage instead of the local storage."
 +++
 
 {{% sponsorship %}}
 
 {{% pin_it_image "react local storage" "img/posts/local-storage-react/banner.jpg" "is-src-set" %}}
 
-After reading [the Road to learn React](http://www.robinwieruch.de/the-road-to-learn-react/), a few readers approached me with a question: How can I persist state in React? Obviously it would be possible by having a backend to persist it in a database. Once the app starts, the React app would make a request to the backend to retrieve the state. Then it could be stored in the local component state or in a state container of a state management library like [Redux or MobX](http://www.robinwieruch.de/redux-mobx-confusion/).
+After reading [the Road to learn React](http://www.robinwieruch.de/the-road-to-learn-react/), a few readers approached me with a question: How can I persist state in React? Obviously it would be possible by having a backend application to store it in a database. Once the frontend React application starts, it would make a request to the backend application to retrieve the data from the database. Afterward, the result could be stored in a component's state.
 
-But a simpler yet most of the times sufficient solution could be to use the native local storage of the browser. There is no backend and no additional library needed. The article gives you a little showcase on how to persist state in React with local storage, how to use it as a cache and how to make it expire.
+But a simpler yet most of the times more sufficient solution could be to use the native local storage of the browser. There is no backend and no additional library needed. The article gives you a step by step showcase on how to persist state in React with local storage, how to use it as a cache for data in a more elaborate example, and how to make it expire by using the session storage instead of the local storage.
 
-{{% chapter_header "Initiating the React App for Local Storage Example" "create-react-app-local-storage" %}}
+{{% chapter_header "Table of Contents" "toc" %}}
 
-You can use {{% a_blank "create-react-app" "https://github.com/facebookincubator/create-react-app" %}} or any other [React boilerplate](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). It is recommended to use *create-react-app*.
+* [Introduction to Local Storage](#local-storage)
+* [Local Storage in React](#local-storage-react)
+* [Expiration with Session Storage](#session-storage-react)
+* [How to Cache Data in React?](#react-local-storage-as-cache)
 
-In the following example you will fetch data from an [API](https://www.robinwieruch.de/what-is-an-api-javascript/) and store it in React's local state. Furthermore, you will use the local storage to store the result in the browser. So whenever you closer your browser and open it again, the fetched result from the API should be still available.
+{{% chapter_header "Introduction to Local Storage" "local-storage" %}}
 
-After you have set up your project with create-react-app, you can replace your root component with the following boilerplate.
-
-{{< highlight javascript >}}
-import React from 'react';
-
-class App extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = { hits: null };
-  }
-
-  onSearch = (e) => {
-    e.preventDefault();
-
-    const { value } = this.input;
-
-    if (value === '') {
-      return;
-    }
-
-    fetch('https://hn.algolia.com/api/v1/search?query=' + value)
-      .then(response => response.json())
-      .then(result => this.onSetResult(result));
-  }
-
-  onSetResult = (result) => {
-    this.setState({ hits: result.hits });
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Search Hacker News with Local Storage</h1>
-        <p>
-          There shouldn't be a second network request,
-          when you search for something twice.
-        </p>
-
-        <form onSubmit={this.onSearch}>
-          <input type="text" ref={node => this.input = node} />
-          <button type="submit">Search</button>
-        </form>
-
-        {
-          this.state.hits &&
-          this.state.hits.map(item => <div key={item.objectID}>{item.title}</div>)
-        }
-      </div>
-    );
-  }
-}
-
-export default App;
-{{< /highlight >}}
-
-If you understand everything that is happening here, you can head over to the next headline to add the local storage as feature. Otherwise you can read the brief recap:
-
-In this sample application, you can experience the unidirectional data flow in React. The `onSubmit` handler of the form is used to execute the class method `onSearch()`. The `onSearch()` method will do nothing, if the input field was empty. If it wasn't empty, it will perform a request to the {{% a_blank "Hacker News API" "https://hn.algolia.com/api" %}}. After the request was successful, the method stores the result in the local component state by using React `setState()`. Read the following article to read more about [data fetching in React](https://www.robinwieruch.de/react-fetching-data/).
-
-Furthermore, in the render class method, you will find a [form by using the ref attribute](https://www.robinwieruch.de/react-ref-attribute-dom-node/) and a [conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/) for the fetched list from the API. The former is used to submit your search request to an API by having access to the input field's value. The latter will make sure that there is either a list or nothing at all rendered by your component when there is no result.
-
-The `onSearch` class method uses the {{% a_blank "native fetch API of the browser" "https://developer.mozilla.org/en/docs/Web/API/Fetch_API" %}} to retrieve stories from the Hacker News platform. You could also use a third-party library like {{% a_blank "axios" "https://github.com/mzabriskie/axios" %}} or {{% a_blank "superagent" "https://github.com/visionmedia/superagent" %}} to perform such a request. That's [one of the things that makes React so powerful](https://www.robinwieruch.de/essential-react-libraries-framework/) in the first place, because you stay flexible in choosing your building blocks.
-
-{{% chapter_header "Introduction to Local Storage" "localStorage" %}}
-
-The local storage is supported by most of the browsers. You can check the browser compatibility and read even more about the topic in {{% a_blank "the official documentation" "https://developer.mozilla.org/en/docs/Web/API/Window/localStorage" %}}. The usage of the local storage is fairly straight forward. In your JavaScript code, running in the browser, you should have access to the `localStorage` object. The object has a setter and getter to store and retrieve data from the object.
+The local storage is supported by many browsers. You can check the browser compatibility and read even more about it in {{% a_blank "the official documentation" "https://developer.mozilla.org/en/docs/Web/API/Window/localStorage" %}}. The usage of the local storage is fairly straight forward. In your JavaScript code, running in the browser, you should have access to the `localStorage` instance which has setter and getter to store and retrieve data from the local storage. There are also methods on the local storage to remove items and to clear all items:
 
 {{< highlight javascript >}}
 // setter
@@ -103,67 +40,227 @@ localStorage.setItem('myData', data);
 
 // getter
 localStorage.getItem('myData');
+
+// remove
+localStorage.removeItem('myData');
+
+// remove all
+localStorage.clear();
 {{< /highlight >}}
 
-Once you close the browser and open the app again, you will find the data still in the object.
+Whereas the first argument is the key to store/retrieve the data, the second argument -- when storing the data -- is the actual data. Once you close the browser and open the JavaScript application again, you will find the data still in the local storage.
 
-{{% chapter_header "Local Storage in React (as Cache)" "local-storage-react" %}}
+{{% chapter_header "Local Storage in React" "local-storage-react" %}}
 
-Now you can add only a few lines to enable caching in your application. Even if you close the browser and open the application again, you will have a cached result which was from the API.
+Let's approach the local storage in React by example. In our scenario, we have a stateful [function component](https://www.robinwieruch.de/react-function-component/) which uses [React Hooks](https://www.robinwieruch.de/react-hooks/) to manage the state of an input field. Also the result of the state is shown as output with an HTML paragraph tag:
 
-{{< highlight javascript "hl_lines=19 20 21 22 23 27 30 31" >}}
+{{< highlight javascript >}}
+import React from 'react';
+
+const App = () => {
+  const [value, setValue] = React.useState('');
+
+  const onChange = event => setValue(event.target.value);
+
+  return (
+    <div>
+      <h1>Hello React with Local Storage!</h1>
+
+      <input value={value} type="text" onChange={onChange} />
+
+      <p>{value}</p>
+    </div>
+  );
+};
+
+export default App;
+{{< /highlight >}}
+
+If you start to type something into the input field, it will be shown below in the paragraph. However, even though you got the state, it's lost once you close the browser tab or refresh it. So what about adding the local storage as intermediate cache for it? A straight forward solution would be this one:
+
+{{< highlight javascript "hl_lines=6 7 10" >}}
+import React from 'react';
+
+const App = () => {
+  const [value, setValue] = React.useState('');
+
+  const onChange = event => {
+    localStorage.setItem('myValueInLocalStorage', event.target.value);
+
+    setValue(event.target.value);
+  };
+
+  return (
+    <div>
+      <h1>Hello React with Local Storage!</h1>
+
+      <input value={value} type="text" onChange={onChange} />
+
+      <p>{value}</p>
+    </div>
+  );
+};
+
+export default App;
+{{< /highlight >}}
+
+However, using the local storage in React's function components is a side-effect which is best implemented with the Effect Hook which runs every time the `value` property changes:
+
+{{< highlight javascript "hl_lines=6 7 8" >}}
+import React from 'react';
+
+const App = () => {
+  const [value, setValue] = React.useState('');
+
+  React.useEffect(() => {
+    localStorage.setItem('myValueInLocalStorage', value);
+  }, [value]);
+
+  const onChange = event => setValue(event.target.value);
+
+  return (
+    <div>
+      <h1>Hello React with Local Storage!</h1>
+
+      <input value={value} type="text" onChange={onChange} />
+
+      <p>{value}</p>
+    </div>
+  );
+};
+
+export default App;
+{{< /highlight >}}
+
+Every time the `value` state gets changed via the input field, the effect runs again and stores the recent `value` into the local storage. However, one step is missing: we only store the value and never retrieve it. Let's add this behavior in the next step:
+
+{{< highlight javascript "hl_lines=5" >}}
+import React from 'react';
+
+const App = () => {
+  const [value, setValue] = React.useState(
+    localStorage.getItem('myValueInLocalStorage') || ''
+  );
+
+  React.useEffect(() => {
+    localStorage.setItem('myValueInLocalStorage', value);
+  }, [value]);
+
+  const onChange = event => setValue(event.target.value);
+
+  return (
+    <div>
+      <h1>Hello React with Local Storage!</h1>
+
+      <input value={value} type="text" onChange={onChange} />
+
+      <p>{value}</p>
+    </div>
+  );
+};
+
+export default App;
+{{< /highlight >}}
+
+Now, the State Hook uses either the initial value from the local storage or an empty string as default. Try it yourself by entering something into the input field and refreshing the browser. You should see the same value as before. An additional step would be to extract this functionality as reusable custom hook:
+
+{{< highlight javascript "hl_lines=3 4 5 6 7 8 9 10 11 12 13 16 17 18" >}}
+import React from 'react';
+
+const useStateWithLocalStorage = localStorageKey => {
+  const [value, setValue] = React.useState(
+    localStorage.getItem(localStorageKey) || ''
+  );
+
+  React.useEffect(() => {
+    localStorage.setItem(localStorageKey, value);
+  }, [value]);
+
+  return [value, setValue];
+};
+
+const App = () => {
+  const [value, setValue] = useStateWithLocalStorage(
+    'myValueInLocalStorage'
+  );
+
+  const onChange = event => setValue(event.target.value);
+
+  return (
+    <div>
+      <h1>Hello React with Local Storage!</h1>
+
+      <input value={value} type="text" onChange={onChange} />
+
+      <p>{value}</p>
+    </div>
+  );
+};
+
+export default App;
+{{< /highlight >}}
+
+Now you can cache your React state for different components by using one and the same custom hook for it. You can find the final source code for this project in {{% a_blank "this GitHub repository" "https://github.com/the-road-to-learn-react/react-local-storage" %}}. If you like it, make sure to star it. You can also head over to my other article, if you want to see the [same functionality implemented in different component types](https://www.robinwieruch.de/react-component-types/).
+
+{{% chapter_header "Expiration with Session Storage" "session-storage-react" %}}
+
+Sometimes you want to cache/persist data only in your current browser session. When closing the browser, you want the cache to become empty again; but when you refresh the browser tab, you want to keep the cache intact. For instance, this behavior can be useful when you [deal with an user session after a user logged in into your application](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial). The user session could be saved until the browser is closed. That's where you can use the native `sessionStorage` instead of the `localStorage`. The {{% a_blank "session storage" "https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage" %}} is used in the same way as the local storage.
+
+{{% chapter_header "How to Cache Data in React?" "react-local-storage-as-cache" %}}
+
+Let's take the local storage usage in React one step further by deploying it as cache for search results. In the following example, you will fetch data from an remote [API](https://www.robinwieruch.de/what-is-an-api-javascript/) and store it in your component's state.
+
+Furthermore, you will store the result in the local storage as well. Afterward, we will use the local storage as cache every time we do another search request. If you search for a keyword and the result for this keyword has already been saved in the local storage, we will use the local storage instead of executing another API call. If there is no result in the local storage, we will do the usual API request.
+
+Let's start with a component that fetches data from the {{% a_blank "Hacker News API" "https://hn.algolia.com" %}}:
+
+{{< highlight javascript >}}
 import React from 'react';
 
 class App extends React.Component {
-
   constructor(props) {
     super(props);
-    this.state = { hits: null };
+
+    this.state = { query: '', hits: [] };
   }
 
-  onSearch = (e) => {
-    e.preventDefault();
+  onChange = event => {
+    this.setState({ query: event.target.value });
+  };
 
-    const { value } = this.input;
+  onSearch = event => {
+    event.preventDefault();
 
-    if (value === '') {
+    const { query } = this.state;
+
+    if (query === '') {
       return;
     }
 
-    const cachedHits = localStorage.getItem(value);
-    if (cachedHits) {
-      this.setState({ hits: JSON.parse(cachedHits) });
-      return;
-    }
-
-    fetch('https://hn.algolia.com/api/v1/search?query=' + value)
+    fetch('https://hn.algolia.com/api/v1/search?query=' + query)
       .then(response => response.json())
-      .then(result => this.onSetResult(result, value));
-  }
+      .then(result => this.onSetResult(result, query));
+  };
 
   onSetResult = (result, key) => {
-    localStorage.setItem(key, JSON.stringify(result.hits));
     this.setState({ hits: result.hits });
-  }
+  };
 
   render() {
     return (
       <div>
         <h1>Search Hacker News with Local Storage</h1>
-        <p>
-          There shouldn't be a second network request,
-          when you search for something twice.
-        </p>
 
-        <form type="submit" onSubmit={this.onSearch}>
-          <input type="text" ref={node => this.input = node} />
-          <button type="button">Search</button>
+        {/* Search Input */}
+        <form onSubmit={this.onSearch}>
+          <input type="text" onChange={this.onChange} />
+          <button type="submit">Search</button>
         </form>
 
-        {
-          this.state.hits &&
-          this.state.hits.map(item => <div key={item.objectID}>{item.title}</div>)
-        }
+        {/* Result */}
+        {this.state.hits.map(item => (
+          <div key={item.objectID}>{item.title}</div>
+        ))}
       </div>
     );
   }
@@ -172,28 +269,81 @@ class App extends React.Component {
 export default App;
 {{< /highlight >}}
 
-There shouldn't be a request to the API made twice for the same search term, because the result should be cached in the local storage. If there are `cachedHits` in the localStorage object, the method returns earlier without performing a request. The result in the cache is an JavaScript object and thus needs to be stringified when stored and parsed when retrieved from the storage.
+If it's difficult for you to grasp what's happening here, head over to my [data fetching tutorial for React](https://www.robinwieruch.de/react-fetching-data/). In the next step, you can add only a few lines to enable caching for your React application:
 
-{{% chapter_header "Expiration with Session Storage" "session-storage-react" %}}
+{{< highlight javascript "hl_lines=23 25 26 27 31 35 44 45 46 47" >}}
+import React from 'react';
 
-Sometimes you want the cache only in your current session. When closing the browser, you want the cache to become empty again. That's where you can use the native `sessionStorage` instead of the `localStorage`. The {{% a_blank "session storage" "https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage" %}} is used in the same way as the local storage:
+class App extends React.Component {
+  constructor(props) {
+    super(props);
 
-{{< highlight javascript >}}
-// setter
-sessionStorage.setItem('myData', data);
+    this.state = { query: '', hits: [] };
+  }
 
-// getter
-sessionStorage.getItem('myData');
+  onChange = event => {
+    this.setState({ query: event.target.value });
+  };
+
+  onSearch = event => {
+    event.preventDefault();
+
+    const { query } = this.state;
+
+    if (query === '') {
+      return;
+    }
+
+    const cachedHits = localStorage.getItem(query);
+
+    if (cachedHits) {
+      this.setState({ hits: JSON.parse(cachedHits) });
+    } else {
+      fetch('https://hn.algolia.com/api/v1/search?query=' + query)
+        .then(response => response.json())
+        .then(result => this.onSetResult(result, query));
+    }
+  };
+
+  onSetResult = (result, key) => {
+    localStorage.setItem(key, JSON.stringify(result.hits));
+
+    this.setState({ hits: result.hits });
+  };
+
+  render() {
+    return (
+      <div>
+        <h1>Search Hacker News with Local Storage</h1>
+        <p>
+          There shouldn't be a second network request, when you search
+          for a keyword twice.
+        </p>
+
+        {/* Search Input */}
+        <form onSubmit={this.onSearch}>
+          <input type="text" onChange={this.onChange} />
+          <button type="submit">Search</button>
+        </form>
+
+        {/* Result */}
+        {this.state.hits.map(item => (
+          <div key={item.objectID}>{item.title}</div>
+        ))}
+      </div>
+    );
+  }
+}
+
+export default App;
 {{< /highlight >}}
 
-It can be useful when you deal with an user session after a user logged in into your application. The login session could be saved until the browser is closed.
+There shouldn't be a request to the API made twice for the same search term, because the result should be cached in the local storage. If there are `cachedHits` in the `localStorage` instance, the cached result is set as state and no API request is performed. You can find the final project and source code in this {{% a_blank "GitHub project" "https://github.com/the-road-to-learn-react/react-local-storage-cache" %}}. If you like it, make sure to star it.
+
+*Note: Every complex object needs to be stored as JSON in the local storage. Since the result from the API is a complex JavaScript object, and not only a primitive String, it needs to be stringified when stored and parsed when retrieved from the storage.*
 
 <hr class="section-divider">
 
-You can find the {{% a_blank "source code in a GitHub repository" "https://github.com/rwieruch/react-local-storage" %}}. If you like it, make sure to star it. As mentioned, sometimes you don't need a sophisticated persistent layer in your application. It turns out to be sufficient to use the local storage or session storage as a cache.
+As mentioned in the beginning, sometimes you don't need a sophisticated persistent layer in your application by deploying a backend with a database. Often it turns out to be sufficient to use the local storage or session storage as a cache.
 
-If you are looking for more advanced local storage solutions, you can checkout {{% a_blank "store.js" "https://github.com/marcuswestin/store.js/" %}} and {{% a_blank "cross-storage" "https://github.com/zendesk/cross-storage" %}}. The former is used for browser compatibility and the latter is used for cross domain synchronization of local storages.
-
-The book [the Road to learn React](http://www.robinwieruch.de/the-road-to-learn-react/) will show you how to implement a cache with paginated data by using `setState()` and `this.state`. After reading it, you could apply this tutorial to have a cached state even after the browser is closed.
-
-The other book {{% a_blank "Taming the State in React" "https://roadtoreact.com/" %}} dives more deeply into state management in React with React's local state and Redux.
+If you are looking for more advanced local storage solutions, you can checkout {{% a_blank "store.js" "https://github.com/marcuswestin/store.js/" %}} and {{% a_blank "cross-storage" "https://github.com/zendesk/cross-storage" %}}. The former is used for browser compatibility and the latter is used for cross domain synchronization of local storages. If you know any other great solutions for local storage and JavaScript, let me know in the comments below.

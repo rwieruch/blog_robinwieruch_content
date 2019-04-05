@@ -133,7 +133,7 @@ Let's start our journey with {{% a_blank "AI (artificial intelligence)" "https:/
 * natural language processing (NLP)
 * learning
 
-The last one represents machine learning. As you can see, it is only a subfield of AI. However, it might be the only essential core fragment of AI because it reaches into the other subfields of AI too. It reaches into them even more over the recent time. For instance, vision as subfield becomes more of a part of {{% a_blank "applied machine learning" "http://www.themtank.org/a-year-in-computer-vision" %}}. Where other techniques, e.g. domain specific algorithms, dominated the domain in the the past, machine learning enters the field now. Now deep neural networks are often used for the domain. So what are applicable domains of AI and therefore most often machine learning? A bunch of domains and examples:
+The last one represents machine learning. As you can see, it is only a subfield of AI. However, it might be the only essential core fragment of AI because it reaches into the other subfields of AI too. It reaches into them even more over the recent time. For instance, vision as subfield becomes more of a part of {{% a_blank "applied machine learning" "http://www.themtank.org/a-year-in-computer-vision" %}}. Where other techniques, e.g. domain specific algorithms, dominated the domain in the past, machine learning enters the field now. Now deep neural networks are often used for the domain. So what are applicable domains of AI and therefore most often machine learning? A bunch of domains and examples:
 
 * Image Recognition (see referenced linked above)
 * Web (e.g. Search Engines, Spam Filters)

@@ -54,7 +54,7 @@ cd ducks
 touch auth.js
 {{< /highlight >}}
 
-At first we can move the the sole auth action type.
+At first we can move the sole auth action type.
 
 *src/ducks/auth.js*
 

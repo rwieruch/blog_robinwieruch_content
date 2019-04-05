@@ -117,7 +117,7 @@ class Firebase {
 
             // default empty roles
             if (!dbUser.roles) {
-              dbUser.roles = [];
+              dbUser.roles = {};
             }
 
             // merge auth and db user
@@ -206,7 +206,7 @@ class Firebase {
 
             // default empty roles
             if (!dbUser.roles) {
-              dbUser.roles = [];
+              dbUser.roles = {};
             }
 
             // merge auth and db user
@@ -253,10 +253,10 @@ class SignUpFormBase extends Component {
 
   onSubmit = event => {
     const { username, email, passwordOne, isAdmin } = this.state;
-    const roles = [];
+    const roles = {};
 
     if (isAdmin) {
-      roles.push(ROLES.ADMIN);
+      roles[ROLES.ADMIN] = ROLES.ADMIN;
     }
 
     this.props.firebase
@@ -319,7 +319,7 @@ class SignInGoogleBase extends Component {
           {
             username: socialAuthUser.user.displayName,
             email: socialAuthUser.user.email,
-            roles: [],
+            roles: {},
           },
           { merge: true },
         );
@@ -487,49 +487,7 @@ class UserItem extends Component {
 
 If there is a user coming from React Router's state, the user is not fetched again. But also not kept up to date with a Firebase realtime listener. That's why unsubscribing the listener is a conditional operation. The data fetching doesn't look much different from the previous version, except the method names changed to `onSnapshot()` and `data()`.
 
-Now we have seen how collections and single documents are read from Firestore, so we need to apply the same refactorings to our other React components from the application. First, the HomePage component that fetches users to associate them later with written messages:
-
-{{< highlight javascript "hl_lines=11 13 14 15 18 24" >}}
-class HomePage extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      users: null,
-    };
-  }
-
-  componentDidMount() {
-    this.unsubscribe = this.props.firebase
-      .users()
-      .onSnapshot(snapshot => {
-        let users = {};
-        snapshot.forEach(doc => (users[doc.id] = doc.data()));
-
-        this.setState({
-          users,
-        });
-      });
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe();
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Home Page</h1>
-        <p>The Home Page is accessible by every signed in user.</p>
-
-        <Messages users={this.state.users} />
-      </div>
-    );
-  }
-}
-{{< /highlight >}}
-
-In this component, we don't want to transform the collection into a list of items but keep it as object that can be accessed using identifiers in the form of a dictionary later. The Messages component fetches our other collection that we adjusted in the beginning in the Firebase class:
+Now we have seen how collections and single documents are read from Firestore, so we need to apply the same refactorings to our other React components from the application. For instance, the Messages component fetches our messages collection that we adjusted in the beginning in the Firebase class:
 
 {{< highlight javascript "hl_lines=11 13 14 15 16 17 18 19 20 23 33" >}}
 class Messages extends Component {

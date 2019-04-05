@@ -106,7 +106,7 @@ const hypothesis = x => thetaZero + thetaOne * x;
 
 If you remember from your calculus classes in math, in this case the thetaOne of the function defines the slope and the thetaZero the intersection on the y-axis. In the end, it is a straight line in your 2-dimensional coordinate system.
 
-The end goal would be the perfect hypothesis to predict the price for a new house. But we cannot simply guess the hypothesis. So how can we know about the two **parameters** thetaZero and thetaOne in the hypothesis function? The **cost function** in machine learning is used to calculate how well the hypothesis function is performing regarding the data set. The cost function calculates the sum of the squared differences between actual and predicted outcome. Note that it is the square, because the the difference can be negative.
+The end goal would be the perfect hypothesis to predict the price for a new house. But we cannot simply guess the hypothesis. So how can we know about the two **parameters** thetaZero and thetaOne in the hypothesis function? The **cost function** in machine learning is used to calculate how well the hypothesis function is performing regarding the data set. The cost function calculates the sum of the squared differences between actual and predicted outcome. Note that it is the square, because the difference can be negative.
 
 {{< highlight javascript >}}
 Price +

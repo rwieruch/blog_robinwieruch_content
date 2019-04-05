@@ -318,7 +318,7 @@ Previously, you created basic components for each page component used by our rou
 ### Exercises:
 
 * Learn more about {{% a_blank "React Router" "https://reacttraining.com/react-router/web/guides/quick-start" %}}
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/d2a043d176fd840cf247cf83b3c13f8f9bf61500" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VmQnNi" %}}
 
 {{% chapter_header "Firebase in React Setup" "react-firebase" %}}
 
@@ -470,7 +470,7 @@ Whether you used environment variables, defined the configuration inline, used o
 
 * Read more about the {{% a_blank "Firebase Setup for Web Applications" "https://firebase.google.com/docs/web/setup" %}}
 * Read more about {{% a_blank "Firebase's Pricing Plans" "https://firebase.google.com/pricing/" %}} to know better about the limitations of the free plan.
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/65e6c18fb894b847fed0ab6f9bb042b310cfedc2" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VqqWKP" %}}
 
 {{% chapter_header "Provide Firebase in React" "react-firebase-context-api" %}}
 
@@ -545,7 +545,7 @@ Firebase and React are now connected, the fundamental step to make the layers co
 ### Exercises:
 
 * Read more about [React's Context API](https://www.robinwieruch.de/react-context-api/)
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/34d1887ecee83af0b3d2a51f4a7c78a55e2dabba" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VrUms0" %}}
 
 {{% chapter_header "Firebase's Authentication API" "firebase-authentication" %}}
 
@@ -700,7 +700,7 @@ That's the authentication interface for your React components that will connect 
 ### Exercises:
 
 * Read more about {{% a_blank "Firebase Authentication for Web" "https://firebase.google.com/docs/auth/web/start" %}}
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/ad71eae018fa27202fd1a42da0e624805068800e" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VpQ1pk" %}}
 
 {{% chapter_header "Sign Up with React and Firebase" "react-firebase-sign-up" %}}
 
@@ -1100,7 +1100,7 @@ Run your application again. If you signed up a user successfully, it should redi
 * Read more about [data fetching in React](https://www.robinwieruch.de/react-fetching-data/)
 * Read more about [higher-order components in React](https://www.robinwieruch.de/gentle-introduction-higher-order-components/)
 * Read more about [render prop components in React](https://www.robinwieruch.de/react-render-props-pattern/)
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/d5d2ba5c7a0c554ac8ac1add51c7c2c8313dcf48" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VkrTEA" %}}
 
 {{% chapter_header "Sign In with React and Firebase" "react-firebase-sign-in" %}}
 
@@ -1203,7 +1203,7 @@ It is almost the same as the sign up form. Its input fields capture all the nece
 
 * Familiarize yourself with the SignIn and SignInForm components.
   * If they are mysterious to you, checkout the previous section with the implementation of the SignUpForm again
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/commit/6cbccce21952e10472504fc6ef3d37af2c998bb6" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VnEzup" %}}
 
 {{% chapter_header "Sign Out with React and Firebase" "react-firebase-sign-out" %}}
 
@@ -1265,7 +1265,7 @@ Regarding components, everything is set to fulfil a full authentication roundtri
 ### Exercises:
 
 * Read more about {{% a_blank "Firebase Authentication with E-Mail/Password" "https://firebase.google.com/docs/auth/web/password-auth" %}}
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/5cef7624455f585df4af38f6e04b6d418d82a388" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VpQ9oO" %}}
 
 {{% chapter_header "Session Handling with Firebase/React" "react-firebase-session-handling" %}}
 
@@ -1422,7 +1422,7 @@ Congratulations, you have successfully implemented the authentication process wi
 ### Exercises:
 
 * Read more about {{% a_blank "Firebase's Authenticated User" "https://firebase.google.com/docs/auth/web/manage-users" %}}
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/8fa558878fa5c7e7bbb905c0c12b592cbfd69e3d" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VrULL2" %}}
 
 {{% chapter_header "Session Handling with Higher-Order Components" "react-firebase-session-handling-higher-order-components" %}}
 
@@ -1613,7 +1613,7 @@ Start the application and verify that it still works. You didn't change any beha
 ### Exercises:
 
 * Check again your Firebase Context and higher-order component implementation in the *src/components/Firebase* module, which is quite similar to what you have done in this section.
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/b329f6e5fb4a388e131fe1c26f0a6fdcc3fd2e83" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VjYz0R" %}}
 
 {{% chapter_header "Password Reset and Password Change with Firebase" "react-firebase-password" %}}
 
@@ -1834,7 +1834,7 @@ The Account page doesn't have any business logic. It uses the password forget an
 ### Exercises:
 
 * Consider ways to protect the Account page and make it accessible only for authenticated users.
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/a644850ef10121c5c97e4dd2dc22c62101b9f8b0" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VqWgt4" %}}
 
 {{% chapter_header "Protected Routes in React with Authorization" "react-firebase-protected-routes" %}}
 
@@ -2064,7 +2064,7 @@ const AdminPage = () => (
 );
 
 const condition = authUser =>
-  authUser && authUser.roles.includes(ROLES.ADMIN);
+  authUser && !!authUser.roles[ROLES.ADMIN];
 
 export default withAuthorization(condition)(AdminPage);
 {{< /highlight >}}
@@ -2074,7 +2074,7 @@ Don't worry about this yet, because we'll implement a role-based authorization f
 ### Exercises:
 
 * Research yourself how a role-based or permission-based authorization could be implemented.
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/94bb3a92970d4159564eb01bcfd24bcc0f8c4348" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2Vop4SL" %}}
 
 {{% chapter_header "Firebase Realtime Database in React" "react-firebase-realtime-database" %}}
 
@@ -2150,8 +2150,9 @@ The paths in the `ref()` method match the location where your entities (users) w
 ### Exercises:
 
 * Activate [Firebase's Realtime Database](https://www.robinwieruch.de/firebase-tutorial/) on your Firebase Dashboard
+  * Set your Database Rules on your Firebase Project's Dashboard to `{ "rules": { ".read": true, ".write": true } }`
 * Read more about {{% a_blank "Firebase's realtime database setup for Web" "https://firebase.google.com/docs/database/web/start" %}}
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/7709484f2a79d284d35317fe60c1a06ed74bfc82" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VpDkdW" %}}
 
 {{% chapter_header "Manage Users with Firebase's Realtime Database in React" "react-firebase-realtime-database-user-management" %}}
 
@@ -2383,7 +2384,7 @@ You have gained full control of your users now. It is possible to create and ret
 ### Exercises:
 
 * Read more about {{% a_blank "how to read and write data to Firebase's realtime database" "https://firebase.google.com/docs/database/web/read-and-write" %}}
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/a20ec71dad2e21efa8055a469cc7cc68484fef44" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VmRegY" %}}
 
 <hr class="section-divider">
 

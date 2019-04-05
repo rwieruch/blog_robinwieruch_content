@@ -193,7 +193,7 @@ class SignInGoogleBase extends Component {
           .set({
             username: socialAuthUser.user.displayName,
             email: socialAuthUser.user.email,
-            roles: [],
+            roles: {},
           });
       })
       .then(() => {
@@ -219,7 +219,7 @@ In this scenario, every time a user signs in with Google, a new user with this s
 
 * Read more about the {{% a_blank "Google Social Login" "https://firebase.google.com/docs/auth/web/google-signin" %}}
 * Check your Firebase's Dashboard Authentication/Database tabs to manage your users (e.g. manually remove users).
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/2b28b831a7cd9b6ef5d4c5808a886ace159f3d2e" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VuH8eh" %}}
 
 {{% chapter_header "Firebase Facebook Social Login" "firebase-google-social-login" %}}
 
@@ -362,7 +362,7 @@ class SignInFacebookBase extends Component {
           .set({
             username: socialAuthUser.additionalUserInfo.profile.name,
             email: socialAuthUser.additionalUserInfo.profile.email,
-            roles: [],
+            roles: {},
           });
       })
       .then(() => {
@@ -389,7 +389,7 @@ Again, every time a user signs in with Facebook, a new user with this stable id 
 * Read more about the {{% a_blank "Facebook Social Login" "https://firebase.google.com/docs/auth/web/facebook-login" %}}
 * Figure out whether there is a way to interact with Facebook's API afterward, because the `socialUser` has an `accessToken` in its `credentials` object.
 * Like my {{% a_blank "Facebook" "https://www.facebook.com/rwieruch/" %}} page to receive latest tutorials for web developers.
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/2b28b831a7cd9b6ef5d4c5808a886ace159f3d2e" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VuH8eh" %}}
 
 {{% chapter_header "Firebase Twitter Social Login" "firebase-google-social-login" %}}
 
@@ -533,7 +533,7 @@ class SignInTwitterBase extends Component {
           .set({
             username: socialAuthUser.additionalUserInfo.profile.name,
             email: socialAuthUser.additionalUserInfo.profile.email,
-            roles: [],
+            roles: {},
           });
       })
       .then(() => {
@@ -560,4 +560,4 @@ Again, every time a user signs in with Twitter, a new user with this stable id c
 * Read more about the {{% a_blank "Twitter Social Login" "https://firebase.google.com/docs/auth/web/twitter-login" %}}
 * Figure out whether there is a way to interact with Twitter's API afterward, because the `socialUser` has an `accessToken` and `secret` in its `credentials` object.
 * Follow my {{% a_blank "Twitter" "https://twitter.com/rwieruch" %}} page to receive latest tutorials for web developers.
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/2b28b831a7cd9b6ef5d4c5808a886ace159f3d2e" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VuH8eh" %}}

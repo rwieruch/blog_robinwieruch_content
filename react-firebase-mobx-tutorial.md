@@ -177,7 +177,7 @@ That's it for connecting both worlds. Next, we'll refactor almost everything fro
 
 ### Exercises:
 
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-mobx-firebase-authentication/tree/233c028c63b9d87292ed7d876567a05132f78982" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VnDt1v" %}}
 
 {{% chapter_header "Manage Firebase's authenticated User in MobX's Session Store" "firebase-authenticated-user-mobx-store" %}}
 
@@ -394,11 +394,11 @@ That's it for storing the authenticated user in our MobX session store which tak
 
 ### Exercises:
 
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-mobx-firebase-authentication/tree/8338a1b1f9c42898f374fe99609495bd28accd3c" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VmStNa" %}}
 
 {{% chapter_header "Manage Firebase's Users in MobX's User Store" "firebase-users-mobx-store" %}}
 
-We have implemented the session management with the authenticated user with MobX instead of React's local state and context API. Next, we will migrate the user management over to MobX. The users are mainly used in the AdminPage component's UserList and UserItem components. They are also used in the HomePage component for associating them with messages, but we will deal with later. Our goal here is to navigate from UserList to UserItem with React Router without loosing the state of the users. The UserList component fetches and shows a list of users, the UserItem component fetches and shows a single user entity. If the data is already available in the MobX user store, we only need to keep track of new data with the realtime feature of the Firebase database. We begin with the UserList component:
+We have implemented the session management with the authenticated user with MobX instead of React's local state and context API. Next, we will migrate the user management over to MobX. The users are mainly used in the AdminPage component's UserList and UserItem components. Our goal here is to navigate from UserList to UserItem with React Router without loosing the state of the users. The UserList component fetches and shows a list of users, the UserItem component fetches and shows a single user entity. If the data is already available in the MobX user store, we only need to keep track of new data with the realtime feature of the Firebase database. We begin with the UserList component:
 
 {{< highlight javascript "hl_lines=3 4 13 15 16 17" >}}
 import React, { Component } from 'react';
@@ -615,68 +615,11 @@ That's it for the UserItem component. It renders a user, fetches the recent user
 
 ### Exercises:
 
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-mobx-firebase-authentication/tree/3c97f29600de58a3199c981687c49ae45fa3193b" %}}.
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VpWTTs" %}}.
 
 {{% chapter_header "Manage Message Entities in MobX's Message Store" "message-entities-mobx-store" %}}
 
-We migrated the users and session management from React's local state and React's Context API over to MobX. Finally, we'll migrate the message entities from the Firebase database. It uses the authenticated user as well, which is why we have refactored the session management earlier.
-
-Let's migrate the HomePage component and its content to MobX instead of React's local state, starting with the HomePage that needs to inject the MobX user store, because it fetches users in order to associated them to the messages.
-
-{{< highlight javascript "hl_lines=2 17 18" >}}
-import React, { Component } from 'react';
-import { inject, observer } from 'mobx-react';
-import { compose } from 'recompose';
-
-import { withAuthorization, withEmailVerification } from '../Session';
-import { withFirebase } from '../Firebase';
-import Messages from '../Messages';
-
-class HomePage extends Component {
-  ...
-}
-
-const condition = authUser => !!authUser;
-
-export default compose(
-  withFirebase,
-  inject('userStore'),
-  observer,
-  withEmailVerification,
-  withAuthorization(condition),
-)(HomePage);
-{{< /highlight >}}
-
-Next, fetch and store users to the MobX user store, which will be used to associate them with messages entities later:
-
-{{< highlight javascript "hl_lines=4 18" >}}
-class HomePage extends Component {
-  componentDidMount() {
-    this.props.firebase.users().on('value', snapshot => {
-      this.props.userStore.setUsers(snapshot.val());
-    });
-  }
-
-  componentWillUnmount() {
-    this.props.firebase.users().off();
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Home Page</h1>
-        <p>The Home Page is accessible by every signed in user.</p>
-
-        <Messages users={this.props.userStore.users} />
-      </div>
-    );
-  }
-}
-{{< /highlight >}}
-
-It's the same we did with the UserList component, except this time we are not interested in transforming the users object to a user array, because we want to keep it as a dictionary to access user's by their identifiers. We're continuing Messages components, so we'll use `users` and not `userList` from the MobX user store.
-
-We have all users at our disposal in the Messages component now. What's missing is a connected Messages component to the MobX message store to store and get messages:
+We migrated the users and session management from React's local state and React's Context API over to MobX. Finally, we'll migrate the message entities from the Firebase database. It uses the authenticated user as well, which is why we have refactored the session management earlier. What's missing is a connected Messages component to the MobX message store to store and get messages:
 
 {{< highlight javascript "hl_lines=2 3 12 14 15 16" >}}
 import React, { Component } from 'react';
@@ -787,7 +730,7 @@ class Messages extends Component {
   ...
 
   render() {
-    const { users, messageStore, sessionStore } = this.props;
+    const { messageStore, sessionStore } = this.props;
     const { text, loading } = this.state;
     const messages = messageStore.messageList;
 
@@ -829,7 +772,7 @@ The MessageList and MessageItem components didn't change at all, only the HomePa
 
 ### Exercises:
 
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-mobx-firebase-authentication/tree/0b8ce7fea347d067bd187d709fa3583034c8bfd8" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VkthqM" %}}
 
 <hr class="section-divider">
 

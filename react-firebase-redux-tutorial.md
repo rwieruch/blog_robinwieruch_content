@@ -205,7 +205,7 @@ That's it for connecting both worlds, so we'll refactor almost everything from R
 
 ### Exercises:
 
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-redux-firebase-authentication/tree/d54dc615549785d1494cd363c5863789dc4fedb0" %}}.
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VplHuW" %}}.
 
 {{% chapter_header "Manage Firebase's authenticated User in Redux Store" "firebase-authenticated-user-redux-store" %}}
 
@@ -435,11 +435,11 @@ That's it for storing the authenticated user in the Redux store, which takes pla
 
 ### Exercises:
 
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-redux-firebase-authentication/tree/9e31d9df4d1c77f9ebcdfa50afcd451cdeb96e7a" %}}.
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VpQLL8" %}}.
 
 {{% chapter_header "Manage Firebase's Users in Redux Store" "firebase-users-redux-store" %}}
 
-We implemented the session management with the authenticated user with Redux instead of React's local state and context API. Next, we will migrate the user management over to Redux. The users are mainly used in the AdminPage component's UserList and UserItem components, and also in the HomePage component for associating them to messages. Our goal here is to navigate from UserList to UserItem and back with React Router without losing the state of the users. The UserList component fetches and shows a list of users, while the UserItem component fetches and shows a single user entity. If the data is already available in the Redux store, we only keep track of new data with the realtime feature of the Firebase database, starting with the UserList component:
+We implemented the session management with the authenticated user with Redux instead of React's local state and context API. Next, we will migrate the user management over to Redux. The users are mainly used in the AdminPage component's UserList and UserItem components. Our goal here is to navigate from UserList to UserItem and back with React Router without losing the state of the users. The UserList component fetches and shows a list of users, while the UserItem component fetches and shows a single user entity. If the data is already available in the Redux store, we only keep track of new data with the realtime feature of the Firebase database, starting with the UserList component:
 
 {{< highlight javascript "hl_lines=3 4 13 14 15 16 17 18 20 21 22 24 26 27 28 29 30" >}}
 import React, { Component } from 'react';
@@ -674,76 +674,11 @@ That's it for the UserItem component. It renders a user, fetches the recent user
 
 ### Exercises:
 
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-redux-firebase-authentication/tree/7c32d8991c6a6d77fc4a3641fd21c8463da6e882" %}}.
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VqXuVc" %}}.
 
 {{% chapter_header "Manage Message Entities in Redux Store" "message-entities-redux-store" %}}
 
-We migrated the users and session management from React's local state and React's Context as well, which is why we have refactored the session management.
-
-Next, we'll migrate the HomePage component and its content to Redux, instead of React's local state. Let's start with the HomePage that needs to be connected to the Redux store, because it fetches users to associate them with messages.
-
-{{< highlight javascript "hl_lines=2 13 14 15 17 18 19 25 26 27 28" >}}
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { compose } from 'recompose';
-
-import { withAuthorization, withEmailVerification } from '../Session';
-import { withFirebase } from '../Firebase';
-import Messages from '../Messages';
-
-class HomePage extends Component {
-  ...
-}
-
-const mapStateToProps = state => ({
-  users: state.userState.users,
-});
-
-const mapDispatchToProps = dispatch => ({
-  onSetUsers: users => dispatch({ type: 'USERS_SET', users }),
-});
-
-const condition = authUser => !!authUser;
-
-export default compose(
-  withFirebase,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
-  withEmailVerification,
-  withAuthorization(condition),
-)(HomePage);
-{{< /highlight >}}
-
-Fetch and store users to the Redux global state, because they will be used to associate them to the message entities:
-
-{{< highlight javascript "hl_lines=4 18" >}}
-class HomePage extends Component {
-  componentDidMount() {
-    this.props.firebase.users().on('value', snapshot => {
-      this.props.onSetUsers(snapshot.val());
-    });
-  }
-
-  componentWillUnmount() {
-    this.props.firebase.users().off();
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Home Page</h1>
-        <p>The Home Page is accessible by every signed in user.</p>
-
-        <Messages users={this.props.users} />
-      </div>
-    );
-  }
-}
-{{< /highlight >}}
-
-This is the same tactic we used in the UserList component, except this time we are not interested in transforming the user object to a user array, because we want to keep it as a dictionary where it's possible to access users by their identifiers. We have all users at our disposal in the Messages component now. What's missing is connecting the Messages component to the Redux store too in order to store and get messages in and from the Redux state:
+We migrated the users and session management from React's local state and React's Context as well, which is why we have refactored the session management. What's missing is connecting the Messages component to the Redux store too in order to store and get messages in and from the Redux state:
 
 {{< highlight javascript "hl_lines=2 3 12 13 14 15 16 17 18 19 20 21 23 24 25 26 27 28 30 32 33 34 35 36" >}}
 import React, { Component } from 'react';
@@ -872,7 +807,7 @@ class Messages extends Component {
   ...
 
   render() {
-    const { users, messages } = this.props;
+    const { messages } = this.props;
     const { text, loading } = this.state;
 
     return (
@@ -913,7 +848,7 @@ The MessageList and MessageItem components didn't change at all, and only the Ho
 
 ### Exercises:
 
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-redux-firebase-authentication/tree/ef60646b2cfa6bdc5438e55cb9ae9d8a5698fbc6" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VoS0dt" %}}
 
 <hr class="section-divider">
 

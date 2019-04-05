@@ -80,10 +80,10 @@ Now we can go a step further and check for a user's role or permission:
 
 {{< highlight javascript >}}
 const condition = authUser =>
-  authUser && authUser.roles.includes(ROLES.ADMIN);
+  authUser && !!authUser.roles[ROLES.ADMIN];
 {{< /highlight >}}
 
-Assigning properties like an array of roles to authenticated users is a straightforward task. However, as we learned in previous sections, authenticated users are managed internally by Firebase. We are not able to alter user properties, so we manage them in Firebase's realtime database. If you go to your Firebase project's dashboard, you can see that users are managed in the Authentication and Database tabs. We introduced the latter to keep track of the users and assign them additional properties ourselves.
+Assigning properties like an object of roles to authenticated users is a straightforward task. However, as we learned in previous sections, authenticated users are managed internally by Firebase. We are not able to alter user properties, so we manage them in Firebase's realtime database. If you go to your Firebase project's dashboard, you can see that users are managed in the Authentication and Database tabs. We introduced the latter to keep track of the users and assign them additional properties ourselves.
 
 This section is split up into three parts:
 
@@ -156,7 +156,7 @@ class SignUpFormBase extends Component {
 ...
 {{< /highlight >}}
 
-We don't want to grant any user the power to sign up as admin, but we'll keep it simple for now, and you can decide which circumstances prompt you to assign roles to users later. Next, add the roles property to your user when they are created in the database. Since we need an array of roles, we'll initialize it as an empty array and push conditional roles to it:
+We don't want to grant any user the power to sign up as admin, but we'll keep it simple for now, and you can decide which circumstances prompt you to assign roles to users later. Next, add the roles property to your user when they are created in the database. Since we need an object of roles, we'll initialize it as an empty object and add conditional roles to it:
 
 {{< highlight javascript "hl_lines=7 15 16 18 19 20 31" >}}
 import React, { Component } from 'react';
@@ -174,10 +174,10 @@ class SignUpFormBase extends Component {
 
   onSubmit = event => {
     const { username, email, passwordOne, isAdmin } = this.state;
-    const roles = [];
+    const roles = {};
 
     if (isAdmin) {
-      roles.push(ROLES.ADMIN);
+      roles[ROLES.ADMIN] = ROLES.ADMIN;
     }
 
     this.props.firebase
@@ -289,7 +289,7 @@ const withAuthentication = Component => {
 
                 // default empty roles
                 if (!dbUser.roles) {
-                  dbUser.roles = [];
+                  dbUser.roles = {};
                 }
 
                 // merge auth and db user
@@ -317,7 +317,7 @@ const withAuthentication = Component => {
 ...
 {{< /highlight >}}
 
-Now the authenticated user is provided via React's Context API extended with the database user  to all our components. As you may have noticed, the implementation was quite repetitive to the authorization higher-order component. The only thing we changed was the local state usage instead of the redirects. Let's see how we can extract the common implementation to our Firebase class without touching the implementation details with the local state (authentication higher-order component) and the redirection (authorization higher-order component).
+Now the authenticated user is provided via React's Context API extended with the database user to all our components. As you may have noticed, the implementation was quite repetitive to the authorization higher-order component. The only thing we changed was the local state usage instead of the redirects. Let's see how we can extract the common implementation to our Firebase class without touching the implementation details with the local state (authentication higher-order component) and the redirection (authorization higher-order component).
 
 {{< highlight javascript "hl_lines=10 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37" >}}
 ...
@@ -341,7 +341,7 @@ class Firebase {
 
             // default empty roles
             if (!dbUser.roles) {
-              dbUser.roles = [];
+              dbUser.roles = {};
             }
 
             // merge auth and db user
@@ -462,7 +462,7 @@ class AdminPage extends Component {
 ...
 
 const condition = authUser =>
-  authUser && authUser.roles.includes(ROLES.ADMIN);
+  authUser && !!authUser.roles[ROLES.ADMIN];
 
 export default compose(
   withAuthorization(condition),
@@ -505,7 +505,7 @@ const NavigationAuth = ({ authUser }) => (
     <li>
       <Link to={ROUTES.ACCOUNT}>Account</Link>
     </li>
-    {authUser.roles.includes(ROLES.ADMIN) && (
+    {!!authUser.roles[ROLES.ADMIN] && (
       <li>
         <Link to={ROUTES.ADMIN}>Admin</Link>
       </li>
@@ -535,4 +535,4 @@ You have successfully assigned roles to your users, merged authentication user w
 ### Exercises:
 
 * Walk through a scenario where the role-based authorization could be replaced with a permission-based authorization (e.g. `authUser.permissions.canEditUser`).
-* Confirm your {{% a_blank "source code for the last section" "https://github.com/the-road-to-react-with-firebase/react-firebase-authentication/tree/6188752284edadfcbe4c6f5235ed54593a9adc2d" %}}
+* Confirm your {{% a_blank "source code for the last section" "http://bit.ly/2VneMT2" %}}
