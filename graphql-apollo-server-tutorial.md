@@ -168,7 +168,7 @@ Your GraphQL API with Apollo Server and Express should be working now. On the co
 }
 {{< /highlight >}}
 
-The result for the query should this or your defined sample data:
+The result for the query should look like this or your defined sample data:
 
 {{< highlight javascript >}}
 {
@@ -392,7 +392,7 @@ You have three queries that can be used in your GraphQL client (e.g. GraphQL Pla
 
 {{% chapter_header "Apollo Server: Resolvers" "apollo-server-resolvers" %}}
 
-This section continuous with the GraphQL schema in Apollo Server, but transitions more to the resolver side of the subject. In your GraphQL type definitions you have defined types, their relations and their structure. But there is nothing about how to get the data. That's where the GraphQL resolvers come into play.
+This section continues with the GraphQL schema in Apollo Server, but transitions more to the resolver side of the subject. In your GraphQL type definitions you have defined types, their relations and their structure. But there is nothing about how to get the data. That's where the GraphQL resolvers come into play.
 
 In JavaScript, the resolvers are grouped in a JavaScript object, often called a **resolver map**. Each top level query in your Query type has to have a resolver. Now, we'll resolve things on a per-field level.
 
@@ -486,7 +486,7 @@ const resolvers = {
 };
 {{< /highlight >}}
 
-In this case, the `username` resolver function is redundant, because it only mimics the default behavior of a GraphQL resolver. If you leave it out, the username would still resolves with its correct property. However, this fine control over the resolved fields opens up powerful possibilities. It gives you the flexibility to add data mapping without worrying about the data sources behind the GraphQL layer. Here, we expose the full username of a user, a combination of its first and last name by using template literals:
+In this case, the `username` resolver function is redundant, because it only mimics the default behavior of a GraphQL resolver. If you leave it out, the username would still resolve with its correct property. However, this fine control over the resolved fields opens up powerful possibilities. It gives you the flexibility to add data mapping without worrying about the data sources behind the GraphQL layer. Here, we expose the full username of a user, a combination of its first and last name by using template literals:
 
 {{< highlight javascript "hl_lines=5" >}}
 const resolvers = {
