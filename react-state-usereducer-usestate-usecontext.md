@@ -34,7 +34,7 @@ We start with a list of items -- in our scenario a list of todo items -- which a
 {{< highlight javascript >}}
 import React from 'react';
 
-const initalTodos = [
+const initialTodos = [
   {
     id: 'a',
     task: 'Learn React',
@@ -55,7 +55,7 @@ const initalTodos = [
 const App = () => (
   <div>
     <ul>
-      {initalTodos.map(todo => (
+      {initialTodos.map(todo => (
         <li key={todo.id}>
           <label>{todo.task}</label>
         </li>
@@ -84,7 +84,7 @@ const App = () => {
   return (
     <div>
       <ul>
-        {initalTodos.map(todo => (
+        {initialTodos.map(todo => (
           <li key={todo.id}>
             <label>{todo.task}</label>
           </li>
@@ -110,7 +110,7 @@ const App = () => {
   return (
     <div>
       <ul>
-        {initalTodos.map(todo => (
+        {initialTodos.map(todo => (
           <li key={todo.id}>
             <label>{todo.task}</label>
           </li>
@@ -148,7 +148,7 @@ const App = () => {
   return (
     <div>
       <ul>
-        {initalTodos.map(todo => (
+        {initialTodos.map(todo => (
           <li key={todo.id}>
             <label>{todo.task}</label>
           </li>
@@ -174,7 +174,7 @@ In order to add the todo item to our list of todo items, we need to make the tod
 
 {{< highlight javascript "hl_lines=2 10" >}}
 const App = () => {
-  const [todos, setTodos] = useState(initalTodos);
+  const [todos, setTodos] = useState(initialTodos);
   const [task, setTask] = useState('');
 
   ...
@@ -206,7 +206,7 @@ By having the `setTodos` function at our disposal, we can add the new todo item 
 
 {{< highlight javascript "hl_lines=11" >}}
 const App = () => {
-  const [todos, setTodos] = useState(initalTodos);
+  const [todos, setTodos] = useState(initialTodos);
   const [task, setTask] = useState('');
 
   const handleChangeInput = event => {
@@ -239,7 +239,7 @@ Second, you can use it to generate a unique identifier:
 import React, { useState } from 'react';
 import uuid from 'uuid/v4';
 
-const initalTodos = [
+const initialTodos = [
   {
     id: uuid(),
     task: 'Learn React',
@@ -258,7 +258,7 @@ const initalTodos = [
 ];
 
 const App = () => {
-  const [todos, setTodos] = useState(initalTodos);
+  const [todos, setTodos] = useState(initialTodos);
   const [task, setTask] = useState('');
 
   const handleChangeInput = event => {
@@ -285,7 +285,7 @@ Last but not least, let's implement a checkbox for each todo item in the list to
 
 {{< highlight javascript "hl_lines=5 6 7 17 18 19 20 21" >}}
 const App = () => {
-  const [todos, setTodos] = useState(initalTodos);
+  const [todos, setTodos] = useState(initialTodos);
   const [task, setTask] = useState('');
 
   const handleChangeCheckbox = event => {
@@ -321,7 +321,7 @@ Since we need the id of the todo item in our handler function, and not the event
 
 {{< highlight javascript "hl_lines=5 20" >}}
 const App = () => {
-  const [todos, setTodos] = useState(initalTodos);
+  const [todos, setTodos] = useState(initialTodos);
   ...
 
   const handleChangeCheckbox = id => {
@@ -357,7 +357,7 @@ Last, by having the id at our disposal, we can only alter the affected todo item
 
 {{< highlight javascript "hl_lines=6 7 8 9 10 11 12 13 14" >}}
 const App = () => {
-  const [todos, setTodos] = useState(initalTodos);
+  const [todos, setTodos] = useState(initialTodos);
   ...
 
   const handleChangeCheckbox = id => {
@@ -619,7 +619,7 @@ Instead of the useState hook from before, we can manage our todos with this new 
 
 {{< highlight javascript "hl_lines=2" >}}
 const App = () => {
-  const [todos, dispatchTodos] = useReducer(todoReducer, initalTodos);
+  const [todos, dispatchTodos] = useReducer(todoReducer, initialTodos);
   const [filter, dispatchFilter] = useReducer(filterReducer, 'ALL');
   const [task, setTask] = useState('');
 
@@ -631,7 +631,7 @@ If someone toggles a todo item with the checkbox element, a new handler is used 
 
 {{< highlight javascript "hl_lines=5 6 7 8 9 10 25" >}}
 const App = () => {
-  const [todos, dispatchTodos] = useReducer(todoReducer, initalTodos);
+  const [todos, dispatchTodos] = useReducer(todoReducer, initialTodos);
   ...
 
   const handleChangeCheckbox = todo => {
@@ -672,7 +672,7 @@ If someone submits a new todo item with the button, the same handler is used but
 
 {{< highlight javascript "hl_lines=7" >}}
 const App = () => {
-  const [todos, dispatchTodos] = useReducer(todoReducer, initalTodos);
+  const [todos, dispatchTodos] = useReducer(todoReducer, initialTodos);
   ...
 
   const handleSubmit = event => {
@@ -717,7 +717,7 @@ Let's dive into [React's Context API and the useContext hook](https://www.robinw
 {{< highlight javascript "hl_lines=23 24 25" >}}
 const App = () => {
   const [filter, dispatchFilter] = useReducer(filterReducer, 'ALL');
-  const [todos, dispatchTodos] = useReducer(todoReducer, initalTodos);
+  const [todos, dispatchTodos] = useReducer(todoReducer, initialTodos);
 
   const filteredTodos = todos.filter(todo => {
     if (filter === 'ALL') {
@@ -855,7 +855,7 @@ Second, the App can use the context's Provider method to pass implicitly a value
 {{< highlight javascript "hl_lines=10 14" >}}
 const App = () => {
   const [filter, dispatchFilter] = useReducer(filterReducer, 'ALL');
-  const [todos, dispatchTodos] = useReducer(todoReducer, initalTodos);
+  const [todos, dispatchTodos] = useReducer(todoReducer, initialTodos);
 
   const filteredTodos = todos.filter(todo => {
     ...
@@ -876,7 +876,7 @@ Now, the dispatch function doesn't need to be passed down to the components anym
 {{< highlight javascript "hl_lines=12 13" >}}
 const App = () => {
   const [filter, dispatchFilter] = useReducer(filterReducer, 'ALL');
-  const [todos, dispatchTodos] = useReducer(todoReducer, initalTodos);
+  const [todos, dispatchTodos] = useReducer(todoReducer, initialTodos);
 
   const filteredTodos = todos.filter(todo => {
     ...
@@ -980,7 +980,7 @@ In our App component, we merge all dispatch functions from our reducers into one
 {{< highlight javascript "hl_lines=5 6 7 14 15 16 17 18" >}}
 const App = () => {
   const [filter, dispatchFilter] = useReducer(filterReducer, 'ALL');
-  const [todos, dispatchTodos] = useReducer(todoReducer, initalTodos);
+  const [todos, dispatchTodos] = useReducer(todoReducer, initialTodos);
 
   // Global Dispatch Function
   const dispatch = action =>
