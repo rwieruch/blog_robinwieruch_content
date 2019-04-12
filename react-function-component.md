@@ -244,8 +244,8 @@ export default App;
 {{< /highlight >}}
 
 By providing an event handler to the input field, we are able to do something with a callback function when the input field changes its value. As argument of the callback function we receive a {{% a_blank "synthetic React event" "https://reactjs.org/docs/events.html" %}} which holds the current value of the input field. This value is ultimately used to set the new state for the Function Component with an inline arrow function. We will see later how to extract this function from there.
-
-*Note: The input field receives the value of the component state too, because you want to control the state (value) of the input field and don't let the native HTML element's internal state take over. Doing it this way, the component has become a {{% a_blank "controlled component" "https://reactjs.org/docs/uncontrolled-components.html" %}}.*
+https://www.robinwieruch.de/react-controlled-components/
+*Note: The input field receives the value of the component state too, because you want to control the state (value) of the input field and don't let the native HTML element's internal state take over. Doing it this way, the component has become a [controlled component](https://www.robinwieruch.de/react-controlled-components/).*
 
 As you have seen, React Hooks enable us to use state in React (Arrow) Function Components. Whereas you would have used a setState method to write state in a Class Component, you can use the useState hook to write state in a Function Component.
 

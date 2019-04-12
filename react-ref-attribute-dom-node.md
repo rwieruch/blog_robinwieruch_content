@@ -142,7 +142,7 @@ class SearchForm extends Component {
 }
 {{< /highlight >}}
 
-Especially in forms, with multiple input elements, it can make sense to exchange the `ref` attribute with the state solution. It follows the best practice of having an unidirectional data flow and controlled components in your application. You don't want to reference the elements in order to get their values. You want to keep the state at one place as single source of truth in your local state.
+Especially in forms, with multiple input elements, it can make sense to exchange the `ref` attribute with the state solution. It follows the best practice of having an unidirectional data flow and [controlled components](https://www.robinwieruch.de/react-controlled-components/) in your application. You don't want to reference the elements in order to get their values. You want to keep the state at one place as single source of truth in your local state.
 
 {{% chapter_header "What about functional stateless components?" "functionStatelessComponents" %}}
 

@@ -455,7 +455,7 @@ class App extends React.Component {
 }
 {{< /highlight >}}
 
-By using `this.state` in your component you can access the state from the component again. You should provide the updated input state to your input element. This way, you take over controlling the state of the element and not the element doesn't do it itself. It becomes a so called {{% a_blank "controlled component" "https://reactjs.org/docs/uncontrolled-components.html" %}} which is a best practice in React.
+By using `this.state` in your component you can access the state from the component again. You should provide the updated input state to your input element. This way, you take over controlling the state of the element and not the element doesn't do it itself. It becomes a so called [controlled component](https://www.robinwieruch.de/react-controlled-components/) which is a best practice in React.
 
 {{< highlight javascript "hl_lines=25" >}}
 class App extends React.Component {

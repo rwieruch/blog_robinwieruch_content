@@ -154,7 +154,7 @@ export default Firebase;
 
 The previous code snippet has all the lines highlighted that need to be changed for the Firestore migration. It's not much, because all the other authentication related code stays the same. Only the database setup changes when using Cloud Firestore and the API to read and write on user and message entities. Let's exchange the setup first. The usual `npm install firebase` node package comes with the Cloud Firestore and Realtime Database, so we can exchange this one straight forward.
 
-{{< highlight javascript "hl_lines=3 13 19 20" >}}
+{{< highlight javascript "hl_lines=3 13 19" >}}
 import app from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
@@ -174,7 +174,6 @@ class Firebase {
 
     this.auth = app.auth();
     this.db = app.firestore();
-    this.db.settings({ timestampsInSnapshots: true });
 
     /* Social Sign In Method Provider */
 

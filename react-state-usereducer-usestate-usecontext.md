@@ -29,7 +29,7 @@ If you haven't used state management excessively in [React Function Components](
 
 {{% chapter_header "useState for simple State" "usestate-state-hook" %}}
 
-We start with a list of items -- in our scenario a list of todo items -- which are rendered in our function component with a [JavaScript Map Method for Arrays](https://www.robinwieruch.de/javascript-map-array/). Each todo item rendered as list item receives a key attribute to notify React about its place in the rendered list:
+We start with a list of items -- in our scenario a list of todo items -- which are rendered in our function component with a [JavaScript Map Method for Arrays](https://www.robinwieruch.de/javascript-map-array/). Each todo item rendered as list item receives a [key attribute](https://www.robinwieruch.de/react-list-key) to notify React about its place in the [rendered list](https://www.robinwieruch.de/react-list-component):
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -67,7 +67,7 @@ const App = () => (
 export default App;
 {{< /highlight >}}
 
-In order to add a new todo item to our list of todo items, we need an input field to give a new todo item a potential task property. In React, we can use the State Hook called `useState` to manage something like the value of an input field as state within the component:
+In order to add a new todo item to our list of todo items, we need an input field to give a new todo item a potential `task` property. The `id` and `complete` properties will be automatically added to the item. In React, we can use the State Hook called `useState` to manage something like the value of an input field as state within the component:
 
 {{< highlight javascript "hl_lines=1 5 6 8 9 10 12 22 24 25" >}}
 import React, { useState } from 'react';
@@ -97,7 +97,7 @@ const App = () => {
 };
 {{< /highlight >}}
 
-We also had to give our Function Arrow Component a body with an explicit return statement to get the `useState` hook in between. Now, we can change the task state with our handler function, because we have the input's value at our disposal in React's synthetic event:
+We also had to give our Function Arrow Component a body with an explicit return statement to get the `useState` hook in between. Now, we can change the `task` state with our handler function, because we have the input's value at our disposal in React's synthetic event:
 
 {{< highlight javascript "hl_lines=5" >}}
 const App = () => {
@@ -123,7 +123,7 @@ const App = () => {
 };
 {{< /highlight >}}
 
-Now the input field has become a controlled input field, because the value comes directly from the React managed state and the handler changes the state. We implemented our first managed state with the State Hook in React. The whole source code can be seen {{% a_blank "here" "https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/3e6e5a27561bd0e0cc99e39efb853a187ac7339e/src/App.js" %}}.
+Now the input field has become a [controlled input field](https://www.robinwieruch.de/react-controlled-components/), because the value comes directly from the React managed state and the handler changes the state. We implemented our first managed state with the State Hook in React. The whole source code can be seen {{% a_blank "here" "https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/3e6e5a27561bd0e0cc99e39efb853a187ac7339e/src/App.js" %}}.
 
 To continue, let's implement a submit button to add the new todo item to the list of items eventually:
 
@@ -168,7 +168,7 @@ const App = () => {
 };
 {{< /highlight >}}
 
-The submit handler doesn't add the new todo item yet, but it makes the input field's value empty again after submitting the new todo item. Also it prevents the default behavior of the browser, because otherwise the browser would perform a refresh after the submit button has been clicked.
+The submit handler doesn't add the new todo item yet, but it makes the input field's value empty again after submitting the new todo item. Also it prevents the [default behavior of the browser, because otherwise the browser would perform a refresh after the submit button has been clicked](https://www.robinwieruch.de/react-preventdefault).
 
 In order to add the todo item to our list of todo items, we need to make the todo items managed as state within the component as well. We can use again the useState hook:
 
