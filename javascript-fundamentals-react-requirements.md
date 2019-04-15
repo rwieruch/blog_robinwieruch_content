@@ -19,13 +19,11 @@ summary = "After all my teachings about React, be it online for a larger audienc
 
 {{% pin_it_image "react js requirements" "img/posts/javascript-fundamentals-react-requirements/banner.jpg" "is-src-set" %}}
 
-After all my teachings about React, be it online for a larger audience or on-site for companies transitioning to web development and React, I always come to the conclusion that React is all about JavaScript. Newcomers to React but also myself see it as an advantage, because you carry your JavaScript knowledge for a longer time around compared to your React skills.
+After all my teachings about React, be it online for a larger audience or on-site for companies transitioning to web development and React, I always come to the conclusion that React is all about JavaScript. Newcomers to React but also myself see it as an {{% a_blank "advantage" "https://www.quora.com/Why-choose-React/answer/Robin-Wieruch" %}}, because you carry your JavaScript knowledge for a longer time around compared to your React skills.
 
-During my workshops a greater part of the material is about JavaScript and not React. Most of it boils down to JavaScript ES6 and beyond features and syntax, but also ternary operators, shorthand versions in the language, the `this` object, JavaScript built-in functions (map, reduce, filter) or more general concepts such as composability, reusability, immutability or higher-order functions. These are the fundamentals, which you don't need necessarily to master before starting with React, but which will definitely come up while learning or practicing it.
+During my workshops a greater part of the material is about JavaScript and not React. Most of it boils down to JavaScript ES6 and beyond features and syntax, but also ternary operators, shorthand versions in the language, the `this` object, JavaScript built-in functions ([map](https://www.robinwieruch.de/javascript-map-array/), reduce, filter) or more general concepts such as [composability](https://www.robinwieruch.de/react-component-composition/), reusability, immutability or higher-order functions. These are the fundamentals, which you don't need necessarily to master before starting with React, but which will definitely come up while learning or practicing it.
 
 The following walkthrough is my attempt giving you an almost extensive yet concise list about all the different JavaScript functionalities to complement your React application. If you have any other things which are not in the list, just leave a comment for this article and I will keep it up to date.
-
-If you want to learn the fundamentals about JavaScript for React.js in an interactive course, you can checkout my course over here: {{% a_blank "JavaScript Fundamentals Before Learning React" "https://www.educative.io/collection/10370001/5637225408626688" %}}.
 
 {{% chapter_header "Table of Contents" "toc" %}}
 
@@ -133,7 +131,7 @@ console.log(me.getName());
 console.log(me.getJob());
 {{< /highlight >}}
 
-Basically that's all it needs to fully understand React class components. A JavaScript class is used for defining a React component, but as you can see, the React component is only a React component because it inherits all the abilities from the React Component class which is imported from the React package.
+Basically that's all it needs to fully understand React class components. A JavaScript class is used for defining a React component, but as you can see, the React component is only a React component because it inherits all the abilities from the React Component class which is imported from the React package:
 
 {{< highlight javascript >}}
 import React, { Component } from 'react';
@@ -175,7 +173,7 @@ class App extends Component {
 export default App;
 {{< /highlight >}}
 
-Now you know why React uses JavaScript classes for defining React class components. They are used when you need access to React's API (lifecycle methods, `this.state` and `this.setState()`). In the following, you will see how React components can be defined in a different way, without using a JavaScript class, because you may not always need class methods, lifecycle methods and state.
+Now you know why React uses JavaScript classes for defining React class components. They are used when you need access to React's API (lifecycle methods, `this.state` and `this.setState()`). In the following, you will see how React components can be defined in a different way without using a JavaScript class.
 
 After all, JavaScript classes welcome one using inheritance in React, which isn't a desired outcome for React, {{% a_blank "because React favors composition over inheritance" "https://reactjs.org/docs/composition-vs-inheritance.html" %}}. So the only class you should extend from your React components should be the official React Component.
 
@@ -203,7 +201,7 @@ JavaScript arrow functions are often used in React applications for keeping the 
 
 {{% chapter_header "Functions as Components in React" "react-javascript-functional-components" %}}
 
-React uses the best of different programming paradigms. That's only possible because JavaScript is a many-sided programming language. On the object-oriented programming side, React's class components are a great way of leveraging the abilities of JavaScript classes (inheritance for the React component API, class methods and class properties such as `this.state`). On the other side, there are lots of concepts from functional programming used in React (and its ecosystem) too. For instance, **React's functional stateless components** are another way of defining components in React. The question which led us functional stateless components in React: What if components could be used like functions?
+React uses the best of different programming paradigms. That's only possible because JavaScript is a many-sided programming language. On the object-oriented programming side, React's class components are a great way of leveraging the abilities of JavaScript classes (inheritance for the React component API, class methods and class properties such as `this.state`). On the other side, there are lots of concepts from functional programming used in React (and its ecosystem) too. For instance, **React's function components** are [another way of defining components in React](https://www.robinwieruch.de/react-component-types/). The question which led to [function components in React](https://www.robinwieruch.de/react-function-component/): What if components could be used like functions?
 
 {{< highlight javascript >}}
 function (props) {
@@ -211,7 +209,7 @@ function (props) {
 }
 {{< /highlight >}}
 
-It's a function (functional) which receives an input (e.g. props) and returns the displayed HTML elements (view). It doesn't need to manage any state (stateless) and doesn't need to be aware about any methods (class methods,  lifecycle methods). Under the hood, the function only needs to use the rendering mechanism of the `render()` method from React components. That's when functional stateless components were introduced.
+It's a function which receives an input (e.g. [props](https://www.robinwieruch.de/react-pass-props-to-component/)) and returns the displayed HTML elements (view). Under the hood, the function only needs to use the rendering mechanism of the `render()` method from React components:
 
 {{< highlight javascript >}}
 function Greeting(props) {
@@ -219,9 +217,7 @@ function Greeting(props) {
 }
 {{< /highlight >}}
 
-Functional stateless components are the preferred way of defining components in React. They have less boilerplate, add less complexity, and are simpler to maintain than React class components. However, as for now, both have their right to exist.
-
-Previously, the article mentioned JavaScript arrow functions and how they improve your React code. Let's apply these kind of functions to your functional stateless components. The previous Greeting component has two different looks with JavaScript ES5 and ES6:
+Function components are the preferred way of defining components in React. They have less boilerplate, add less complexity, and are simpler to maintain than React class components. You can easily [migrate your class components to function components](https://www.robinwieruch.de/react-hooks-migration/) with [React Hooks](https://www.robinwieruch.de/react-hooks/). Previously, the article mentioned JavaScript arrow functions and how they improve your React code. Let's apply these kind of functions to your function components. The previous Greeting component has two different looks with JavaScript ES5 and ES6:
 
 {{< highlight javascript >}}
 // JavaScript ES5 function
@@ -239,7 +235,7 @@ const Greeting = (props) =>
   <h1>{props.greeting}</h1>
 {{< /highlight >}}
 
-JavaScript arrow functions are a great way of keeping your functional stateless components in React concise. Even more when there is no computation in between and thus the function body and return statement can be left out.
+JavaScript arrow functions are a great way of keeping your function components in React concise. Even more when there is no computation in between and thus the function body and return statement can be left out.
 
 {{% chapter_header "React Class Component Syntax" "react-class-component-syntax" %}}
 
@@ -346,7 +342,7 @@ function getGreeting(what) {
 }
 {{< /highlight >}}
 
-Basically that's how larger text blocks can be formatted on multiple lines. Otherwise, it can be seen with the [recent introduction of GraphQL in JavaScript](https://www.robinwieruch.de/react-with-graphql-tutorial/) too.
+Basically that's how larger text blocks can be formatted on multiple lines. For instance, it can be seen with the [recent introduction of GraphQL in JavaScript](https://www.robinwieruch.de/react-with-graphql-tutorial/), because GraphQL queries are composed with template literals.
 
 {{% chapter_header "Map, Reduce and Filter in React" "react-javascript-map-reduce-filter" %}}
 
@@ -388,7 +384,7 @@ class App extends Component {
 export default App;
 {{< /highlight >}}
 
-Usually the next question then is: How to render a list of items? That's one of the best parts about explaining React in my opinion. There is no React specific API such as a custom attribute on a HTML tag which enables you to render multiple items in React. You can use plain JavaScript for iterating over the list of items and returning HTML for each item.
+Usually the next question then is: [How to render a list of items?](https://www.robinwieruch.de/react-list-component) That's one of the best parts about explaining React in my opinion. There is no React specific API such as a custom attribute on a HTML tag which enables you to render multiple items in React. You can use plain JavaScript for iterating over the list of items and returning HTML for each item.
 
 {{< highlight javascript "hl_lines=5 6 7 8 12 13 14" >}}
 import React, { Component } from 'react';
