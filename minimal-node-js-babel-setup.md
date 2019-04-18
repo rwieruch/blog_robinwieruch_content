@@ -155,7 +155,7 @@ Now, in the project's root folder, create a *.babelrc* file in the command line:
 touch .babelrc
 {{< /highlight >}}
 
-In this configuration file for Babel, you can include the two recently installed dependencies for unlocking the upcoming JavaScript language features.
+In this configuration file for Babel, you can include the recently installed dependency for unlocking the upcoming JavaScript language features.
 
 {{< highlight javascript >}}
 {
