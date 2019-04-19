@@ -1534,10 +1534,10 @@ export default {
       return await models.User.findAll();
     },
     user: async (parent, { id }, { models }) => {
-      return await models.User.findById(id);
+      return await models.User.findByPk(id);
     },
     me: async (parent, args, { models, me }) => {
-      return await models.User.findById(me.id);
+      return await models.User.findByPk(me.id);
     },
   },
 
@@ -1553,7 +1553,7 @@ export default {
 };
 {{< /highlight >}}
 
-The `findAll()` and `findById()` are commonly used Sequelize methods for database operations. Finding all messages for a specific user is more specific, though. Here, you used the `where` clause to narrow down messages by the `userId` entry in the database. Accessing a database will add another layer of complexity to your application's architecture, so be sure to reference the Sequelize API documentation as much as needed going forward.
+The `findAll()` and `findByPk()` are commonly used Sequelize methods for database operations. Finding all messages for a specific user is more specific, though. Here, you used the `where` clause to narrow down messages by the `userId` entry in the database. Accessing a database will add another layer of complexity to your application's architecture, so be sure to reference the Sequelize API documentation as much as needed going forward.
 
 Next, return to the *src/resolvers/message.js* file and perform adjustments to use the Sequelize API:
 
@@ -1564,7 +1564,7 @@ export default {
       return await models.Message.findAll();
     },
     message: async (parent, { id }, { models }) => {
-      return await models.Message.findById(id);
+      return await models.Message.findByPk(id);
     },
   },
 
@@ -1583,13 +1583,13 @@ export default {
 
   Message: {
     user: async (message, args, { models }) => {
-      return await models.User.findById(message.userId);
+      return await models.User.findByPk(message.userId);
     },
   },
 };
 {{< /highlight >}}
 
-Apart from the `findById()` and `findAll()` methods, you are creating and deleting a message in the mutations as well. Before, you had to generate your own identifier for the message, but now Sequelize takes care of adding a unique identifier to your message once it is created in the database.
+Apart from the `findByPk()` and `findAll()` methods, you are creating and deleting a message in the mutations as well. Before, you had to generate your own identifier for the message, but now Sequelize takes care of adding a unique identifier to your message once it is created in the database.
 
 There was one more crucial change in the two files: {{% a_blank "async/await" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function" %}}. Sequelize is a JavaScript promise-based ORM, so it always returns a JavaScript promise when operating on a database. That's where async/await can be used as a more readable version for asynchronous requests in JavaScript. You learned about the returned results of GraphQL resolvers in Apollo Server in a previous section. A result can be a JavaScript promise as well, because the resolvers are waiting for its actual result. In this case, you can also get rid of the async/await statements and your resolvers would still work. Sometimes it is better to be more explicit, however, especially when we add more business logic within the resolver's function body later, so we will keep the statements for now.
 
@@ -1768,14 +1768,14 @@ export default {
       return await models.User.findAll();
     },
     user: async (parent, { id }, { models }) => {
-      return await models.User.findById(id);
+      return await models.User.findByPk(id);
     },
     me: async (parent, args, { models, me }) => {
       if (!me) {
         return null;
       }
 
-      return await models.User.findById(me.id);
+      return await models.User.findByPk(me.id);
     },
   },
 
@@ -2574,7 +2574,7 @@ export const isMessageOwner = async (
   { id },
   { models, me },
 ) => {
-  const message = await models.Message.findById(id, { raw: true });
+  const message = await models.Message.findByPk(id, { raw: true });
 
   if (message.userId !== me.id) {
     throw new ForbiddenError('Not authenticated as owner.');
@@ -2805,7 +2805,7 @@ export const isMessageOwner = async (
   { id },
   { models, me },
 ) => {
-  const message = await models.Message.findById(id, { raw: true });
+  const message = await models.Message.findByPk(id, { raw: true });
 
   if (message.userId !== me.id) {
     throw new ForbiddenError('Not authenticated as owner.');
@@ -3178,7 +3178,7 @@ export default {
       });
     },
     message: async (parent, { id }, { models }) => {
-      return await models.Message.findById(id);
+      return await models.Message.findByPk(id);
     },
   },
 
@@ -3251,7 +3251,7 @@ export default {
       });
     },
     message: async (parent, { id }, { models }) => {
-      return await models.Message.findById(id);
+      return await models.Message.findByPk(id);
     },
   },
 
@@ -3284,7 +3284,7 @@ export default {
       });
     },
     message: async (parent, { id }, { models }) => {
-      return await models.Message.findById(id);
+      return await models.Message.findByPk(id);
     },
   },
 
@@ -3325,7 +3325,7 @@ export default {
       });
     },
     message: async (parent, { id }, { models }) => {
-      return await models.Message.findById(id);
+      return await models.Message.findByPk(id);
     },
   },
 
@@ -3463,7 +3463,7 @@ export default {
       };
     },
     message: async (parent, { id }, { models }) => {
-      return await models.Message.findById(id);
+      return await models.Message.findByPk(id);
     },
   },
 
@@ -3587,7 +3587,7 @@ export default {
       };
     },
     message: async (parent, { id }, { models }) => {
-      return await models.Message.findById(id);
+      return await models.Message.findByPk(id);
     },
   },
 
@@ -3637,7 +3637,7 @@ export default {
       };
     },
     message: async (parent, { id }, { models }) => {
-      return await models.Message.findById(id);
+      return await models.Message.findByPk(id);
     },
   },
 

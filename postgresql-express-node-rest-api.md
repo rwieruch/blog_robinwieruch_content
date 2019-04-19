@@ -79,7 +79,7 @@ import { Router } from 'express';
 const router = Router();
 
 router.get('/', async (req, res) => {
-  const user = await req.context.models.User.findById(
+  const user = await req.context.models.User.findByPk(
     req.context.me.id,
   );
   return res.send(user);
@@ -105,7 +105,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:userId', async (req, res) => {
-  const user = await req.context.models.User.findById(
+  const user = await req.context.models.User.findByPk(
     req.params.userId,
   );
   return res.send(user);
@@ -129,7 +129,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:messageId', async (req, res) => {
-  const message = await req.context.models.Message.findById(
+  const message = await req.context.models.Message.findByPk(
     req.params.messageId,
   );
   return res.send(message);
