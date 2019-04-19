@@ -1,7 +1,7 @@
 +++
 title = "React List Components by Example"
 description = "How to display a list in React with JSX is one of the bigger challenges for React beginners. This tutorial walks you through different list view examples ..."
-date = "2019-04-06T07:52:46+02:00"
+date = "2019-04-16T07:52:46+02:00"
 tags = ["JavaScript"]
 categories = ["JavaScript"]
 keywords = ["react list component", "react listview", "react list item"]
