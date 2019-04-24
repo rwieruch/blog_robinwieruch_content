@@ -224,9 +224,11 @@ export default Counter;
 
 But we didn't. That's one important lesson when using reducers: Always try to be explicit with your state transitions. The latter example with only one state transitions tries to put every logic into one block, but that's not very much desired when using a reducer function. Rather we want to be able to reason effortless about our state transitions. By having two state transitions instead, as before in our code, we can always reason about it by just reading the action type's name.
 
-**Using useReducer over useState gives us predictable state transitions.** It's comes in very powerful when your state changes become more complex and you want to have one place -- the reducer function -- to reason about them. The reducer functions encapsulates this logic perfectly.
+**Using useReducer over useState gives us predictable state transitions.** It comes in very powerful when your state changes become more complex and you want to have one place -- the reducer function -- to reason about them. The reducer functions encapsulates this logic perfectly.
 
 A rule of thumb may suggest: Once you spot multiple `setState()` calls in succession, try to encapsulate these things in one reducer function to dispatch only one action instead.
+
+A great side-effect of having all state in one object is the possibility to use the [browser's local storage](https://www.robinwieruch.de/local-storage-react/) for it. That's how you could always cache a slice of your state with local storage and retrieve it as initial state for useReducer whenever you restart your application.
 
 {{% chapter_header "Multiple State Transitions operate on one State Object" "multiple-state-transitions-one-state" %}}
 
@@ -235,8 +237,6 @@ Once your application grows in size, you will most likely deal with more complex
 Take for instance the following reducer that operates on one state object with multiple state transitions:
 
 {{< highlight javascript >}}
-import uuid from 'uuid/v4';
-
 const todoReducer = (state, action) => {
   switch (action.type) {
     case 'DO_TODO':
@@ -258,7 +258,7 @@ const todoReducer = (state, action) => {
     case 'ADD_TODO':
       return state.concat({
         task: action.task,
-        id: uuid(),
+        id: action.id,
         complete: false,
       });
     default:
@@ -311,13 +311,13 @@ const dataFetchReducer = (state, action) => {
 
 After all, not only the state object complexity or the number of state transitions is important, but also **how properties fit together in context to be managed in one state object**. If everything is managed at different places with useState, it becomes harder to reason about the whole thing as one unit. Another important point is the improved developer experience: Since you have this one place with one state object and multiple transitions, it's far easier to debug your code if anything goes wrong.
 
+A great side-effect of having all state transitions neatly in one reducer function is the **ability to export the reducer for unit tests**. It's simpler to reason about a state object with multiple state transitions if you just need to test all state transitions by having only one function: `(state, action) => newState`. You can test all state transitions by providing all available action types and various matching payloads.
+
 {{% chapter_header "Logic for State Changes" "logic-state-change" %}}
 
 There is a difference of *where the logic for state transitions is placed when using useState or useReducer*. As we have seen for the previous useReducer examples, the logic for the state transitions happens within the reducer function. The action only comes with the minimum information to perform the transition based on the current state: `(state, action) => newState`. This comes especially handy if you rely on the current state to update your state.
 
 {{< highlight javascript >}}
-import uuid from 'uuid/v4';
-
 const todoReducer = (state, action) => {
   switch (action.type) {
     case 'DO_TODO':
@@ -339,7 +339,7 @@ const todoReducer = (state, action) => {
     case 'ADD_TODO':
       return state.concat({
         task: action.task,
-        id: uuid(),
+        id: action.id,
         complete: false,
       });
     default:
@@ -351,10 +351,12 @@ const todoReducer = (state, action) => {
 Everything your React component cares about is dispatching the action:
 
 {{< highlight javascript >}}
+import uuid from 'uuid/v4';
+
 // Somewhere in your React components ...
 
 const handleSubmit = event => {
-  dispatch({ type: 'ADD_TODO', task });
+  dispatch({ type: 'ADD_TODO', task, id: uuid() });
 };
 
 const handleChange = () => {
@@ -366,8 +368,6 @@ const handleChange = () => {
 {{< /highlight >}}
 
 Now imagine you would perform the same state transitions but with useState instead. There is no pre-defined entity like the reducer where all business logic is situated. There is no clear separation -- as far as you don't extract the logic into separate functions -- and all your state relevant logic ends up in your handlers which call the state updater functions from useState eventually. Over time, it becomes harder to separate state logic from view logic and the components grow in complexity. Reducers instead offer the perfect place for logic that alters the state.
-
-A great side-effect of having all state transitions neatly in one reducer function is the **ability to export the reducer for unit tests**. It's simpler to reason about a state object with multiple state transitions if you just need to test all state transitions by having only one function: `(state, action) => newState`. You can test all state transitions by providing all available action types and various matching payloads.
 
 {{% chapter_header "Trigger of the State Change" "trigger-state-change" %}}
 
@@ -402,7 +402,7 @@ However, sometimes you want to [manage state at a top-level but trigger the stat
 
 <hr class="section-divider">
 
-The decision whether to use useState or useReducer isn't always black and white. There are many shades of grey in between. However, I hope the article gave you a few key understandings on when to use useState or useReducer. The following facts give you a summarized overview, however they only reflect my opinion on this topic:
+The decision whether to use useState or useReducer isn't always black and white. There are many shades of grey in between. However, I hope the article gave you a few key understandings on when to use useState or useReducer. Here you can find a {{% a_blank "GitHub repository" "https://github.com/the-road-to-learn-react/react-hooks-usestate-vs-usereducer" %}} with a few examples. The following facts give you a summarized overview, however they only reflect my opinion on this topic:
 
 **Use useState if:**
 
@@ -421,7 +421,8 @@ The decision whether to use useState or useReducer isn't always black and white.
 * D) if you have different properties that are tied together and should be managed in one state object
 * E) if you want to update state deep down in your component tree
 * F) if you've got a medium size application (but the lines are blurry here)
-* G) if you want a more predictable and maintainable state architecture
+* G) if you want have an easier time testing it
+* H) if you want a more predictable and maintainable state architecture
 
 *Note: Check out when to use [useReducer or Redux](https://www.robinwieruch.de/redux-vs-usereducer) if you are interested in a comparison.*
 

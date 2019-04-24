@@ -600,7 +600,7 @@ const todoReducer = (state, action) => {
     case 'ADD_TODO':
       return state.concat({
         task: action.task,
-        id: uuid(),
+        id: action.id,
         complete: false,
       });
     default:
@@ -668,7 +668,7 @@ const App = () => {
 };
 {{< /highlight >}}
 
-If someone submits a new todo item with the button, the same handler is used but to dispatch an action with the correct action type and the name of the todo item (`task`) as payload:
+If someone submits a new todo item with the button, the same handler is used but to dispatch an action with the correct action type and the name of the todo item (`task`) and its identifier (`id`) as payload:
 
 {{< highlight javascript "hl_lines=7" >}}
 const App = () => {
@@ -677,7 +677,7 @@ const App = () => {
 
   const handleSubmit = event => {
     if (task) {
-      dispatchTodos({ type: 'ADD_TODO', task });
+      dispatchTodos({ type: 'ADD_TODO', task, id: uuid() });
     }
 
     setTask('');
@@ -818,7 +818,7 @@ const AddTodo = ({ dispatch }) => {
 
   const handleSubmit = event => {
     if (task) {
-      dispatch({ type: 'ADD_TODO', task });
+      dispatch({ type: 'ADD_TODO', task, id: uuid() });
     }
 
     setTask('');
@@ -911,7 +911,7 @@ const AddTodo = () => {
 
   const handleSubmit = event => {
     if (task) {
-      dispatch({ type: 'ADD_TODO', task });
+      dispatch({ type: 'ADD_TODO', task, id: uuid() });
     }
 
     setTask('');
@@ -1071,7 +1071,7 @@ const todoReducer = (state, action) => {
     case 'ADD_TODO':
       return state.concat({
         task: action.task,
-        id: uuid(),
+        id: action.id,
         complete: false,
       });
     default:

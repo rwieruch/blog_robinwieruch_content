@@ -21,7 +21,7 @@ summary = "A brief explanation for uncontrolled vs controlled components in Reac
 
 There are quite a lot of articles about React out there speaking about controlled and uncontrolled components without explaining them. It has been quite similar for my articles, whereas I always tried to add at least one or two sentences explaining them, but in the end, I thought it would be great to have a brief tutorial just showing a simple example for controlled components in React.
 
-Let's take the following input field element which is rendered within our [function component](https://www.robinwieruch.de/react-function-component/). Even though the input field is the uncontrolled element here, we are often referring to the enclosing App component being the uncontrolled component:
+Let's take the following input field element which is rendered within our [function component](https://www.robinwieruch.de/react-function-component/). Even though the input field is the uncontrolled input element here, we are often referring to the enclosing App component being the uncontrolled component:
 
 {{< highlight javascript >}}
 import React from 'react';
@@ -39,7 +39,7 @@ export default App;
 
 *Note: It doesn't matter for controlled or uncontrolled elements whether the component itself is a [function or class component](https://www.robinwieruch.de/react-component-types/). Uncontrolled elements -- such as text inputs, checkboxes, radio buttons, and entire forms with inputs -- can always be uncontrolled or controlled.*
 
-The input field is uncontrolled, because once you start the application, you can type something into the field and see changes even though we are not giving any instructions in our source code. There is no line written to display the value in the input field and no line written to change the value when we type something into it. After all, that's because we deal with HTML here and it's the native behavior of the input field, because it manages its own internal state.
+It's an uncontrolled input field, because once you start the application, you can type something into the field and see changes even though we are not giving any instructions in our source code. There is no line written to display the value in the input field and no line written to change the value when we type something into it. After all, that's because we deal with HTML here and it's the native behavior of the input field, because it manages its own internal state.
 
 {{% chapter_header "Uncontrolled vs. Controlled Component" "uncontrolled-vs-controlled-component" %}}
 
