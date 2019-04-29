@@ -405,7 +405,7 @@ That's it. The new todo items are immediately set as state for the list of todo 
 
 {{% chapter_header "useReducer for complex State" "usereducer-reducer-hook" %}}
 
-The useState hook is great to manage simple state. However, once you run into more complex state objects or state transitions -- which you want to keep maintainable and predictable --, the useReducer hook is a great candidate to manage them. Let's continue implementing our application with the useReducer hook by going through a simpler example first. In our next scenario, we want to add buttons to filter our list of todos for three cases:
+The useState hook is great to manage simple state. However, once you run into more complex state objects or state transitions -- which you want to keep maintainable and predictable --, the [useReducer hook](https://www.robinwieruch.de/react-usereducer-hook/) is a great candidate to manage them. [Here you can find a comparison of when to use the useState or useReducer hook.](https://www.robinwieruch.de/react-usereducer-vs-usestate/) Let's continue implementing our application with the useReducer hook by going through a simpler example first. In our next scenario, we want to add buttons to filter our list of todos for three cases:
 
 * show all todo items
 * show only complete todo items
@@ -568,7 +568,7 @@ The filter buttons should work now. Every time a button is clicked an action wit
 
 The whole source code can be seen {{% a_blank "here" "https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/08d4b7130613eef209687f5f4c270c86716f1f09/src/App.js" %}} and all changes {{% a_blank "here" "https://github.com/the-road-to-learn-react/react-with-redux-philosophy/commit/08d4b7130613eef209687f5f4c270c86716f1f09" %}}.
 
-*Note: The shown use case -- also every other use case with useReducer -- can be implemented with useState as well. However, even though this one is a simpler example for the sake of learning about it, it shows clearly how much its helps for the reasoning for the state transitions by just reading the reducer function.*
+*Note: The shown use case -- also every other use case with [useReducer -- can be implemented with useState](https://www.robinwieruch.de/javascript-reducer/) as well. However, even though this one is a simpler example for the sake of learning about it, it shows clearly how much its helps for the reasoning for the state transitions by just reading the reducer function.*
 
 The useReducer hook is great for predictable state transitions as we have seen in the previous example. Next, we are going to see how it is a good fit for complex state objects too. Therefore, we will start to manage our todo items in a reducer hook and manipulate it with the following transitions:
 
