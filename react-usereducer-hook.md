@@ -113,7 +113,7 @@ So far, everything demonstrated here is not related to React. If you have any di
 
 {{% chapter_header "React's useReducer Hook" "react-usereducer-hook" %}}
 
-The useReducer hook is used for complex state and state transitions. It takes a reducer function and an initial state as input and returns the current state and a dispatch function as output with {{% a_blank "array destrcuturing" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" %}}:
+The useReducer hook is used for complex state and state transitions. It takes a reducer function and an initial state as input and returns the current state and a dispatch function as output with {{% a_blank "array destructuring" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" %}}:
 
 {{< highlight javascript "hl_lines=37" >}}
 const initialTodos = [
