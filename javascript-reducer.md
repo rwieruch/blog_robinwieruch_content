@@ -202,4 +202,4 @@ Basically you have learned everything you need to know for reducers. They are us
   * The type property chooses the conditional state transition.
   * The action payload provides information for the state transition.
 
-Also check out this [tutorial if you want to know how to use reducers in React with the useRedcuer hook](https://www.robinwieruch.de/react-usereducer-hook).
+Also check out this [tutorial if you want to know how to use reducers in React with the useReducer hook](https://www.robinwieruch.de/react-usereducer-hook).
