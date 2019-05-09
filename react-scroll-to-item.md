@@ -1,7 +1,7 @@
 +++
 title = "How to Scroll to Item in React?"
 description = "A brief tutorial which shows how to scroll to an item in a React List Component. The scroll event can be triggered from within or outside the component ..."
-date = "2019-04-06T07:52:46+02:00"
+date = "2019-05-07T07:52:46+02:00"
 tags = ["JavaScript"]
 categories = ["JavaScript"]
 keywords = ["react scroll to item"]

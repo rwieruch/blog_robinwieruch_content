@@ -234,4 +234,6 @@ This guide has shown you how to create a Node.js project from scratch, and how y
 
 {{% read_before "This tutorial is part 1 of 2 in the series." "Part 2:" "How to setup Express.js in Node.js" "https://www.robinwieruch.de/node-js-express-tutorial/" %}}
 
+{{% read_before "This tutorial is part 1 of 2 in the series." "Part 2:" "Node Testing Setup with Mocha and Chai" "https://www.robinwieruch.de/node-js-testing-mocha-chai/" %}}
+
 {{% read_more "The minimal React + Webpack 4 + Babel Setup" "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" %}}
