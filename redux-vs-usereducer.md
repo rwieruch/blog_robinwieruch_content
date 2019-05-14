@@ -19,13 +19,13 @@ summary = "Does useContext and useReducer replace Redux? Since React Hooks were 
 
 {{% pin_it_image "redux usereducer" "img/posts/redux-vs-usereducer/banner.jpg" "is-src-set" %}}
 
-Since [React Hooks](https://www.robinwieruch.de/react-hooks/) have been released, [function components](https://www.robinwieruch.de/react-function-component/) can use state and side-effects. There are two hooks that are used for modern state management in React (useState and useReducer) and one hook to use [React's Context API (useContext)](https://www.robinwieruch.de/react-context-api/) to pass state or state updater functions down the component tree. Now, many people keep wondering: **Does useContext and useReducer replace Redux?** As of the time of writing this article, React Hooks don't replace Redux.
+Since [React Hooks](https://www.robinwieruch.de/react-hooks/) have been released, [function components](https://www.robinwieruch.de/react-function-component/) can use state and side-effects. There are two hooks that are used for modern state management in React (useState and useReducer) and one hook called useContext to use [React's Context API](https://www.robinwieruch.de/react-context-api/) to pass state or state updater functions down the component tree. Now, many people keep wondering: **Does useContext and useReducer replace Redux?** As of the time of writing this article, React Hooks don't replace Redux.
 
 Requirements: Check out the following tutorials, if you haven't learned about [reducers in JavaScript](https://www.robinwieruch.de/javascript-reducer/) or [useReducer in React](https://www.robinwieruch.de/react-usereducer-hook/). It's good to know about the fundamentals before entering this discussion about Redux vs useReducer. Also if you want to learn more about Redux, check out this extensive [Redux tutorial](https://www.robinwieruch.de/react-redux-tutorial/).
 
 {{% chapter_header "Global State Container and Component Co-Located State" "redux-usereducer-state" %}}
 
-Where your state is managed is a crucial difference between Redux and useReducer. While Redux creates **one global state container** -- which hangs somewhere *above* your whole application --, useReducer creates **independent component co-located state containers** within your components. Let this fact sink for a moment before we continue extending useReducer's component co-located state management philosophy.
+Where your state is managed is a crucial difference between Redux and useReducer. While Redux creates **one global state container** -- which hangs somewhere *above* your whole application --, useReducer creates a **independent component co-located state container** within your component. Let this fact sink for a moment before we continue extending useReducer's component co-located state management philosophy.
 
 {{< highlight javascript >}}
           +----------------+              +----------------+
@@ -56,7 +56,7 @@ Where your state is managed is a crucial difference between Redux and useReducer
                       +----------------+
 {{< /highlight >}}
 
-[Using useContext in combination with useReducer](https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext/) takes the component co-located state management on another level. Suddenly the state created by useReducer and its dispatch function can be passed to any component from any top-level component. That's also possible by only using [React props](https://www.robinwieruch.de/react-pass-props-to-component/), but [React's Context API](https://www.robinwieruch.de/react-context-api/) makes your state and dispatch function available anywhere without explicitly passing everything down the component tree.
+[Using useContext in combination with useReducer](https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext/) takes the component co-located state management on another level. Suddenly the state container created by useReducer and its dispatch function can be passed to any component from any top-level component. It can be also the most top-level component to make the state "global". It's also possible to pass things down only by using [React props](https://www.robinwieruch.de/react-pass-props-to-component/), but [React's Context API](https://www.robinwieruch.de/react-context-api/) makes your state and dispatch function available anywhere without explicitly passing everything down the component tree.
 
 {{< highlight javascript >}}
           +----------------+
@@ -93,7 +93,7 @@ However, even though we are able to lift all the useReducer state up to our most
 
 * **Global:** Second, every useReducer comes with its own dispatch function. There is no native feature (yet) which combines all dispatch functions to one dispatch function. Redux provides one dispatch function that consumes *any* action dedicated for *any* reducer function. The dispatch function from useReducer, in contrast, only deals with action that are specified by the reducer function to be consumed.
 
-While useReducer is a part of how Redux works, it isn't Redux. The useReducer function is tightly coupled to its reducer which holds also true for its dispatch function. We dispatch action objects to that reducer only. Whereas in Redux, the dispatch function sends the action object to the store which distributes it to all its combined reducer functions. You can think of Redux as one global event bus which takes any events (actions) and processes them into a new state.
+While useReducer with its reducer is a part of how Redux works, it isn't Redux. The useReducer function is tightly coupled to its reducer which holds also true for its dispatch function. We dispatch action objects to that reducer only. Whereas in Redux, the dispatch function sends the action object to the store which distributes it to all its combined reducer functions. You can think of Redux as one global event bus which takes any events (actions) and processes them into a new state based on the action's payload and the previous state.
 
 {{% chapter_header "No Middleware with useReducer" "redux-usereducer-middleware" %}}
 
@@ -103,13 +103,13 @@ There is no middleware for useReducer (yet). Since it's not one global state con
 
 {{% sub_chapter_header "No Side-Effect Middleware" "redux-usereducer-middleware-side-effect" %}}
 
-Popular side-effect libraries in Redux are {{% a_blank "Redux Thunk" "https://github.com/reduxjs/redux-thunk" %}} and {{% a_blank "Redux Saga" "https://github.com/redux-saga/redux-saga" %}}. They are not only used for asynchronous logic (e.g. data fetching), but also for a centralized control flow of state transitions in your applications. Especially Redux Saga can be used to set up complex control flows within your state management system. It opens up another dimension of state management with Redux which are only rarely needed in common React applications.
+Popular side-effect libraries in Redux are {{% a_blank "Redux Thunk" "https://github.com/reduxjs/redux-thunk" %}} and {{% a_blank "Redux Saga" "https://github.com/redux-saga/redux-saga" %}}. They are not only used for asynchronous logic (e.g. data fetching), but also for a centralized control flow of state transitions in your applications. Especially Redux Saga can be used to set up complex control flows within your state management system. It opens up another dimension of state management with Redux which are only rarely needed in day-to-day React applications.
 
 <hr class="section-divider">
 
 These two things are the main points which are missing to make useReducer plus other things (e.g. useContext) a full-fledged Redux implementation. Maybe we will get there, but then the best argument against it would be: Why do we want to reinvent the wheel? Anyway, please let me know in the comments how useReducer + useContext make up a valid Redux alternative for you.
 
-Otherwise, there are a few rules of thumb to follow: If you state management doesn't need all the Redux features, use useState, useReducer and useContext. If your state management needs Redux as *one global state container with middleware*, introduce Redux to your application.
+I guess there are a few rules of thumb to follow: If you state management doesn't need all the Redux features, use useState, useReducer and useContext. If your state management needs Redux as *one global state container with middleware*, introduce Redux to your application to handle state logic in complex and large applications.
 
 * Use useState for basic and simple/small size applications.
 * Use useState + useReducer + useContext for advanced/medium size applications.

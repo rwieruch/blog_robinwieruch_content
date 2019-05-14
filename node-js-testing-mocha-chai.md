@@ -1,18 +1,18 @@
 +++
-title = "Node Testing Setup with Mocha and Chai"
-description = "How to get started with testing in Node.js with Mocha and Chai. This setup tutorial shows you how to use Mocha as test runner and Chai as assertion library for Node.js projects ..."
+title = "Node Testing Setup with Mocha, Chai, Sinon"
+description = "How to get started with testing in Node.js with Mocha, Chai, Sinon. This setup tutorial shows you how to use Mocha as test runner and Chai as assertion library for Node.js projects ..."
 date = "2019-05-05T07:52:46+02:00"
 tags = ["Node", "JavaScript"]
 categories = ["Node", "JavaScript"]
-keywords = ["node js testing", "node testing", "node js test", "node test", "node mocha", "node chai", "node mocha chai"]
-news_keywords = ["node js testing", "node testing", "node js test", "node test", "node mocha", "node chai", "node mocha chai"]
+keywords = ["node js testing", "node testing", "node js test", "node test", "node mocha", "node chai", "node mocha chai", "node sinon"]
+news_keywords = ["node js testing", "node testing", "node js test", "node test", "node mocha", "node chai", "node mocha chai", "node sinon"]
 hashtag = "#ReactJs"
 card = "img/posts/node-js-testing-mocha-chai/banner_640.jpg"
 banner = "img/posts/node-js-testing-mocha-chai/banner.jpg"
 contribute = "node-js-testing-mocha-chai.md"
-headline = "Node Testing Setup with Mocha and Chai"
+headline = "Node Testing Setup with Mocha, Chai, Sinon"
 
-summary = "How to get started with testing in Node.js with Mocha and Chai. This setup tutorial shows you how to use Mocha as test runner and Chai as assertion library for Node.js projects."
+summary = "How to get started with testing in Node.js with Mocha, Chai, Sinon. This setup tutorial shows you how to use Mocha as test runner and Chai as assertion library for Node.js projects."
 +++
 
 {{% sponsorship %}}
@@ -21,7 +21,7 @@ summary = "How to get started with testing in Node.js with Mocha and Chai. This 
 
 {{% read_before "This tutorial is part 2 of 2 in this series." "Part 1:" "The minimal Node.js with Babel Setup" "https://www.robinwieruch.de/minimal-node-js-babel-setup/" %}}
 
-This tutorial demonstrates how to setup testing with Mocha and Chai in Node.js. Whereas the previous tutorial has already shown you how to setup your Node.js application, this tutorial sets up a testing environment for your Node.js project. Let's dive into it by setting up Mocha und Chai as testing framework.
+This tutorial demonstrates how to setup testing with Mocha, Chai, and Sinon in Node.js. Whereas the previous tutorial has already shown you how to setup your Node.js application, this tutorial sets up a testing environment for your Node.js project. Let's dive into it by setting up Mocha with Chai and Sinon as testing framework.
 
 {{% chapter_header "Node.js with Mocha" "node-js-mocha" %}}
 
@@ -118,6 +118,74 @@ describe('sum function', () => {
 
 Congratulations, you have set up your first unit test in Node.js. When you run your tests again with `npm test`, you should see a successful test on the command line. If the test turns red because it failed, you need to check whether your business logic (or test) is set up correctly.
 
+{{% chapter_header "Node.js with Sinon" "node-js-sinon" %}}
+
+Testing JavaScript primitives, complex objects and arrays with Chai in Mocha is a great start.  Eventually you will run also in the case of testing functions to be called. Therefore you need a utility to spy, stub, or mock functions. Sinon is a powerful library that helps you with it. Let's first dive into the use case which we want to test and then how to test it with Sinon in Mocha and Chai. In a new *src/callMyFunction.js* file implement the following function:
+
+{{< highlight javascript >}}
+function callMyFunction(callback) {
+  callback();
+}
+
+export default callMyFunction;
+{{< /highlight >}}
+
+The function only takes another function as argument -- it is a higher-order function -- and simply calls this function. Let's use it in our *src/index.js* file:
+
+{{< highlight javascript "hl_lines=2 6 7 8" >}}
+import sum from './sum.js';
+import callMyFunction from './callMyFunction.js';
+
+console.log(sum(1, 2));
+
+callMyFunction(function() {
+  console.log('Hello world');
+});
+{{< /highlight >}}
+
+How would we test this function to be called within the other function? Let's install Sinon on the command line as node package for our application and see how we can test it:
+
+{{< highlight javascript >}}
+npm install sinon --save-dev
+{{< /highlight >}}
+
+In a new *src/callMyFunction.spec.js* file, let's write our test for this new higher-order function:
+
+{{< highlight javascript >}}
+import { expect } from 'chai';
+
+import callMyFunction from './callMyFunction.js';
+
+describe('callMyFunction function', () => {
+  it('calls the passed function', () => {
+    callMyFunction(callback);
+
+    expect(callback ???).to.eql(true);
+  });
+});
+{{< /highlight >}}
+
+Now we can test it with a Sinon spy which is used instead of the empty function:
+
+{{< highlight javascript "hl_lines=2 8 12" >}}
+import { expect } from 'chai';
+import { spy } from 'sinon';
+
+import callMyFunction from './callMyFunction.js';
+
+describe('callMyFunction function', () => {
+  it('calls the passed function', () => {
+    const callback = spy();
+
+    callMyFunction(callback);
+
+    expect(callback.called).to.eql(true);
+  });
+});
+{{< /highlight >}}
+
+That's it. The test should be successful, because the function within our function to be tested is called. The Sinon spy switches the internal boolean flag for `called` from false to true after it has been called. You can find out more about Spies, Mocks, and Stubs from {{% a_blank "Sinon's documentation" "https://sinonjs.org/" %}}.
+
 <hr class="section-divider">
 
-Mocha and Chai are a popular combination of test runner and assertion library for Node.js applications. You can find a ready to go setup Node.js application in this {{% a_blank "GitHub repository" "https://github.com/rwieruch/node-testing-mocha-chai" %}}. If you want to dive deeper into testing, you may want to check out this {{% a_blank "GitHub repository" "https://github.com/rwieruch/javascript-reducer" %}} with a few tests where we are testing [reducer functions](https://www.robinwieruch.de/javascript-reducer). The concept of reducers is a popular pattern in JavaScript which is a great candidate for unit testing.
+Mocha and Chai are a popular combination of test runner and assertion library for Node.js applications. Sinon comes in as bonus if you need to make assertions on functions. You can find a ready to go setup Node.js application in this {{% a_blank "GitHub repository" "https://github.com/rwieruch/node-testing-mocha-chai" %}}. If you want to dive deeper into testing, you may want to check out this {{% a_blank "GitHub repository" "https://github.com/rwieruch/javascript-reducer" %}} with a few tests where we are testing [reducer functions](https://www.robinwieruch.de/javascript-reducer). The concept of reducers is a popular pattern in JavaScript which is a great candidate for unit testing.

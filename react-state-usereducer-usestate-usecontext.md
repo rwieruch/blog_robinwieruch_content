@@ -839,7 +839,7 @@ const AddTodo = ({ dispatch }) => {
 
 In the end, we have a component tree whereas each component receives [state as props](https://www.robinwieruch.de/react-pass-props-to-component/) and dispatch functions to alter the state. Most of the state is managed by the parent App component. That's it for the refactoring. The whole source code can be seen {{% a_blank "here" "https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/d024a244193142fed675ce43d67c71039947548c/src/App.js" %}} and all changes {{% a_blank "here" "https://github.com/the-road-to-learn-react/react-with-redux-philosophy/commit/d024a244193142fed675ce43d67c71039947548c" %}}.
 
-Now, The component tree isn't very deep and it isn't difficult to pass props down. However, in larger applications it can be a burden to pass down everything several levels. That's why React came up with the idea of the context container. Let's see how we can pass the dispatch functions down with React's Context API. First, we create the context:
+Now, the component tree isn't very deep and it isn't difficult to pass props down. However, in larger applications it can be a burden to pass down everything several levels. That's why React came up with the idea of the context container. Let's see how we can pass the dispatch functions down with React's Context API. First, we create the context:
 
 {{< highlight javascript "hl_lines=1 4" >}}
 import React, { useState, useReducer, createContext } from 'react';
@@ -965,123 +965,10 @@ const TodoItem = ({ todo }) => {
 };
 {{< /highlight >}}
 
-The application works again, but we are able to dispatch changes for our todo list from anywhere. The whole source code can be seen {{% a_blank "here" "https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/95806796700fc2ca5cd204dd2f4542ad6f08e7ee/src/App.js" %}} and all changes {{% a_blank "here" "https://github.com/the-road-to-learn-react/react-with-redux-philosophy/commit/95806796700fc2ca5cd204dd2f4542ad6f08e7ee" %}}.
+The application works again, but we are able to dispatch changes for our todo list from anywhere. If you want to continue with this application, experiment with passing down the dispatch function for the filter reducer as well. Moreover, you can pass the state coming from useReducer with React's Context API down as well. Just try it yourself. The whole source code can be seen {{% a_blank "here" "https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/95806796700fc2ca5cd204dd2f4542ad6f08e7ee/src/App.js" %}} and all changes {{% a_blank "here" "https://github.com/the-road-to-learn-react/react-with-redux-philosophy/commit/95806796700fc2ca5cd204dd2f4542ad6f08e7ee" %}}.
 
-We could repeat the same approach for the dispatch function of the filter reducer, however, then we would have two provider to pass down different dispatch functions. What if we could mimic Redux even more by having one universal dispatch function?
-
-Let's rename the context from `TodoContext` to `DispatchContext` everywhere in our application:
-
-{{< highlight javascript "hl_lines=1" >}}
-const DispatchContext = createContext(null);
-{{< /highlight >}}
-
-In our App component, we merge all dispatch functions from our reducers into one dispatch function and pass it down via our new context provider. No other component receives its dispatch function anymore by its props:
-
-{{< highlight javascript "hl_lines=5 6 7 14 15 16 17 18" >}}
-const App = () => {
-  const [filter, dispatchFilter] = useReducer(filterReducer, 'ALL');
-  const [todos, dispatchTodos] = useReducer(todoReducer, initialTodos);
-
-  // Global Dispatch Function
-  const dispatch = action =>
-    [dispatchTodos, dispatchFilter].forEach(fn => fn(action));
-
-  const filteredTodos = todos.filter(todo => {
-    ...
-  });
-
-  return (
-    <DispatchContext.Provider value={dispatch}>
-      <Filter />
-      <TodoList todos={filteredTodos} />
-      <AddTodo />
-    </DispatchContext.Provider>
-  );
-};
-{{< /highlight >}}
-
-The global dispatch function iterates through all dispatch functions and executes everyone of them by passing the incoming action object to it. Now the dispatch function from the context can be used everywhere the same; in the TodoItem and AddTodo components, but also in the Filter component:
-
-{{< highlight javascript "hl_lines=1 2" >}}
-const Filter = () => {
-  const dispatch = useContext(DispatchContext);
-
-  const handleShowAll = () => {
-    dispatch({ type: 'SHOW_ALL' });
-  };
-
-  const handleShowComplete = () => {
-    dispatch({ type: 'SHOW_COMPLETE' });
-  };
-
-  const handleShowIncomplete = () => {
-    dispatch({ type: 'SHOW_INCOMPLETE' });
-  };
-
-  return (
-    <div>
-      <button type="button" onClick={handleShowAll}>
-        Show All
-      </button>
-      <button type="button" onClick={handleShowComplete}>
-        Show Complete
-      </button>
-      <button type="button" onClick={handleShowIncomplete}>
-        Show Incomplete
-      </button>
-    </div>
-  );
-};
-{{< /highlight >}}
-
-In the end, we only need to adjust our reducers, so that they don't throw an error anymore in case of when the incoming action type isn't matching one of the cases, because it can happen that not all reducers are interested of the incoming action:
-
-{{< highlight javascript "hl_lines=10 39" >}}
-const filterReducer = (state, action) => {
-  switch (action.type) {
-    case 'SHOW_ALL':
-      return 'ALL';
-    case 'SHOW_COMPLETE':
-      return 'COMPLETE';
-    case 'SHOW_INCOMPLETE':
-      return 'INCOMPLETE';
-    default:
-      return state;
-  }
-};
-
-const todoReducer = (state, action) => {
-  switch (action.type) {
-    case 'DO_TODO':
-      return state.map(todo => {
-        if (todo.id === action.id) {
-          return { ...todo, complete: true };
-        } else {
-          return todo;
-        }
-      });
-    case 'UNDO_TODO':
-      return state.map(todo => {
-        if (todo.id === action.id) {
-          return { ...todo, complete: false };
-        } else {
-          return todo;
-        }
-      });
-    case 'ADD_TODO':
-      return state.concat({
-        task: action.task,
-        id: action.id,
-        complete: false,
-      });
-    default:
-      return state;
-  }
-};
-{{< /highlight >}}
-
-Now all reducers receive the incoming actions when actions are dispatched, but not all care about them. However, the dispatch function is one global function, accessible anywhere via React's context, to alter the state in different reducers. The whole source code can be seen {{% a_blank "here" "https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/7f1cf96adddd0ac28cab7aa55f24bbae8b6bc27b/src/App.js" %}} and all changes {{% a_blank "here" "https://github.com/the-road-to-learn-react/react-with-redux-philosophy/commit/7f1cf96adddd0ac28cab7aa55f24bbae8b6bc27b" %}}.
+If you want to continue with this tutorial to really [mimic Redux's behvavior for using useReducer](https://www.robinwieruch.de/redux-vs-usereducer) as one global state container, continue with: [How to Redux with React Hooks?](https://www.robinwieruch.de/redux-with-react-hooks)
 
 <hr class="section-divider">
 
-You have learned how modern state management is used in React with useState, useReducer and useContext. Whereas useState is used for simple state (e.g. input field), useReducer is a greater asset for complex objects and complicated state transitions. In larger applications, useContext can be used to pass down dispatch functions or one universal usable dispatch function. Also state from the reducer could be passed down this way to make it accessible anywhere.
+You have learned how modern state management is used in React with useState, useReducer and useContext. Whereas useState is used for simple state (e.g. input field), useReducer is a greater asset for complex objects and complicated state transitions. In larger applications, useContext can be used to pass down dispatch functions (or state) from the useReducer hook.

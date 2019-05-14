@@ -134,7 +134,7 @@ var _default = add;
 exports["default"] = _default;
 {{< /highlight >}}
 
-Now your bundled source code is ready to be published on npm as node package/library. Since you have to run `npm run build` before every publish, it's a good practice to automate this step with a prepublish script in your *package.json* file:
+Now your bundled source code is ready to be published on npm as node package/library. Since you have to run `npm run build` before every publish, it's a good practice to automate this step with a prepare script in your *package.json* file:
 
 {{< highlight javascript "hl_lines=8" >}}
 {
@@ -144,7 +144,7 @@ Now your bundled source code is ready to be published on npm as node package/lib
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "test": "echo \"No test specified\" && exit 0"
   },
   "keywords": [],
@@ -186,7 +186,7 @@ Then, instead of using Babel to covnert and to move your source code files from 
   "main": "lib/index.js",
   "scripts": {
     "build": "webpack --config ./webpack.config.js --mode=production",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "test": "echo \"No test specified\" && exit 0"
   },
   "keywords": [],
@@ -248,5 +248,7 @@ Now you are ready to give `npm run build` a shot. Afterward, you should find a n
 *Note: Did you notice the JSX configuration in our Webpack configuration? It's not needed for our case, because we are dealing with JavaScript files. However, it might give a good hint on how to advance the setup from a JavaScript open source library to a React open source library.*
 
 <hr class="section-divider">
+
+Check out this tutorial, if you want to [test your open sourced node package with Mocha and Chai](https://www.robinwieruch.de/node-js-testing-mocha-chai/).
 
 After all, it's up to you whether you use Babel, Webpack or any other bundler (e.g. Rollup) to create your open source project. In the end, it depends on your requirements. For instance, if you want to publish a library for frontend development (e.g. React), you may want to use a sophisticated bundler such as Webpack to not only include JavaScript, but also JSX, SVG or other files.
