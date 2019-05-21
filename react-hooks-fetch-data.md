@@ -842,9 +842,9 @@ const useDataApi = (initialUrl, initialData) => {
 
 Now, when fetching data, the dispatch function can be used to send information to the reducer function. The object being send with the dispatch function has a mandatory `type` property and an optional `payload` property. The type tells the reducer function which state transition needs to be applied and the payload can additionally be used by the reducer to distill the new state. After all, we only have three state transitions: initializing the fetching process, notifying about a successful data fetching result, and notifying about an errornous data fetching result.
 
-In the end of the custom hook, the state is returned as before, but because we have a state object and not the standalone states anymore, the state object is returned as destrcutured object. This way, the one who calls the `useDataApi` custom hook still gets access to `data`, `isLoading` and `isError`:
+At the end of the custom hook, the state can now be returned as a whole object rather than separate, stand-alone states. This way, we can align with the standard React Hooks syntax by returning an array which includes both the state object and the setUrl function (Note that we can get rid of the doFetch inside useDataApi). Any component who calls the `useDataApi` custom hook still gets access to `data`, `isLoading` and `isError` through the state object:
 
-{{< highlight javascript "hl_lines=16" >}}
+{{< highlight javascript "hl_lines=12 17" >}}
 const useDataApi = (initialUrl, initialData) => {
   const [url, setUrl] = useState(initialUrl);
 
@@ -856,12 +856,19 @@ const useDataApi = (initialUrl, initialData) => {
 
   ...
 
-  const doFetch = url => {
-    setUrl(url);
-  };
-
-  return { ...state, doFetch };
+  return [state, setURL];
 };
+
+function App() {
+  const [query, setQuery] = useState('redux');
+  const [{ data, isLoading, isError }, doFetch] = useDataApi(
+    'http://hn.algolia.com/api/v1/search?query=redux',
+    { hits: [] },
+  );
+
+  ...
+
+}
 {{< /highlight >}}
 
 Last but not least, the implementation of the reducer function is missing. It needs to act on three different state transitions called `FETCH_INIT`, `FETCH_SUCCESS` and `FETCH_FAILURE`. Each state transition needs to return a new state object. Let's see how this can be implemented with a switch case statement:
