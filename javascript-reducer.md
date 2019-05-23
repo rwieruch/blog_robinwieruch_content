@@ -1,5 +1,5 @@
 +++
-title = "What is a reducer in JavaScript?"
+title = "What is a reducer (React/Redux) in JavaScript?"
 description = "A tutorial about the reducer pattern in JavaScript for beginners  ..to manage state transition with functions ..."
 date = "2019-04-19T07:52:46+02:00"
 tags = ["JavaScript"]
@@ -10,7 +10,7 @@ hashtag = "#JavaScript"
 card = "img/posts/javascript-reducer/banner_640.jpg"
 banner = "img/posts/javascript-reducer/banner.jpg"
 contribute = "reducer.md"
-headline = "What is a reducer in JavaScript?"
+headline = "What is a reducer (React/Redux) in JavaScript?"
 
 summary = "A tutorial about the reducer pattern in JavaScript for beginners to manage state transition with functions."
 +++
