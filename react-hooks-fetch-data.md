@@ -552,18 +552,14 @@ function App() {
 
 But now the browser reloads when clicking the submit button, because that's the native behavior of the browser when submitting a form. In order to prevent the default behavior, we can invoke a function on the React event. That's how you do it in React class components too.
 
-{{< highlight javascript "hl_lines=4 5 6 7 10 11 12 13 14" >}}
+{{< highlight javascript "hl_lines=6 9 10" >}}
 function App() {
   ...
-
-  const doFetch = () => {
-    setUrl(`http://hn.algolia.com/api/v1/search?query=${query}`);
-  };
 
   return (
     <Fragment>
       <form onSubmit={event => {
-        doFetch();
+        setUrl(`http://hn.algolia.com/api/v1/search?query=${query}`);
 
         event.preventDefault();
       }}>
@@ -589,7 +585,7 @@ Now the browser shouldn't reload anymore when you click the submit button. It wo
 
 In order to extract a custom hook for data fetching, move everything that belongs to the data fetching, except for the query state that belongs to the input field, but including the loading indicator and error handling, to its own function. Also make sure you return all the necessary variables from the function that are used in the App component.
 
-{{< highlight javascript "hl_lines=1 32 33" >}}
+{{< highlight javascript "hl_lines=1 28 29" >}}
 const useHackerNewsApi = () => {
   const [data, setData] = useState({ hits: [] });
   const [url, setUrl] = useState(
@@ -617,61 +613,24 @@ const useHackerNewsApi = () => {
     fetchData();
   }, [url]);
 
-  const doFetch = () => {
-    setUrl(`http://hn.algolia.com/api/v1/search?query=${query}`);
-  };
-
-  return { data, isLoading, isError, doFetch };
+  return [{ data, isLoading, isError }, setUrl];
 }
 {{< /highlight >}}
 
 Now, your new hook can be used in the App component again:
 
-{{< highlight javascript "hl_lines=3" >}}
+{{< highlight javascript "hl_lines=3 8" >}}
 function App() {
   const [query, setQuery] = useState('redux');
-  const { data, isLoading, isError, doFetch } = useHackerNewsApi();
+  const [{ data, isLoading, isError }, doFetch] = useHackerNewsApi();
 
   return (
     <Fragment>
-      ...
-    </Fragment>
-  );
-}
-{{< /highlight >}}
+      <form onSubmit={event => {
+        doFetch(`http://hn.algolia.com/api/v1/search?query=${query}`);
 
-Next, pass the URL state from the outside the `doFetch` function:
-
-{{< highlight javascript "hl_lines=8 9 24" >}}
-const useHackerNewsApi = () => {
-  ...
-
-  useEffect(
-    ...
-  );
-
-  const doFetch = url => {
-    setUrl(url);
-  };
-
-  return { data, isLoading, isError, doFetch };
-};
-
-function App() {
-  const [query, setQuery] = useState('redux');
-  const { data, isLoading, isError, doFetch } = useHackerNewsApi();
-
-  return (
-    <Fragment>
-      <form
-        onSubmit={event => {
-          doFetch(
-            `http://hn.algolia.com/api/v1/search?query=${query}`,
-          );
-
-          event.preventDefault();
-        }}
-      >
+        event.preventDefault();
+      }}>
         <input
           type="text"
           value={query}
@@ -688,7 +647,7 @@ function App() {
 
 The initial state can be made generic too. Pass it simply to the new custom hook:
 
-{{< highlight javascript "hl_lines=4 5 6 38 39 40 41" >}}
+{{< highlight javascript "hl_lines=4 5 6 34 35 36 37" >}}
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -717,16 +676,12 @@ const useDataApi = (initialUrl, initialData) => {
     fetchData();
   }, [url]);
 
-  const doFetch = url => {
-    setUrl(url);
-  };
-
-  return { data, isLoading, isError, doFetch };
+  return [{ data, isLoading, isError }, setUrl];
 };
 
 function App() {
   const [query, setQuery] = useState('redux');
-  const { data, isLoading, isError, doFetch } = useDataApi(
+  const [{ data, isLoading, isError }, doFetch] = useDataApi(
     'http://hn.algolia.com/api/v1/search?query=redux',
     { hits: [] },
   );
@@ -774,7 +729,7 @@ That's it for the data fetching with a custom hook. The hook itself doesn't know
 
 {{% chapter_header "Reducer Hook for Data Fetching" "react-hooks-reducer-hook" %}}
 
-So far, we have used various state hooks to manage our data fetching state for the data, loading and error state. However, somehow all these states, managed with their own state hook, belong together because they care about the same cause. As you can see, they are all used within the data fetching function. A good indicator that they belong together is that they are used one after another (e.g. `setIsError`, `setIsLoading`). Let's combine all three of them with a Reducer Hook instead.
+So far, we have used various state hooks to manage our data fetching state for the data, loading and error state. However, somehow all these states, [managed with their own state hook, belong together because they care about the same cause](https://www.robinwieruch.de/react-usereducer-vs-usestate/). As you can see, they are all used within the data fetching function. A good indicator that they belong together is that they are used one after another (e.g. `setIsError`, `setIsLoading`). Let's combine all three of them with a [Reducer Hook](https://www.robinwieruch.de/react-usereducer-hook/) instead.
 
 A Reducer Hook returns us a state object and a function to alter the state object. The function -- called dispatch function -- takes an action which has a type and an optional payload. All this information is used in the actual reducer function to distill a new state from the previous state, the action's optional payload and type. Let's see how this works in code:
 
@@ -842,9 +797,9 @@ const useDataApi = (initialUrl, initialData) => {
 
 Now, when fetching data, the dispatch function can be used to send information to the reducer function. The object being send with the dispatch function has a mandatory `type` property and an optional `payload` property. The type tells the reducer function which state transition needs to be applied and the payload can additionally be used by the reducer to distill the new state. After all, we only have three state transitions: initializing the fetching process, notifying about a successful data fetching result, and notifying about an errornous data fetching result.
 
-In the end of the custom hook, the state is returned as before, but because we have a state object and not the standalone states anymore, the state object is returned as destrcutured object. This way, the one who calls the `useDataApi` custom hook still gets access to `data`, `isLoading` and `isError`:
+In the end of the custom hook, the state is returned as before, but because we have a state object and not the standalone states anymore. This way, the one who calls the `useDataApi` custom hook still gets access to `data`, `isLoading` and `isError`:
 
-{{< highlight javascript "hl_lines=16" >}}
+{{< highlight javascript "hl_lines=12" >}}
 const useDataApi = (initialUrl, initialData) => {
   const [url, setUrl] = useState(initialUrl);
 
@@ -856,11 +811,7 @@ const useDataApi = (initialUrl, initialData) => {
 
   ...
 
-  const doFetch = url => {
-    setUrl(url);
-  };
-
-  return { ...state, doFetch };
+  return [state, setUrl];
 };
 {{< /highlight >}}
 
@@ -955,11 +906,7 @@ const useDataApi = (initialUrl, initialData) => {
     };
   }, [url]);
 
-  const doFetch = url => {
-    setUrl(url);
-  };
-
-  return { ...state, doFetch };
+  return [state, setUrl];
 };
 {{< /highlight >}}
 
