@@ -257,7 +257,7 @@ const App = () => {
 export default App;
 {{< /highlight >}}
 
-Now we can use the handler to dispatch an action for our reducer function. Since we need the `id` as identifier of an todo item in order to toggle its `complete` flag, we can pass the item within the handler function by using a encapsulating arrow function:
+Now we can use the handler to dispatch an action for our reducer function. Since we need the `id` as the identifier of a todo item in order to toggle its `complete` flag, we can pass the item within the handler function by using a encapsulating arrow function:
 
 {{< highlight javascript "hl_lines=7 8 9 19" >}}
 const App = () => {
