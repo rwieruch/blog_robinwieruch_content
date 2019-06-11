@@ -244,7 +244,7 @@ export default App;
 {{< /highlight >}}
 
 By providing an event handler to the input field, we are able to do something with a callback function when the input field changes its value. As argument of the callback function we receive a {{% a_blank "synthetic React event" "https://reactjs.org/docs/events.html" %}} which holds the current value of the input field. This value is ultimately used to set the new state for the Function Component with an inline arrow function. We will see later how to extract this function from there.
-https://www.robinwieruch.de/react-controlled-components/
+
 *Note: The input field receives the value of the component state too, because you want to control the state (value) of the input field and don't let the native HTML element's internal state take over. Doing it this way, the component has become a [controlled component](https://www.robinwieruch.de/react-controlled-components/).*
 
 As you have seen, React Hooks enable us to use state in React (Arrow) Function Components. Whereas you would have used a setState method to write state in a Class Component, you can use the useState hook to write state in a Function Component.
@@ -566,7 +566,6 @@ const App = () => {
 };
 
 export default App;
-
 {{< /highlight >}}
 
 If you try out this example, you will see the count 0 and 1 shortly displayed after each other. The first render of the component shows the count of 0 from the initial state -- whereas after the component did mount actually, the Effect Hook will run to set a new count state of 1.
@@ -977,7 +976,6 @@ Headline.propTypes = {
 };
 
 export default App;
-
 {{< /highlight >}}
 
 *Note that you have to install the standalone {{% a_blank "React prop-types" "https://github.com/facebook/prop-types" %}}, because it has been removed from the React core library a while ago. If you want to learn more about PropTypes in React, check out the {{% a_blank "official documentation" "https://reactjs.org/docs/typechecking-with-proptypes.html" %}}.*

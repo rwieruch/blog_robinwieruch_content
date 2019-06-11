@@ -23,6 +23,8 @@ In this tutorial, I want to show you **how to fetch data in React with Hooks** b
 
 If you don't know anything about this new React feature, checkout this [introduction to React Hooks](https://www.robinwieruch.de/react-hooks/). If you want to checkout the finished project for the showcased examples that show how to fetch data in React with Hooks, checkout this {{% a_blank "GitHub repository" "https://github.com/the-road-to-learn-react/react-hooks-introduction" %}}.
 
+If you just want to have a ready to go React Hook for data fetching: `npm install use-data-api` and follow the {{% a_blank "documentation" "https://github.com/the-road-to-learn-react/use-data-api" %}}. Don't forget to star it if you use it :-)
+
 **Note:** In the future, React Hooks are not be intended for data fetching in React. Instead, a feature called Suspense will be in charge for it. The following walkthrough is nonetheless a great way to learn more about state and effect hooks in React.
 
 {{% chapter_header "Data Fetching with React Hooks" "react-fetching-data-with-hooks" %}}

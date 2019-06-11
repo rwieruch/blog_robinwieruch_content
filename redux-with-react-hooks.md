@@ -239,4 +239,4 @@ import useCombinedReducers from 'use-combined-reducers';
 
 <hr class="section-divider">
 
-You have seen how multiple useReducer hooks can be used in a custom hook to return one state container and one universal dispatch function. By using React's Context API you can pass state and dispatch function down the component tree to make it everywhere accessible. The shown implementation comes close to Redux's global state container implementation, but it comes with its caveats as explained in the beginning of this tutorial.
+You have seen how multiple useReducer hooks can be used in a custom hook to return one state container and one universal dispatch function. Basically it's **useReducer for global state**. By using React's Context API you can pass state and dispatch function down the component tree to make it everywhere accessible. The shown implementation comes close to Redux's global state container implementation, but it comes with its caveats as explained in the beginning of this tutorial.
