@@ -1,5 +1,5 @@
 +++
-title = "A gentle introduction to Web Components"
+title = "Web Components Tutorial for Beginners [2019]"
 description = "In this Web Components tutorial, you will learn how to implement your first web component (custom elements) with HTML, CSS, and JavaScript. It is aimed at beginners who haven't used web components before ..."
 date = "2019-06-10T13:50:46+02:00"
 tags = ["Web Components", "JavaScript"]
@@ -10,7 +10,7 @@ hashtag = "#WebComponents"
 card = "img/posts/web-components-tutorial/banner_640.jpg"
 banner = "img/posts/web-components-tutorial/banner.jpg"
 contribute = "web-components-tutorial.md"
-headline = "A gentle introduction to Web Components"
+headline = "Web Components Tutorial for Beginners [2019]"
 
 summary = "In this Web Components tutorial, you will learn how to implement your first web component (custom elements) with HTML, CSS, and JavaScript. It is aimed at beginners who haven't used web components before."
 +++
@@ -29,7 +29,7 @@ This tutorial teaches you how to build your first Web Components and how to use 
 ></my-dropdown>
 {{< /highlight >}}
 
-In this tutorial, we will implement this dropdown component step by step from scratch with Web Components. Afterward, you can continue using it across your application, make it an open source web component to install it somewhere else, or use a framework like React to build upon a {{% a_blank "solid foundation of Web Components for your React application" "https://github.com/the-road-to-learn-react/use-custom-element" %}}. If you need a starter project for the following tutorial, you can {{% a_blank "clone this one from GitHub" "https://github.com/rwieruch/web-components-starter-kit" %}}. You should look into the *dist/* and *src/* folders to make your adjustments from the tutorial along the way. The finished project from the tutorial can be found {{% a_blank "here on GitHub" "https://github.com/rwieruch/web-components-dropdown" %}}.
+In this tutorial, we will implement this dropdown component step by step from scratch with Web Components. Afterward, you can continue using it across your application, make it an open source web component to install it somewhere else, or use a framework like React to build upon a {{% a_blank "solid foundation of Web Components for your React application" "https://github.com/the-road-to-learn-react/use-custom-element" %}}.
 
 {{% chapter_header "Why Web Components?" "why-web-components" %}}
 
@@ -40,6 +40,8 @@ A personal story to illustrate how to benefit from Web Components: I picked up W
 Eventually both teams came together and discussed how to approach the problem. They asked me to look into Web Components to find out whether their problem could be solved with them. And indeed Web Components offered a compelling solution: Both teams could use implement common Web Components based on the style guide. Components like Dropdown, Button and Table would be implemented with only HTML, CSS, and JavaScript. Moreover, they weren't forced to use explicitly Web Components for their individual applications later on, but would be able to consume the components in their React or Angular applications. If the requirements of the style guide change, or a component needs to get fixed, both teams could collaborate on their shared Web Component UI library.
 
 {{% chapter_header "Getting Started with Web Components" "getting-started-web-components" %}}
+
+If you need a starter project for the following tutorial, you can {{% a_blank "clone this one from GitHub" "https://github.com/rwieruch/web-components-starter-kit" %}}. You should look into the *dist/* and *src/* folders to make your adjustments from the tutorial along the way. The finished project from the tutorial can be found {{% a_blank "here on GitHub" "https://github.com/rwieruch/web-components-dropdown" %}}.
 
 Let's get started with our first web component. We will not start to implement the dropdown component from the beginning, but rather a simple button component which is used later on in the dropdown component. Implementing a simple button component with a Web Component doesn't make much sense, because you could use a `<button>` element with some CSS, however, for the sake of learning about Web Components, we will start out with this button component. Thus, the following code block is sufficient to create a Web Component for an individual button with custom structure and style:
 

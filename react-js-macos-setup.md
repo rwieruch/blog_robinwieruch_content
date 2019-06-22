@@ -2,8 +2,8 @@
 title = "How to setup React.js on MacOS"
 description = "A concise step by step guide on how to setup React.js on MacOS. In a few steps, you will install Visual Studio Code, Node.js, NPM, Git, Prettier and create-react-app for building React applications with Mac OS ..."
 date = "2018-02-20T13:50:46+02:00"
-tags = ["React", "Web Development"]
-categories = ["React", "Web Development"]
+tags = ["React", "VS Code", "Web Development"]
+categories = ["React", "VS Code", "Web Development"]
 keywords = ["react macos setup", "react mac os", "how to install react", "install react"]
 news_keywords = ["react macos setup", "react mac os", "how to install react", "install react"]
 hashtag = "#ReactJs"
@@ -43,9 +43,7 @@ Now, you should check whether the Node.js installation for MacOS was successful.
 
 {{< highlight javascript >}}
 node --version
-*v8.9.4
 npm --version
-*v5.6.0
 {{< /highlight >}}
 
 Now you can install your first node package with npm on the command line. You will install it globally with a -g flag. Because of installing it globally, you will always have access to it on the command line. Later on, when you install a node package for your project without the -g flag, you will only have access to the node package (node module) in your project. On the command line (in Visual Studio Code), type the following command to install {{% a_blank "create-react-app" "https://github.com/facebook/create-react-app" %}}:
@@ -58,7 +56,6 @@ This package allows you to bootstrap React applications with zero-configuration.
 
 {{< highlight javascript >}}
 create-react-app --version
-*v1.5.1
 {{< /highlight >}}
 
 Finally, you can bootstrap your first React.js application on MacOS. You can use create-react-app by passing the name of your application to it on the command line:
@@ -86,47 +83,14 @@ In order to have git available on the command line and in Visual Studio Code, yo
 
 {{< highlight javascript >}}
 git --version
-*git version 2.15.1
 {{< /highlight >}}
 
 If it doesn't show up in Visual Studio Code, you may have to restart the application. Afterward, you should see that Visual Studio Code already comes with a git integration as well. It's convenient to use git from this integration, but you can also use it from the command line now. That's it for the git installation and the account creation on GitHub. Furthermore, you can check out [this essential guide on how to use git and GitHub](https://www.robinwieruch.de/git-essential-commands/).
 
-{{% chapter_header "React with Prettier for Visual Studio Code" "react-prettier-visual-studio-code" %}}
-
-There is one optional step to make your experience as a developer more pleasant. You can install {{% a_blank "Prettier - Code Formatter" "https://github.com/prettier/prettier-vscode" %}} directly in Visual Studio Code. Prettier is an opinionated code formatter for JavaScript. Often you will worry about your code style when implementing your web applications. In addition, it's always difficult to follow one code style as a team in a company. That's why it is convenient to use Prettier as automatic code formatter.
-
-Once you have installed it, you can use it with CTRL + CMD + P to format a file. You should have an opened file to perform it. If you don't want to format your file manually every time, you can perform it on saving the file as well. Therefore you need to open your Visual Studio Code user settings/preferences and put in the following configuration:
-
-{{< highlight javascript >}}
-// Set the default
-"editor.formatOnSave": false,
-// Enable per-language
-"[javascript]": {
-    "editor.formatOnSave": true
-}
-{{< /highlight >}}
-
-Afterward, the file should format automatically once you save it. Now you don't need to worry anymore about your code style in JavaScript and React. You and your team can follow one code style.
-
-If you want to have a configuration for each project, you can add a *.prettierrc* configuration file to it:
-
-{{< highlight javascript >}}
-touch .prettierrc
-{{< /highlight >}}
-
-The following is only my personal recommendation of the content of a prettier configuration file in a project, but you can find all configuration over {{% a_blank "here" "https://prettier.io/docs/en/configuration.html" %}}:
-
-{{< highlight javascript >}}
-{
-  "semi": true,
-  "trailingComma": "all",
-  "singleQuote": true,
-  "printWidth": 70,
-}
-{{< /highlight >}}
-
-After all, Prettier should be able to format your code with the general configuration file but also for each project individually.
-
 <hr class="section-divider">
 
 That's everything you need for a React development setup in MacOS. I hope you have everything to get started in React on your machine. Let me know what other tools you are using on MacOS in the comments below. Otherwise, if you are curios about the tools that I am using on my machine, head over to [my personal development setup guide](https://www.robinwieruch.de/developer-setup).
+
+{{% read_before "This tutorial is part 1 of 2 in this series." "Part 2:" "How to use Prettier in VS Code" "https://www.robinwieruch.de/how-to-use-prettier-vscode" %}}
+
+{{% read_more "How to set up React with Webpack and Babel" "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" %}}

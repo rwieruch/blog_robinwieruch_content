@@ -1,7 +1,7 @@
 +++
 title = "How to use Web Components in React"
-description = "A tutorial on how to use Web Components in React. A helpful library will help you as wrapper to use a custom element within your React component ..."
-date = "2019-06-06T13:50:46+02:00"
+description = "A tutorial on how to use Web Components in React. It comes with a library as a wrapper to use a custom element within your React component for passing props as attributes and event listeners ..."
+date = "2019-06-12T13:50:46+02:00"
 tags = ["Web Components", "React", "JavaScript"]
 categories = ["Web Components", "React", "JavaScript"]
 keywords = ["react web components"]
@@ -12,7 +12,7 @@ banner = "img/posts/react-web-components/banner.jpg"
 contribute = "react-web-components.md"
 headline = "How to use Web Components in React"
 
-summary = "A tutorial on how to use Web Components in React. A helpful library will help you as wrapper to use a custom element within your React component."
+summary = "A tutorial on how to use Web Components in React. It comes with a library as a wrapper to use a custom element within your React component for passing props as attributes and event listeners."
 +++
 
 {{% sponsorship %}}
@@ -52,7 +52,7 @@ const Dropdown = props => {
 
 Let's see how our React component would be used in our React application to get to know the props that we need to pass to our Web Component:
 
-{{< highlight javascript "hl_lines=6 7" >}}
+{{< highlight javascript >}}
 const props = {
   label: 'Label',
   option: 'option1',
@@ -183,7 +183,7 @@ const Dropdown = props => {
 
 The custom hook gives us all the properties in a custom format by formatting all arrays and objects to JSON, keeping the strings, integers, and booleans intact, and removing the functions from the custom props. Instead, the functions will be registered as event listeners within the hook. Don't forget to pass the ref attribute to your Web Component as well, because as you have seen before, it is needed to register all callback functions to the Web Component.
 
-If you want to know more about this custom hook to integrate Web Components in React, check out its {{% a_blank "documentation" "https://github.com/rwieruch/web-components-dropdown" %}}. There you can also see how to create a custom mapping for props to custom props, because you may want to map an `onClick` callback function from the props to a built-in `click` event in the Web Component. Also, if you have any feedback regarding this hook, let me know about it. In the end, if you are using this Web Components hook for your projects, support it by giving it a star.
+If you want to know more about this custom hook to integrate Web Components in React, check out its {{% a_blank "documentation" "https://github.com/the-road-to-learn-react/use-custom-element" %}}. There you can also see how to create a custom mapping for props to custom props, because you may want to map an `onClick` callback function from the props to a built-in `click` event in the Web Component. Also, if you have any feedback regarding this hook, let me know about it. In the end, if you are using this Web Components hook for your projects, support it by giving it a star.
 
 <hr class="section-divider">
 
