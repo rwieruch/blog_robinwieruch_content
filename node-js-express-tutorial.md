@@ -29,7 +29,7 @@ Express.js is the most popular choice when it comes to building web applications
 
 Express.js is exchangeable with other web application frameworks for the backend the same way as React.js is exchangeable with Vue.js and Angular.js when it comes to frontend applications. The Node.js ecosystem doesn't offer only one solution, but various solutions that come with their strengths and weaknesses. However, for this application we will use a Express server, because it is the most popular choice when it comes to building JavaScript backend applications with Node.js.
 
-The Node.js application from before comes with a watcher script to restart your application once your source code has changed, Babel to enable JavaScript features that are not supported in Node.js yet, and environment variables for your application's sensible information. That's a great foundation to get you started with Express.js in Node.js. Let's continue by installing Express.js in your Node.js application from before on the command line:
+The Node.js application from before comes with a watcher script to restart your application once your source code has changed, Babel to enable JavaScript features that are not supported in Node.js yet, and environment variables for your application's sensitive information. That's a great foundation to get you started with Express.js in Node.js. Let's continue by installing Express.js in your Node.js application from before on the command line:
 
 {{< highlight javascript >}}
 npm install express
@@ -141,7 +141,7 @@ app.listen(process.env.PORT, () =>
 );
 {{< /highlight >}}
 
-Instead of exposing the port that is used in the source code, you have stored it at a more sensible place in your environment variables. If you are using Git with something like GitHub, you can exclude the *.env* from being uploaded to the GitHub repository by adding it to your *.gitignore* file. That's how sensible data is kept away from public Git repositories like GitHub. If you deploy your application to production eventually, you can add the environment variables as *.env* file on your web server which is serving your application.
+Instead of exposing the port that is used in the source code, you have stored it at a more sensitive place in your environment variables. If you are using Git with something like GitHub, you can exclude the *.env* from being uploaded to the GitHub repository by adding it to your *.gitignore* file. That's how sensitive data is kept away from public Git repositories like GitHub. If you deploy your application to production eventually, you can add the environment variables as *.env* file on your web server which is serving your application.
 
 ### Exercises:
 

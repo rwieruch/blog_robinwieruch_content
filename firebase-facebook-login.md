@@ -25,7 +25,7 @@ First, on your Firebase project's dashboard, navigate to the Authentication/Sign
 
 {{% pin_it_image "firebase sign in methods" "img/posts/firebase-facebook-login/banner.jpg" "is-src-set" %}}
 
-When enabling the Facebook login method, where no email is needed to sign in to your application later, you need to provide an API key and API secret. Note that all shown sensible data is fake here, so there is no need to do something with it.
+When enabling the Facebook login method, where no email is needed to sign in to your application later, you need to provide an API key and API secret. Note that all shown sensitive data is fake here, so there is no need to do something with it.
 
 {{% pin_it_image "firebase facebook login web" "img/posts/firebase-facebook-login/firebase-sign-in-method-facebook.jpg" "is-src-set" %}}
 

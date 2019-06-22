@@ -70,7 +70,7 @@ git init
 touch .gitignore
 {{< /highlight >}}
 
-For instance, you may want to ignore the *.env* file where you store sensible environment variables of your project or the *node_modules/* folder for not uploading all your project dependencies to your remote GitHub repository.
+For instance, you may want to ignore the *.env* file where you store sensitive environment variables of your project or the *node_modules/* folder for not uploading all your project dependencies to your remote GitHub repository.
 
 {{< highlight javascript >}}
 .env

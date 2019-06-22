@@ -398,7 +398,7 @@ export default compose(
 )(AccountPage);
 {{< /highlight >}}
 
-All the sensible routes for authenticated users now require a confirmed email. Finally, your application can be only used by users with real email addresses.
+All the sensitive routes for authenticated users now require a confirmed email. Finally, your application can be only used by users with real email addresses.
 
 ### Exercises:
 

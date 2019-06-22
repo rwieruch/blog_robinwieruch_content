@@ -41,7 +41,7 @@ Above of the "Add an app to get started" you find three icons whereas the last o
 ￼
 {{% pin_it_image "firebase configuration" "img/posts/firebase-tutorial/firebase-configuration.jpg" "is-src-set" %}}
 
-It is recommended to keep this sensible data in your environment variables in your project to configure your application. Even though this information is accessible in your client-side application, it's okay to have them publicly available. You need to project your Firebase application later with other mechanisms (.e.g Read/Write Rules, Domain Restrictions). That's it for the Firebase setup with a configuration. You should be able to get along with the initial steps of setting up a Firebase application. 
+It is recommended to keep this sensitive data in your environment variables in your project to configure your application. Even though this information is accessible in your client-side application, it's okay to have them publicly available. You need to project your Firebase application later with other mechanisms (.e.g Read/Write Rules, Domain Restrictions). That's it for the Firebase setup with a configuration. You should be able to get along with the initial steps of setting up a Firebase application. 
 
 {{% chapter_header "Firebase Authentication" "firebase-authentication" %}}
 

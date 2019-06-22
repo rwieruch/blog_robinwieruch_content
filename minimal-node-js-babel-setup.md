@@ -140,7 +140,7 @@ console.log('Hello Node.js project.');
 console.log(process.env.MY_SECRET);
 {{< /highlight >}}
 
-Start the npm script again, and you should see the environmental variable in the command line. Now you are able to store sensible data separate from the source code.
+Start the npm script again, and you should see the environmental variable in the command line. Now you are able to store sensitive data separate from the source code.
 
 Now, consider the following code for your *src/index.js* file, where a function is imported from another file from this project.
 
@@ -158,7 +158,7 @@ import 'dotenv/config';
 import saySomething from './my-other-file.js'
 {{< /highlight >}}
 
-That's a basic understanding of Node.js environment variables. They should be used to keep sensible data secure in JavaScript applications, but shouldn't be shared on public GitHub repositories when using git.
+That's a basic understanding of Node.js environment variables. They should be used to keep sensitive data secure in JavaScript applications, but shouldn't be shared on public GitHub repositories when using git.
 
 ### Exercises:
 
@@ -171,7 +171,7 @@ That's a basic understanding of Node.js environment variables. They should be us
 
 <hr class="section-divider">
 
-This guide has shown you how to create a Node.js project from scratch, and how you can introduce upcoming JavaScript features in your Node.js environment using Babel. You have seen how npm scripts are used to start, test, and deploy applications, and how environment variables secure sensible data like private API keys and user credentials. The finished product is a node package that can be open sourced on npm, another rewarding aspect of working with the Node.js ecosystem.
+This guide has shown you how to create a Node.js project from scratch, and how you can introduce upcoming JavaScript features in your Node.js environment using Babel. You have seen how npm scripts are used to start, test, and deploy applications, and how environment variables secure sensitive data like private API keys and user credentials. The finished product is a node package that can be open sourced on npm, another rewarding aspect of working with the Node.js ecosystem.
 
 {{% read_before "This tutorial is part 1 of 2 in the series." "Part 2:" "How to setup Express.js in Node.js" "https://www.robinwieruch.de/node-js-express-tutorial/" %}}
 
