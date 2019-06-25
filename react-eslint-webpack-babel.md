@@ -2,8 +2,8 @@
 title = "How to use ESLint in React"
 description = "You want to setup ESLint in your React application? Your project is set up with Babel and Webpack? This tutorial will guide you through the ESLint in React setup ..."
 date = "2019-06-15T13:56:46+02:00"
-tags = ["React", "JavaScript", "Tooling"]
-categories = ["React", "JavaScript", "Tooling"]
+tags = ["React", "JavaScript", "Tooling", "Webpack", "Babel", "ESLint"]
+categories = ["React", "JavaScript", "Tooling", "Webpack", "Babel", "ESLint"]
 keywords = ["react eslint"]
 news_keywords = ["react eslint"]
 hashtag = "#ReactJs"

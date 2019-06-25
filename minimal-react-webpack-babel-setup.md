@@ -2,8 +2,8 @@
 title = "How to set up React with Webpack and Babel [Tutorial]"
 description = "A step by step tutorial to set up React with Webpack and Babel from scratch for beginners. You will learn everything about the tooling around React ..."
 date = "2019-06-15T13:55:46+02:00"
-tags = ["React", "JavaScript", "Tooling"]
-categories = ["React", "JavaScript", "Tooling"]
+tags = ["React", "JavaScript", "Tooling", "Webpack", "Babel"]
+categories = ["React", "JavaScript", "Tooling", "Webpack", "Babel"]
 keywords = ["react webpack", "react webpack babel", "react babel", "react webpack tutorial", "react webpack example", "react webpack boilerplate"]
 news_keywords = ["react webpack", "react webpack babel", "react babel", "react webpack tutorial", "react webpack example", "react webpack boilerplate"]
 hashtag = "#ReactJs"
@@ -60,7 +60,7 @@ In your *.babelrc* (or *package.json*) file -- depending on where you have your 
 }
 {{< /highlight >}}
 
-Next, let's inform Webpack about files with the JSX extension to make sure that they run through the transpiling step as well:
+Next, let's inform Webpack in our *webpack.config.js* file about files with the JSX extension to make sure that they run through the transpiling step as well:
 
 {{< highlight javascript "hl_lines=6 13" >}}
 module.exports = {
@@ -242,3 +242,5 @@ Congratulations, you have created your [first function component](https://www.ro
 {{% read_before_2 "This tutorial is part 1 of 3 in the series." "Part 2:" "How to use ESLint in Webpack" "https://www.robinwieruch.de/eslint-webpack/" "Part 3:" "How to use ESLint in React" "https://www.robinwieruch.de/react-eslint-webpack-babel/" %}}
 
 {{% read_more "How to use Prettier in VS Code" "https://www.robinwieruch.de/how-to-use-prettier-vscode/" %}}
+
+{{% read_more "How to set up an advanced Webpack application" "https://www.robinwieruch.de/webpack-advanced-setup-tutorial/" %}}

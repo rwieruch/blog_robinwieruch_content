@@ -2,8 +2,8 @@
 title = "The minimal Node.js with Babel Setup"
 description = "A common sense minimal Node.js setup guide which uses Babel and Nodemon: Whereas Babel with the Babel Cli is used for enabling recent JavaScript language features, Nodemon is used for keeping your node process up and running ..."
 date = "2019-06-15T13:58:46+02:00"
-tags = ["Node", "Web Development", "Tooling", "JavaScript"]
-categories = ["Node", "Web Development", "Tooling", "JavaScript"]
+tags = ["Node", "Web Development", "Tooling", "JavaScript", "Babel"]
+categories = ["Node", "Web Development", "Tooling", "JavaScript", "Babel"]
 keywords = ["node setup", "node js setup", "node babel setup", "node js babel setup"]
 news_keywords = ["node setup", "node js setup", "node babel setup", "node js babel setup"]
 hashtag = "#NodeJs"

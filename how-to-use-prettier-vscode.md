@@ -3,8 +3,8 @@
 title = "How to use Prettier in VS Code"
 description = "Tutorial on how to install Prettier for VS Code (Visual Studio Code). Get to know how to configure Prettier to format on save and how to write a configuration file for line length and other formatting options ..."
 date = "2019-06-14T13:50:46+02:00"
-tags = ["VS Code", "Web Development"]
-categories = ["VS Code", "Web Development"]
+tags = ["JavaScript", "VS Code", "Web Development", "Tooling", "Prettier", "ESLint"]
+categories = ["JavaScript", "VS Code", "Web Development", "Tooling", "Prettier", "ESLint"]
 keywords = ["vscode prettier", "vscode prettier on save", "vscode prettier format on save", "vscode prettier line length", "install prettier vscode"]
 news_keywords = ["vscode prettier", "vscode prettier on save", "vscode prettier format on save", "vscode prettier line length", "install prettier vscode"]
 hashtag = "#VSCode"

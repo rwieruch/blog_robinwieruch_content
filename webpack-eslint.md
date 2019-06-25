@@ -2,8 +2,8 @@
 title = "How to use ESLint in Webpack"
 description = "The tutorial walks you through a Webpack with ESLint setup to improve the code style of your JavaScript applications ..."
 date = "2019-06-15T13:53:46+02:00"
-tags = ["JavaScript", "Tooling"]
-categories = ["JavaScript", "Tooling"]
+tags = ["JavaScript", "Tooling", "Webpack", "Babel", "ESLint"]
+categories = ["JavaScript", "Tooling", "Webpack", "Babel", "ESLint"]
 keywords = ["webpack eslint"]
 news_keywords = ["webpack eslint"]
 hashtag = "#Webpack"
@@ -199,3 +199,5 @@ Still, once your JavaScript project is set up, you need to run `eslint --init` i
 * Set up a new JavaScript project and run `eslint --init` yourself
 
 {{% read_before_2 "This tutorial is part 1 of 3 in the series." "Part 2:" "How to use Prettier in VS Code" "https://www.robinwieruch.de/how-to-use-prettier-vscode/" "Part 3:" "How to make Prettier work with ESLint" "https://www.robinwieruch.de/prettier-eslint/" %}}
+
+{{% read_more "How to set up an advanced Webpack application" "https://www.robinwieruch.de/webpack-advanced-setup-tutorial/" %}}

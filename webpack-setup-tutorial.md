@@ -2,8 +2,8 @@
 title = "How to set up a Webpack project [Tutorial]"
 description = "A Webpack setup tutorial that walks you through your first JavaScript application set up with Webpack. Bonus: You will add Babel to enable advanced JavaScript features ..."
 date = "2019-06-15T13:51:46+02:00"
-tags = ["JavaScript", "Tooling"]
-categories = ["JavaScript", "Tooling"]
+tags = ["JavaScript", "Tooling", "Webpack"]
+categories = ["JavaScript", "Tooling", "Webpack"]
 keywords = ["webpack setup", "webpack tutorial", "webpack babel"]
 news_keywords = ["webpack setup", "webpack tutorial", "webpack babel"]
 hashtag = "#Webpack"
