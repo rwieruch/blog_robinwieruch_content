@@ -920,7 +920,7 @@ const Button = ({ onClick, children }) =>
 );
 {{< /highlight >}}
 
-The `console.log()` always evaluates to true and thus the component is still being rendered. That's how you can easily get a logging for your props in between your input and output of your functional stateless component.
+The `console.log()` always evaluates to undefined (a falsey value) and thus the component is still being rendered. That's how you can easily get a logging for your props in between your input and output of your functional stateless component.
 
 {{% sub_chapter_header "React props key is undefined" "react-props-key-undefined" %}}
 
