@@ -84,7 +84,7 @@ Arguably, a React class component may not be the best starting point. There are 
 
 Being confronted with a React class component in the beginning, requires the prior knowledge about JavaScript classes. One would assume that this is given knowledge, but it isn't, because JavaScript classes are fairly new in the language. Previously, there was only {{% a_blank "JavaScript's prototype chain" "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" %}} which could be used for inheritance too. JavaScript classes build up on top of the prototypical inheritance giving the whole thing a simpler representation.
 
-One way to define a React component is using a JavaScript class. In order to understand JavaScript classes, you can take some time learning about them without React.
+One way to define a {{% a_blank "React component" "https://buttercms.com/blog/building-reusable-components-using-react" %}} is using a JavaScript class. In order to understand JavaScript classes, you can take some time learning about them without React.
 
 {{< highlight javascript >}}
 class Developer {
