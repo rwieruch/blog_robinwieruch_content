@@ -89,7 +89,7 @@ function Button({ onClick, children }) {
 }
 {{< /highlight >}}
 
-It is a good practice to use functional stateless components whenever you can. That means whenever you don't need access to the component state or lifecycle methods. It embraces a best practices around components where you keep them lightweight and small yet reusable, composeable and functional without any side effects. By having such a small boilerplate you are encouraged to follow these best practices.
+It is a good practice to use functional stateless components whenever you can. That means whenever you don't need access to the component state or lifecycle methods. It embraces a best practices around components where you keep them lightweight and small yet reusable, composable and functional without any side effects. By having such a small boilerplate you are encouraged to follow these best practices.
 
 {{% chapter_header "Unidirectional Data Flow" "unidirectionalDataFlow" %}}
 
