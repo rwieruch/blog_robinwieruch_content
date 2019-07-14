@@ -111,6 +111,6 @@ Babel enables you to use future JavaScript features in your browser, because it 
 
 {{% read_before "This tutorial is part 1 of 2 in 'React Setup'-series." "Part 2:" "How to set up React with Webpack and Babel" "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" %}}
 
-{{% read_before "This tutorial is part 1 of 2 in 'Webpack with ESLint'-series." "Part 2:" "How to use ESLint in Webpack" "https://www.robinwieruch.de/eslint-webpack/" %}}
+{{% read_before "This tutorial is part 1 of 2 in 'Webpack with ESLint'-series." "Part 2:" "How to use ESLint in Webpack" "https://www.robinwieruch.de/webpack-eslint/" %}}
 
 {{% read_before_2 "This tutorial is part 2 of 3 in 'Webpack Setup'-series." "Part 1:" "How to set up a Webpack project" "https://www.robinwieruch.de/webpack-setup-tutorial/" "Part 3:" "How to set up an advanced Webpack application" "https://www.robinwieruch.de/webpack-advanced-setup-tutorial/" %}}

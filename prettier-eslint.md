@@ -32,7 +32,7 @@ As mentioned earlier, whereas Prettier takes care of your code formatting, ESLin
 
 First, make sure you have Prettier and ESLint installed. You can install them on a per project basis or globally with `npm install -g prettier eslint`. I like to install them globally, because I use them in every of my projects. This way, I don't need to worry about installing them for each project. However, if you are working on a project as a team, it makes sense to install both packages to your project as well.
 
-*Note: If you install ESLint globally once, you still need to run `eslint --init` on the command line for your project. It gives you an installation prompt on the command line to step through a dynamic ESLint configuration on a per project basis. Additionally, it comes with a local installation of ESLint for your project. If you want to learn more about ESLint and its configuration, scan through this [ESLint tutorial without worrying about the part about Webpack](https://www.robinwieruch.de/eslint-webpack).*
+*Note: If you install ESLint globally once, you still need to run `eslint --init` on the command line for your project. It gives you an installation prompt on the command line to step through a dynamic ESLint configuration on a per project basis. Additionally, it comes with a local installation of ESLint for your project. If you want to learn more about ESLint and its configuration, scan through this [ESLint tutorial without worrying about the part about Webpack](https://www.robinwieruch.de/webpack-eslint).*
 
 Second, install the Prettier and ESLint extension/plugin for your editor/IDE. For instance, in VSCode you can find {{% a_blank "Prettier" "https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode" %}} and {{% a_blank "ESLint" "https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" %}} extensions on their marketplace. I guess it's quite similar for your IDE/editor of choice.
 
@@ -79,4 +79,4 @@ Prettier makes sure that trailing semicolons and commas are enforced, that only 
 
 That's it. Both configuration files for Prettier and ESLint can be adjusted to your needs. If you need to add rules, you can do it with both files. If you need to disable a rule coming from the Airbnb style guide, you can do it in the ESLint configuration.
 
-{{% read_more "How to use ESLint in Webpack" "https://www.robinwieruch.de/eslint-webpack/" %}}
+{{% read_more "How to use ESLint in Webpack" "https://www.robinwieruch.de/webpack-eslint/" %}}

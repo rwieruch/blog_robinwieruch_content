@@ -239,8 +239,14 @@ export default App;
 
 Congratulations, you have created your [first function component](https://www.robinwieruch.de/react-function-component/) and [passed props](https://www.robinwieruch.de/react-pass-props-to-component/) to it. That's it for a minimal React setup with Babel and Webpack. Let me know your thoughts and whether there are things to improve the setup. You can find the {{% a_blank "repository on GitHub" "https://github.com/rwieruch/minimal-react-webpack-babel-setup" %}}.
 
-{{% read_before_2 "This tutorial is part 1 of 3 in the series." "Part 2:" "How to use ESLint in Webpack" "https://www.robinwieruch.de/eslint-webpack/" "Part 3:" "How to use ESLint in React" "https://www.robinwieruch.de/react-eslint-webpack-babel/" %}}
+### Exercises:
+
+* Check out the [advanced Webpack setup](https://www.robinwieruch.de/webpack-advanced-setup-tutorial)
+  * Put it into your minimal React with Webpack application
+  * Confirm your final result with the official {{% a_blank "advanced React with Webpack setup" "https://github.com/rwieruch/advanced-react-webpack-babel-setup" %}}
+
+{{% read_before_2 "This tutorial is part 1 of 3 in the series." "Part 2:" "How to use ESLint in Webpack" "https://www.robinwieruch.de/webpack-eslint/" "Part 3:" "How to use ESLint in React" "https://www.robinwieruch.de/react-eslint-webpack-babel/" %}}
 
 {{% read_more "How to use Prettier in VS Code" "https://www.robinwieruch.de/how-to-use-prettier-vscode/" %}}
 
-{{% read_more "How to set up an advanced Webpack application" "https://www.robinwieruch.de/webpack-advanced-setup-tutorial/" %}}
+{{% read_more "How to use SVG Icons as React Components?" "https://www.robinwieruch.de/react-svg-icon-components/" %}}

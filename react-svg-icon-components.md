@@ -193,6 +193,42 @@ npm install @svgr/webpack --save-dev
 
 Once you start your application, Webpack is doing its thing and you don't need to worry about your SVGs anymore. You can put your SVG files anywhere in your *src/* folder and import them wherever you need them as React components. There is no need anymore for the SVGR npm script in your *package.json* file which we have implemented in the previous section.
 
+{{% sub_chapter_header "Alternative: react-svg-loader" "react-svg-loader" %}}
+
+If you are using Webpack, you can also use a simplified SVG loader instead of SVGR. For instance, {{% a_blank "react-svg-loader" "https://github.com/boopathi/react-svg-loader" %}} can be used within your Webpack configuration. Note that it replaces SVGR:
+
+{{< highlight javascript "hl_lines=12 13 14 15 16 17" >}}
+const webpack = require('webpack');
+
+module.exports = {
+  entry: './src/index.js',
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
+      },
+      {
+        loader: 'react-svg-loader',
+        options: {
+          jsx: true // true outputs JSX tags
+        }
+      }
+    ],
+  },
+  ...
+};
+{{< /highlight >}}
+
+Also you need to install it:
+
+{{< highlight javascript >}}
+npm install react-svg-loader --save-dev
+{{< /highlight >}}
+
+Afterward, you can import SVG files the same way as React components as you did before with SVGR. It can be seen as a lightweight alternative to SVGR.
+
 {{% chapter_header "SVGR Templates for advanced SVGs" "svgr-templates" %}}
 
 When I worked with my last client on their React application, I had the problem of dealing with SVG icons which had only partially the {{% a_blank "viewBox" "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox" %}} attribute. Since this attribute is needed for giving your SVG icons a size, I had to find a way around to introduce this attribute whenever it wasn't present for an icon. Now I could go through every SVG icon to fix this issue, however, dealing with more than 500 icons doesn't make this a comfortable task. Let me show how I dealt with it by using SVGR templates instead.
@@ -287,17 +323,22 @@ module.exports = {
 
 This should work to give all icons a blue fill attribute. However, simple use cases like this are already provided by SVGR itself. Just check out their documentation on how to add/replace/remove attribute from SVGs.
 
+{{% sub_chapter_header "SVGR with custom viewBox attribute" "svgr-templates-viewbox" %}}
+
 In our case, we wanted to compute the viewBox attribute for every SVG icon where the attribute isn't present. First, remove the viewBox attribute from one of your SVGs to see that it's not rendered properly anymore. After confirming the bug, we will try to fix it by using the introduced SVGR template and an external [React Hook](https://www.robinwieruch.de/react-hooks/):
 
 {{< highlight javascript >}}
 import React from 'react';
 
-const useViewbox = ref => {
+const useWithViewbox = ref => {
   React.useLayoutEffect(() => {
     if (
       ref.current !== null &&
       // only if there is no viewBox attribute
       !ref.current.getAttribute('viewBox') &&
+      // only if not test (JSDOM)
+      // https://github.com/jsdom/jsdom/issues/1423
+      ref.current.getBBox &&
       // only if rendered
       // https://stackoverflow.com/questions/45184101/error-ns-error-failure-in-firefox-while-use-getbbox
       ref.current.getBBox().width &&
@@ -313,7 +354,7 @@ const useViewbox = ref => {
   });
 };
 
-export default useViewbox;
+export default useWithViewbox;
 {{< /highlight >}}
 
 The React hook only needs a reference (ref) to the SVG components in order to set the viewBox attribute. The measurements for the viewBox attribute are computed based on the rendered icon. If the icon hasn't been rendered or the viewBox attribute is already present, we do nothing.
@@ -324,7 +365,7 @@ The hook should be somewhere available not far away from our *src/Icons/* folder
 src/
 -- index.js
 -- App.js
--- useViewbox.js
+-- useWithViewbox.js
 -- Icons/
 ---- twitter.svg
 ---- facebook.svg
@@ -353,12 +394,12 @@ module.exports = {
                 { imports, componentName, props, jsx, exports }
               ) => template.ast`
                 ${imports}
-                import useViewbox from '../useViewbox';
+                import useWithViewbox from '../useWithViewbox';
 
                 const ${componentName} = (${props}) => {
                   const ref = React.createRef();
 
-                  useViewbox(ref);
+                  useWithViewbox(ref);
 
                   props = { ...props, ref };
 
@@ -377,7 +418,7 @@ module.exports = {
 };
 {{< /highlight >}}
 
-Having this in place, SVGR's template feature will add the custom hook to every generated icon component. The hook only runs for icon components which have no viewBox attribute though. If you run your application again, you should see all icon components rendered properly, even though you may have removed the viewBox attribute from one of them.
+Having this in place, SVGR's template feature will add the {{% a_blank "custom hook" "https://github.com/the-road-to-learn-react/use-with-viewbox" %}} to every generated icon component. The hook only runs for icon components which have no viewBox attribute though. If you run your application again, you should see all icon components rendered properly, even though you may have removed the viewBox attribute from one of them.
 
 <hr class="section-divider">
 

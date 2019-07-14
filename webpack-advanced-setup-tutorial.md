@@ -1,18 +1,18 @@
 +++
 title = "How to set up an advanced Webpack application"
-description = "A step by step tutorial on how to set up an advanced Webpack application. It comes with development and production build, automations, and source maps ..."
+description = "A step by step tutorial on how to set up an advanced Webpack 4 application. It comes with Babel 7, development and production build, automations, and source maps ..."
 date = "2019-06-22T13:52:46+02:00"
 tags = ["JavaScript", "Tooling", "Webpack", "Babel"]
 categories = ["JavaScript", "Tooling", "Webpack", "Babel"]
-keywords = ["webpack advanced"]
-news_keywords = ["webpack advanced"]
+keywords = ["webpack advanced", "webpack 4 tutorial"]
+news_keywords = ["webpack advanced", "webpack 4 tutorial"]
 hashtag = "#Webpack"
 card = "img/posts/webpack-advanced-setup-tutorial/banner_640.jpg"
 banner = "img/posts/webpack-advanced-setup-tutorial/banner.jpg"
 contribute = "webpack-advanced-setup-tutorial.md"
 headline = "How to set up an advanced Webpack application"
 
-summary = "A step by step tutorial on how to set up an advanced Webpack application. It comes with development and production build, automations, and source maps."
+summary = "A step by step tutorial on how to set up an advanced Webpack 4 application. It comes with Babel 7, development and production build, automations, and source maps."
 +++
 
 {{% sponsorship %}}
@@ -21,7 +21,7 @@ summary = "A step by step tutorial on how to set up an advanced Webpack applicat
 
 {{% read_before_2 "This tutorial is part 3 of 3 in 'Webpack Setup'-series." "Part 1:" "How to set up a Webpack project" "https://www.robinwieruch.de/webpack-setup-tutorial/" "Part 2:" "How to set up Webpack with Babel" "https://www.robinwieruch.de/webpack-babel-setup-tutorial/" %}}
 
-The previous tutorials have shown you how to set up a basic web application with Webpack. So far, Webpack is only used to bundle all your JavaScript files, to transpile new JavaScript features via Babel, and to serve your bundle in development mode via Webpack's Development Server. Basically that's everything that's needed to get started with creating your first web application.
+The previous tutorials have shown you how to set up a basic web application with Webpack 4. So far, Webpack is only used to bundle all your JavaScript files, to transpile new JavaScript features via Babel, and to serve your bundle in development mode via Webpack's Development Server. Basically that's everything that's needed to get started with creating your first web application.
 
 However, Webpack comes with so much more to explore. For instance, eventually you may want to take your project to production. That's when Webpack can help you to build a production ready bundle which comes with all the optimizations for your source code. In this tutorial, you will learn more about Webpack and how to configure it to your needs. If you don't have a basic Webpack application at your hands, you can take {{% a_blank "this one" "https://github.com/rwieruch/minimal-webpack-babel-setup" %}} from the previous tutorials. The final advanced Webpack setup can be found on {{% a_blank "GitHub" "https://github.com/rwieruch/webpack-advanced-setup" %}} as well. Make sure to give it a start if you like it.
 
@@ -689,6 +689,9 @@ You will see your build optimized Webpack bundle with two different visualizatio
   * You should see that Lodash makes up a huge part of your Webpack bundle whereas your actual source code takes up only a minimal part
 * Explore more Webpack addons and introduce them to your application
   * You can also come up with more npm scripts for different Webpack addons
+* Optional React: Check out the [minimal React with Webpack setup](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/)
+  * Put it into your advanced Webpack application
+  * Confirm your final result with the official {{% a_blank "advanced React with Webpack setup" "https://github.com/rwieruch/advanced-react-webpack-babel-setup" %}}
 
 <hr class="section-divider">
 

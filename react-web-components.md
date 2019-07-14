@@ -103,7 +103,7 @@ const Dropdown = ({ label, option, options, onChange }) => {
 
 That's it for the object. Next, we need to take care about the function. Rather than passing it as attribute, we need to register an event listener for it. That's where we can use React's useLayoutEffect when the component is rendered for the first time:
 
-{{< highlight javascript "hl_lines=6 8 9 10 11 12 16" >}}
+{{< highlight javascript "hl_lines=6 8 9 10 11 12 13 14 18" >}}
 import React from 'react';
 
 import 'road-dropdown';
@@ -112,10 +112,12 @@ const Dropdown = ({ label, option, options, onChange }) => {
   const ref = React.createRef();
 
   React.useLayoutEffect(() => {
-    ref.current.addEventListener('onChange', customEvent =>
+    const { current } = ref;
+
+    current.addEventListener('onChange', customEvent =>
       onChange(customEvent.detail)
     );
-  }, []);
+  }, [ref]);
 
   return (
     <road-dropdown
@@ -134,7 +136,7 @@ We are creating a reference for our Custom Element -- which is passed as ref att
 
 An improvement would be to extract the event listener callback function in order to remove the listener when the component unmounts.
 
-{{< highlight javascript "hl_lines=9 11 13" >}}
+{{< highlight javascript "hl_lines=9 13 15" >}}
 import React from 'react';
 
 import 'road-dropdown';
@@ -145,10 +147,12 @@ const Dropdown = ({ label, option, options, onChange }) => {
   React.useLayoutEffect(() => {
     const handleChange = customEvent => onChange(customEvent.detail);
 
-    ref.current.addEventListener('onChange', handleChange);
+    const { current } = ref;
 
-    return () => ref.current.removeEventListener('onChange', handleChange);
-  }, []);
+    current.addEventListener('onChange', handleChange);
+
+    return () => current.removeEventListener('onChange', handleChange);
+  }, [ref]);
 
   return (
     <road-dropdown

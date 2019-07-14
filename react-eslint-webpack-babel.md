@@ -19,7 +19,7 @@ summary = "You want to setup ESLint in your React application? Your project is s
 
 {{% pin_it_image "react eslint" "img/posts/react-eslint-webpack-babel/banner.jpg" "is-src-set" %}}
 
-{{% read_before_2 "This tutorial is part 3 of 3 in the series." "Part 1:" "How to set up React with Webpack and Babel" "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" "Part 2:" "How to use ESLint in Webpack" "https://www.robinwieruch.de/eslint-webpack/" %}}
+{{% read_before_2 "This tutorial is part 3 of 3 in the series." "Part 1:" "How to set up React with Webpack and Babel" "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" "Part 2:" "How to use ESLint in Webpack" "https://www.robinwieruch.de/webpack-eslint/" %}}
 
 In this tutorial I want to walk you through setting up ESLint for React. You should go through the previous tutorials in order to learn about the basic setup for Webpack and ESLint though. It will also tell you about all the benefits that come with the code style improvements which ESLint is giving your projects.
 
