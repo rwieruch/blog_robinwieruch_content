@@ -493,7 +493,7 @@ That's it. Your `npm start` and `npm run build` scripts should work now. Both ar
 
 {{% chapter_header "Webpack Environment Variables: Definition" "webpack-environment-variables-definition" %}}
 
-Sometimes you may want to know in your source code whether you are in development or production mode. For these cases you can specify dynamic environment variables via Webpack. Since you have a Webpack configuration file for each environment (dev, prod), you can define dedciated environment variables for them. In your *build-utils/webpack.dev.js*, define a environment variable the following way:
+Sometimes you may want to know in your source code whether you are in development or production mode. For these cases you can specify dynamic environment variables via Webpack. Since you have a Webpack configuration file for each environment (dev, prod), you can define dedicated environment variables for them. In your *build-utils/webpack.dev.js*, define a environment variable the following way:
 
 {{< highlight javascript "hl_lines=1 6 7 8 9 10 11 12" >}}
 const { DefinePlugin } = require('webpack');
