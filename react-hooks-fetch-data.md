@@ -154,7 +154,7 @@ function App() {
 export default App;
 {{< /highlight >}}
 
-That's data fetching with React hooks in a nutshell. But continue reading if you are interested about error handling, loading indicators, how to trigger the data fetching from a form, and how to implment a reusable data fetching hook.
+That's data fetching with React hooks in a nutshell. But continue reading if you are interested about error handling, loading indicators, how to trigger the data fetching from a form, and how to implement a reusable data fetching hook.
 
 {{% chapter_header "How to trigger a hook programmatically/manually?" "react-hooks-programmatically" %}}
 
