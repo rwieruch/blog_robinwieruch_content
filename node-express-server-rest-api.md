@@ -342,34 +342,29 @@ app.post('/messages', (req, res) => {
 ...
 {{< /highlight >}}
 
-However, accessing the payload of a HTTP POST request this way isn't provided by Express out of the box. Either you would have to transform the body payload yourself or use a dedicated middleware to make this transformation happen for you. Install and use a well-known middleware for this purpose:
+Accessing the payload of an HTTP POST request is now provided within Express in version 4.16.0+.  Express exposes this built-in middleware (based on ({{% a_blank "body-parser" "http://expressjs.com/en/resources/middleware/body-parser.html" %}}) under the covers) to transform two of the body types we might receive - json, and urlencoded.
 
-{{< highlight javascript >}}
-npm install body-parser
-{{< /highlight >}}
+We can use the built-in middleware like so:
 
-Next use it for your Express application as middleware:
-
-{{< highlight javascript "hl_lines=2 9 10" >}}
+{{< highlight javascript "hl_lines=8 9" >}}
 ...
-import bodyParser from 'body-parser';
 import express from 'express';
 
 const app = express();
 
 ...
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 ...
 {{< /highlight >}}
 
-The body-parser extracts the entire body portion of an incoming request stream and makes it accessible on `req.body` ({{% a_blank "Source" "https://www.quora.com/What-exactly-does-body-parser-do-with-express-js-and-why-do-I-need-it" %}}):
+This extracts the entire body portion of an incoming request stream and makes it accessible on `req.body` ({{% a_blank "Source" "http://expressjs.com/en/4x/api.html#express.json" %}}):
 
-* bodyParser.json(): Parses the text as JSON and exposes the resulting object on req.body.
+* express.json(): Parses the text as JSON and exposes the resulting object on req.body.
 
-* bodyParser.urlencoded(): Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST) and exposes the resulting object (containing the keys and values) on req.body.
+* express.urlencoded(): Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST) and exposes the resulting object (containing the keys and values) on req.body.
 
 Now the body with the message's text is accessible in the request whether it is send by a regular POST request or a POST request from a HTML form. Both ways should work now. All data should be received and send as JSON payload now. That's another aspect of REST, which itself is no opinionated about the payload format (JSON, XML), but once you have chosen a format, you should stick to it for your entire API.
 
