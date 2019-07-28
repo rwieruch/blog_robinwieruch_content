@@ -308,25 +308,22 @@ There are two alternatives in my eyes for authentication in React which are brie
 
 {{% chapter_header "Testing in React" "react-testing" %}}
 
-Testing in React is a too rarely touched topic. Writing tests is an essential part of software development to ensure a robust application. Tests enable us to automatically verify that our application is working on a certain level. The certain level depends on the quality, quantity (coverage) and type of your tests (unit tests, integration tests, end-to-end tests). So here comes my recommendation on the testing frameworks you could use for your React application.
+Writing tests is an essential part of software development to ensure a robust application. Tests enable us to automatically verify that our application is working on a certain level. The certain level depends on the quality, quantity (coverage) and type of your tests (unit tests, integration tests, end-to-end tests). So here comes my recommendation on the testing frameworks you could use for your React application.
 
 {{% a_blank "Mocha" "https://github.com/mochajs/mocha" %}} and {{% a_blank "Chai" "https://github.com/chaijs/chai" %}} are a pair of two testing frameworks which are used quite often together. Whereas Mocha is your test runner which makes it possible that your tests run via npm scripts and which encapsulates your tests in test suites, Chai is used for assertion such as `to.equal()`. It's the perfect combination for React applications to start out with simple testing use case such as pure functions. If you need to test asynchronous business logic eventually, you should definitely checkout {{% a_blank "Sinon" "https://github.com/sinonjs/sinon" %}}.
 
-Once you want to test your components, you can add {{% a_blank "Enzyme" "https://github.com/airbnb/enzyme" %}} to your set of testing frameworks for unit and integration tests. It's a library by Airbnb which makes it possible to render your components, simulate events on HTML elements and make expectations on your props, state and DOM nodes.
+Once you want to test your components, you can add {{% a_blank "Enzyme" "https://github.com/airbnb/enzyme" %}} to your set of testing libraries for rendering actual React components. It's a library by Airbnb which makes it possible to render your components, simulate events on HTML elements and make expectations on your props, state and DOM nodes. An alternative to Enzyme is {{% a_blank "React Testing Library" "https://github.com/testing-library/react-testing-library" %}} which follows a different testing philosohpy than Enzyme.
 
-Last but not least, you can add {{% a_blank "Jest" "https://github.com/facebook/jest" %}} to the mix. It's the official library by Facebook. Jest introduced so called snapshot tests for components. Once you run your tests, a snapshot of your rendered DOM elements of the React component is created. When you run your tests again at some point, another snapshot is created which is used as diff for the previous snapshot. If the diff is not identical, Jest will complain and you either have to accept the snapshot or change the implementation of your component.
-
-If the whole combo of Mocha (test runner), Chai (assertion), Enzyme (component tests) and Jest (snapshot tests) is too much for you, you can only use Jest with Enzyme. Jest comes with its own assertion API (which was provided by Chai) and own test runner (which was provided by Mocha). That way you can keep your testing environment lightweight.
+Last but not least, there is also {{% a_blank "Jest" "https://github.com/facebook/jest" %}}. It's the official tetsing library by Facebook. Jest introduced so called snapshot tests for React components. Once you run your tests, a snapshot of your rendered DOM elements of the React component is created. When you run your tests again at some point, another snapshot is created which is used as diff for the previous snapshot. If the diff is not identical, Jest will complain and you either have to accept the snapshot or change the implementation of your component.
 
 Another alternative for testing your React components is {{% a_blank "Ava" "https://github.com/avajs/ava" %}}. There are many developers who like it as alternative to all the other combined testing libraries. It has no snapshot tests, but if you don't depend on those, you can checkout Ava.
 
-In conclusion, checkout [this extensive React testing tutorial](https://www.robinwieruch.de/react-testing-tutorial) on how to setup various testing frameworks for your React application. You can either setup Mocha, Chai, Enzyme, Jest (and Sinon) or only Jest with Enzyme (and Sinon). It makes totally sense to dive into this topic once before starting out with a larger application. After all, you want to implement a robust and maintainable application.
+If the whole combo of Mocha (test runner), Chai (assertion), Enzyme/React Testing Library (component tests) and Jest (snapshot tests, but also test runner and assertion) is too much for you, you can only use Jest with Enzyme/React Testing Library. This way, you keep your React testing setup more lightweight. Check out [this extensive React testing tutorial series](https://www.robinwieruch.de/react-testing-tutorial) on how to setup various testing frameworks for your React application. It makes totally sense to dive into this topic once before starting out with a larger application. After all, you want to implement a robust and maintainable application.
 
 **Recommendations:**
 
-* Mocha (Test Runner), Chai (Assertion Library) for Business Logic and Sinon for async Business Logic
-* Mocha, Chai, Enzyme, Jest (and Sinon)
-* Jest (Test Runner, Assertion Library, Snapshot Tests) without Mocha and Chai but with Enzyme (and Sinon)
+* Unit/Integration/Snapshot Tests: Jest + Enzyme/React Testing Library
+* E2E Tests: Cypress
 
 {{% chapter_header "Time in React" "react-date-time" %}}
 
@@ -334,7 +331,7 @@ If your React application is dealing with dates and timezones, you should introd
 
 **Recommendations:**
 
-* moment or date-fns
+* date-fns
 
 <hr class="section-divider">
 
@@ -353,7 +350,7 @@ So in the end, the React ecosystem can be seen as a framework for React, but it 
  * **Authentication:** Firebase
  * **Database:** Firebase
  * **UI Components:** none
- * **Time:** moment or date-fns
+ * **Time:** date-fns
  * **Testing:** Jest
 * Medium Application
  * **Boilerplate:** create-react-app with eject
@@ -368,8 +365,8 @@ So in the end, the React ecosystem can be seen as a framework for React, but it 
  * **Authentication:** Firebase
  * **Database:** Firebase
  * **UI Components:** none or Semantic UI
- * **Time:** moment or date-fns
- * **Testing:** Jest with Enzyme
+ * **Time:** date-fns
+ * **Testing:** Jest with Enzyme/React Testing Library
 * Large Application
  * **Boilerplate:** create-react-app with eject or own boilerplate project
  * **Utility:** JavaScript ES6 + Lodash or Ramda
@@ -383,8 +380,8 @@ So in the end, the React ecosystem can be seen as a framework for React, but it 
  * **Authentication:** Solution with an own Express/Hapi/Koa Node.js Server with Passport.js
  * **Database:** Solution with an own Express/Hapi/Koa Node.js Server with a SQL or NoSQL Database
  * **UI Components:** Semantic UI or own implementation of UI components
- * **Time:** moment or date-fns
- * **Testing:** Jest with Enzyme
+ * **Time:** date-fns
+ * **Testing:** Jest with Enzyme/React Testing Library and Cypress
 
 The previous recommendations are opinionated. You can choose your own flexible framework for your ideal React application. Every "ideal" React setup is subjective to its needs of the developers and project. After all, there is no ideal React application setup.
 

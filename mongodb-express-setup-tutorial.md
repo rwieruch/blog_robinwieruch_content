@@ -194,7 +194,7 @@ At the top of the file, you create a connection function by passing the database
 DATABASE_URL=mongodb://localhost:27017/node-express-mongodb-server
 {{< /highlight >}}
 
-Note: The database URL can seen when you start up your MongoDB on the command line. You only need to define a subpath for the URL to define a specific database. If the database doesn't exist yet, MongoDB will create one for you.
+*Note: The database URL can seen when you start up your MongoDB on the command line. You only need to define a subpath for the URL to define a specific database. If the database doesn't exist yet, MongoDB will create one for you.*
 
 Lastly, use the function in your Express application. It connects to the database asynchronously and once this is done you can start your Express application.
 

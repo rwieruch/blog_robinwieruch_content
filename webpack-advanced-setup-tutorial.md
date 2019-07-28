@@ -40,7 +40,7 @@ However, Webpack comes with so much more to explore. For instance, eventually yo
 
 Essentially there are two modes to build your JavaScript application: development and production. You have used the development mode previously to get started with Webpack Dev Server in a local development environment. You can make changes to your source code, Webpack bundles it again, and Webpack Dev Server shows you the recent development build in your browser.
 
-However, eventually you want to have all the build files that are necessary for deploying your web application in production on your web server. Since Webpack bundles all of your JavaScript source code into one *bundle.js* file that is linked in your *dist/index.html* file, you only need essentialy these two files on your web server to display your web application for anyone. Let's see how we can create both files for you.
+However, eventually you want to have all the build files that are necessary for deploying your web application in production on your web server. Since Webpack bundles all of your JavaScript source code into one *bundle.js* file that is linked in your *dist/index.html* file, you only need essentially these two files on your web server to display your web application for anyone. Let's see how we can create both files for you.
 
 First, you already have the *dist/index.html* file. If you open it, you already see that it uses a *bundle.js* file which is created by Webpack out of all your JavaScript source code files from the *src/* folder.
 
@@ -343,7 +343,7 @@ module.exports = {
 
 Your npm scripts to start and build your application should work again. But you may wonder: What's the difference now? Except for the {{% a_blank "Webpack modes" "https://webpack.js.org/configuration/mode/" %}} which we passed in dynamically before, the Webpack configuration is the same for development and production. We have even introduced unnecessary duplication. More about the latter one later.
 
-In a growing Webpack configuration, you will introduce things (e.g. plugins, rules, source maps) which should behave differently for development and production. For instance, let's take the source maps which we have implemented previously. It's a performance heavy process to create source map files for a large code base. In order to keep the development build operating fast and eficcient for a great developer experience, you want to have your source maps in development not 100% effective as the source maps from your production build. It should be faster to create them for development mode. That's why you can introduce your first change for the *webpack.dev.js* file which is not reflected in your production configuariton:
+In a growing Webpack configuration, you will introduce things (e.g. plugins, rules, source maps) which should behave differently for development and production. For instance, let's take the source maps which we have implemented previously. It's a performance heavy process to create source map files for a large code base. In order to keep the development build operating fast and efficient for a great developer experience, you want to have your source maps in development not 100% effective as the source maps from your production build. It should be faster to create them for development mode. That's why you can introduce your first change for the *webpack.dev.js* file which is not reflected in your production configuration:
 
 {{< highlight javascript "hl_lines=5" >}}
 ...
@@ -355,7 +355,7 @@ module.exports = {
 };
 {{< /highlight >}}
 
-Now, your source maps are generated differently for your development and production modes, because they are defined in different ways in your two Webpack confgiuration files. This was only one insatnce of having a different configuration for Webpack in development and production. In the future, you will introduce more of them and be happy to have to separate places for them.
+Now, your source maps are generated differently for your development and production modes, because they are defined in different ways in your two Webpack configuration files. This was only one instance of having a different configuration for Webpack in development and production. In the future, you will introduce more of them and be happy to have to separate places for them.
 
 ### Exercises:
 
@@ -363,7 +363,7 @@ Now, your source maps are generated differently for your development and product
 
 {{% chapter_header "Webpack Merge Configuration" "webpack-merge-configuration" %}}
 
-At the moment, your Webpack configuration files for development and production share lots of common configuration. What if we would be able to extract the common configuration to a sperate yet commonly used file and only choose extra specific configuration based of the development and production? Let's do it by adjusting our *package.json* file:
+At the moment, your Webpack configuration files for development and production share lots of common configuration. What if we would be able to extract the common configuration to a separate yet commonly used file and only choose extra specific configuration based on the development and production? Let's do it by adjusting our *package.json* file:
 
 {{< highlight javascript "hl_lines=4 5" >}}
 {
@@ -538,7 +538,7 @@ Now you can use (e.g. `console.log(process.env.NODE_ENV);`) the environment vari
 
 {{% chapter_header "Webpack Environment Variables: .env" "webpack-environment-variables-env-files" %}}
 
-Previously you started to define your environment variables in your Webpack configuration files. However, that's not the best practice for sensitive information. For instance, let's say you want to use API keys/secrets (credentials) to acces your database based on your development or production environment. You wouldn't want to expose these sensitive information in your Webpack configuration which may be shared with others. Instead, you would want to introduce dedicated files for your environment files which can be kept away from others and version control systems like Git or SVN.
+Previously you started to define your environment variables in your Webpack configuration files. However, that's not the best practice for sensitive information. For instance, let's say you want to use API keys/secrets (credentials) to access your database based on your development or production environment. You wouldn't want to expose these sensitive information in your Webpack configuration which may be shared with others. Instead, you would want to introduce dedicated files for your environment files which can be kept away from others and version control systems like Git or SVN.
 
 Let's start by creating two environment variables files for development and production mode. The first one is for development mode and is called *.env.development*. Put it in your project's root directory with the following content:
 
@@ -590,7 +590,7 @@ module.exports = {
 };
 {{< /highlight >}}
 
-Now you can introduce sensitive information -- such as IP adresses, account credentials, and API keys/secrets -- in your environment variables via your *.env.development* and *.env.production* files. Your Webpack configuration will copy them over to make them accessible in your source code (see previous section). Don't forget to add these new *.env* files to your *.gitignore* -- if you are using version control systems (e.g. Git) -- to hide your sensitve information from third parties.
+Now you can introduce sensitive information -- such as IP addresses, account credentials, and API keys/secrets -- in your environment variables via your *.env.development* and *.env.production* files. Your Webpack configuration will copy them over to make them accessible in your source code (see previous section). Don't forget to add these new *.env* files to your *.gitignore* -- if you are using version control systems (e.g. Git) -- to hide your sensitive information from third parties.
 
 ### Exercises:
 
@@ -598,7 +598,7 @@ Now you can introduce sensitive information -- such as IP adresses, account cred
 
 {{% chapter_header "Webpack Addons" "webpack-addons" %}}
 
-Webpack has a large ecosystem of {{% a_blank "plugins" "https://webpack.js.org/plugins/" %}}. Several of them are already used implicitly by using Webpack development or production modes. However, there are also other Webpack plugins which improve your Webpack bundle experience. For instane, let's introduce addons which can be used optionally to analyze and visualize your Webpack bundle. In your *package.json*, introduce a new npm script for your build process, but this time with Webpack addons:
+Webpack has a large ecosystem of {{% a_blank "plugins" "https://webpack.js.org/plugins/" %}}. Several of them are already used implicitly by using Webpack development or production modes. However, there are also other Webpack plugins which improve your Webpack bundle experience. For instance, let's introduce addons which can be used optionally to analyze and visualize your Webpack bundle. In your *package.json*, introduce a new npm script for your build process, but this time with Webpack addons:
 
 {{< highlight javascript "hl_lines=6" >}}
 {
@@ -671,7 +671,7 @@ Finally, install both Webpack addons via npm on the command line:
 npm install --save-dev webpack-bundle-analyzer webpack-visualizer-plugin
 {{< /highlight >}}
 
-As you can see, you have introduced specific Webpack addons, which can be optionally added, in a new *build-utils/addons/* folder. The naming of the addon files macthes the passed flag from the npm script in your *package.json*. Your Webpack merge makes sure to add all passed addon flags as actual addons to your Webpack configuration.
+As you can see, you have introduced specific Webpack addons, which can be optionally added, in a new *build-utils/addons/* folder. The naming of the addon files matches the passed flag from the npm script in your *package.json*. Your Webpack merge makes sure to add all passed addon flags as actual addons to your Webpack configuration.
 
 Now try the optional tools for Webpack analytics and visualization yourself. On your command line, type `npm run build:analyze`. Afterward, check your *dist/* folder for new files. You should find two of them which you can open the following way:
 
@@ -680,7 +680,7 @@ Now try the optional tools for Webpack analytics and visualization yourself. On 
 * Webpack's bundlevisualizer: -> *dist/stats.html*
   * open via `http-server dist`, vist the URL, and append */stats.html*
 
-You will see your build optimized Webpack bundle with two different visualizations. You don't have much code in your apllication yet, but once you introduce more source code and more external libraries (dependencies) with your node package manager, you will see how your Webpack bundle will grow in size. EVentually you will introduce a large library by accident which makes your application too big. Then both analytic and visualization tools can help you to find this culprit.
+You will see your build optimized Webpack bundle with two different visualizations. You don't have much code in your application yet, but once you introduce more source code and more external libraries (dependencies) with your node package manager, you will see how your Webpack bundle will grow in size. Eventually you will introduce a large library by accident which makes your application too big. Then both analytic and visualization tools can help you to find this culprit.
 
 ### Exercises:
 
@@ -695,6 +695,6 @@ You will see your build optimized Webpack bundle with two different visualizatio
 
 <hr class="section-divider">
 
-You have seen how Webpack can be used to bundle your web application in a sophistiacted way. It helps you to automate certain steps and to optimize your build process. You can find the finished project on {{% a_blank "GitHub" "https://github.com/rwieruch/webpack-advanced-setup" %}}. If you have any other internal plugins or libraries that you are using with Webpack, let me know about them in the comments below.
+You have seen how Webpack can be used to bundle your web application in a sophisticated way. It helps you to automate certain steps and to optimize your build process. You can find the finished project on {{% a_blank "GitHub" "https://github.com/rwieruch/webpack-advanced-setup" %}}. If you have any other internal plugins or libraries that you are using with Webpack, let me know about them in the comments below.
 
 {{% read_more "How to set up React with Webpack and Babel" "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" %}}
