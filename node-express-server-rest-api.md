@@ -344,7 +344,7 @@ app.post('/messages', (req, res) => {
 
 Accessing the payload of an HTTP POST request is now provided within Express in version 4.16.0+.  Express exposes this built-in middleware (based on ({{% a_blank "body-parser" "http://expressjs.com/en/resources/middleware/body-parser.html" %}}) under the covers) to transform two of the body types we might receive - json, and urlencoded.
 
-We can use the buit-in middleware like so:
+We can use the built-in middleware like so:
 
 {{< highlight javascript "hl_lines=8 9" >}}
 ...
