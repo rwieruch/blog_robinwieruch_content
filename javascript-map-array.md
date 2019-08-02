@@ -245,12 +245,14 @@ Occasionally, you might need to map an array and reverse it as well. It's good t
 // Don't do this!
 const originalArray = [1, 2, 3, 4, 5];
 const reverseNewArray = originalArray.reverse().map(number => number * 2);
-console.log(originalArray); // [10, 8, 6, 4, 2]
+console.log(originalArray); // [5, 4, 3, 2, 1]
+console.log(reverseNewArray); // [10, 8, 6, 4, 2]
 
 // Instead, do this!
 const originalArray = [1, 2, 3, 4, 5];
 const reverseNewArray = originalArray.map(number => number * 2).reverse();
-console.log(originalArray); // [2, 4, 6, 8, 10]
+console.log(originalArray); // [1, 2, 3, 4, 5]
+console.log(reverseNewArray); // [10, 8, 6, 4, 2]
 {{< /highlight >}}
 
 If all you need to do is `reverse` an array (you don't need to transform the values), you don't need to use `map` to clone the array! While you *could* produce an unaltered array clone with `map(value => value)`, you can also produce a cloned array with `.slice()`. This creates a new array for us to reverse so that we don't mutate the original:
