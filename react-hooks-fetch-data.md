@@ -64,7 +64,7 @@ function App() {
 
   useEffect(async () => {
     const result = await axios(
-      'http://hn.algolia.com/api/v1/search?query=redux',
+      'https://hn.algolia.com/api/v1/search?query=redux',
     );
 
     setData(result.data);
@@ -97,7 +97,7 @@ function App() {
 
   useEffect(async () => {
     const result = await axios(
-      'http://hn.algolia.com/api/v1/search?query=redux',
+      'https://hn.algolia.com/api/v1/search?query=redux',
     );
 
     setData(result.data);
@@ -131,7 +131,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-        'http://hn.algolia.com/api/v1/search?query=redux',
+        'https://hn.algolia.com/api/v1/search?query=redux',
       );
 
       setData(result.data);
@@ -171,7 +171,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-        'http://hn.algolia.com/api/v1/search?query=redux',
+        'https://hn.algolia.com/api/v1/search?query=redux',
       );
 
       setData(result.data);
@@ -339,7 +339,7 @@ function App() {
   const [data, setData] = useState({ hits: [] });
   const [query, setQuery] = useState('redux');
   const [url, setUrl] = useState(
-    'http://hn.algolia.com/api/v1/search?query=redux',
+    'https://hn.algolia.com/api/v1/search?query=redux',
   );
 
   useEffect(() => {
@@ -394,7 +394,7 @@ function App() {
   const [data, setData] = useState({ hits: [] });
   const [query, setQuery] = useState('redux');
   const [url, setUrl] = useState(
-    'http://hn.algolia.com/api/v1/search?query=redux',
+    'https://hn.algolia.com/api/v1/search?query=redux',
   );
   const [isLoading, setIsLoading] = useState(false);
 
@@ -459,7 +459,7 @@ function App() {
   const [data, setData] = useState({ hits: [] });
   const [query, setQuery] = useState('redux');
   const [url, setUrl] = useState(
-    'http://hn.algolia.com/api/v1/search?query=redux',
+    'https://hn.algolia.com/api/v1/search?query=redux',
   );
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -591,7 +591,7 @@ In order to extract a custom hook for data fetching, move everything that belong
 const useHackerNewsApi = () => {
   const [data, setData] = useState({ hits: [] });
   const [url, setUrl] = useState(
-    'http://hn.algolia.com/api/v1/search?query=redux',
+    'https://hn.algolia.com/api/v1/search?query=redux',
   );
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -684,7 +684,7 @@ const useDataApi = (initialUrl, initialData) => {
 function App() {
   const [query, setQuery] = useState('redux');
   const [{ data, isLoading, isError }, doFetch] = useDataApi(
-    'http://hn.algolia.com/api/v1/search?query=redux',
+    'https://hn.algolia.com/api/v1/search?query=redux',
     { hits: [] },
   );
 
