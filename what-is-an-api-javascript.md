@@ -83,7 +83,7 @@ The main focus of the course was {{% a_blank "SOAP" "https://en.wikipedia.org/wi
 
 Fortunately, another 10% of the course taught {{% a_blank "REST" "https://en.wikipedia.org/wiki/Representational_state_transfer" %}}. It is not a protocol like SOAP, but an architectual style that uses HTTP. It doesn't reinvent the wheel and uses standardized technologies to enable web services communicating with each other via HTTP.
 
-But REST wasn't supposed to be the silver bullet. Whereas SOAP would have been used to expose functionalities, REST was intended to expose resources. Resources that you might know as a list of todo items, authors or comments that would be fetched from a server. Nowadays, RESTful services, services that follow the REST paradigm, are often missused. For instance, it can happen by exposing functionalities rather than resources. In most of the cases they don't follow all the principles of REST. They are more RESTish than RESTful.
+But REST wasn't supposed to be the silver bullet. Whereas SOAP would have been used to expose functionalities, REST was intended to expose resources. Resources that you might know as a list of todo items, authors or comments that would be fetched from a server. Nowadays, RESTful services, services that follow the REST paradigm, are often misused. For instance, it can happen by exposing functionalities rather than resources. In most of the cases they don't follow all the principles of REST. They are more RESTish than RESTful.
 
 But let's leave this topic for another time.
 
