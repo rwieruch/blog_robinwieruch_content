@@ -17,15 +17,6 @@ summary = "Learn how to test your React application with Jest. Jest will be used
 
 {{% sponsorship %}}
 
-react jest enzyme
-react-scripts test
-enzyme react
-react testing library
-react-test-renderer
-react testing examples
-react testing tutorial
-react unit testing tutorial
-
 {{% pin_it_image "react testing jest" "img/posts/react-testing-jest/banner.jpg" "is-src-set" %}}
 
 {{% read_before "This tutorial is part 2 of 2 in the series." "Part 1:" "How to set up React with Webpack and Babel" "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" %}}
@@ -346,6 +337,8 @@ describe('Counter', () => {
 
 Most of the time, Snapshot Tests look the same for every React component. You render the component, transform its rendered output to JSON to make it comparable, and match it with the previous snapshot. Having Snapshot Tests in place keeps testing React components more lightweight. Also, Snapshot Tests can be perfectly used to supplement your unit testing and integration tests, because they don't test any implementation logic explicitly.
 
+*Note: If you are using [Styled Components](https://www.robinwieruch.de/react-styled-components/) in React for CSS-in-JS, check out {{% a_blank "jest-styled-components" "https://github.com/styled-components/jest-styled-components" %}} for testing your CSS style defintions with snapshot tests as well.*
+
 ### Exercises:
 
 * Check your generated *src/__snapshots__/App.spec.js.snap* file
@@ -466,3 +459,7 @@ Jest gives you (almost) everything you need to test your React components. You c
 However, testing the DOM of a React component with Jest is more difficult. That's why there exist other third-party libraries such as React Testing Libraryr or Enzyme to make React component unit testing possible for you. Follow the tutorial series for more testing examples in React.
 
 {{% read_before_2 "This tutorial is part 2 of 3 in the series." "Part 1:" "How to set up React with Webpack and Babel" "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" "Part 3:" "How to test React components with Jest & Enzyme" "https://www.robinwieruch.de/react-testing-jest-enzyme" %}}
+
+{{% read_more "How to shallow render Jest Snapshot Tests" "https://www.robinwieruch.de/jest-snapshot-shallow-render/" %}}
+
+{{% read_more "How to Jest Snapshot Test the Difference" "https://www.robinwieruch.de/jest-snapshot-test-difference/" %}}

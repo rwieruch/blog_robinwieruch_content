@@ -384,6 +384,8 @@ The essential Git commands break down to:
 
 Obviously, there are more Git commands (git bisect, git reflog, ...) that you could master. However, I don't find myself using them very often. You can look these up, once you need them, before you have to memorize them. After all, in most cases you will more likely lookup the issue you want to solve in Git rather than a specific command. Most of these issues in Git are well explained when you search for them.
 
+{{% read_before "This tutorial is part 1 of 2 in this series." "Part 2:" "How to establish a Git Team Workflow" "https://www.robinwieruch.de/git-team-workflow/" %}}
+
 {{% read_more "The minimal Node.js with Babel Setup" "https://www.robinwieruch.de/minimal-node-js-babel-setup" %}}
 
 {{% read_more "The minimal React + Webpack 4 + Babel Setup" "https://www.robinwieruch.de/minimal-react-webpack-babel-setup" %}}

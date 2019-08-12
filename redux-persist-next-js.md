@@ -29,10 +29,11 @@ npm install redux-persist
 
 Second, rather than having a straightforward function which creates our Redux store, we distinguish between server-side and client-side Redux store. In the case of the client-side Redux store creation, we add the implementation to persist our store -- by default in the local storage -- between browser sessions:
 
-{{< highlight javascript "hl_lines=9 13 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 35 39" >}}
+{{< highlight javascript "hl_lines=4 10 14 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 38 42" >}}
 import { createStore, applyMiddleware } from 'redux';
 
 import createSagaMiddleware from 'redux-saga';
+import { persistStore } from 'redux-persist';
 
 import rootSaga from './saga';
 import rootReducer from './reducer';
@@ -58,6 +59,8 @@ export default (initialState) => {
       initialState,
       applyMiddleware(sagaMiddleware)
     );
+
+     store.__PERSISTOR = persistStore(store);
   } else {
     store = createStore(
       rootReducer,
@@ -74,13 +77,12 @@ export default (initialState) => {
 
 Last but not least, in our *src/pages/_app.js* file -- which defines our Next.js root component -- we add additional code for the persistent Redux store:
 
-{{< highlight javascript "hl_lines=5 6 19 23 25" >}}
+{{< highlight javascript "hl_lines=5 21 23" >}}
 import React from 'react';
 import { Provider } from 'react-redux';
 import App from 'next/app';
 import withRedux from 'next-redux-wrapper';
 import { PersistGate } from 'redux-persist/integration/react';
-import { persistStore } from 'redux-persist';
 
 import reduxStore from './store';
 
@@ -93,11 +95,10 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps, store } = this.props;
-    const persistor = persistStore(store);
 
     return (
       <Provider store={store}>
-        <PersistGate persistor={persistor} loading={null}>
+        <PersistGate persistor={store.__persistor} loading={null}>
           <Component {...pageProps} />
         </PersistGate>
       </Provider>

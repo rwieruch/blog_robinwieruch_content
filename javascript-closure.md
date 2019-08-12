@@ -110,9 +110,9 @@ console.log(employees);
 // ]
 {{< /highlight >}}
 
-Before this wasn't possible, because the employee number was **hidden in the function's scope** -- inaccessible for the outside context of the function. Even though our feature works, the previous code snippet clearly shows that we have a potential pitfall here.
+Before this wasn't possible, because the employee number was **hidden in the function's scope** -- inaccessible for the outside context of the function due to the **scoping of the variable**. Even though our feature works, the previous code snippet clearly shows that we have a potential pitfall here.
 
-Everything we have done in our previous code snippets is changing the scope of our variable from a function's scope to a global scope. A JavaScript Closure will fix the problem of our variable's scope, making it inaccessible from the outside of the function, but making it possible for the function to track its internal state. Fundamentally, the existence of scopes in programming give closures the air to breathe.
+Everything we have done in our previous code snippets was changing the scope of our variable from a function's scope to a global scope. A JavaScript Closure will fix the problem of our variable's scope, making it inaccessible from the outside of the function, but making it possible for the function to track its internal state. Fundamentally, the existence of scopes in programming give closures the air to breathe.
 
 {{% chapter_header "JavaScript Closure by Example" "javascript-closure-example" %}}
 
