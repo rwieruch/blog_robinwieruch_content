@@ -4,9 +4,6 @@ A place where you can actively contribute to [robinwieruch.de](https://robinwier
 
 ## Guidelines for Guest Bloggers
 
-* option A: provide the blog post on GoogleDrive with a shareable link
-* option B: provide the blog post here on GitHub by adding a file for the article next to the other files
-
 ### Meta Information
 
 You can leave out all the meta information (frontmatter) that I use for my blog posts. I can add these later myself.
