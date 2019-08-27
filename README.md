@@ -2,7 +2,7 @@
 
 A place where you can actively contribute to [robinwieruch.de](https://robinwieruch.de). Feel free to improve the content or to write a guest blog post yourself. Get in touch with me before you start writing an entire article :)
 
-## Guidelines for Guest Bloggers
+## Guidelines for Guest Bloggersasd
 
 * option A: provide the blog post on GoogleDrive with a shareable link
 * option B: provide the blog post here on GitHub by adding a file for the article next to the other files
