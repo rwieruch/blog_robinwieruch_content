@@ -92,7 +92,7 @@ Outro
 
 ### Links
 
-Links referencing articles that are on my domain can be used as `[my article name](url)`. However, if a link points to an article outside of this domain, use `[my article name](url)`
+Links referencing articles that are osdn my domain can be used as `[my article name](url)`. However, if a link points to an article outside of this domain, use `[my article name](url)`
 
 ### Italics
 
