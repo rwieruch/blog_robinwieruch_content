@@ -18,7 +18,7 @@ When I have been working with my clients over the last years, I have seen how cr
 
 After I have been through this struggle a couple of times, I wanted to write down what I have learned about git for teams which may help you to align your team on one workflow. If this blog post turns out too long for you, go through it with your team in a "lunch and learn"-break; and condense the most important points in a git workflow cheatsheet for your team. If you come up with the cheatsheet yourself after all, your team will own it and can iterate on it with the learnings that make sense for your particular case.
 
-*Note: Everything that follows conveys only my experience working with a team of 5 to 30 people with git as version control system. Nothing you will read here is set in stone, but I have seen productive teams once this workflow (or any other workflow) got established in an organization. If you follow a different workflow in your company, I would be curious to hear about it.*
+*Note: Everything that follows conveys only my experience working with a team of 5 - 25 people with git as version control system. Nothing you will read here is set in stone, but I have seen productive teams once this workflow (or any other workflow) got established in an organization. If you follow a different workflow in your company, I would be curious to hear about it.*
 
 # Git Team Workflow: Branches
 
