@@ -16,19 +16,19 @@ You can leave out all the meta information (frontmatter) that I use for my blog 
 Don't use images for code. Instead use a code snippet the following way:
 
 ```
-{{< highlight javascript >}}
+```javascript
 const helloWorld = "Hello World!";
-{{< /highlight >}}
+```
 ```
 
 If you want to highlight changes in the code, that's what I usually do in my tutorials, then you can do it by providing the numbers of lines you want to highlight:
 
 ```
-{{< highlight javascript "hl_lines=3" >}}
+```javascript{3}
 const helloWorld = "Hello World!";
 
 console.log(helloWorld);
-{{< /highlight >}}
+```
 ```
 
 If you move around from file to file in your tutorial, don't forget to mention the place where you edit/create the next code snippet. Something like:
@@ -36,9 +36,9 @@ If you move around from file to file in your tutorial, don't forget to mention t
 Now we are going to implement user model in the *src/models/user.js* file:
 
 ```
-{{< highlight javascript >}}
+```javascript
 const user = createModel('user');
-{{< /highlight >}}
+```
 ```
 
 ### Images
@@ -64,13 +64,13 @@ I use [Prettier](https://prettier.io/) in my projects which helps me to keep all
 
 ### Headlines
 
-* h1 headline translates to {{% chapter_header "My Headline" "my-headline" %}}
-* h2 headline translates to {{% sub_chapter_header "My Sub Headline" "my-sub-headline" %}}
+* h1 headline translates to # My Headline
+* h2 headline translates to ## My Sub Headline
 
 The second parameter can be used for a table of contents:
 
 ```
-{{% chapter_header "Table of Contents" "toc" %}}
+# Table of Contents
 
 * [My Headline](#my-headline)
   * [My Sub Headline](#my-sub-headline)
@@ -81,18 +81,18 @@ My articles usually follow the same structure with optional sub_chapter_headers 
 ```
 Motivation
 
-{{% chapter_header "My Headline" "my-headline" %}}
+# My Headline
 
-{{% chapter_header "My Headline" "my-headline" %}}
+# My Headline
 
-<hr class="section-divider">
+<Divider />
 
 Outro
 ```
 
 ### Links
 
-Links referencing articles that are on my domain can be used as `[my article name](url)`. However, if a link points to an article outside of this domain, use `{{% a_blank "my article name" "url" %}}`
+Links referencing articles that are on my domain can be used as `[my article name](url)`. However, if a link points to an article outside of this domain, use `[my article name](url)`
 
 ### Italics
 
