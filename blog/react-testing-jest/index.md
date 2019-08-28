@@ -200,7 +200,7 @@ Now you can run your Jest tests in watch mode. Doing it this way, you would have
 * Read more about [Jest's Globals](https://jestjs.io/docs/en/api)
 * Read more about [Jest's Assertions](https://jestjs.io/docs/en/expect)
 
-# Jest Snaphot Testing in React
+# Jest Snapshot Testing in React
 
 Jest introduced the so called Snapshot Test. Basically a Snapshot Test creates a snapshot -- which is stored in a separate file -- of your rendered component's output when you run your test. This snapshot is used for diffing it to the next snapshot when you run your test again. If your rendered component's output has changed, the diff of both snapshots will show it and the Snapshot Test will fail. That's not bad at all, because the Snapshot Test should only inform you when the output of your rendered component has changed. In case a Snapshot Test fails, you can either accept the changes or deny them and fix your component's implementation regarding of its rendered output.
 
