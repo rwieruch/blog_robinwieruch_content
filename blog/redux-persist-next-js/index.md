@@ -93,7 +93,7 @@ class MyApp extends App {
 
     return (
       <Provider store={store}>
-        <PersistGate persistor={store.__persistor} loading={null}>
+        <PersistGate persistor={store.__PERSISTOR} loading={null}>
           <Component {...pageProps} />
         </PersistGate>
       </Provider>
