@@ -1,12 +1,25 @@
+const theme = {
+  primary: '#823EB7',
+  fontPrimary: '#333333',
+  backgroundPrimary: '#fff',
+};
+
 module.exports = {
   siteUrl: 'https://www.robinwieruch.de/',
   languageCode: 'en-US',
 
   // color theme
-  theme: {
-    primary: '#823EB7',
-    fontPrimary: '#333333',
-    backgroundPrimary: '#fff',
+  theme,
+
+  // manifest
+  manifest: {
+    name: 'Robin Wieruch',
+    short_name: 'RW',
+    start_url: '/',
+    background_color: '#fff',
+    theme_color: theme.primary,
+    display: 'standalone',
+    icon: 'static/icon.png',
   },
 
   // can be specified in gatsby-config.js
