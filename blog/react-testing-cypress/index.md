@@ -235,6 +235,6 @@ That's it. You have written your first two E2E tests with Cypress. You can navig
 * If you need to provide sample data for your E2E tests, checkout the best practice of using fixtures in Cypress.
 * If you need to spy, stub or mock functions in Cypress, you can use Sinon for it. Cypress comes with built-in Sinon to test your asynchronous code.
 
-<ReadMore label="Test Coverage in JavaScript" link="https://www.robinwieruch.de/javascript-test-coverage/" />
+<ReadMore label="Test Coverage in JavaScript" link="https://www.robinwieruch.de/javascript-test-coverage" />
 
-<ReadMore label="How to test React components with Jest & Enzyme" link="https://www.robinwieruch.de/react-testing-jest-enzyme/" />
+<ReadMore label="How to test React components with Jest & Enzyme" link="https://www.robinwieruch.de/react-testing-jest-enzyme" />

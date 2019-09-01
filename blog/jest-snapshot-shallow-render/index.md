@@ -148,4 +148,4 @@ describe('Profile', () => {
 
 In conclusion, you end up with a very lightweight snapshot test for your parent component, whereas you would snapshot test your child components (e.g. Preferences, Documents, Education, Skills) with their props more thoroughly themselves.
 
-<ReadMore label="How to Jest Snapshot Test the Difference" link="https://www.robinwieruch.de/jest-snapshot-test-difference/" />
+<ReadMore label="How to Jest Snapshot Test the Difference" link="https://www.robinwieruch.de/jest-snapshot-test-difference" />

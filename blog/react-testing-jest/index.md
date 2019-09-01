@@ -453,6 +453,8 @@ However, testing the DOM of a React component with Jest is more difficult. That'
 
 <LinkCollection label="This tutorial is part 2 of 3 in the series." links={[{ prefix: "Part 1:", label: "How to set up React with Webpack and Babel", url: "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" }, { prefix: "Part 3:", label: "How to test React components with Jest & Enzyme", url: "https://www.robinwieruch.de/react-testing-jest-enzyme" }]} />
 
-<ReadMore label="How to shallow render Jest Snapshot Tests" link="https://www.robinwieruch.de/jest-snapshot-shallow-render/" />
+<ReadMore label="How to shallow render Jest Snapshot Tests" link="https://www.robinwieruch.de/jest-snapshot-shallow-render" />
 
-<ReadMore label="How to Jest Snapshot Test the Difference" link="https://www.robinwieruch.de/jest-snapshot-test-difference/" />
+<ReadMore label="How to Jest Snapshot Test the Difference" link="https://www.robinwieruch.de/jest-snapshot-test-difference" />
+
+<ReadMore label="How to test React-Redux connected Components" link="https://www.robinwieruch.de/react-connected-component-test" />

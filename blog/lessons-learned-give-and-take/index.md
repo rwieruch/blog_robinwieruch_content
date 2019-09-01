@@ -472,6 +472,6 @@ As I said, these are only my lessons learned. I encourage you to read [Give and 
 
 "[Successful givers] get to the top without cutting others down, finding ways of expanding the pie that benefit themselves and people around them".
 
-<ReadMore label="Lessons learned from Deep Work and Flow" link="https://www.robinwieruch.de/lessons-learned-deep-work-flow/" />
+<ReadMore label="Lessons learned from Deep Work and Flow" link="https://www.robinwieruch.de/lessons-learned-deep-work-flow" />
 
-<ReadMore label="Lessons learned from On Writing Well" link="https://www.robinwieruch.de/lessons-learned-on-writing-well/" />
+<ReadMore label="Lessons learned from On Writing Well" link="https://www.robinwieruch.de/lessons-learned-on-writing-well" />

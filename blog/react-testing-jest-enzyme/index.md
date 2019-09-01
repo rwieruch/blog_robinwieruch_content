@@ -319,7 +319,7 @@ describe('Counter', () => {
 });
 ```
 
-Important: Always make sure to clean up your mocks in testing, otherwise another test may run into a mocked function. You can clear mocks in Jest indivindually, like the previous code snippets has shown it, but also [globally](https://jestjs.io/docs/en/configuration.html#clearmocks-boolean) by setting the `clearMocks` flag to true in your *jest.config.json* file. This will clear all mocks after every test without leaving any zombie mocks around.
+**Important:** Always make sure to clean up your mocks in testing, otherwise another test may run into a mocked function. You can clear mocks in Jest indivindually, like the previous code snippets has shown it, but also [globally](https://jestjs.io/docs/en/configuration.html#clearmocks-boolean) by setting the `clearMocks` flag to true in your *jest.config.json* file. This will clear all mocks after every test without leaving any zombie mocks around.
 
 In a perfect world this would already work, but we are not there yet. We need to tell our React component to render again. Fortunately, Enzyme comes with a re-rendering API. In addition, we need to wait for all asynchronous events to be executed before updating our React component and making test assertions. That's where the built-in JavaScript function [setImmediate](https://developer.mozilla.org/en-US/docs/Web/API/Window/setImmediate) comes in, because it's callback function gets executed in the next iteration of the event loop.
 
@@ -472,6 +472,6 @@ What's different is that we mock a promise with an error. This way, we can test 
 
 The testing tutorial has shown you how Jest and Enzyme can be used perfectly together to snapshot/unit/integration test your React components. You can traverse the DOM of rendered components, mock away and wait for asynchronous logic to happen, and simulate events on HTML elements to mimic the user's behavior. You can find all the tests written for this tutorial in this [GitHub repository](https://github.com/the-road-to-learn-react/react-testing-jest-enzyme).
 
-<ReadMore label="End to End Testing React with Cypress" link="https://www.robinwieruch.de/react-testing-cypress/" />
+<ReadMore label="End to End Testing React with Cypress" link="https://www.robinwieruch.de/react-testing-cypress" />
 
-<ReadMore label="Test Coverage in JavaScript" link="https://www.robinwieruch.de/javascript-test-coverage/" />
+<ReadMore label="Test Coverage in JavaScript" link="https://www.robinwieruch.de/javascript-test-coverage" />

@@ -484,6 +484,6 @@ In the end you might wonder: When to use which type of conditional render? My op
 
 In conclusion, I hope you can make use of the alternatives for conditional rendering. I am keen to hear your ways of doing it.
 
-<ReadMore label="The SoundCloud Client in React + Redux" link="https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" />
+<ReadMore label="The SoundCloud Client in React + Redux" link="https://www.robinwieruch.de/the-soundcloud-client-in-react-redux" />
 
-<ReadMore label="Tips to learn React + Redux" link="https://www.robinwieruch.de/tips-to-learn-react-redux/" />
+<ReadMore label="Tips to learn React + Redux" link="https://www.robinwieruch.de/tips-to-learn-react-redux" />

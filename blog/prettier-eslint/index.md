@@ -71,4 +71,4 @@ Prettier makes sure that trailing semicolons and commas are enforced, that only 
 
 That's it. Both configuration files for Prettier and ESLint can be adjusted to your needs. If you need to add rules, you can do it with both files. If you need to disable a rule coming from the Airbnb style guide, you can do it in the ESLint configuration.
 
-<ReadMore label="How to use ESLint in Webpack" link="https://www.robinwieruch.de/webpack-eslint/" />
+<ReadMore label="How to use ESLint in Webpack" link="https://www.robinwieruch.de/webpack-eslint" />

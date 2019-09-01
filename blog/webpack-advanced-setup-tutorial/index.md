@@ -690,4 +690,4 @@ You will see your build optimized Webpack bundle with two different visualizatio
 
 You have seen how Webpack can be used to bundle your web application in a sophisticated way. It helps you to automate certain steps and to optimize your build process. You can find the finished project on [GitHub](https://github.com/rwieruch/webpack-advanced-setup). If you have any other internal plugins or libraries that you are using with Webpack, let me know about them in the comments below.
 
-<ReadMore label="How to set up React with Webpack and Babel" link="https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" />
+<ReadMore label="How to set up React with Webpack and Babel" link="https://www.robinwieruch.de/minimal-react-webpack-babel-setup" />

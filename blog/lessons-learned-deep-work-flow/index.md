@@ -18,7 +18,7 @@ The following article summarizes my lessons learned from both books. It can be a
 
 The book [Deep Work](http://amzn.to/2AvNLTG) by Cal Newport gives you guidance to achieve high-quality work. It is achieved by multiplying the time spent on the subject of matter and the intensity of your focus. In his book he references the book [Flow](http://amzn.to/2inl3w8) by Mihaly Csikszentmihalyi. He says: "Deep work is an activity well suited to generate a flow state". The state of flow is defined by "being completely involved in an activity for its own sake" where "nothing else seems to matter". Naturally it leads to an improvement of the self and to a fulfilled and meaningful life. Since both books where on my reading list, I took the chance to read them one after the other.
 
-<ReadMore label="Lessons learned from Give and Take" link="https://www.robinwieruch.de/lessons-learned-give-and-take/" />
+<ReadMore label="Lessons learned from Give and Take" link="https://www.robinwieruch.de/lessons-learned-give-and-take" />
 
 # What is Deep Work?
 
@@ -373,4 +373,4 @@ These were only my lessons learned, but I am curious about yours. If you didn't 
 
 "If you give your mind something meaningful to do throughout **all** your waking hours, you'll end the day more fulfilled, and begin the next one more relaxed [...]" by Cal Newport.
 
-<ReadMore label="Lessons learned from Give and Take" link="https://www.robinwieruch.de/lessons-learned-give-and-take/" />
+<ReadMore label="Lessons learned from Give and Take" link="https://www.robinwieruch.de/lessons-learned-give-and-take" />

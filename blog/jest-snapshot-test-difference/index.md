@@ -224,4 +224,4 @@ exports[`App increments the counter 2`] = `
 
 If you compare this snapshot's output to the previous one, you can see that we got rid of the two mentioned drawbacks. First, we don't render the whole component again, but only the part that has changes in addition to its surrounding environment. Second, the snapshot test's output doesn't look like a rendered component anymore, but like a diff between two outputs shown with the + and - prefixes. Only by looking at the snapshot's output file, a developer can tell that 1) the snapshot test was caused by a change of the component and 2) that the rendered output has changed from X to Y.
 
-<ReadMore label="How to shallow render Jest Snapshot Tests" link="https://www.robinwieruch.de/jest-snapshot-shallow-render/" />
+<ReadMore label="How to shallow render Jest Snapshot Tests" link="https://www.robinwieruch.de/jest-snapshot-shallow-render" />

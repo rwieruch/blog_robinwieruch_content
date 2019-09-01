@@ -259,11 +259,11 @@ Congratulations, you have created your [first function component](https://www.ro
 
 <LinkCollection label="This tutorial is part 1 of 3 in the series." links={[{ prefix: "Part 2:", label: "How to use ESLint in Webpack", url: "https://www.robinwieruch.de/webpack-eslint/" }, { prefix: "Part 3:", label: "How to use ESLint in React", url: "https://www.robinwieruch.de/react-eslint-webpack-babel/" }]} />
 
-<ReadMore label="How to use Prettier in VS Code" link="https://www.robinwieruch.de/how-to-use-prettier-vscode/" />
+<ReadMore label="How to use Prettier in VS Code" link="https://www.robinwieruch.de/how-to-use-prettier-vscode" />
 
-<ReadMore label="How to use SVG Icons as React Components?" link="https://www.robinwieruch.de/react-svg-icon-components/" />
+<ReadMore label="How to use SVG Icons as React Components?" link="https://www.robinwieruch.de/react-svg-icon-components" />
 
-<ReadMore label="How to use Fonts in React?" link="https://www.robinwieruch.de/webpack-font/" />
+<ReadMore label="How to use Fonts in React?" link="https://www.robinwieruch.de/webpack-font" />
 
-<ReadMore label="How to use Images in React?" link="https://www.robinwieruch.de/webpack-images/" />
+<ReadMore label="How to use Images in React?" link="https://www.robinwieruch.de/webpack-images" />
 

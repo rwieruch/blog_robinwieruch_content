@@ -98,6 +98,6 @@ module.exports = {
 
 That's everythin in a nutshell about testing coverage in JavaScript projects.
 
-<ReadMore label="How to test React components with Jest" link="https://www.robinwieruch.de/react-testing-jest/" />
+<ReadMore label="How to test React components with Jest" link="https://www.robinwieruch.de/react-testing-jest" />
 
-<ReadMore label="How to end-to-end test React components with Cypress" link="https://www.robinwieruch.de/react-testing-cypress/" />
+<ReadMore label="How to end-to-end test React components with Cypress" link="https://www.robinwieruch.de/react-testing-cypress" />

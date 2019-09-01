@@ -339,7 +339,7 @@ While in Redux you have an established ceremony how to set up things, MobX is le
 
 Both libraries are great. While Redux is already well established, MobX becomes an valid alternative for state management.
 
-<ReadMore label="Learn plain React with setState and this.state" link="http://www.robinwieruch.de/the-road-to-learn-react/" />
+<ReadMore label="Learn plain React with setState and this.state" link="http://www.robinwieruch.de/the-road-to-learn-react" />
 
 <ReadMore label="Learn Redux and MobX in React in a full-blown course" link="https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE" />
 

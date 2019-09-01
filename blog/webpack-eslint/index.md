@@ -193,4 +193,4 @@ Still, once your JavaScript project is set up, you need to run `eslint --init` i
 
 <LinkCollection label="This tutorial is part 1 of 3 in the series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "https://www.robinwieruch.de/how-to-use-prettier-vscode/" }, { prefix: "Part 3:", label: "How to make Prettier work with ESLint", url: "https://www.robinwieruch.de/prettier-eslint/" }]} />
 
-<ReadMore label="How to set up an advanced Webpack application" link="https://www.robinwieruch.de/webpack-advanced-setup-tutorial/" />
+<ReadMore label="How to set up an advanced Webpack application" link="https://www.robinwieruch.de/webpack-advanced-setup-tutorial" />

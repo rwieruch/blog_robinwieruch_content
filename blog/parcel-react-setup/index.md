@@ -145,4 +145,4 @@ ReactDOM.render(
 
 If these files are in your *src/* folder, Parcel should take care of resolving them for you. That's it for a minimal React setup with Parcel. Again, you can find the [repository on GitHub](https://github.com/rwieruch/parcel-react). However, Parcel should make it fairly easy to setup a React project on your own. It's zero-configuration after all, so just give it a shot.
 
-<ReadMore label="Setup React with Babel and Webpack" link="https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" />
+<ReadMore label="Setup React with Babel and Webpack" link="https://www.robinwieruch.de/minimal-react-webpack-babel-setup" />

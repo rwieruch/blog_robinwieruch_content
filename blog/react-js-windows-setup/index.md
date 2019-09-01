@@ -92,4 +92,4 @@ That's everything you need for a React development setup in Windows. I hope you 
 
 <LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "https://www.robinwieruch.de/how-to-use-prettier-vscode" }]} />
 
-<ReadMore label="How to set up React with Webpack and Babel" link="https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" />
+<ReadMore label="How to set up React with Webpack and Babel" link="https://www.robinwieruch.de/minimal-react-webpack-babel-setup" />

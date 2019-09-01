@@ -354,7 +354,7 @@ A lot of things already happened during the last chapters. Let’s summarise the
 
 > You may want to experiment a bit more with React before you dive into Redux. Build some more ES6 class and functional stateless components. Additionally use lifecycle methods and internal component state to get used to it. Only then you will see the benefits of using Redux for state management.
 
-<ReadMore label="The learning curve for state management in React" link="https://www.robinwieruch.de/redux-mobx-confusion/" />
+<ReadMore label="The learning curve for state management in React" link="https://www.robinwieruch.de/redux-mobx-confusion" />
 
 # Test Setup
 
