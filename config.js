@@ -127,6 +127,7 @@ module.exports = {
   navigation: [
     { to: '/about', label: 'About' },
     { to: '/blog', label: 'Blog' },
+    { to: 'https://roadtoreact.com', label: 'Courses' },
   ],
 
   // Landing Page
