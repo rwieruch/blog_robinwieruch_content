@@ -190,7 +190,7 @@ function Notification({ text, state }) {
 }
 ```
 
-Please note that you always have to use the `default` for the switch case operator. In React a component has always to return an element or null.
+Please note that you always have to use the `default` for the switch case operator. In React a component always has to return an element or null.
 
 As a little side information: When a component has a conditional rendering based on a state, it makes sense to describe the interface of the component with `React.PropTypes`.
 
