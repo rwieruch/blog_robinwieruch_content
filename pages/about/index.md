@@ -101,7 +101,7 @@ Since I am often working remotely, I have a couple of technical gadgets I heavil
 * [Trackpad](https://amzn.to/2RwCPwg) and [Keyboard](https://amzn.to/2SPqZ1K) (when using the laptop stand ...)
 * [Headphones](https://amzn.to/2SPghIE) (having done lots of music in the past, I cannot turn away from these headphones)
 * [Display](https://amzn.to/2RChPEq) (trying to buy and sell it whenever I am staying somewhere for a longer period of time)
-* [Microphone](https://amzn.to/2RAEu4g) (makes sense for me when doing lots of recordings or calls with cients of mine)
+* [Microphone](https://amzn.to/2RAEu4g) (makes sense for me when doing lots of recordings or calls with clients of mine)
 
 ### Apps
 
@@ -134,7 +134,7 @@ Not long ago I switched from MailChimp to Revue for my Newsletter. [Revue](https
 
 * permalinks to newsletters
 * powerful integrations for fetching content automatically
-* simple and intuitiv UI/UX
+* simple and intuitive UI/UX
 * great pricing model for a larger audience
 * statistics and analytics
 
