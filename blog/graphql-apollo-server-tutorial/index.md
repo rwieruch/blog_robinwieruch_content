@@ -2,7 +2,7 @@
 title: "GraphQL Server Tutorial with Apollo Server and Express"
 description: "Learn how to build a GraphQL server with Apollo Server and Express with authentication, authorization, pagination, subscription, database access, tests ..."
 date: "2018-08-22T13:50:46+02:00"
-categories: ["React", "GraphQL", "Apollo", "JavaScript"]
+categories: ["Starter", "React", "GraphQL", "Apollo", "JavaScript"]
 keywords: ["graphql apollo server", "graphql express server", "graphql apollo server tutorial", "graphql apollo server book", "apollo server example", "apollo server query", "apollo server mutation", "apollo server", "apollo server demo", "graphql dataloader", "graphql authorization", "graphql authentication", "graphql caching"]
 hashtags: ["#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"

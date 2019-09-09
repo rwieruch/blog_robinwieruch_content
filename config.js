@@ -61,7 +61,7 @@ module.exports = {
     slug: '/categories',
 
     otherCategories: {
-      prefix: 'All about',
+      prefix: 'Read more about',
       suffix: '',
       labelFn: category => category,
       limit: 4,
@@ -83,16 +83,16 @@ module.exports = {
             ),
         },
       },
-      // {
-      //   prefix: 'All about',
-      //   suffix: '',
-      //   labelFn: () => 'Hormones',
-      //   limit: 4,
-      //   customCategory: false,
-      //   byGrouping: {
-      //     category: 'hormones',
-      //   },
-      // },
+      {
+        prefix: '',
+        suffix: '',
+        labelFn: () => 'Getting Started Tutorials',
+        limit: 4,
+        customCategory: false,
+        byGrouping: {
+          category: 'Starter',
+        },
+      },
     ],
   },
 
