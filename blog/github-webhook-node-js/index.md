@@ -98,7 +98,7 @@ If you need to let PM2 run an npm script for you, you can trigger it with the fo
 pm2 start npm --name my-github-webhook -- start
 ```
 
-PM2 should output a list of processes for all your running applications. Now, you don't need to worry about starting your Node.js application by hand anymore. PM2 takes care of it.
+PM2 should output a list of processes for all your running applications. Now, you don't need to worry about starting your Node.js application by hand anymore. PM2 takes care of it. If you need more readind about PM2 on DigitalOcean, cross-read this [tutorial on DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-16-04).
 
 # Automatic Website Deployment
 
