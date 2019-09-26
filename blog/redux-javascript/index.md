@@ -1,5 +1,5 @@
 ---
-title: "Redux's influence on JavaScript Developers"
+title: "Reasons to learn Redux as JavaScript Developer"
 description: "Redux greatly shaped how we develop modern JavaScript applications nowadays. Here I want to give a walkthrough on all the mindset changes we went through as JavaScript developers ..."
 date: "2019-09-21T07:52:46+02:00"
 categories: ["JavaScript", "Redux", "React"]
@@ -263,7 +263,7 @@ However, that's not giving Redux the full credit for what it is, because it is a
 Especially the last two facts should be considered by ever developer to make use of Redux's full potential, because suddenly reducers operate on a higher abstraction level than common setters and act on the same actions as other reducers in your application:
 
 ```javascript{5,17}
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers } from 'redux';
 
 function todoReducer(state, action) {
   switch(action.type) {
@@ -305,7 +305,7 @@ Domain-driven design (DDD) isn't a thing in Redux itself, and may be a bit far f
 You may end up with reducers for (A) various entities (e.g. todos, users) that are fetched from a [remote API](https://www.robinwieruch.de/what-is-an-api-javascript), (B) filters (e.g. show all incomplete todos, show all active users) and (C) statistics (e.g. calculate the number of completed todos by active users).
 
 ```javascript
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers } from 'redux';
 
 ...
 
@@ -356,12 +356,12 @@ Beyond these concepts you will most likely meet other popular libraries from the
 // Redux Saga
 
 function* fetchUser(action) {
-   try {
-      const user = yield call(Api.fetchUser, action.payload.userId);
-      yield put({ type: 'USER_FETCH_SUCCEEDED', user: user });
-   } catch (e) {
-      yield put({ type: 'USER_FETCH_FAILED', message: e.message });
-   }
+  try {
+    const user = yield call(Api.fetchUser, action.payload.userId);
+  yield put({ type: 'USER_FETCH_SUCCEEDED', user: user });
+  } catch (e) {
+    yield put({ type: 'USER_FETCH_FAILED', message: e.message });
+  }
 }
 
 function* userWatcher() {
