@@ -1,5 +1,5 @@
 ---
-title: "Reasons to learn Redux as JavaScript Developer"
+title: "Reasons to learn Redux as a JavaScript Developer"
 description: "Redux greatly shaped how we develop modern JavaScript applications nowadays. Here I want to give a walkthrough on all the mindset changes we went through as JavaScript developers ..."
 date: "2019-09-21T07:52:46+02:00"
 categories: ["JavaScript", "Redux", "React"]
