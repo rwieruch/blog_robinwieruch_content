@@ -1,5 +1,5 @@
 ---
-title: "What's the question mark in a JavaScript Variable?"
+title: "JavaScript Variable with Question Mark"
 description: "The question mark after a JavaScript variable declaration is used as shorthand conditional operator to assign a variable conditionally. It's called ternary operator ..."
 date: "2019-09-30T07:52:46+02:00"
 categories: ["JavaScript"]
