@@ -3,7 +3,7 @@ title: "What's the question mark in a JavaScript Variable?"
 description: "The question mark after a JavaScript variable declaration is used as shorthand conditional operator to assign a variable conditionally. It's called ternary operator ..."
 date: "2019-09-30T07:52:46+02:00"
 categories: ["JavaScript"]
-keywords: ["javascript variables"]
+keywords: ["javascript question mark"]
 hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
@@ -68,7 +68,7 @@ console.log(petName);
 // undefined
 ```
 
-When this feature was not available, it was common to use the OR (||) operator or the ternary operator from before:
+When this feature was not available in JavaScript, it was common to use the OR (||) operator or the ternary operator (?:) from before to avoid any JavaScript exceptions:
 
 ```javascript
 const person = {
