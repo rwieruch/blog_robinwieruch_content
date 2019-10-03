@@ -68,14 +68,14 @@ console.log(petName);
 // undefined
 ```
 
-When this feature was not available in JavaScript, it was common to use the OR (||) operator or the ternary operator (?:) from before to avoid any JavaScript exceptions:
+When this feature was not available in JavaScript, it was common to use the AND (&&) operator or the ternary operator (?:) from before to avoid any JavaScript exceptions:
 
 ```javascript
 const person = {
   name: 'Robin Wieruch',
 };
 
-let petName = person.pet || person.pet.name;
+let petName = person.pet && person.pet.name;
 console.log(petName);
 // undefined
 
