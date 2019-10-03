@@ -28,7 +28,7 @@ Let's say we have a connected React component that receives state from the Redux
 Redux State -> React Component -> Redux Action
 ```
 
-Imagine following scenario: The React component receives a string in `myState` to populate an HTML input field when it renders. A user can change the value in the input field and once a user clicks the button, the changed value is send as payload to `myAction`. Now, we can test both ends of the connected React component with two test cases in one test suite:
+Imagine following scenario: The React component receives a string in `myState` to populate an HTML input field when it renders. A user can change the value in the input field and once a user clicks the button, the changed value is sent as a payload to `myAction`. Now, we can test both ends of the connected React component with two test cases in one test suite:
 
 ```javascript
 describe('My Connected React-Redux Component', () => {
