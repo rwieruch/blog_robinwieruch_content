@@ -30,7 +30,7 @@ author: ""
     {
       prefix: "Part 3:",
       label: "The minimal Node.js with Babel Setup",
-      url: "https://www.robinwieruch.de/why-graphql-advantages-disadvantages-alternatives/"
+      url: "https://www.robinwieruch.de/minimal-node-js-babel-setup"
     }
   ]}
 />
