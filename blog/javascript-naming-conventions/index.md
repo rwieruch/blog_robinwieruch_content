@@ -1,6 +1,6 @@
 ---
 title: "JavaScript Naming Conventions"
-description: " ..."
+description: "Introduction to JavaScript Naming Conventions for differen data types and data structures in JS. Learn more about how to name private methods, global vairbales, or a constant variable ..."
 date: "2019-10-06T07:52:46+02:00"
 categories: ["JavaScript"]
 keywords: ["javascript naming conventions", "js naming conventions", "javascript naming conventions variable", "javascript naming conventions constant", "javascript naming conventions global", "javascript naming conventions private"]
