@@ -203,7 +203,7 @@ Rarely you will find an underscore (_) in front of a variable/function/method in
 
 For instance, a private method in a class should only be used internally by the class, but should be avoided to be used on the instance of the class:
 
-```javascript{5, 8}
+```javascript{5,8,21}
 class SoftwareDeveloper {
   constructor(firstName, lastName) {
     this.firstName = firstName;
