@@ -1,5 +1,5 @@
 ---
-title: "How to test React components with Jest & Enzyme"
+title: "How to test React Components with Jest & Enzyme"
 description: "Learn how to test your React application with Jest & Enzyme. Jest will be used as a test runner & testing library while Enzyme will be used for your actual React component tests ..."
 date: "2019-07-17T13:56:46+02:00"
 categories: ["React", "JavaScript", "Tooling", "Webpack", "Babel", "Enzyme"]
