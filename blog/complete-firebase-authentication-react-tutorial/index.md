@@ -139,7 +139,7 @@ The application with its folders and files is set up, and you can verify this by
 
 * Familiarize yourself with the folder structure of a project.
 * Optionally, introduce a test for your App component and test the application.
-* Optionally, introduce [CSS Modules](/create-react-app-css-modules), [SASS](/create-react-app-with-sass-support) or [Styled Components](https://www.styled-components.com) and style the application.
+* Optionally, introduce [CSS Modules](/create-react-app-css-modules), [SASS](/create-react-app-sass-support) or [Styled Components](https://www.styled-components.com) and style the application.
 * Optionally, introduce [Git and keep track of your changes by having your project on GitHub](/git-essential-commands).
 
 # React Router for Firebase Auth
