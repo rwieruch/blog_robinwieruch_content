@@ -127,7 +127,7 @@ myArray.map((value) => {
 });
 ```
 
-Even though you might not often need the third argument to `map`, it's still god to know that it exists! Every once in a while you'll come across a situation where it comes in handy—for example, when chaining array methods or when you don't have the array bound to a variable.
+Even though you might not often need the third argument to `map`, it's still good to know that it exists! Every once in a while you'll come across a situation where it comes in handy—for example, when chaining array methods or when you don't have the array bound to a variable.
 
 # How to use the Map Method along with other Array Methods
 
