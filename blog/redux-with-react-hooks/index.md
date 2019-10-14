@@ -1,5 +1,5 @@
 ---
-title: "How to Redux with React Hooks?"
+title: "How to create Redux with React Hooks?"
 description: "React's useContext and useReducer hooks can be used to mimic Redux for managing one global state container in React applications. This tutorial shows it step by step ..."
 date: "2019-05-20T07:52:46+02:00"
 categories: ["JavaScript"]

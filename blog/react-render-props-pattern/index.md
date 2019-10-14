@@ -1,9 +1,9 @@
 ---
-title: "React's Render Props Pattern"
+title: "React Render Props"
 description: "The concept of children as a function or child as a function, also called render prop in general, is one of the advanced patterns in React. This tutorial goes through a real world example ..."
 date: "2018-08-08T13:50:46+02:00"
 categories: ["React", "JavaScript"]
-keywords: ["render render prop pattern", "react render props pattern", "react render prop component", "react children as a function", "react child as a function", "react multiple render props"]
+keywords: ["react render props", "react render prop component"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""

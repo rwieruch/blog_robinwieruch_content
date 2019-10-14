@@ -28,7 +28,7 @@ Please let me know if the tutorial needs any updates for others learning about t
 
 # Requirements
 
-The requirements for this tutorial are a working [editor or IDE/terminal](/developer-setup/), and recent versions of [node and npm](https://nodejs.org/en/). You should have learned about React in the first place. [The Road to learn React](/the-road-to-learn-react) is a free ebook that provides all the fundamentals of React. You will build a larger application in plain React, and transition from JavaScript ES5 to JavaScript ES6 and beyond. This tutorial will not dive into all the details taught in the ebook, so take the chance to grab your copy of it to learn those first.
+The requirements for this tutorial are a working [editor or IDE/terminal](https://www.robinwieruch.de/developer-setup/), and recent versions of [node and npm](https://nodejs.org/en/). You should have learned about React in the first place. [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react) is a free ebook that provides all the fundamentals of React. You will build a larger application in plain React, and transition from JavaScript ES5 to JavaScript ES6 and beyond. This tutorial will not dive into all the details taught in the ebook, so take the chance to grab your copy of it to learn those first.
 
 # Table of Contents
 
@@ -38,7 +38,7 @@ The requirements for this tutorial are a working [editor or IDE/terminal](/devel
 
 Let's get started with the React + Firebase application we are going to build together. The application should be the perfect starter project to realize your ideas. It should be possible to display information with React, to navigate from URL to URL with React Router and to store and retrieve data with Firebase. Also the application will have everything that's needed to register, login and logout users. In the end, you should be able to implement any feature on top of this application to create well-rounded React applications.
 
-If you lack information on how to setup your React development environment, checkout these setup guides for [MacOS](/react-js-macos-setup) and [Windows](/react-js-windows-setup). Now, there are two ways to begin with this application: either follow my guidance in this section; or find a starter project in this [GitHub repository](https://github.com/the-road-to-react-with-firebase/react-firebase-authentication-starter-kit) and follow its installation instructions. This section will show how to set up the same project from scratch, whereas the starter project grants instant access without setting up the folder/file structure yourself.
+If you lack information on how to setup your React development environment, checkout these setup guides for [MacOS](https://www.robinwieruch.de/react-js-macos-setup) and [Windows](https://www.robinwieruch.de/react-js-windows-setup). Now, there are two ways to begin with this application: either follow my guidance in this section; or find a starter project in this [GitHub repository](https://github.com/the-road-to-react-with-firebase/react-firebase-authentication-starter-kit) and follow its installation instructions. This section will show how to set up the same project from scratch, whereas the starter project grants instant access without setting up the folder/file structure yourself.
 
 The application we are going to build with React and Firebase will be set up with Facebook's official React boilerplate project, called [create-react-app](https://github.com/facebookincubator/create-react-app). You can install it globally on the command line once, after which it becomes available whenever you need it.
 
@@ -139,8 +139,8 @@ The application with its folders and files is set up, and you can verify this by
 
 * Familiarize yourself with the folder structure of a project.
 * Optionally, introduce a test for your App component and test the application.
-* Optionally, introduce [CSS Modules](/create-react-app-css-modules), [SASS](/create-react-app-with-sass-support) or [Styled Components](https://www.styled-components.com) and style the application.
-* Optionally, introduce [Git and keep track of your changes by having your project on GitHub](/git-essential-commands).
+* Optionally, introduce [CSS Modules](https://www.robinwieruch.de/create-react-app-css-modules), [SASS](https://www.robinwieruch.de/create-react-app-with-sass-support) or [Styled Components](https://www.robinwieruch.de/react-styled-components) and style the application.
+* Optionally, introduce [Git and keep track of your changes by having your project on GitHub](https://www.robinwieruch.de/git-essential-commands).
 
 # React Router for Firebase Auth
 
@@ -281,7 +281,7 @@ const App = () => (
 export default App;
 ```
 
-If a route matches a path prop, the respective component will be displayed; thus, all the page components in the App component are exchangeable by changing the route, but the Navigation component stays fixed independently of any route changes. This is how you enable a static frame with various components (e.g. Navigation) around your dynamic pages driven by routes. It's all made possible by [React's powerful composition](/react-component-composition).
+If a route matches a path prop, the respective component will be displayed; thus, all the page components in the App component are exchangeable by changing the route, but the Navigation component stays fixed independently of any route changes. This is how you enable a static frame with various components (e.g. Navigation) around your dynamic pages driven by routes. It's all made possible by [React's powerful composition](https://www.robinwieruch.de/react-component-composition).
 
 Previously, you created basic components for each page component used by our routes. Now you should be able to start the application again. When you click through the links in the Navigation component, the displayed page component should change according to the URL. The routes for the PasswordForget and SignUp components are not used in the Navigation component, but will be defined elsewhere later. For now, you have successfully implemented fundamental routing for this application.
 

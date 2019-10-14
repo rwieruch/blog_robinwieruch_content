@@ -1,9 +1,9 @@
 ---
-title: "React's Context API explained: Provider and Consumer"
+title: "React's Context API"
 description: "React's Context API is a powerful feature for passing props down the component tree without the need to tell components in between about them. React's context creates a Provider and Consumer component that enable us to use this powerful feature ..."
 date: "2018-03-31T13:50:46+02:00"
 categories: ["React", "JavaScript"]
-keywords: ["react context API", "react context API provider", "react context API consumer"]
+keywords: ["react context API"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-Note: If you are using a React version 16.3 or above, this article is relevant to you. It explains how to use React's context API version for React 16.3 and above for passing props down the component tree. Only components who are interested can consume these props. If you are using a React version prior 16.3, head over to [this article to implement your own provider pattern in React with its old context API](https://www.robinwieruch.de/react-provider-pattern-context).
+*Note: If you are using a React version 16.3 or above, this article is relevant to you. It explains how to use React's context API version for React 16.3 and above for passing props down the component tree. Only components who are interested can consume these props. If you are using a React version prior 16.3, head over to [this article to implement your own provider pattern in React with its old context API](https://www.robinwieruch.de/react-provider-pattern-context).*
 
 React's context API is a powerful feature. You will not often see it when using plain React, but might consider using it when your React application grows in size and depth from a component perspective. Basically, React's context API takes the clutter away of passing mandatory props, that are needed by every component, down your whole component tree. Most often components in between are not interested in these props.
 
