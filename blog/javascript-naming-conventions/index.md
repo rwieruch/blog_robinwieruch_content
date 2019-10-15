@@ -294,6 +294,32 @@ var first-name = 'Robin';
 
 That's why it's better to avoid them.
 
+# JavaScript Naming Conventions: Files
+
+There are two strategies of naming files in JavaScript: PascalCase and kebab-case. In JavaScript frontend applications, you will often see PascalCase for naming components (e.g. React components).
+
+```javascript
+- components/
+--- user/
+----- UserProfile.js
+----- UserList.js
+----- UserItem.js
+--- ui/
+----- Dialog.js
+----- Dropdown.js
+----- Table.js
+```
+
+In contrast, in JavaScript backend application, kebap-case is the common sense:
+
+```javascript
+- routing/
+--- user-route.js
+--- messages-route.js
+```
+
+You will also see camelCase namings, but similar to PascalCase (sorry frontend applications), there is a risk that operating systems are handling them differently which may lead to bugs. That's why sticking to kebap-case should be the norm for file names in JavaScript.
+
 <Divider />
 
 If you want to learn more about JavaScript code style and formatting, which isn't discussed here for the sake of naming conventions, you should definitely check out [ESLint](https://www.robinwieruch.de/webpack-eslint/) and [Prettier](https://www.robinwieruch.de/how-to-use-prettier-vscode/) for JavaScript.
