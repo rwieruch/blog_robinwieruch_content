@@ -71,7 +71,7 @@ module.exports = {
       {
         prefix: '',
         suffix: '',
-        labelFn: () => 'Most recent articles',
+        labelFn: () => 'Recent articles',
         limit: 4,
         customCategory: true,
         byGrouping: {
@@ -111,15 +111,6 @@ module.exports = {
     ctaSecondary: 'Get it on Amazon.',
     url: 'https://roadtoreact.com/',
     urlSecondary: 'https://amzn.to/2LHjxRB',
-  },
-
-  // note shown below each blog psot
-  note: {
-    enabled: true,
-    text:
-      'If you found this blog post helpful, please consider supporting what I do.',
-    cta: 'Support my Work',
-    url: 'https://www.patreon.com/rwieruch',
   },
 
   // Navigation
