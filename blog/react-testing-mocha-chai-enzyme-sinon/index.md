@@ -1,5 +1,5 @@
 ---
-title: "How to test React components with Mocha, Chai & Enzyme"
+title: "How to test React with Mocha, Chai & Enzyme"
 description: "Learn how to test your React application with Mocha, Chai & Enzyme. Mocha will be used as a test runner, Chai as testing library, and Enzyme for your actual React component tests ..."
 date: "2019-07-21T13:56:46+02:00"
 categories: ["React", "JavaScript", "Tooling", "Webpack", "Babel", "Enzyme"]
