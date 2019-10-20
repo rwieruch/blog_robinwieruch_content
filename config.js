@@ -315,7 +315,7 @@ module.exports = {
     header: 'Take Part',
     subheader: 'Never miss an article about web development and JavaScript.',
     items: [
-      'Join 40.000+ Developers',
+      'Join 45.000+ Developers',
       'Learn Web Development with JavaScript',
       'Tips and Tricks',
       'Access Tutorials, eBooks and Courses',
