@@ -816,3 +816,5 @@ In the return statement of the function, there are two variations of the Button,
 <Divider />
 
 Styled Components allow you to do so much more and we've only scratched the surface in this tutorial. We just built a simple application (an Instagram clone) which gave us the overview of the Styled Components. You can read more about Styled Components in their [official documentation](https://github.com/styled-components/styled-components). The codebase for the Stylagram app can be seen on GitHub [here](https://github.com/yomete/stylagram). If you've used Styled Components in your project before, you can write about your experience so far and reviews below.
+
+<ReadMore label="Alternative to Styled Components: CSS Modules" link="https://www.robinwieruch.de/react-css-modules" />

@@ -261,6 +261,8 @@ Congratulations, you have created your [first function component](https://www.ro
 
 <ReadMore label="How to use Prettier in VS Code" link="https://www.robinwieruch.de/how-to-use-prettier-vscode" />
 
+<ReadMore label="How to use CSS Modules in React?" link="https://www.robinwieruch.de/react-css-modules" />
+
 <ReadMore label="How to use SVG Icons as React Components?" link="https://www.robinwieruch.de/react-svg-icon-components" />
 
 <ReadMore label="How to use Fonts in React?" link="https://www.robinwieruch.de/webpack-font" />
