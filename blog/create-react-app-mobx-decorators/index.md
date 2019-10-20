@@ -2,7 +2,7 @@
 title: "MobX (with Decorators) in create-react-app"
 description: "Everything you need to know about using MobX in a create-react-app with React. The article shows you all the different edge cases on how to activate JavaScript decorators, how to use MobX without decorators, and as bonus how to use MobX in Next.js. Afterward, you are prepared to setup your application with MobX and React.js ..."
 date: "2017-10-10T13:50:46+02:00"
-categories: ["React", "MobX", "JavaScript"]
+categories: ["React", "MobX"]
 keywords: ["create-react-app mobx decorators"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

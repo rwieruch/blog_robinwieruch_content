@@ -2,7 +2,7 @@
 title: "A Apollo Client Tutorial for Beginners"
 description: "This tutorial shows you how to use Apollo Client for GraphQL without any other third-party library. Then you'll learn how to use Apollo Client in React ..."
 date: "2018-11-01T02:50:46+02:00"
-categories: ["GraphQL", "Apollo", "JavaScript"]
+categories: ["GraphQL", "JavaScript"]
 keywords: ["apollo client tutorial", "graphql apollo tutorial"]
 hashtags: ["#GraphQL"]
 banner: "./images/banner.jpg"

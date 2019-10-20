@@ -2,7 +2,7 @@
 title: "How to use Redux with Apollo Client and GraphQL in React"
 description: "When having a GraphQL server, Apollo Client can be a valid option for your remote data. How fits Redux into the equation? This tutorial shows you an example on how Redux and Apollo Client can be used together in a React application. Whereas Redux is used for local data, Apollo Client is used for remote data ..."
 date: "2018-06-26T13:50:46+02:00"
-categories: ["React", "GraphQL", "Apollo", "Redux", "JavaScript"]
+categories: ["React", "GraphQL", "Redux"]
 keywords: ["apollo client redux", "react graphql redux", "apollo redux store", "apollo link state redux", "apollo vs redux", "apollo client vs redux", "how to use redux with apollo", "how to use apollo with redux", "graphql react book"]
 hashtags: ["#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"

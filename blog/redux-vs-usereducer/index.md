@@ -2,7 +2,7 @@
 title: "React's useReducer vs Redux"
 description: "Does useContext and useReducer replace Redux? Since React Hooks were released in React, developers are wondering whether they still need Redux for their React application ..."
 date: "2019-05-13T07:52:46+02:00"
-categories: ["JavaScript"]
+categories: ["React"]
 keywords: ["useReducer vs redux", "useReducer redux"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

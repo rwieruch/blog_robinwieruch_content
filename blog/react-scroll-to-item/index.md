@@ -2,7 +2,7 @@
 title: "How to Scroll to Item in React?"
 description: "A brief tutorial which shows how to scroll to an item in a React List Component. The scroll event can be triggered from within or outside the component ..."
 date: "2019-05-07T07:52:46+02:00"
-categories: ["JavaScript"]
+categories: ["React"]
 keywords: ["react scroll to item"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

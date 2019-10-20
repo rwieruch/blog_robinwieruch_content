@@ -2,7 +2,7 @@
 title: "React Firebase Auth Persistence with Local Storage"
 description: "A tutorial on how to use local storage for auth state persistence for a Firebase in React application. When reloading the browser, the user should stay authenticated without a flicker ..."
 date: "2018-11-27T07:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React", "Firebase"]
 keywords: ["react firebase auth persistence", "react firebase local storage", "react firebase permissions"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

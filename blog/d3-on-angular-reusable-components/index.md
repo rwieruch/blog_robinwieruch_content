@@ -2,7 +2,7 @@
 title: "D3 on Angular: Reusable Components"
 description: "Components become more important these days. In the future you will get to hear more and more about Web Components, which get available in Angular 2.0..."
 date: "2015-04-03T13:50:46+02:00"
-categories: ["Angular", "D3", "JavaScript"]
+categories: ["Angular", "D3"]
 keywords: ["angular d3"]
 hashtags: ["#d3js,#angularjs"]
 banner: "./images/banner.jpg"

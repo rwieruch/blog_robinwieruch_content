@@ -2,7 +2,7 @@
 title: "React Component Types: A complete Overview"
 description: "There a various React Component Types that make it difficult for React beginners to get started with React. This tutorial goes through each React Component Type by example ..."
 date: "2019-03-12T07:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react component types", "react component patterns"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

@@ -2,7 +2,7 @@
 title: "Gatsby.js - A powerful Static Site Generator"
 description: "Are you considering to use Gatsby.js as static side generator for your website or web application? Learn about all the benefits of using Gatsby.js with React ..."
 date: "2019-07-08T07:50:46+02:00"
-categories: ["React", "JavaScript", "Gatsby"]
+categories: ["React", "Gatsby"]
 keywords: ["gatsby.js", "gatsbyjs", "gatsby react"]
 hashtags: ["#GatsbyJs"]
 banner: "./images/banner.jpg"

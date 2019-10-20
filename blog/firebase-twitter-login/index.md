@@ -2,7 +2,7 @@
 title: "Firebase Login with Twitter"
 description: "A tutorial on how to activate Twitter login for Firebase or Firestore where no email is required. After enabling the sign in method in Firebase, you have to create a Twitter App ..."
 date: "2018-12-07T07:52:46+02:00"
-categories: ["JavaScript"]
+categories: ["React", "Firebase"]
 keywords: ["firebase twitter login", "firebase twitter login no email", "firebase login with twitter", "firebase twitter sign in", "firebase twitter login web"]
 hashtags: ["#Firebase"]
 banner: "./images/banner.jpg"

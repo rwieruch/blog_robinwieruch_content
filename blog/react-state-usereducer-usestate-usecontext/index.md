@@ -2,7 +2,7 @@
 title: "React State Hooks: useReducer, useState, useContext"
 description: "An elaborate walkthrough for React state management example with useState, useReducer, and useContext which mimics Redux's state management philosophy ..."
 date: "2019-04-06T07:52:46+02:00"
-categories: ["JavaScript"]
+categories: ["React"]
 keywords: ["react state hooks", "react usereducer", "react usestate", "react usecontext"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

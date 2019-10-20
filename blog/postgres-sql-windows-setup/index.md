@@ -2,7 +2,7 @@
 title: "How to setup PostgreSQL on Windows"
 description: "A installation guide for a PostgreSQL on Windows setup for having a SQL database available on your OS. It comes with everything that's needed to connect a Node.js application to your database in JavaScript ..."
 date: "2019-01-08T13:50:46+02:00"
-categories: ["Node", "JavaScript"]
+categories: ["Node"]
 keywords: ["postgres windows", "postgresql windows", "postgres setup", "postgresql setup", "postgres os setup"]
 hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"

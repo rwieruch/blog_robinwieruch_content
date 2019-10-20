@@ -2,7 +2,7 @@
 title: "Redux State Keys - A predictable yet dynamic substate"
 description: "Redux state keys enable a dynamically allocated yet predictable substate. In a rapid development environment it happens quite often: There is no time to plan state structure..."
 date: "2016-10-31T13:50:46+02:00"
-categories: ["React", "Redux", "JavaScript"]
+categories: ["React", "Redux"]
 keywords: ["redux state keys"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

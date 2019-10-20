@@ -2,7 +2,7 @@
 title: "10 Reasons why I moved from Angular to React"
 description: "The article should help people to understand the benefits of React and Angular for making an educated decision to choose between Angular or React. It tells my story why I moved from Angular to React after using both libraries for years. It's not just another click-bait article, but an article with lots of experiences ..."
 date: "2017-01-31T13:50:46+02:00"
-categories: ["React", "JavaScript", "Angular"]
+categories: ["React", "Angular"]
 keywords: ["angular or react"]
 hashtags: ["#ReactJs"]
 contribute: ""

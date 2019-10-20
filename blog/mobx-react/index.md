@@ -2,7 +2,7 @@
 title: "MobX React: Refactor your application from Redux to MobX"
 description: "Refactor your React application from Redux to MobX. Use MobX instead of Redux for state management in React JS. Get to know actions, reactions and derivations in MobX and best practices..."
 date: "2016-07-18T13:50:46+02:00"
-categories: ["React", "MobX", "JavaScript"]
+categories: ["React", "MobX"]
 keywords: ["mobx react"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

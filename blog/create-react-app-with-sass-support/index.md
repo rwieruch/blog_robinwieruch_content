@@ -2,7 +2,7 @@
 title: "How to use SASS in create-react-app?"
 description: "A short guide on how to add Sass support to your create-react-app application which shows you how to setup Sass, but also how to use it in your React components ..."
 date: "2018-10-03T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["create-react-app sass", "create-react-app sass support", "create-react-app sass without eject"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

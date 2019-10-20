@@ -2,7 +2,7 @@
 title: "Mocking a GraphQL Server for Apollo Client"
 description: "The tutorial shows you how to mock your GraphQL server for your GraphQL client for testing or other purposes. Either you can reconstruct a GraphQL client-side schema or introspect the GraphQL server schema. Both ways use client-side resolvers to mock the data..."
 date: "2018-05-28T13:50:46+02:00"
-categories: ["React", "GraphQL", "Apollo", "JavaScript"]
+categories: ["React", "GraphQL"]
 keywords: ["apollo client mocking", "apollo server mocking", "apollo server mock", "apollo client mock", "apollo mock link", "apollo client mock testing", "apollo client mock data", "apollo client mock response", "apollo mock query"]
 hashtags: ["#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"

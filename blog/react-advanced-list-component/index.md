@@ -2,8 +2,8 @@
 title: "Advanced List in React - Build a powerful Component (Part III)"
 description: "The series of React tutorials focuses on building a complex yet elegant and powerful React component. It attempts to go beyond the fundamentals in React.js. This part introduces an advanced list in React that will enable you to opt-in infinite scrolling and pagination ..."
 date: "2017-06-13T13:50:46+02:00"
-categories: ["React", "JavaScript"]
-keywords: ["react advanced list component"]
+categories: ["React"]
+keywords: ["react list component"]
 hashtags: ["#ReactJs"]
 contribute: ""
 banner: "./images/banner.jpg"

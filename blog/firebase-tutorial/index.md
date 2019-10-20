@@ -2,7 +2,7 @@
 title: "A visual Firebase Tutorial"
 description: "A short visual Firebase tutorial should help you to create your first Firebase application that can be used with any web framework/library such as React, Angular or Vue ..."
 date: "2018-12-07T07:52:46+02:00"
-categories: ["JavaScript"]
+categories: ["React", "Firebase"]
 keywords: ["firebase tutorial", "firebase authentication", "firebase cloud firestore", "firestore", "firebase realtime database", "firebase hosting"]
 hashtags: ["#Firebase"]
 banner: "./images/banner.jpg"

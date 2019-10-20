@@ -2,7 +2,7 @@
 title: "Linear Regression with Gradient Descent in JavaScript"
 description: "Implementing a (univariate) linear regression with gradient descent, cost function and hypothesis in JavaScript ..."
 date: "2017-10-19T13:50:46+02:00"
-categories: ["Machine Learning", "JavaScript", "React"]
+categories: ["Machine Learning", "JavaScript"]
 keywords: ["machine learning javascript", "linear regression javascript", "gradient descent javascript"]
 hashtags: ["#JavaScript,#MachineLearning"]
 banner: "./images/banner.jpg"

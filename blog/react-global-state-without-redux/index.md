@@ -2,7 +2,7 @@
 title: "React Global State without Redux"
 description: "A tutorial to showcase how to use React global state without Redux. There are React patterns that can be used to have an application wide state in React without a state management library ..."
 date: "2018-10-02T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react global state without redux", "react state management without redux", "react context API", "react prop drilling"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

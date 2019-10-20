@@ -2,7 +2,7 @@
 title: "Setup MongoDB with Mongoose in Express"
 description: "A tutorial on how to setup MongoDB for Express.js in a Node.js application. It comes with the database installation and how to connect it to Express with Mongoose as ORM. You can choose to use another ORM, if you want to ..."
 date: "2019-02-16T13:50:46+02:00"
-categories: ["Node", "JavaScript"]
+categories: ["Node"]
 keywords: ["mongodb express", "mongodb mongoose", "node mongodb"]
 hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"

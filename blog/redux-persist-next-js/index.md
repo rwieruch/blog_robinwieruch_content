@@ -2,7 +2,7 @@
 title: "Redux Persist with Next.js by Example"
 description: "By Example: How to set up Redux Persist in Next.js to persist your Redux store's state in the React client application's local storage ..."
 date: "2019-07-25T13:56:46+02:00"
-categories: ["React", "JavaScript", "NextJs", "Redux"]
+categories: ["React", "NextJs", "Redux"]
 keywords: ["redux persist nextjs"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

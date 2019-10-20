@@ -2,7 +2,7 @@
 title: "useReducer vs useState in React"
 description: "Comparing useState and useReducer in React, when to use them for different use cases, and their benefits in a growing React application ..."
 date: "2019-04-17T07:52:46+02:00"
-categories: ["JavaScript"]
+categories: ["React"]
 keywords: ["useReducer vs useState"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

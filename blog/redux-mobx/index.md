@@ -2,7 +2,7 @@
 title: "Redux vs MobX without Confusion"
 description: "Using Redux or MobX in your React application? The article shows you all the differences between both state management libraries that can be used in React. It gives you guidance to learn MobX vs Redux in React.js applications, their strengths and weaknesses and when to use them ..."
 date: "2017-03-28T13:50:46+02:00"
-categories: ["React", "MobX", "JavaScript"]
+categories: ["Redux", "MobX"]
 keywords: ["redux mobx"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

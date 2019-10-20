@@ -2,7 +2,7 @@
 title: "React List Components by Example"
 description: "How to display a list in React with JSX is one of the bigger challenges for React beginners. This tutorial walks you through different list view examples ..."
 date: "2019-04-16T07:52:46+02:00"
-categories: ["JavaScript"]
+categories: ["React"]
 keywords: ["react list component", "react listview", "react list item"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

@@ -2,7 +2,7 @@
 title: "How to manage React State with Arrays"
 description: "Learn how to manipulate arrays in React state by using JavaScript array methods such as concat, map and filter. Whereas vanilla JavaScript is used for the arrays, React is only used to set the new state in the end ..."
 date: "2018-10-04T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react state array", "react state array example", "react create empty array", "react initial state empty array", "react state array add item", "react state array push", "react state array concat", "react state update array", "react state update array item", "react state update item", "react state array replace", "react state array remove item", "react state array change"]
 hashtags: ["#ReactJs"]
 contribute: ""

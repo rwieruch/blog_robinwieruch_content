@@ -2,7 +2,7 @@
 title: "How to use SVG Icons as React Components?"
 description: "A walkthrough on how to use SVG Icons in React applications. SVGR + Webpack are the perfect fit to make it happen..."
 date: "2019-04-23T07:52:46+02:00"
-categories: ["JavaScript"]
+categories: ["React"]
 keywords: ["react svg icons", "react svgr"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

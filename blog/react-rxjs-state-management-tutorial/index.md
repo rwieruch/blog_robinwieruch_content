@@ -2,7 +2,7 @@
 title: "React with RxJS for State Management Tutorial"
 description: "A tutorial on how to use RxJS in React for state management. It shows how to implement a Rx.js higher-order component (hoc) that takes over the observable streams ..."
 date: "2018-10-22T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react rxjs tutorial", "rxjs react js tutorial", "react rxjs hoc", "react with rxjs", "react rxjs example", "react rxjs event", "react rxjs state", "react rxjs observable", "react rxjs component"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

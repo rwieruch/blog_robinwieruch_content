@@ -2,7 +2,7 @@
 title: "Tips to learn React + Redux in 2019"
 description: "An extensive guide of tips, tricks and resources to learn React.js and Redux in 2018. The tutorial covers various topics in React, JavaScript ES6 and Redux to give you a great start in those topics. In addition, you will find courses for React and Redux to learn more about those topics in depth ..."
 date: "2018-01-09T13:50:46+02:00"
-categories: ["React", "Redux", "JavaScript"]
+categories: ["React", "Redux"]
 keywords: ["learn react redux 2018", "learn react 2018", "learn redux 2018", "react book", "reactjs book"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

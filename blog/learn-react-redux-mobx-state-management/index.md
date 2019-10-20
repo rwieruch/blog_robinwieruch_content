@@ -2,7 +2,7 @@
 title: "Taming the State in React [MobX Redux Book]"
 description: "A full blown React with Redux and MobX course to learn state management in React. It comes with an extensive 250 pages book which teaches Redux from zero to one. Additionally it comes with a lot of Redux and MobX source code and several screencasts to supplement the course experience ..."
 date: "2017-09-26T13:50:46+02:00"
-categories: ["React", "Redux", "MobX", "JavaScript"]
+categories: ["React", "Redux", "MobX"]
 keywords: ["redux book", "mobx book", "mobx course", "learn react redux mobx"]
 hashtags: ["#ReactJs"]
 contribute: ""

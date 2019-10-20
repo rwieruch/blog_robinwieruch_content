@@ -2,7 +2,7 @@
 title: "How to test React-Redux connected Components"
 description: "By Example: How to unit test React-Redux connected components? By getting full control over your Redux store, testing whether every dispatched action from a React component reaches the Redux isn't too difficult ..."
 date: "2019-08-30T13:56:46+02:00"
-categories: ["React", "JavaScript", "Redux"]
+categories: ["React", "Redux"]
 keywords: ["react connected component test"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

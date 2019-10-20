@@ -2,7 +2,7 @@
 title: "Setup PostgreSQL with Sequelize in Express"
 description: "A tutorial on how to setup PostgreSQL for Express.js in a Node.js application. It comes with the database installation and how to connect it to Express with Sequelize as ORM. You can choose to use another ORM, if you want to ..."
 date: "2019-02-10T13:50:46+02:00"
-categories: ["Node", "JavaScript"]
+categories: ["Node"]
 keywords: ["postgresql express", "postgres express", "postgres sequelize", "postgresql sequelize", "node postgresql", "node postgres"]
 hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"

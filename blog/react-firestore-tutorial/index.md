@@ -2,7 +2,7 @@
 title: "A Firestore in React Tutorial for Beginners [2019]"
 description: "A beginners tutorial to learn Firestore in React for business application with authentication, authorization and a real-time database. The tutorial gives you the perfect React Firestore boilerplate project ..."
 date: "2019-01-26T07:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React", "Firebase"]
 keywords: ["react firestore", "react firestore tutorial", "react authentication", "react firestore authentication tutorial", "react session", "react authorization", "react protected routes"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

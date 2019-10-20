@@ -2,7 +2,7 @@
 title: "How to deploy a React application to Firebase"
 description: "The tutorial shows you how to deploy a React.js application to Firebase Hosting. You will use Firebase CLI to perform the deployment for a create-react-app app ..."
 date: "2019-01-20T07:52:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React", "Firebase"]
 keywords: ["firebase deploy react", "firebase react js deployment", "create-react-app firebase deploy"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

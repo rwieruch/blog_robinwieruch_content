@@ -2,7 +2,7 @@
 title: "D3 on Angular: Small Multiples with Brushing"
 description: "This article shows how you can achieve Small Multiples with D3 using Angular.js. According to Edward Tufte (1983) Small Multiples are a concept to..."
 date: "2015-01-04T13:50:46+02:00"
-categories: ["Angular", "D3", "JavaScript"]
+categories: ["Angular", "D3"]
 keywords: ["angular d3"]
 hashtags: ["#d3js,#angularjs"]
 banner: "./images/banner.jpg"

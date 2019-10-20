@@ -2,7 +2,7 @@
 title: "How to Jest Snapshot Test the Difference"
 description: "Learn how to snapshot test the difference in changing snapshot tests with Jest after user interactions or other side-effects ..."
 date: "2019-08-15T13:56:46+02:00"
-categories: ["React", "JavaScript", "Jest"]
+categories: ["React", "Jest"]
 keywords: ["jest snapshot test difference"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

@@ -2,7 +2,7 @@
 title: "React Semantic UI Tutorial for Beginners"
 description: "A tutorial to guide you through styling your React application with Semantic UI. The UI library enables you to build websites with fast and concise HTML, along with a complete mobile responsive experience ..."
 date: "2019-01-06T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react semantic ui tutorial"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

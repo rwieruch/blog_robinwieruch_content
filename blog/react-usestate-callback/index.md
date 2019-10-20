@@ -2,7 +2,7 @@
 title: "React useState with Callback"
 description: "If you have used setState before, you may be missing a callback function for the useState hook. This tutorial explains how to implement it with useEffect ..."
 date: "2019-06-03T03:52:46+02:00"
-categories: ["JavaScript"]
+categories: ["React"]
 keywords: ["react usestate callback"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

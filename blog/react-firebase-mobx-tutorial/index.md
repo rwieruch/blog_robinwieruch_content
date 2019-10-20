@@ -2,7 +2,7 @@
 title: "How to use MobX in React Firebase"
 description: "The tutorial shows you how to migrate a React with Firebase application, which uses only React's local state, to MobX for its state management. Also React's Context API is replaced with MobX ..."
 date: "2019-02-10T07:52:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React", "Firebase", "MobX"]
 keywords: ["react firebase mobx tutorial"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

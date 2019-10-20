@@ -2,7 +2,7 @@
 title: "Why do we need a React List Key?"
 description: "React list components need a mandatory key attribute if the list items can be changed by order or size. Here you will see a use case why a key attribute is needed ..."
 date: "2019-04-06T07:52:46+02:00"
-categories: ["JavaScript"]
+categories: ["React"]
 keywords: ["react list key"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

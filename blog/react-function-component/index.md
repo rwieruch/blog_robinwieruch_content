@@ -2,7 +2,7 @@
 title: "React Function Components"
 description: "Everything you need to know about React Function Components -- also known as React Functional Components. Here you will learn React Function Components by example with step by step ..."
 date: "2019-03-18T07:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react function component", "react functional component", "react arrow function component", "react js function component"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

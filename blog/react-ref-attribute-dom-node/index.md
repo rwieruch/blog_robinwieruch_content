@@ -2,7 +2,7 @@
 title: "When to use React's Ref on a DOM node in React"
 description: "What about the ref attribute in React.js? This article gives you clarification around the ref attribute to access DOM nodes in React. It shows you how you can use it, when you should use it and where it can be used and where it shouldn't be used ..."
 date: "2017-03-22T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react ref"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

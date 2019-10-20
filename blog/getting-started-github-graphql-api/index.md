@@ -2,7 +2,7 @@
 title: "Getting Started with GitHub's GraphQL API"
 description: "Everything you need to get started with GitHub's GraphQL API for learning GraphQL in JavaScript. This walkthrough demonstrates you how to set up your data on GitHub, how to create a personal access token, and how to consume their API without any source code with GraphiQL or GitHub's GraphQL Explorer ..."
 date: "2018-06-09T13:50:46+02:00"
-categories: ["React", "GraphQL", "Apollo", "JavaScript"]
+categories: ["React", "GraphQL"]
 keywords: ["github graphql API", "github graphql apollo", "github graphql react"]
 hashtags: ["#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"

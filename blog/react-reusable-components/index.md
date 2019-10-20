@@ -2,7 +2,7 @@
 title: "What are Reusable Components in React?"
 description: "A brief walkthrough that explains reusable components in React by example. You will refactor a specific to a more generic component by offering a clean API for this component for the outside world ..."
 date: "2019-05-26T07:52:46+02:00"
-categories: ["JavaScript"]
+categories: ["React"]
 keywords: ["react reusable components", "react reusable component"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

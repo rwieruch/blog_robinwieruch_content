@@ -2,7 +2,7 @@
 title: "All React Conditional Rendering Techniques"
 description: "Wondering how to perform a conditional render in React? The article is an exhaustive list of conditional renderings in React's JSX. How to use ternary operators, switch case and if else in React.js? You will see various use cases where and how to use these conditional renderings and advanced techniques ..."
 date: "2018-09-21T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react conditional rendering", "react conditional render"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

@@ -2,7 +2,7 @@
 title: "Session Storage and Local Storage in React"
 description: "Tutorial to showcase the usage of session storage and local storage in React to persist your local state, to cache it for browser reloads, and to make it expire for sessions ..."
 date: "2019-04-03T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react local storage", "react session storage"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

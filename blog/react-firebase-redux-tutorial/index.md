@@ -2,7 +2,7 @@
 title: "How to use Redux in React Firebase"
 description: "The tutorial shows you how to migrate a React with Firebase application, which uses only React's local state, to Redux for its state management. Also React's Context API is replaced with Redux ..."
 date: "2019-02-10T07:52:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React", "Firebase", "Redux"]
 keywords: ["react firebase redux tutorial"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

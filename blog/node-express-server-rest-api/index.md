@@ -2,7 +2,7 @@
 title: "How to create a REST API with Express.js in Node.js"
 description: "A Node.js with Express tutorial to learn how to create a REST API for CRUD operations which can be consumed by a client application ..."
 date: "2019-01-14T07:50:46+02:00"
-categories: ["Node", "JavaScript"]
+categories: ["Node"]
 keywords: ["node express tutorial", "express tutorial", "express rest api"]
 hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"

@@ -2,7 +2,7 @@
 title: "How to use CSS Modules in create-react-app?"
 description: "The article is a short how to use CSS Modules in your create-react-app application. It shows you how to setup CSS Modules, but also how to use it in your components ..."
 date: "2018-10-03T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["create-react-app css modules", "create-react-app css modules without eject"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

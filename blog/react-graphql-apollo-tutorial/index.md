@@ -2,7 +2,7 @@
 title: "A complete React with Apollo and GraphQL Tutorial"
 description: "This React with Apollo and GraphQL tutorial shows you how to use GraphQL in your React application by consuming GitHub's GraphQL API. You will use Apollo for your query and mutation implementations on the client-side of your React application. This Apollo in React tutorial attempts to teach you using Apollo in React from zero to one ..."
 date: "2018-05-01T02:50:46+02:00"
-categories: ["React", "GraphQL", "Apollo", "JavaScript"]
+categories: ["React", "GraphQL"]
 keywords: ["react graphql apollo tutorial", "react with graphql apollo tutorial", "react graphql apollo book", "react apollo book", "react apollo example", "react apollo query", "react apollo mutation", "react apollo client", "react apollo demo"]
 hashtags: ["#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"

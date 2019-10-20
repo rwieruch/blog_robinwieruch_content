@@ -2,7 +2,7 @@
 title: "A apollo-link-state Tutorial for Local State in React"
 description: "A tutorial about how to use Apollo Link State as local state management solution in a React application when having a GraphQL powered server in the first place. The example shows you how to use Apollo Link State instead of React's Local State, but also instead of Redux or MobX to manage global state ..."
 date: "2018-05-13T06:50:46+02:00"
-categories: ["React", "GraphQL", "Apollo", "JavaScript"]
+categories: ["React", "GraphQL"]
 keywords: ["apollo link state tutorial", "apollo link state example", "apollo link state local state", "apollo link state local state management", "apollo link state react", "react graphql book", "react graphql apollo book"]
 hashtag: ["#ReactJs", "#GraphQL"]
 banner: "./images/banner.jpg"

@@ -2,7 +2,7 @@
 title: "Paginated List in React - Build a powerful Component (Part I)"
 description: "The series of React tutorials focuses on building a complex yet elegant and powerful React component. It attempts to go beyond the fundamentals in React.js. This part introduces a paginated list in React where you can fetch sublists from a third party API in React. You will implement it in an elegant higher order component ..."
 date: "2017-05-29T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react paginated list"]
 hashtags: ["#ReactJs"]
 contribute: ""

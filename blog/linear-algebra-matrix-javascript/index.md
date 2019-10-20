@@ -2,7 +2,7 @@
 title: "Linear Algebra in JavaScript with Matrix Operations"
 description: "How to use matrix operations from linear algebra in JavaScript. What are inverse, transpose and identity matrices and how can they help in machine learning ..."
 date: "2017-10-23T13:50:46+02:00"
-categories: ["Machine Learning", "JavaScript", "Node"]
+categories: ["Machine Learning", "JavaScript"]
 keywords: ["machine learning javascript", "matrix javascript", "matrix math.js"]
 hashtags: ["#JavaScript,#MachineLearning"]
 banner: "./images/banner.jpg"

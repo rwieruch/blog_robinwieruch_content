@@ -2,7 +2,7 @@
 title: "A minimal Apollo Client in React Example"
 description: "The tutorial guides you through building a minimal Apollo Client in React example application where Apollo Client is used for remote data and React's local state for local data. After all, it's a minimal boilerplate project to get you started with GraphQL in React ..."
 date: "2018-06-05T13:50:46+02:00"
-categories: ["React", "GraphQL", "Apollo", "JavaScript"]
+categories: ["React", "GraphQL"]
 keywords: ["react apollo client example", "react apollo example", "react graphql boilerplate", "react graphql example", "react apollo demo", "react apollo tutorial"]
 hashtags: ["#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"

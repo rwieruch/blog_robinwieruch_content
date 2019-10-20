@@ -2,7 +2,7 @@
 title: "How to pass props to components in React"
 description: "Everything you need to know about props in React. How to pass props to components, how to set default props, how to differentiate between props and state, and how to pass components or functions as props, ..."
 date: "2018-07-29T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react pass props to component", "react props vs state", "react props explained", "react props example", "react props best practices"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

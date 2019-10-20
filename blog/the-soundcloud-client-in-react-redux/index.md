@@ -2,7 +2,7 @@
 title: "The SoundCloud Client in React + Redux"
 description: "Build a React + Redux SoundCloud Client. It is a huge tutorial where you build an example real world application. Learn React JS and Redux along the way. Consume the SoundCloud API, login and interact..."
 date: "2016-06-11T13:50:46+02:00"
-categories: ["React", "Redux", "JavaScript"]
+categories: ["React", "Redux"]
 keywords: ["react redux"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

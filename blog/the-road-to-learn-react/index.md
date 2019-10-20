@@ -2,7 +2,7 @@
 title: "The Road to learn React [React.js Book for 2019]"
 description: "The Road to learn React book is your way to learn React.js by building a real world application. It's a huge tutorial where you will learn all the fundamentals in plain React before you dive into more advanced topics in React with Redux. Along the way, you will learn everything about JavaScript ES6 ..."
 date: "2018-02-20T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react book", "react ebook", "learn react", "react.js book", "react js book"]
 hashtags: ["#ReactJs"]
 contribute: ""

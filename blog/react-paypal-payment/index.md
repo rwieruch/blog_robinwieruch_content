@@ -2,7 +2,7 @@
 title: "How to accept Paypal payments with React"
 description: "Ever wondered how to integrate Paypal in your React application? This tutorial guides you through the setup process from using a Paypal checkout form in your React application. Afterward you are ready to receive Paypal payments in your React.js application ..."
 date: "2018-02-04T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react paypal", "react paypal integration"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

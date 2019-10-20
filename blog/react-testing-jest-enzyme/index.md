@@ -2,7 +2,7 @@
 title: "How to test React with Jest & Enzyme"
 description: "Learn how to test your React application with Jest & Enzyme. Jest will be used as a test runner & testing library while Enzyme will be used for your actual React component tests ..."
 date: "2019-07-17T13:56:46+02:00"
-categories: ["React", "JavaScript", "Tooling", "Webpack", "Babel", "Enzyme"]
+categories: ["React", "Tooling", "Webpack", "Babel", "Enzyme"]
 keywords: ["react testing jest enzyme", "react testing enzyme", "react enzyme setup", "react enzyme"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

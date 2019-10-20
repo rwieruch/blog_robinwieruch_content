@@ -2,7 +2,7 @@
 title: "Infinite Scroll in React - Build a powerful Component (Part II)"
 description: "The series of React tutorials focuses on building a complex yet elegant and powerful React component. It attempts to go beyond the fundamentals in React.js. This part introduces infinite scroll in React in an elegant way by using higher order components. You will implement an infinite scrolling higher order component ..."
 date: "2017-06-07T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react infinite scroll"]
 hashtags: ["#ReactJs"]
 contribute: ""

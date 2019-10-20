@@ -2,7 +2,7 @@
 title: "How to learn React.js in 2019"
 description: "How to become a React developer in 2019. A guide that shows one how to learn React step by step, which JavaScript skills are needed to get started, and how to commit yourself every day to learn React ..."
 date: "2019-01-01T07:52:46+02:00"
-categories: ["Starter", "React", "JavaScript"]
+categories: ["Starter", "React"]
 keywords: ["learn react js", "learn react js step by step free", "learn react js fast", "learn react js book", "learn reactjs from scratch", "learn react js online"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

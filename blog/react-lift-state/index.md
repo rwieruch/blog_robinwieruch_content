@@ -2,7 +2,7 @@
 title: "A React Lift State Up & Down Example"
 description: "A walkthrough by example on how to lift state up and down in React. You will see two examples that illustrate the problem and solution ..."
 date: "2019-05-22T07:52:46+02:00"
-categories: ["JavaScript"]
+categories: ["React"]
 keywords: ["react lift state", "react lift state up", "react lift state up example", "react lift state down", "react lifting state"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

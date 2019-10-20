@@ -2,7 +2,7 @@
 title: "Writing Tests for Apollo Client in React"
 description: "The tutorial builds up on a mocked GraphQL API enabling you to write tests for your Apollo Client queries and mutations in React. It answers the question: How to test Apollo Client in React ..."
 date: "2018-10-19T13:50:46+02:00"
-categories: ["React", "GraphQL", "Apollo", "JavaScript"]
+categories: ["React", "GraphQL"]
 keywords: ["apollo client test", "apollo client testing", "apollo client query test", "apollo client mutation test", "apollo client react test"]
 hashtags: ["#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"

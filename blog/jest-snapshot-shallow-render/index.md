@@ -2,7 +2,7 @@
 title: "How to shallow render Jest Snapshot Tests"
 description: "Learn how to shallow render components for Jest snapshot tests. This way, you will avoid too large snapshot test outputs and too much setup for child components ..."
 date: "2019-08-10T13:56:46+02:00"
-categories: ["React", "JavaScript", "Jest"]
+categories: ["React", "Jest"]
 keywords: ["jest shallow render snapshot"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

@@ -2,7 +2,7 @@
 date: "2018-02-11T13:50:46+02:00"
 title: "Why Frameworks matter"
 description: "Newcomers to web development often start out with React, Vue or Angular far too early after they have learned vanilla JavaScript. There is not always the chance to experience the struggle why libraries like React were implemented in the first place ..."
-categories: ["React", "JavaScript"]
+categories: ["React", "Angular", "Vue", "JavaScript"]
 keywords: ["why react", 'why frameworks']
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

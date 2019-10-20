@@ -2,7 +2,7 @@
 title: "A complete React with GraphQL Tutorial"
 description: "This React with GraphQL tutorial shows you how to use GraphQL in your React application by consuming GitHub's GraphQL API. You will not use any clever framework such as Apollo or Relay for your query or mutation. Instead this tutorial focuses on plain GraphQL with only HTTP requests in JS ..."
 date: "2018-04-09T13:50:46+02:00"
-categories: ["React", "GraphQL", "JavaScript"]
+categories: ["React", "GraphQL"]
 keywords: ["react graphql tutorial", "react with graphql tutorial", "react graphql book", "react graphql example", "react graphql query", "react graphql mutation", "react graphql client", "react graphql demo"]
 hashtags: ["#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"

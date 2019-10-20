@@ -2,7 +2,7 @@
 title: "How to prevent a rerender in React"
 description: "A React performance optimization tutorial which shows you React's shouldComponentUpdate lifecycle method and React's PureComponent API to prevent the rerendering of (child) components ..."
 date: "2018-09-11T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react prevent rerender", "react shouldcomponentupdate", "react purecomponent", "react performance", "react perf", "prevent a child component from rendering in react", "react prevent child rerender", "child did update"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

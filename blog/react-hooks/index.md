@@ -2,7 +2,7 @@
 title: "What are React Hooks?"
 description: "React Hooks are a way to use state and side-effects in React function components. They manage local state, fetch data from a API, interact with the DOM API and Browser API ..."
 date: "2018-10-29T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react hooks"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

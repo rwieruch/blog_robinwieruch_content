@@ -2,7 +2,7 @@
 title: "How to fetch data in React"
 description: "Do you want to go beyond a static React application? Then it's about time to fetch data from a third party API. This guide explains you all the basics and tricks to request data in React.js. You will reuse functionalities in higher-order components and implement error handling for a more robust application ..."
 date: "2018-07-06T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react fetching data", "react fetch API"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

@@ -2,7 +2,7 @@
 date: "2019-08-05T13:53:46+02:00"
 title: "How to use Images with Webpack"
 description: "The tutorial walks you through a Webpack with Images setup to load an image as local asset to your JavaScript applications ..."
-categories: ["JavaScript", "Tooling", "Webpack", "Babel"]
+categories: ["Tooling", "Webpack", "Babel"]
 keywords: ["webpack images"]
 hashtags: ["#JavaScript", "#Webpack"]
 banner: "./images/banner.jpg"

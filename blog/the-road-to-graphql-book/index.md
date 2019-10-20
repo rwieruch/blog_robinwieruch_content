@@ -2,7 +2,7 @@
 title: "The Road to GraphQL [Book]"
 description: "The free GraphQL book takes you on a journey to master GraphQL in JavaScript the pragmatic way with React, Node, and Apollo. Grab your free PDF, EPUB, or MOBI and get free updates for new releases. On the road to GraphQL you will learn how to build GraphQL server and client-side applications ..."
 date: "2018-11-05T13:50:46+02:00"
-categories: ["React", "GraphQL", "Apollo", "JavaScript", "Node"]
+categories: ["React", "GraphQL", "Node"]
 keywords: ["graphql javascript book", "graphql book pdf", "book about graphql", "books on graphql", "learning graphql book", "graphql books", "graphql apollo book", "react graphql book", "graphql node book", "best graphql book"]
 hashtags: ["#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"

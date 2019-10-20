@@ -2,7 +2,7 @@
 title: "What are Controlled Components in React?"
 description: "A brief explanation for uncontrolled vs controlled components in React. The example shows an input field which we will transition from a uncontrolled to controlled input field ..."
 date: "2019-04-10T07:52:46+02:00"
-categories: ["JavaScript"]
+categories: ["React"]
 keywords: ["react controlled components", "react uncontrolled components", "react controlled vs components", "react controlled input"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

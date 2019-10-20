@@ -2,7 +2,7 @@
 title: "Visual Regression Testing and React Storybook"
 description: "The article gives advice on how to implement visual regression testing in React and UI components with React Storybook. You will get to know React Storybook and all its testing capabilities ..."
 date: "2018-10-30T13:50:46+02:00"
-categories: ["React", "Tooling", "Web Development", "JavaScript"]
+categories: ["React", "Tooling", "Web Development"]
 keywords: ["visual regression testing react", "react storybook testing"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

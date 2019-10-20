@@ -2,7 +2,7 @@
 title: "React Context"
 description: "React Context is a powerful feature for passing props down the component tree without the need to tell components in between about them. React Context creates a Provider and Consumer component for tunnelling React components ..."
 date: "2019-10-17T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react context"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

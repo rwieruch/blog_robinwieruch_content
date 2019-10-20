@@ -2,7 +2,7 @@
 title: "How to link Social Logins with Firebase in React"
 description: "A Firebase React tutorial on how to link social logins with each other under one account. The example covers linking Google, Facebook, Twitter and email/password sign-in methods ..."
 date: "2018-12-06T07:52:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React", "Firebase"]
 keywords: ["react firebase link social logins", "react firebase multiple social logins", "react firebase authentication", "react firebase auth"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

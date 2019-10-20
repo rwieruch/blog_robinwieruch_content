@@ -2,7 +2,7 @@
 title: "React Redux Tutorial for Beginners [2019]"
 description: "A complete React Redux tutorial for beginners: Learn how to build React Redux applications from scratch by following this step by step implementation of an example application ..."
 date: "2018-12-13T13:50:46+02:00"
-categories: ["Starter", "React", "Redux", "JavaScript"]
+categories: ["Starter", "React", "Redux"]
 keywords: ["react redux tutorial", "react redux tutorial for beginners", "react redux tutorial beginner", "react redux basic tutorial", "react redux tutorial simple", "react redux tutorial example", "react redux tutorial with example", "react redux tutorial 2018", "react redux tutorial pdf", "react redux tutorial step by step", "react redux starter kit tutorial", "react redux tutorial from scratch"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

@@ -2,7 +2,7 @@
 title: "React Styled Components Tutorial"
 description: "A beginner friendly tutorial for CSS-in-JS with Styled Components in React. While learning about it, you will build an Instagram Clone ..."
 date: "2019-03-30T07:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React"]
 keywords: ["react styled components", "react styled components tutorial"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

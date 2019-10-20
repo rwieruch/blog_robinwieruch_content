@@ -2,7 +2,7 @@
 title: "The Road to React with Firebase [Book]"
 description: "The free React with Firebase book takes you on a journey to master a minimal tech stack with React and Firebase in JavaScript. You will learn how both technologies help you to realize your business idea. Grab your free PDF, EPUB, or MOBI and get free updates for new releases ..."
 date: "2019-01-28T13:50:46+02:00"
-categories: ["React", "JavaScript"]
+categories: ["React", "Firebase"]
 keywords: ["react firebase book", "firebase book pdf", "book about firebase", "books on firebase", "learning firebase book", "firebase books", "firebase book", "best firebase book"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

@@ -2,7 +2,7 @@
 title: "How to use Web Components in React"
 description: "A tutorial on how to use Web Components in React. It comes with a library as a wrapper to use a custom element within your React component for passing props as attributes and event listeners ..."
 date: "2019-06-12T13:50:46+02:00"
-categories: ["Web Components", "React", "JavaScript"]
+categories: ["Web Components", "React"]
 keywords: ["react web components"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

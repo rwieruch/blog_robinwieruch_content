@@ -2,7 +2,7 @@
 title: "Node Testing Setup with Mocha, Chai, Sinon"
 description: "How to get started with testing in Node.js with Mocha, Chai, Sinon. This setup tutorial shows you how to use Mocha as test runner and Chai as assertion library for Node.js projects ..."
 date: "2019-05-05T07:52:46+02:00"
-categories: ["Node", "JavaScript"]
+categories: ["Node"]
 keywords: ["node js testing", "node testing", "node js test", "node test", "node mocha", "node chai", "node mocha chai", "node sinon"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

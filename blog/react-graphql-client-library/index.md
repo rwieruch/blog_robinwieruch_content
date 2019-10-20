@@ -2,7 +2,7 @@
 title: "How to build a GraphQL client library for React"
 description: "A tutorial on how to build a GraphQL client library for React applications. It has three parts: the GraphQL client, connecting the GraphQL client to React, and offering Query and Mutation components for GraphQL operations ..."
 date: "2018-06-13T13:50:46+02:00"
-categories: ["React", "GraphQL", "Tooling", "JavaScript"]
+categories: ["React", "GraphQL", "Tooling"]
 keywords: ["react graphql client", "react graphql client library", "graphql react book", "graphql apollo book"]
 hashtags: ["#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"
