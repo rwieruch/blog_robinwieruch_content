@@ -252,7 +252,7 @@ class Square extends PureComponent {
 
 React's PureComponent does a shallow compare on the component's props and state. If nothing has changed, it prevents the rerender of the component. If something has changed, it rerenders the component.
 
-As alternative, if you want to use a functional stateless component as PureComponent instead, use recompose's pure [higher-order component](https://www.robinwieruch.de/gentle-introduction-higher-order-components/). You can install [recompose](https://github.com/acdlite/recompose) on the command line via npm with `npm install recompose`. Then apply its higher-order component on your initially implemented Square component:
+As alternative, if you want to use a functional stateless component as PureComponent instead, use recompose's pure [higher-order component](https://www.robinwieruch.de/react-higher-order-components/). You can install [recompose](https://github.com/acdlite/recompose) on the command line via npm with `npm install recompose`. Then apply its higher-order component on your initially implemented Square component:
 
 ```javascript{1,5}
 import { pure } from 'recompose';

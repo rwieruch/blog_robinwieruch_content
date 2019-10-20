@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-Since [React Hooks](https://www.robinwieruch.de/react-hooks/) have been released, [function components](https://www.robinwieruch.de/react-function-component/) can use state and side-effects. There are two hooks that are used for modern state management in React (useState and useReducer) and one hook called useContext to use [React's Context API](https://www.robinwieruch.de/react-context-api/) to pass state or state updater functions down the component tree. Now, many people keep wondering: **Does useContext and useReducer replace Redux?** As of the time of writing this article, React Hooks don't replace Redux.
+Since [React Hooks](https://www.robinwieruch.de/react-hooks/) have been released, [function components](https://www.robinwieruch.de/react-function-component/) can use state and side-effects. There are two hooks that are used for modern state management in React (useState and useReducer) and one hook called useContext to use [React's Context API](https://www.robinwieruch.de/react-context/) to pass state or state updater functions down the component tree. Now, many people keep wondering: **Does useContext and useReducer replace Redux?** As of the time of writing this article, React Hooks don't replace Redux.
 
 Requirements: Check out the following tutorials, if you haven't learned about [reducers in JavaScript](https://www.robinwieruch.de/javascript-reducer/) or [useReducer in React](https://www.robinwieruch.de/react-usereducer-hook/). It's good to know about the fundamentals before entering this discussion about Redux vs useReducer. Also if you want to learn more about Redux, check out this extensive [Redux tutorial](https://www.robinwieruch.de/react-redux-tutorial/).
 
@@ -49,7 +49,7 @@ Where your state is managed is a crucial difference between Redux and useReducer
                       +----------------+
 ```
 
-[Using useContext in combination with useReducer](https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext/) takes the component co-located state management on another level. Suddenly the state container created by useReducer and its dispatch function can be passed to any component from any top-level component. It can be also the most top-level component to make the state "global". It's also possible to pass things down only by using [React props](https://www.robinwieruch.de/react-pass-props-to-component/), but [React's Context API](https://www.robinwieruch.de/react-context-api/) makes your state and dispatch function available anywhere without explicitly passing everything down the component tree.
+[Using useContext in combination with useReducer](https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext/) takes the component co-located state management on another level. Suddenly the state container created by useReducer and its dispatch function can be passed to any component from any top-level component. It can be also the most top-level component to make the state "global". It's also possible to pass things down only by using [React props](https://www.robinwieruch.de/react-pass-props-to-component/), but [React's Context API](https://www.robinwieruch.de/react-context/) makes your state and dispatch function available anywhere without explicitly passing everything down the component tree.
 
 ```javascript
           +----------------+

@@ -148,9 +148,9 @@ Both guides come with a minimal set of recommended tools to get you started with
 After you have learned the basics of React with React components, props/state, and React's JSX syntax to return valid HTML in JavaScript, you can dive deeper with advanced React concepts and patterns. These are a few essential of them that will not go away that quickly:
 
 * [Learn React Hooks](https://www.robinwieruch.de/react-hooks/)
-* [Learn React Higher-Order Components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/)
-* [Learn React Render Prop Components](https://www.robinwieruch.de/react-render-props-pattern/)
-* [Learn React Context](https://www.robinwieruch.de/react-context-api/)
+* [Learn React Higher-Order Components](https://www.robinwieruch.de/react-higher-order-components/)
+* [Learn React Render Prop Components](https://www.robinwieruch.de/react-render-props/)
+* [Learn React Context](https://www.robinwieruch.de/react-context/)
 
 Being equipped with these advanced React techniques, you should be comfortable to dive into larger React applications where you will find these concepts and techniques more often. Due to React Hooks, the other Higher-Order Components and Render Prop Components may be less used in the future, but you should still see them fairly often throughout the next year.
 
@@ -178,7 +178,7 @@ There are plenty of free React learning resources online that have a high qualit
 
 # Learn React Roadmap
 
-After you have learned only React and feel comfortable with its basic and advanced implementation details, there are plenty of learning paths you can take to advance your React skills. The [React ecosystem is not opinionated but innovative and extensive](https://www.robinwieruch.de/essential-react-libraries-framework/). A couple of recommendations:
+After you have learned only React and feel comfortable with its basic and advanced implementation details, there are plenty of learning paths you can take to advance your React skills. The [React ecosystem is not opinionated but innovative and extensive](https://www.robinwieruch.de/react-libraries/). A couple of recommendations:
 
 * React + React Router: [Enable Navigation in your React application with a Router](https://reacttraining.com/react-router/)
 * React + Firebase: [Connect React to a Database and implement User Authentication/Authorization](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/)

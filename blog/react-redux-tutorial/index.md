@@ -1350,7 +1350,7 @@ Let's change this by using the [react-redux](https://github.com/reactjs/react-re
 npm install --save react-redux
 ```
 
-You can use the `Provider` component, which makes the Redux store available to all React components below (by using [React's context API](https://www.robinwieruch.de/react-context-api/)), in your React root file.
+You can use the `Provider` component, which makes the Redux store available to all React components below (by using [React's context API](https://www.robinwieruch.de/react-context/)), in your React root file.
 
 ```javascript{3,8,9,10,11,12,13}
 import React from 'react';
@@ -1392,7 +1392,7 @@ But who passes the props to the Stories component then? It's the first component
 export default Stories;
 ```
 
-You can export the connected component with the `connect` [higher-order component](https://www.robinwieruch.de/gentle-introduction-higher-order-components/) that has implicit access to the Redux store by having the global state and the dispatch method from the store at its disposal:
+You can export the connected component with the `connect` [higher-order component](https://www.robinwieruch.de/react-higher-order-components/) that has implicit access to the Redux store by having the global state and the dispatch method from the store at its disposal:
 
 ```javascript{1,2,3,7,8,9,10,11,12,13,14,15,16,17,18}
 import { connect } from 'react-redux';

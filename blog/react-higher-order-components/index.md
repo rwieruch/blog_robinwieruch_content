@@ -14,7 +14,7 @@ author: ""
 
 Another fitting headline for the article could be: learn Higher Order Components with Conditional Rendering in React.
 
-Higher order components, or known under the abbreviation HOCs, are often a difficult to grasp pattern in React (next to the [render props pattern](https://www.robinwieruch.de/react-render-props-pattern/)). These components can be used for multiple use cases. I want to pick out one use case, the [conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/) with higher-order components, to give you two outcomes from this article as a reader.
+Higher order components, or known under the abbreviation HOCs, are often a difficult to grasp pattern in React (next to the [render props pattern](https://www.robinwieruch.de/react-render-props/)). These components can be used for multiple use cases. I want to pick out one use case, the [conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/) with higher-order components, to give you two outcomes from this article as a reader.
 
 First, it should teach you about React's higher-order components with the use case of conditional rendering. Keep in mind, that altering the look of a component with a higher-order component, specifically in the context of conditional rendering, is only one of several use cases to use HOCs. For instance, you could use them to opt-in local state or to alter props as well.
 

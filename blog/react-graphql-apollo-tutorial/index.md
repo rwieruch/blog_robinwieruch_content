@@ -202,7 +202,7 @@ All we've done thus far has been the framework agnostic part of Apollo Client. H
 npm install react-apollo --save
 ```
 
-Second, import its ApolloProvider component, and use it as a composing component around your App component in the *src/index.js* file. Under the hood, it uses [React's Context API](https://www.robinwieruch.de/react-context-api/) to pass the Apollo Client through your application.
+Second, import its ApolloProvider component, and use it as a composing component around your App component in the *src/index.js* file. Under the hood, it uses [React's Context API](https://www.robinwieruch.de/react-context/) to pass the Apollo Client through your application.
 
 ```javascript{3,11,13}
 import React from 'react';
@@ -262,7 +262,7 @@ export default Profile;
 
 Now we'll learn to query data with GraphQL and Apollo Client. The Apollo Client was provided in a previous section with React's Context API in a top level component. You have implicit access to it, but never use it directly for standard queries and mutations. It says "standard" here, because there will be situations where you use the Apollo Client instance directly while implementing this application.
 
-The React Apollo package grants access to a Query component, which takes a query as prop and executes it when its rendered. That's the important part: it executes the query when it is rendered. It uses React's [render props](https://www.robinwieruch.de/react-render-props-pattern/) pattern, using a child as a function implementation where you can access the result of the query as an argument.
+The React Apollo package grants access to a Query component, which takes a query as prop and executes it when its rendered. That's the important part: it executes the query when it is rendered. It uses React's [render props](https://www.robinwieruch.de/react-render-props/) pattern, using a child as a function implementation where you can access the result of the query as an argument.
 
 ```javascript{2,5,6,7}
 import React from 'react';
@@ -899,7 +899,7 @@ When you star a repository as above, the "Star" button disappears. This is what 
 
 We've done Query and Mutation components from React Apollo to connect a data-layer (Apollo Client) with a view-layer (React). The Query component executes the query when it is rendered, whereas the Mutation component gives access to a function that triggers the mutation. Both components use the render props pattern to make the results accessible in their child functions.
 
-[Higher-Order Components (HOC)](https://www.robinwieruch.de/gentle-introduction-higher-order-components/) is a widely accepted alternative to React's render prop pattern. The React Apollo package implements a Higher-Order Component for queries and mutations as well, though the team behind Apollo doesn't advertise it, and even spoke in favor of render props as their first choice. Nonetheless, this section shows you the alternative, using a Higher-Order Component instead of a Render Prop, though this application will continue to use the render prop pattern afterward. If you already have access to the query result in the Profile component's arguments, there is no Query component needed in the component itself:
+[Higher-Order Components (HOC)](https://www.robinwieruch.de/react-higher-order-components/) is a widely accepted alternative to React's render prop pattern. The React Apollo package implements a Higher-Order Component for queries and mutations as well, though the team behind Apollo doesn't advertise it, and even spoke in favor of render props as their first choice. Nonetheless, this section shows you the alternative, using a Higher-Order Component instead of a Render Prop, though this application will continue to use the render prop pattern afterward. If you already have access to the query result in the Profile component's arguments, there is no Query component needed in the component itself:
 
 ```javascript
 const Profile = ({ data, loading, error }) => {

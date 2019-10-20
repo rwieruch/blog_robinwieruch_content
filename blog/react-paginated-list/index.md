@@ -403,7 +403,7 @@ Now, your user should see some feedback once a request is pending. However, your
 
 # A paginated List as Higher Order Component in React
 
-If you are not familiar to higher order components, I recommend to read [the gentle introduction to higher order components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/). It gives not only an introduction, but shows how you can make an elegant use of composition to opt-in functionalities.
+If you are not familiar to higher order components, I recommend to read [the gentle introduction to higher order components](https://www.robinwieruch.de/react-higher-order-components/). It gives not only an introduction, but shows how you can make an elegant use of composition to opt-in functionalities.
 
 Now, after the foundations about HOCs are clear, let's outsource both functionalities of the List component and make it only render a list. The loading indicator and More button can be opt-in by using HOCs later on.
 

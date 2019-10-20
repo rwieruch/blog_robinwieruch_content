@@ -432,7 +432,7 @@ const ListWithLoadingIndicator = withLoadingIndicator(List);
 
 In the example, the List component can focus on rendering the list. It doesn't have to bother with a loading state. Ultimately you could add more HOCs to shield away multiple conditional rendering edge cases.
 
-A HOC can opt-in one or multiple conditional renderings. You could even use multiple HOCs to handle several conditional renderings. After all, a HOC shields away all the noise from your component. If you want to dig deeper into conditional renderings with higher order components, you should read the [conditional rendering with HOCs article](https://www.robinwieruch.de/gentle-introduction-higher-order-components/).
+A HOC can opt-in one or multiple conditional renderings. You could even use multiple HOCs to handle several conditional renderings. After all, a HOC shields away all the noise from your component. If you want to dig deeper into conditional renderings with higher order components, you should read the [conditional rendering with HOCs article](https://www.robinwieruch.de/react-higher-order-components/).
 
 # External Templating Components
 

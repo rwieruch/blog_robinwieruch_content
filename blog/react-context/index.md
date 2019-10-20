@@ -158,6 +158,7 @@ Second, component A would have to provide the context with the given Provider co
 ```javascript
 // src/ComponentA.js
 
+import React from 'react';
 import ThemeContext from './ThemeContext';
 
 const A = () => (
@@ -174,6 +175,7 @@ Third, in your component C, below component D, you could consume the context obj
 ```javascript
 // src/ComponentC.js
 
+import React from 'react';
 import ThemeContext from './ThemeContext';
 
 const C = () => (
@@ -187,7 +189,7 @@ const C = () => (
 );
 ```
 
-The component can derive its style by consuming the context. The Consumer component makes the passed context available by using a [render prop](https://www.robinwieruch.de/react-render-props-pattern). As you can imagine, following this way every component that needs to be styled according to the theme could get the necessary information from React's Context by using the ThemeContext's Consumer component now. You only have to use the Provider component which passes the value once somewhere above them.
+The component can derive its style by consuming the context. The Consumer component makes the passed context available by using a [render prop](https://www.robinwieruch.de/react-render-props). As you can imagine, following this way every component that needs to be styled according to the theme could get the necessary information from React's Context by using the ThemeContext's Consumer component now. You only have to use the Provider component which passes the value once somewhere above them.
 
 # React Context: When
 

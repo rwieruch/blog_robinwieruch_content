@@ -257,7 +257,7 @@ const List = () => {
 export default List;
 ```
 
-Let's dive into the different examples to update our list items with [React Hooks](https://www.robinwieruch.de/react-hooks). All the following patterns are the foundation for sophisticated [state management in React](https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext).
+Let's dive into the different examples to update our list items with [React Hooks](https://www.robinwieruch.de/react-hooks). All the following patterns are the foundation for sophisticated [state management in React](https://www.robinwieruch.de/react-state).
 
 ## React List: Add Item
 

@@ -22,7 +22,7 @@ If you just want to have a ready to go React Hook for data fetching: `npm instal
 
 # Data Fetching with React Hooks
 
-If you are not familiar with data fetching in React, checkout my [extensive data fetching in React article](https://www.robinwieruch.de/react-fetching-data/). It walks you through data fetching with React class components, how it can be made reusable with [Render Prop Components](https://www.robinwieruch.de/react-render-props-pattern/) and [Higher-Order Components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/), and how it deals with error handling and loading spinners. In this article, I want to show you all of it with React Hooks in function components.
+If you are not familiar with data fetching in React, checkout my [extensive data fetching in React article](https://www.robinwieruch.de/react-fetching-data/). It walks you through data fetching with React class components, how it can be made reusable with [Render Prop Components](https://www.robinwieruch.de/react-render-props/) and [Higher-Order Components](https://www.robinwieruch.de/react-higher-order-components/), and how it deals with error handling and loading spinners. In this article, I want to show you all of it with React Hooks in function components.
 
 ```javascript
 import React, { useState } from 'react';

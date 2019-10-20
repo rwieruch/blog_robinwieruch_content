@@ -96,7 +96,7 @@ class PaypalButton extends React.Component {
 export default scriptLoader('https://www.paypalobjects.com/api/checkout.js')(PaypalButton);
 ```
 
-If you haven't installed by now, you need to install the [react-async-script-loader](https://github.com/leozdgao/react-async-script-loader) via npm. The `scriptLoader` is a [higher order component](https://www.robinwieruch.de/gentle-introduction-higher-order-components/) which can be used in React to lazy load scripts.
+If you haven't installed by now, you need to install the [react-async-script-loader](https://github.com/leozdgao/react-async-script-loader) via npm. The `scriptLoader` is a [higher order component](https://www.robinwieruch.de/react-higher-order-components/) which can be used in React to lazy load scripts.
 
 ```javascript
 npm install react-async-script-loader

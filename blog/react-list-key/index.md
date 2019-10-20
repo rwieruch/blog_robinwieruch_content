@@ -78,7 +78,7 @@ const ListWithUnstableIndex = () => {
 };
 ```
 
-The example showcases the same list, but this time managed with [React Hooks](https://www.robinwieruch.de/react-hooks/) as [state](https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext/). The new button element reverses our list and stores it as state. If you try the example, everything works and *seems* alright. The bug stays hidden because we don't render much here. However, if we add another uncontrolled element to our rendered list items, we can see the bug happening:
+The example showcases the same list, but this time managed with [React Hooks](https://www.robinwieruch.de/react-hooks/) as [state](https://www.robinwieruch.de/react-state/). The new button element reverses our list and stores it as state. If you try the example, everything works and *seems* alright. The bug stays hidden because we don't render much here. However, if we add another uncontrolled element to our rendered list items, we can see the bug happening:
 
 ```javascript{16}
 const initialList = ['Learn React', 'Learn GraphQL'];

@@ -718,9 +718,9 @@ Many people refer to this as **slot pattern** in React. You can find a working m
 
 # Children as a Function
 
-The concept of **children as a function** or **child as a function**, also called **render prop**, is one of the advanced patterns in React (next to [higher-order components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/)). The components which implement this pattern can be called **render prop components.**
+The concept of **children as a function** or **child as a function**, also called **render prop**, is one of the advanced patterns in React (next to [higher-order components](https://www.robinwieruch.de/react-higher-order-components/)). The components which implement this pattern can be called **render prop components.**
 
-The following implementations can be difficult to follow when not having used render props in React before. Please read up this article [as introduction to render props in React](https://www.robinwieruch.de/react-render-props-pattern/) first.
+The following implementations can be difficult to follow when not having used render props in React before. Please read up this article [as introduction to render props in React](https://www.robinwieruch.de/react-render-props/) first.
 
 First, let's start with the render prop. Basically it is a function passed as prop (usually called render, but the name can be anything). The function receives arguments (in this case the amount), but also renders JSX (in this case the components for the currency conversion).
 
@@ -836,7 +836,7 @@ You can find a working minimal project on [GitHub](https://github.com/the-road-t
 
 At some point, you are passing a lot of props down your component tree. Depending on the depth of the component tree, it can happen that many props are passed from a top level component to all the leaf components. Every component in between has to pass the props even though it may not be interested in the props. The problem is called **prop drilling** in React. There are a couple of solutions to overcome this "problem". You have already learned about one solution: passing components as props by using the slot pattern. Then you don't have to pass a prop through all components, but rather distribute the props at a top level to all slotted components.
 
-Another solution is **React's Context API** which can be used to pass props implicitly down to component tree. Every component which is interested in the props passed by React's Context API can consume them. All the other components don't need to consume them and thus they will never know about the props. Moreover, the components between the top level and the leaf components don't need to know about the props as well. Checkout [React's Context API](https://www.robinwieruch.de/react-context-api/) if you are interested in using it.
+Another solution is **React's Context API** which can be used to pass props implicitly down to component tree. Every component which is interested in the props passed by React's Context API can consume them. All the other components don't need to consume them and thus they will never know about the props. Moreover, the components between the top level and the leaf components don't need to know about the props as well. Checkout [React's Context API](https://www.robinwieruch.de/react-context/) if you are interested in using it.
 
 # How to set props to state?
 
@@ -1044,7 +1044,7 @@ Basically that's how you pass props to styled components and how you get props i
 
 ## Pass props with React Router
 
-React Router is another [essential React library](https://www.robinwieruch.de/essential-react-libraries-framework/) which is often used to complement React applications. Mapping URL routes to React components usually looks similar to this:
+React Router is another [essential React library](https://www.robinwieruch.de/react-libraries/) which is often used to complement React applications. Mapping URL routes to React components usually looks similar to this:
 
 ```javascript
 const App = ({ user }) =>

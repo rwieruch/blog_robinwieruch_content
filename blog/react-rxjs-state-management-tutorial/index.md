@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-Recently a [client of mine](https://www.robinwieruch.de/work-with-me) inspired me to learn [RxJS](https://www.learnrxjs.io) for State Management in React. When I did a code audit for their application, they wanted to get my opinion about how to proceed with it after [only using React's local state](https://www.robinwieruch.de/learn-react-before-using-redux). They reached a point where it wasn't feasible to only rely on React. The initial discussion was about [Redux or MobX](https://www.robinwieruch.de/redux-mobx-confusion/) for a more sophisticated state management. They had built a prototype for each of these technologies. However, they had also a prototype for a React application with RxJS. That's where the discussion got interesting.
+Recently a [client of mine](https://www.robinwieruch.de/work-with-me) inspired me to learn [RxJS](https://www.learnrxjs.io) for State Management in React. When I did a code audit for their application, they wanted to get my opinion about how to proceed with it after [only using React's local state](https://www.robinwieruch.de/learn-react-before-using-redux). They reached a point where it wasn't feasible to only rely on React. The initial discussion was about [Redux or MobX](https://www.robinwieruch.de/redux-mobx/) for a more sophisticated state management. They had built a prototype for each of these technologies. However, they had also a prototype for a React application with RxJS. That's where the discussion got interesting.
 
 **The application was a marketplace for cryptocurrencies which had lots of real-time widgets. The challenges:**
 
@@ -88,11 +88,11 @@ class App extends React.Component {
 export default App;
 ```
 
-But that's not the approach we are going to use here. Instead, we want to manage the state somehow with RxJS. Let's see how we can do this with a higher-order component. If you want, you can implement the following logic in your App component too, but you will most likely extract it as a [reusable higher-order component (HOC)](https://www.robinwieruch.de/gentle-introduction-higher-order-components/) at some point anyway.
+But that's not the approach we are going to use here. Instead, we want to manage the state somehow with RxJS. Let's see how we can do this with a higher-order component. If you want, you can implement the following logic in your App component too, but you will most likely extract it as a [reusable higher-order component (HOC)](https://www.robinwieruch.de/react-higher-order-components/) at some point anyway.
 
 # React + RxJS Higher-Order Component (HOC)
 
-Let's introduce a way on how to manage state in React with RxJS by having a higher-order component for it. You could also implement a [render prop component](https://www.robinwieruch.de/react-render-props-pattern/) instead. In the end, if you don't want to implement your own higher-order component for it, checkout [recompose's observable higher-order components](https://github.com/acdlite/recompose/blob/master/docs/API.md#observable-utilities) with `mapPropsStream()` and `componentFromStream()`. In this tutorial though, you will build your own.
+Let's introduce a way on how to manage state in React with RxJS by having a higher-order component for it. You could also implement a [render prop component](https://www.robinwieruch.de/react-render-props/) instead. In the end, if you don't want to implement your own higher-order component for it, checkout [recompose's observable higher-order components](https://github.com/acdlite/recompose/blob/master/docs/API.md#observable-utilities) with `mapPropsStream()` and `componentFromStream()`. In this tutorial though, you will build your own.
 
 ```javascript{3,4,5,6,7,8,9,10,11,12,13,14,15,31}
 import React from 'react';

@@ -112,8 +112,8 @@ However, perhaps you are not looking for using React state without a constructor
 
 At this point in time, the answer is: You cannot. It is not possible to have state in a functional component. This may change in the future, but for now, there are only two advanced React patterns which can be used to give your functional components state in React.
 
-* [React higher-order components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/)
-* [React render prop components](https://www.robinwieruch.de/react-render-props-pattern/)
+* [React higher-order components](https://www.robinwieruch.de/react-higher-order-components/)
+* [React render prop components](https://www.robinwieruch.de/react-render-props/)
 
 ## React State with Higher-Order Components
 

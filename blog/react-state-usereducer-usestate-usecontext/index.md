@@ -705,7 +705,7 @@ You have seen how useState and useReducer can be used for simple and complex sta
 
 We can take our state management one step further. At the moment, the state is managed co-located to the component. That's because we only have one component after all. What if we would have a deep component tree? How could we dispatch state changes from anywhere?
 
-Let's dive into [React's Context API and the useContext hook](https://www.robinwieruch.de/react-context-api/) to mimic more a Redux's philosophy by making state changes available in the whole component tree. Before we can do this, let's refactor our one component into a component tree. First, the App component renders all its child components and passes the necessary state and dispatch functions to them:
+Let's dive into [React's Context API and the useContext hook](https://www.robinwieruch.de/react-context/) to mimic more a Redux's philosophy by making state changes available in the whole component tree. Before we can do this, let's refactor our one component into a component tree. First, the App component renders all its child components and passes the necessary state and dispatch functions to them:
 
 ```javascript{23,24,25}
 const App = () => {

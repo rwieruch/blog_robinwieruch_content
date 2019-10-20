@@ -14,7 +14,7 @@ author: ""
 
 Newcomers to React often start with applications that don't need data fetching at all. Usually they are confronted with Counter, Todo or TicTacToe applications. That's good, because data fetching adds another layer of complexity to your application while taking the first steps in React.
 
-However, at some point you want to request real world data from an own or a third-party [API](https://www.robinwieruch.de/what-is-an-api-javascript/). The article gives you a walkthrough on how to fetch data in React. There is no external state management solution, such as [Redux or MobX](https://www.robinwieruch.de/redux-mobx-confusion/), involved to store your fetched data. Instead you will use React's local state management.
+However, at some point you want to request real world data from an own or a third-party [API](https://www.robinwieruch.de/what-is-an-api-javascript/). The article gives you a walkthrough on how to fetch data in React. There is no external state management solution, such as [Redux or MobX](https://www.robinwieruch.de/redux-mobx/), involved to store your fetched data. Instead you will use React's local state management.
 
 # Table of Contents
 
@@ -206,7 +206,7 @@ React's ES6 class components have [lifecycle methods](https://facebook.github.io
 
 There is another lifecycle method that is a perfect match to fetch data: `componentDidMount()`. When this method runs, the component was already rendered once with the `render()` method, but it would render again when the fetched data would be stored in the local state of the component with `setState()`. Afterward, the local state could be used in the `render()` method to display it or to pass it down as props.
 
-The `componentDidMount()` lifecycle method is the best place to fetch data. But how to fetch the data after all? [React's ecosystem is a flexible framework](https://www.robinwieruch.de/essential-react-libraries-framework/), thus you can choose your own solution to fetch data. For the sake of simplicity, the article will showcase it with the [native fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) that comes with the browser. It uses [JavaScript promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) to resolve the asynchronous response. The most minimal example to fetch data would be the following:
+The `componentDidMount()` lifecycle method is the best place to fetch data. But how to fetch the data after all? [React's ecosystem is a flexible framework](https://www.robinwieruch.de/react-libraries/), thus you can choose your own solution to fetch data. For the sake of simplicity, the article will showcase it with the [native fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) that comes with the browser. It uses [JavaScript promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) to resolve the asynchronous response. The most minimal example to fetch data would be the following:
 
 ```javascript
 import React, { Component } from 'react';
@@ -723,7 +723,7 @@ Instead of `then()` you can use the async/await statements when fetching data in
 
 # How to fetch data in Higher-Order Components?
 
-The previously shown ways to fetch data can be repetitive when using it in a lot of components. Once a component mounted, you want to fetch data and show conditional loading or error indicators. The component so far can be split up into two responsibilities: showing the fetched data with conditional renderings and fetching the remote data with storing it in local state afterward. Whereas the former is only there for rendering purposes, the latter could be made reusable by a [higher-order component](https://www.robinwieruch.de/gentle-introduction-higher-order-components/).
+The previously shown ways to fetch data can be repetitive when using it in a lot of components. Once a component mounted, you want to fetch data and show conditional loading or error indicators. The component so far can be split up into two responsibilities: showing the fetched data with conditional renderings and fetching the remote data with storing it in local state afterward. Whereas the former is only there for rendering purposes, the latter could be made reusable by a [higher-order component](https://www.robinwieruch.de/react-higher-order-components/).
 
 Note: When you are going to read the linked article, you will also see how you could abstract away the conditional renderings in higher-order components. After that, your component would only be concerned displaying the fetched data without any conditional renderings.
 

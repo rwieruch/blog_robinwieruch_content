@@ -704,7 +704,7 @@ These are the main functionalities for ES6 modules. They help you to organize yo
 
 # Libraries in React
 
-React offers state management and side-effect features, but apart from this, it is only a component library which renders HTML for your browser. Everything else can be added from APIs (e.g. browser API, DOM API), JavaScript functionalities (e.g. map, filter, reduce) or external libraries. It's not always simple to choose the right library for complementing your React application, but [once you have a good overview of the different options](https://www.robinwieruch.de/essential-react-libraries-framework/), you can pick the one which fits best to your tech stack.
+React offers state management and side-effect features, but apart from this, it is only a component library which renders HTML for your browser. Everything else can be added from APIs (e.g. browser API, DOM API), JavaScript functionalities (e.g. map, filter, reduce) or external libraries. It's not always simple to choose the right library for complementing your React application, but [once you have a good overview of the different options](https://www.robinwieruch.de/react-libraries/), you can pick the one which fits best to your tech stack.
 
 For instance, [fetching data in React](https://www.robinwieruch.de/react-fetching-data/) can be done with the native fetch API:
 
@@ -925,7 +925,7 @@ const doFilter = query => user =>
   user.name.includes(query);
 ```
 
-Now, the `doFilter()` function can be exported from the file and tested in isolation as pure (higher-order) function. After learning about higher-order functions, all the fundamental knowledge is established to learn more about [React's higher-order components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/), if you want to learn about this advanced technique in React. Moving functions around your code base is a great way to learn about the benefits of having functions as first class citizens in JavaScript. It's powerful when moving your code towards functional programming.
+Now, the `doFilter()` function can be exported from the file and tested in isolation as pure (higher-order) function. After learning about higher-order functions, all the fundamental knowledge is established to learn more about [React's higher-order components](https://www.robinwieruch.de/react-higher-order-components/), if you want to learn about this advanced technique in React. Moving functions around your code base is a great way to learn about the benefits of having functions as first class citizens in JavaScript. It's powerful when moving your code towards functional programming.
 
 # Shorthand Object Assignment
 

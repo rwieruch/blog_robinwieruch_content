@@ -85,7 +85,7 @@ The `onScroll()` class method itself is responsible to execute the `onPaginatedS
 
 Again, as for the paginated list in the first part of the tutorial series, you can extract the functionality to a higher order component. You can already see all the parts of the List component that could move into the HOC: all those that you have added to the List component in the last step.
 
-If you are not familiar with higher order components, as in the first part of the series, I can recommend to read [the gentle introduction to higher order components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/).
+If you are not familiar with higher order components, as in the first part of the series, I can recommend to read [the gentle introduction to higher order components](https://www.robinwieruch.de/react-higher-order-components/).
 
 ```javascript
 const withInfiniteScroll = (Component) =>

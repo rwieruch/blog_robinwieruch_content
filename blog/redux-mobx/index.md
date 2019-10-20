@@ -14,7 +14,7 @@ author: ""
 
 I used [Redux](https://github.com/reactjs/redux) excessively the last years, but spent the recent time with [MobX](https://github.com/mobxjs/mobx) as state management alternative. It seems that Redux alternatives evolve naturally into confusion in the community. People are [uncertain](https://www.reddit.com/r/reactjs/comments/4npzq5/confused_redux_or_mobx/) which solution to pick. **The issue isn't necessarily Redux vs MobX**. Whenever there exists an alternative, people are curious what's the best way to solve their problem. I am writing these lines to dissolve the confusion around both state management solutions Redux and MobX.
 
-Often the article references [React as view layer library](https://www.robinwieruch.de/essential-react-libraries-framework/) for the usage of state management libraries such as MobX and Redux. Yet you can often substitute React with other solutions such as Angular or Vue.
+Often the article references [React as view layer library](https://www.robinwieruch.de/react-libraries/) for the usage of state management libraries such as MobX and Redux. Yet you can often substitute React with other solutions such as Angular or Vue.
 
 In the beginning of 2016 I wrote a [fairly big application in React + Redux](https://github.com/rwieruch/favesound-redux). After I discovered MobX as alternative, I took the time to [refactor the application from Redux to MobX](https://github.com/rwieruch/favesound-mobx/pull/1). I feel pretty comfortable in using both and in explaining their approaches.
 

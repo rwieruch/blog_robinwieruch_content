@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-MobX is used for state management in modern applications. Often it is applied in a React.js application, but it is not necessarily bound to React. In addition, it is a [valuable alternative to Redux](https://www.robinwieruch.de/redux-mobx-confusion/) as state management solution. If you are using [create-react-app](https://github.com/facebookincubator/create-react-app) as your application boilerplate, you most likely run into the questions of how to setup MobX and how to use [decorators](https://tc39.github.io/proposal-decorators/) in create-react-app. The article should give you the essential knowledge to use MobX without and with decorators in create-react-app.
+MobX is used for state management in modern applications. Often it is applied in a React.js application, but it is not necessarily bound to React. In addition, it is a [valuable alternative to Redux](https://www.robinwieruch.de/redux-mobx/) as state management solution. If you are using [create-react-app](https://github.com/facebookincubator/create-react-app) as your application boilerplate, you most likely run into the questions of how to setup MobX and how to use [decorators](https://tc39.github.io/proposal-decorators/) in create-react-app. The article should give you the essential knowledge to use MobX without and with decorators in create-react-app.
 
 # MobX in create-react-app without Decorators
 

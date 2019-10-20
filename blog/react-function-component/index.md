@@ -1,6 +1,6 @@
 ---
-title: "React Function Components by Example"
-description: "Everything you need to know about React Function Components -- also known as React Functional Components. You will learn about them step by step with examples along the way ..."
+title: "React Function Components"
+description: "Everything you need to know about React Function Components -- also known as React Functional Components. Here you will learn React Function Components by example with step by step ..."
 date: "2019-03-18T07:50:46+02:00"
 categories: ["React", "JavaScript"]
 keywords: ["react function component", "react functional component", "react arrow function component", "react js function component"]
@@ -242,7 +242,7 @@ By providing an event handler to the input field, we are able to do something wi
 
 As you have seen, React Hooks enable us to use state in React (Arrow) Function Components. Whereas you would have used a setState method to write state in a Class Component, you can use the useState hook to write state in a Function Component.
 
-*Note: If you want to use [React's Context](https://www.robinwieruch.de/react-context-api/) in Function Components, check out React's Context Hook called useContext for reading from React's Context in a component.*
+*Note: If you want to use [React's Context](https://www.robinwieruch.de/react-context/) in Function Components, check out React's Context Hook called useContext for reading from React's Context in a component.*
 
 # React Function Component: Event Handler
 

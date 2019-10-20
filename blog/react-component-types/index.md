@@ -290,7 +290,7 @@ By using `this.state`, `this.setState()`, and lifecycle methods, state managemen
 
 ## React Higher-Order Components
 
-React Higher-Order Components (HOCs), a popular advanced React pattern, are an alternative for React Mixins to deploy reusable logic across React components. If you haven't heard about HOCs, you can read more about them in detail in my other tutorial: [Higher-Order Components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/). The shortest explanation for a Higher-Order Component is that it is a component which takes a component as input and returns the component as output but with extended functionalities. Let's revisit the example with the local storage and how the functionality can be extracted into a reusable Higher-Order Component:
+React Higher-Order Components (HOCs), a popular advanced React pattern, are an alternative for React Mixins to deploy reusable logic across React components. If you haven't heard about HOCs, you can read more about them in detail in my other tutorial: [Higher-Order Components](https://www.robinwieruch.de/react-higher-order-components/). The shortest explanation for a Higher-Order Component is that it is a component which takes a component as input and returns the component as output but with extended functionalities. Let's revisit the example with the local storage and how the functionality can be extracted into a reusable Higher-Order Component:
 
 ```javascript{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,30,34,60}
 const withLocalStorage = localStorageKey => Component =>
@@ -355,7 +355,7 @@ class App extends React.Component {
 const AppWithLocalStorage = withLocalStorage('myValueInLocalStorage')(App);
 ```
 
-Another popular advanced React pattern are [React Render Prop Components](https://www.robinwieruch.de/react-render-props-pattern/), which are often used as alternative to React Higher-Order Components. This kind of abstraction isn't shown here though, but I highly recommend you to check out the linked tutorial which teaches more about them.
+Another popular advanced React pattern are [React Render Prop Components](https://www.robinwieruch.de/react-render-props/), which are often used as alternative to React Higher-Order Components. This kind of abstraction isn't shown here though, but I highly recommend you to check out the linked tutorial which teaches more about them.
 
 Both, **React's Higher-Order Components** and **React's Render Prop Components** are actively used in React applications, even though React Function Components **with React Hooks** -- shown in the next section of this tutorial -- may be the better abstraction layer for React components. However, HOCs and Render Props are used for Function Components as well.
 

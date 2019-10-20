@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-The concept of **children as a function** or **child as a function**, also called **render prop** in general, is one of the advanced patterns in React (next to [higher-order components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/)). The components which implement this pattern could be called **render prop components.** In this tutorial, you will learn everything about React's render prop pattern. Along the way, you will implement a currency converter in React, see how the render prop pattern can be compensated with alternative patterns in React too, but then how it can be solved with a render prop component. Afterward, the usage of the render prop pattern should be clear and there shouldn't be any confusion about children as a function, render prop or render prop components left.
+The concept of **children as a function** or **child as a function**, also called **render prop** in general, is one of the advanced patterns in React (next to [higher-order components](https://www.robinwieruch.de/react-higher-order-components/)). The components which implement this pattern could be called **render prop components.** In this tutorial, you will learn everything about React's render prop pattern. Along the way, you will implement a currency converter in React, see how the render prop pattern can be compensated with alternative patterns in React too, but then how it can be solved with a render prop component. Afterward, the usage of the render prop pattern should be clear and there shouldn't be any confusion about children as a function, render prop or render prop components left.
 
 # The case for React Render Prop
 

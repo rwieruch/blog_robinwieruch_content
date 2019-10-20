@@ -191,7 +191,7 @@ However, once you need global state again, which can be distributed to all Page 
 Prop drilling is a phenomena in React that happens when props are passed down multiple levels in a React component hierarchy and components in between are not interested in this props, so they just pass it along to the next child component. This problem can happen when using only React state as global state and your application's component hierarchy grows vertically. However, there are two techniques to prevent the prop drilling phenomena until there is really no way around a proper state management library such as Redux or MobX. You can read more about these techniques over here:
 
 * [React Slot Pattern](https://github.com/the-road-to-learn-react/react-slot-pattern-example)
-* [React's Context API](https://www.robinwieruch.de/react-context-api/)
+* [React's Context API](https://www.robinwieruch.de/react-context/)
 
 However, while the React Slot Pattern is a great way to advance your React application, React's Context API shouldn't be exploited as sophisticated state management layer. It is only a way to pass props from a parent component to grandchild components without having to pass the props through all child components.
 

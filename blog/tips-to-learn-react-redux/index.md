@@ -88,7 +88,7 @@ There are a couple of other "officially supported" boilerplate projects for Reac
 
 # Learn X before you learn Y
 
-There are not only things to learn in React, but also for the ecosystem around it. React is only a view layer library and thus you come across [other libraries to complement your React application](https://www.robinwieruch.de/essential-react-libraries-framework/) eventually. It can be quite overwhelming, especially [when you come from a all-in-one framework solution such as Angular](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/). But you shouldn't see it as barrier to get started in React. You should embrace it as playground full of opportunities to complement your React application.
+There are not only things to learn in React, but also for the ecosystem around it. React is only a view layer library and thus you come across [other libraries to complement your React application](https://www.robinwieruch.de/react-libraries/) eventually. It can be quite overwhelming, especially [when you come from a all-in-one framework solution such as Angular](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/). But you shouldn't see it as barrier to get started in React. You should embrace it as playground full of opportunities to complement your React application.
 
 In general, you should learn plain React first and then learn more about the ecosystem around it. That's where React is X and its ecosystem is Y in the "Learn X before you learn Y"-equation. But it goes far deeper into the sole building blocks of each solution. You should experience how React and its ecosystem can help you to solve problems that would be difficult to address in vanilla JavaScript.
 
@@ -117,7 +117,7 @@ Learning is about keeping a [state of flow](https://www.robinwieruch.de/lessons-
 
 Too often React and Redux are learned together. That's not the best way to learn it. There is a high likelihood that it will turn out to be too overwhelming because both of them come with their own individual principles. It is challenging to learn both at once and thus a lot of people quit learning React. Hence the common sense is to learn React first. You should feel comfortable in implementing applications in plain React. Embrace React's local state management and experience the problems that might be solved by a state management library.
 
-There are many things to [learn in React before using Redux for the first time](https://www.robinwieruch.de/learn-react-before-using-redux/). For instance, did you know about [React's Provider Pattern](https://www.robinwieruch.de/react-provider-pattern-context/)? There are many ways in React to solve state management issues before using a library such as Redux. In general, before you introduce a state management library, using React's local state should become uncomfortable. You need to experience the problems in a scaling application when using only React's local state. Only by knowing about those problems, you will experience what a state management library such as Redux can do for you.
+There are many things to [learn in React before using Redux for the first time](https://www.robinwieruch.de/learn-react-before-using-redux/). For instance, did you know about [React's Provider Pattern](https://www.robinwieruch.de/react-context/)? There are many ways in React to solve state management issues before using a library such as Redux. In general, before you introduce a state management library, using React's local state should become uncomfortable. You need to experience the problems in a scaling application when using only React's local state. Only by knowing about those problems, you will experience what a state management library such as Redux can do for you.
 
 You can scale your React application a while before you run into state management issues. Maybe you never run into those issues, because your application is doing well with React's local state. However, eventually there comes the point where it doesn't suffice anymore. Then it's about time to introduce a state management library such as Redux.
 
@@ -332,7 +332,7 @@ It's a good rule of thumb in general to stick to Presenter Components and add on
 
 Imagine you want to display a list of items, but you have to fetch the items asynchronously first. Now you will need a loading indicator to show your pending request. After the request resolves, you show the list of items. Dan Abramov explains in an [egghead.io](https://egghead.io/lessons/javascript-redux-displaying-loading-indicators?course=building-react-applications-with-idiomatic-redux) lesson how this works.
 
-But you could go one step further by introducing your first higher order component. A [higher order component](https://www.robinwieruch.de/gentle-introduction-higher-order-components/) (HOC) returns a component with enhanced functionality. Your HOC could have the name `withLoadingSpinner` and your component to enhance could be `ListItems`. The enhanced version of the component shows either a loading indicator or the list items.
+But you could go one step further by introducing your first higher order component. A [higher order component](https://www.robinwieruch.de/react-higher-order-components/) (HOC) returns a component with enhanced functionality. Your HOC could have the name `withLoadingSpinner` and your component to enhance could be `ListItems`. The enhanced version of the component shows either a loading indicator or the list items.
 
 ```javascript
 // HOC declaration
@@ -414,7 +414,7 @@ Before we dive into Redux, I just wanted to add the phrase: "You might not need 
 
 Are you still learning React? Then you are surely using `this.setState()` and `this.state` to manage your local state. Once you feel comfortable in using React's local state management, you might come across problems like sharing state across multiple components when your application becomes larger. Even then you don't necessarily need an external state management library to deal with the problem. For instance, you can [lift state up or down](https://facebook.github.io/react/docs/lifting-state-up.html) to share state across components.
 
-In a growing application, there will come the time to introduce a state management library eventually. A part of the article [Redux or MobX: An attempt to dissolve the Confusion](https://www.robinwieruch.de/redux-mobx-confusion/) covers how to approach learning state management in React. The following sections will give you a couple of hints on how to use Redux in React.
+In a growing application, there will come the time to introduce a state management library eventually. A part of the article [Redux or MobX: An attempt to dissolve the Confusion](https://www.robinwieruch.de/redux-mobx/) covers how to approach learning state management in React. The following sections will give you a couple of hints on how to use Redux in React.
 
 # Global State Everything
 
@@ -789,7 +789,7 @@ The ecosystem offers so much more. Are you already familiar in React? Start buil
 
 # No Silver Bullet
 
-React or Redux are not the silver bullets for everything. There are other solutions to try. Don't see React + Redux as dogma. Both are exchangeable. MobX can be [an alternative to Redux for state management](https://www.robinwieruch.de/redux-mobx-confusion/). In a larger code base it is still possible to [exchange the state management layer, e.g. from Redux to MobX](https://github.com/rwieruch/favesound-mobx/pull/1).
+React or Redux are not the silver bullets for everything. There are other solutions to try. Don't see React + Redux as dogma. Both are exchangeable. MobX can be [an alternative to Redux for state management](https://www.robinwieruch.de/redux-mobx/). In a larger code base it is still possible to [exchange the state management layer, e.g. from Redux to MobX](https://github.com/rwieruch/favesound-mobx/pull/1).
 
 React is only the view layer. You can exchange it with other solutions such as [Preact](https://preactjs.com/) or [Inferno](https://github.com/infernojs/inferno).
 

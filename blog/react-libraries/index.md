@@ -197,7 +197,7 @@ Basically you wouldn't have to add any other library to do the job. However, the
 
 # React's Higher Order Components
 
-Eventually you get to the point where you want to abstract away functionalities for your components. These opt-in functionalities can be shared across components yet leave the components themselves lightweight. That's when [React's higher order components](https://www.robinwieruch.de/gentle-introduction-higher-order-components/) come into play. These kind of components don't need any additional library in React.
+Eventually you get to the point where you want to abstract away functionalities for your components. These opt-in functionalities can be shared across components yet leave the components themselves lightweight. That's when [React's higher order components](https://www.robinwieruch.de/react-higher-order-components/) come into play. These kind of components don't need any additional library in React.
 
 However, there are common use cases for React's higher order components that are already solved in a library called [recompose](https://github.com/acdlite/recompose). For instance, having a higher order component for conditional rendering ([branch](https://github.com/acdlite/recompose/blob/master/docs/API.md#branch)). When you introduce higher order components to your React application, make sure that the use case is not already covered in recompose.
 
@@ -263,7 +263,7 @@ There are many components in web development which you don't want to implement f
 
 Fortunately React comes with its own local state management in components. This is why it is just fine to learn plain React first. You will only master the fundamentals in React when using `this.state` and `this.setState()` for local state management. [Often beginners make the mistake to learn React altogether with Redux](https://www.robinwieruch.de/learn-react-before-using-redux/). So don't bother too early with a state management library when you are just starting to use React.
 
-But what comes when you run into first scaling issues in React's local state management? There are two solutions you can choose from: [Redux and MobX](https://www.robinwieruch.de/redux-mobx-confusion/). Both come with their advantages and disadvantages. You can read the linked article to make a more informed decision about them.
+But what comes when you run into first scaling issues in React's local state management? There are two solutions you can choose from: [Redux and MobX](https://www.robinwieruch.de/redux-mobx/). Both come with their advantages and disadvantages. You can read the linked article to make a more informed decision about them.
 
 Redux is so popular yet such an innovative place that it comes with its [own ecosystem](https://github.com/markerikson/redux-ecosystem-links). When using it with React, you will certainly run into the bridging library [react-redux](https://github.com/reactjs/react-redux). It is the official library to connect your view layer (React) to your state layer (Redux). A [similar library](https://github.com/mobxjs/mobx-react) comes into play when you decide to use MobX instead of Redux. If you want to learn Redux, checkout the Redux book [Taming the State in React](https://roadtoreact.com/).
 

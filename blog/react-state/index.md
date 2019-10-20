@@ -233,7 +233,7 @@ In contrast to the React's useState hook, the state update function from the use
 
 # React State: useContext
 
-Technically React's useContext hook isn't related to state. It makes it just more convenient to pass props down the component tree. Normally [React props are passed from parent to child components](https://www.robinwieruch.de/react-pass-props-to-component/); however, [React's Context API](https://www.robinwieruch.de/react-context-api) allows it to tunnel React components in between. Thus it's possible to pass props from a grandfather component to a grandchild component without bothering the other React components in between of the chain.
+Technically React's useContext hook isn't related to state. It makes it just more convenient to pass props down the component tree. Normally [React props are passed from parent to child components](https://www.robinwieruch.de/react-pass-props-to-component/); however, [React's Context API](https://www.robinwieruch.de/react-context) allows it to tunnel React components in between. Thus it's possible to pass props from a grandfather component to a grandchild component without bothering the other React components in between of the chain.
 
 However, React's Context API mechanism is indeed used for more advanced state management in React: It tunnels the current state and the state update function -- either returned from useState or useReducer -- through many React components. This way, developers started to manage React state at top-level components with useReducer/useState and pass their returned values -- current state and state update function -- with useContext to all the React child components that are interested in this state or updating this state.
 
@@ -372,13 +372,13 @@ store.subscribe(() => {
 
 That's Redux in a nutshell with all its fragments: Action, Reducer, Store. If you attach the store subscription to React, the React UI can update whenever the state in Redux changes.
 
-**Another popular alternative for Redux is MobX for state in React:** Both state management libraries got very popular in the early days of React. However, there are [other state management libraries](https://www.robinwieruch.de/essential-react-libraries-framework) out there, competing with both titans, by offering a more lightweight state management solution.
+**Another popular alternative for Redux is MobX for state in React:** Both state management libraries got very popular in the early days of React. However, there are [other state management libraries](https://www.robinwieruch.de/react-libraries) out there, competing with both titans, by offering a more lightweight state management solution.
 
 ### Exercises:
 
 * Read more about [why Redux makes you a better JS developer](https://www.robinwieruch.de/redux-javascript)
 * Read more about [Redux vs useReducer](https://www.robinwieruch.de/redux-vs-usereducer)
-* Read more about [Redux vs MobX](https://www.robinwieruch.de/redux-mobx-confusion)
+* Read more about [Redux vs MobX](https://www.robinwieruch.de/redux-mobx)
   * Optional: [Learn Redux and Redux with React](https://www.robinwieruch.de/react-redux-tutorial)
 
 # Origin of State

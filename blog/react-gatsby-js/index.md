@@ -30,7 +30,7 @@ With React.js in place, **I am in control** even though there will be a new Reac
 
 # Gatsby Router
 
-Gatsby comes as a full-blown framework to create static websites. Whereas in React you have to know all the [essential libraries](https://www.robinwieruch.de/essential-react-libraries-framework/) to complement React as its core, Gatsby comes with many things right away.
+Gatsby comes as a full-blown framework to create static websites. Whereas in React you have to know all the [essential libraries](https://www.robinwieruch.de/react-libraries/) to complement React as its core, Gatsby comes with many things right away.
 
 For instance, Gatsby ships with a build in Router and the Gatsby team decides which React Router makes most for their environment. As a developer, you don't need to care about it like in a plain React application. The implementation of the [routing in Gatsby](https://www.gatsbyjs.org/docs/routing/) is different from React. It has two modes to create routes: static and dynamic routes.
 

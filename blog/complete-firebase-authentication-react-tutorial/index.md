@@ -445,7 +445,7 @@ You created a Firebase class, but you are not using it in your React application
 * It is more difficult to test your React components.
 * It is more error prone, because Firebase should only be initialized once in your application ([singleton](https://en.wikipedia.org/wiki/Singleton_pattern)) and by exposing the Firebase class to every React component, you could end up by mistake with multiple Firebase instances.
 
-An alternative way is to use [React's Context API](https://www.robinwieruch.de/react-context-api/) to provide a Firebase instance once at the top-level of your component hierarchy. Create a new *src/components/Firebase/context.js* file in your Firebase module and provide the following implementation details:
+An alternative way is to use [React's Context API](https://www.robinwieruch.de/react-context/) to provide a Firebase instance once at the top-level of your component hierarchy. Create a new *src/components/Firebase/context.js* file in your Firebase module and provide the following implementation details:
 
 ```javascript
 import React from 'react';
@@ -510,7 +510,7 @@ Firebase and React are now connected, the fundamental step to make the layers co
 
 ### Exercises:
 
-* Read more about [React's Context API](https://www.robinwieruch.de/react-context-api/)
+* Read more about [React's Context API](https://www.robinwieruch.de/react-context/)
 * Confirm your [source code for the last section](http://bit.ly/2VrUms0)
 
 # Firebase's Authentication API
@@ -926,7 +926,7 @@ class SignUpForm extends Component {
 ...
 ```
 
-Now the registration of a new user should work. However, I'd like to make one improvement on how we access the Firebase instance here. Rather than using a [render prop component](https://www.robinwieruch.de/react-render-props-pattern/), which is automatically given with React's Context Consumer component, it may be simpler to use a [higher-order component](https://www.robinwieruch.de/gentle-introduction-higher-order-components/). Let's implement this higher-order component in the *src/components/Firebase/context.js*:
+Now the registration of a new user should work. However, I'd like to make one improvement on how we access the Firebase instance here. Rather than using a [render prop component](https://www.robinwieruch.de/react-render-props/), which is automatically given with React's Context Consumer component, it may be simpler to use a [higher-order component](https://www.robinwieruch.de/react-higher-order-components/). Let's implement this higher-order component in the *src/components/Firebase/context.js*:
 
 ```javascript{5,6,7,8,9}
 import React from 'react';
@@ -1064,8 +1064,8 @@ Run your application again. If you signed up a user successfully, it should redi
 ### Exercises:
 
 * Read more about [data fetching in React](https://www.robinwieruch.de/react-fetching-data/)
-* Read more about [higher-order components in React](https://www.robinwieruch.de/gentle-introduction-higher-order-components/)
-* Read more about [render prop components in React](https://www.robinwieruch.de/react-render-props-pattern/)
+* Read more about [higher-order components in React](https://www.robinwieruch.de/react-higher-order-components/)
+* Read more about [render prop components in React](https://www.robinwieruch.de/react-render-props/)
 * Confirm your [source code for the last section](http://bit.ly/2VkrTEA)
 
 # Sign In with React and Firebase
@@ -1235,7 +1235,7 @@ Regarding components, everything is set to fulfil a full authentication roundtri
 
 # Session Handling with Firebase/React
 
-This section is the most important one for the authentication process. You have all the components needed to fulfil an authentication roundtrip in React, and all that's missing is an overseer for the session state.  Logic regarding the current authenticated user needs to be stored and made accessible to other components. This is often the point where developers start to use a state management library like [Redux or MobX](https://www.robinwieruch.de/redux-mobx-confusion/). Without these, we'll make due using [global state](https://www.robinwieruch.de/react-global-state-without-redux/) instead of state management libraries.
+This section is the most important one for the authentication process. You have all the components needed to fulfil an authentication roundtrip in React, and all that's missing is an overseer for the session state.  Logic regarding the current authenticated user needs to be stored and made accessible to other components. This is often the point where developers start to use a state management library like [Redux or MobX](https://www.robinwieruch.de/redux-mobx/). Without these, we'll make due using [global state](https://www.robinwieruch.de/react-global-state-without-redux/) instead of state management libraries.
 
 Since our application is made under the umbrella of App component, it's sufficient to manage the session state in the App component using React's local state. The App component only needs to keep track of an authenticated user (session). If a user is authenticated, store it in the local state and pass the authenticated user object down to all components that are interested in it. Otherwise, pass the authenticated user down as `null`. That way, all components interested in it can adjust their behavior (e.g. use conditional rendering) based on the session state. For instance, the Navigation component is interested because it has to show different options to authenticated and non authenticated users. The SignOut component shouldn't show up for a non authenticated user, for example.
 
