@@ -16,11 +16,11 @@ If you haven't used state management excessively in [React Function Components](
 
 # Table of Contents
 
-* [useState for simple State](#usestate-state-hook)
-* [useReducer for complex State](#usereducer-reducer-hook)
-* [useContext for "global" State](#usecontext-context-hook)
+* [React useState: simple State](#usestate-state-hook)
+* [React useReducer: complex State](#usereducer-reducer-hook)
+* [React useContext: global State](#usecontext-context-hook)
 
-# useState for simple State
+# React useState: simple State
 
 We start with a list of items -- in our scenario a list of todo items -- which are rendered in our function component with a [JavaScript Map Method for Arrays](https://www.robinwieruch.de/javascript-map-array/). Each todo item rendered as list item receives a [key attribute](https://www.robinwieruch.de/react-list-key) to notify React about its place in the [rendered list](https://www.robinwieruch.de/react-list-component):
 
@@ -396,7 +396,11 @@ That's it. The new todo items are immediately set as state for the list of todo 
 * adding a todo item to list with a submit button
 * checking (and unchecking) a todo item with checkboxes
 
-# useReducer for complex State
+### Exercises:
+
+* Read more about [React's useState Hook](https://www.robinwieruch.de/react-usestate-hook)
+
+# React useReducer: complex State
 
 The useState hook is great to manage simple state. However, once you run into more complex state objects or state transitions -- which you want to keep maintainable and predictable --, the [useReducer hook](https://www.robinwieruch.de/react-usereducer-hook/) is a great candidate to manage them. [Here you can find a comparison of when to use the useState or useReducer hook.](https://www.robinwieruch.de/react-usereducer-vs-usestate/) Let's continue implementing our application with the useReducer hook by going through a simpler example first. In our next scenario, we want to add buttons to filter our list of todos for three cases:
 
@@ -701,7 +705,11 @@ Now everything that has been managed by useState for our todo items is managed b
 
 You have seen how useState and useReducer can be used for simple and complex state management whereas useReducer gives you clear state transitions -- thus improved predictability -- and a better way to manage complex objects.
 
-# useContext for "global" State
+### Exercises:
+
+* Read more about [React's useReducer Hook](https://www.robinwieruch.de/react-usereducer-hook)
+
+# React useContext: global State
 
 We can take our state management one step further. At the moment, the state is managed co-located to the component. That's because we only have one component after all. What if we would have a deep component tree? How could we dispatch state changes from anywhere?
 
@@ -960,8 +968,13 @@ const TodoItem = ({ todo }) => {
 
 The application works again, but we are able to dispatch changes for our todo list from anywhere. If you want to continue with this application, experiment with passing down the dispatch function for the filter reducer as well. Moreover, you can pass the state coming from useReducer with React's Context API down as well. Just try it yourself. The whole source code can be seen [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/95806796700fc2ca5cd204dd2f4542ad6f08e7ee/src/App.js) and all changes [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/commit/95806796700fc2ca5cd204dd2f4542ad6f08e7ee).
 
-If you want to continue with this tutorial to really [mimic Redux's behvavior for using useReducer](https://www.robinwieruch.de/redux-vs-usereducer) as one global state container, continue with: [How to Redux with React Hooks?](https://www.robinwieruch.de/redux-with-react-hooks)
+### Exercises:
+
+* Read more about [React's useContext Hook](https://www.robinwieruch.de/react-usecontext-hook)
+* Read more about [implementing Redux with React Hooks](https://www.robinwieruch.de/redux-with-react-hooks)
 
 <Divider />
 
 You have learned how modern state management is used in React with useState, useReducer and useContext. Whereas useState is used for simple state (e.g. input field), useReducer is a greater asset for complex objects and complicated state transitions. In larger applications, useContext can be used to pass down dispatch functions (or state) from the useReducer hook.
+
+<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to create Redux with React Hooks?", url: "https://www.robinwieruch.de/redux-with-react-hooks/" }]} />

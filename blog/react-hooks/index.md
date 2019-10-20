@@ -14,11 +14,11 @@ author: ""
 
 React Hooks were introduced at [React Conf October 2018](https://www.youtube.com/watch?v=dpw9EHDh2bM) as a way to use state and side-effects in React function components. Whereas function components have been called functional stateless components (FSC) before, they are finally able to use state with React Hooks. Therefore, many people refer to them as function components now.
 
-In this walkthrough, I want to explain the motivation behind hooks, what will change in React and why we shouldn't panic, and how React hooks can be used in function components by showcasing common React Hooks such as the state and effect hooks by example.
+In this walkthrough, I want to explain the motivation behind hooks, what will change in React, why we shouldn't panic, and how React hooks can be used in function components by showcasing common React Hooks such as the state and effect hooks by example. This tutorial is only an introduction to React Hooks. At the end of this tutorial, you will find many more tutorials to learn about React Hooks in depth.
 
 # Why React Hooks?
 
-React Hooks were invented by the React team to introduce state management and side-effects in function components. It's their way of making it more effortless to use only React function components without the need to refactor a React function component to a React class component for using lifecycle methods, in order to use have side-effects, or local state. React Hooks enable us to write React applications with only function components.
+React Hooks were invented by the React team to introduce state management and side-effects in [function components](https://www.robinwieruch.de/react-function-component/). It's their way of making it more effortless to use only React function components without the need to refactor a React function component to a React class component for using lifecycle methods, in order to use have side-effects, or local state. React Hooks enable us to write React applications with only function components.
 
 **Unnecessary Component Refactorings:** Previously, only React class components were used for local state management and lifecycle methods. The latter have been essential for introducing side-effects, such as listeners or data fetching, in React class components.
 
@@ -210,7 +210,11 @@ class Counter extends Component {
 
 Now, many people argue React shouldn't take JavaScript classes away because people don't understand them. After all, they belong to the language. However, one of the hypotheses of introducing the Hooks API is a smoother learning curve for React beginners when writing their React components without JavaScript classes in the first place.
 
-# What changes due to React Hooks?
+### Exercises:
+
+* Read more about [React Function Components](https://www.robinwieruch.de/react-function-component/)
+
+# React Hooks: What changes in React?
 
 Every time a new feature is introduced, people are concerned about it. There is one side of the group that is ecstatic about the change, and the other side that fears the change. I heard the most common concerns for React Hooks are:
 
@@ -219,7 +223,7 @@ Every time a new feature is introduced, people are concerned about it. There is 
 * It’s useless, classes worked fine.
 * It’s magic!
 
-**Let me address these concerns here:**
+Let me address these concerns here:
 
 **Everything changes:** React Hooks will change how we write React applications in the future. However, at the moment, nothing changes. You can still write class components with local state and lifecycle methods and deploy advanced patterns such as Higher-Order Components or Render Prop Components. Nobody takes these learnings away from you. See how I upgraded all my open source projects from older versions to React 16.6. and none of of these projects had problems. They are using HOCs, Render Props and I believe even the old context API (correct me if am wrong). Everything I have learned all these years still works. The React team makes sure that React stays backward compatible. It will be the same with React 16.7.
 
@@ -234,6 +238,10 @@ Every time a new feature is introduced, people are concerned about it. There is 
 **Finally, think about it this way:** Component-based solutions such as Angular, Vue, and React are pushing the boundaries of web development with every release. They build up on top of technologies that were invented more than two decades ago. They adapt them to make web development effortless in 2018 and not 1998. They optimize them like crazy to meet the needs in the here and now. We are building web applications with components and not with HTML templates anymore. We are not there yet, but I imagine a future where we sit together and invent a component-based standard for the browser. Angular, Vue and React are only the spearhead of this movement.
 
 In the following, I want to dive into a few popular React Hooks by example to get you up to speed. All examples can be found in this [GitHub repository](https://github.com/the-road-to-learn-react/react-hooks-introduction).
+
+### Exercises:
+
+* Read more about [React Class to Function Component Migration](https://www.robinwieruch.de/react-hooks-migration)
 
 # React useState Hook
 
@@ -355,7 +363,11 @@ function App() {
 
 That should do the job. You are able to remove an item from the list based on the identifier you pass to the handler. The handler then filters the list and sets the new state of the list with the `setList` function.
 
-The useState hook gives you everything you need to manage state in a function component: initial state, the latest state, and a state update function. Everything else is JavaScript again. Furthermore, you don't need to bother about the state object with its shallow merge as before in a class component. Instead, you encapsulate one domain (e.g. list) with useState, but if you would need another state (e.g. counter), then just encapsulate this domain with another useState. You can read more about [the useState hook in React's documentation](https://reactjs.org/docs/hooks-state.html).
+The useState hook gives you everything you need to manage state in a function component: initial state, the latest state, and a state update function. Everything else is JavaScript again. Furthermore, you don't need to bother about the state object with its shallow merge as before in a class component. Instead, you encapsulate one domain (e.g. list) with useState, but if you would need another state (e.g. counter), then just encapsulate this domain with another useState.
+
+### Exercises:
+
+* Read more about [React's useState Hook](https://www.robinwieruch.de/react-usestate-hook)
 
 # React useEffect Hook
 
@@ -783,16 +795,16 @@ Extracting the custom hook as function was not the only thing. You also have to 
 
 React Hooks being reusable is the best thing about them, because there is the potential to grow an ecosystem of custom React Hooks that can be installed from npm for any React application. And not only for React applications. Evan You, creator of Vue, [is hooked (!) by them as well](https://twitter.com/youyuxi/status/1056042395891105793). Maybe we will see a bridge between both ecosystems where it is possible to share hooks between Vue and React.
 
+### Exercises:
+
+* Read more about [React State with Hooks](https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext)
+* Read more about [How to fetch data with React Hooks](https://www.robinwieruch.de/react-hooks-fetch-data)
+
 <Divider />
 
-If you want to dive deeper into the state and effect hooks, you can check out the following React hook tutorials:
+If you want to dive deeper into the state and effect hooks, check out my other React Hook tutorials:
 
+* [How to useEffect Hook?](https://www.robinwieruch.de/react-usecontext-hook/)
 * [How to useReducer Hook?](https://www.robinwieruch.de/react-usereducer-hook/)
-* [Migration from Class Components to Hooks](https://www.robinwieruch.de/react-hooks-migration)
-* [Comparison useState vs useReducer](https://www.robinwieruch.de/react-usereducer-vs-usestate/)
-* [Modern State Management with Hooks](https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext)
-* [How to fetch data with React Hooks](https://www.robinwieruch.de/react-hooks-fetch-data)
 
-Checkout the official [FAQ](https://reactjs.org/docs/hooks-faq.html) and [Rules](https://reactjs.org/docs/hooks-rules.html) for hooks in React's documentation to learn more about their fine-grained behaviour. In addition, you can checkout [all officially available React Hooks](https://reactjs.org/docs/hooks-reference.html) too.
-
-For everyone who is still concerned about React Hooks: Give them a shot yourself. Implement a couple of React function components with state and side-effects. I had to do it myself to understand how they work and to feel comfortable with them. And I must say it feels pretty great to use them.
+Check out the official [FAQ](https://reactjs.org/docs/hooks-faq.html) and [Rules](https://reactjs.org/docs/hooks-rules.html) for hooks in React's documentation to learn more about their fine-grained behaviour. In addition, you can checkout [all officially available React Hooks](https://reactjs.org/docs/hooks-reference.html) too.
