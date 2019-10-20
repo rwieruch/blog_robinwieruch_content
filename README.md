@@ -1,46 +1,66 @@
 # Content & Contribution
 
-A place where you can actively contribute to [robinwieruch.de](https://robinwieruch.de). Feel free to improve the content or to write a guest blog post yourself. Get in touch with me before you start writing an entire article :)
+A place where you can actively contribute to [robinwieruch.de](https://robinwieruch.de). 
+
+* Improve any blog post by editing the file directly in this GitHub repository.
+* Write a new guest blog post by creating a new file in this GitHub repository and follow the "Guidelines for Guest Bloggers" below. Get in touch with me before you start writing an entire article :)
 
 ## Guidelines for Guest Bloggers
 
-### Meta Information
+### Folder/Files
 
-You can leave out all the meta information (frontmatter) that I use for my blog posts. I can add these later myself.
+Just create a new folder for your blog post. The folder's name will be the URI for the blog post. In this folder, you can create your markdown file with the text and use images from a folder next to it:
+
+```
+my-blog-post/
+-- index.md
+-- images
+---- my-image.jpg
+```
+
+### Frontmatter
+
+You can leave out all the frontmatter (e.g. title, description) that I use for my blog posts. I can add these later myself.
 
 ### Code
 
 Don't use images for code. Instead use a code snippet the following way:
 
-```
+````
 ```javascript
 const helloWorld = "Hello World!";
 ```
-```
+````
 
 If you want to highlight changes in the code, that's what I usually do in my tutorials, then you can do it by providing the numbers of lines you want to highlight:
 
-```
+````
 ```javascript{3}
 const helloWorld = "Hello World!";
 
 console.log(helloWorld);
 ```
-```
+````
 
 If you move around from file to file in your tutorial, don't forget to mention the place where you edit/create the next code snippet. Something like:
 
 Now we are going to implement user model in the *src/models/user.js* file:
 
-```
+````
 ```javascript
 const user = createModel('user');
 ```
-```
+````
 
 ### Images
 
-Don't use images for code. Instead use code snippets. If you want to have images in the blog post, add them in at least 1024 (x 768)resolution preferable in .jpg to a shared GoogleDrive (or any other cloud storage) folder. In the article, reference the filename of the image with a placeholder like `[image the-dashboard.jpg]`.
+Don't use images for code. Instead use code snippets. If you want to have images in the blog post, add them in at least 1024x768 resolution preferable in .jpg. In the article, reference the image with a proper alt text:
+
+```
+![my image alt text](./images/my-image.jpg)
+```
+
+Image files are placed next to the blog post's markdown file.
 
 ### Command Line vs. GUI
 
@@ -48,7 +68,7 @@ There are many tutorials out there that are using lots of images to show a GUI w
 
 ### Code Formatting
 
-I use [Prettier](https://prettier.io/) in my projects which helps me to keep all my code snippets equally formatted. That's my default configuration:
+I use [Prettier](https://www.robinwieruch.de/how-to-use-prettier-vscode/) in my projects which helps me to keep all my code snippets equally formatted for my tutorials. That's my default configuration:
 
 ```
 {
@@ -61,26 +81,19 @@ I use [Prettier](https://prettier.io/) in my projects which helps me to keep all
 
 ### Headlines
 
-* h1 headline translates to # My Headline
-* h2 headline translates to ## My Sub Headline
+* h1 headline translates to `# My Headline` in markdown
+* h2 headline translates to `## My Secondary Headline` in markdown
 
-The second parameter can be used for a table of contents:
-
-```
-# Table of Contents
-
-* [My Headline](#my-headline)
-  * [My Sub Headline](#my-sub-headline)
-```
-
-My articles usually follow the same structure with optional sub_chapter_headers in between:
+My articles usually follow the same structure with optional `## Secondary Headlines` in between:
 
 ```
-Motivation
+Be clear about the motivation of this article ...
 
 # My Headline
 
-# My Headline
+# My other Headline
+
+## My Secondary Headline
 
 <Divider />
 
@@ -89,7 +102,11 @@ Outro
 
 ### Links
 
-Links referencing articles that are osdn my domain can be used as `[my article name](url)`. However, if a link points to an article outside of this domain, use `[my article name](url)`
+Links can be used the following way:
+
+```
+[my article name](url)
+```
 
 ### Italics
 
