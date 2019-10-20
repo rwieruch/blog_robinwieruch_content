@@ -182,7 +182,7 @@ Basically that's how props are passed to React components. As you may have notic
 
 # React Props vs. State
 
-Passing only props from component to component doesn't make the component interactive, because nothing is there to change the props. Props are read-only. That's the time when React state comes into play which can be changed. The state is co-located to a React component.
+Passing only props from component to component doesn't make the component interactive, because nothing is there to change the props. Props are read-only. That's the time when [React State](https://www.robinwieruch.de/react-state) comes into play which can be changed. The state is co-located to a React component.
 
 ```javascript{4,5,6,7,8,9,10,12,13,14,19,21,22,23}
 import React, { Component } from 'react';

@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-After learning [how to pass props in React](https://www.robinwieruch.de/react-pass-props-to-component/), the next thing you will learn is often state in React. Managing JavaScript primitives such as strings, booleans, and integers in React state are the basics for state management in React. But what about more complex data structures such as JavaScript arrays? There are many questions popping up for React beginners on how to manage arrays in React state. Often the answer is to grab a [fundamental JavaScript function](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/) that does the job for you. It's not always about using React for the task at hand.
+After learning [how to pass props in React](https://www.robinwieruch.de/react-pass-props-to-component/), the next thing you will learn is often [state in React](https://www.robinwieruch.de/react-state). Managing JavaScript primitives such as strings, booleans, and integers in React State are the basics for state management in React. But what about more complex data structures such as JavaScript arrays? There are many questions popping up for React beginners on how to manage arrays in React state. Often the answer is to grab a [fundamental JavaScript function](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/) that does the job for you. It's not always about using React for the task at hand.
 
 This tutorial walks you through the most common scenarios for managing arrays in React state. For each I want to show you a array example in React state, such as how to push an item to an array or how to update an item in an array, when React state is used to store it.
 
