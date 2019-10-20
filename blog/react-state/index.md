@@ -265,6 +265,7 @@ In the previous code snippet, the ability to modify todo items with the `dispatc
 
 ### Exercises:
 
+* Read more about [React's useContext Hook](https://www.robinwieruch.de/react-usecontext-hook)
 * Read more about [useContext combined with useState and useReducer for React state](https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext/)
 
 # Local vs Global State
