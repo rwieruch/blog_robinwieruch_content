@@ -123,14 +123,13 @@ module.exports = {
 
   // Landing Page
 
-  order: ['hero', 'about', 'services', 'portfolio', 'vita', 'testimonial'],
+  lazyLanding: ['About', 'Services', 'Portfolio', 'Vita'],
 
   hero: {
     header: 'Robin Wieruch',
     subheader: 'German Software Engineer for React.js, Node.js and GraphQL',
   },
   about: {
-    enabled: true,
     header: 'About me',
     subheader: 'Get to know me before you dive into my content.',
     social: [
@@ -153,7 +152,6 @@ module.exports = {
     `,
   },
   services: {
-    enabled: true,
     header: 'What I offer',
     subheader: 'Why you might want to hire me.',
     items: [
@@ -197,7 +195,6 @@ module.exports = {
     ],
   },
   portfolio: {
-    enabled: true,
     header: 'Portfolio',
     subheader: 'What you can learn from me.',
     items: [
@@ -219,7 +216,6 @@ module.exports = {
     ],
   },
   vita: {
-    enabled: true,
     header: 'Vita',
     subheader: 'My professional story.',
     items: [
@@ -280,7 +276,6 @@ module.exports = {
     ],
   },
   testimonial: {
-    enabled: false,
     header: 'Testimonials',
     subheader: 'What others are saying about my work.',
     items: [
