@@ -10,8 +10,6 @@ author: ""
 contribute: ""
 ---
 
-![german react consultant freelancer](img/posts/work-with-me/banner.jpg)
-
 2017 I quit my job at [Small Improvements](https://www.small-improvements.com/?ref=robinwieruch.de). I made the decision to move on after being 2,5 years a software engineer at this great company. It was a tough decision to make, because the company had a huge impact on me from a personal and professional perspective. It is always hard to move on. But then again, I didn't want to get too comfortable. And I don't want to get stuck in one particular lifestyle either. I want to experience different things!
 
 The next step natural step for me was being self-employed. Over the last years, I've put a lot of effort into my website and I started teaching people about software engineering, web development, JavaScript, tools such as Webpack, Firebase, Redux, React, Node, ... and Machine Learning. I received great feedback over these months and I am so grateful for it. I had a strict routine: my day job was 9 to 6 and every other free minute would go into my [open source projects](https://github.com/rwieruch) and website. It was a tough time to balance personal life, professional life and (professional) side-projects.
@@ -38,7 +36,7 @@ I want to continue teaching others. So far, I have written two ebooks about [lea
 
 The second cornerstone of my next endeavour is making new stuff. While I worked in my last 9 to 6 job, I collected a huge list of ideas over time. I guess most of the people are keeping such a list, but there is never enough time to tackle all of these items. Recently, it was the first time that I showed my ideas to someone else. I was astonished that I had gathered over 1000 items in various lists and sublists.
 
-![Robin To Do](img/posts/work-with-me/todos.jpg)
+![Robin To Do](./images/todos.jpg)
 
 All these items are ideas about applications, things I want to learn, things I would like to teach and things I want to write about. But as full-time employee, I never found the time to do all these things. Maybe I even don't find the time right now, where I have to figure out how to earn my own share, but that's what this adventure is all about.
 
