@@ -1,5 +1,5 @@
 ---
-title: "How to Scroll to Item in React?"
+title: "How to Scroll to a List Item in React?"
 description: "A brief tutorial which shows how to scroll to an item in a React List Component. The scroll event can be triggered from within or outside the component ..."
 date: "2019-05-07T07:52:46+02:00"
 categories: ["React"]
@@ -60,15 +60,15 @@ Each list item has an artificial height; otherwise the scrolling wouldn't work. 
 
 The implementation to scroll from within the list to an item looks as follows:
 
-```javascript{1,8,10,11,12,13,14,19,26,27,28}
-import React, { createRef } from 'react';
+```javascript{8,10,11,12,13,14,19,26,27,28}
+import React from 'react';
 
 const list = [ ... ];
 
 const List = () => (
   <ul>
     {list.map(item => {
-      const ref = createRef();
+      const ref = React.createRef();
 
       const handleClick = () =>
         ref.current.scrollIntoView({
@@ -104,14 +104,14 @@ So how does this work? Let's get into the details: In order to scroll to an item
 
 The implementation to scroll from outside the list to an item looks as follows:
 
-```javascript{1,6,7,8,9,11,12,13,14,15,19,20,21,22,23,24,25,26,27,28,29,30,36}
-import React, { createRef } from 'react';
+```javascript{6,7,8,9,11,12,13,14,15,19,20,21,22,23,24,25,26,27,28,29,30,36}
+import React from 'react';
 
 const list = [ ... ];
 
 const List = () => {
   const refs = list.reduce((acc, value) => {
-    acc[value.id] = createRef();
+    acc[value.id] = React.createRef();
     return acc;
   }, {});
 
