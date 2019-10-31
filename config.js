@@ -1,15 +1,6 @@
-const theme = {
-  primary: '#823EB7',
-  fontPrimary: '#333333',
-  backgroundPrimary: '#fff',
-};
-
 module.exports = {
   siteUrl: 'https://www.robinwieruch.de/',
   languageCode: 'en-US',
-
-  // color theme
-  theme,
 
   // manifest
   manifest: {
@@ -17,7 +8,7 @@ module.exports = {
     short_name: 'RW',
     start_url: '/',
     background_color: '#fff',
-    theme_color: theme.primary,
+    theme_color: '#823EB7',
     display: 'standalone',
     icon: 'static/icon.png',
   },
