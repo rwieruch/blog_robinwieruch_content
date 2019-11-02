@@ -20,14 +20,7 @@ The Flow: Type Checking with Flow in React + Redux tutorial will teach you how t
 
 # Table of Contents
 
-* [Setup Flow](#setupFlow)
-* [Flow in Action](#flowInAction)
-* [Functions and Type Aliases](#functionsAndTypeAliases)
-* [Multiple Modules](#multipleModules)
-* [Declarations](#declarations)
-* [React Components](#reactComponents)
-* [Troubleshoot](#troubleshoot)
-* [Final Thoughts](#finalThoughts)
+<TableOfContents {...props} />
 
 # Setup Flow
 

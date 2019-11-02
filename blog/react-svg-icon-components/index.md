@@ -20,9 +20,7 @@ It's possible to have one folder in your React application that holds all your .
 
 # Table of Contents
 
-* [React SVG Icon Components from CLI](#react-svg-icon-components-cli)
-* [React SVG Icon Components from Webpack](#react-svg-icon-components-webpack)
-* [SVGR Templates for advanced SVGs](#svgr-templates)
+<TableOfContents {...props} />
 
 # React SVG Icon Components from CLI
 

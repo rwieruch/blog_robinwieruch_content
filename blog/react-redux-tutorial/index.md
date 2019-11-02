@@ -18,30 +18,7 @@ If you are a React beginner, I highly recommend you to get yourself comfortable 
 
 # Table of Contents
 
-* [How to learn X with React Redux?](#react-redux-and-x-tutorial)
-* [What is Redux?](#redux-introduction)
-* [Basics in Redux without React](#redux-without-react)
-  * [Action(s)](#redux-actions)
-  * [Reducer(s)](#redux-reducers)
-  * [Redux Store](#redux-store)
-  * [Redux without React: Example](#redux-without-react)
-* [The React Redux Project](#react-redux-starter-kit)
-  * [Basic React Components](#react-redux-basic-components)
-  * [Simple Styling for React Components](#react-components-simple-styling)
-  * [Feature: Archive a Story](#react-redux-remove-item)
-  * [Redux Store + Reducers](#redux-store-reducer)
-  * [Redux: How to combine Reducers](#redux-combine-reducers)
-  * [Redux: Actions](#redux-actions)
-  * [Redux: Selectors](#redux-selectors)
-  * [Redux: Re-render React](#redux-re-render-react)
-  * [Redux Middleware](#redux-middleware)
-  * [Redux: Action Creators](#redux-action-creators)
-  * [Connect React with Redux](#connect-react-with-redux)
-  * [Redux: Lift Connection](#redux-lift-connection)
-  * [Redux and Data Fetching](#redux-data-fetching)
-  * [Separation of API logic](#separation-api-logic)
-  * [Redux: Error Handling](#redux-error-handling)
-  * [Tests in Redux](#redux-tests)
+<TableOfContents {...props} />
 
 # How to learn X with React Redux?
 

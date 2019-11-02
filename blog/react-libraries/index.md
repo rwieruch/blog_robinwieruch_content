@@ -22,19 +22,7 @@ The following article will give you an opinionated approach to select from these
 
 # Table of Contents
 
-* [React's Boilerplate Decision](#react-boilerplate-decision)
-* [Utility Libraries for React](#react-utility-libraries)
-* [Styling in React](#react-styling)
-* [Asynchronous Requests in React](#react-asynchronous-requests)
-* [React's Higher Order Components](#react-higher-order-components)
-* [React Type Checking](#react-type-checking)
-* [React Formatting](#react-formatting)
-* [React UI Component Libraries](#react-ui-component-libraries)
-* [React State Management](#react-state-management)
-* [React's Routing](#react-routing)
-* [React Authentication](#react-authentication-database)
-* [Testing in React](#react-testing)
-* [Time in React](#react-date-time)
+<TableOfContents {...props} />
 
 # React's Boilerplate Decision
 

@@ -23,7 +23,7 @@ However, it is still important to remember that React's local state is often suf
 
 # Table of Contents
 
-<TableOfContents {...props}  />
+<TableOfContents {...props} />
 
 # Setup of Apollo Link State: Resolvers and Defaults
 

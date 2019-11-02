@@ -20,20 +20,7 @@ This in-depth guide shows you everything about React Function Components -- whic
 
 # Table of Contents
 
-* [Example](#react-function-component-example)
-* [Props](#react-function-component-props)
-* [Arrow Function Component](#react-arrow-function-component)
-* [Stateless Function Component](#react-stateless-function-component)
-* [State](#react-function-component-state)
-* [Event Handler](#react-function-component-event-handler)
-* [Callback Function](#react-function-component-callback-function)
-* [Lifecycle](#react-function-component-lifecycle)
-* [Pure React Function Component](#react-function-component-pure)
-* [Export and Import](#react-function-component-export-import)
-* [Ref](#react-function-component-ref)
-* [PropTypes](#react-function-component-proptypes)
-* [TypeScript](#react-function-component-typescript)
-* [Function Component vs Class Component](#react-function-component-vs-class-component)
+<TableOfContents {...props} />
 
 # React Function Component Example
 

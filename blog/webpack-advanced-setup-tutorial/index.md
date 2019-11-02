@@ -20,14 +20,7 @@ However, Webpack comes with so much more to explore. For instance, eventually yo
 
 # Table of Contents
 
-* [Webpack's Development and Production Build](#webpack-development-production-build)
-* [How to manage your Webpack Build Folder](#webpack-build-folder)
-* [Webpack Source Maps](#webpack-source-maps)
-* [Webpack Development/Build Configuration](#webpack-configurations)
-* [Webpack Merge Configuration](#webpack-merge-configuration)
-* [Webpack Environment Variables: Definition](#webpack-environment-variables-definition)
-* [Webpack Environment Variables: .env](#webpack-environment-variables-env-files)
-* [Webpack Addons](#webpack-addons)
+<TableOfContents {...props} />
 
 # Webpack's Development and Production Build
 

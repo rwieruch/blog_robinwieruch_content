@@ -48,13 +48,7 @@ Along the way, you will build a simplified GitHub client, basically an issue tra
 
 # Table of Contents
 
-* [Writing your first React GraphQL Client](#react-graphql-client)
-* [GraphQL Query in React](#react-graphql-query)
-    * [GraphQL Nested Objects in React](#react-graphql-nested-objects)
-    * [GraphQL Variables and Arguments in React](#react-graphql-variables-arguments)
-* [GraphQL Pagination in React](#react-graphql-pagination)
-* [GraphQL Mutation in React](#react-graphql-mutation)
-* [Shortcomings of GraphQL in React without a GraphQL Client library](#react-graphql-library)
+<TableOfContents {...props} />
 
 # Writing your first React GraphQL Client
 

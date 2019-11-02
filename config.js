@@ -71,7 +71,7 @@ module.exports = {
           categoryFn: edges =>
             edges.sort(
               (a, b) =>
-                new Date(b.node.fields.date) - new Date(a.node.fields.date),
+                new Date(b.node.fields.date) - new Date(a.node.fields.date)
             ),
         },
       },
@@ -115,7 +115,7 @@ module.exports = {
 
   // Landing Page
 
-  lazyLanding: ['About', 'Services', 'Portfolio', 'Vita'],
+  lazyLanding: ['Hero', 'About', 'Services', 'Portfolio', 'Vita'],
 
   hero: {
     header: 'Robin Wieruch',

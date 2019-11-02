@@ -43,41 +43,7 @@ While building this application with me in the following sections, I recommend t
 
 # Table of Contents
 
-* [Apollo Server Setup with Express](#apollo-server-setup-express)
-* [Type Definitions](#apollo-server-type-definitions)
-* [Resolvers](#apollo-server-resolvers)
-* [Type Relationships](#apollo-server-type-relationship)
-* [Queries and Mutations](#apollo-server-queries-mutations)
-* [GraphQL Schema Stitching with Apollo Server](#apollo-server-schema-stitching)
-  * [Technical Separation](#schema-stitching-technical-separation)
-  * [Domain Separation](#schema-stitching-technical-separation)
-* [PostgreSQL with Sequelize for a GraphQL Server](#apollo-server-postgresql-sequelize-setup)
-* [Connecting Resolvers and Database](#apollo-server-resolvers-database)
-* [Validation and Errors](#apollo-server-validation-errors)
-* [Authentication](#apollo-server-authentication)
-  * [Registration (Sign Up) with GraphQL](#graphql-registration-sign-up-authentication)
-  * [Securing Passwords with Bcrypt](#graphql-token-based-authentication)
-  * [Token based Authentication in GraphQL](#graphql-token-based-authentication)
-  * [Login (Sign In) with GraphQL](#graphql-registration-sign-up-authentication)
-* [Authorization with GraphQL and Apollo Server](#apollo-server-authorization)
-  * [GraphQL Authorization on a Resolver Level](#apollo-server-authorization-resolver)
-  * [Permission-based GraphQL Authorization](#apollo-server-authorization-permission)
-  * [Role-based GraphQL Authorization](#apollo-server-authorization-role)
-  * [Setting Headers in GraphQL Playground](#graphql-playground-headers)
-* [GraphQL Custom Scalars in Apollo Server](#apollo-server-graphql-custom-scalar)
-* [Pagination in GraphQL with Apollo Server](#apollo-server-pagination)
-  * [Offset/Limit Pagination with Apollo Server and GraphQL](#apollo-server-offset-limit-pagination)
-  * [Cursor-based Pagination with Apollo Server and GraphQL](#apollo-server-cursor-based-pagination)
-  * [Cursor-based Pagination: Page Info, Connections and Hashes](#cursor-based-pagination-page-info-connections-hashes)
-* [GraphQL Subscriptions](#graphql-subscriptions)
-  * [Apollo Server Subscription Setup](#apollo-server-subscriptions)
-  * [Subscribing and Publishing with PubSub](#apollo-server-pub-sub)
-* [Testing a GraphQL Server](#graphql-server-testing)
-  * [GraphQL Server E2E Test Setup](#graphql-server-e2e-test-setup)
-  * [Testing User Scenarios with E2E Tests](#graphql-server-test-api)
-* [Batching and Caching in GraphQL with Data Loader](#graphql-server-data-loader-caching-batching)
-* [GraphQL Server + PostgreSQL Deployment to Heroku](#graphql-server-postgresql-deployment-heroku)
-  * [Heroku Troubleshoot](#heroku-troubleshoot)
+<TableOfContents {...props} />
 
 # Apollo Server Setup with Express
 

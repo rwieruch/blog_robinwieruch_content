@@ -20,9 +20,7 @@ I strongly believe it is a good foundation for learning JavaScript on the comman
 
 # Table of Contents
 
-* [Node.js with Nodemon](#node-js-nodemon)
-* [Node.js with Babel](#node-js-babel)
-* [Environment Variables in Node.js](#node-js-environment-variables)
+<TableOfContents {...props} />
 
 # Node.js with Nodemon
 

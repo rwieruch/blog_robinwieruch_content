@@ -22,14 +22,7 @@ What is this article going to be about? First, I want to revisit shortly the pro
 
 # Table of Contents
 
-* [What problem do we solve?](#motivation)
-* [What's the difference between Redux and MobX?](#difference)
-* [The Learning Curve in React State Management](#learningCurve)
-* [Another state management solution?](#anotherSolution)
-* [Final Thoughts](#finalThoughts)
-* [Fact Sheet](#factSheet)
-* [Key Takeaways](#keyTakeaways)
-* [More Resources](#resources)
+<TableOfContents {...props} />
 
 # What problem do we solve?
 

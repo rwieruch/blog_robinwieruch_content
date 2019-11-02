@@ -46,10 +46,7 @@ Apollo is an entire ecosystem built by developers as an infrastructure for Graph
 
 # Table of Contents
 
-* [Starting with Apollo Boost on the Command Line](#graphql-apollo-boost-client)
-* [Apollo Client and a GraphQL Query](#graphql-apollo-client-query)
-* [Apollo Client with Pagination, Variables, Nested Objects and List Fields](#graphql-apollo-client-pagination)
-* [Apollo Client and a GraphQL Mutation](#graphql-apollo-client-mutation)
+<TableOfContents {...props} />
 
 # Starting with Apollo Boost on the Command Line
 

@@ -20,14 +20,7 @@ The article aims to be an exhaustive list of options for conditional renderings 
 
 # Table of Contents
 
-* [if else](#if-else-statement)
-* [ternary operation](#ternary-operation)
-* [logical && operator](#logical-and-operator)
-* [switch case operator](#switch-case-operator)
-* [Conditional Rendering with enums](#enums)
-* [Multi-Level Conditional Rendering](#multi-level)
-* [With Higher Order Components](#conditional-rendering-hoc)
-* [External Templating Components](#external-templating-components)
+<TableOfContents {...props} />
 
 # if else in React
 

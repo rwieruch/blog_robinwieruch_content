@@ -16,19 +16,7 @@ Everyone who is new to React is confused by these so called props, because they 
 
 # Table of Contents
 
-* [What are Props in React?](#react-props)
-* [React Props vs. State](#react-props-vs-state)
-* [How to pass Props from child to parent Component?](#react-props-child-parent)
-* [Props can be state, props, or derived properties](#react-props-state-derived-properties)
-* [React Props and Code Style](#react-props-code-style)
-* [React ...props syntax](#react-props-syntax-spread-rest)
-* [React props with default value](#react-props-default-value)
-* [React's children prop](#react-props-children)
-* [How to pass Components as Props?](#react-components-as-props)
-* [Children as a Function](#react-children-as-a-function)
-* [React's Context API](#react-context-api)
-* [How to set props to state?](#react-props-to-state)
-* [React Props Pitfalls](#react-props-pitfalls)
+<TableOfContents {...props} />
 
 # What are Props in React?
 

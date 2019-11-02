@@ -26,10 +26,7 @@ The Redux Observable RxJS: Going Epic with Reactive Programming tutorial uses [r
 
 # Table of Contents
 
-* [What is an Epic?](#epic)
-* [Epics Middleware in Redux](#epicsMiddleware)
-* [Troubleshoot](#troubleshoot)
-* [Final Thoughts](#finalThoughts)
+<TableOfContents {...props} />
 
 # What is an Epic?
 

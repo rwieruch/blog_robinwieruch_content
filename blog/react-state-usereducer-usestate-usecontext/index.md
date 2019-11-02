@@ -16,9 +16,7 @@ If you haven't used state management excessively in [React Function Components](
 
 # Table of Contents
 
-* [React useState: simple State](#usestate-state-hook)
-* [React useReducer: complex State](#usereducer-reducer-hook)
-* [React useContext: global State](#usecontext-context-hook)
+<TableOfContents {...props} />
 
 # React useState: simple State
 

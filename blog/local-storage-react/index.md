@@ -18,10 +18,7 @@ But a simpler yet most of the times more sufficient solution could be to use the
 
 # Table of Contents
 
-* [Introduction to Local Storage](#local-storage)
-* [Local Storage in React](#local-storage-react)
-* [Expiration with Session Storage](#session-storage-react)
-* [How to Cache Data in React?](#react-local-storage-as-cache)
+<TableOfContents {...props} />
 
 # Introduction to Local Storage
 

@@ -20,11 +20,7 @@ The Normalizr in Redux tutorial will teach you how to use [normalizr](https://gi
 
 # Table of Contents
 
-* [Your Favorite Track](#favoriteTrack)
-* [Normalizr](#normalizr)
-* [Exercise](#exercise)
-* [Troubleshoot](#troubleshoot)
-* [Final Thoughts](#finalThoughts)
+<TableOfContents {...props} />
 
 # Your Favorite Track
 

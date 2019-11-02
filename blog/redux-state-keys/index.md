@@ -16,16 +16,7 @@ Sometimes I feel it's quite obvious, but I never saw it somewhere written down. 
 
 # Table of Contents
 
-* [Cluttered State](#clutteredState)
-* [Organized State](#organizedState)
-* [State Keys](#stateKeys)
-  * [State Key Definition](#stateKeyDefinition)
-  * [Reducer + Action Abstraction](#reducerActionAbstraction)
-  * [(Optional) Selectors & Static Types](#selectorsAndTypes)
-  * [Usage](#usage)
-* [Primitives vs. Objects](#primitivesVsObjects)
-* [Static vs. Dynamic](#staticVsDynamic)
-* [Key Takeaways of State Keys](#keyTakeaways)
+<TableOfContents {...props} />
 
 # Cluttered State
 

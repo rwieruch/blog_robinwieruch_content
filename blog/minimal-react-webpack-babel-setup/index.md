@@ -49,9 +49,7 @@ That should be enough said about my motivation behind this tutorial. Let's dive 
 
 # Table of Contents
 
-* [React with Babel](#react-babel)
-* [React with Webpack](#react-webpack)
-* [Hot Module Replacement](#hot-module-replacement)
+<TableOfContents {...props} />
 
 # React with Babel
 

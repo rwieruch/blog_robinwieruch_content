@@ -28,34 +28,7 @@ In the future I am going to write some [smaller tutorials](#extensions) based on
 
 # Table of Contents
 
-* [A project from scratch](#aProjectFromScratch)
-* [Let’s get started](#getStarted)
-* [Test Setup](#testSetup)
-* [Redux](#redux)
-  * [Redux Roundtrip](#reduxLoop)
-  * [Dispatching an Action](#dispatchingAnAction)
-  * [Constant Action Types](#constantActionTypes)
-  * [Action Creators](#actionCreators)
-  * [Reducers](#reducers)
-  * [Store with Global State](#storeWithGlobalState)
-* [Connect Redux and React](#connectReduxReact)
-  * [Provider](#provider)
-  * [Connect](#connect)
-  * [Container and Presenter Component](#containerAndPresenterComponent)
-* [SoundCloud App](#soundCloudApp)
-  * [Registration](#registration)
-  * [React Router](#reactRouter)
-  * [Authentication](#authentication)
-  * [Redux Thunk](#reduxThunk)
-  * [Set Me](#setMe)
-  * [Fetch Tracks](#fetchTracks)
-* [SoundCloud Player](#soundCloudPlayer)
-  * [Another Redux Roundtrip](#newReduxLoop)
-  * [Listen to the music!](#listenToTheMusic)
-* [What's next?](#whatsNext)
-* [Troubleshoot](#troubleshoot)
-* [Final Thoughts](#finalThoughts)
-* [Contribute](#contribution)
+<TableOfContents {...props} />
 
 # Extensions
 

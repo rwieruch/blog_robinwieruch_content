@@ -18,13 +18,7 @@ In this guide, I want to give React beginners an historical overview of differen
 
 # Table of Contents
 
-* [React createClass Components](#react-createclass-component)
-  * [React Mixins](#react-mixins)
-* [React Class Components](#react-class-components)
-  * [React Higher-Order Components](#react-higher-order-components)
-  * React Render Prop Components
-* [React Function Components](#react-function-components)
-* React Hooks
+<TableOfContents {...props} />
 
 # React createClass Components
 

@@ -16,12 +16,7 @@ Since [React Hooks](https://www.robinwieruch.de/react-hooks/) have been released
 
 # Table of Contents
 
-* [When to use useState or useReducer?](#usestate-vs-usereducer)
-* [Simple vs. Complex State with Hooks](#simple-complex-state)
-* [Simple vs. Complex State Transitions with Hooks](#simple-complex-state-transitions)
-* [Multiple State Transitions operate on one State Object](#multiple-state-transitions-one-state)
-* [State Changes and their Logic](#logic-state-change)
-* [State Changes and the Trigger](#trigger-state-change)
+<TableOfContents {...props} />
 
 # When to use useState or useReducer?
 

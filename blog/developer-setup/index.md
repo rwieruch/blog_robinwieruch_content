@@ -23,12 +23,7 @@ What if you are not sure which philosophy to follow? If you are just beginning w
 
 # Table of Contents
 
-* [Homebrew](#homebrew)
-* [Git](#git)
-* [Sublime as Editor](#sublime)
-* [iTerm2 (Optional)](#iterm)
-* [GitHub](#github)
-* [Node and NPM](#node-npm)
+<TableOfContents {...props} />
 
 # Homebrew
 

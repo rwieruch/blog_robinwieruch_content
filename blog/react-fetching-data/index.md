@@ -18,15 +18,7 @@ However, at some point you want to request real world data from an own or a thir
 
 # Table of Contents
 
-* [Where to fetch in React's component tree?](#react-where-fetch-data)
-* [How to fetch data in React?](#react-how-fetch-data)
-* [What about loading spinner and error handling?](#react-fetch-data-loading-error)
-* [How to fetch data with Axios in React](#react-fetch-data-axios)
-* [How to test data fetching in React?](#react-fetch-data-test-testing)
-* [How to fetch data with Async/Await in React?](#react-fetch-data-async-await)
-* [How to fetch data in Higher-Order Components?](#react-fetch-data-higher-order-component)
-* [How to fetch data in Render Props?](#react-fetch-data-render-props)
-* [How to fetch data from a GraphQL API in React?](#react-fetch-data-graphql)
+<TableOfContents {...props} />
 
 # Where to fetch in React's component tree?
 

@@ -26,10 +26,7 @@ The tutorial itself will not strictly follow all proposed guidelines of the reco
 
 # Table of Contents
 
-* [Refactor Auth Redux Duck](#refactorAuthDuck)
-* [Refactor Track Redux Duck](#refactorTrackDuck)
-* [Troubleshoot](#troubleshoot)
-* [Final Thoughts](#finalThoughts)
+<TableOfContents {...props} />
 
 # Refactor Auth Redux Duck
 

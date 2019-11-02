@@ -24,17 +24,7 @@ The MobX React: Refactor your application from Redux to MobX tutorial will teach
 
 # Table of Contents
 
-* [MobX Dependencies](#dependencies)
-* [MobX State](#state)
-* [MobX Actions](#actions)
-* [Redux to MobX State Management](#reduxMobxStateManagement)
-* [Redux to MobX Components](#components)
-* [MobX Reactions](#reactions)
-* [MobX Derivations](#derivations)
-* [Explicit Actions](#explicitActions)
-* [Provide and Inject](#provideAndInject)
-* [Troubleshoot](#troubleshoot)
-* [Final Thoughts](#finalThoughts)
+<TableOfContents {...props} />
 
 # MobX Dependencies
 

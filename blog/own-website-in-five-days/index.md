@@ -17,10 +17,7 @@ The following document is only a cheatsheet which summarises the steps you need 
 
 # Table of Contents
 
-* [Day Two: Hugo](#hugo)
-* [Day Three: DigitalOcean](#digitalOcean)
-* [Day Four: Create your Website](#createWebsite)
-* [Day Five: Publish It!](#publishIt)
+<TableOfContents {...props} />
 
 # Day Two: Hugo
 

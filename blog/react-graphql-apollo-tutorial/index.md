@@ -46,23 +46,7 @@ In this tutorial, you will learn how to combine React with GraphQL in your appli
 
 # Table of Contents
 
-* [Writing your first React application with GraphQL and Apollo Client](#react-graphql-apollo-client)
-* [Configure Apollo Client for React and GitHub's GraphQL API](#react-apollo-client-configuration)
-* [Connect Data-Layer to View-Layer: Introducing React Apollo](#react-apollo-connecting-layers)
-* [GraphQL Query with Apollo Client in React](#react-apollo-client-query)
-* [Apollo Client Error Handling in React](#react-apollo-client-error-handling)
-* [GraphQL Mutation with Apollo Client in React](#react-apollo-client-mutations)
-* [GraphQL Query/Mutation with Higher-Order Components in React](#react-apollo-client-query-mutation-higher-order-component)
-* [Local State Management with Apollo Client in React](#react-apollo-client-local-state-management)
-* [Apollo Client Optimistic UI in React](#react-apollo-client-optimistic-ui)
-* [GraphQL Pagination with Apollo Client in React](#react-apollo-client-pagination)
-* [GraphQL Caching of Queries with Apollo Client in React](#react-apollo-client-caching)
-* [Implementing the Issues Feature: Setup](#react-apollo-client-feature-setup)
-* [Implementing the Issues Feature: Client-Side Filter](#react-apollo-client-feature-client-filter)
-* [Implementing the Issues Feature: Server-Side Filter](#react-apollo-client-feature-server-filter)
-* [Apollo Client Prefetching in React](#react-apollo-client-prefetching-data)
-* [Exercise: Commenting Feature](#react-apollo-client-exercise)
-* [Appendix: CSS Files and Styles](#appendix-styling)
+<TableOfContents {...props} />
 
 # Writing your first React application with GraphQL and Apollo Client
 
