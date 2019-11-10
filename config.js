@@ -118,11 +118,23 @@ module.exports = {
 
   // Landing Page
 
+  pattern: '',
+
   lazyLanding: ['Hero', 'About', 'Services', 'Portfolio', 'Vita'],
 
   hero: {
     header: 'Robin Wieruch',
     subheader: 'German Software Engineer for React.js, Node.js and GraphQL',
+  },
+  bait: {
+    header: '',
+    subheader: '',
+    features: [
+      {
+        description: '',
+        label: '',
+      },
+    ],
   },
   about: {
     header: 'About me',
@@ -213,6 +225,8 @@ module.exports = {
   vita: {
     header: 'Vita',
     subheader: 'My professional story.',
+    themed: false,
+    lastItem: 'Be part of my story.',
     items: [
       {
         label: 'Master of Science',
@@ -270,6 +284,17 @@ module.exports = {
       },
     ],
   },
+  sproof: {
+    header: '',
+    subheader: '',
+    items: [
+      {
+        author: '',
+        url: '',
+        text: '',
+      },
+    ],
+  },
   testimonial: {
     header: 'Testimonials',
     subheader: 'What others are saying about my work.',
@@ -294,6 +319,30 @@ module.exports = {
         description:
           'As an external writer, Liesa fits in very well with our brand and target group. She has a natural, modern writing style and writes well-researched blog posts for our online magazine. Working together is productive and enjoyable: Liesa is fast, careful, reliable and totally nice.',
         url: 'https://www.gymondo.de/magazin/author/liesa-huppertz',
+      },
+    ],
+  },
+  faq: {
+    header: '',
+    subheader: '',
+    items: [
+      {
+        label: '',
+        description: '',
+      },
+    ],
+  },
+  sale: {
+    header: '',
+    subheader: '',
+    items: [
+      {
+        header: '',
+        benefits: [''],
+        button: {
+          label: '',
+          url: '',
+        },
       },
     ],
   },
