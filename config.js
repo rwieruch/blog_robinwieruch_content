@@ -120,7 +120,14 @@ module.exports = {
 
   pattern: '',
 
-  lazyLanding: ['Hero', 'About', 'Services', 'Portfolio', 'Vita'],
+  lazyLanding: [
+    'Hero',
+    'About',
+    'Services',
+    'Portfolio',
+    'Vita',
+    'Testimonial',
+  ],
 
   hero: {
     header: 'Robin Wieruch',
@@ -284,10 +291,26 @@ module.exports = {
       },
     ],
   },
+  table: {
+    header: '',
+    subheader: '',
+    chapters: [
+      {
+        label: '',
+        sections: [''],
+      },
+    ],
+    code: [
+      {
+        label: '',
+        sections: [''],
+      },
+    ],
+  },
   sproof: {
     header: '',
     subheader: '',
-    items: [
+    cites: [
       {
         author: '',
         url: '',
@@ -300,25 +323,24 @@ module.exports = {
     subheader: 'What others are saying about my work.',
     items: [
       {
-        label: 'Elena Miebach',
-        sublabel: 'Greenyogashop',
+        label: 'Shawn Wang',
+        sublabel: 'Developer Experience at Netlify',
         description:
-          'Creative, passionate and professional. Liesa knows her business. She is easy to work with and delivers quality work, always before deadline. She is a great support for all tasks related to content creation, copywriting and PR.',
-        url: 'https://www.greenyogashop.com/blog',
+          'Robin is one of the most consistently high quality React educators. His approach directly addresses practical concerns you *will* face in your daily React work, without talking down to you or wasting your time with fluff. Don’t just take my word for it - look at his public work and you’ll see.',
+        url: 'https://twitter.com/swyx',
       },
       {
-        label: 'Maike Bork',
-        sublabel: 'Head of Brand at Delivery Hero GmbH',
+        label: 'Dan Abramov',
+        sublabel: 'React.js Core Team',
         description:
-          'As an external copywriter, Liesa is a great help to the entire team. She has adapted to our brand as well as to our tone of voice and audience extremely fast and has an excellent writing style. She is also able to nail the tone of voice for different online & offline channels, for Sales, and Social Media precisely and to the fullest satisfaction. Liesa is always reliable and does all the tasks quickly and carefully. The cooperation is always uncomplicated and super nice.',
-        url: 'https://www.lieferheld.de',
+          "I haven't read this book yet, but the previous educational materials made by Robin were nothing short of amazing. Thanks for creating this content and putting it out there!",
+        url: 'http://twitter.com/dan_abramov',
       },
       {
-        label: 'Caro Hobler',
-        sublabel: 'Head of Content at Gymondo',
-        description:
-          'As an external writer, Liesa fits in very well with our brand and target group. She has a natural, modern writing style and writes well-researched blog posts for our online magazine. Working together is productive and enjoyable: Liesa is fast, careful, reliable and totally nice.',
-        url: 'https://www.gymondo.de/magazin/author/liesa-huppertz',
+        label: 'Kent C. Dodds',
+        sublabel: 'Full-time JavaScript Instructor',
+        description: `Everything that I've read from Robin has been top tier quality stuff. There are blog posts that I have wanted to write, but then I found one by Robin and decided I didn't need to. Fantastic content 💯`,
+        url: 'https://twitter.com/kentcdodds',
       },
     ],
   },
