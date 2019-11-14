@@ -318,6 +318,7 @@ module.exports = {
         text: '',
       },
     ],
+    tweets: [''],
   },
   testimonial: {
     header: 'Testimonials',
