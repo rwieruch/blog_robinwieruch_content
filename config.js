@@ -144,6 +144,11 @@ module.exports = {
       },
     ],
   },
+  ppp: {
+    header: '',
+    subheader: '',
+    suffix: '',
+  },
   about: {
     header: 'About me',
     subheader: 'Get to know me before you dive into my content.',
@@ -322,7 +327,7 @@ module.exports = {
   },
   testimonial: {
     header: 'Testimonials',
-    subheader: 'What others are saying about my work.',
+    subheader: 'What industry leaders are saying',
     items: [
       {
         label: 'Shawn Wang',
@@ -332,6 +337,24 @@ module.exports = {
         url: 'https://twitter.com/swyx',
       },
       {
+        label: 'Tania Rascia',
+        sublabel: 'JS Dev, Online Educator ',
+        description: '',
+        url: 'https://twitter.com/taniarascia',
+      },
+      {
+        label: 'Kent C. Dodds',
+        sublabel: 'Full-time JavaScript Instructor',
+        description: `Everything that I've read from Robin has been top tier quality stuff. There are blog posts that I have wanted to write, but then I found one by Robin and decided I didn't need to. Fantastic content 💯`,
+        url: 'https://twitter.com/kentcdodds',
+      },
+      {
+        label: 'Christian Nwamba',
+        sublabel: 'JS Dev, Organizer of Concatenate',
+        description: `You can tell how much time Robin has put into a teaching piece when you consume his content.  I have partnered with Robin and he sets the bar high for other teachers and content creators – this results to a quality learning ecosystem for his students regardless if a content or course was thought by him or not.`,
+        url: 'https://twitter.com/codebeast',
+      },
+      {
         label: 'Dan Abramov',
         sublabel: 'React.js Core Team',
         description:
@@ -339,10 +362,11 @@ module.exports = {
         url: 'http://twitter.com/dan_abramov',
       },
       {
-        label: 'Kent C. Dodds',
-        sublabel: 'Full-time JavaScript Instructor',
-        description: `Everything that I've read from Robin has been top tier quality stuff. There are blog posts that I have wanted to write, but then I found one by Robin and decided I didn't need to. Fantastic content 💯`,
-        url: 'https://twitter.com/kentcdodds',
+        label: 'Preethi Kasireddy',
+        sublabel: 'Founder & CEO of TruStory',
+        description:
+          "If it's anything to do with React and it's written by Robin, you can trust that it'll be world-class. His books are some of the best content you'll find on the web for learning React.",
+        url: 'https://twitter.com/iam_preethi',
       },
     ],
   },
@@ -359,14 +383,15 @@ module.exports = {
   sale: {
     header: '',
     subheader: '',
+    courseUrl: '',
     items: [
       {
         header: '',
         benefits: [''],
-        button: {
-          label: '',
-          url: '',
-        },
+        price: 0,
+        label: '',
+        courseId: '',
+        packageId: '',
       },
     ],
   },
