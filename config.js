@@ -312,6 +312,12 @@ module.exports = {
         sections: [''],
       },
     ],
+    screencasts: [
+      {
+        label: '',
+        sections: [''],
+      },
+    ],
   },
   sproof: {
     header: '',
@@ -338,7 +344,7 @@ module.exports = {
       },
       {
         label: 'Tania Rascia',
-        sublabel: 'JS Dev, Online Educator ',
+        sublabel: 'JS Dev, Online Educator',
         description: '',
         url: 'https://twitter.com/taniarascia',
       },
