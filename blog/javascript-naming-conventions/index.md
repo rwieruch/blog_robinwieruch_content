@@ -249,7 +249,7 @@ If a variable has more than one word in its variable declaration name, it makes 
 var DAYS_UNTIL_TOMORROW = 1;
 ```
 
-Usually JavaScript constants are defined at the top of a JavaScript file. As hinted before, no one enforces one to not change the variable here, except a [const declaration of the variable for primitive data structures](https://www.robinwieruch.de/javascript-const-let-var), but it's capitalized naming suggests avoiding it.
+Usually JavaScript constants are defined at the top of a JavaScript file. As hinted before, no one enforces one to not change the variable here, except a [const declaration of the variable for primitive data structures](https://www.robinwieruch.de/const-let-var), but it's capitalized naming suggests avoiding it.
 
 # JavaScript Naming Conventions: Global Variable
 

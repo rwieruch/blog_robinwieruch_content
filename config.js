@@ -345,7 +345,7 @@ module.exports = {
       {
         label: 'Tania Rascia',
         sublabel: 'JS Dev, Online Educator',
-        description: '',
+        description: "Robin is an excellent teacher. His articles and tutorials are in-depth and informative, and his code is clear and concise. I've found an answer on his site countless times when researching a problem, and I know that's one less article I have to write.",
         url: 'https://twitter.com/taniarascia',
       },
       {
