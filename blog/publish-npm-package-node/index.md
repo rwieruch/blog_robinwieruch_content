@@ -4,7 +4,7 @@ description: "A tutorial on how to publish a npm package to the npm registry wit
 date: "2019-05-12T07:52:46+02:00"
 categories: ["Node", "Web Development", "Tooling", "JavaScript"]
 keywords: ["publish npm package"]
-hashtags: ["#NodeJs"]
+hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""
@@ -54,7 +54,7 @@ In your *package.json* file, implement the following lines for bundling your pro
 
 ```javascript{5,7}
 {
-  "name": "node-package-open-source-starter",
+  "name": "my-library-name",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
@@ -131,7 +131,7 @@ Now your bundled source code is ready to be published on npm as node package/lib
 
 ```javascript{8}
 {
-  "name": "node-package-open-source-starter",
+  "name": "my-library-name",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
@@ -159,6 +159,10 @@ Finally, you can publish your node package with `npm publish`. Maybe you will be
 
 If you want to upgrade your node package; change the source code, and afterward go into your *package.json* file and increase the version number. Then do a `npm publish` and your recent version should be published to the npm registry.
 
+### Exercises:
+
+* Read more about [how to test your open sourced node package with Mocha and Chai](https://www.robinwieruch.de/node-js-testing-mocha-chai/)
+
 # Publishing a Node Package with Webpack
 
 Even though Babel is not a module bundler, it comes with a few handy features -- as you have seen in the previous section -- to create a bundled JavaScript file from a source code folder. However, eventually you run into more complex projects where a sophisticated bundler is needed. Let's see what needs to change in our project to use Webpack for this job.
@@ -173,7 +177,7 @@ Then, instead of using Babel to covnert and to move your source code files from 
 
 ```javascript{7}
 {
-  "name": "node-package-open-source-starter",
+  "name": "my-library-name",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
@@ -197,9 +201,9 @@ Since the Webpack task points to a *webpack.config.js* file, create this file an
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: __dirname + '/lib',
+    path: `${__dirname}/lib`,
     filename: 'index.js',
-    library: 'node-package-open-source-starter',
+    library: 'my-library-name',
     libraryTarget: 'umd',
   }
 };
@@ -213,9 +217,9 @@ Since we want to use Babel in Webpack, we need to add Babel in our build step fo
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: __dirname + '/lib',
+    path: `${__dirname}/lib`,
     filename: 'index.js',
-    library: 'node-package-open-source-starter',
+    library: 'my-library-name',
     libraryTarget: 'umd',
   },
   module: {
@@ -240,8 +244,10 @@ Now you are ready to give `npm run build` a shot. Afterward, you should find a n
 
 *Note: Did you notice the JSX configuration in our Webpack configuration? It's not needed for our case, because we are dealing with JavaScript files. However, it might give a good hint on how to advance the setup from a JavaScript open source library to a React open source library.*
 
+### Exercises:
+
+* Read more about [Code Splitting in Webpack](https://www.robinwieruch.de/webpack-code-splitting-library)
+
 <Divider />
 
-Check out this tutorial, if you want to [test your open sourced node package with Mocha and Chai](https://www.robinwieruch.de/node-js-testing-mocha-chai/).
-
-After all, it's up to you whether you use Babel, Webpack or any other bundler (e.g. Rollup) to create your open source project. In the end, it depends on your requirements. For instance, if you want to publish a library for frontend development (e.g. React), you may want to use a sophisticated bundler such as Webpack to not only include JavaScript, but also JSX, SVG or other files.
+After all, it's up to you whether you use Babel, Webpack or any other bundler (e.g. Rollup) to create your open source project. In the end, it depends on your requirements. For instance, if you want to publish a library for frontend development (e.g. React), you may want to use a sophisticated bundler such as Webpack to not only include JavaScript, but also JSX, SVG and other files.
