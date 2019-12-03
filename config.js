@@ -21,7 +21,7 @@ module.exports = {
   title: 'RWieruch',
   // can be specified in frontmatter
   description:
-    'Software Engineer for React.js, Node.js, GraphQL and JavaScript. Based in Berlin, German/English speaking. Consulting/Freelancing for Web Development project: Code Audits/Reviews, Workshops, Trainoing, Implementation ...',
+    'Software Engineer for React.js, Node.js, GraphQL and JavaScript. Based in Berlin, German/English speaking. Consulting/Freelancing for Web Development project: Code Audits/Reviews, Workshops, Training, Implementation ...',
 
   // can be specified in frontmatter
   author: 'Robin Wieruch',
