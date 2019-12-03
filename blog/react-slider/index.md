@@ -356,7 +356,7 @@ And will replace the shown initial range with the current range by using direct 
 const Slider = ({ initial, max, onChange }) => {
   ...
 
-  const currentRef = React.useRef(initial);
+  const currentRef = React.useRef();
 
   ...
 
@@ -445,6 +445,7 @@ That's it. You have styled a slider component in React, made its interaction pos
 ### Exercises:
 
 * The Slider only works when moving the thumb around. Extend the Slider's functionality so that it moves the thumb around when clicking on the Slider's range instead of using the thumb directly.
+* Color the Slider in blue for every part of it that's left from the thumb. That's the colored progress -- which should be updated whenever the thumb moves.
 * Pass a different `formatFn` to the slider. For instance, you could use a formatter function to translate the number to a time format (e.g. 135000 to 00:02:15:000 for milliseconds to hh:mm:ss:ms).
 
 <Divider />
