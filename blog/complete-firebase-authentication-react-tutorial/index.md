@@ -40,16 +40,10 @@ Let's get started with the React + Firebase application we are going to build to
 
 If you lack information on how to setup your React development environment, checkout these setup guides for [MacOS](https://www.robinwieruch.de/react-js-macos-setup) and [Windows](https://www.robinwieruch.de/react-js-windows-setup). Now, there are two ways to begin with this application: either follow my guidance in this section; or find a starter project in this [GitHub repository](https://github.com/the-road-to-react-with-firebase/react-firebase-authentication-starter-kit) and follow its installation instructions. This section will show how to set up the same project from scratch, whereas the starter project grants instant access without setting up the folder/file structure yourself.
 
-The application we are going to build with React and Firebase will be set up with Facebook's official React boilerplate project, called [create-react-app](https://github.com/facebookincubator/create-react-app). You can install it globally on the command line once, after which it becomes available whenever you need it.
+The application we are going to build with React and Firebase will be set up with Facebook's official React boilerplate project, called [create-react-app](https://github.com/facebookincubator/create-react-app). You can set up your project with it on the command line whereas the name for the project is up to you. Afterward, navigate on the command line into the project:
 
 ```javascript
-npm install -g create-react-app
-```
-
-After the installation, set up your project with it on the command line whereas the name for the project is up to you. Afterward, navigate on the command line into the project:
-
-```javascript
-create-react-app react-firebase-authentication
+npx create-react-app react-firebase-authentication
 cd react-firebase-authentication
 ```
 

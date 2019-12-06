@@ -43,18 +43,10 @@ In this folder, you will create your *frontend/* and *backend/* folders in the n
 
 # React Stripe Frontend
 
-Using create-react-app is the fastest way to get started in React. It bootstraps your ReactJs project with all boilerplate code with zero-configuration from the command line. You can read more about it in the [official documentation](https://github.com/facebookincubator/create-react-app).
-
-If you haven't installed it yet, you can install it globally with your node package manager:
+Using create-react-app is the fastest way to get started in React. It bootstraps your ReactJs project with all boilerplate code with zero-configuration from the command line. You can read more about it in the [official documentation](https://github.com/facebookincubator/create-react-app). Bootstrap your frontend application grom *react-express-stripe/* on the command line:
 
 ```javascript
-npm install -g create-react-app
-```
-
-Once you have it installed, you can bootstrap your frontend application. From *react-express-stripe/* on the command line:
-
-```javascript
-create-react-app frontend
+npx create-react-app frontend
 cd frontend
 ```
 
