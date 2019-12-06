@@ -22,7 +22,7 @@ We are starting off with the previous tutorial where we have implemented a React
 
 First, we want to colorize the range -- or also called track -- which is used for our interactive thumb to move from minimum to maximum of the range's capacity. But we will only colorize the part left of the thumb. This way, we get a visual feedback about which range has been selected and which not.
 
-```javascript{3-8,13,24,37,53-56}
+```javascript{3-9,13,24,37,53-56}
 ...
 
 const StyledRangeProgress = styled.div`
@@ -331,6 +331,7 @@ Everything should work again. However, keep in mind that it's recommended to avo
 
 ### Exercises:
 
+* Give your Range Component a disabled state where it's no longer possible to interact with it.
 * Add a second thumb to the Range Component for being able to select a part *within* the track which doesn't start with our defined `min` value.
 
 <Divider />
