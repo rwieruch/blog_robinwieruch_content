@@ -23,9 +23,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledSlider = styled.div`
+  position: relative;
   border-radius: 3px;
   background: #dddddd;
-  margin: 5px;
   height: 15px;
 `;
 
@@ -444,10 +444,11 @@ That's it. You have styled a slider component in React, made its interaction pos
 
 ### Exercises:
 
-* The Slider only works when moving the thumb around. Extend the Slider's functionality so that it moves the thumb around when clicking on the Slider's range instead of using the thumb directly.
-* Color the Slider in blue for every part of it that's left from the thumb. That's the colored progress -- which should be updated whenever the thumb moves.
+* The Slider only works when moving the thumb around. Extend the Slider's functionality so that it moves the thumb around when clicking on the Slider's track instead of using the thumb directly.
 * Pass a different `formatFn` to the slider. For instance, you could use a formatter function to translate the number to a time format (e.g. 135000 to 00:02:15:000 for milliseconds to hh:mm:ss:ms).
 
 <Divider />
 
-The React Slider Component was inspired by this [pure JavaScript implementation](https://javascript.info/mouse-drag-and-drop). Let me know in the comments how you improved your component and how you liked tutorial.
+The React Slider Component was inspired by this [pure JavaScript implementation](https://javascript.info/mouse-drag-and-drop). Let me know in the comments how you improved your component and how you liked the tutorial.
+
+<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "How to React Range", url: "https://www.robinwieruch.de/react-range/" }]} />
