@@ -357,10 +357,10 @@ You have two options to start this tutorial:
 
 If you have chosen 1), clone the repository, install it, run it on the command line, check it in the browser, and jump to the next section of this tutorial. If you have chosen 2), follow the instructions below before continuing with the next section.
 
-You are going to use create-react-app to setup your project. You can read the [official documentation](https://github.com/facebookincubator/create-react-app) on how to setup a React starter project with it. After you have installed it, you start by choosing a project name for your application in the terminal (command line).
+You are going to use create-react-app to setup your project. You can read the [official documentation](https://github.com/facebookincubator/create-react-app) on how to setup a React starter project with it. You start by choosing a project name for your application in the terminal (command line).
 
 ```javascript
-create-react-app react-redux-tutorial
+npx create-react-app react-redux-tutorial
 ```
 
 After the project was created for you, you can navigate into the project folder, open your editor/IDE and start the application.

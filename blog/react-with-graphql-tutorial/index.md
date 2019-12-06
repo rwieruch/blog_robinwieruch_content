@@ -54,12 +54,10 @@ Along the way, you will build a simplified GitHub client, basically an issue tra
 
 After the last sections, you should be ready to use queries and mutations in your React application. In this section, you will create a React application that consumes the GitHub GraphQL API. The application should show open issues in a GitHub repository, making it a simple issue tracker. Again, if you lack experience with React, see [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react) to learn more about it. After that you should be well set up for the following section.
 
-For this application, no elaborate React setup is needed. You will simply use [create-react-app](https://github.com/facebook/create-react-app) to create your React application with zero-configuration. Install it with npm by typing the following instructions on the command line: `npm install -g create-react-app`. If you want to have an elaborated React setup instead, read this [setup guide for using Webpack with React](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/).
-
-Now, let's create the application with create-react-app. In your general projects folder, type the following instructions:
+For this application, no elaborate React setup is needed. You will simply use [create-react-app](https://github.com/facebook/create-react-app) to create your React application with zero-configuration. If you want to have an elaborated React setup instead, read this [setup guide for using Webpack with React](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). For now, let's create the application with create-react-app. In your general projects folder, type the following instructions:
 
 ```javascript
-create-react-app react-graphql-github-vanilla
+npx create-react-app react-graphql-github-vanilla
 cd react-graphql-github-vanilla
 ```
 

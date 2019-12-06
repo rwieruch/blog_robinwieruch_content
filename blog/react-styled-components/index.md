@@ -134,7 +134,7 @@ The goal is to build an Instagram clone and here's a screenshot of what the app 
 To get started, we'll need to create a React app and that can be done easily using the [create-react-app](https://github.com/facebook/create-react-app) CLI package. The `create-react-app` CLI package enables creating React apps easily with no build configuration. The CLI can be used as seen below. This command creates a React app in a folder named `stylagram`:
 
 ```javascript
-create-react-app stylagram
+npx create-react-app stylagram
 ```
 
 In order to build this app, we'll be dividing this app into different components:

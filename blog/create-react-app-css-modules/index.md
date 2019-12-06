@@ -14,7 +14,7 @@ author: ""
 
 The article is a short **how to use CSS Modules in your create-react-app application**. It shows you how to setup CSS Modules, but also how to use them in your components.
 
-After you have setup your application with [create-react-app](https://github.com/facebook/create-react-app) (e.g. `create-react-app my-app`), you don't need to install anything else to make CSS modules work. They come out of the box, but you have to give your CSS files the "module" prefix prior the extension: *.module.css*
+After you have setup your application with [create-react-app](https://github.com/facebook/create-react-app) (e.g. `npx create-react-app my-app`), you don't need to install anything else to make CSS modules work. They come out of the box, but you have to give your CSS files the "module" prefix prior the extension: *.module.css*
 
 Let's try out how CSS Modules in React work. Let's say our App component already uses a Navigation component to display links the following way:
 
