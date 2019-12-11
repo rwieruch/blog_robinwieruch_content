@@ -1,9 +1,9 @@
 ---
-title: "JavaScript Variables Tutorial for Beginners"
-description: " ..."
+title: "JavaScript Variable Tutorial for Beginners"
+description: "Everything you need to know about JavaScript variables if you are just starting out with JavaScript ..."
 date: "2019-12-10T07:52:46+02:00"
 categories: ["JavaScript"]
-keywords: ["javascript variable", "javascript variables"]
+keywords: ["javascript variable"]
 hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
