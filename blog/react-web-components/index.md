@@ -102,7 +102,7 @@ import React from 'react';
 import 'road-dropdown';
 
 const Dropdown = ({ label, option, options, onChange }) => {
-  const ref = React.createRef();
+  const ref = React.useRef();
 
   React.useLayoutEffect(() => {
     const { current } = ref;
@@ -135,7 +135,7 @@ import React from 'react';
 import 'road-dropdown';
 
 const Dropdown = ({ label, option, options, onChange }) => {
-  const ref = React.createRef();
+  const ref = React.useRef();
 
   React.useLayoutEffect(() => {
     const handleChange = customEvent => onChange(customEvent.detail);

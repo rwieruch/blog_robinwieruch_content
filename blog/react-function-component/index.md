@@ -818,7 +818,7 @@ However, when doing it this way, React Dev Tools cannot identify the component b
 A React Ref should only be used in rare cases such as accessing/manipulating the DOM manually (e.g. focus element), animations, and integrating third-party DOM libraries (e.g. D3). If you have to use a Ref in a Function Component, you can define it within the component. In the following case, the input field will get focused after the component did mount:
 
 ```javascript{1,18,20,27}
-import React, { useState, useEffect, createRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const App = () => {
   const [greeting, setGreeting] = useState('Hello React!');
@@ -835,7 +835,7 @@ const App = () => {
 };
 
 const Input = ({ value, handleChange }) => {
-  const ref = createRef();
+  const ref = useRef();
 
   useEffect(() => ref.current.focus(), []);
 
@@ -857,14 +857,14 @@ However, React Function Components cannot be given refs! If you try the followin
 ```javascript{10,12,18,23,28}
 // Doesn't work!
 
-import React, { useState, useEffect, createRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const App = () => {
   const [greeting, setGreeting] = useState('Hello React!');
 
   const handleChange = event => setGreeting(event.target.value);
 
-  const ref = createRef();
+  const ref = useRef();
 
   useEffect(() => ref.current.focus(), []);
 
@@ -897,7 +897,7 @@ It's not recommended to pass a ref from a Parent Component to a Child Component 
 import React, {
   useState,
   useEffect,
-  createRef,
+  useRef,
   forwardRef,
 } from 'react';
 
@@ -906,7 +906,7 @@ const App = () => {
 
   const handleChange = event => setGreeting(event.target.value);
 
-  const ref = createRef();
+  const ref = useRef();
 
   useEffect(() => ref.current.focus(), []);
 

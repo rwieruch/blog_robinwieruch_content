@@ -388,7 +388,7 @@ module.exports = {
                 import useWithViewbox from '../useWithViewbox';
 
                 const ${componentName} = (${props}) => {
-                  const ref = React.createRef();
+                  const ref = React.useRef();
 
                   useWithViewbox(ref);
 
