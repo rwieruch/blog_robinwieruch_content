@@ -2,7 +2,7 @@
 title: "How to React Range"
 description: "In this React component tutorial, we will build a React Range Component that can be used horizontally as example, but can be extended to be used vertically too ..."
 date: "2019-12-02T07:52:46+02:00"
-categories: ["JavaScript"]
+categories: ["React"]
 keywords: ["react range", "react range component", "react range example", "react range range", "react range"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

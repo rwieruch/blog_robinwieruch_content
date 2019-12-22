@@ -2,8 +2,8 @@
 title: "A NPM Crash Course"
 description: "A crash course for using npm on the command line. You will learn how to initialize a npm project, how to install and uninstall node packages, and which files are associated with npm in your project ..."
 date: "2019-12-15T07:52:46+02:00"
-categories: ["JavaScript"]
-keywords: ["npm-crash-course"]
+categories: ["Node", "Web Development", "Tooling", "JavaScript"]
+keywords: ["npm crash course"]
 hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
