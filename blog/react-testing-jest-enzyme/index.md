@@ -472,6 +472,8 @@ What's different is that we mock a promise with an error. This way, we can test 
 
 The testing tutorial has shown you how Jest and Enzyme can be used perfectly together to snapshot/unit/integration test your React components. You can traverse the DOM of rendered components, mock away and wait for asynchronous logic to happen, and simulate events on HTML elements to mimic the user's behavior. You can find all the tests written for this tutorial in this [GitHub repository](https://github.com/the-road-to-learn-react/react-testing-jest-enzyme).
 
+<ReadMore label="How to test Axios in Jest by Example" link="https://www.robinwieruch.de/axios-jest" />
+
 <ReadMore label="End to End Testing React with Cypress" link="https://www.robinwieruch.de/react-testing-cypress" />
 
 <ReadMore label="Test Coverage in JavaScript" link="https://www.robinwieruch.de/javascript-test-coverage" />

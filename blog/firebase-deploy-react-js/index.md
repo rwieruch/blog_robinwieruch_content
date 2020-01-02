@@ -60,7 +60,7 @@ author: ""
   ]}
 />
 
-After we built a full-fledged Firebase application in React, the final step is deployment, the tipping point of getting your ideas out into the world, from consuming tutorials to producing applications. Since you have already used Firebase extensively for your application, why not choosing Firebase Hosting for the deployment?
+After we built a full-fledged application in React, the final step is deployment, the tipping point of getting your ideas out into the world, from consuming tutorials to producing applications. We will use Firebase Hosting for the deployment.
 
 In this section, I want to guide you through deploying your React application to Firebase. It works for create-react-app too. Also it should work for any other library and framework such as Angular or Vue. First, install the Firebase CLI globally to your node modules:
 
@@ -74,13 +74,15 @@ Using a global installation of the Firebase CLI, you can deploy any application 
 npm install -g firebase-tools
 ```
 
+*Note: If you are coming from a point where you don't have a Firebase project yet, sign up for a [Firebase account](https://console.firebase.google.com/) and create a new project there. Then come back to this tutorial.*
+
 Next associate the Firebase CLI with a Firebase account (Google account):
 
 ```javascript
 firebase login
 ```
 
-There should be a URL in your command line that opens in a browser. If this doesn't happen, Firebase CLI may open up the URL automatically. Choose your Google account you used earlier to create a Firebase project, and give Google the necessary permissions. You should see a confirmation for a successful setup. Return to the command line to verify a successful login.
+There should be a URL in your command line that opens in a browser. If this doesn't happen, Firebase CLI may open up the URL automatically. Choose your Google account to create a Firebase project, and give Google the necessary permissions. You should see a confirmation for a successful setup. Return to the command line to verify a successful login.
 
 Next, move to the project's folder and execute the following command, which initializes a Firebase project that can be used for the Firebase hosting features:
 
@@ -136,7 +138,7 @@ Hosting URL: https://react-firebase-authentic-d12f8.firebaseapp.com
 
 Visit both pages to observe the results. The former link navigates to your Firebase project's dashboard. There, you should have a new panel for the Firebase Hosting. The latter link navigates to your deployed React application.
 
-If you only see a blank page for your deployed React application, see if the `public` key/value pair in the *firebase.json* is set to `build`. That's the case if your build folder has the name *build*. If it has another name, set the value to this. Second, check if you have ran the build script of your React app with `npm run build`. After you have done both steps, try another deployment with `firebase deploy`. That should get your recent React build up and running for Firebase Hosting.
+If you only see a blank page for your deployed React application, see if the `public` key/value pair in the *firebase.json* is set to `build`. That's the case if your build folder has the name *build*. If it has another name, set the value to this. Second, check if you have ran the build script of your React app with `npm run build`. And third, if there is still a problem, check out the [official troubleshoot area for deploying create-react-app applications to Firebase](https://create-react-app.dev/docs/deployment). After you have done both steps, try another deployment with `firebase deploy`. That should get your recent React build up and running for Firebase Hosting.
 
 ### Exercises
 
