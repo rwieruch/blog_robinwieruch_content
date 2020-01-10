@@ -449,7 +449,7 @@ You have seen how Jest can also be used to test plain JavaScript functions. It d
 
 Jest gives you (almost) everything you need to test your React components. You can run all your tests from the command line, give it additional configuration, and define test suites and test cases in your test files. Snapshot Tests give you a lightweight way to test your React components by just diffing the rendered output to the previous output. Also you have seen how Jest can be used for testing only JavaScript functions, so it's not strictly bound to React testing.
 
-However, testing the DOM of a React component with Jest is more difficult. That's why there exist other third-party libraries such as React Testing Libraryr or Enzyme to make React component unit testing possible for you. Follow the tutorial series for more testing examples in React.
+However, testing the DOM of a React component with Jest is more difficult. That's why there exist other third-party libraries such as React Testing Library or Enzyme to make React component unit testing possible for you. Follow the tutorial series for more testing examples in React.
 
 <LinkCollection label="This tutorial is part 2 of 3 in the series." links={[{ prefix: "Part 1:", label: "How to set up React with Webpack and Babel", url: "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" }, { prefix: "Part 3:", label: "How to test React components with Jest & Enzyme", url: "https://www.robinwieruch.de/react-testing-jest-enzyme" }]} />
 
