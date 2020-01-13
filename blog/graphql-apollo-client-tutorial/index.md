@@ -203,7 +203,7 @@ That's all there is to sending a query with the Apollo Client.  As noted, Apollo
 
 The requested information from the GraphQL query can be found in the `data` object. There, you will find the `organization` object with its `name` and `url` fields. The Apollo Client automatically requests the GraphQL [meta field](http://graphql.org/learn/queries/#meta-fields) `__typename`. The meta field can be used by the Apollo Client as an identifier, to allow caching and optimistic UI updates.
 
-More meta information about the request can be found next to the `data` object. It shows whether the data is still loading, as well as specific details about the [network status](https://github.com/apollographql/apollo-client/blob/master/packages/apollo-client/src/core/networkStatus.ts), and whether the requested data is stale on the server-side.
+More meta information about the request can be found next to the `data` object. It shows whether the data is still loading, as well as specific details about the [network status](https://www.apollographql.com/docs/react/api/react-hoc/#datanetworkstatus), and whether the requested data is stale on the server-side.
 
 ### Exercises:
 
