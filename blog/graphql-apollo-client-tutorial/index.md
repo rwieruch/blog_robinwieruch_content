@@ -213,7 +213,7 @@ More meta information about the request can be found next to the `data` object. 
   * Get comfortable navigating through their documentation
   * Add other fields for the `organization` field
 * Read more about [why you should use Apollo Client](https://www.apollographql.com/docs/react/why-apollo.html)
-* Read more about the [networkStatus property and its possible values](https://github.com/apollographql/apollo-client/blob/master/packages/apollo-client/src/core/networkStatus.ts)
+* Read more about the [networkStatus property and its possible values](https://www.apollographql.com/docs/react/api/react-hoc/#datanetworkstatus)
 * Invest 3 minutes of your time and take the [quiz](https://www.surveymonkey.com/r/5MF35H5)
 
 # Apollo Client with Pagination, Variables, Nested Objects and List Fields
