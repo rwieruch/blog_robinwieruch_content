@@ -74,7 +74,7 @@ Using a global installation of the Firebase CLI, you can deploy any application 
 npm install -g firebase-tools
 ```
 
-*Note: If you are coming from a point where you don't have a Firebase project yet, sign up for a [Firebase account](https://console.firebase.google.com/) and create a new project there. Then come back to this tutorial.*
+If you are coming from a point where you don't have a Firebase project yet, sign up for a [Firebase account](https://console.firebase.google.com/) and create a new project there.
 
 Next associate the Firebase CLI with a Firebase account (Google account):
 
@@ -109,8 +109,8 @@ You can create multiple project aliases by running firebase use --add,
 but for now we'll just set up a default project.
 
 ? Select a default Firebase project for this directory:
--> react-firebase-authentic-d12f8 (react-firebase-authentication)
-i  Using project react-firebase-authentic-d12f8 (react-firebase-authentication)
+-> my-react-project-abc123 (my-react-project)
+i  Using project my-react-project-abc123 (my-react-project)
 ```
 
 There are a few other configuration steps to define. Instead of using the default *public/* folder, we want to use the *build/* folder for create-react-app. If you set up the bundling with a tool like Webpack, you can choose the appropriate name for the build folder:
@@ -132,17 +132,15 @@ firebase deploy
 After a successful deployment, you should see a similar output with your project's identifier:
 
 ```javascript
-Project Console: https://console.firebase.google.com/project/react-firebase-authentic-d12f8/overview
-Hosting URL: https://react-firebase-authentic-d12f8.firebaseapp.com
+Project Console: https://console.firebase.google.com/project/my-react-project-abc123/overview
+Hosting URL: https://my-react-project-abc123.firebaseapp.com
 ```
 
 Visit both pages to observe the results. The former link navigates to your Firebase project's dashboard. There, you should have a new panel for the Firebase Hosting. The latter link navigates to your deployed React application.
 
-If you only see a blank page for your deployed React application, see if the `public` key/value pair in the *firebase.json* is set to `build`. That's the case if your build folder has the name *build*. If it has another name, set the value to this. Second, check if you have ran the build script of your React app with `npm run build`. And third, if there is still a problem, check out the [official troubleshoot area for deploying create-react-app applications to Firebase](https://create-react-app.dev/docs/deployment). After you have done both steps, try another deployment with `firebase deploy`. That should get your recent React build up and running for Firebase Hosting.
+If you only see a blank page for your deployed React application, see if the `public` key/value pair in the *firebase.json* is set to `build`. That's the case if your build folder has the name *build*. If it has another name, set the value to this. Second, check if you have ran the build script of your React app with `npm run build`. And third, if there is still a problem, check out the [official troubleshoot area for deploying create-react-app applications to Firebase](https://create-react-app.dev/docs/deployment). Afterward, try another deployment with `firebase deploy`. That should get your recent React build up and running for Firebase Hosting.
 
 ### Exercises
 
-* Add the [security rules from the installation instructions](https://github.com/the-road-to-react-with-firebase/react-firebase-authentication) to your Firebase Project's Dashboard for your Database.
-* Read more about [Firebase Hosting Features](https://firebase.google.com/docs/hosting/)
-* Read more about [how to host with Firebase Hosting](https://firebase.google.com/docs/hosting/quickstart)
-* [Connect your domain to your Firebase deployed application](https://firebase.google.com/docs/hosting/custom-domain)
+* Read more about [Firebase Hosting](https://firebase.google.com/docs/hosting/).
+* [Connect your domain to your Firebase deployed application](https://firebase.google.com/docs/hosting/custom-domain).
