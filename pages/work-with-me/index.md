@@ -2,7 +2,7 @@
 title: "How to work with me?"
 description: "Are you looking for a german / english speaking freelancer / consultant to work with you on a modern web application with React, Redux and Webpack? Let's talk! ..."
 date: "2018-01-01T13:50:46+02:00"
-categories: ["JavaScript", "Growth", "Machine Learning", "Web Development"]
+categories: ["JavaScript", "Web Development"]
 keywords: ["german react consultant", "german react freelance", "german javascript freelance", "german javascript consultant"]
 hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"

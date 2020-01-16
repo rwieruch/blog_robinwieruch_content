@@ -2,7 +2,7 @@
 title: "The minimal Node.js with Babel Setup"
 description: "A common sense minimal Node.js setup guide which uses Babel and Nodemon: Whereas Babel with the Babel Cli is used for enabling recent JavaScript language features, Nodemon is used for keeping your node process up and running ..."
 date: "2019-06-15T13:58:46+02:00"
-categories: ["Node", "Web Development", "Tooling", "JavaScript", "Babel"]
+categories: ["Node", "Tooling", "JavaScript"]
 keywords: ["node setup", "node js setup", "node babel setup", "node js babel setup"]
 hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"

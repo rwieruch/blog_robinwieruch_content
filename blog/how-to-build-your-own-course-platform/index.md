@@ -2,7 +2,7 @@
 title: "How I built my own course platform"
 description: "From having the idea to launching your own product: The article is a case study on how I built my own course platform in React, Stripe, Firebase to give other people a platform to learn React. It came with lots of challenges but also learnings beyond the implementation ..."
 date: "2017-10-25T13:50:46+02:00"
-categories: ["React", "JavaScript", "Web Development"]
+categories: ["Web Development"]
 keywords: ["online course platform open source"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

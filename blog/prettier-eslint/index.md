@@ -2,7 +2,7 @@
 title: "How to make Prettier work with ESLint"
 description: "Brief step by step tutorial on how to combine Prettier and ESLint for VSCode, Sublime, or any other IDE/editor. You will get to know the ESLint Prettier Rules that are needed to get you started ..."
 date: "2019-06-14T13:50:46+02:00"
-categories: ["JavaScript", "VS Code", "Web Development", "Tooling", "Prettier", "ESLint"]
+categories: ["JavaScript", "VS Code", "Tooling"]
 keywords: ["eslint prettier", "prettier eslint", "prettier eslint vscode", "prettier eslint sublime", "prettier eslint rules"]
 hashtags: ["#VSCode"]
 banner: "./images/banner.jpg"

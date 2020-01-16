@@ -2,7 +2,7 @@
 title: "How to deploy a GitHub Webhook in Node.js"
 description: "By Example: How to deploy a GitHub Webhook to DigitalOcean for an automatic deployment of websites/web application ..."
 date: "2019-09-08T13:56:46+02:00"
-categories: ["Node", "JavaScript", "Web Development"]
+categories: ["Node", "Web Development"]
 keywords: ["github webhook nodejs", "github webhook digitalocean", "github webhook deploy"]
 hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"

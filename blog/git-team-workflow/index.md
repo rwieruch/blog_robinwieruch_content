@@ -2,7 +2,7 @@
 title: "How to establish a Git Team Workflow"
 description: "Learn how to establish a Git Team Workflow with branching techniques, pull/push strategies, and common sense git commands to make your team more productive ..."
 date: "2019-08-22T13:56:46+02:00"
-categories: ["Web Development", "Tooling"]
+categories: ["Web Development"]
 keywords: ["git team workflow", "git team cheatsheet"]
 hashtags: ["#Git"]
 banner: "./images/banner.jpg"
