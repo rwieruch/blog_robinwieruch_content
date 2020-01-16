@@ -41,7 +41,7 @@ State management libraries like Redux and MobX often have utility add-ons, like 
 
 # What's the difference between Redux and MobX?
 
-Before we dive into the differences, I want to give you the consitencies between MobX and Redux.
+Before we dive into the differences, I want to give you the consistencies between MobX and Redux.
 
 Both libraries are used to manage state in JavaScript applications. They are not necessarily coupled to a library like React. They are used in other libraries like AngularJs and VueJs too. But they integrate well with the [philosophy of React](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/).
 
