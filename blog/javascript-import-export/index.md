@@ -1,6 +1,6 @@
 ---
-title: "JavaScript: Import & Export Statements"
-description: "JavaScript import and export statements are used to share code across folders and files. This walkthrough shows common use cases and how to apply import and export statements ..."
+title: "JavaScript: Import & Export"
+description: "JavaScript import and export are used to share code across folders and files. This walkthrough shows common use cases and how to apply import and export statements ..."
 date: "2019-12-21T07:52:46+02:00"
 categories: ["JavaScript"]
 keywords: ["javascript import export"]
