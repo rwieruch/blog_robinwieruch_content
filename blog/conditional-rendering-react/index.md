@@ -1,7 +1,7 @@
 ---
-title: "All React Conditional Rendering Techniques"
-description: "Wondering how to perform a conditional render in React? The article is an exhaustive list of conditional renderings in React's JSX. How to use ternary operators, switch case and if else in React.js? You will see various use cases where and how to use these conditional renderings and advanced techniques ..."
-date: "2018-09-21T13:50:46+02:00"
+title: "React Conditional Rendering"
+description: "Everything you need to know about conditional rendering in React. Learn about ternary operators, switch case, and if else statements in JSX to conditionally render elements in React ..."
+date: "2020-01-16T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react conditional rendering", "react conditional render"]
 hashtags: ["#ReactJs"]
@@ -12,37 +12,63 @@ author: ""
 
 <Sponsorship />
 
-A conditional render in React is no witchcraft. In JSX - the syntax extension used for React - you can use pure JavaScript. In JavaScript you should be familiar with if-else or switch case statements, [because they are the one of the fundamental pillars for learning React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/). You can use these in JSX as well, since JSX only mixes HTML and JavaScript.
-
-But what is conditional rendering in React? In a conditional render a component decides based on one or several conditions which elements it will return. For instance, it can either return a list of items or a message that says "Sorry, the list is empty". When a component has conditional rendering, the instance of the rendered component can have different looks.
-
-The article aims to be an exhaustive list of options for conditional renderings in React. If you know more alternatives, feel free to contribute.
+Conditional rendering in React isn't difficult. In JSX - the syntax extension used for React - you can use plain JavaScript which includes if else statements, ternary operators, switch case statements, and much more. In a conditional render, a React component decides based on one or several conditions which DOM elements it will return. For instance, based on some logic it can either return a list of items or a text that says "Sorry, the list is empty". When a component has a conditional rendering, the appearance of the rendered component differs based on the condition. The article aims to be an exhaustive list of options for conditional renderings in React and best practices for these patterns.
 
 # Table of Contents
 
 <TableOfContents {...props} />
 
-# if else in React
+# Conditional Rendering in React: if
 
-The easiest way to have a conditional rendering is to use an if else in React in your render method. Imagine you don't want to render your component, because it doesn't have the necessary props. For instance, a List component shouldn't render the list when there is no list of items. You can use an if statement to return earlier from the render lifecycle.
+The most basic conditional rendering logic in React is done with a single **if** statement. Imagine you don't want to render something in your [React component](https://www.robinwieruch.de/react-function-component), because it doesn't have the necessary [React props](https://www.robinwieruch.de/react-pass-props-to-component/) available. For instance, a [List component in React](https://www.robinwieruch.de/react-list-component) shouldn't render the list HTML elements in a view if there is no list of items in the first place. You can use a plain JavaScript if statement to return earlier (guard pattern):
 
-```javascript
+```javascript{16-18}
+const users = [
+  { id: '1', firstName: 'Robin', lastName: 'Wieruch' },
+  { id: '2', firstName: 'Dennis', lastName: 'Wieruch' },
+];
+
+function App() {
+  return (
+    <div>
+      <h1>Hello Conditional Rendering</h1>
+      <List list={users} />
+    </div>
+  );
+}
+
 function List({ list }) {
   if (!list) {
     return null;
   }
 
   return (
-    <div>
-      {list.map(item => <ListItem item={item} />)}
-    </div>
+    <ul>
+      {list.map(item => (
+        <Item key={item.id} item={item} />
+      ))}
+    </ul>
+  );
+}
+
+function Item({ item }) {
+  return (
+    <li>
+      {item.firstName} {item.lastName}
+    </li>
   );
 }
 ```
 
-A component that returns null will render nothing. However, you might want to show a text when a list is empty to give your app user some feedback for a better user experience.
+Try it yourself by setting `users` to null oder undefined. If the information from the props is null or undefined, the React component returns null in the conditional rendering. There, a React component that returns null instead of JSX will render nothing.
 
-```javascript
+In this example, we have done the conditional rendering based on props, but the conditional rendering could be based on [state](https://www.robinwieruch.de/react-state) and [hooks](https://www.robinwieruch.de/react-hooks) too. Notice, how we didn't use the if statement inside the JSX yet but only outside before the return statement.
+
+# Conditional Rendering in React: if else
+
+Let's move on with the previous example to learn about **if else** statements in React. If there is no list, we render nothing and hide the HTML as we have seen before with the single if statement. However, you may want to show a text as feedback for your user when the list is empty for a better user experience. This would work with another single if statement, but we will expand the example with an if else statement instead:
+
+```javascript{6-8,16}
 function List({ list }) {
   if (!list) {
     return null;
@@ -53,92 +79,96 @@ function List({ list }) {
   } else {
     return (
       <div>
-        {list.map(item => <ListItem item={item} />)}
+        {list.map(item => (
+          <Item item={item} />
+        ))}
       </div>
     );
   }
 }
 ```
 
-The List renders either nothing, a text or the list of items. The if-else statement is the most basic option to have a conditional rendering in React.
+Now, the List component renders either nothing, a text, or the list of items based on some JavaScript logic. Even though the previous example shows you how to use if else statements in React, I suggest to use single if statements every time you want to guard your main return (here: returning the list) as a best practice:
 
-# ternary operation in React
+```javascript{6-8}
+function List({ list }) {
+  if (!list) {
+    return null;
+  }
 
-You can make your if-else statement more concise by using a [ternary operation](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator).
-
-```javascript
-condition ? expr1 : expr2
-```
-
-For instance, imagine you have a toggle to switch between two modes, edit and view, in your component. The derived condition is a simple boolean. You can use the boolean to decide which element you want to return.
-
-```javascript
-function Item({ item, mode }) {
-  const isEditMode = mode === 'EDIT';
+  if (!list.length) {
+    return <p>Sorry, the list is empty.</p>;
+  }
 
   return (
     <div>
-      { isEditMode
-        ? <ItemEdit item={item} />
-        : <ItemView item={item} />
-      }
+      {list.map(item => (
+        <Item item={item} />
+      ))}
     </div>
   );
 }
 ```
 
-If your blocks in both branches of the ternary operation are getting bigger, you can use parentheses.
+This is way more readable than the previous if else conditional rendering. All the guards are neatly aligned as single if statements before the main return statement which can be interpreted as an implicit else statement too. Still, none of the if and else statements were used inside the return statement yet.
+
+# Conditional Rendering in React: ternary
+
+It's true that we can use JavaScript in JSX, but it becomes difficult when using statements like **if, else, and switch case within JSX**. There is no real way to inline it. Another way to express an if else statement in JavaScript is the **[ternary operator](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)**:
 
 ```javascript
-function Item({ item, mode }) {
-  const isEditMode = mode === 'EDIT';
+// if else
+function getFood(isVegetarian) {
+  if (isVegetarian) {
+    return 'tofu';
+  } else {
+    return 'fish';
+  }
+}
 
+// ternary operator
+function getFood(isVegetarian) {
+  return isVegetarian ? 'tofu' : 'fish';
+}
+```
+
+For instance, imagine your component shows either a preview or edit mode. The condition is a JavaScript boolean which comes in as React prop. You can use the boolean to decide which element you want to conditionally render:
+
+```javascript{6,8,10}
+function Recipe({ food, isEdit }) {
   return (
     <div>
-      {isEditMode ? (
-        <ItemEdit item={item} />
+      {food.name}
+
+      {isEdit ? (
+        <EditRecipe food={food} />
       ) : (
-        <ItemView item={item} />
+        <ShowRecipe food={food} />
       )}
     </div>
   );
 }
 ```
 
-The ternary operation makes the conditional rendering in React more concise than the if-else statement. It is simple to inline it in your return statement.
+The parentheses `()` around both implicit return statements in the ternary operator enable you to return a single or multiple HTML elements or React components from there. If it's just a single element though, you can omit the parentheses.
 
-# logical && operator in React
+Note: Sometimes you want to wrap multiple lines of elements with a div element as one block though. Anyway, try to keep it lightweight. If the wrapper between the `()` grows too big, consider extracting it as a component as shown in the example.
 
-It happens often that you want to render either an element or nothing. For instance, you could have a LoadingIndicator component that returns a loading text or nothing. You can do it in JSX with an if statement or ternary operation.
+The ternary operation makes the conditional rendering in React not only more concise, but gives you an easy way to **inline the conditional rendering in your return**. This way, only a one part of your JSX is conditionally rendered, while other parts can stay intact without any condition.
+
+# Conditional Rendering in React: &&
+
+It happens often that you want to *render either an element or nothing*. You have learned that a simple if condition helps with that issue. However, then again you want to be able to inline the condition like a ternary operator. Take the following loading indicator component which uses a conditional ternary operator to return either the element or nothing:
 
 ```javascript
 function LoadingIndicator({ isLoading }) {
-  if (isLoading) {
-    return (
-      <div>
-        <p>Loading...</p>
-      </div>
-    );
-  } else {
-    return null;
-  }
-}
-
-function LoadingIndicator({ isLoading }) {
-  return (
-    <div>
-      { isLoading
-        ? <p>Loading...</p>
-        : null
-      }
-    </div>
-  );
+  return <div>{isLoading ? <p>Loading...</p> : null}</div>;
 }
 ```
 
-But there is an alternative way that omits the necessity to return null. The logical `&&` operator helps you to make conditions that would return null more concise.
+This works just fine and you are done inlining the condition in your JSX. However, there exists an alternative way that omits the necessity to return null.
 
-How does it work? In JavaScript a `true && 'Hello World'` always evaluates to 'Hello World'. A `false && 'Hello World'` always evaluates to false.
+The **logical && operator** helps you to make conditions that would return null more concise. In JavaScript, a `true && 'Hello World'` always evaluates to 'Hello World'. A `false && 'Hello World'` always evaluates to false:
 
 ```javascript
 const result = true && 'Hello World';
@@ -150,27 +180,43 @@ console.log(result);
 // false
 ```
 
-In React you can make use of that behaviour. If the condition is true, the expression after the logical && operator will be the output. If the condition is false, React ignores and skips the expression.
+In React, you can make use of this behaviour. If the condition is true, the expression after the logical && operator will be the output. If the condition is false, React ignores and skips the expression:
 
-```javascript
+```javascript{2}
 function LoadingIndicator({ isLoading }) {
-  return (
-    <div>
-      { isLoading && <p>Loading...</p> }
-    </div>
-  );
+  return <div>{isLoading && <p>Loading...</p>}</div>;
 }
 ```
 
-That's your way to go when you want to return an element or nothing. The technique is also called short-circuit evaluation. It makes it even more concise than a ternary operation when you would return null for a condition.
+That's your way to go when you want to **return nothing or an element inside JSX**. It's also called short-circuit evaluation which makes it even more concise than a ternary operator.
 
-# switch case operator in React
+# Conditional Rendering in React: switch case
 
-Now there might be cases where you have multiple conditional renderings. For instance, the conditional rendering could apply based on different states. Let's imagine a notification component that can render an error, warning or info component based on the input state. You can use a switch case operator to handle the conditional rendering of these multiple states.
+Now there might be cases where you have multiple conditional renderings. Take for example a notification component that renders an error, warning, or info component based on a status string:
 
 ```javascript
-function Notification({ text, state }) {
-  switch(state) {
+function Notification({ text, status }) {
+  if (status === 'info') {
+    return <Info text={text} />;
+  }
+
+  if (status === 'warning') {
+    return <Warning text={text} />;
+  }
+
+  if (status === 'error') {
+    return <Error text={text} />;
+  }
+
+  return null;
+}
+```
+
+You can use a **switch case operator** for *multiple conditional renderings*:
+
+```javascript
+function Notification({ text, status }) {
+  switch (status) {
     case 'info':
       return <Info text={text} />;
     case 'warning':
@@ -183,13 +229,18 @@ function Notification({ text, state }) {
 }
 ```
 
-Please note that you always have to use the `default` for the switch case operator. In React a component always has to return an element or null.
+It's wise to use the default for the switch case operator, because a React component always has to return an element or null. If a component has a conditional rendering based on a string, it makes sense to describe the interface of the component with TypeScript:
 
-As a little side information: When a component has a conditional rendering based on a state, it makes sense to describe the interface of the component with `React.PropTypes`.
+```javascript{1,3-6,8}
+type Status = 'info' | 'warning' | 'error';
 
-```javascript
-function Notification({ text, state }) {
-  switch(state) {
+type NotificationProps = {
+  text: string;
+  status: Status;
+};
+
+function Notification({ text, status }: NotificationProps) {
+  switch (status) {
     case 'info':
       return <Info text={text} />;
     case 'warning':
@@ -200,23 +251,16 @@ function Notification({ text, state }) {
       return null;
   }
 }
-
-Notification.propTypes = {
-   text: React.PropTypes.string,
-   state: React.PropTypes.oneOf(['info', 'warning', 'error'])
-}
 ```
 
-Now you have one generic component to show different kinds of notifications. For instance, based on the `state` prop the component could have different looks. An error could be red, a warning would be yellow and an info could be blue.
+A switch case is a good start for multiple conditional renderings. But it comes with the same drawbacks like an if else statement. A switch case cannot be used within JSX; can it? Actually it's possible with a conditional rendering function which is self invoking:
 
-An alternative way would be to inline the switch case. Therefore you would need a self invoking JavaScript function.
-
-```javascript
-function Notification({ text, state }) {
+```javascript{4-5,16-16}
+function Notification({ text, status }) {
   return (
     <div>
       {(function() {
-        switch(state) {
+        switch (status) {
           case 'info':
             return <Info text={text} />;
           case 'warning':
@@ -232,14 +276,14 @@ function Notification({ text, state }) {
 }
 ```
 
-Again it can be more concise with an ES6 arrow function.
+Optionally make the switch case more concise with an conditional rendering arrow function:
 
 ```javascript{4}
-function Notification({ text, state }) {
+function Notification({ text, status }) {
   return (
     <div>
       {(() => {
-        switch(state) {
+        switch (status) {
           case 'info':
             return <Info text={text} />;
           case 'warning':
@@ -255,181 +299,161 @@ function Notification({ text, state }) {
 }
 ```
 
-In conclusion, the switch case operator helps you to have multiple conditional renderings. But is it the best way to do that? Let's see how we can have multiple conditional renderings with enums.
+In conclusion, the switch case operator helps you to have multiple conditional renders. But is it the best way to do that? Let's see how we can have multiple conditional renderings with enums instead.
 
-# Conditional Rendering with enums
+# Conditional Rendering in React: enums
 
-In JavaScript an object can be used as an enum when the object is used as a map of key value pairs.
+A JavaScript object with key value pairs for a mapping is called an enum:
 
 ```javascript
-const ENUM = {
-  a: '1',
-  b: '2',
-  c: '3',
+const NOTIFICATION_STATES = {
+  info: 'Did you know? ...',
+  warning: 'Be careful here ...',
+  error: 'Something went wrong ...',
 };
 ```
 
-An enum is a great way to have multiple conditional renderings. Let's consider the notification component again. This time we can use the enum as inlined object.
+An **enum** is a great way to handle *conditional rendering with multiple conditions* in React. They are switch case statements on steroids, because they can be used within the JSX. Let's consider the notification component again, but this time with an enum as inlined object (inner curly braces):
 
 ```javascript
-function Notification({ text, state }) {
+function Notification({ text, status }) {
   return (
     <div>
-      {{
-        info: <Info text={text} />,
-        warning: <Warning text={text} />,
-        error: <Error text={text} />,
-      }[state]}
+      {
+        {
+          info: <Info text={text} />,
+          warning: <Warning text={text} />,
+          error: <Error text={text} />,
+        }[status]
+      }
     </div>
   );
 }
 ```
 
-The state property key helps us to retrieve the value from the object. That's neat, isn't it? It is much more readable compared to the switch case operator.
+The status property key helps us to retrieve the value from the object. That's neat, isn't it? It is much more readable compared to the switch case operator.
 
-In this case we had to use an inlined object, because the values of the object depend on the `text` property. That would be my recommended way anyway. However, if it wouldn't depend on the text property, you could use an external static enum too.
+In this example, we had to use an inlined object, because the values of the object depend on the text property. That would be my recommended way anyway. However, if it wouldn't depend on the text property, you could use an enum as a constant for the conditional render:
 
-```javascript
+```javascript{1-5,10}
 const NOTIFICATION_STATES = {
   info: <Info />,
   warning: <Warning />,
   error: <Error />,
 };
 
-function Notification({ state }) {
+function Notification({ status }) {
   return (
     <div>
-      {NOTIFICATION_STATES[state]}
+      {NOTIFICATION_STATES[status]}
     </div>
   );
 }
 ```
 
-Although we could use a function to retrieve the value, if we would depend on the `text` property.
+This cleans things up in the JSX. If we would still rely on the text property from before, we could use a conditional rendering with a function to retrieve the value too:
 
-```javascript
-const getSpecificNotification = (text) => ({
+```javascript{1-5,8}
+const getNotification = text => ({
   info: <Info text={text} />,
   warning: <Warning text={text} />,
   error: <Error text={text} />,
 });
 
-function Notification({ state, text }) {
-  return (
-    <div>
-      {getSpecificNotification(text)[state]}
-    </div>
-  );
+function Notification({ status, text }) {
+  return <div>{getNotification(text)[status]}</div>;
 }
 ```
 
-After all, the enum approach in comparison to the switch case statement is more readable. Objects as enums open up plenty of options to have multiple conditional renderings. Consider this last example to see what's possible:
+After all, the enum conditional rendering in React is more elegant than the switch case statement. Objects as enums open up plenty of options to have multiple conditional renderings. Permutations of booleans are possible too:
 
 ```javascript
-function FooBarOrFooOrBar({ isFoo, isBar }) {
-  const key = `${isFoo}-${isBar}`;
+function Message({ isExtrovert, isVegetarian }) {
+  const key = `${isExtrovert}-${isVegetarian}`;
+
   return (
     <div>
-      {{
-        ['true-true']: <FooBar />,
-        ['true-false']: <Foo />,
-        ['false-true']: <Bar />,
-        ['false-false']: null,
-      }[key]}
+      {
+        {
+          'true-true': <p>I am an extroverted vegetarian.</p>,
+          'true-false': <p>I am an extroverted meat eater.</p>,
+          'false-true': <p>I am an introverted vegetarian.</p>,
+          'false-false': <p>I am an introverted meat eater.</p>,
+        }[key]
+      }
     </div>
   );
 }
-
-FooBarOrFooOrBar.propTypes = {
-   isFoo: React.PropTypes.boolean.isRequired,
-   isBar: React.PropTypes.boolean.isRequired,
-}
 ```
 
-# Multi-Level Conditional Rendering in React
+The last example is a bit over the top though and I wouldn't advice to use it. However, enums are one of my favorite React patterns when it comes to conditional rendering.
 
-What about nested conditional renderings? Yes, it is possible. For instance, let's have a look at the List component that can either show a list, an empty text or nothing.
+# Nested Conditional Rendering in React
+
+What about **nested conditional renderings** in React? Yes, it is possible. For instance, let's have a look at the List component from before that shows either a list, an empty text, or nothing:
 
 ```javascript
 function List({ list }) {
-  const isNull = !list;
-  const isEmpty = !isNull && !list.length;
+  const isNotAvailable = !list;
+  const isEmpty = !list.length;
 
   return (
     <div>
-      { isNull
-        ? null
-        : ( isEmpty
+      {isNotAvailable
+        ? <p>Sorry, the list is not there.</p>
+        : (isEmpty
           ? <p>Sorry, the list is empty.</p>
-          : <div>{list.map(item => <ListItem item={item} />)}</div>
+          : <div>{list.map(item => <Item item={item} />)}</div>
         )
       }
     </div>
   );
 }
-
-// Usage
-
-<List list={null} /> // <div></div>
-<List list={[]} /> // <div><p>Sorry, the list is empty.</p></div>
-<List list={['a', 'b', 'c']} /> // <div><div>a</div><div>b</div><div>c</div><div>
 ```
 
-It works. However I would recommend to keep the nested conditional renderings to a minimum. It makes it less readable. My recommendation would be to split it up into smaller components which themselves have conditional renderings.
+It works, however I would recommend to avoid nested conditional renders, because they are verbose which makes it less readable. Instead try the following solutions:
+
+* The guard pattern with only if statements before the main return statement.
+* Splitting the component into multiple components whereas each component takes care of its own non nested conditional rendering.
+
+# Conditional Rendering with HOC
+
+[Higher-Order Components (HOCs)](https://www.robinwieruch.de/react-higher-order-components/) are a perfect match for a conditional rendering in React. HOCs can help with multiple use cases, yet one use case could be to alter the look of a component with a conditional rendering. Let's check out a HOC that either shows a element or a component:
 
 ```javascript
-function List({ list }) {
-  const isList = list && list.length;
-
-  return (
-    <div>
-      { isList
-        ? <div>{list.map(item => <ListItem item={item} />)}</div>
-        : <NoList isNull={!list} isEmpty={list && !list.length} />
-      }
-    </div>
-  );
-}
-
-function NoList({ isNull, isEmpty }) {
-  return (!isNull && isEmpty) && <p>Sorry, the list is empty.</p>;
-}
-```
-
-Still, it doesn't look that appealing. Let's have a look at higher order components and how they would help to tidy it up.
-
-# With Higher Order Components
-
-Higher order components (HOCs) are a perfect match for conditional rendering in React. HOCs can have multiple use cases. Yet one use case could be to alter the look of a component. To make the use case more specific: it could be to apply a conditional rendering for a component. Let's have a look at a HOC that either shows a loading indicator or a desired component.
-
-```javascript
-// HOC declaration
+// Higher-Order Component
 function withLoadingIndicator(Component) {
   return function EnhancedComponent({ isLoading, ...props }) {
     if (!isLoading) {
-      return <Component { ...props } />;
+      return <Component {...props} />;
     }
 
-    return <div><p>Loading...</p></div>;
+    return (
+      <div>
+        <p>Loading</p>
+      </div>
+    );
   };
 }
 
-// Usage
 const ListWithLoadingIndicator = withLoadingIndicator(List);
 
-<ListWithLoadingIndicator
-  isLoading={props.isLoading}
-  list={props.list}
-/>
+function App({ list, isLoading }) {
+  return (
+    <div>
+      <h1>Hello Conditional Rendering</h1>
+
+      <ListWithLoadingIndicator isLoading={isLoading} list={list} />
+    </div>
+  );
+}
 ```
 
-In the example, the List component can focus on rendering the list. It doesn't have to bother with a loading state. Ultimately you could add more HOCs to shield away multiple conditional rendering edge cases.
+In this example, the List component can focus on rendering the list. It doesn't have to bother with a loading status. A HOC hides away all the noise from your actual component. Ultimately, you could add multiple higher-order components (composition) to hide away more than one conditional rendering edge case. As alternative to HOCs, you could also use [conditional rendering with a render prop](https://www.robinwieruch.de/react-render-props).
 
-A HOC can opt-in one or multiple conditional renderings. You could even use multiple HOCs to handle several conditional renderings. After all, a HOC shields away all the noise from your component. If you want to dig deeper into conditional renderings with higher order components, you should read the [conditional rendering with HOCs article](https://www.robinwieruch.de/react-higher-order-components/).
+# If Else Components in React
 
-# External Templating Components
-
-Last but not least there exist external solutions to deal with conditional renderings. They add control components to enable conditional renderings without JavaScript in JSX. Then it is not question anymore on how to use if else in React.
+Last but not least, there are external libraries to deal with conditional renderings on a markup level. They add control components to enable conditional renderings without the JS in JSX:
 
 ```javascript
 <Choose>
@@ -437,46 +461,44 @@ Last but not least there exist external solutions to deal with conditional rende
     <div><p>Loading...</p></div>
   </When>
   <Otherwise>
-    <div>{list.map(item => <ListItem item={item} />)}</div>
+    <div>{list.map(item => <Item item={item} />)}</div>
   </Otherwise>
 </Choose>
 ```
 
-Some people use it. Personally I wouldn't recommend it. JSX allows you to use the powerful set of JavaScript functionalities to handle conditional rendering. There is no need to add templating components to enable conditional rendering. A lot of people consider React including JSX as their library of choice, because they can handle the rendering with pure HTML and JS in JSX.
+Some people use it, but personally I wouldn't recommend it. JSX allows you to use the powerful set of JavaScript functionalities to handle conditional renderings yourself. There is no need to add templating components to enable it. A lot of people consider React including JSX as their library of choice, because they can handle the rendering with pure HTML and JS in JSX.
 
 <Divider />
 
-In the end you might wonder: When to use which type of conditional render? My opinionated answer:
+I hope this React tutorial was helpful for you to learn about conditional renderings. If you liked it, please share it with your friends. In the end, I got an all conditional renderings in a cheatsheet for you:
 
+* if
+  * most basic conditional rendering
+  * use to opt-out early from a rendering (guard pattern)
+  * cannot be used within return statement and JSX (except self invoking function)
 * if-else
-    * is the most basic conditional rendering
-    * beginner friendly
-    * use if to opt-out early from a render method by returning null
+  * use it rarely, because it's verbose
+  * instead, use ternary operator or logical && operator
+  * cannot be used inside return statement and JSX (except self invoking function)
 * ternary operator
-    * use it over an if-else statement
-    * it is more concise than if-else
+  * use it instead of an if-else statement
+  * it can be used within JSX and return statement
 * logical && operator
-    * use it when one side of the ternary operation would return null
-    * but be careful that you don't run into bugs when using multiple conditions
+  * use it when one side of the ternary operation would return null
+  * it can be used inside JSX and return statement
 * switch case
-    * verbose
-    * can only be inlined with self invoking function
-    * avoid it, use enums instead
+  * avoid using it, because it's too verbose
+  * instead, use enums
+  * cannot be used within JSX and return (except self invoking function)
 * enums
-    * perfect to map different states
-    * perfect to map more than one condition
-* multi-level/nested conditional renderings
-    * avoid them for the sake of readability
-    * split up components into more lightweight components with their own simple conditional rendering
-    * use HOCs
+  * use it for conditional rendering based on multiple states
+  * perfect to map more than one condition
+* nested conditional rendering
+  * avoid them for the sake of readability
+  * instead, split out components, use if statements, or use HOCs
 * HOCs
-    * use them to shield away conditional rendering
-    * components can focus on their main purpose
+  * components can focus on their main purpose
+  * use HOC to shield away conditional rendering
+  * use multiple composable HOCs to shield away multiple conditional renderings
 * external templating components
-    * avoid them and be comfortable with JSX and JavaScript
-
-In conclusion, I hope you can make use of the alternatives for conditional rendering. I am keen to hear your ways of doing it.
-
-<ReadMore label="The SoundCloud Client in React + Redux" link="https://www.robinwieruch.de/the-soundcloud-client-in-react-redux" />
-
-<ReadMore label="Tips to learn React + Redux" link="https://www.robinwieruch.de/tips-to-learn-react-redux" />
+  * avoid them and be comfortable with JSX and JS
