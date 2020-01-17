@@ -301,7 +301,7 @@ function Notification({ text, status }) {
 
 In conclusion, the switch case operator helps you to have multiple conditional renders. But is it the best way to do that? Let's see how we can have multiple conditional renderings with enums instead.
 
-# Conditional Rendering in React: enums
+# Multiple Conditional Renderings in React
 
 A JavaScript object with key value pairs for a mapping is called an enum:
 

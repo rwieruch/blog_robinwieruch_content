@@ -1,6 +1,6 @@
 ---
-title: "React State"
-description: "A whirlwind through React State. From simple state to complex state, local state to global state, State in React Components to State with Hooks, and external state management solutions like Redux ..."
+title: "React State Management"
+description: "Everything you need to know about React State. From simple state to complex state, local state to global state, State in React Components to State with Hooks, over to external state management solutions like Redux ..."
 date: "2019-10-14T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react state"]
