@@ -1143,7 +1143,7 @@ In conclusion, there is lots of JavaScript which can be harnessed in React. Wher
 
 ```javascript{4,10}
 function withLoading(Component) {
-  return class WithLoading extends React.Coomponent {
+  return class WithLoading extends React.Component {
     render() {
       const { isLoading, ...rest } = this.props;
 
