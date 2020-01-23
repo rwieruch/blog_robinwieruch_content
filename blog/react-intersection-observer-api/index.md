@@ -491,7 +491,7 @@ class App extends Component {
 export default App;
 ```
 
-Every single reference is initiated with a ratio of 0. Now, once the callback function is called, it should updated these ratios in the object. The target and its id of an entry can be used to find the corresponding single reference in the object (hence the dictionary) and to update the intersection ratio.
+Every single reference is initiated with a ratio of 0. Now, once the callback function is called, it should update these ratios in the object. The target and its id of an entry can be used to find the corresponding single reference in the object (hence the dictionary) and to update the intersection ratio.
 
 ```javascript{22,23,24,25,26}
 ...
