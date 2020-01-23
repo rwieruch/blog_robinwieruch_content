@@ -1392,11 +1392,11 @@ export default connect(
 )(Stories);
 ```
 
-The Stories component is connected to the Redux store now. It receives the stories from the Redux store in `mapStateToProps()` and a function to archive the story by `id` that triggers the dispatching of the action in `mapDispatchToProps()`. Whereas `mapStateToProps` is used to map a part of the global state as props from the Redux store to the React component, `mapDispatchToProps` is used to pass dispatchable Redux actions as functions to your React component via props. You have passes both, `stories` and `onArchive`, in a similar way before from the React entry file.
+The Stories component is connected to the Redux store now. It receives the stories from the Redux store in `mapStateToProps()` and a function to archive the story by `id` that triggers the dispatching of the action in `mapDispatchToProps()`. Whereas `mapStateToProps` is used to map a part of the global state as props from the Redux store to the React component, `mapDispatchToProps` is used to pass dispatchable Redux actions as functions to your React component via props. You have passed both, `stories` and `onArchive`, in a similar way before from the React entry file.
 
 **mapStateToProps(state, [props]) => derivedProps:** It is a function that can be passed to the `connect` HOC. If it is passed, the input component of the connect HOC will subscribe to updates from the Redux store. Thus, it means that every time the store subscription notices an update, the `mapStateToProps()` function will run. The `mapStateToProps()` function itself has two arguments in its function signature: the global state object from the provided Redux store and optionally the props from the parent component where the enhanced component is used eventually. After all, the function returns an object that is derived from the global state and optionally from the props from the parent component. The returned object will be merged into the remaining props that come as input from the parent component.
 
-**mapDispatchToProps(dispatch, [props]):** It is a function (or object) that can be passed to the connect HOC. Whereas `mapStateToProps()` gives access to the global state, `mapDispatchToProps()` gives access to the dispatch method of the Redux store. It makes it possible to dispatch actions but passes down only plain functions that wire up the dispatching in a higher-order function. After all, it makes it possible to pass functions down to the input component of the connect HOC to alter the state. Optionally, here you can also use the incoming props to wrap those into the dispatched action.
+**mapDispatchToProps(dispatch, [props]):** It is a function (or object) that can be passed to the `connect` HOC. Whereas `mapStateToProps()` gives access to the global state, `mapDispatchToProps()` gives access to the dispatch method of the Redux store. It makes it possible to dispatch actions but passes down only plain functions that wire up the dispatching in a higher-order function. After all, it makes it possible to pass functions down to the input component of the connect HOC to alter the state. Optionally, here you can also use the incoming props to wrap those into the dispatched action.
 
 That is a lot of knowledge to digest. Both functions, `mapStateToProps()` and `mapDispatchToProps()`, can be intimidating at the beginning. In addition, they are used in a higher-order component. However, they only give you access to the state and the dispatch method of the Redux store.
 
@@ -1932,7 +1932,7 @@ describe('story reducer', () => {
 
     const newState = storyReducer(previousState, action);
 
-    expect(newState).toEqual(expectedNewState);;
+    expect(newState).toEqual(expectedNewState);
   });
 });
 ```
@@ -1966,7 +1966,7 @@ describe('story reducer', () => {
     deepFreeze(previousState);
     const newState = storyReducer(previousState, action);
 
-    expect(newState).toEqual(expectedNewState);;
+    expect(newState).toEqual(expectedNewState);
   });
 });
 ```
@@ -1993,7 +1993,7 @@ describe('story selector', () => {
     const expectedReadableStories = [{ objectID: '2', title: 'bar' }];
     const readableStories = getReadableStories(state);
 
-    expect(readableStories).toEqual(expectedReadableStories);;
+    expect(readableStories).toEqual(expectedReadableStories);
   });
 });
 ```
@@ -2015,12 +2015,12 @@ describe('story action', () => {
     };
     const action = doAddStories(stories);
 
-    expect(action).toEqual(expectedAction);;
+    expect(action).toEqual(expectedAction);
   });
 });
 ```
 
-As you can see, testing reducers, selectors and action creators always follow a similar pattern. Due to the functions being pure functions, you can focus on the input and output of these functions. In the previous examples all three test cases were strictly decoupled. However, you could also decide to import your action creator in your reducer test avoid creating a hard coded action. You can find this section of the tutorial in [the GitHub repository](https://github.com/rwieruch/react-redux-hackernews/tree/d1fcb31b7a1b1602069718941844d08c21583607).
+As you can see, testing reducers, selectors and action creators always follow a similar pattern. Due to the functions being pure functions, you can focus on the input and output of these functions. In the previous examples all three test cases were strictly decoupled. However, you could also decide to import your action creator in your reducer test to avoid creating a hard coded action. You can find this section of the tutorial in [the GitHub repository](https://github.com/rwieruch/react-redux-hackernews/tree/d1fcb31b7a1b1602069718941844d08c21583607).
 
 <Divider />
 
