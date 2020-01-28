@@ -435,7 +435,7 @@ There is one little part which is new - the @observer decorator. In the Stream c
 
 For instance whenever someone hits the Play button, the activeTrack gets mutated in the trackStore (which happens in the Stream container component). Since we changed the activeTrack @observable property, the render method of the React component gets triggered.
 
-That's a lot of magic for one little @observer decorator. What happens exactly? Every time an @observable property changes MobX triggers an internal autrun method. Autorun creates a MobX Reaction, which runs every time and once in the beginning, whenever an @observable decorated property changed. The @observer decorator makes sure that the render method of the component gets wrapped into the MobX autorun. As result the changed property gets reflected in the presenter component due to an component re-render.
+That's a lot of magic for one little @observer decorator. What happens exactly? Every time an @observable property changes MobX triggers an internal autorun method. Autorun creates a MobX Reaction, which runs every time and once in the beginning, whenever an @observable decorated property changed. The @observer decorator makes sure that the render method of the component gets wrapped into the MobX autorun. As result the changed property gets reflected in the presenter component due to an component re-render.
 
 # MobX Derivations
 
