@@ -12,11 +12,11 @@ author: ""
 
 <Sponsorship />
 
-Basically a React application is just a bunch of components in a component tree. There is one root component which kicks of the rendering for all the other components below. Commonly these components are [function components](https://www.robinwieruch.de/react-function-component/) in modern React applications. But they can be [class components](https://www.robinwieruch.de/react-component-types/) as well. However, not all of these components are only used once in your component hierarchy. What about reusing components because they serve a more common purpose? In this tutorial, we will step through the process of making a component reusable for our React application.
+Basically a React application is just a bunch of components in a component tree. There is one root component which kicks of the rendering for all the other components below. Commonly these components are [function components](/react-function-component/) in modern React applications. But they can be [class components](/react-component-types/) as well. However, not all of these components are only used once in your component hierarchy. What about reusing components because they serve a more common purpose? In this tutorial, we will step through the process of making a component reusable for our React application.
 
 # How to make a React component reusable?
 
-Generally speaking we make a component more reusable by turning it from specific to more generic. That can be achieved by offering an [API](https://www.robinwieruch.de/what-is-an-api-javascript/) for the component. In React, a component's API is its [props](https://www.robinwieruch.de/react-pass-props-to-component/). Let's experience this by refactoring a component from being very specific to being more generic. Usually when we start off with our React application, we don't have any components except for our root component commonly called App:
+Generally speaking we make a component more reusable by turning it from specific to more generic. That can be achieved by offering an [API](/what-is-an-api-javascript/) for the component. In React, a component's API is its [props](/react-pass-props-to-component/). Let's experience this by refactoring a component from being very specific to being more generic. Usually when we start off with our React application, we don't have any components except for our root component commonly called App:
 
 ```javascript
 import React from 'react';
@@ -133,7 +133,7 @@ const Button = ({ label, handleClick }) => {
 };
 ```
 
-We can also use React's built-in children property which is commonly used for [composition in React](https://www.robinwieruch.de/react-component-composition/):
+We can also use React's built-in children property which is commonly used for [composition in React](/react-component-composition/):
 
 ```javascript{4,5,6,7,8,9,14,17}
 const App = () => {

@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-Recently a [client of mine](https://www.robinwieruch.de/work-with-me) inspired me to learn [RxJS](https://www.learnrxjs.io) for State Management in React. When I did a code audit for their application, they wanted to get my opinion about how to proceed with it after [only using React's local state](https://www.robinwieruch.de/learn-react-before-using-redux). They reached a point where it wasn't feasible to only rely on [React's state management](https://www.robinwieruch.de/react-state). The initial discussion was about [Redux or MobX](https://www.robinwieruch.de/redux-mobx/) for a more sophisticated state management. They had built a prototype for each of these technologies. However, they had also a prototype for a React application with RxJS. That's where the discussion got interesting.
+Recently a [client of mine](/work-with-me) inspired me to learn [RxJS](https://www.learnrxjs.io) for State Management in React. When I did a code audit for their application, they wanted to get my opinion about how to proceed with it after [only using React's local state](/learn-react-before-using-redux). They reached a point where it wasn't feasible to only rely on [React's state management](/react-state). The initial discussion was about [Redux or MobX](/redux-mobx/) for a more sophisticated state management. They had built a prototype for each of these technologies. However, they had also a prototype for a React application with RxJS. That's where the discussion got interesting.
 
 **The application was a marketplace for cryptocurrencies which had lots of real-time widgets. The challenges:**
 
@@ -88,11 +88,11 @@ class App extends React.Component {
 export default App;
 ```
 
-But that's not the approach we are going to use here. Instead, we want to manage the state somehow with RxJS. Let's see how we can do this with a higher-order component. If you want, you can implement the following logic in your App component too, but you will most likely extract it as a [reusable higher-order component (HOC)](https://www.robinwieruch.de/react-higher-order-components/) at some point anyway.
+But that's not the approach we are going to use here. Instead, we want to manage the state somehow with RxJS. Let's see how we can do this with a higher-order component. If you want, you can implement the following logic in your App component too, but you will most likely extract it as a [reusable higher-order component (HOC)](/react-higher-order-components/) at some point anyway.
 
 # React + RxJS Higher-Order Component (HOC)
 
-Let's introduce a way on how to manage state in React with RxJS by having a higher-order component for it. You could also implement a [render prop component](https://www.robinwieruch.de/react-render-props/) instead. In the end, if you don't want to implement your own higher-order component for it, checkout [recompose's observable higher-order components](https://github.com/acdlite/recompose/blob/master/docs/API.md#observable-utilities) with `mapPropsStream()` and `componentFromStream()`. In this tutorial though, you will build your own.
+Let's introduce a way on how to manage state in React with RxJS by having a higher-order component for it. You could also implement a [render prop component](/react-render-props/) instead. In the end, if you don't want to implement your own higher-order component for it, checkout [recompose's observable higher-order components](https://github.com/acdlite/recompose/blob/master/docs/API.md#observable-utilities) with `mapPropsStream()` and `componentFromStream()`. In this tutorial though, you will build your own.
 
 ```javascript{3,4,5,6,7,8,9,10,11,12,13,14,15,31}
 import React from 'react';
@@ -128,7 +128,7 @@ const App = ({ query, onChangeQuery }) => (
 export default withObservableStream(...)(App);
 ```
 
-The RxJS HOC is not doing anything yet. It only [passes its own state and props](https://www.robinwieruch.de/react-pass-props-to-component/) to the input component which is going to be enhanced by it. As you can see, the higher-order component will manage React state eventually. However, this state will be derived from an observable stream. Before we can start implementing the HOC and using it for App component, we have to install RxJS:
+The RxJS HOC is not doing anything yet. It only [passes its own state and props](/react-pass-props-to-component/) to the input component which is going to be enhanced by it. As you can see, the higher-order component will manage React state eventually. However, this state will be derived from an observable stream. Before we can start implementing the HOC and using it for App component, we have to install RxJS:
 
 ```javascript
 npm install rxjs --save
@@ -200,7 +200,7 @@ The higher-order component receives the observable and the object of triggers (p
 
 The triggers are only passed through the HOC to the input component. That's why the App component receives straight forward the `onChangeQuery()` function which operates directly on the observable to push a new value to it.
 
-The observable is used in the `componentDidMount()` lifecycle method to subscribe to it and in the `componentWillUnmount()` lifecycle method to unsubscribe from it. The [unsubscription needs to happen to prevent memory leaks](https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-component/). Within the observable subscription, the function only pushes all incoming values from the stream to React's local state with `this.setState()`.
+The observable is used in the `componentDidMount()` lifecycle method to subscribe to it and in the `componentWillUnmount()` lifecycle method to unsubscribe from it. The [unsubscription needs to happen to prevent memory leaks](/react-warning-cant-call-setstate-on-an-unmounted-component/). Within the observable subscription, the function only pushes all incoming values from the stream to React's local state with `this.setState()`.
 
 One small change in the App component let's get you away with not setting an initial state for the query property in the higher-order component. If you wouldn't apply this change, the query property would be undefined in the beginning. Doing it with this workaround, it receives a default parameter.
 
@@ -363,7 +363,7 @@ The initial `{ query: '', subject: 'search' }` object and all further objects be
 
 # Axios + RxJS in React
 
-Now you have constructed your API URL with two values from a combined observable which encapsulates two observables. In this last section, let's take this URL to fetch data from this API URL. You may be comfortable with [data fetching in React](https://www.robinwieruch.de/react-fetching-data/), but when using RxJS observables you have to add yet another observable stream to your composition.
+Now you have constructed your API URL with two values from a combined observable which encapsulates two observables. In this last section, let's take this URL to fetch data from this API URL. You may be comfortable with [data fetching in React](/react-fetching-data/), but when using RxJS observables you have to add yet another observable stream to your composition.
 
 Before we are implementing the next observable, install [axios](https://github.com/axios/axios), the library we are using to fetch data from within the stream, to your project.
 
@@ -565,4 +565,4 @@ The final Rx.js in React example with the higher-order component can be found in
 
 After all, I hope you enjoyed going through this tutorial with me. It should provide you a different perspective on working with React. Sometimes you don't need Redux or MobX, but maybe observables with RxJS might be the right fit for your application.
 
-If you like how the higher-order component is used to store state in this tutorial, checkout this [tutorial where we will build a GraphQL client with render prop components](https://www.robinwieruch.de/react-graphql-client-library/) together.
+If you like how the higher-order component is used to store state in this tutorial, checkout this [tutorial where we will build a GraphQL client with render prop components](/react-graphql-client-library/) together.

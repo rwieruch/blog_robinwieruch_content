@@ -103,7 +103,7 @@ Last but not least, install the SVGR CLI package on the command line:
 npm install @svgr/cli --save-dev
 ```
 
-Now, after having everything set up properly, you can execute your new npm script with `npm run svgr` on the command line. Reading the command line output, you can see that new JavaScript files are being generated from your svg files. After the command terminates, you should be able to see the svg icons rendered as React components when starting your application. You can also check your *src/Icons* folder to see all generated React icon components. They take [props as arguments](https://www.robinwieruch.de/react-pass-props-to-component/) as well, which makes it possible for us to define their height and width.
+Now, after having everything set up properly, you can execute your new npm script with `npm run svgr` on the command line. Reading the command line output, you can see that new JavaScript files are being generated from your svg files. After the command terminates, you should be able to see the svg icons rendered as React components when starting your application. You can also check your *src/Icons* folder to see all generated React icon components. They take [props as arguments](/react-pass-props-to-component/) as well, which makes it possible for us to define their height and width.
 
 That's all it needs to generate React components from SVGs. Every time you have a new SVG file or adjust one of your existing SVG files, you can the `npm run svgr` command again.
 
@@ -316,7 +316,7 @@ This should work to give all icons a blue fill attribute. However, simple use ca
 
 ## SVGR with custom viewBox attribute
 
-In our case, we wanted to compute the viewBox attribute for every SVG icon where the attribute isn't present. First, remove the viewBox attribute from one of your SVGs to see that it's not rendered properly anymore. After confirming the bug, we will try to fix it by using the introduced SVGR template and an external [React Hook](https://www.robinwieruch.de/react-hooks/):
+In our case, we wanted to compute the viewBox attribute for every SVG icon where the attribute isn't present. First, remove the viewBox attribute from one of your SVGs to see that it's not rendered properly anymore. After confirming the bug, we will try to fix it by using the introduced SVGR template and an external [React Hook](/react-hooks/):
 
 ```javascript
 import React from 'react';

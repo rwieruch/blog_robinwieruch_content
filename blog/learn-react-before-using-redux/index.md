@@ -23,7 +23,7 @@ Often people learn React and Redux altogether. But it has drawbacks:
   * thus people will manage (and clutter) **all** of their state in a state container provided by Redux
   * thus people never use the local state management
 
-Because of these drawbacks, you will often get the advice to learn React first and opt-in Redux to your tech stack in a later point in time. But only opt-in Redux if you run into issues scaling your state management. These scaling issues [only apply for larger applications](https://www.robinwieruch.de/react-global-state-without-redux). Often you will [not need a state management library](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367) such as Redux on top. The book [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) demonstrates how an application can be build in plain React without external dependencies like Redux.
+Because of these drawbacks, you will often get the advice to learn React first and opt-in Redux to your tech stack in a later point in time. But only opt-in Redux if you run into issues scaling your state management. These scaling issues [only apply for larger applications](/react-global-state-without-redux). Often you will [not need a state management library](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367) such as Redux on top. The book [The Road to learn React](/the-road-to-learn-react/) demonstrates how an application can be build in plain React without external dependencies like Redux.
 
 However, now you decided to jump on the Redux train. So here comes my list of what you should know about React before using Redux.
 
@@ -289,7 +289,7 @@ You can read more about lifting React's state in the [official documentation](ht
 
 Higher order components (HOCs) are an advanced pattern in React. You can use them to abstract functionality away but reuse it as opt-in functionality for multiple components. A higher order component takes a component and optional configuration as input and returns an enhanced version of the component. It builds up on the principle of higher order functions in JavaScript: A function that returns a function.
 
-If you are not familiar with higher order components, I can recommend you to read [the gentle Introduction to React's Higher Order Components](https://www.robinwieruch.de/react-higher-order-components/). It teaches React's higher order components with the use case of [React's conditional renderings](https://www.robinwieruch.de/conditional-rendering-react/).
+If you are not familiar with higher order components, I can recommend you to read [the gentle Introduction to React's Higher Order Components](/react-higher-order-components/). It teaches React's higher order components with the use case of [React's conditional renderings](/conditional-rendering-react/).
 
 Higher order components are important later on, because you will be confronted with them when using a library like Redux. When a library such as Redux "connects" its state managements layer with React's view layer, you will often run into a higher order component that takes care of it (connect HOC in [react-redux](https://github.com/reactjs/react-redux)).
 
@@ -303,7 +303,7 @@ So why should you bother about this? The context in React is used to pass down p
 
 Often when using a sophisticated state management library, such as Redux or MobX, you glue the state management layer at some point to the React view layer. That's why you have the mentioned higher order components in React. The glueing should allow you to access the state and to modify the state. The state itself is often managed in some kind of state container.
 
-But how would you make this state container accessible to all the React components that need to be glued to the state? It would be done by using React's context. In your top level component, basically your React root component, you would declare the state container in the React context so that it is implicitly accessible for each component down the component tree. The whole thing is accomplished by [React's Provider Pattern](https://www.robinwieruch.de/react-context/).
+But how would you make this state container accessible to all the React components that need to be glued to the state? It would be done by using React's context. In your top level component, basically your React root component, you would declare the state container in the React context so that it is implicitly accessible for each component down the component tree. The whole thing is accomplished by [React's Provider Pattern](/react-context/).
 
 After all, that doesn't mean that you need to deal with React's context yourself when using a library such as Redux. Such libraries already come with solutions for you to make the state container accessible in all components. But the underlying mechanics, why this works, are a good to know fact when making your state accessible in various components without worrying where the state container comes from.
 
@@ -378,7 +378,7 @@ Among all state management libraries, Redux is the most popular one yet MobX is 
 
 Before you decide to use one of them, make sure that you know the things about React that were explained in the article. You should feel comfortable with the local state management, yet know enough about React to apply different concepts to scale your state management in plain React. In addition, be sure that you need to scale your state management solution because your application becomes larger in the future. Perhaps lifting your state or using React's context once with the React's provider pattern would already solve your problem.
 
-So if you decide to make the step towards Redux or MobX, you can read up the following article to make a more elaborated decision: [Redux or MobX: An attempt to dissolve the Confusion](https://www.robinwieruch.de/redux-mobx/). It gives a useful comparison between both libraries and comes with a couple of recommendations to learn and apply them. Otherwise checkout the [Tips to learn React + Redux](https://www.robinwieruch.de/tips-to-learn-react-redux/) article to get started in Redux.
+So if you decide to make the step towards Redux or MobX, you can read up the following article to make a more elaborated decision: [Redux or MobX: An attempt to dissolve the Confusion](/redux-mobx/). It gives a useful comparison between both libraries and comes with a couple of recommendations to learn and apply them. Otherwise checkout the [Tips to learn React + Redux](/tips-to-learn-react-redux/) article to get started in Redux.
 
 <Divider />
 

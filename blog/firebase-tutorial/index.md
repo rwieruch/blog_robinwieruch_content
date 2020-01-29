@@ -14,7 +14,7 @@ author: ""
 
 <ReactFirebaseBook />
 
-This short visual Firebase tutorial should help you to create your first Firebase application that can be used with any web framework/library such as React, Angular or Vue. For instance, you can use it for this [extensive Firebase in React tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/) that uses all the features we will discuss in this visual guide.
+This short visual Firebase tutorial should help you to create your first Firebase application that can be used with any web framework/library such as React, Angular or Vue. For instance, you can use it for this [extensive Firebase in React tutorial](/complete-firebase-authentication-react-tutorial/) that uses all the features we will discuss in this visual guide.
 
 Let's start by [creating a Firebase application with your Google Account](https://console.firebase.google.com). Therefore, hit the "Add Project" button to create a new Firebase project: 
 
@@ -56,7 +56,7 @@ That's it. You can implement email/password authentication flows in your applica
 ￼
 ![firebase authentication social logins](./images/firebase-authentication-social-logins.jpg)
 
-If you want to setup social sign in methods such as Google, Facebook and Twitter, head over to [this tutorial that guides you through the process of setting up Facebook and Twitter Apps, but also through the necessary source code implementation](https://www.robinwieruch.de/react-firebase-social-login/). Otherwise you can also follow these visual guides on how to setup [Facebook](https://www.robinwieruch.de/firebase-facebook-login/) and [Twitter](https://www.robinwieruch.de/firebase-twitter-login/).
+If you want to setup social sign in methods such as Google, Facebook and Twitter, head over to [this tutorial that guides you through the process of setting up Facebook and Twitter Apps, but also through the necessary source code implementation](/react-firebase-social-login/). Otherwise you can also follow these visual guides on how to setup [Facebook](/firebase-facebook-login/) and [Twitter](/firebase-twitter-login/).
 
 Firebase authentication comes with more advanced features that go beyond the login of a user to your application. What about password reset/change, email change or email verification features? Firebase helps you with these things. In case you want to adjust email templates for these features, for instance for a email verification that a user receives to confirm their email, you can do it in the Templates option.
 ￼
@@ -100,6 +100,6 @@ Then you can login with your Google account, initialize a Firebase application, 
 ￼
 ![firebase hosting setup](./images/firebase-hosting-setup.jpg)
 
-I have written about this in greater detail for [deploying a React application with Firebase Hosting](https://www.robinwieruch.de/firebase-deploy-react-js/). Otherwise, it's worth to mention that Firebase Hosting comes with all the essential features (e.g. analytics, domain support) other hosting provider would offer you as well.
+I have written about this in greater detail for [deploying a React application with Firebase Hosting](/firebase-deploy-react-js/). Otherwise, it's worth to mention that Firebase Hosting comes with all the essential features (e.g. analytics, domain support) other hosting provider would offer you as well.
 
 That's it for my visual guide through setting up Firebase with authentication, database and hosting. If you want to go through the implementation of all these features, checkout the referenced React in Firebase tutorial from the beginning of this guide. Otherwise explore your Firebase project's dashboard a bit more to learn more about Firebase Cloud gor hosting files such as images, audio and video, and Cloud Functions for serverless business logic.

@@ -26,7 +26,7 @@ The following walkthrough will guide you through the setup process of hosting a 
 
 In the end, there will be a couple of dedicated articles, following up after this article, about
 
-* [Hosting Hugo on Digital Ocean](https://www.robinwieruch.de/own-website-in-five-days/) (1)
+* [Hosting Hugo on Digital Ocean](/own-website-in-five-days/) (1)
 * (Soon) Hosting create-react-app on Digital Ocean (1)
 * (Soon) Hosting gatsby.js on Digital Ocean (1)
 * (Soon) Hosting next.js on Digital Ocean (2)
@@ -36,7 +36,7 @@ whereas the (1)s could share a Digital Ocean Droplet and the (2)s could share an
 
 Note that the approach for (2) is opinionated. There are many ways to host your node applications. This article will use [Dokku](https://github.com/dokku/dokku) as platform as a service to manage effortless your node applications on one Droplet. They will be accessible side by side, but share the same domain. You can access them independently by using subdomains. Dokku might not be the newest and coolest kid on the block, but it comes with all the neccessary building blocks. There are other alternatives (e.g. Flynn) as well that are not covered in this article.
 
-If I didn't loose your attention by now, let's start with the walkthrough. Before you start, check if you have [most of the essential developer tools](https://www.robinwieruch.de/developer-setup/) which are needed in the following article.
+If I didn't loose your attention by now, let's start with the walkthrough. Before you start, check if you have [most of the essential developer tools](/developer-setup/) which are needed in the following article.
 
 # Sign Up, Droplet Creation and Initial Setup
 
@@ -68,7 +68,7 @@ Before continuing serving your applications, you can buy and use your own domain
 
 # Git and GitHub to Synchronize your Applications (1)
 
-You are ready to serve your own applications. Before you have created server blocks for two sample websites. Now you can reuse those for your applications or create new server blocks for them. The next question is: how do you get your application to your Digital Ocean server? The simplest way to transfer your application from your local machine to your remote server is using Git. If you are not familiar with Git and haven't installed it on your local machine yet, follow this [Git and GitHub essentials](https://www.robinwieruch.de/git-essential-commands/) article to setup Git on the command line and your own GitHub account. Next login to your remote server and check if Git is installed by typing: `git --version`. If there is no Git installed, follow this article to install it: [How To Install Git on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-16-04). Afterward, you are able to synchronize your local applications as repositories to your GitHub account and thus you are able to transfer your applications to your remote server.
+You are ready to serve your own applications. Before you have created server blocks for two sample websites. Now you can reuse those for your applications or create new server blocks for them. The next question is: how do you get your application to your Digital Ocean server? The simplest way to transfer your application from your local machine to your remote server is using Git. If you are not familiar with Git and haven't installed it on your local machine yet, follow this [Git and GitHub essentials](/git-essential-commands/) article to setup Git on the command line and your own GitHub account. Next login to your remote server and check if Git is installed by typing: `git --version`. If there is no Git installed, follow this article to install it: [How To Install Git on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-16-04). Afterward, you are able to synchronize your local applications as repositories to your GitHub account and thus you are able to transfer your applications to your remote server.
 
 # Host your static website(s) on Digital Ocean (1)
 
@@ -202,7 +202,7 @@ If you have choosen Dokku as your image for your Droplet creation to host your n
 * Add your public SSH key that you created in a previous step
 * Configure your domain, if you have obtained one, otherwise keep using the IP address
 
-Afterward, you are able to deploy your application directly form your local machine. You will need Git on the command line to synchronize your application from your local machine with your Droplet. If you haven't installed Git and GitHub yet, follow this article: [GitHub and Git essentials](https://www.robinwieruch.de/git-essential-commands/).
+Afterward, you are able to deploy your application directly form your local machine. You will need Git on the command line to synchronize your application from your local machine with your Droplet. If you haven't installed Git and GitHub yet, follow this article: [GitHub and Git essentials](/git-essential-commands/).
 
 Now on the command line, you can add your remote Dokku instance to your Git project on your local machine.
 
@@ -213,7 +213,7 @@ git push dokku master
 
 Make sure to read the linked article which will step you through the whole process in more detail. After you have finished everything said in the article, you should be able to find your application with the used subdomain on your IP address and domain if you have used one. You can read more about Dokku in their [official documentation](http://dokku.viewdocs.io/dokku/getting-started/installation/).
 
-You can use subdomains to distribute your applications horizontally on your Dokku instance. Personally I use these to create various personal APIs (e.g. a [Stripe payment server](https://www.robinwieruch.de/react-express-stripe-payment/) or an authentication server with Passport.js) or to create one application with multiple instances (e.g. test, staging, production) in one Dokku Droplet.
+You can use subdomains to distribute your applications horizontally on your Dokku instance. Personally I use these to create various personal APIs (e.g. a [Stripe payment server](/react-express-stripe-payment/) or an authentication server with Passport.js) or to create one application with multiple instances (e.g. test, staging, production) in one Dokku Droplet.
 
 For instance, this way I could end up with the following applications distributed along multiple subdomains in one Dokku instance.
 
@@ -226,7 +226,7 @@ For instance, this way I could end up with the following applications distribute
 
 I could even add other public facing applications next to it, where the domain isn't crucial. I did it to [automate the Slack invitation](https://slack-the-road-to-learn-react.wieruch.com/) for people learning React.js.
 
-Because the subdomains are ordered in an alphabetical order on Dokku, the first subdomain showing up, in this case 00-production, is used as default when browsing to the mydomain.com domain. Essentially I did the same when [I have built my own course paltform](https://www.robinwieruch.de/how-to-build-your-own-course-platform/) to teach about React. It uses one Dokku instance to host all the infrastructure in various microservices.
+Because the subdomains are ordered in an alphabetical order on Dokku, the first subdomain showing up, in this case 00-production, is used as default when browsing to the mydomain.com domain. Essentially I did the same when [I have built my own course paltform](/how-to-build-your-own-course-platform/) to teach about React. It uses one Dokku instance to host all the infrastructure in various microservices.
 
 ## Secure Dokku applications with SSL (2)
 

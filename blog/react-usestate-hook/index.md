@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-Since [React Hooks](https://www.robinwieruch.de/react-hooks/) have been released, [function components](https://www.robinwieruch.de/react-function-component/) can use state and side-effects. There are two hooks that are used for modern state management in React: useState and useReducer. This tutorial goes step by step through a useState example in React for getting you started with this React Hook for state management.
+Since [React Hooks](/react-hooks/) have been released, [function components](/react-function-component/) can use state and side-effects. There are two hooks that are used for modern state management in React: useState and useReducer. This tutorial goes step by step through a useState example in React for getting you started with this React Hook for state management.
 
 # Simple State in React
 
@@ -51,13 +51,13 @@ The useState function takes as argument a value for the initial state. In this c
 
 The first value, in this case `count`, represents the current state. The second value, in this case `setCount`, is a function to update the state with anything that's passed to this function when calling it. This function is also called state update function. Every time this function is called, React re-renders the component to render the recent state.
 
-You can also read this [article, if you want to know how state management has changed from class components to function components](https://www.robinwieruch.de/react-hooks-migration/) in case you are dealing with class components as well.
+You can also read this [article, if you want to know how state management has changed from class components to function components](/react-hooks-migration/) in case you are dealing with class components as well.
 
 That's everything you need to know to get started with simple state management in React. If you are interested about React's useState caveats for growing React applications, continue to read.
 
 # Complex State in React
 
-So far, the example has only shown useState with a JavaScript primitive. That's where useState shines. It can be used for integers, booleans, strings and also arrays. However, once you plan to manage more complex state with objects or more complex arrays, you should check out [React's useReducer hook](https://www.robinwieruch.de/react-usereducer-hook). There are various scenarios where useReducer outperforms useState:
+So far, the example has only shown useState with a JavaScript primitive. That's where useState shines. It can be used for integers, booleans, strings and also arrays. However, once you plan to manage more complex state with objects or more complex arrays, you should check out [React's useReducer hook](/react-usereducer-hook). There are various scenarios where useReducer outperforms useState:
 
 * complex state containers
 * complex state transitions
@@ -137,4 +137,4 @@ The function offers you the state at the time of executing the function. This wa
 
 <Divider />
 
-React's useState is the go-to hook to manage state. It can be used [with useReducer and useContext](https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext/) for modern state management in React. [Compared to useReducer, it is the more lightweight approach to manage state.](https://www.robinwieruch.de/react-usereducer-vs-usestate/).
+React's useState is the go-to hook to manage state. It can be used [with useReducer and useContext](/react-state-usereducer-usestate-usecontext/) for modern state management in React. [Compared to useReducer, it is the more lightweight approach to manage state.](/react-usereducer-vs-usestate/).

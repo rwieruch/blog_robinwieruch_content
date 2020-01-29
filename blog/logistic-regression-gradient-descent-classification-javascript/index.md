@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-A couple of my recent articles gave an [introduction to machine learning in JavaScript](https://www.robinwieruch.de/linear-regression-gradient-descent-javascript/) by solving [regression](https://www.robinwieruch.de/linear-regression-gradient-descent-vectorization-javascript) [problems](https://www.robinwieruch.de/multivariate-linear-regression-gradient-descent-javascript) with linear regression using gradient descent or [normal equation](http://localhost:1313/multivariate-linear-regression-normal-equation-javascript/).
+A couple of my recent articles gave an [introduction to machine learning in JavaScript](/linear-regression-gradient-descent-javascript/) by solving [regression](/linear-regression-gradient-descent-vectorization-javascript) [problems](/multivariate-linear-regression-gradient-descent-javascript) with linear regression using gradient descent or [normal equation](http://localhost:1313/multivariate-linear-regression-normal-equation-javascript/).
 
 In a regression problem, an algorithm is trained to predict **continuous values**. It can be housing prices in a specific area based on a feature set such as square meters or numbers of bedrooms. The algorithm is trained by using a training set. Afterward, the algorithm can predict housing prices for houses not included in the training set. Checkout the recent articles to understand the foundational knowledge about linear regression including the essential cost function and hypothesis to perform the gradient descent algorithm. This article doesn't recap those topics but applies them for logistic regression to solve a classification problem in JavaScript.
 
@@ -66,7 +66,7 @@ x1 +
                                           x2
 ```
 
-However, the hypothesis can be way more complex. If a training set cannot be separated by a straight line, the hypothesis function can be a [higher order polynomial function](https://www.robinwieruch.de/polynomial-regression-model-selection-javascript/). For instance, in the following training set the hypothesis function would need to describe something similar to a circle instead of a straight line.
+However, the hypothesis can be way more complex. If a training set cannot be separated by a straight line, the hypothesis function can be a [higher order polynomial function](/polynomial-regression-model-selection-javascript/). For instance, in the following training set the hypothesis function would need to describe something similar to a circle instead of a straight line.
 
 ```javascript
 x1 +
@@ -97,7 +97,7 @@ In logistic regression, same as for linear regression, a hypothesis function wit
 h(x) => thetaZero + thetaOne * x1 + thetaTwo * x2
 ```
 
-When using the [vectorized implementation](https://www.robinwieruch.de/linear-regression-gradient-descent-vectorization-javascript), it boils down to a [matrix multiplication](https://www.robinwieruch.de/linear-algebra-matrix-javascript/) of theta and the training set.
+When using the [vectorized implementation](/linear-regression-gradient-descent-vectorization-javascript), it boils down to a [matrix multiplication](/linear-algebra-matrix-javascript/) of theta and the training set.
 
 ```ada
 h(x) => theta' * X

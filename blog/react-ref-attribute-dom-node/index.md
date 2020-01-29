@@ -66,7 +66,7 @@ But it is not always a good idea to use the `ref` attribute. The general rule of
 * *Integrating with third-party DOM libraries.*
 * *Triggering imperative animations.*
 
-First, you can use the `ref` attribute to access the DOM API ([What's an API?](https://www.robinwieruch.de/what-is-an-api-javascript/)). You can get a value of an input element yet you can also trigger methods like a `focus()`. It gives you control over the DOM API, for instance to use the media elements.
+First, you can use the `ref` attribute to access the DOM API ([What's an API?](/what-is-an-api-javascript/)). You can get a value of an input element yet you can also trigger methods like a `focus()`. It gives you control over the DOM API, for instance to use the media elements.
 
 Second, you can use it to integrate with third-party libraries that rely on the DOM. [D3.js](https://d3js.org/) is such an use case, because it has to hook into the DOM and it has its own DOM manipulation API. For instance, you might want to integrate a D3 component in your React component hierarchy. Therefore you can use a `ref` attribute as an entry point for the D3 component. You leave the React world and access the D3 world.
 
@@ -135,7 +135,7 @@ class SearchForm extends Component {
 }
 ```
 
-Especially in forms, with multiple input elements, it can make sense to exchange the `ref` attribute with the state solution. It follows the best practice of having an unidirectional data flow and [controlled components](https://www.robinwieruch.de/react-controlled-components/) in your application. You don't want to reference the elements in order to get their values. You want to keep the state at one place as single source of truth in your local state.
+Especially in forms, with multiple input elements, it can make sense to exchange the `ref` attribute with the state solution. It follows the best practice of having an unidirectional data flow and [controlled components](/react-controlled-components/) in your application. You don't want to reference the elements in order to get their values. You want to keep the state at one place as single source of truth in your local state.
 
 # What about functional stateless components?
 

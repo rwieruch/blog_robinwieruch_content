@@ -712,7 +712,7 @@ Finally we are done using normalizr for our React + Redux app. Normalizr helps t
 
 # Exercise
 
-You can use the SoundCloud API ([What's an API?](https://www.robinwieruch.de/what-is-an-api-javascript/)) to like the track for real without faking it. Look into the [API Documentation](https://developers.soundcloud.com/docs/api/guide) for more advice.
+You can use the SoundCloud API ([What's an API?](/what-is-an-api-javascript/)) to like the track for real without faking it. Look into the [API Documentation](https://developers.soundcloud.com/docs/api/guide) for more advice.
 
 # Troubleshoot
 

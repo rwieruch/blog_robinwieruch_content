@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-A recent article gave an introduction to the field of machine learning in JavaScript by [predicting housing prices with gradient descent](https://www.robinwieruch.de/linear-regression-gradient-descent-javascript/) in a univariate regression problem. It used plain mathematical expressions and thus made use of the **unvectorized implementation** of gradient descent and the cost function. This article takes it one step further by **implementing a vectorized gradient descent** in JavaScript. It will guide you through the process step by step. In the end, you will find the whole source code.
+A recent article gave an introduction to the field of machine learning in JavaScript by [predicting housing prices with gradient descent](/linear-regression-gradient-descent-javascript/) in a univariate regression problem. It used plain mathematical expressions and thus made use of the **unvectorized implementation** of gradient descent and the cost function. This article takes it one step further by **implementing a vectorized gradient descent** in JavaScript. It will guide you through the process step by step. In the end, you will find the whole source code.
 
 <MachineLearningIntro />
 
@@ -34,7 +34,7 @@ for (let i = 0; i < ITERATIONS; i++) {
 
 There are a couple of shortcomings for the unvectorized implementation. First, extending the training set from a univariate to a multivariate training set. It wouldn't be too easy anymore to consider all the features n in matrix x. In the example x is only an array, but in a multivariate training set it would be a matrix. Second, in any event there needs to be a loop over the size m of the training set. It is computational inefficient, because it needs an iterative process to compute each theta parameter for each data point in the training set.
 
-Isn't there a way to compute all theta parameters in one mathematical expression using the training set with all its data points m and all its features n and on the other hand the labels y? That's the point where [matrix operations](https://www.robinwieruch.de/linear-algebra-matrix-javascript/) come into play. They solve all the shortcomings from before: the implementation becomes simpler for multivariate training sets and it becomes computational efficient by omitting the loops.
+Isn't there a way to compute all theta parameters in one mathematical expression using the training set with all its data points m and all its features n and on the other hand the labels y? That's the point where [matrix operations](/linear-algebra-matrix-javascript/) come into play. They solve all the shortcomings from before: the implementation becomes simpler for multivariate training sets and it becomes computational efficient by omitting the loops.
 
 # Vectorization in JavaScript
 
@@ -202,7 +202,7 @@ In the next part, you will implement the vectorized gradient descent algorithm i
 
 # Vectorized Gradient Descent in JavaScript
 
-As you know, the gradient descent algorithm, takes a [learning rate and an optional number of iterations to make gradient descent converge](https://www.robinwieruch.de/improving-gradient-descent-javascript/). Even though the following part will show the vectorized implementation of gradient descent, you will still use a loop to iterate over the number of learning iterations.
+As you know, the gradient descent algorithm, takes a [learning rate and an optional number of iterations to make gradient descent converge](/improving-gradient-descent-javascript/). Even though the following part will show the vectorized implementation of gradient descent, you will still use a loop to iterate over the number of learning iterations.
 
 ```javascript{9,10,11,13,16,17,18,19,20,21,22,23,24,25,26,27}
 function init(matrix) {
@@ -372,4 +372,4 @@ Either way, by iterating over your defined number of iterations for letting grad
 
 <Divider />
 
-Hopefully the article was helpful for you to make the leap from a unvectorized to a vectorized implementation of gradient descent in JavaScript for a regression problem. I am grateful for any give feedback, so please comment below. If you want to take it one step further, you can try out to make the leap [from a univariate to a multivariate training set](https://www.robinwieruch.de/multivariate-linear-regression-gradient-descent-javascript) in the next article.
+Hopefully the article was helpful for you to make the leap from a unvectorized to a vectorized implementation of gradient descent in JavaScript for a regression problem. I am grateful for any give feedback, so please comment below. If you want to take it one step further, you can try out to make the leap [from a univariate to a multivariate training set](/multivariate-linear-regression-gradient-descent-javascript) in the next article.

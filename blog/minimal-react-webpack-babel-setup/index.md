@@ -43,7 +43,7 @@ Third, a single source of truth has to be well maintained. If several of my tuto
 
 Fourth, the tutorial is not about the boilerplate project itself. The tutorial is more about teaching people how to setup their own project without a third-party boilerplate project. At some point, you will start to use the tools (e.g. Webpack, Babel) around your library or framework of choice. In JavaScript you will have to deal with Webpack, Babel et al. and thus it makes sense to learn about them. I hope this tutorial helps you with this adventure.
 
-Last but not least, there is already a great official way introduced by Facebook to start a React project: [create-react-app](https://github.com/facebookincubator/create-react-app) comes without any build configuration which I can only recommend for anyone who is getting started with React. If you are a beginner, you probably shouldn't bother with a setup of Webpack and Babel yourself. I use create-react-app to teach plain React in my book [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) too. You should take the time to read it before you get started with the tooling around React with this tutorial.
+Last but not least, there is already a great official way introduced by Facebook to start a React project: [create-react-app](https://github.com/facebookincubator/create-react-app) comes without any build configuration which I can only recommend for anyone who is getting started with React. If you are a beginner, you probably shouldn't bother with a setup of Webpack and Babel yourself. I use create-react-app to teach plain React in my book [the Road to learn React](/the-road-to-learn-react/) too. You should take the time to read it before you get started with the tooling around React with this tutorial.
 
 That should be enough said about my motivation behind this tutorial. Let's dive into my personal minimal setup for a React project. This tutorial supports the latest versions of React, Webpack 4, and Babel 7.
 
@@ -247,11 +247,11 @@ const App = ({ title }) =>
 export default App;
 ```
 
-Congratulations, you have created your [first function component](https://www.robinwieruch.de/react-function-component/) and [passed props](https://www.robinwieruch.de/react-pass-props-to-component/) to it. That's it for a minimal React setup with Babel and Webpack. Let me know your thoughts and whether there are things to improve the setup. You can find the [repository on GitHub](https://github.com/rwieruch/minimal-react-webpack-babel-setup).
+Congratulations, you have created your [first function component](/react-function-component/) and [passed props](/react-pass-props-to-component/) to it. That's it for a minimal React setup with Babel and Webpack. Let me know your thoughts and whether there are things to improve the setup. You can find the [repository on GitHub](https://github.com/rwieruch/minimal-react-webpack-babel-setup).
 
 ### Exercises:
 
-* Check out the [advanced Webpack setup](https://www.robinwieruch.de/webpack-advanced-setup-tutorial)
+* Check out the [advanced Webpack setup](/webpack-advanced-setup-tutorial)
   * Put it into your minimal React with Webpack application
   * Confirm your final result with the official [advanced React with Webpack setup](https://github.com/rwieruch/advanced-react-webpack-babel-setup)
 

@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-The concept of a Reducer became popular in JavaScript with the rise of [Redux as state management solution for React](https://www.robinwieruch.de/react-redux-tutorial/). But no worries, you don't need to learn Redux to understand Reducers. Basically reducers are there to manage state in an application. For instance, if a user writes something in an HTML input field, the application has to manage this UI state (e.g. [controlled components](https://www.robinwieruch.de/react-controlled-components/)).
+The concept of a Reducer became popular in JavaScript with the rise of [Redux as state management solution for React](/react-redux-tutorial/). But no worries, you don't need to learn Redux to understand Reducers. Basically reducers are there to manage state in an application. For instance, if a user writes something in an HTML input field, the application has to manage this UI state (e.g. [controlled components](/react-controlled-components/)).
 
 Let's dive into the implementation details: In essence, a reducer is a function which takes two arguments -- the current state and an action -- and returns based on both arguments a new state. In a pseudo function it could be expressed as:
 
@@ -195,4 +195,4 @@ Basically you have learned everything you need to know for reducers. They are us
   * The type property chooses the conditional state transition.
   * The action payload provides information for the state transition.
 
-Also check out this [tutorial if you want to know how to use reducers in React with the useReducer hook](https://www.robinwieruch.de/react-usereducer-hook).
+Also check out this [tutorial if you want to know how to use reducers in React with the useReducer hook](/react-usereducer-hook).

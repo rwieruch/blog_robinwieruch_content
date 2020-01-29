@@ -12,11 +12,11 @@ author: ""
 
 <Sponsorship />
 
-This React tutorial should give you guidance on how to integrate PayPal in your React application. I came across this topic when I had to introduce a payment process for my [own course platform](https://www.robinwieruch.de/how-to-build-your-own-course-platform/). As I went through the same decision process, I decided in favor of PayPal and Stripe.
+This React tutorial should give you guidance on how to integrate PayPal in your React application. I came across this topic when I had to introduce a payment process for my [own course platform](/how-to-build-your-own-course-platform/). As I went through the same decision process, I decided in favor of PayPal and Stripe.
 
 This tutorial shows you how to integrate PayPal in your React application. There are a couple of open source React + PayPal components out there. But I found out that it isn't too difficult to set it up on your own. Afterward, you have full control over the PayPal payments in your React applications.
 
-If you are interested in a full blown payment solution with PayPal and Stripe in React, you can also read [about the Stripe in React setup](https://www.robinwieruch.de/react-express-stripe-payment/) in my other article.
+If you are interested in a full blown payment solution with PayPal and Stripe in React, you can also read [about the Stripe in React setup](/react-express-stripe-payment/) in my other article.
 
 # Create a Paypal REST API app
 
@@ -96,7 +96,7 @@ class PaypalButton extends React.Component {
 export default scriptLoader('https://www.paypalobjects.com/api/checkout.js')(PaypalButton);
 ```
 
-If you haven't installed by now, you need to install the [react-async-script-loader](https://github.com/leozdgao/react-async-script-loader) via npm. The `scriptLoader` is a [higher order component](https://www.robinwieruch.de/react-higher-order-components/) which can be used in React to lazy load scripts.
+If you haven't installed by now, you need to install the [react-async-script-loader](https://github.com/leozdgao/react-async-script-loader) via npm. The `scriptLoader` is a [higher order component](/react-higher-order-components/) which can be used in React to lazy load scripts.
 
 ```javascript
 npm install react-async-script-loader
@@ -261,7 +261,7 @@ There are many props which are passed to your PayPal component. Let's check what
 * onError: A handler to do something in case the payment was erroneous.
 * onCancel: A handler to do something in case the payment was cancelled.
 
-You will see in a later step how these props are passed to the PayPal component from a parent component which uses the PayPal component. For now, let's focus on finishing the implementation. As you can see, the `showButton` boolean from React's local component state is used for a [conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/) of the PayPal button.
+You will see in a later step how these props are passed to the PayPal component from a parent component which uses the PayPal component. For now, let's focus on finishing the implementation. As you can see, the `showButton` boolean from React's local component state is used for a [conditional rendering](/conditional-rendering-react/) of the PayPal button.
 
 The only thing left is to implement the payment business logic in the `payment()` and `onAuthorize()` functions which follows PayPals REST API definition. First, you have to create a payment with the amount and currency grouped with your Client ID based on the environment. Second, you can execute the transaction.
 

@@ -18,7 +18,7 @@ This tutorial demonstrates how to setup testing with Mocha, Chai, and Sinon in N
 
 # Node.js with Mocha
 
-[Mocha](https://mochajs.org/) will be our test runner which is responsible for encapsulating our tests in test suites (describe-block) and test cases (it-block). Furthermore test runners like Mocha offer an [API](https://www.robinwieruch.de/what-is-an-api-javascript/) to run all tests from a command line interface. Let's dive into it: First, install an additional Babel package for your Node.js application which makes our tests understand Babel enabled JavaScript code:
+[Mocha](https://mochajs.org/) will be our test runner which is responsible for encapsulating our tests in test suites (describe-block) and test cases (it-block). Furthermore test runners like Mocha offer an [API](/what-is-an-api-javascript/) to run all tests from a command line interface. Let's dive into it: First, install an additional Babel package for your Node.js application which makes our tests understand Babel enabled JavaScript code:
 
 ```javascript
 npm install @babel/register --save-dev
@@ -181,4 +181,4 @@ That's it. The test should be successful, because the function within our functi
 
 <Divider />
 
-Mocha and Chai are a popular combination of test runner and assertion library for Node.js applications. Sinon comes in as bonus if you need to make assertions on functions. You can find a ready to go setup Node.js application in this [GitHub repository](https://github.com/rwieruch/node-testing-mocha-chai). If you want to dive deeper into testing, you may want to check out this [GitHub repository](https://github.com/rwieruch/javascript-reducer) with a few tests where we are testing [reducer functions](https://www.robinwieruch.de/javascript-reducer). The concept of reducers is a popular pattern in JavaScript which is a great candidate for unit testing.
+Mocha and Chai are a popular combination of test runner and assertion library for Node.js applications. Sinon comes in as bonus if you need to make assertions on functions. You can find a ready to go setup Node.js application in this [GitHub repository](https://github.com/rwieruch/node-testing-mocha-chai). If you want to dive deeper into testing, you may want to check out this [GitHub repository](https://github.com/rwieruch/javascript-reducer) with a few tests where we are testing [reducer functions](/javascript-reducer). The concept of reducers is a popular pattern in JavaScript which is a great candidate for unit testing.

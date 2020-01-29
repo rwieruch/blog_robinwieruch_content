@@ -12,9 +12,9 @@ author: ""
 
 <Sponsorship />
 
-Since [React Hooks](https://www.robinwieruch.de/react-hooks/) have been released, [function components](https://www.robinwieruch.de/react-function-component/) can use state and side-effects. There are two hooks that are used for [modern state management in React (useState and useReducer)](https://www.robinwieruch.de/react-state) and one hook called [useContext](https://www.robinwieruch.de/react-usecontext-hook) to use [React's Context API](https://www.robinwieruch.de/react-context/) to pass state or state updater functions down the component tree. Now, many people keep wondering: **Does useContext and useReducer replace Redux?** As of the time of writing this article, React Hooks don't replace Redux.
+Since [React Hooks](/react-hooks/) have been released, [function components](/react-function-component/) can use state and side-effects. There are two hooks that are used for [modern state management in React (useState and useReducer)](/react-state) and one hook called [useContext](/react-usecontext-hook) to use [React's Context API](/react-context/) to pass state or state updater functions down the component tree. Now, many people keep wondering: **Does useContext and useReducer replace Redux?** As of the time of writing this article, React Hooks don't replace Redux.
 
-Requirements: Check out the following tutorials, if you haven't learned about [reducers in JavaScript](https://www.robinwieruch.de/javascript-reducer/) or [useReducer in React](https://www.robinwieruch.de/react-usereducer-hook/). It's good to know about the fundamentals before entering this discussion about Redux vs useReducer. Also if you want to learn more about Redux, check out this extensive [Redux tutorial](https://www.robinwieruch.de/react-redux-tutorial/).
+Requirements: Check out the following tutorials, if you haven't learned about [reducers in JavaScript](/javascript-reducer/) or [useReducer in React](/react-usereducer-hook/). It's good to know about the fundamentals before entering this discussion about Redux vs useReducer. Also if you want to learn more about Redux, check out this extensive [Redux tutorial](/react-redux-tutorial/).
 
 # Global State Container and Component Co-Located State
 
@@ -49,7 +49,7 @@ Where your state is managed is a crucial difference between Redux and useReducer
                       +----------------+
 ```
 
-[Using useContext in combination with useReducer](https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext/) takes the component co-located state management on another level. Suddenly the state container created by useReducer and its dispatch function can be passed to any component from any top-level component. It can be also the most top-level component to make the state "global". It's also possible to pass things down only by using [React props](https://www.robinwieruch.de/react-pass-props-to-component/), but [React's Context API](https://www.robinwieruch.de/react-context/) makes your state and dispatch function available anywhere without explicitly passing everything down the component tree.
+[Using useContext in combination with useReducer](/react-state-usereducer-usestate-usecontext/) takes the component co-located state management on another level. Suddenly the state container created by useReducer and its dispatch function can be passed to any component from any top-level component. It can be also the most top-level component to make the state "global". It's also possible to pass things down only by using [React props](/react-pass-props-to-component/), but [React's Context API](/react-context/) makes your state and dispatch function available anywhere without explicitly passing everything down the component tree.
 
 ```javascript
           +----------------+
@@ -108,4 +108,4 @@ I guess there are a few rules of thumb to follow: If you state management doesn'
 * Use useState + useReducer + useContext for advanced/medium size applications.
 * Use useState/useReducer + Redux for complex/large size applications.
 
-Of course there are many nuances. For instance, using [useState or useReducer](https://www.robinwieruch.de/react-usereducer-vs-usestate) comes with its own benefits. The same applies for [using Redux](https://www.robinwieruch.de/learn-react-before-using-redux/) in your React application. You may get to a point where a middleware to implement complex control flows or side-effects comes in handy or where you cannot do without [Redux Dev Tools](https://github.com/reduxjs/redux-devtools) or time travel debugging. Everything comes with trade-offs, but everything has still its place in React's ecosystem.
+Of course there are many nuances. For instance, using [useState or useReducer](/react-usereducer-vs-usestate) comes with its own benefits. The same applies for [using Redux](/learn-react-before-using-redux/) in your React application. You may get to a point where a middleware to implement complex control flows or side-effects comes in handy or where you cannot do without [Redux Dev Tools](https://github.com/reduxjs/redux-devtools) or time travel debugging. Everything comes with trade-offs, but everything has still its place in React's ecosystem.

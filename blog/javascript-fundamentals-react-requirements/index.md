@@ -14,7 +14,7 @@ author: ""
 
 After all my teachings about React, be it online for a larger audience or on-site for companies transitioning to web development and React, I always come to the conclusion that React is all about JavaScript. Newcomers to React but also myself see it as an [advantage](https://www.quora.com/Why-choose-React/answer/Robin-Wieruch), because you carry your JavaScript knowledge for a longer time around compared to your React skills.
 
-During my workshops, the larger part of the material is about JavaScript and not React. Most of it boils down to JavaScript ES6 and beyond -- features and syntax -- but also ternary operators, shorthand versions in the language, the `this` object, JavaScript built-in functions ([map](https://www.robinwieruch.de/javascript-map-array/), reduce, filter) or more general concepts such as [composability](https://www.robinwieruch.de/react-component-composition/), [reusability](https://www.robinwieruch.de/react-reusable-components/), immutability, [closures](https://www.robinwieruch.de/javascript-closure), truth tables, or higher-order functions. These are the fundamentals, which you don't need necessarily to master before starting with React, but which will definitely come up while learning or practicing it.
+During my workshops, the larger part of the material is about JavaScript and not React. Most of it boils down to JavaScript ES6 and beyond -- features and syntax -- but also ternary operators, shorthand versions in the language, the `this` object, JavaScript built-in functions ([map](/javascript-map-array/), reduce, filter) or more general concepts such as [composability](/react-component-composition/), [reusability](/react-reusable-components/), immutability, [closures](/javascript-closure), truth tables, or higher-order functions. These are the fundamentals, which you don't need necessarily to master before starting with React, but which will definitely come up while learning or practicing it.
 
 The following walkthrough is my attempt giving you an almost extensive yet concise list about all the different JavaScript functionalities that complement your React knowledge. If you have any other things which are not in the list, just leave a comment for this article and I will keep it up to date.
 
@@ -177,7 +177,7 @@ JavaScript arrow functions are often used in React applications for keeping the 
 
 # Functions as Components in React
 
-React uses the best of different programming paradigms. That's only possible because JavaScript is a many-sided programming language. On the object-oriented programming side, React's class components are a great way of leveraging the abilities of JavaScript classes (inheritance for the React component API, class methods and class properties such as `this.setState()` and `this.state`). On the other side, there are lots of concepts from functional programming used in React (and its ecosystem) too. For instance, **React's function components** are [another way of defining components in React](https://www.robinwieruch.de/react-component-types/). The question which led to [function components in React](https://www.robinwieruch.de/react-function-component/): What if components could be used like functions?
+React uses the best of different programming paradigms. That's only possible because JavaScript is a many-sided programming language. On the object-oriented programming side, React's class components are a great way of leveraging the abilities of JavaScript classes (inheritance for the React component API, class methods and class properties such as `this.setState()` and `this.state`). On the other side, there are lots of concepts from functional programming used in React (and its ecosystem) too. For instance, **React's function components** are [another way of defining components in React](/react-component-types/). The question which led to [function components in React](/react-function-component/): What if components could be used like functions?
 
 ```javascript
 function (props) {
@@ -185,7 +185,7 @@ function (props) {
 }
 ```
 
-It's a function which receives an input (e.g. [props](https://www.robinwieruch.de/react-pass-props-to-component/)) and returns the displayed HTML elements (view). Under the hood, the function only needs to use the rendering mechanism of the `render()` method from React components:
+It's a function which receives an input (e.g. [props](/react-pass-props-to-component/)) and returns the displayed HTML elements (view). Under the hood, the function only needs to use the rendering mechanism of the `render()` method from React components:
 
 ```javascript
 function Greeting(props) {
@@ -193,7 +193,7 @@ function Greeting(props) {
 }
 ```
 
-Function components are the preferred way of defining components in React. They have less boilerplate, add less complexity, and are simpler to maintain than React class components. You can easily [migrate your class components to function components](https://www.robinwieruch.de/react-hooks-migration/) with [React Hooks](https://www.robinwieruch.de/react-hooks/).
+Function components are the preferred way of defining components in React. They have less boilerplate, add less complexity, and are simpler to maintain than React class components. You can easily [migrate your class components to function components](/react-hooks-migration/) with [React Hooks](/react-hooks/).
 
 Previously, the article mentioned JavaScript arrow functions and how they improve your React code. Let's apply these kind of functions to your function components. The previous Greeting component has two different looks with JavaScript ES5 and ES6:
 
@@ -343,7 +343,7 @@ function getGreeting(what) {
 }
 ```
 
-Basically that's how larger text blocks can be formatted on multiple lines. For instance, it can be seen with the [recent introduction of GraphQL in JavaScript](https://www.robinwieruch.de/react-with-graphql-tutorial/), because GraphQL queries are composed with template literals. Also [React Styled Components](https://www.robinwieruch.de/react-styled-components/) makes use of template literals.
+Basically that's how larger text blocks can be formatted on multiple lines. For instance, it can be seen with the [recent introduction of GraphQL in JavaScript](/react-with-graphql-tutorial/), because GraphQL queries are composed with template literals. Also [React Styled Components](/react-styled-components/) makes use of template literals.
 
 # Map, Reduce and Filter in React
 
@@ -381,7 +381,7 @@ const App = () => {
 export default App;
 ```
 
-Usually the next question then is: [How to render a list of items?](https://www.robinwieruch.de/react-list-component) That's one of the best parts about explaining React in my opinion. There is no React specific API such as a custom attribute on a HTML tag which enables you to render multiple items in React. You can use plain JavaScript for iterating over the list of items and returning HTML for each item.
+Usually the next question then is: [How to render a list of items?](/react-list-component) That's one of the best parts about explaining React in my opinion. There is no React specific API such as a custom attribute on a HTML tag which enables you to render multiple items in React. You can use plain JavaScript for iterating over the list of items and returning HTML for each item.
 
 ```javascript{4,5,6,7,10,11,12,13,14}
 import React from 'react';
@@ -569,7 +569,7 @@ const App = () => {
 export default App;
 ```
 
-I will not go into detail why this works, but if you are curious, you can learn about it and other techniques for conditional rendering over here: [All the conditional renderings in React](https://www.robinwieruch.de/conditional-rendering-react/). After all, the conditional rendering in React only shows again that most of React is only JavaScript in JSX and not anything React specific.
+I will not go into detail why this works, but if you are curious, you can learn about it and other techniques for conditional rendering over here: [All the conditional renderings in React](/conditional-rendering-react/). After all, the conditional rendering in React only shows again that most of React is only JavaScript in JSX and not anything React specific.
 
 # Import and Export Statements in React
 
@@ -704,9 +704,9 @@ These are the main functionalities for ES6 modules. They help you to organize yo
 
 # Libraries in React
 
-React offers state management and side-effect features, but apart from this, it is only a component library which renders HTML for your browser. Everything else can be added from APIs (e.g. browser API, DOM API), JavaScript functionalities (e.g. map, filter, reduce) or external libraries. It's not always simple to choose the right library for complementing your React application, but [once you have a good overview of the different options](https://www.robinwieruch.de/react-libraries/), you can pick the one which fits best to your tech stack.
+React offers state management and side-effect features, but apart from this, it is only a component library which renders HTML for your browser. Everything else can be added from APIs (e.g. browser API, DOM API), JavaScript functionalities (e.g. map, filter, reduce) or external libraries. It's not always simple to choose the right library for complementing your React application, but [once you have a good overview of the different options](/react-libraries/), you can pick the one which fits best to your tech stack.
 
-For instance, [fetching data in React](https://www.robinwieruch.de/react-fetching-data/) can be done with the native fetch API:
+For instance, [fetching data in React](/react-fetching-data/) can be done with the native fetch API:
 
 ```javascript
 import React, { Component } from 'react';
@@ -754,11 +754,11 @@ class App extends Component {
 export default App;
 ```
 
-So once you know about your problem which needs to be solved, [React's extensive and innovative ecosystem](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/) should give you plenty of options solving it. There again it's not about React, but knowing about all the different JavaScript libraries which can be used to complement your application.
+So once you know about your problem which needs to be solved, [React's extensive and innovative ecosystem](/reasons-why-i-moved-from-angular-to-react/) should give you plenty of options solving it. There again it's not about React, but knowing about all the different JavaScript libraries which can be used to complement your application.
 
 # Async/Await in React
 
-In a React Function Component, [fetching data](https://www.robinwieruch.de/react-hooks-fetch-data/) looks slightly different with [React Hooks](https://www.robinwieruch.de/react-hooks/):
+In a React Function Component, [fetching data](/react-hooks-fetch-data/) looks slightly different with [React Hooks](/react-hooks/):
 
 ```javascript{5,7,8,9,10,11,12,13,14}
 import React from 'react';
@@ -850,7 +850,7 @@ const App = () => {
 export default App;
 ```
 
-It's not always desired to extract functions, because it can add unnecessary complexity, but on the other side, it can have beneficial learning effects for JavaScript. In addition, [by extracting a function you make it testable in isolation from the React component](https://www.robinwieruch.de/react-testing-tutorial/). So let's showcase it with the function which is provided to the built-in filter function.
+It's not always desired to extract functions, because it can add unnecessary complexity, but on the other side, it can have beneficial learning effects for JavaScript. In addition, [by extracting a function you make it testable in isolation from the React component](/react-testing-tutorial/). So let's showcase it with the function which is provided to the built-in filter function.
 
 ```javascript{3,4,5,18}
 import React from 'react';
@@ -925,7 +925,7 @@ const doFilter = query => user =>
   user.name.includes(query);
 ```
 
-Now, the `doFilter()` function can be exported from the file and tested in isolation as pure (higher-order) function. After learning about higher-order functions, all the fundamental knowledge is established to learn more about [React's higher-order components](https://www.robinwieruch.de/react-higher-order-components/), if you want to learn about this advanced technique in React. Moving functions around your code base is a great way to learn about the benefits of having functions as first class citizens in JavaScript. It's powerful when moving your code towards functional programming.
+Now, the `doFilter()` function can be exported from the file and tested in isolation as pure (higher-order) function. After learning about higher-order functions, all the fundamental knowledge is established to learn more about [React's higher-order components](/react-higher-order-components/), if you want to learn about this advanced technique in React. Moving functions around your code base is a great way to learn about the benefits of having functions as first class citizens in JavaScript. It's powerful when moving your code towards functional programming.
 
 # Shorthand Object Assignment
 

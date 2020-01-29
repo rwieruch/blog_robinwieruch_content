@@ -45,7 +45,7 @@ export const Counter = ({ counter }) => (
 export default App;
 ```
 
-The code snippet shows a React application that implements a counter which can be increased/decreased with a [React Hook](https://www.robinwieruch.de/react-hooks/) by using one of two rendered buttons. A straightforward snapshot test for the React component could be implemented the following way:
+The code snippet shows a React application that implements a counter which can be increased/decreased with a [React Hook](/react-hooks/) by using one of two rendered buttons. A straightforward snapshot test for the React component could be implemented the following way:
 
 ```javascript
 import React from 'react';
@@ -91,9 +91,9 @@ exports[`App increments the counter 1`] = `
 `;
 ```
 
-That's the most basic approach for [snapshot testing in React](https://www.robinwieruch.de/react-testing-jest/). The question for this tutorial: **What happens if you want to snapshot test a provoked change of your re-rendered component?**
+That's the most basic approach for [snapshot testing in React](/react-testing-jest/). The question for this tutorial: **What happens if you want to snapshot test a provoked change of your re-rendered component?**
 
-For instance, in the case of our React application, one could invoke one of the two buttons to cause a [state change](https://www.robinwieruch.de/react-usestate-hook/) which increases the counter which would lead to a re-render of the component. Afterward, a new snapshot test could be used to assert the differences of the rendered output:
+For instance, in the case of our React application, one could invoke one of the two buttons to cause a [state change](/react-usestate-hook/) which increases the counter which would lead to a re-render of the component. Afterward, a new snapshot test could be used to assert the differences of the rendered output:
 
 ```javascript{7,12,14,15}
 import React from 'react';

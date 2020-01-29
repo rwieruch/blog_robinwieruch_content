@@ -16,7 +16,7 @@ If you are new to React, most likely you want to know how to display a list of i
 
 # How to display a list of items in React?
 
-The following [function component](https://www.robinwieruch.de/react-function-component/) shows how to render a list of items (JS primitives). It would work the same with a list of numbers instead of strings. Since we can use JavaScript in JSX by using curly braces, we can use the [built-in JavaScript array map method](https://www.robinwieruch.de/javascript-map-array/) to iterate over our list items; and to map them from JavaScript primitive to HTML elements. Each element receives a mandatory [key prop](https://www.robinwieruch.de/react-list-key/):
+The following [function component](/react-function-component/) shows how to render a list of items (JS primitives). It would work the same with a list of numbers instead of strings. Since we can use JavaScript in JSX by using curly braces, we can use the [built-in JavaScript array map method](/javascript-map-array/) to iterate over our list items; and to map them from JavaScript primitive to HTML elements. Each element receives a mandatory [key prop](/react-list-key/):
 
 ```javascript
 const SimpleList = () => (
@@ -70,7 +70,7 @@ const SimpleList = () => (
 );
 ```
 
-If we would use the List as child component in another component, we could pass the list as [props](https://www.robinwieruch.de/react-pass-props-to-component/) to it:
+If we would use the List as child component in another component, we could pass the list as [props](/react-pass-props-to-component/) to it:
 
 ```javascript{1,3,4,5,7}
 const mylist = ['a', 'b', 'c'];
@@ -217,7 +217,7 @@ const ListItem = ({ item }) => (
 );
 ```
 
-The List component offers an [API](https://www.robinwieruch.de/what-is-an-api-javascript/) to the outside: This way the App component can pass the array as list props to the List component. One little trick for [conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/): If you don't know whether the incoming list is null or undefined, default to an empty list yourself:
+The List component offers an [API](/what-is-an-api-javascript/) to the outside: This way the App component can pass the array as list props to the List component. One little trick for [conditional rendering](/conditional-rendering-react/): If you don't know whether the incoming list is null or undefined, default to an empty list yourself:
 
 ```javascript{3}
 const List = ({ list }) => (
@@ -257,11 +257,11 @@ const List = () => {
 export default List;
 ```
 
-Let's dive into the different examples to update our list items with [React Hooks](https://www.robinwieruch.de/react-hooks). All the following patterns are the foundation for sophisticated [state management in React](https://www.robinwieruch.de/react-state).
+Let's dive into the different examples to update our list items with [React Hooks](/react-hooks). All the following patterns are the foundation for sophisticated [state management in React](/react-state).
 
 ## React List: Add Item
 
-The following List component shows a stateful managed list where it's possible to add an item to the list with a [controlled form element](https://www.robinwieruch.de/react-controlled-components/):
+The following List component shows a stateful managed list where it's possible to add an item to the list with a [controlled form element](/react-controlled-components/):
 
 ```javascript{4,5,6,10,13,14,15,17,18,19,20,21,22,23,24,25,35,36,37,38}
 import React from 'react';
@@ -309,7 +309,7 @@ const ListWithAddItem = () => {
 export default ListWithAddItem;
 ```
 
-By using the submit button to initiate the creation of the item, the handler makes sure to add the item to the stateful list. Also the [native browser behavior is prevented](https://www.robinwieruch.de/react-preventdefault) by using the click event; otherwise the browser would refresh after the submit event.
+By using the submit button to initiate the creation of the item, the handler makes sure to add the item to the stateful list. Also the [native browser behavior is prevented](/react-preventdefault) by using the click event; otherwise the browser would refresh after the submit event.
 
 ## React List: Update Item
 
@@ -405,7 +405,7 @@ By using the delete button to initiate the removal of the item, the handler make
 
 All the implementations from this tutorial can be found in this [GitHub repository](https://github.com/the-road-to-learn-react/react-list-component). These were the fundamentals to deal with lists in React. To follow up, here are some more (in-depth) tutorials that teach more in-detail topics:
 
-* [React List with Scroll to Item](https://www.robinwieruch.de/react-scroll-to-item/)
-* [React List with Pagination](https://www.robinwieruch.de/react-paginated-list/)
-* [React List with Infinite Scroll](https://www.robinwieruch.de/react-infinite-scroll/)
-* [React List with Filter, Sort, and Client-/Server-Side Search](https://www.robinwieruch.de/the-road-to-learn-react/)
+* [React List with Scroll to Item](/react-scroll-to-item/)
+* [React List with Pagination](/react-paginated-list/)
+* [React List with Infinite Scroll](/react-infinite-scroll/)
+* [React List with Filter, Sort, and Client-/Server-Side Search](/the-road-to-learn-react/)

@@ -168,7 +168,7 @@ class Account extends Component {
 }
 ```
 
-What happens when you would reset the user object? Consider a case where you would want to update your user object in your backend by doing an [API request](https://www.robinwieruch.de/react-fetching-data/) but by accident you set the whole user object to null in the local state of your React component. You can simulate it by using a button that resets your user object in React's local state to null.
+What happens when you would reset the user object? Consider a case where you would want to update your user object in your backend by doing an [API request](/react-fetching-data/) but by accident you set the whole user object to null in the local state of your React component. You can simulate it by using a button that resets your user object in React's local state to null.
 
 ```javascript{30,31,32,33}
 const updateUsername = username =>
@@ -265,7 +265,7 @@ const { counter } = this.state;
 this.setState({ counter: counter + 1 });
 ```
 
-Due to `this.setState` being [executed asynchronously](https://www.robinwieruch.de/learn-react-before-using-redux/), you would want to update your local state with the second way by using a function instead of an object:
+Due to `this.setState` being [executed asynchronously](/learn-react-before-using-redux/), you would want to update your local state with the second way by using a function instead of an object:
 
 ```javascript
 this.setState(prevState => ({

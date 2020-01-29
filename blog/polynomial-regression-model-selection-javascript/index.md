@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-After learning about [gradient descent in a linear regression](https://www.robinwieruch.de/linear-regression-gradient-descent-javascript/), I was curious about using different kinds of hypothesis functions to improve the result of the algorithm itself. So far, the hypothesis function was only a linear straight line. However, your training set may not have a linear correlation and by staying with a linear model it becomes difficult to reduce the cost returned from the cost function.
+After learning about [gradient descent in a linear regression](/linear-regression-gradient-descent-javascript/), I was curious about using different kinds of hypothesis functions to improve the result of the algorithm itself. So far, the hypothesis function was only a linear straight line. However, your training set may not have a linear correlation and by staying with a linear model it becomes difficult to reduce the cost returned from the cost function.
 
 # Model Selection in a Regression Problem
 

@@ -12,7 +12,7 @@ contribute: ""
 
 <Sponsorship />
 
-There are many people entering the field of web development right now. It can be an overwhelming experience for beginners to get to know all the tools which are used in modern web development. The historical gap between running HTML in Netscape and today widens with each of these new tools which are put on top of the tech stack. At some point, it makes no sense anymore for beginners to learn jQuery. Students will [jump straight on their favorite framework](https://www.robinwieruch.de/how-to-learn-framework/) after learning vanilla JavaScript. What's missing for these people is all the historical knowledge from the gap in between.
+There are many people entering the field of web development right now. It can be an overwhelming experience for beginners to get to know all the tools which are used in modern web development. The historical gap between running HTML in Netscape and today widens with each of these new tools which are put on top of the tech stack. At some point, it makes no sense anymore for beginners to learn jQuery. Students will [jump straight on their favorite framework](/how-to-learn-framework/) after learning vanilla JavaScript. What's missing for these people is all the historical knowledge from the gap in between.
 
 In this article, I want to focus on the leap from vanilla JavaScript to a modern library like React. When people are going to use such a library, they most often never experienced the struggle from the past which led to these solutions. The question to be asked: Why did we end up with these libraries? I want to showcase why a library like React matters and why you wouldn't want to implement applications in vanilla JavaScript anymore. The whole story can be applied in analogy to any other library/framework such as Vue, Angular or Ember.
 
@@ -452,7 +452,7 @@ class App extends React.Component {
 }
 ```
 
-By using `this.state` in your component you can access the state from the component again. You should provide the updated input state to your input element. This way, you take over controlling the state of the element and not the element doesn't do it itself. It becomes a so called [controlled component](https://www.robinwieruch.de/react-controlled-components/) which is a best practice in React.
+By using `this.state` in your component you can access the state from the component again. You should provide the updated input state to your input element. This way, you take over controlling the state of the element and not the element doesn't do it itself. It becomes a so called [controlled component](/react-controlled-components/) which is a best practice in React.
 
 ```javascript{25}
 class App extends React.Component {
@@ -616,6 +616,6 @@ The last code snippet shows how you can extract another component from the App c
 
 You can find all the solutions in [this GitHub repository](https://github.com/rwieruch/why-frameworks-matter). There is also a solution for JavaScript ES6 which can be used in between of the vanilla JavaScript and React approaches. It would be great to find contributors for implementing examples for Angular, Ember and other solutions too. Feel free to contribute to it :)
 
-If you enjoyed this journey from vanilla JavaScript to React and you decided to learn React, checkout [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) as your next journey to learn React. Along the way, you will transition smoothly from vanilla JavaScript to JavaScript ES6 and beyond.
+If you enjoyed this journey from vanilla JavaScript to React and you decided to learn React, checkout [The Road to learn React](/the-road-to-learn-react/) as your next journey to learn React. Along the way, you will transition smoothly from vanilla JavaScript to JavaScript ES6 and beyond.
 
 In the end, always remember that there are people working behind the curtains to enable these solutions for you. You can do the contributors a huge favor by cheering them up on Twitter once in a while or by getting involved in open source. After all, nobody wants to build larger applications in vanilla JavaScript anymore. So cherish your library or framework that you are using every day :)

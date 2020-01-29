@@ -571,7 +571,7 @@ Since the prop object is an empty object, we will get several errors when we che
 
 That way we can exactly specify each property. Moreover you can see that we can define onPlay more specific. Rather than having a generic Function type, we can define the input and output of onPlay.
 
-We still get errors and now comes the crucial point. In our auth.js we defined the StreamData which we will get from the SoundCloud API ([What's an API?](https://www.robinwieruch.de/what-is-an-api-javascript/)). At this point we have no chance to know about the property types inside of Track. Since we are now defining the component where we want to make the tracks visible in the browser, we know which properties we need. Let’s change our Track declaration according to the properties we are showing in our Stream component.
+We still get errors and now comes the crucial point. In our auth.js we defined the StreamData which we will get from the SoundCloud API ([What's an API?](/what-is-an-api-javascript/)). At this point we have no chance to know about the property types inside of Track. Since we are now defining the component where we want to make the tracks visible in the browser, we know which properties we need. Let’s change our Track declaration according to the properties we are showing in our Stream component.
 
 *decls/flowTypes.js*
 

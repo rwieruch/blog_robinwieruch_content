@@ -77,7 +77,7 @@ module.exports = {
 };
 ```
 
-It's quite similar to setting up [images with Webpack](https://www.robinwieruch.de/webpack-images/). In this case, we are only bundling the woff and woff2 font file extensions to our application. However, if you need to include other file extensions for older browsers as fallbacks, make sure to include them here as well. Also the [url-loader](https://github.com/webpack-contrib/url-loader) supports optional options which you should read more about in the official documentation.
+It's quite similar to setting up [images with Webpack](/webpack-images/). In this case, we are only bundling the woff and woff2 font file extensions to our application. However, if you need to include other file extensions for older browsers as fallbacks, make sure to include them here as well. Also the [url-loader](https://github.com/webpack-contrib/url-loader) supports optional options which you should read more about in the official documentation.
 
 # Define @font-face in CSS-in-JS
 
@@ -154,7 +154,7 @@ const myGlobalCSS = `
 `;
 ```
 
-Another example shows you how to use the popular [styled-components](https://www.robinwieruch.de/react-styled-components/) library for CSS-in-JS in a React application. Since Styled Components can be used in other frameworks as well, it could be your status quo on how to include your fonts next to your CSS-in-JS style definitions:
+Another example shows you how to use the popular [styled-components](/react-styled-components/) library for CSS-in-JS in a React application. Since Styled Components can be used in other frameworks as well, it could be your status quo on how to include your fonts next to your CSS-in-JS style definitions:
 
 ```javascript
 import React from 'react';

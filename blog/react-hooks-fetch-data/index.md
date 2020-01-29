@@ -14,7 +14,7 @@ author: ""
 
 In this tutorial, I want to show you **how to fetch data in React with Hooks** by using the [state](https://reactjs.org/docs/hooks-state.html) and [effect](https://reactjs.org/docs/hooks-effect.html) hooks. We will use the widely known [Hacker News API](https://hn.algolia.com/api) to fetch popular articles from the tech world. You will also implement your custom hook for the data fetching that can be reused anywhere in your application or published on npm as standalone node package.
 
-If you don't know anything about this new React feature, checkout this [introduction to React Hooks](https://www.robinwieruch.de/react-hooks/). If you want to checkout the finished project for the showcased examples that show how to fetch data in React with Hooks, checkout this [GitHub repository](https://github.com/the-road-to-learn-react/react-hooks-introduction).
+If you don't know anything about this new React feature, checkout this [introduction to React Hooks](/react-hooks/). If you want to checkout the finished project for the showcased examples that show how to fetch data in React with Hooks, checkout this [GitHub repository](https://github.com/the-road-to-learn-react/react-hooks-introduction).
 
 If you just want to have a ready to go React Hook for data fetching: `npm install use-data-api` and follow the [documentation](https://github.com/the-road-to-learn-react/use-data-api). Don't forget to star it if you use it :-)
 
@@ -22,7 +22,7 @@ If you just want to have a ready to go React Hook for data fetching: `npm instal
 
 # Data Fetching with React Hooks
 
-If you are not familiar with data fetching in React, checkout my [extensive data fetching in React article](https://www.robinwieruch.de/react-fetching-data/). It walks you through data fetching with React class components, how it can be made reusable with [Render Prop Components](https://www.robinwieruch.de/react-render-props/) and [Higher-Order Components](https://www.robinwieruch.de/react-higher-order-components/), and how it deals with error handling and loading spinners. In this article, I want to show you all of it with React Hooks in function components.
+If you are not familiar with data fetching in React, checkout my [extensive data fetching in React article](/react-fetching-data/). It walks you through data fetching with React class components, how it can be made reusable with [Render Prop Components](/react-render-props/) and [Higher-Order Components](/react-higher-order-components/), and how it deals with error handling and loading spinners. In this article, I want to show you all of it with React Hooks in function components.
 
 ```javascript
 import React, { useState } from 'react';
@@ -724,7 +724,7 @@ That's it for the data fetching with a custom hook. The hook itself doesn't know
 
 # Reducer Hook for Data Fetching
 
-So far, we have used various state hooks to manage our data fetching state for the data, loading and error state. However, somehow all these states, [managed with their own state hook, belong together because they care about the same cause](https://www.robinwieruch.de/react-usereducer-vs-usestate/). As you can see, they are all used within the data fetching function. A good indicator that they belong together is that they are used one after another (e.g. `setIsError`, `setIsLoading`). Let's combine all three of them with a [Reducer Hook](https://www.robinwieruch.de/react-usereducer-hook/) instead.
+So far, we have used various state hooks to manage our data fetching state for the data, loading and error state. However, somehow all these states, [managed with their own state hook, belong together because they care about the same cause](/react-usereducer-vs-usestate/). As you can see, they are all used within the data fetching function. A good indicator that they belong together is that they are used one after another (e.g. `setIsError`, `setIsLoading`). Let's combine all three of them with a [Reducer Hook](/react-usereducer-hook/) instead.
 
 A Reducer Hook returns us a state object and a function to alter the state object. The function -- called dispatch function -- takes an action which has a type and an optional payload. All this information is used in the actual reducer function to distill a new state from the previous state, the action's optional payload and type. Let's see how this works in code:
 
@@ -863,7 +863,7 @@ In conclusion, the Reducer Hook makes sure that this portion of the state manage
 
 # Abort Data Fetching in Effect Hook
 
-It's a common problem in React that component state is set even though the component got already unmounted (e.g. due to navigating away with React Router). I have written about this issue previously over here which describes [how to prevent setting state for unmounted components](https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-component/) in various scenarios. Let's see how we can prevent to set state in our custom hook for the data fetching:
+It's a common problem in React that component state is set even though the component got already unmounted (e.g. due to navigating away with React Router). I have written about this issue previously over here which describes [how to prevent setting state for unmounted components](/react-warning-cant-call-setstate-on-an-unmounted-component/) in various scenarios. Let's see how we can prevent to set state in our custom hook for the data fetching:
 
 ```javascript{11,19,21,23,25,31,32,33}
 const useDataApi = (initialUrl, initialData) => {

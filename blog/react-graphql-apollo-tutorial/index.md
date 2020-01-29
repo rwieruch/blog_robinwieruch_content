@@ -52,7 +52,7 @@ In this tutorial, you will learn how to combine React with GraphQL in your appli
 
 Now we'll focus on using Apollo Client in React by building another client application. Basically, you will learn how to connect the data-layer to the view-layer. We'll cover how to send queries and mutations from the view-layer, and how to update the view-layer to reflect the result. Further, you will learn to use GraphQL features like pagination, optimistic UI, caching, local state management, and prefetching with Apollo Client in React.
 
-For this application, no elaborate React setup is needed. Simply use [create-react-app](https://github.com/facebook/create-react-app) to create your React application. If you want to have an elaborate React setup instead, see this [setup guide for using Webpack with React](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). To get started, the following steps have to be performed:
+For this application, no elaborate React setup is needed. Simply use [create-react-app](https://github.com/facebook/create-react-app) to create your React application. If you want to have an elaborate React setup instead, see this [setup guide for using Webpack with React](/minimal-react-webpack-babel-setup/). To get started, the following steps have to be performed:
 
 * Create a new React application with create-react-app
 * Create a folder/file structure for your project (recommendation below)
@@ -186,7 +186,7 @@ All we've done thus far has been the framework agnostic part of Apollo Client. H
 npm install react-apollo --save
 ```
 
-Second, import its ApolloProvider component, and use it as a composing component around your App component in the *src/index.js* file. Under the hood, it uses [React's Context API](https://www.robinwieruch.de/react-context/) to pass the Apollo Client through your application.
+Second, import its ApolloProvider component, and use it as a composing component around your App component in the *src/index.js* file. Under the hood, it uses [React's Context API](/react-context/) to pass the Apollo Client through your application.
 
 ```javascript{3,11,13}
 import React from 'react';
@@ -246,7 +246,7 @@ export default Profile;
 
 Now we'll learn to query data with GraphQL and Apollo Client. The Apollo Client was provided in a previous section with React's Context API in a top level component. You have implicit access to it, but never use it directly for standard queries and mutations. It says "standard" here, because there will be situations where you use the Apollo Client instance directly while implementing this application.
 
-The React Apollo package grants access to a Query component, which takes a query as prop and executes it when its rendered. That's the important part: it executes the query when it is rendered. It uses React's [render props](https://www.robinwieruch.de/react-render-props/) pattern, using a child as a function implementation where you can access the result of the query as an argument.
+The React Apollo package grants access to a Query component, which takes a query as prop and executes it when its rendered. That's the important part: it executes the query when it is rendered. It uses React's [render props](/react-render-props/) pattern, using a child as a function implementation where you can access the result of the query as an argument.
 
 ```javascript{2,5,6,7}
 import React from 'react';
@@ -883,7 +883,7 @@ When you star a repository as above, the "Star" button disappears. This is what 
 
 We've done Query and Mutation components from React Apollo to connect a data-layer (Apollo Client) with a view-layer (React). The Query component executes the query when it is rendered, whereas the Mutation component gives access to a function that triggers the mutation. Both components use the render props pattern to make the results accessible in their child functions.
 
-[Higher-Order Components (HOC)](https://www.robinwieruch.de/react-higher-order-components/) is a widely accepted alternative to React's render prop pattern. The React Apollo package implements a Higher-Order Component for queries and mutations as well, though the team behind Apollo doesn't advertise it, and even spoke in favor of render props as their first choice. Nonetheless, this section shows you the alternative, using a Higher-Order Component instead of a Render Prop, though this application will continue to use the render prop pattern afterward. If you already have access to the query result in the Profile component's arguments, there is no Query component needed in the component itself:
+[Higher-Order Components (HOC)](/react-higher-order-components/) is a widely accepted alternative to React's render prop pattern. The React Apollo package implements a Higher-Order Component for queries and mutations as well, though the team behind Apollo doesn't advertise it, and even spoke in favor of render props as their first choice. Nonetheless, this section shows you the alternative, using a Higher-Order Component instead of a Render Prop, though this application will continue to use the render prop pattern afterward. If you already have access to the query result in the Profile component's arguments, there is no Query component needed in the component itself:
 
 ```javascript
 const Profile = ({ data, loading, error }) => {
@@ -2302,7 +2302,7 @@ You have implemented a dynamic GraphQL query with a search field. Once a new `or
 
 * Confirm your [source code for the last section](http://bit.ly/2VojIXR)
   * Confirm the [changes from the last section](http://bit.ly/2VkYSse)
-* If you are not familiar with React Router, try it out in [this pragmatic tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/)
+* If you are not familiar with React Router, try it out in [this pragmatic tutorial](/complete-firebase-authentication-react-tutorial/)
 * Invest 3 minutes of your time and take the [quiz](https://www.surveymonkey.com/r/5HFQ3TD)
 
 # Implementing the Issues Feature: Setup
@@ -3358,6 +3358,6 @@ pre {
 
 <Divider />
 
-You can find the final [repository on GitHub](https://github.com/rwieruch/react-graphql-github-apollo) that showcases most of the exercise tasks. The application is not feature-complete and it doesn't cover all edge cases, but it should give insight into using GraphQL with Apollo in React applications. If you want to dive more deeply into different topics like testing and state management with GraphQL on the client-side, you can start here: [A minimal Apollo Client in React Example](https://www.robinwieruch.de/react-apollo-client-example). Try to apply what you've learned in this application (e.g. testing, state management). Otherwise, I encourage you to try to build your own GraphQL client library, which helps you understand more of the GraphQL internals: [How to build a GraphQL client library for React](https://www.robinwieruch.de/react-graphql-client-library). Whichever you decide, keep tinkering on this application, or start with another GraphQL client application to fortify your skill set. You have finished all the GraphQL client chapters now.
+You can find the final [repository on GitHub](https://github.com/rwieruch/react-graphql-github-apollo) that showcases most of the exercise tasks. The application is not feature-complete and it doesn't cover all edge cases, but it should give insight into using GraphQL with Apollo in React applications. If you want to dive more deeply into different topics like testing and state management with GraphQL on the client-side, you can start here: [A minimal Apollo Client in React Example](/react-apollo-client-example). Try to apply what you've learned in this application (e.g. testing, state management). Otherwise, I encourage you to try to build your own GraphQL client library, which helps you understand more of the GraphQL internals: [How to build a GraphQL client library for React](/react-graphql-client-library). Whichever you decide, keep tinkering on this application, or start with another GraphQL client application to fortify your skill set. You have finished all the GraphQL client chapters now.
 
 <ReadMore label="GraphQL Server Tutorial with Apollo Server and Express" link="https://www.robinwieruch.de/graphql-apollo-server-tutorial" />

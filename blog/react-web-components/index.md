@@ -12,9 +12,9 @@ author: ""
 
 <Sponsorship />
 
-In this tutorial, you will learn **how to use Web Components, alias Custom Elements, in React**. If you want to get started to build your own Web Components before, check out this tutorial: [Web Components Tutorial](https://www.robinwieruch.de/web-components-tutorial). Otherwise, we will install an external Web Component in this tutorial to use it in React.
+In this tutorial, you will learn **how to use Web Components, alias Custom Elements, in React**. If you want to get started to build your own Web Components before, check out this tutorial: [Web Components Tutorial](/web-components-tutorial). Otherwise, we will install an external Web Component in this tutorial to use it in React.
 
-You will learn how to pass props as attributes/properties to your Custom Element and how to add event listeners for your Custom Element's events in a React component. In the first step, you will pass props manually, however, afterward I will show you how to use a custom [React Hook](https://www.robinwieruch.de/react-hooks/) to automate this process. The custom React Hook is a library to bridge Web Components to React effortlessly.
+You will learn how to pass props as attributes/properties to your Custom Element and how to add event listeners for your Custom Element's events in a React component. In the first step, you will pass props manually, however, afterward I will show you how to use a custom [React Hook](/react-hooks/) to automate this process. The custom React Hook is a library to bridge Web Components to React effortlessly.
 
 # From React Components to Web Components: Attributes, Properties and Events
 

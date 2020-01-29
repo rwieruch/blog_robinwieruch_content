@@ -14,7 +14,7 @@ author: ""
 
 Newcomers to React often start with applications that don't need data fetching at all. Usually they are confronted with Counter, Todo or TicTacToe applications. That's good, because data fetching adds another layer of complexity to your application while taking the first steps in React.
 
-However, at some point you want to request real world data from an own or a third-party [API](https://www.robinwieruch.de/what-is-an-api-javascript/). The article gives you a walkthrough on how to fetch data in React. There is no external state management solution, such as [Redux or MobX](https://www.robinwieruch.de/redux-mobx/), involved to store your fetched data. Instead you will use React's local state management.
+However, at some point you want to request real world data from an own or a third-party [API](/what-is-an-api-javascript/). The article gives you a walkthrough on how to fetch data in React. There is no external state management solution, such as [Redux or MobX](/redux-mobx/), involved to store your fetched data. Instead you will use React's local state management.
 
 # Table of Contents
 
@@ -198,7 +198,7 @@ React's ES6 class components have [lifecycle methods](https://facebook.github.io
 
 There is another lifecycle method that is a perfect match to fetch data: `componentDidMount()`. When this method runs, the component was already rendered once with the `render()` method, but it would render again when the fetched data would be stored in the local state of the component with `setState()`. Afterward, the local state could be used in the `render()` method to display it or to pass it down as props.
 
-The `componentDidMount()` lifecycle method is the best place to fetch data. But how to fetch the data after all? [React's ecosystem is a flexible framework](https://www.robinwieruch.de/react-libraries/), thus you can choose your own solution to fetch data. For the sake of simplicity, the article will showcase it with the [native fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) that comes with the browser. It uses [JavaScript promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) to resolve the asynchronous response. The most minimal example to fetch data would be the following:
+The `componentDidMount()` lifecycle method is the best place to fetch data. But how to fetch the data after all? [React's ecosystem is a flexible framework](/react-libraries/), thus you can choose your own solution to fetch data. For the sake of simplicity, the article will showcase it with the [native fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) that comes with the browser. It uses [JavaScript promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) to resolve the asynchronous response. The most minimal example to fetch data would be the following:
 
 ```javascript
 import React, { Component } from 'react';
@@ -281,7 +281,7 @@ export default App;
 
 Even though the `render()` method already ran once before the `componentDidMount()` method, you don't run into any null pointer exceptions because you have initialized the `hits` property in the local state with an empty array.
 
-**Note:** If you want to get to know data fetching with a feature called React Hooks, checkout this comprehensive tutorial: [How to fetch data with React Hooks?](https://www.robinwieruch.de/react-hooks-fetch-data/)
+**Note:** If you want to get to know data fetching with a feature called React Hooks, checkout this comprehensive tutorial: [How to fetch data with React Hooks?](/react-hooks-fetch-data/)
 
 # What about loading spinner and error handling?
 
@@ -316,7 +316,7 @@ class App extends Component {
 export default App;
 ```
 
-In your `render()` method you can use [React's conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/) to display either a loading indicator or the resolved data.
+In your `render()` method you can use [React's conditional rendering](/conditional-rendering-react/) to display either a loading indicator or the resolved data.
 
 ```javascript{7,9,10,11}
 ...
@@ -542,7 +542,7 @@ But that's only the GET method in React. What about writing data to an API? When
 
 # How to test data fetching in React?
 
-So what about testing your data request from a React component? There exists an [extensive React testing tutorial](https://www.robinwieruch.de/react-testing-tutorial/) about this topic, but here it comes in a nutshell. When you have setup your application with [create-react-app](https://github.com/facebook/create-react-app), it already comes with [Jest](https://jestjs.io/) as test runner and assertion library. Otherwise you could use [Mocha](https://mochajs.org/) (test runner) and [Chai](http://www.chaijs.com/) (assertion library) for these purposes as well (keep in mind that the functions for the test runner and assertions vary then).
+So what about testing your data request from a React component? There exists an [extensive React testing tutorial](/react-testing-tutorial/) about this topic, but here it comes in a nutshell. When you have setup your application with [create-react-app](https://github.com/facebook/create-react-app), it already comes with [Jest](https://jestjs.io/) as test runner and assertion library. Otherwise you could use [Mocha](https://mochajs.org/) (test runner) and [Chai](http://www.chaijs.com/) (assertion library) for these purposes as well (keep in mind that the functions for the test runner and assertions vary then).
 
 When testing React components, I often rely [Enzyme](https://github.com/airbnb/enzyme) for rendering the components in my test cases. Furthermore, when it comes to testing asynchronous data fetching, [Sinon](http://sinonjs.org/) is helpful for spying and mocking data.
 
@@ -715,7 +715,7 @@ Instead of `then()` you can use the async/await statements when fetching data in
 
 # How to fetch data in Higher-Order Components?
 
-The previously shown ways to fetch data can be repetitive when using it in a lot of components. Once a component mounted, you want to fetch data and show conditional loading or error indicators. The component so far can be split up into two responsibilities: showing the fetched data with conditional renderings and fetching the remote data with storing it in local state afterward. Whereas the former is only there for rendering purposes, the latter could be made reusable by a [higher-order component](https://www.robinwieruch.de/react-higher-order-components/).
+The previously shown ways to fetch data can be repetitive when using it in a lot of components. Once a component mounted, you want to fetch data and show conditional loading or error indicators. The component so far can be split up into two responsibilities: showing the fetched data with conditional renderings and fetching the remote data with storing it in local state afterward. Whereas the former is only there for rendering purposes, the latter could be made reusable by a [higher-order component](/react-higher-order-components/).
 
 Note: When you are going to read the linked article, you will also see how you could abstract away the conditional renderings in higher-order components. After that, your component would only be concerned displaying the fetched data without any conditional renderings.
 
@@ -880,7 +880,7 @@ By using React's children property as render prop, you are able to pass all the 
 
 # How to fetch data from a GraphQL API in React?
 
-Last but not least, the article should shortly mention GraphQL APIs for React. How would you fetch data from a GraphQL API instead of a REST API (which you have used so far) from a React component? Basically it can be achieved the same way, because GraphQL is not opinionated about the network layer. Most GraphQL APIs are exposed over HTTP whether it is possible to query them with the native fetch API or axios too. If you are interested in how you would fetch data from a GraphQL API in React, head over to this article: [A complete React with GraphQL Tutorial](https://www.robinwieruch.de/react-with-graphql-tutorial/).
+Last but not least, the article should shortly mention GraphQL APIs for React. How would you fetch data from a GraphQL API instead of a REST API (which you have used so far) from a React component? Basically it can be achieved the same way, because GraphQL is not opinionated about the network layer. Most GraphQL APIs are exposed over HTTP whether it is possible to query them with the native fetch API or axios too. If you are interested in how you would fetch data from a GraphQL API in React, head over to this article: [A complete React with GraphQL Tutorial](/react-with-graphql-tutorial/).
 
 <Divider />
 

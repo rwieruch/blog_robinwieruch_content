@@ -23,12 +23,12 @@ Those who follow my content know that I always use the good old Firebase Realtim
 
 I experienced the first argument from a code perspective, but also when inspecting the database entries on my Firebase project's dashboard, because it shifts the focus from JSON to document-oriented database. You can read more about which database to choose in [this comprehensive article that pivots Firebase's Cloud Firestore vs. Realtime Database](https://firebase.google.com/docs/database/rtdb-vs-firestore).
 
-Before I migrate my React tutorials and books from the older Realtime Database to Cloud Firestore, I'd like to show you a **straight forward migration path** regarding the source code. That's how you can still use all the educational content I have written about Firebase and Firebase's Realtime Database, but exchange the database with Firebase's Cloud Firestore. As a result, I am not building a React application with Cloud Firestore from scratch, but migrating a [feature-rich React with Firebase application](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/) that uses Firebase's Realtime Database over to Firebase's Cloud Firestore. Both versions are accessible as source code on GitHub:
+Before I migrate my React tutorials and books from the older Realtime Database to Cloud Firestore, I'd like to show you a **straight forward migration path** regarding the source code. That's how you can still use all the educational content I have written about Firebase and Firebase's Realtime Database, but exchange the database with Firebase's Cloud Firestore. As a result, I am not building a React application with Cloud Firestore from scratch, but migrating a [feature-rich React with Firebase application](/complete-firebase-authentication-react-tutorial/) that uses Firebase's Realtime Database over to Firebase's Cloud Firestore. Both versions are accessible as source code on GitHub:
 
 * [React with Firebase Realtime Database](https://github.com/the-road-to-react-with-firebase/react-firebase-authentication).
 * [React with Firebase Cloud Firestore](https://github.com/the-road-to-react-with-firebase/react-firestore-authentication).
 
-Except for the database, everything else stays the same; thus, everything else you learned from my previous React Firebase tutorials is still up-to-date. Before we start with migration, consider reading through this [visual Firebase tutorial](https://www.robinwieruch.de/firebase-tutorial/) to set up your Firebase project with Cloud Firestore.
+Except for the database, everything else stays the same; thus, everything else you learned from my previous React Firebase tutorials is still up-to-date. Before we start with migration, consider reading through this [visual Firebase tutorial](/firebase-tutorial/) to set up your Firebase project with Cloud Firestore.
 
 # Migration from Realtime Database to Cloud Firestore
 

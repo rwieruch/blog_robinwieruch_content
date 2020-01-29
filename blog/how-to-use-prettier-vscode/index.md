@@ -16,7 +16,7 @@ author: ""
 
 A brief step by step tutorial on how to install and use Prettier in VS Code. [Prettier](https://prettier.io/) is an opinionated code formatter which ensures one unified code format. It can be used within VS Code by installing it from the VS Code marketplace. Once you have integrated it in VS Code, you can configure Prettier to format your files when saving them or committing them to a version control system (e.g. Git, SVN). This way, you never need to worry about your source code formatting and Prettier takes care about it. In addition, you can give Prettier a global or project based configuration file to adapt it to your needs. For instance, you can decide the length of your code lines and when the code line should break into two lines.
 
-*Note: If you want to get started with React in VS Code, you may want to follow either the [MacOS](https://www.robinwieruch.de/react-js-macos-setup/) or [Windows](https://www.robinwieruch.de/react-js-windows-setup/) setup before continuing with this tutorial. Afterward, continue with this tutorial to integrate Prettier into Visual Studio Code.*
+*Note: If you want to get started with React in VS Code, you may want to follow either the [MacOS](/react-js-macos-setup/) or [Windows](/react-js-windows-setup/) setup before continuing with this tutorial. Afterward, continue with this tutorial to integrate Prettier into Visual Studio Code.*
 
 # How to install Prettier in VS Code
 

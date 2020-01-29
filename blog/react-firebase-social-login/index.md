@@ -235,7 +235,7 @@ In this scenario, every time a user signs in with Google, a new user with this s
 
 # Firebase Facebook Social Login
 
-Identical to the previous social login, enable the sign in method on your Firebase dashboard for Facebook. The Facebook social login expects an App ID and and App Secret. You can get these by [creating a new Facebook App with your Facebook Account for this Firebase in React application](https://www.robinwieruch.de/firebase-facebook-login). Afterward, you can find the App ID and App Secret for your new Facebook App.
+Identical to the previous social login, enable the sign in method on your Firebase dashboard for Facebook. The Facebook social login expects an App ID and and App Secret. You can get these by [creating a new Facebook App with your Facebook Account for this Firebase in React application](/firebase-facebook-login). Afterward, you can find the App ID and App Secret for your new Facebook App.
 
 Afterward, we are able to implement the social login in our code. In the Firebase class, add the Facebook Authentication Provider and the class method to sign in with Facebook by using the provider:
 
@@ -405,7 +405,7 @@ Again, every time a user signs in with Facebook, a new user with this stable id 
 
 # Firebase Twitter Social Login
 
-Identical to the previous social logins, enable the sign in method on your Firebase dashboard for Twitter. The Twitter social login expects an API key and API secret. You can get these by [creating a new Twitter App with your Twitter Account for this Firebase in React application](https://www.robinwieruch.de/firebase-twitter-login). Afterward, you can find the API key and API secret for your new Twitter App.
+Identical to the previous social logins, enable the sign in method on your Firebase dashboard for Twitter. The Twitter social login expects an API key and API secret. You can get these by [creating a new Twitter App with your Twitter Account for this Firebase in React application](/firebase-twitter-login). Afterward, you can find the API key and API secret for your new Twitter App.
 
 Now, we are able to implement the social login in our code. In the Firebase class, add the Twitter Authentication Provider and the class method to sign in with Twitter by using the provider:
 

@@ -12,9 +12,9 @@ author: ""
 
 <Sponsorship />
 
-**Recommended alternative: Instead of Mocha/Chai, [using Jest as test runner and assertion library for unit, integration and snapshot tests](https://www.robinwieruch.de/react-testing-jest).**
+**Recommended alternative: Instead of Mocha/Chai, [using Jest as test runner and assertion library for unit, integration and snapshot tests](/react-testing-jest).**
 
-Before setting up the test setup with different testing libraries and writing the React component tests, you will need a simple React application which can be tested in the first place. You will introduce a simple App component which can be tested in the following sections. If it's too difficult for you to follow the next parts of the React application, you should grab a copy of [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) to learn about React itself before testing a React application.
+Before setting up the test setup with different testing libraries and writing the React component tests, you will need a simple React application which can be tested in the first place. You will introduce a simple App component which can be tested in the following sections. If it's too difficult for you to follow the next parts of the React application, you should grab a copy of [The Road to learn React](/the-road-to-learn-react/) to learn about React itself before testing a React application.
 
 Let's start in the *src/index.js* file. Here you can import the App component which is not implemented yet and render it.
 
@@ -90,7 +90,7 @@ export default App;
 
 So far, hopefully everything should be clear on how this component works. If it's not clear, make sure to grab the ebook/course "The Road to learn React" after reading this tutorial.
 
-But that's not it for the use case application. Let's add a couple of more things for the sake of testing different parts of it in isolation later on. Since the `this.setState()` method is asynchronously executed, [it already uses a function instead of an object](https://www.robinwieruch.de/learn-react-before-using-redux/). That way, it can access the state when `this.setState()` is actually executed asynchronously. That's only one benefit of using the function over the object in `this.setState()`. In addition, it's also possible to extract it as standalone function which can be tested in isolation from the component later on.
+But that's not it for the use case application. Let's add a couple of more things for the sake of testing different parts of it in isolation later on. Since the `this.setState()` method is asynchronously executed, [it already uses a function instead of an object](/learn-react-before-using-redux/). That way, it can access the state when `this.setState()` is actually executed asynchronously. That's only one benefit of using the function over the object in `this.setState()`. In addition, it's also possible to extract it as standalone function which can be tested in isolation from the component later on.
 
 ```javascript{3,4,5,7,8,9,17,21}
 import React, { Component } from 'react';
@@ -419,7 +419,7 @@ it('renders the List wrapper with list elements', () => {
 });
 ```
 
-Depending on the passed props, you can check the rendered HTML elements by selecting them with [Enzyme's selectors](https://github.com/airbnb/enzyme/blob/master/docs/api/selector.md). This way, you can also check a [conditional rendering in React](https://www.robinwieruch.de/conditional-rendering-react/) by asserting the length of a selection to be either 0 or 1.
+Depending on the passed props, you can check the rendered HTML elements by selecting them with [Enzyme's selectors](https://github.com/airbnb/enzyme/blob/master/docs/api/selector.md). This way, you can also check a [conditional rendering in React](/conditional-rendering-react/) by asserting the length of a selection to be either 0 or 1.
 
 Shallow rendering tests with Enzyme can also be used for lightweight integration tests. For instance, whereas the last test checked only the rendered HTML tags, the next test asserts whether the correct props are passed to the next component.
 
@@ -507,7 +507,7 @@ What does it mean for the implementation of your tests? If you would want to use
 
 What about async tests in a React application? So far everything you have tested was synchronous. If you check again your App component, there is no need to test something that is executed asynchronously. Let's introduce a artificial scenario in your App component where some made up data is fetched in the `componentDidMount()` lifecycle method.
 
-Often it happens that a component requests data from a [third-party API](https://www.robinwieruch.de/what-is-an-api-javascript/) in the `componentDidMount()` lifecycle method. Because of it, it should be possible to test this asynchronous part in a React component as well. Let's pretend there is a pseudo API endpoint that returns an array of counters from an API. Of course, it will not work in your running application, because the API endpoint doesn't exist, but it should be there for the purpose of testing it. Afterward, you should be able to test your own third-party requests that happen in the `componentDidMount()` lifecycle method.
+Often it happens that a component requests data from a [third-party API](/what-is-an-api-javascript/) in the `componentDidMount()` lifecycle method. Because of it, it should be possible to test this asynchronous part in a React component as well. Let's pretend there is a pseudo API endpoint that returns an array of counters from an API. Of course, it will not work in your running application, because the API endpoint doesn't exist, but it should be there for the purpose of testing it. Afterward, you should be able to test your own third-party requests that happen in the `componentDidMount()` lifecycle method.
 
 In the following scenario, you will use axios to make the request to the third-party API. Therefore, you have to install the axios package with npm on the command line.
 
@@ -515,7 +515,7 @@ In the following scenario, you will use axios to make the request to the third-p
 npm install --save axios
 ```
 
-Afterward, you can make the request to a pseudo API endpoint. It's up to you to use a real API endpoint for this scenario. If you are not familiar on how to make request to third-party APIs in React components, checkout [this guide on data fetching in React](https://www.robinwieruch.de/react-fetching-data/).
+Afterward, you can make the request to a pseudo API endpoint. It's up to you to use a real API endpoint for this scenario. If you are not familiar on how to make request to third-party APIs in React components, checkout [this guide on data fetching in React](/react-fetching-data/).
 
 ```javascript{2,12,19,20,21,22,23}
 import React, { Component } from 'react';

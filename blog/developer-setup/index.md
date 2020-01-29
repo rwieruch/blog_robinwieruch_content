@@ -16,8 +16,8 @@ This concise cheatsheet will give you an overview on how to setup your developme
 
 The following short checklist reflects my own development environment as being a developer who operates on MacOS. There are different philosophies to shape your development setup. Whereas there are people who prefer to have everything in one [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment), there are also people who use several lightweight tools (e.g. editor, command line) but combine them for their purposes. Personally, I follow the latter philosophy. That's why you will find a bunch of lightweight tools in the following list. However, if you want to have a more thorough guide on how to setup your machine with a sophisticated IDE, head over to these guides. They are dedicated for a React setup, but you can simply leave out React.js from the equation and you have an up and running IDE after following one of these guides. Still, the list below might offer you a couple of useful tools to complement your IDE as well.
 
-* [React setup guide for Windows users](https://www.robinwieruch.de/react-js-windows-setup)
-* [React setup guide for MacOS users](https://www.robinwieruch.de/react-js-macos-setup)
+* [React setup guide for Windows users](/react-js-windows-setup)
+* [React setup guide for MacOS users](/react-js-macos-setup)
 
 What if you are not sure which philosophy to follow? If you are just beginning with web development, I encourage you to start out with an IDE which would mean you should follow one of the guides from above. There you get everything out of the box and don't need to worry about the tooling around your code. Once you become an intermediate developer, checkout the more lightweight approach below.
 
@@ -43,7 +43,7 @@ Git will be your distributed version control system. It manages your local proje
 brew install git
 ```
 
-Now you can setup a GitHub account to manage your projects (repositories) on [GitHub](https://github.com/). It will be your place to share, collaborate on and discuss about exciting projects. Therefore, follow the setup instructions from the [GitHub and Git Essentials](https://www.robinwieruch.de/git-essential-commands/) article. In addition, you may want to setup a SSH connection to GitHub. It allows you to connect to your remote repositories in a secure way. Therefore, follow the [instructions on GitHub](https://help.github.com/articles/generating-an-ssh-key/). Once you have an account on GitHub, you can make your first social connection on [GitHub by following me](https://github.com/rwieruch) there. I publish lots of educational projects to learn about web development which might be interesting for you.
+Now you can setup a GitHub account to manage your projects (repositories) on [GitHub](https://github.com/). It will be your place to share, collaborate on and discuss about exciting projects. Therefore, follow the setup instructions from the [GitHub and Git Essentials](/git-essential-commands/) article. In addition, you may want to setup a SSH connection to GitHub. It allows you to connect to your remote repositories in a secure way. Therefore, follow the [instructions on GitHub](https://help.github.com/articles/generating-an-ssh-key/). Once you have an account on GitHub, you can make your first social connection on [GitHub by following me](https://github.com/rwieruch) there. I publish lots of educational projects to learn about web development which might be interesting for you.
 
 # Sublime as Editor
 

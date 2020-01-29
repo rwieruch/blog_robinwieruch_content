@@ -139,7 +139,7 @@ Every time a JavaScript constructor is called to instantiate a new instance of a
 
 # JavaScript Naming Conventions: Component
 
-Components are not everywhere in JavaScript, but commonly found in frontend frameworks like [React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/). Since a component is kinda instantiated -- but appended to the DOM instead -- like a JavaScript class, they are widely declared with Pascal Case too.
+Components are not everywhere in JavaScript, but commonly found in frontend frameworks like [React](/javascript-fundamentals-react-requirements/). Since a component is kinda instantiated -- but appended to the DOM instead -- like a JavaScript class, they are widely declared with Pascal Case too.
 
 ```javascript{12}
 // bad
@@ -163,7 +163,7 @@ function UserProfile(user) {
 }
 ```
 
-When a component gets used, it distinguishes itself from native HTML and [web components](https://www.robinwieruch.de/web-components-tutorial), because its first letter is always written in uppercase.
+When a component gets used, it distinguishes itself from native HTML and [web components](/web-components-tutorial), because its first letter is always written in uppercase.
 
 ```javascript
 <div>
@@ -249,7 +249,7 @@ If a variable has more than one word in its variable declaration name, it makes 
 var DAYS_UNTIL_TOMORROW = 1;
 ```
 
-Usually JavaScript constants are defined at the top of a JavaScript file. As hinted before, no one enforces one to not change the variable here, except a [const declaration of the variable for primitive data structures](https://www.robinwieruch.de/const-let-var), but it's capitalized naming suggests avoiding it.
+Usually JavaScript constants are defined at the top of a JavaScript file. As hinted before, no one enforces one to not change the variable here, except a [const declaration of the variable for primitive data structures](/const-let-var), but it's capitalized naming suggests avoiding it.
 
 # JavaScript Naming Conventions: Global Variable
 
@@ -261,7 +261,7 @@ A JavaScript variable is globally defined, if all its context has access to it. 
 
 # JavaScript Naming Conventions: Underscore
 
-So what about the underscore and dash in JavaScript variable namings? Since camelCase and PascalCase are primarily considered in JS, you have seen that the underscore is only rarely used for private variables or constants. Occasionally you will find underscores when getting information from third-parties like databases or [APIs](https://www.robinwieruch.de/what-is-an-api-javascript/). Another scenario where you might see an underscore are unused function parameters, but don't worry about these yet if you haven't seen them out there ;-)
+So what about the underscore and dash in JavaScript variable namings? Since camelCase and PascalCase are primarily considered in JS, you have seen that the underscore is only rarely used for private variables or constants. Occasionally you will find underscores when getting information from third-parties like databases or [APIs](/what-is-an-api-javascript/). Another scenario where you might see an underscore are unused function parameters, but don't worry about these yet if you haven't seen them out there ;-)
 
 # JavaScript Naming Conventions: Dash
 
@@ -322,4 +322,4 @@ You will also see camelCase namings, but similar to PascalCase (sorry frontend a
 
 <Divider />
 
-If you want to learn more about JavaScript code style and formatting, which isn't discussed here for the sake of naming conventions, you should definitely check out [ESLint](https://www.robinwieruch.de/webpack-eslint/) and [Prettier](https://www.robinwieruch.de/how-to-use-prettier-vscode/) for JavaScript.
+If you want to learn more about JavaScript code style and formatting, which isn't discussed here for the sake of naming conventions, you should definitely check out [ESLint](/webpack-eslint/) and [Prettier](/how-to-use-prettier-vscode/) for JavaScript.

@@ -14,7 +14,7 @@ author: ""
 
 This is a tutorial for setting up PostgreSQL 11 on MacOS. You might be wondering why there's a need for another setup guide for Postgres in the first place, since there are a few across the web. I found many tutorials and guides on how to set it up, but found most of them to be unclear and outdated, based on old PostgreSQL versions. The checklist is not comprehensive, though, as it is used for several tutorials on my website, I keep it updated with the recent versions of PostgreSQL. If you spot any flaws in this guide, a comment below would be very helpful to keep it up to date for other developers.
 
-If you want to run PostgreSQL on Windows instead, you will find guidance over here: [How to setup PostgreSQL on Windows](https://www.robinwieruch.de/postgres-sql-windows-setup).
+If you want to run PostgreSQL on Windows instead, you will find guidance over here: [How to setup PostgreSQL on Windows](/postgres-sql-windows-setup).
 
 # PostgreSQL Installation on MacOS
 
@@ -24,7 +24,7 @@ I recommend [Homebrew](https://brew.sh/) for installing and managing application
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-The terminal runs through a series of installation operations, and will probably create folders in your local machine to accommodate Homebrews storage requirements. You can find more detailed instructions [here](https://www.robinwieruch.de/developer-setup/). After it's installed, update the Homebrew dependencies and install PostgreSQL on the command line:
+The terminal runs through a series of installation operations, and will probably create folders in your local machine to accommodate Homebrews storage requirements. You can find more detailed instructions [here](/developer-setup/). After it's installed, update the Homebrew dependencies and install PostgreSQL on the command line:
 
 ```javascript
 brew update

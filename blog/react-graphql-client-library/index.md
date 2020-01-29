@@ -28,7 +28,7 @@ Before diving into implementing your own GraphQL client for React, consider the 
 
 * A **GraphQL client** must be used. It can be any HTTP library or even the [native fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API), but it must be able to send HTTP methods with a payload across the wire. While the GraphQL specification isn't opinionated about the transportation layer, the GitHub GraphQL API you consume with a GraphQL client is using HTTP. Because we are using their API, our GraphQL client must be able to execute GraphQL operations using HTTP methods.
 
-* There must be a way to **provide the GraphQL client instance to the React view layer**. It is the perfect use for [React's Context API](https://www.robinwieruch.de/react-context/) to provide the GraphQL client instance at the top level of the React component tree, and to consume it in every React component interested in it.
+* There must be a way to **provide the GraphQL client instance to the React view layer**. It is the perfect use for [React's Context API](/react-context/) to provide the GraphQL client instance at the top level of the React component tree, and to consume it in every React component interested in it.
 
 * There must be a way to **execute GraphQL operations, like a query or a mutation, in a declarative way in React**. You will implement a Query component and a Mutation component that exposes an API to execute the GraphQL operations and to access its result. Because you are implementing these components, you won't touch the GraphQL client provided with React's Context API explicitly in your React components, but only in the Query and Mutation components.
 
@@ -176,7 +176,7 @@ ReactDOM.render(
 registerServiceWorker();
 ```
 
-Since you provided the GraphQL client instance to your React component tree, you can use the Consumer component from the context object to retrieve the client as a value. You can implement a [higher-order component (HOC)](https://www.robinwieruch.de/react-higher-order-components/) to make the GraphQL client instance accessible to React components using this HOC.
+Since you provided the GraphQL client instance to your React component tree, you can use the Consumer component from the context object to retrieve the client as a value. You can implement a [higher-order component (HOC)](/react-higher-order-components/) to make the GraphQL client instance accessible to React components using this HOC.
 
 ```javascript
 import React from 'react';
@@ -197,7 +197,7 @@ Rather than using the Consumer component directly in your React components, use 
 
 Now you are going to explore on how to execute GraphQL queries and mutations with your own GraphQL client instance. However, rather than using the client directly in your React components by using the `withClient()` HOC, which would be possible as well, you will implement two components, called Query and Mutation, which are performing the GraphQL operations in your component tree in a declarative way.
 
-Both the Query and Mutation component implement the [render props](https://www.robinwieruch.de/react-render-props/) pattern to pass information to the component using Query or Mutation component. The minimal implementation of the Query component could look like the following:
+Both the Query and Mutation component implement the [render props](/react-render-props/) pattern to pass information to the component using Query or Mutation component. The minimal implementation of the Query component could look like the following:
 
 ```javascript
 import React from 'react';

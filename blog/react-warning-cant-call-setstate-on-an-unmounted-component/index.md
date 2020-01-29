@@ -22,13 +22,13 @@ In general, warnings don't crash your application. But you should care about the
 
 The shown warning(s) usually show up when `this.setState()` is called in a component even though the component got already unmounted. The unmounting can happen for different cases:
 
-* You don't render a component anymore due to [React's conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/).
+* You don't render a component anymore due to [React's conditional rendering](/conditional-rendering-react/).
 
 * You navigate away from a component by using a library such as React Router.
 
 When not rendering the component anymore, it can still happen that `this.setState()` is called  if you have done asynchronous business logic in your component and updated the local state of the component afterward. The following cases are the most common causes:
 
-* You made an asynchronous request to an [API](https://www.robinwieruch.de/what-is-an-api-javascript/), the request (e.g. Promise) isn't resolved yet, but you unmount the component. Then the request resolves, `this.setState()` is called to set the new state, but it hits an unmounted component.
+* You made an asynchronous request to an [API](/what-is-an-api-javascript/), the request (e.g. Promise) isn't resolved yet, but you unmount the component. Then the request resolves, `this.setState()` is called to set the new state, but it hits an unmounted component.
 
 * You have a [listener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) in your component, but didn't remove it on `componentWillUnmount()`. Then the listener may be triggered when the component unmounted.
 
@@ -46,7 +46,7 @@ I encourage you as well to try out [this timer application](https://github.com/t
 
 You have seen how straight forward it can be to avoid the warning for intervals and listeners. It's just about preventing a callback function, the one in `setInterval` or `addEventListener`, to be called when the component is unmounted. Actually there is no excuse not doing it.
 
-But what about asynchronous requests in React components? It can happen that you [trigger an asynchronous request in your React component](https://www.robinwieruch.de/react-fetching-data/), which will call `this.setState()` eventually to set the result in the local state of the component. But what if the component has unmounted before. Then the warning will show up, because React cannot set the result in state when the component isn't there anymore.
+But what about asynchronous requests in React components? It can happen that you [trigger an asynchronous request in your React component](/react-fetching-data/), which will call `this.setState()` eventually to set the result in the local state of the component. But what if the component has unmounted before. Then the warning will show up, because React cannot set the result in state when the component isn't there anymore.
 
 ```javascript
 class News extends Component {

@@ -47,7 +47,7 @@ While building this application with me in the following sections, I recommend t
 
 # Apollo Server Setup with Express
 
-There are two ways to start out with this application. You can follow my guidance in [this minimal Node.js setup guide step by step](https://www.robinwieruch.de/minimal-node-js-babel-setup) or you can find a starter project in this [GitHub repository](https://github.com/rwieruch/node-babel-server) and follow its installation instructions.
+There are two ways to start out with this application. You can follow my guidance in [this minimal Node.js setup guide step by step](/minimal-node-js-babel-setup) or you can find a starter project in this [GitHub repository](https://github.com/rwieruch/node-babel-server) and follow its installation instructions.
 
 Apollo Server can be used with several popular libraries for Node.js like Express, Koa, Hapi. It is kept library agnostic, so it's possible to connect it with many different third-party libraries in client and server applications. In this application, you will use [Express](https://expressjs.com/), because it is the most popular and common middleware library for Node.js.
 
@@ -1337,7 +1337,7 @@ You now have a good starting point for a GraphQL server application with Node.js
 
 To create a full-stack GraphQL application, you'll need to introduce a sophisticated data source. Sample data is fluctuant, while a database gives persistent data. In this section, you'll set up PostgreSQL with Sequelize ([ORM](https://en.wikipedia.org/wiki/Object-relational_mapping)) for Apollo Server. [PostgreSQL](https://www.postgresql.org/) is a SQL database whereas an alternative would be the popular NoSQL database called [MongoDB](https://www.mongodb.com/) (with Mongoose as ORM). The choice of tech is always opinionated. You could choose MongoDB or any other SQL/NoSQL solution over PostgreSQL, but for the sake of this application, let's stick to PostgreSQL.
 
-This [setup guide](https://www.robinwieruch.de/postgres-express-setup-tutorial/) will walk you through the basic PostgreSQL setup, including installation, your first database, administrative database user setup, and essential commands. These are the things you should have accomplished after going through the instructions:
+This [setup guide](/postgres-express-setup-tutorial/) will walk you through the basic PostgreSQL setup, including installation, your first database, administrative database user setup, and essential commands. These are the things you should have accomplished after going through the instructions:
 
 * A running installation of PostgreSQL
 * A database super user with username and password
@@ -1424,7 +1424,7 @@ const sequelize = new Sequelize(
 export { sequelize };
 ```
 
-*Note: To access the environment variables in your source code, install and add the [dotenv package](https://github.com/motdotla/dotenv) as described in this [setup tutorial](https://www.robinwieruch.de/minimal-node-js-babel-setup/).*
+*Note: To access the environment variables in your source code, install and add the [dotenv package](https://github.com/motdotla/dotenv) as described in this [setup tutorial](/minimal-node-js-babel-setup/).*
 
 In the same file, you can physically associate all your models with each other to expose them to your application as data access layer (models) for the database.
 
@@ -2407,7 +2407,7 @@ The next section will teach you about authorization in GraphQL on the server-sid
 
 In the last section, you set up GraphQL mutations to enable authentication with the server. You can register a new user with bcrypt hashed passwords and you can login with your user's credentials. Both GraphQL mutations related to authentication return a token (JWT) that secures non-sensitive user information with a secret.
 
-The token, whether its obtained on registration or login, is returned to the client application after a successful GraphQL `signIn` or `signUp` mutation. The client application must store the token somewhere like [the browser's session storage](https://www.robinwieruch.de/local-storage-react). Every time a request is made to the GraphQL server, the token has to be attached to the HTTP header of the HTTP request. The GraphQL server can then validate the HTTP header, verify its authenticity, and perform a request like a GraphQL operation. If the token is invalid, the GraphQL server must return an error for the GraphQL client. If the client still has a token locally stored, it should remove the token and redirect the user to the login page.
+The token, whether its obtained on registration or login, is returned to the client application after a successful GraphQL `signIn` or `signUp` mutation. The client application must store the token somewhere like [the browser's session storage](/local-storage-react). Every time a request is made to the GraphQL server, the token has to be attached to the HTTP header of the HTTP request. The GraphQL server can then validate the HTTP header, verify its authenticity, and perform a request like a GraphQL operation. If the token is invalid, the GraphQL server must return an error for the GraphQL client. If the client still has a token locally stored, it should remove the token and redirect the user to the login page.
 
 Now we just need to perform the server part of the equation. Let's do it in the *src/index.js* file by adding a global authorization that verifies the incoming token before the request hits the GraphQL resolvers.
 
@@ -4624,7 +4624,7 @@ This section guides you through the process in the command line. For the visual 
 
 Initially you need to complete three requirements to use Heroku:
 
-* [Install git for your command line and push your project to GitHub](https://www.robinwieruch.de/git-essential-commands/)
+* [Install git for your command line and push your project to GitHub](/git-essential-commands/)
 * Create an account for [Heroku](https://www.heroku.com/)
 * Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) for accessing Heroku's features on the command line
 

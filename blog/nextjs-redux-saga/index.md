@@ -73,7 +73,7 @@ const HomePage = () =>
 export default HomePage;
 ```
 
-Now, instead of using the `Provider` component, you can use the `withRedux` higher order component to inject the store initialization functionality. If you are not familiar with React's higher order components, you can read [this introduction](https://www.robinwieruch.de/react-higher-order-components/).
+Now, instead of using the `Provider` component, you can use the `withRedux` higher order component to inject the store initialization functionality. If you are not familiar with React's higher order components, you can read [this introduction](/react-higher-order-components/).
 
 ```javascript
 import withRedux from 'next-redux-wrapper';

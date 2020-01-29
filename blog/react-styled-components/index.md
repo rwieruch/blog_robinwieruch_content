@@ -82,7 +82,7 @@ In the code block above, the `Button` variable created here is a React component
 
 As you can see, Styled Components allows you to write CSS just the way you'd write in your normal `style.css` document and even use pseudo-selectors like `:hover`.
 
-Because React apps work a lot with state, Styled Components also allows you to dynamically set CSS properties [using props](https://www.robinwieruch.de/react-pass-props-to-component/). You can pass a function to your style declarations, with one parameter, being the component’s `prop` value. You can then use `props` to adjust your styling as seen the `Button` example below:
+Because React apps work a lot with state, Styled Components also allows you to dynamically set CSS properties [using props](/react-pass-props-to-component/). You can pass a function to your style declarations, with one parameter, being the component’s `prop` value. You can then use `props` to adjust your styling as seen the `Button` example below:
 
 ```javascript{9,10,11,18,19}
 import React from 'react';

@@ -77,7 +77,7 @@ If you are not familiar with MobX, I recommend [Taming the State in React](http:
 
 # MobX Setup in React Firebase Application
 
-First, follow this [short guide to enable decorators in create-react-app](https://www.robinwieruch.de/create-react-app-mobx-decorators/). You can also take the alternative way of not using decorators, to avoid the eject process, but this tutorial only reflects the usage **with decorators**. After you went through the MobX setup tutorial, you should have installed [mobx](https://mobx.js.org/) and [mobx-react](https://github.com/mobxjs/mobx-react).
+First, follow this [short guide to enable decorators in create-react-app](/create-react-app-mobx-decorators/). You can also take the alternative way of not using decorators, to avoid the eject process, but this tutorial only reflects the usage **with decorators**. After you went through the MobX setup tutorial, you should have installed [mobx](https://mobx.js.org/) and [mobx-react](https://github.com/mobxjs/mobx-react).
 
 For this run through, we focus on the MobX setup without worrying about Firebase or React. First, you need the MobX stores, so we create a folder with files. From your *src/* folder type:
 

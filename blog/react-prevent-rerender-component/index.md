@@ -45,7 +45,7 @@ const Item = styled.div`
 export default App;
 ```
 
-If you have not styled-components installed yet, you can add it as library via npm with `npm install styled-components`. Otherwise, as you can see, the application generates a list of numbers once and renders them as a list of items. Each item is the square of its number which is [passed as prop](https://www.robinwieruch.de/react-pass-props-to-component/) to the Square component.
+If you have not styled-components installed yet, you can add it as library via npm with `npm install styled-components`. Otherwise, as you can see, the application generates a list of numbers once and renders them as a list of items. Each item is the square of its number which is [passed as prop](/react-pass-props-to-component/) to the Square component.
 
 In the next step, let's add an interactive element to our application. Next to the list of squares, there should be a button to toggle the perspective of the list.
 
@@ -194,7 +194,7 @@ As you can see by looking at the console logs after clicking the button, every c
 
 # React's shouldComponentUpdate Method
 
-The first solution used to prevent a component from rendering in React is called shouldComponentUpdate. It is a lifecycle method which is available on [React class components](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/). Instead of having Square as a functional stateless component as before:
+The first solution used to prevent a component from rendering in React is called shouldComponentUpdate. It is a lifecycle method which is available on [React class components](/javascript-fundamentals-react-requirements/). Instead of having Square as a functional stateless component as before:
 
 ```javascript
 const Square = ({ number }) => <Item>{number * number}</Item>;
@@ -252,7 +252,7 @@ class Square extends PureComponent {
 
 React's PureComponent does a shallow compare on the component's props and state. If nothing has changed, it prevents the rerender of the component. If something has changed, it rerenders the component.
 
-As alternative, if you want to use a functional stateless component as PureComponent instead, use recompose's pure [higher-order component](https://www.robinwieruch.de/react-higher-order-components/). You can install [recompose](https://github.com/acdlite/recompose) on the command line via npm with `npm install recompose`. Then apply its higher-order component on your initially implemented Square component:
+As alternative, if you want to use a functional stateless component as PureComponent instead, use recompose's pure [higher-order component](/react-higher-order-components/). You can install [recompose](https://github.com/acdlite/recompose) on the command line via npm with `npm install recompose`. Then apply its higher-order component on your initially implemented Square component:
 
 ```javascript{1,5}
 import { pure } from 'recompose';

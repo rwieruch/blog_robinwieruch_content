@@ -52,9 +52,9 @@ There are many [testimonials](https://roadtoreact.com/), [ratings](https://www.g
 
 **How can I get help while reading the book?** The book has a [Slack Group](https://slack-the-road-to-learn-react.wieruch.com/) for people who are reading along. You can join the channel to get help, or to help others, as helping others may help you internalize your own understanding. If there is no one available to help you, you can always reach out to me.
 
-**Why is the book pay what you want?** I have put a lot of effort into this and will do so in the future. My desire is to reach as many people as possible. Everyone should be enabled to learn React. Still you could pay, if you can afford it. In addition, the [book attempts to support projects that educate children in the developing world](https://www.robinwieruch.de/giving-back-by-learning-react/). You can have an impact too.
+**Why is the book pay what you want?** I have put a lot of effort into this and will do so in the future. My desire is to reach as many people as possible. Everyone should be enabled to learn React. Still you could pay, if you can afford it. In addition, the [book attempts to support projects that educate children in the developing world](/giving-back-by-learning-react/). You can have an impact too.
 
-**How to support the project?** If you believe in the content I create, you can [support me](https://www.robinwieruch.de/about/). It also helps if you spread the word about this book, or you can sign on as my [Patron on Patreon](https://www.patreon.com/rwieruch).
+**How to support the project?** If you believe in the content I create, you can [support me](/about/). It also helps if you spread the word about this book, or you can sign on as my [Patron on Patreon](https://www.patreon.com/rwieruch).
 
 **Is there a call to action?** Yes. I want you to take a moment to think about a person who would be a good match to learn React. The person could have shown the interest already, could be in the middle of learning React or might not yet be aware about wanting to learn React. Reach out to that person and share the book. It would mean a lot to me. The book is intended to be given to others.
 
@@ -62,7 +62,7 @@ There are many [testimonials](https://roadtoreact.com/), [ratings](https://www.g
 
 The book should enable everyone to learn React. However, not everyone has access to the required resources, because not everyone is educated in the English language. I want to use this project to support other projects that teach children English in the developing world.
 
-* 11. April to 18. April, 2017, [Giving Back, By Learning React](https://www.robinwieruch.de/giving-back-by-learning-react/)
+* 11. April to 18. April, 2017, [Giving Back, By Learning React](/giving-back-by-learning-react/)
 
 # Book Changelog
 
@@ -191,11 +191,11 @@ I keep the learning material up to date to the recent changes in the React ecosy
 
 My recommended learning paths (extracted from the book) after you have read it:
 
-* **Connecting to a Database and/or Authentication:** In a growing React application, you may want to persist data eventually. The data should be stored in a database so it can survive after a browser session, and so it can be shared across different users using your application. The simplest way to introduce a database is Firebase. In [this tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/), you will find a step-by-step guide on how to use Firebase authentication in React. Beyond that, you can use Firebase's realtime database to store user entities.
+* **Connecting to a Database and/or Authentication:** In a growing React application, you may want to persist data eventually. The data should be stored in a database so it can survive after a browser session, and so it can be shared across different users using your application. The simplest way to introduce a database is Firebase. In [this tutorial](/complete-firebase-authentication-react-tutorial/), you will find a step-by-step guide on how to use Firebase authentication in React. Beyond that, you can use Firebase's realtime database to store user entities.
 
-* **State Management:** You have used React `this.setState()` and `this.state` to manage and access local component state. That's a good start. In a larger application, however, you will experience the [limits of React's local component state](https://www.robinwieruch.de/learn-react-before-using-redux/). It is imperative you learn to use third-party state management libraries like [Redux or MobX](https://www.robinwieruch.de/redux-mobx/). On the [Road to React](https://roadtoreact.com/) platform, you will find the course "Taming the State in React" that teaches about advanced local state management using Redux and MobX. The course comes with an ebook as well, but I recommend you dive into the source code and screencasts too.
+* **State Management:** You have used React `this.setState()` and `this.state` to manage and access local component state. That's a good start. In a larger application, however, you will experience the [limits of React's local component state](/learn-react-before-using-redux/). It is imperative you learn to use third-party state management libraries like [Redux or MobX](/redux-mobx/). On the [Road to React](https://roadtoreact.com/) platform, you will find the course "Taming the State in React" that teaches about advanced local state management using Redux and MobX. The course comes with an ebook as well, but I recommend you dive into the source code and screencasts too.
 
-* **Tooling with Webpack and Babel:** We used *create-react-app* to set up the application we created for this book. At some point you may want to learn the tooling around it, which enables you to setup your own project without *create-react-app*. I recommend a minimal setup with [Webpack and Babel](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/), after which you can apply additional tooling on your own. For instance, you could [use ESLint](https://www.robinwieruch.de/react-eslint-webpack-babel/) to follow a unified code style.
+* **Tooling with Webpack and Babel:** We used *create-react-app* to set up the application we created for this book. At some point you may want to learn the tooling around it, which enables you to setup your own project without *create-react-app*. I recommend a minimal setup with [Webpack and Babel](/minimal-react-webpack-babel-setup/), after which you can apply additional tooling on your own. For instance, you could [use ESLint](/react-eslint-webpack-babel/) to follow a unified code style.
 
 * **Code Organization:** Recall if you will the chapter about code organization. You can apply these changes now, if you haven't already. It will help organize your components in structured files and folders (modules), and it will help you understand the principles of code splitting, reusability, maintainability, and module API design. Your applications will eventually grow and need to be structured into modules, so it's better to start now.
 

@@ -14,7 +14,7 @@ author: ""
 
 Even though I have written a book about Redux in React, it may be too heavy on the subject for someone who wants only to try out a React Redux tutorial. That's why I extracted this chapter from my book to be read as a tutorial for beginners on my website for free to learn the basics about Redux and Redux in React. And who knows, if you want to dig deeper into the topic, you can still try out my book about Redux in React called [Taming the State in React](https://roadtoreact.com) to learn more advanced techniques, best practices and enhancing libraries for Redux. Not all topics are explained greatest detail here, so I encourage you to give the book a shot afterward.
 
-If you are a React beginner, I highly recommend you to get yourself comfortable with React in the first place. In this tutorial, we will use Redux for state management instead of React's local state management even though the latter may be a better choice for this simple application. If you are looking for something to get yourself started in React, checkout [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). Grab your free PDF, EPUB, or MOBI and get started learning React first. The application we are going to build in this tutorial is similar to the application from the React book, but this time it uses Redux instead of React's local state management. It's great to see both applications in contrast though. If you want to test yourself whether you are ready for Redux or not, read up [all the things you should know about React's local state management before using Redux](https://www.robinwieruch.de/learn-react-before-using-redux/).
+If you are a React beginner, I highly recommend you to get yourself comfortable with React in the first place. In this tutorial, we will use Redux for state management instead of React's local state management even though the latter may be a better choice for this simple application. If you are looking for something to get yourself started in React, checkout [The Road to learn React](/the-road-to-learn-react/). Grab your free PDF, EPUB, or MOBI and get started learning React first. The application we are going to build in this tutorial is similar to the application from the React book, but this time it uses Redux instead of React's local state management. It's great to see both applications in contrast though. If you want to test yourself whether you are ready for Redux or not, read up [all the things you should know about React's local state management before using Redux](/learn-react-before-using-redux/).
 
 # Table of Contents
 
@@ -33,15 +33,15 @@ There are many people looking for a tutorial with another complementary solution
 
 My recommendations on how to learn these other solutions on top of React Redux:
 
-* **React, Redux & Webpack**: In this tutorial, you will use create-react-app to setup your React application. It leaves out all the tooling (Webpack, Babel, ...) to keep you focused on Redux in React. If you want to learn how to use Webpack in React Redux applications, checkout this [React + Webpack + Babel Setup Tutorial](https://www.robinwieruch.de/minimal-react-webpack-babel-setup) instead. In that tutorial, you will set up a minimal React application with Webpack. Afterward, you should be able to transfer the source code from this React Redux tutorial to your minimal React with Webpack starter kit project. Then you have a React Redux Webpack example application up and running.
+* **React, Redux & Webpack**: In this tutorial, you will use create-react-app to setup your React application. It leaves out all the tooling (Webpack, Babel, ...) to keep you focused on Redux in React. If you want to learn how to use Webpack in React Redux applications, checkout this [React + Webpack + Babel Setup Tutorial](/minimal-react-webpack-babel-setup) instead. In that tutorial, you will set up a minimal React application with Webpack. Afterward, you should be able to transfer the source code from this React Redux tutorial to your minimal React with Webpack starter kit project. Then you have a React Redux Webpack example application up and running.
 
 * **React, Redux & TypeScript**: In this tutorial, you will use JavaScript with a couple of features from future ECMAScript versions. You will not use TypeScript. However, you can head over to the [official TypeScript website](https://www.typescriptlang.org/) to learn more about it. Build a small project with it and then apply your learning in this React Redux tutorial by refactoring your project to TypeScript. Then you have a React Redux TypeScript example application up and running.
 
-* **React, Redux & React Router**: In this tutorial, you will only implement a couple of components. Thus there is no client-side navigation from URL to URL involved. However, at some point you may want to add navigation to your project. Then you can head over to this [React Firebase tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/) which teaches you React Router on the side. Even though the main focus lies in implementing authentication and authorization in React (with Redux) by using Firebase, you will learn about the navigation with React Router too. Afterward, you can come back to this React Redux tutorial and add React Router on top of it. Then you have a React Redux React Router example application up and running.
+* **React, Redux & React Router**: In this tutorial, you will only implement a couple of components. Thus there is no client-side navigation from URL to URL involved. However, at some point you may want to add navigation to your project. Then you can head over to this [React Firebase tutorial](/complete-firebase-authentication-react-tutorial/) which teaches you React Router on the side. Even though the main focus lies in implementing authentication and authorization in React (with Redux) by using Firebase, you will learn about the navigation with React Router too. Afterward, you can come back to this React Redux tutorial and add React Router on top of it. Then you have a React Redux React Router example application up and running.
 
-* **React, Redux & Firebase**: You will not use a database in this React Redux tutorial. When people ask me about persisting data in React (with Redux) applications, my initial recommendation for them is to checkout Firebase. Same as for the React Redux Router recommendation, head over to this [React with Firebase (and Redux) tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/). It will teach you how to setup Firebase in your React application, how to use it with basic React but also React and Redux, and how to implement a registration, login, and logout with React Redux and Firebase.
+* **React, Redux & Firebase**: You will not use a database in this React Redux tutorial. When people ask me about persisting data in React (with Redux) applications, my initial recommendation for them is to checkout Firebase. Same as for the React Redux Router recommendation, head over to this [React with Firebase (and Redux) tutorial](/complete-firebase-authentication-react-tutorial/). It will teach you how to setup Firebase in your React application, how to use it with basic React but also React and Redux, and how to implement a registration, login, and logout with React Redux and Firebase.
 
-* **React Redux & GraphQL**: Adding GraphQL to your application, and thus a GraphQL client library (e.g. Apollo Client) to React, is another level of abstraction on top of it. If you want to learn more about GraphQL, head over to this [React GraphQL tutorial](https://www.robinwieruch.de/react-with-graphql-tutorial/). You will learn how to use GraphQL with HTTP and Apollo Client in a React application. Afterward, this [quick tutorial series](https://www.robinwieruch.de/react-redux-apollo-client-state-management-tutorial/) may be useful to learn about combining GraphQL and Redux in your React application.
+* **React Redux & GraphQL**: Adding GraphQL to your application, and thus a GraphQL client library (e.g. Apollo Client) to React, is another level of abstraction on top of it. If you want to learn more about GraphQL, head over to this [React GraphQL tutorial](/react-with-graphql-tutorial/). You will learn how to use GraphQL with HTTP and Apollo Client in a React application. Afterward, this [quick tutorial series](/react-redux-apollo-client-state-management-tutorial/) may be useful to learn about combining GraphQL and Redux in your React application.
 
 As you have seen, there are many third-party solutions that you may want to use with React and Redux. My biggest advice on this: Do it step by step. With each of the referenced tutorials, you take another step. In the end, you should be able to combine any other solution, be it TypeScript or GraphQL, with React and Redux.
 
@@ -348,7 +348,7 @@ In the next tutorial, you will learn how to to connect the Redux state layer to 
 
 # The React Redux Project
 
-In the following sections of this tutorial, you will be guided to build your own [Hacker News](https://news.ycombinator.com/) application with React and Redux. Hacker News is a platform to share tech related news. It provides a [public API](https://hn.algolia.com/api) to retrieve their data. Some of you might have read [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) where you have built a Hacker News application as well. In that book, it was only basic React. Now you can experience the differences when using Redux with React in this tutorial.
+In the following sections of this tutorial, you will be guided to build your own [Hacker News](https://news.ycombinator.com/) application with React and Redux. Hacker News is a platform to share tech related news. It provides a [public API](https://hn.algolia.com/api) to retrieve their data. Some of you might have read [the Road to learn React](/the-road-to-learn-react/) where you have built a Hacker News application as well. In that book, it was only basic React. Now you can experience the differences when using Redux with React in this tutorial.
 
 You have two options to start this tutorial:
 
@@ -436,7 +436,7 @@ Now you have your foundation of folders and files for your React and Redux appli
 
 # Basic React Components
 
-In this section you will implement your plain React component architecture that only [receives all necessary props from their parent components](https://www.robinwieruch.de/react-pass-props-to-component/). These props can include callback functions that will enable interactions later on. The point is that the props don't reveal where they are coming from. They could be props themselves that are located in the parent component, state from the local state in the parent component, or even Redux state. The callback functions are just functions too. Thus the components receiving them are not aware of using class methods operating on the local state of a parent component or Redux actions to alter the global state.
+In this section you will implement your plain React component architecture that only [receives all necessary props from their parent components](/react-pass-props-to-component/). These props can include callback functions that will enable interactions later on. The point is that the props don't reveal where they are coming from. They could be props themselves that are located in the parent component, state from the local state in the parent component, or even Redux state. The callback functions are just functions too. Thus the components receiving them are not aware of using class methods operating on the local state of a parent component or Redux actions to alter the global state.
 
 In your entry point to React, the *src/index.js* file, where your React component gets rendered into the DOM, adjust the import of the App component by including the components folder in the path.
 
@@ -496,7 +496,7 @@ const App = ({ stories }) =>
 export default App;
 ```
 
-Second, the Stories component in the *src/components/Stories.js* file, receives the `stories` as props and renders for each story a Story component. You may want to [default to an empty array](https://www.robinwieruch.de/react-state-array-add-update-remove/) that the Stories component doesn't crash when the list of stories is null.
+Second, the Stories component in the *src/components/Stories.js* file, receives the `stories` as props and renders for each story a Story component. You may want to [default to an empty array](/react-state-array-add-update-remove/) that the Stories component doesn't crash when the list of stories is null.
 
 ```javascript
 import React from 'react';
@@ -1327,7 +1327,7 @@ Let's change this by using the [react-redux](https://github.com/reactjs/react-re
 npm install --save react-redux
 ```
 
-You can use the `Provider` component, which makes the Redux store available to all React components below (by using [React's context API](https://www.robinwieruch.de/react-context/)), in your React root file.
+You can use the `Provider` component, which makes the Redux store available to all React components below (by using [React's context API](/react-context/)), in your React root file.
 
 ```javascript{3,8,9,10,11,12,13}
 import React from 'react';
@@ -1369,7 +1369,7 @@ But who passes the props to the Stories component then? It's the first component
 export default Stories;
 ```
 
-You can export the connected component with the `connect` [higher-order component](https://www.robinwieruch.de/react-higher-order-components/) that has implicit access to the Redux store by having the global state and the dispatch method from the store at its disposal:
+You can export the connected component with the `connect` [higher-order component](/react-higher-order-components/) that has implicit access to the Redux store by having the global state and the dispatch method from the store at its disposal:
 
 ```javascript{1,2,3,7,8,9,10,11,12,13,14,15,16,17,18}
 import { connect } from 'react-redux';
@@ -1871,7 +1871,7 @@ export {
 };
 ```
 
-Last but not least, in your component in the *src/components/Stories.js* file you can retrieve the error object in your connect higher-order component and display with React's [conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/) an error message in case of an error in the state.
+Last but not least, in your component in the *src/components/Stories.js* file you can retrieve the error object in your connect higher-order component and display with React's [conditional rendering](/conditional-rendering-react/) an error message in case of an error in the state.
 
 ```javascript{2,3,4,5,9,13,24}
 ...
@@ -2032,9 +2032,9 @@ The project went through all the vertical subjects Redux offers to build a sophi
 
 * React Router: Similar to the previous step, using a toggle to show archived and readable stories, you could add a view layer Router to display these different stories on two routes. It could be React Router when using React as your view layer. All of this is possible, because fortunately you don't delete stories when archiving them from your Redux store, but keep a list of archived stories in a separate substate.
 
-* Paginated Data: The response from the Hacker News API doesn't only return the list of stories. It returns a paginated list of stories with a page property. You could use the page property to fetch more stories with the same search term. The list component in React could be a [paginated list](https://www.robinwieruch.de/react-paginated-list/) or [infinite scroll list](https://www.robinwieruch.de/react-infinite-scroll/).
+* Paginated Data: The response from the Hacker News API doesn't only return the list of stories. It returns a paginated list of stories with a page property. You could use the page property to fetch more stories with the same search term. The list component in React could be a [paginated list](/react-paginated-list/) or [infinite scroll list](/react-infinite-scroll/).
 
-* Caching: You could cache the incoming data from the Hacker News API in your Redux store. It could be cached by search term. When you search for a search term twice, the Redux store could be used, when a result by search term is already in place. Otherwise a request to the Hacker News API would be made. In [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) readers create a cache in React's local state. However, the same can be done in a Redux store.
+* Caching: You could cache the incoming data from the Hacker News API in your Redux store. It could be cached by search term. When you search for a search term twice, the Redux store could be used, when a result by search term is already in place. Otherwise a request to the Hacker News API would be made. In [the Road to learn React](/the-road-to-learn-react/) readers create a cache in React's local state. However, the same can be done in a Redux store.
 
 * Local Storage: You already keep track of your archived stories in the Redux store. You could introduce the native local storage of the browser, as you have seen in the plain React chapters, to keep this state persistent. When a user loads the application, there could be a lookup in the local storage for archived stories. If there are archived stories, they could be rehydrated into the Redux store. When a story gets archived, it would be dehydrated into the local storage too. That way you would keep the list of archived stories in your Redux store and local storage in sync, but would add a persistent layer to it when an user closes your application and comes back later to it.
 

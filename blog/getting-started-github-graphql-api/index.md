@@ -48,7 +48,7 @@ In this chapter, I hope to cover everything you need to get started with GitHub'
 
 # Feeding the API with Data on GitHub
 
-If you don't have an account on GitHub yet, and don't know much about its ecosystem, follow [this official GitHub Learning Lab](https://lab.github.com/). If you want to dive deeper into Git and its essential commands, check out [this guide](https://www.robinwieruch.de/git-essential-commands/) about it. This might come in handy if you decide to share projects with others on GitHub in the future. It is a good way to showcase a development portfolio to potential clients or hiring companies.
+If you don't have an account on GitHub yet, and don't know much about its ecosystem, follow [this official GitHub Learning Lab](https://lab.github.com/). If you want to dive deeper into Git and its essential commands, check out [this guide](/git-essential-commands/) about it. This might come in handy if you decide to share projects with others on GitHub in the future. It is a good way to showcase a development portfolio to potential clients or hiring companies.
 
 For our interactions with GitHub's GraphQL API, you will use your own account with information to read/write from/to this data. Before that, complete your GitHub profile by providing additional information so you can recognize it later when it is read by the API.
 

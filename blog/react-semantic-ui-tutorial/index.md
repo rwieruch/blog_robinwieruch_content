@@ -50,7 +50,7 @@ In this tutorial, we'll explore how to use Semantic UI in a React application by
 
 ![react semantic ui login](./images/react-login.png)
 
-The final application can be found here: [React with Semantic UI](https://github.com/the-road-to-learn-react/react-semantic-ui-example). We'll start by creating a React app using the [create-react-app](https://github.com/facebook/create-react-app) utility which enables developers to easily create React apps with zero build config. If you haven't heard about it, checkout the [MacOS](https://www.robinwieruch.de/react-js-macos-setup/) or [Windows](https://www.robinwieruch.de/react-js-windows-setup/) setup guide. Otherwise, create your application with it on the command line:
+The final application can be found here: [React with Semantic UI](https://github.com/the-road-to-learn-react/react-semantic-ui-example). We'll start by creating a React app using the [create-react-app](https://github.com/facebook/create-react-app) utility which enables developers to easily create React apps with zero build config. If you haven't heard about it, checkout the [MacOS](/react-js-macos-setup/) or [Windows](/react-js-windows-setup/) setup guide. Otherwise, create your application with it on the command line:
 
 ```javascript
 npx create-react-app react-semantic-ui-app

@@ -12,19 +12,19 @@ author: ""
 
 <Sponsorship />
 
-There are a ton of tutorials about the implementation of applications in React. Most of the time, they use basic components to teach the fundamentals of React, because, to be fair, everything else is hard to cover in one tutorial. Only a handful of [long written content](https://www.robinwieruch.de/the-road-to-learn-react/) will take you on the journey to build more powerful components. I want to take you on this journey, after you have learned the fundamentals in React, to build a powerful component in a series of three tutorials.
+There are a ton of tutorials about the implementation of applications in React. Most of the time, they use basic components to teach the fundamentals of React, because, to be fair, everything else is hard to cover in one tutorial. Only a handful of [long written content](/the-road-to-learn-react/) will take you on the journey to build more powerful components. I want to take you on this journey, after you have learned the fundamentals in React, to build a powerful component in a series of three tutorials.
 
 **But what are you going to build in this series?**
 
 Have you ever been confused how to deal with paginated data in React? Ever wondered how to implement an infinite scroll in React? This walkthrough gives you all the tools you need to implement both features. The first part of the series covers the paginated List component in React. The second part of the series covers infinite scroll in React. Both parts will conclude in the third part of the series into one advanced List component in React that composes functionalities into each other, introduces error handling and fallbacks to those errors.
 
-The series uses several basic and advanced features of React. During the series you will use higher order components and compose multiple higher order components onto one base component. The state is managed locally in your React components. You will use a [real world API](https://www.robinwieruch.de/what-is-an-api-javascript/), the API of Hacker News to be more specific, to experiment outside of your own sandbox and use real world data. Otherwise it would be boring, wouldn't it?
+The series uses several basic and advanced features of React. During the series you will use higher order components and compose multiple higher order components onto one base component. The state is managed locally in your React components. You will use a [real world API](/what-is-an-api-javascript/), the API of Hacker News to be more specific, to experiment outside of your own sandbox and use real world data. Otherwise it would be boring, wouldn't it?
 
-If you are not familiar with these features of React, I can recommend to read the open source book [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) where you will learn about the fundamentals of React. All the knowledge acquired in the book will be used as common ground for the next three parts of this series.
+If you are not familiar with these features of React, I can recommend to read the open source book [the Road to learn React](/the-road-to-learn-react/) where you will learn about the fundamentals of React. All the knowledge acquired in the book will be used as common ground for the next three parts of this series.
 
 * **Paginated List in React - Build a powerful Component (Part I)**
-* [Infinite Scroll in React - Build a powerful Component (Part II)](https://www.robinwieruch.de/react-infinite-scroll)
-* [Advanced List in React - Build a powerful Component (Part III)](https://www.robinwieruch.de/react-advanced-list-component)
+* [Infinite Scroll in React - Build a powerful Component (Part II)](/react-infinite-scroll)
+* [Advanced List in React - Build a powerful Component (Part III)](/react-advanced-list-component)
 
 # The initial React Hacker News Setup
 
@@ -188,11 +188,11 @@ The initial state of the App component, initialized in the constructor, shows th
 
 **What's a paginated list?** Essentially it means that you don't get the whole search result returned as list, but a subset of this list. The list on the Hacker News platform might be too big to return it in one single request, that's why applications use pagination in the first place. But that's not everything. It is not only the subset list of the whole list, but a complex object. Next to the subset list you have a page property in the paginated list object. It is the pointer for the subset list in the whole list. By using the page as pointer, you can decide which subset list of the whole list you want to retrieve from the Hacker News API.
 
-Let's get back to the application. The functionalities of the application basically showcase the unidirectional data flow of a React application. A user makes a search request by [using a form](https://www.robinwieruch.de/react-ref-attribute-dom-node/"), the state (list, page) gets stored asynchronously in the App component and shows up in the next render cycle of the App component. The List components, that uses a [conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/), shows up.
+Let's get back to the application. The functionalities of the application basically showcase the unidirectional data flow of a React application. A user makes a search request by [using a form](/react-ref-attribute-dom-node/"), the state (list, page) gets stored asynchronously in the App component and shows up in the next render cycle of the App component. The List components, that uses a [conditional rendering](/conditional-rendering-react/), shows up.
 
-Apart from the unidirectional data flow, the application uses JavaScript ES6 features, such as arrow functions and spread operators, along the way to store efficiently the local state. In addition, the native fetch API of the browser is used. You could easily substitute it with another building block to complement React. [That's what makes React so powerful](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/) in the first place.
+Apart from the unidirectional data flow, the application uses JavaScript ES6 features, such as arrow functions and spread operators, along the way to store efficiently the local state. In addition, the native fetch API of the browser is used. You could easily substitute it with another building block to complement React. [That's what makes React so powerful](/reasons-why-i-moved-from-angular-to-react/) in the first place.
 
-Again, if you find it troublesome to follow the initial setup, I can recommend you to read the open source book, that is concisely written, that teaches you about all [the fundamentals in React, yet also JavaScript ES6](https://www.robinwieruch.de/the-road-to-learn-react/). This series of articles is actually recommended as learning resource in the book after you have read it.
+Again, if you find it troublesome to follow the initial setup, I can recommend you to read the open source book, that is concisely written, that teaches you about all [the fundamentals in React, yet also JavaScript ES6](/the-road-to-learn-react/). This series of articles is actually recommended as learning resource in the book after you have read it.
 
 # Paginated List in React
 
@@ -403,7 +403,7 @@ Now, your user should see some feedback once a request is pending. However, your
 
 # A paginated List as Higher Order Component in React
 
-If you are not familiar to higher order components, I recommend to read [the gentle introduction to higher order components](https://www.robinwieruch.de/react-higher-order-components/). It gives not only an introduction, but shows how you can make an elegant use of composition to opt-in functionalities.
+If you are not familiar to higher order components, I recommend to read [the gentle introduction to higher order components](/react-higher-order-components/). It gives not only an introduction, but shows how you can make an elegant use of composition to opt-in functionalities.
 
 Now, after the foundations about HOCs are clear, let's outsource both functionalities of the List component and make it only render a list. The loading indicator and More button can be opt-in by using HOCs later on.
 
@@ -537,5 +537,5 @@ By using higher order components, you can opt-in and opt-out functionalities on 
 
 Your App component already renders a powerful React List component by now. While the List component only deals with the responsibility to render a list of items, the HOCs opt-in additional functionalities.
 
-You can continue with the second part of the React tutorial series: [Infinite Scroll in React - Build a powerful Component (Part II)](https://www.robinwieruch.de/react-infinite-scroll).
+You can continue with the second part of the React tutorial series: [Infinite Scroll in React - Build a powerful Component (Part II)](/react-infinite-scroll).
 

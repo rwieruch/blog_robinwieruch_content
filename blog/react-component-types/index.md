@@ -170,7 +170,7 @@ However, Mixins are not used anymore in modern React applications, because they 
 
 # React Class Components
 
-**React Class Components** were introduced with JavaScript ES6, because JS classes were made available to the language. Sometimes they are called **React ES6 class components** as well. Having [at least JavaScript ES6 at your disposal](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/), you no longer had to use React's createClass method. Finally classes come with JS itself:
+**React Class Components** were introduced with JavaScript ES6, because JS classes were made available to the language. Sometimes they are called **React ES6 class components** as well. Having [at least JavaScript ES6 at your disposal](/javascript-fundamentals-react-requirements/), you no longer had to use React's createClass method. Finally classes come with JS itself:
 
 ```javascript
 class App extends React.Component {
@@ -206,7 +206,7 @@ class App extends React.Component {
 }
 ```
 
-A React Component written with a JavaScript class comes with methods like the class constructor -- which is primarily used in React to set initial state or to bind methods -- and the mandatory render method to return JSX as output. All the internal React Component logic comes from the `extends React.Component` via object-oriented inheritance that is used in the class component. However, it isn't recommended to use the concept of inheritance for more than that. Instead, it's recommended to use [composition over inheritance](https://www.robinwieruch.de/react-component-composition/).
+A React Component written with a JavaScript class comes with methods like the class constructor -- which is primarily used in React to set initial state or to bind methods -- and the mandatory render method to return JSX as output. All the internal React Component logic comes from the `extends React.Component` via object-oriented inheritance that is used in the class component. However, it isn't recommended to use the concept of inheritance for more than that. Instead, it's recommended to use [composition over inheritance](/react-component-composition/).
 
 *Note: An [alternative syntax](https://github.com/the-road-to-learn-react/react-alternative-class-component-syntax) can be used for a JavaScript class used for React components, for instance, to autobind methods to React components by using JavaScript ES6 arrow functions:*
 
@@ -284,7 +284,7 @@ By using `this.state`, `this.setState()`, and lifecycle methods, state managemen
 
 ## React Higher-Order Components
 
-React Higher-Order Components (HOCs), a popular advanced React pattern, are an alternative for React Mixins to deploy reusable logic across React components. If you haven't heard about HOCs, you can read more about them in detail in my other tutorial: [Higher-Order Components](https://www.robinwieruch.de/react-higher-order-components/). The shortest explanation for a Higher-Order Component is that it is a component which takes a component as input and returns the component as output but with extended functionalities. Let's revisit the example with the local storage and how the functionality can be extracted into a reusable Higher-Order Component:
+React Higher-Order Components (HOCs), a popular advanced React pattern, are an alternative for React Mixins to deploy reusable logic across React components. If you haven't heard about HOCs, you can read more about them in detail in my other tutorial: [Higher-Order Components](/react-higher-order-components/). The shortest explanation for a Higher-Order Component is that it is a component which takes a component as input and returns the component as output but with extended functionalities. Let's revisit the example with the local storage and how the functionality can be extracted into a reusable Higher-Order Component:
 
 ```javascript{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,30,34,60}
 const withLocalStorage = localStorageKey => Component =>
@@ -349,13 +349,13 @@ class App extends React.Component {
 const AppWithLocalStorage = withLocalStorage('myValueInLocalStorage')(App);
 ```
 
-Another popular advanced React pattern are [React Render Prop Components](https://www.robinwieruch.de/react-render-props/), which are often used as alternative to React Higher-Order Components. This kind of abstraction isn't shown here though, but I highly recommend you to check out the linked tutorial which teaches more about them.
+Another popular advanced React pattern are [React Render Prop Components](/react-render-props/), which are often used as alternative to React Higher-Order Components. This kind of abstraction isn't shown here though, but I highly recommend you to check out the linked tutorial which teaches more about them.
 
 Both, **React's Higher-Order Components** and **React's Render Prop Components** are actively used in React applications, even though React Function Components **with React Hooks** -- shown in the next section of this tutorial -- may be the better abstraction layer for React components. However, HOCs and Render Props are used for Function Components as well.
 
 # React Function Components
 
-**React Function Components** are the equivalent of React Class Components but expressed as functions instead of classes. In the past, it wasn't possible to use state or side-effects in Function Components -- that's why they were called **Functional Stateless Components** -- but that's not the case anymore with [React Hooks](https://www.robinwieruch.de/react-hooks/) which rebranded them to Function Components.
+**React Function Components** are the equivalent of React Class Components but expressed as functions instead of classes. In the past, it wasn't possible to use state or side-effects in Function Components -- that's why they were called **Functional Stateless Components** -- but that's not the case anymore with [React Hooks](/react-hooks/) which rebranded them to Function Components.
 
 React Hooks bring state and side-effects to React Function Components. React comes with a variety of built-in hooks, but also the ability to create custom hooks for yourself or others. Let's see how the previous React Class Component can be used as a React Function Component:
 
@@ -447,6 +447,6 @@ React Function Components with Hooks and React Class Components are the status q
 
 <Divider />
 
-All React Components share the common sense of how to use [React Props](https://www.robinwieruch.de/react-pass-props-to-component/), because they are just used to pass information down the component tree. However, the usage of state and side-effects varies for React Class Components and React Function Components with lifecycle methods and hooks.
+All React Components share the common sense of how to use [React Props](/react-pass-props-to-component/), because they are just used to pass information down the component tree. However, the usage of state and side-effects varies for React Class Components and React Function Components with lifecycle methods and hooks.
 
 This guide has shown you all the different Types of React Components, how they are used, and how they are put into a historical context. All examples from the tutorial can be seen and tried out over [here](https://github.com/the-road-to-learn-react/react-component-types). In the end it's perfectly fine to use React Class Components, Function Components with Hooks, advanced concepts like Higher-Order Components and React Render Prop Components. However, it's good to know for older React applications/tutorials that there were other React Components and Patterns used in the past as well.

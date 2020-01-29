@@ -22,15 +22,15 @@ In this article, I want to tell you why I literally migrate(d) my business over 
 
 # Gatsby.js is built on React.js
 
-I start with the most obvious benefit: **Gatsby.js is built on top of React.js**. As an at least intermediate React developer, you feel immediately comfortable with it. You structure your pages as components, implement a repertoire of UI components, style your components with CSS modules or styled components, and update state with common sense. But also as a non React developer -- coming from another framework of choice -- you will not have a hard time to grasp how things work if you are [comfortable with JavaScript](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/).
+I start with the most obvious benefit: **Gatsby.js is built on top of React.js**. As an at least intermediate React developer, you feel immediately comfortable with it. You structure your pages as components, implement a repertoire of UI components, style your components with CSS modules or styled components, and update state with common sense. But also as a non React developer -- coming from another framework of choice -- you will not have a hard time to grasp how things work if you are [comfortable with JavaScript](/javascript-fundamentals-react-requirements/).
 
-*Note: I do not recommend to [learn React.js](https://www.robinwieruch.de/learn-react-js/) while learning Gatsby.js. The latter comes with lots of things on top that you should learn in separation. Learning both frameworks in one step will blur the lines between React and Gatsby. Not to mention the plugin system, GraphQL, and the parts related to Node.js. Get a [good grasp about React.js first](https://www.robinwieruch.de/the-road-to-learn-react/) before learning Gatsby.js.*
+*Note: I do not recommend to [learn React.js](/learn-react-js/) while learning Gatsby.js. The latter comes with lots of things on top that you should learn in separation. Learning both frameworks in one step will blur the lines between React and Gatsby. Not to mention the plugin system, GraphQL, and the parts related to Node.js. Get a [good grasp about React.js first](/the-road-to-learn-react/) before learning Gatsby.js.*
 
 With React.js in place, **I am in control** even though there will be a new React.js or Gatsby.js version in the future. I can handle the breaking changes and deal with migration paths. But that's only because my daily business is related to React and JavaScript. In contrast, most static site generators I used before were coupled to other programming languages (Go, Ruby, PHP) which I am rarely using. That's fine for widening one's horizon, but in everyday business life, it was a burden to deal with issues. **If your business depends on it, use a tech stack that makes it painless for you.**
 
 # Gatsby Router
 
-Gatsby comes as a full-blown framework to create static websites. Whereas in React you have to know all the [essential libraries](https://www.robinwieruch.de/react-libraries/) to complement React as its core, Gatsby comes with many things right away.
+Gatsby comes as a full-blown framework to create static websites. Whereas in React you have to know all the [essential libraries](/react-libraries/) to complement React as its core, Gatsby comes with many things right away.
 
 For instance, Gatsby ships with a build in Router and the Gatsby team decides which React Router makes most for their environment. As a developer, you don't need to care about it like in a plain React application. The implementation of the [routing in Gatsby](https://www.gatsbyjs.org/docs/routing/) is different from React. It has two modes to create routes: static and dynamic routes.
 
@@ -70,7 +70,7 @@ From the very beginning, Gatsby.js presented itself with a well-structured plugi
 
 # GraphQL in Gatsby.js
 
-[GraphQL is commonly seen as alternative to REST.](https://www.robinwieruch.de/why-graphql-advantages-disadvantages-alternatives/) However, whereas REST is mostly used for client-server communication via HTTP, GraphQL is just a query language independently of the communication protocol and data representation. Essentially GraphQL can be used anywhere where a client requests data. [Gatsby makes use of these GraphQL circumstances](https://www.gatsbyjs.org/docs/querying-with-graphql/) to query all of its internal (e.g. files) and external (e.g. third-party APIs of integrations) data. GraphQL becomes the interface between Gatsby and all its data sources.
+[GraphQL is commonly seen as alternative to REST.](/why-graphql-advantages-disadvantages-alternatives/) However, whereas REST is mostly used for client-server communication via HTTP, GraphQL is just a query language independently of the communication protocol and data representation. Essentially GraphQL can be used anywhere where a client requests data. [Gatsby makes use of these GraphQL circumstances](https://www.gatsbyjs.org/docs/querying-with-graphql/) to query all of its internal (e.g. files) and external (e.g. third-party APIs of integrations) data. GraphQL becomes the interface between Gatsby and all its data sources.
 
 ```javascript
 import React from 'react';
@@ -93,7 +93,7 @@ export const query = graphql`
 `;
 ```
 
-*Note: GraphQL is another aspect which makes it difficult to learn Gatsby.js as a beginner. Like React it comes with its own ecosystem, best practices, and libraries. However, in Gatsby.js you are only using GraphQL from a client's perspective, so once you start to think of Gatsby's data sources as a graph, you are good to use it. However, I'd recommend people to [learn GraphQL](https://www.robinwieruch.de/the-road-to-graphql-book/) on the side to get a better understanding of it.*
+*Note: GraphQL is another aspect which makes it difficult to learn Gatsby.js as a beginner. Like React it comes with its own ecosystem, best practices, and libraries. However, in Gatsby.js you are only using GraphQL from a client's perspective, so once you start to think of Gatsby's data sources as a graph, you are good to use it. However, I'd recommend people to [learn GraphQL](/the-road-to-graphql-book/) on the side to get a better understanding of it.*
 
 Once you start your Gatsby.js application, you can open up GraphiQL, an explorative GraphQL client which comes with Gatsby, to traverse through all your data that's aggregated by Gatsby. This starts by having access to images and markdown via GraphQL, but also by accessing third-party APIs which come with Gatsby's plugin system (see integrations).
 
@@ -317,7 +317,7 @@ Implementing SEO in Gatsby isn't much different from any other static website ge
 
 # Beyond Static Website Generator
 
-Gatsby takes steps **beyond being just a static website generator**. Actually you can implement pretty dynamic web applications with it. Hence I considered to not only move my website to Gatsby.js, but also my entire [course platform](https://www.robinwieruch.de/how-to-build-your-own-course-platform/) with authentication, authorization and payment methods. Always just think about all the pages in your web applications which can be visited by your user. For instance, if you have an ecommerce store, you need to create all the product detail pages during build time.
+Gatsby takes steps **beyond being just a static website generator**. Actually you can implement pretty dynamic web applications with it. Hence I considered to not only move my website to Gatsby.js, but also my entire [course platform](/how-to-build-your-own-course-platform/) with authentication, authorization and payment methods. Always just think about all the pages in your web applications which can be visited by your user. For instance, if you have an ecommerce store, you need to create all the product detail pages during build time.
 
 Since you can create dynamic routes in your *gatsby-node.js* file, you can do lots of experimental stuff in there. **Gatsby.js gives you a way to create dynamic pages.** For instance, my new website uses simple NLP to recommend readers more reading material after finishing one of my articles. But one could imagine more complex machine learning usages here to create the best reading experience for your audience.
 

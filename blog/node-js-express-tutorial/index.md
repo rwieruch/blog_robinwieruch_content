@@ -142,7 +142,7 @@ Instead of exposing the port that is used in the source code, you have stored it
 * Define for yourself: What's a frontend and a backend application?
 * Ask yourself: How do frontend and backend application communicate with each other?
 * Optional: Checkout the configuration that can be used with the CORS library
-* Optional: Upload your project to [GitHub with Git](https://www.robinwieruch.de/git-essential-commands/)
+* Optional: Upload your project to [GitHub with Git](/git-essential-commands/)
   * Exclude the *.env* file from Git with a *.gitignore* file
 
 <LinkCollection label="This tutorial is part 2 of 3 in this series." links={[{ prefix: "Part 1:", label: "The minimal Node.js with Babel Setup", url: "https://www.robinwieruch.de/minimal-node-js-babel-setup/" }, { prefix: "Part 3:", label: "How to create a REST API with Express.js in Node.js", url: "https://www.robinwieruch.de/node-express-server-rest-api/" }]} />

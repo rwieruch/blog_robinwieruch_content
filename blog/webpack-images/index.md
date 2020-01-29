@@ -58,7 +58,7 @@ module.exports = {
 };
 ```
 
-It's quite similar to setting up [fonts with Webpack](https://www.robinwieruch.de/webpack-font/). In this case, we are only bundling the jpg and png image file extensions to our application. However, if you need to include other file extensions for images, make sure to include them here as well. Also the [url-loader](https://github.com/webpack-contrib/url-loader) supports optional options which you should read more about in the official documentation.
+It's quite similar to setting up [fonts with Webpack](/webpack-font/). In this case, we are only bundling the jpg and png image file extensions to our application. However, if you need to include other file extensions for images, make sure to include them here as well. Also the [url-loader](https://github.com/webpack-contrib/url-loader) supports optional options which you should read more about in the official documentation.
 
 Now you are able to import your images as assets from your bundled folders. For instance, in React you can include an image the following way by using an img HTML element and its src attribute:
 

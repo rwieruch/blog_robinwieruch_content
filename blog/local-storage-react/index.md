@@ -42,7 +42,7 @@ Whereas the first argument is the key to store/retrieve the data, the second arg
 
 # Local Storage in React
 
-Let's approach the local storage in React by example. In our scenario, we have a stateful [function component](https://www.robinwieruch.de/react-function-component/) which uses [React Hooks](https://www.robinwieruch.de/react-hooks/) to manage the state of an input field. Also the result of the state is shown as output with an HTML paragraph tag:
+Let's approach the local storage in React by example. In our scenario, we have a stateful [function component](/react-function-component/) which uses [React Hooks](/react-hooks/) to manage the state of an input field. Also the result of the state is shown as output with an HTML paragraph tag:
 
 ```javascript
 import React from 'react';
@@ -190,15 +190,15 @@ const App = () => {
 export default App;
 ```
 
-Now you can cache your React state for different components by using one and the same custom hook for it. You can find the final source code for this project in [this GitHub repository](https://github.com/the-road-to-learn-react/react-local-storage). If you like it, make sure to star it. You can also head over to my other article, if you want to see the [same functionality implemented in different component types](https://www.robinwieruch.de/react-component-types/).
+Now you can cache your React state for different components by using one and the same custom hook for it. You can find the final source code for this project in [this GitHub repository](https://github.com/the-road-to-learn-react/react-local-storage). If you like it, make sure to star it. You can also head over to my other article, if you want to see the [same functionality implemented in different component types](/react-component-types/).
 
 # Expiration with Session Storage
 
-Sometimes you want to cache/persist data only in your current browser session. When closing the browser, you want the cache to become empty again; but when you refresh the browser tab, you want to keep the cache intact. For instance, this behavior can be useful when you [deal with an user session after a user logged in into your application](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial). The user session could be saved until the browser is closed. That's where you can use the native `sessionStorage` instead of the `localStorage`. The [session storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) is used in the same way as the local storage.
+Sometimes you want to cache/persist data only in your current browser session. When closing the browser, you want the cache to become empty again; but when you refresh the browser tab, you want to keep the cache intact. For instance, this behavior can be useful when you [deal with an user session after a user logged in into your application](/complete-firebase-authentication-react-tutorial). The user session could be saved until the browser is closed. That's where you can use the native `sessionStorage` instead of the `localStorage`. The [session storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) is used in the same way as the local storage.
 
 # How to Cache Data in React?
 
-Let's take the local storage usage in React one step further by deploying it as cache for search results. In the following example, you will fetch data from an remote [API](https://www.robinwieruch.de/what-is-an-api-javascript/) and store it in your component's state.
+Let's take the local storage usage in React one step further by deploying it as cache for search results. In the following example, you will fetch data from an remote [API](/what-is-an-api-javascript/) and store it in your component's state.
 
 Furthermore, you will store the result in the local storage as well. Afterward, we will use the local storage as cache every time we do another search request. If you search for a keyword and the result for this keyword has already been saved in the local storage, we will use the local storage instead of executing another API call. If there is no result in the local storage, we will do the usual API request.
 
@@ -259,7 +259,7 @@ class App extends React.Component {
 export default App;
 ```
 
-If it's difficult for you to grasp what's happening here, head over to my [data fetching tutorial for React](https://www.robinwieruch.de/react-fetching-data/). In the next step, you can add only a few lines to enable caching for your React application:
+If it's difficult for you to grasp what's happening here, head over to my [data fetching tutorial for React](/react-fetching-data/). In the next step, you can add only a few lines to enable caching for your React application:
 
 ```javascript{23,25,26,27,31,35,44,45,46,47}
 import React from 'react';

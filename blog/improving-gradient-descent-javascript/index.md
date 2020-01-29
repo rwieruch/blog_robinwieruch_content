@@ -12,9 +12,9 @@ author: ""
 
 <Sponsorship />
 
-A recent article gave an introduction to the field of machine learning in JavaScript by [predicting housing prices with gradient descent](https://www.robinwieruch.de/linear-regression-gradient-descent-javascript/) in a univariate regression problem. There are several improvements to optimize the gradient descent algorithm that should be collected in this article.
+A recent article gave an introduction to the field of machine learning in JavaScript by [predicting housing prices with gradient descent](/linear-regression-gradient-descent-javascript/) in a univariate regression problem. There are several improvements to optimize the gradient descent algorithm that should be collected in this article.
 
-In general, when dealing with a regression problem, the outcome can already be influenced by [selecting a fitting model type](https://www.robinwieruch.de/polynomial-regression-model-selection-javascript/). It is not often the case that data points correlate linear to each other. Hence the correlation is often curvilinear and thus it could be a polynomial regression instead of a linear regression. But that isn't specific to gradient descent. So let's dive into the properties to improve gradient descent.
+In general, when dealing with a regression problem, the outcome can already be influenced by [selecting a fitting model type](/polynomial-regression-model-selection-javascript/). It is not often the case that data points correlate linear to each other. Hence the correlation is often curvilinear and thus it could be a polynomial regression instead of a linear regression. But that isn't specific to gradient descent. So let's dive into the properties to improve gradient descent.
 
 <MachineLearningIntro />
 
@@ -55,11 +55,11 @@ The optional range is between -1 and 1 for each variable of a feature. But it is
 
 For instance, in a **mean normalization** the feature scaling can be performed with `xScaled = (x - mean(x)) / (max(x) - min(x))`. So if x represents number of bedrooms with a range of 3 to 5 and a mean value of 4, then `x = (bedrooms - 4) / 2`.
 
-If you want to experience how feature scaling is implemented in JavaScript by using the **standardization method**, checkout the implementation of a [multivariate linear regression with gradient descent in JavaScript](https://www.robinwieruch.de/multivariate-linear-regression-gradient-descent-javascript) where feature scaling becomes necessary.
+If you want to experience how feature scaling is implemented in JavaScript by using the **standardization method**, checkout the implementation of a [multivariate linear regression with gradient descent in JavaScript](/multivariate-linear-regression-gradient-descent-javascript) where feature scaling becomes necessary.
 
 # Vectorization in Machine Learning and JavaScript
 
-A first naive implementation of gradient descent often involves programmatic loops. The algorithm needs to run through a lot of iterations to learn (which it still needs to after the vectorization), but also through all the data (m times) in the training set. In a multivariate linear regression, the algorithm has to run through all the features as well (n times). It becomes an inefficient computation and tedious task to implement eventually when using programmatic loops. That's where [matrix operations come in for a vectorized implementation](https://www.robinwieruch.de/linear-algebra-matrix-javascript/).
+A first naive implementation of gradient descent often involves programmatic loops. The algorithm needs to run through a lot of iterations to learn (which it still needs to after the vectorization), but also through all the data (m times) in the training set. In a multivariate linear regression, the algorithm has to run through all the features as well (n times). It becomes an inefficient computation and tedious task to implement eventually when using programmatic loops. That's where [matrix operations come in for a vectorized implementation](/linear-algebra-matrix-javascript/).
 
 By using a vectorized implementation, gradient descent can be expressed as simple as
 
@@ -83,11 +83,11 @@ for (let i = 0; i < ITERATIONS; i++) {
 }
 ```
 
-The for loop for the iterations itself stays, but the computation of theta becomes a one liner by using a vectorized implementation. Here you can find the [vectorized implementation of gradient descent for a univariate training set](https://www.robinwieruch.de/linear-regression-gradient-descent-vectorization-javascript). Only by mastering the matrix operations in your programming language, it becomes efficient to apply machine learning algorithms.
+The for loop for the iterations itself stays, but the computation of theta becomes a one liner by using a vectorized implementation. Here you can find the [vectorized implementation of gradient descent for a univariate training set](/linear-regression-gradient-descent-vectorization-javascript). Only by mastering the matrix operations in your programming language, it becomes efficient to apply machine learning algorithms.
 
 # Alternative: Normal Equation
 
-In a regression problem there is an alternative to gradient descent which is called normal equation. It doesn't need any iterative process to reduce the cost function. By explicitly taking the derivates, the function finds the optimum parameters for theta. The mathematical expression for a normal equation is `inv(X' * X) * X' * y`. You can read more about it in this article about the [normal equation](https://www.robinwieruch.de/multivariate-linear-regression-normal-equation-javascript), because it isn't superior to gradient descent and should only be used when it makes sense.
+In a regression problem there is an alternative to gradient descent which is called normal equation. It doesn't need any iterative process to reduce the cost function. By explicitly taking the derivates, the function finds the optimum parameters for theta. The mathematical expression for a normal equation is `inv(X' * X) * X' * y`. You can read more about it in this article about the [normal equation](/multivariate-linear-regression-normal-equation-javascript), because it isn't superior to gradient descent and should only be used when it makes sense.
 
 <Divider />
 

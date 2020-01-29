@@ -46,7 +46,7 @@ First, let's install it one the command line. For now, the installation guide is
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-If you haven't heard about Homebrew, read more about it over [here](https://www.robinwieruch.de/developer-setup/). Next, install cURL with Homebrew:
+If you haven't heard about Homebrew, read more about it over [here](/developer-setup/). Next, install cURL with Homebrew:
 
 ```javascript
 brew install curl
@@ -175,7 +175,7 @@ In order to delete or update a user resource, you would need to know the exact u
 
 You may be still wondering: *What value brings the combination of URIs and HTTP methods* -- which make up the majority of the REST philosophy -- *to my application?*
 
-Let's imagine we wouldn't just return a result, as we do at the moment, but would act properly on the received operation instead. For instance, the Express server could be connected to a database that stores user entities in a user table. Now, when consuming the REST API as a client (e.g. cURL, browser, or also a [React.js application](https://www.robinwieruch.de/react-fetching-data/)), you could retrieve all users from the database with a HTTP GET method on the `/users` URI or, on the same resource, create a new user with a HTTP POST method.
+Let's imagine we wouldn't just return a result, as we do at the moment, but would act properly on the received operation instead. For instance, the Express server could be connected to a database that stores user entities in a user table. Now, when consuming the REST API as a client (e.g. cURL, browser, or also a [React.js application](/react-fetching-data/)), you could retrieve all users from the database with a HTTP GET method on the `/users` URI or, on the same resource, create a new user with a HTTP POST method.
 
 ```javascript
 // Making sense of the Naming
@@ -694,8 +694,8 @@ Every of our modular routes from Express Router is mounted to our Express applic
 ### Exercises:
 
 * What's a client-server architecture?
-* Read more about [REST APIs and other APIs](https://www.robinwieruch.de/what-is-an-api-javascript/)
-* Read more about [GraphQL as popular alternative to REST](https://www.robinwieruch.de/why-graphql-advantages-disadvantages-alternatives/)
+* Read more about [REST APIs and other APIs](/what-is-an-api-javascript/)
+* Read more about [GraphQL as popular alternative to REST](/why-graphql-advantages-disadvantages-alternatives/)
 * Read more about [basic routing in Express](https://expressjs.com/en/starter/basic-routing.html)
 * Read more about [advanced routing in Express](https://expressjs.com/en/guide/routing.html)
 * Read more about [middleware in Express](https://expressjs.com/en/guide/using-middleware.html)

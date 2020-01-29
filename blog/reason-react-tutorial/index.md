@@ -12,7 +12,7 @@ author: "Benjamin Johnson"
 
 <Sponsorship />
 
-First off, this tutorial assumes that you have some knowledge of how React works. If you're just getting started to React, I'd highly recommend reading through [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) before trying to dive into ReasonReact. It's really important to have at least a basic foundational understanding of React. After all, ReasonReact is an abstraction on top of React.
+First off, this tutorial assumes that you have some knowledge of how React works. If you're just getting started to React, I'd highly recommend reading through [The Road to learn React](/the-road-to-learn-react/) before trying to dive into ReasonReact. It's really important to have at least a basic foundational understanding of React. After all, ReasonReact is an abstraction on top of React.
 
 Kinda reminds me of this Kyle Simpson quote from [You Don't Know JS: Async & Performance](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/README.md): *It's impossible to effectively use any abstraction if you don't understand what it's abstracting, and why.*
 

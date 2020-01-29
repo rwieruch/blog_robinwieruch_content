@@ -16,7 +16,7 @@ How to learn React is high on the agenda for plenty of JavaScript developers for
 
 # Learn React [Quickly || Fast || Easy]
 
-There is no way to learn something the easy way. You have to be patient. That applies for developers too. Personally, that's why I like being a developer, because there will be always something new to learn. If you stay curious, you will not be disappointed while becoming a developer. Learning is always a challenge, [a challenge to hone your skills, if challenge and skill at hand are in balance](https://www.robinwieruch.de/lessons-learned-deep-work-flow/). That's why it takes time to learn React as well.
+There is no way to learn something the easy way. You have to be patient. That applies for developers too. Personally, that's why I like being a developer, because there will be always something new to learn. If you stay curious, you will not be disappointed while becoming a developer. Learning is always a challenge, [a challenge to hone your skills, if challenge and skill at hand are in balance](/lessons-learned-deep-work-flow/). That's why it takes time to learn React as well.
 
 However, React has not a steep learning curve when following one simple rule: Learn React, **only React step by step**, and don't let yourself distract from other tech on this journey. JavaScript and React are evolving constantly, because both stay innovative and want to stay relevant in the future too; so learn and keep up with them first before learning anything else on top of it. I have heard success stories from developers who went from not knowing React to getting offered a React job at a company from a few days to a few months. On the job they got the chance to learn more about all the other fancy technologies that come along with React.
 
@@ -38,7 +38,7 @@ Since React is a JS library, there is no way around learning JavaScript. You can
 
 ## Learn React or JavaScript first?
 
-You should understand at least the basics of JavaScript, often referred to as JavaScript ES5, and have decent knowledge about HTML and CSS. React also utilizes JavaScript syntax, most often referred to JavaScript ES6 and beyond (ES7, ES8, ES9). That's why it makes sense to get comfortable with at least [JavaScript ES6 to learn React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/).
+You should understand at least the basics of JavaScript, often referred to as JavaScript ES5, and have decent knowledge about HTML and CSS. React also utilizes JavaScript syntax, most often referred to JavaScript ES6 and beyond (ES7, ES8, ES9). That's why it makes sense to get comfortable with at least [JavaScript ES6 to learn React](/javascript-fundamentals-react-requirements/).
 
 There are many people who recommend to learn web development and *all* JavaScript fundamentals as prerequisite before learning React. The skills they recommend to acquire go far beyond what's needed to build basic applications with React.js. A couple of them may be:
 
@@ -59,7 +59,7 @@ There are many people who recommend to learn web development and *all* JavaScrip
 * Declarative vs imperative programming
 * Functional vs object-oriented programming
 
-However, I believe it's not true to have all this knowledge. In contrast, it can be very disillusioning for beginners being new to JavaScript, React and Web Development. You don't want to hang around in the "Scopes and Closures"-land while you could build real projects instead that motivate you to keep going. The "Aha"-moment for grasping closures will come along the way. Personally I didn't know about half of the things in the list when I started to learn React and I still have to look up regular expressions online because I don't really bother learning them; [and I still help companies with their JavaScript projects](https://www.robinwieruch.de/work-with-me/).
+However, I believe it's not true to have all this knowledge. In contrast, it can be very disillusioning for beginners being new to JavaScript, React and Web Development. You don't want to hang around in the "Scopes and Closures"-land while you could build real projects instead that motivate you to keep going. The "Aha"-moment for grasping closures will come along the way. Personally I didn't know about half of the things in the list when I started to learn React and I still have to look up regular expressions online because I don't really bother learning them; [and I still help companies with their JavaScript projects](/work-with-me/).
 
 I believe **most of JavaScript can be learned along the way when learning React**, because then you experience it in context while building web applications. That's exciting and that's what drives us as human beings. So keep yourself excited while learning and don't hang around too long with the fundamentals where you cannot see the purpose without ever applying them in a real world scenario. Start to build real projects. Stay curious! Move forth and back between JavaScript and React while you learn React.
 
@@ -67,13 +67,13 @@ I believe **most of JavaScript can be learned along the way when learning React*
 
 Historically [jQuery](https://en.wikipedia.org/wiki/JQuery) filled the gap between vanilla JavaScript and modern libraries/frameworks such as React, Angular, and Vue. Early JavaScript wasn't as efficient in the browser and other subjects as it is nowadays. That's why there was a real need for jQuery. However, modern JavaScript is capable of dealing with all the things itself. Hence my recommendation: Don't bother about jQuery.
 
-If you are working on a larger application that utilizes React at your new job, it is likely to be confronted with jQuery in the application's legacy areas. But it's okay to not being proficient with jQuery then and just look up online what you need to get the job done. As alternative, try to migrate the code from jQuery to React instead as a learning opportunity. That's how I did it in my last job, because I became a JavaScript developer in the early days of Angular, but never really had to learn jQuery to a degree of being proficient with it. Instead I focused on the [journey ahead with Angular which then became React](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/).
+If you are working on a larger application that utilizes React at your new job, it is likely to be confronted with jQuery in the application's legacy areas. But it's okay to not being proficient with jQuery then and just look up online what you need to get the job done. As alternative, try to migrate the code from jQuery to React instead as a learning opportunity. That's how I did it in my last job, because I became a JavaScript developer in the early days of Angular, but never really had to learn jQuery to a degree of being proficient with it. Instead I focused on the [journey ahead with Angular which then became React](/reasons-why-i-moved-from-angular-to-react/).
 
 ## Why should I learn React?
 
 Why do you want to learn React in the first place? Beginners know about all the shiny modern libraries in JavaScript but often don't ask themselves why they need them. They may only know that they are in huge demand by companies and jobs. However, sometimes it makes sense to backpedal to the question: *Why do I need this?*
 
-It doesn't only apply to React, but to all the other libraries and frameworks you will learn in your life as a developer. What problem does it solve for me? Too often people throw libraries on top of their tech stack without experiencing the problem in the first place. That's why I believe it is a great learning experience to [implement the identical application with vanilla JavaScript and React](https://www.robinwieruch.de/why-frameworks-matter/). It demonstrates you which problem the new library is solving for you. The same technique can be applied when deciding whether you want to learn React or another solution such as Vue or Angular. Build a [basic application with the solutions of your choice](https://github.com/rwieruch/why-frameworks-matter) and compare your the development experience. Which of the solutions felt just right for you?
+It doesn't only apply to React, but to all the other libraries and frameworks you will learn in your life as a developer. What problem does it solve for me? Too often people throw libraries on top of their tech stack without experiencing the problem in the first place. That's why I believe it is a great learning experience to [implement the identical application with vanilla JavaScript and React](/why-frameworks-matter/). It demonstrates you which problem the new library is solving for you. The same technique can be applied when deciding whether you want to learn React or another solution such as Vue or Angular. Build a [basic application with the solutions of your choice](https://github.com/rwieruch/why-frameworks-matter) and compare your the development experience. Which of the solutions felt just right for you?
 
 # Learn React.js Step by Step
 
@@ -94,7 +94,7 @@ Every time I pick up a new tech, I don't check any courses or books, I go straig
 
 ## Learn React with Projects
 
-After you went through the React beginner tutorial from the React documentation and learned the basics of React from scratch, continue learning by building a project yourself before learning any other tech. It's not always simple to [come up with project ideas](https://www.robinwieruch.de/how-to-learn-framework/), but there is plenty of inspiration out there.
+After you went through the React beginner tutorial from the React documentation and learned the basics of React from scratch, continue learning by building a project yourself before learning any other tech. It's not always simple to [come up with project ideas](/how-to-learn-framework/), but there is plenty of inspiration out there.
 
 For instance, there are also people who want to learn React by [building games](https://github.com/taming-the-state-in-react/react-snake). I guess you will find plenty of React Tic Tac Toe implementations out there. Implement the game in React yourself and compare your solution to the other solutions. You will learn from your mistakes and learn to evaluate your source code against the implementation by others.
 
@@ -123,8 +123,8 @@ After you went through the beginner tutorial in React's docs and started to impl
 
 * Learn about React's JSX syntax
 * Learn about React Components
-* [Learn about React Component Composition](https://www.robinwieruch.de/react-component-composition/)
-* [Learn about React Props](https://www.robinwieruch.de/react-pass-props-to-component/)
+* [Learn about React Component Composition](/react-component-composition/)
+* [Learn about React Props](/react-pass-props-to-component/)
 * Learn about React State
 
 Learn and understand React. In the end, it doesn't need much to create a React component that returns JSX, to use a React component in another React component while arranging them in a component hierarchy, to pass data from component to component with props, and to make components interactive with state. That's the gist of React. Learn React in depth by applying your learned skills in your project and not by consuming endless of content.
@@ -133,8 +133,8 @@ Learn and understand React. In the end, it doesn't need much to create a React c
 
 How to get started with actual coding a React project? If you don't have any editor/terminal or IDE installed and just want to checkout how React feels like in a code environment, checkout the go-to online code editor called [CodeSandbox](https://codesandbox.io/). Play around with React and checkout whether you like it. However, if you want to learn how to develop React applications on your local machine, checkout these MacOS and Windows Setup Guides to make it work on your machine:
 
-* [Set up React on MacOS](https://www.robinwieruch.de/react-js-macos-setup/)
-* [Set up React on Windows](https://www.robinwieruch.de/react-js-windows-setup/)
+* [Set up React on MacOS](/react-js-macos-setup/)
+* [Set up React on Windows](/react-js-windows-setup/)
 
 Both guides come with a minimal set of recommended tools to get you started with React:
 
@@ -147,10 +147,10 @@ Both guides come with a minimal set of recommended tools to get you started with
 
 After you have learned the basics of React with React components, props/state, and React's JSX syntax to return valid HTML in JavaScript, you can dive deeper with advanced React concepts and patterns. These are a few essential of them that will not go away that quickly:
 
-* [Learn React Hooks](https://www.robinwieruch.de/react-hooks/)
-* [Learn React Higher-Order Components](https://www.robinwieruch.de/react-higher-order-components/)
-* [Learn React Render Prop Components](https://www.robinwieruch.de/react-render-props/)
-* [Learn React Context](https://www.robinwieruch.de/react-context/)
+* [Learn React Hooks](/react-hooks/)
+* [Learn React Higher-Order Components](/react-higher-order-components/)
+* [Learn React Render Prop Components](/react-render-props/)
+* [Learn React Context](/react-context/)
 
 Being equipped with these advanced React techniques, you should be comfortable to dive into larger React applications where you will find these concepts and techniques more often. Due to React Hooks, the other Higher-Order Components and Render Prop Components may be less used in the future, but you should still see them fairly often throughout the next year.
 
@@ -178,12 +178,12 @@ There are plenty of free React learning resources online that have a high qualit
 
 # Learn React Roadmap
 
-After you have learned only React and feel comfortable with its basic and advanced implementation details, there are plenty of learning paths you can take to advance your React skills. The [React ecosystem is not opinionated but innovative and extensive](https://www.robinwieruch.de/react-libraries/). A couple of recommendations:
+After you have learned only React and feel comfortable with its basic and advanced implementation details, there are plenty of learning paths you can take to advance your React skills. The [React ecosystem is not opinionated but innovative and extensive](/react-libraries/). A couple of recommendations:
 
 * React + React Router: [Enable Navigation in your React application with a Router](https://reacttraining.com/react-router/)
-* React + Firebase: [Connect React to a Database and implement User Authentication/Authorization](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/)
-* React + GraphQL: [Connect React with a GraphQL interface to a Node.js backend application](https://www.robinwieruch.de/the-road-to-graphql-book/)
-* React + Redux: [Explore predictable and scalable state management in React with Redux](https://www.robinwieruch.de/react-redux-tutorial/)
+* React + Firebase: [Connect React to a Database and implement User Authentication/Authorization](/complete-firebase-authentication-react-tutorial/)
+* React + GraphQL: [Connect React with a GraphQL interface to a Node.js backend application](/the-road-to-graphql-book/)
+* React + Redux: [Explore predictable and scalable state management in React with Redux](/react-redux-tutorial/)
 
 <Divider />
 

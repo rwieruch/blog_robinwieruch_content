@@ -197,7 +197,7 @@ module.exports = {
 
 Now, every Webpack build will wipe the content of your *dist/* folder before creating the new *dist/index.html* and *dist/bundle.js* files from scratch. Having it set up this way, you will never find files from older Webpack builds in your *dist/* folder which is perfect for just taking your entire *dist/* folder to production.
 
-*Note: If you are using a version control system like [GitHub](https://www.robinwieruch.de/git-essential-commands/), you can put the build folder (dist/) into your .gitignore file, because everything is auto generated for everyone anyway. After someone got a copy of your project, the person can do a `npm run build` to generate the files.*
+*Note: If you are using a version control system like [GitHub](/git-essential-commands/), you can put the build folder (dist/) into your .gitignore file, because everything is auto generated for everyone anyway. After someone got a copy of your project, the person can do a `npm run build` to generate the files.*
 
 ### Exercises:
 
@@ -675,7 +675,7 @@ You will see your build optimized Webpack bundle with two different visualizatio
   * You should see that Lodash makes up a huge part of your Webpack bundle whereas your actual source code takes up only a minimal part
 * Explore more Webpack addons and introduce them to your application
   * You can also come up with more npm scripts for different Webpack addons
-* Optional React: Check out the [minimal React with Webpack setup](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/)
+* Optional React: Check out the [minimal React with Webpack setup](/minimal-react-webpack-babel-setup/)
   * Put it into your advanced Webpack application
   * Confirm your final result with the official [advanced React with Webpack setup](https://github.com/rwieruch/advanced-react-webpack-babel-setup)
 

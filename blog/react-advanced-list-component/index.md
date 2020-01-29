@@ -12,12 +12,12 @@ author: ""
 
 <Sponsorship />
 
-The last two parts of the tutorial series in React introduced two functionalities, [a paginated list](https://www.robinwieruch.de/react-paginated-list) and an [infinite scroll](https://www.robinwieruch.de/react-infinite-scroll), by using higher order components. However, these functionalities were used exclusively. In one scenario you used a paginated list, where you manually fetched the data, then again in another scenario you used an infinite scroll, where the data was fetched automatically for you.
+The last two parts of the tutorial series in React introduced two functionalities, [a paginated list](/react-paginated-list) and an [infinite scroll](/react-infinite-scroll), by using higher order components. However, these functionalities were used exclusively. In one scenario you used a paginated list, where you manually fetched the data, then again in another scenario you used an infinite scroll, where the data was fetched automatically for you.
 
 Now you could use both features exclusively. But what about using them in combination to give your user an improved user experience? You could use the infinite scroll as default behavior for your list. Your users will thank you, because they don't have to fetch more list items by using the More button. Then, when your request runs into an error, you could use the More button as fallback. The user can manually try again to fetch data. That's a great user experience and done already by applications like Twitter and Pocket.
 
-* [Paginated List in React - Build a powerful Component (Part I)](https://www.robinwieruch.de/react-paginated-list)
-* [Infinite Scroll in React - Build a powerful Component (Part II)](https://www.robinwieruch.de/react-infinite-scroll)
+* [Paginated List in React - Build a powerful Component (Part I)](/react-paginated-list)
+* [Infinite Scroll in React - Build a powerful Component (Part II)](/react-infinite-scroll)
 * **Advanced List in React - Build a powerful Component (Part III)**
 
 # Catching the Error in Local State
@@ -177,7 +177,7 @@ Now you can try the functionality in the browser. First, you make an initial sea
 
 # Configure Higher Order Components
 
-There is one last optimization left. Unfortunately both HOCs that provide the infinite scroll and paginated list behavior are dependent on each other. Both use props that are not really used in the higher order component itself. These props are unnecessary dependencies. For instance, the infinite scroll shouldn't know about the `isError` property. It would be good to make the components unaware of their conditions. These conditions could be extracted as configurations for the higher order components. Once again, if you are not sure about a configuration in a higher order component, you can read [the gentle introduction to higher order components article](https://www.robinwieruch.de/react-higher-order-components/).
+There is one last optimization left. Unfortunately both HOCs that provide the infinite scroll and paginated list behavior are dependent on each other. Both use props that are not really used in the higher order component itself. These props are unnecessary dependencies. For instance, the infinite scroll shouldn't know about the `isError` property. It would be good to make the components unaware of their conditions. These conditions could be extracted as configurations for the higher order components. Once again, if you are not sure about a configuration in a higher order component, you can read [the gentle introduction to higher order components article](/react-higher-order-components/).
 
 Let's extract the conditions as configuration for each higher order components. First, give your higher order components a `conditionFn` function as configuration.
 
@@ -258,4 +258,4 @@ The condiditions will get evaluated in the higher order components themselves. T
 
 <Divider />
 
-In the last three parts of this React tutorial series you have learned to build a complex list component by using React's higher order components. The list component itself stays simple. It only displays a list. But it can be composed into useful higher order components to opt-in functionalities. By extracting the conditions from the higher order components and using them as configuration, you have the control about which component is used first as default and which should be used as opt-in feature. The full example application can be found in [this repository](https://github.com/rwieruch/react-example-paginated-list-infinite-scroll). If you are keen to explore more about these functionalities when working with lists in the local state of React, you can read [the Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) to learn about caching in React.
+In the last three parts of this React tutorial series you have learned to build a complex list component by using React's higher order components. The list component itself stays simple. It only displays a list. But it can be composed into useful higher order components to opt-in functionalities. By extracting the conditions from the higher order components and using them as configuration, you have the control about which component is used first as default and which should be used as opt-in feature. The full example application can be found in [this repository](https://github.com/rwieruch/react-example-paginated-list-infinite-scroll). If you are keen to explore more about these functionalities when working with lists in the local state of React, you can read [the Road to learn React](/the-road-to-learn-react/) to learn about caching in React.

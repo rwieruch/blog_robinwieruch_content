@@ -28,9 +28,9 @@ Single page applications (SPA) follow the common sense of component based user i
 
 React is an ideal fit for a component based user interface. It is only a view library and solves all the described component requirements. It is a library dedicated to solve one problem: It gives you all the tools to build effectively a component based user interface.
 
-You can see React as one building block for your SPA. Once you need to solve other problems, you need other building blocks. Your application needs routing? Take a look at the routing solutions suited for React. Your application needs scaleable state management? Take a look at [different state management solutions](https://www.robinwieruch.de/redux-mobx/). You need to execute asynchronous requests? Take a look at one of the solutions like [fetch](https://developer.mozilla.org/en/docs/Web/API/Fetch_API), [axios](https://github.com/mzabriskie/axios) or [superagent](https://github.com/visionmedia/superagent).
+You can see React as one building block for your SPA. Once you need to solve other problems, you need other building blocks. Your application needs routing? Take a look at the routing solutions suited for React. Your application needs scaleable state management? Take a look at [different state management solutions](/redux-mobx/). You need to execute asynchronous requests? Take a look at one of the solutions like [fetch](https://developer.mozilla.org/en/docs/Web/API/Fetch_API), [axios](https://github.com/mzabriskie/axios) or [superagent](https://github.com/visionmedia/superagent).
 
-Nevertheless it is possible to build your application solely with React. It might be no mature application with routing and sophisticated state management, but it can work out for small applications. In [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) you can build one of these applications to learn plain React.
+Nevertheless it is possible to build your application solely with React. It might be no mature application with routing and sophisticated state management, but it can work out for small applications. In [The Road to learn React](/the-road-to-learn-react/) you can build one of these applications to learn plain React.
 
 React itself is only a building block in your application. It offers you a solution to build component based user interfaces. Like every other building block it stays exchangeable. You can use another solution to build component based user interfaces but still can couple them with other building blocks.
 
@@ -38,7 +38,7 @@ In that perspective Angular is different. It isn't a library, but a framework. I
 
 # React is an innovative place
 
-React is only the core of the ecosystem and everything around it consists of building blocks. You are flexible to choose your building blocks to solve different problems. But it remains simple to exchange them. The simpleness to exchange them makes it possible for novel approaches to thrive. You can take [Redux](http://redux.js.org/) and [MobX](https://mobx.js.org/) for state management as an example. Redux got great momentum in the early days yet MobX has a small community of advocates, because it is [possible to exchange both solutions](https://www.robinwieruch.de/mobx-react/).
+React is only the core of the ecosystem and everything around it consists of building blocks. You are flexible to choose your building blocks to solve different problems. But it remains simple to exchange them. The simpleness to exchange them makes it possible for novel approaches to thrive. You can take [Redux](http://redux.js.org/) and [MobX](https://mobx.js.org/) for state management as an example. Redux got great momentum in the early days yet MobX has a small community of advocates, because it is [possible to exchange both solutions](/mobx-react/).
 
 Even the core building block React is exchangeable. Recent libraries like [Inferno](https://infernojs.org/) and [Preact](https://preactjs.com/) compete with React and can be used to replace React. I cannot remember that someone used these libraries in another context. It makes no sense to use these approaches in Angular, because Angular comes with its own solutions.
 
@@ -46,7 +46,7 @@ The exchangeable building blocks in React make it possible to experiment with no
 
 # JSX - Mix up HTML and JavaScript
 
-React comes with its own syntax to build components called JSX. In JSX you can mix up HTML and JavaScript. Additionally people often use inline styles in their elements. It is like adding CSS into the mix. It can be confusing in the beginning, but it feels natural eventually. You can use JavaScript to compose and manipulate your DOM, but it is inlined in your HTML. You can use built-in JavaScript functionalities like map and filter to display multiple (filtered) DOM nodes. But you can also use [ternaries to make conditional renderings](https://www.robinwieruch.de/conditional-rendering-react/) happen. You can use the full power of JavaScript in your HTML.
+React comes with its own syntax to build components called JSX. In JSX you can mix up HTML and JavaScript. Additionally people often use inline styles in their elements. It is like adding CSS into the mix. It can be confusing in the beginning, but it feels natural eventually. You can use JavaScript to compose and manipulate your DOM, but it is inlined in your HTML. You can use built-in JavaScript functionalities like map and filter to display multiple (filtered) DOM nodes. But you can also use [ternaries to make conditional renderings](/conditional-rendering-react/) happen. You can use the full power of JavaScript in your HTML.
 
 In the range of SPA solutions it was a novel approach to define your components with mixed up HTML and JavaScript. In older server side rendering solutions (e.g. [JSP](https://en.wikipedia.org/wiki/JavaServer_Pages)) that approach was already present.
 
@@ -62,11 +62,11 @@ Overall there are only 9 lifecycle methods to control your component. But in mos
 
 After that you only need to know two more React ES6 class component methods: `setState()` and `forceUpdate()`. You will barely touch the latter one which updates a component forcefully and programmatically. But `setState()` is used to update your internal component state that you have initialized in your `constructor()` lifecycle method. Imagine you have a list of items in your component. As next step you want to be able to add and remove items from the list. You can do so by storing the list in your internal component state `this.state` and by using `setState()` to update the list.
 
-You can read more in depth about the React component API in the [official React documentation](https://facebook.github.io/react/docs/react-component.html). If you are not familiar with APIs in general, I can recommend to read [this article](https://www.robinwieruch.de/what-is-an-api-javascript/).
+You can read more in depth about the React component API in the [official React documentation](https://facebook.github.io/react/docs/react-component.html). If you are not familiar with APIs in general, I can recommend to read [this article](/what-is-an-api-javascript/).
 
 After that you know all the essential component methods. Still there are more concepts in React, like props and state, the children property or different component declarations. But you can learn all of them step by step.
 
-In conclusion React itself has no steep learning curve. It is only the view layer with a handful of methods to understand. If you start to learn React as first building block, I would recommend to learn only React and no other building block. The book [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) follows that learning concept. It covers all the mentioned topics which you would have to learn in order to understand React.
+In conclusion React itself has no steep learning curve. It is only the view layer with a handful of methods to understand. If you start to learn React as first building block, I would recommend to learn only React and no other building block. The book [The Road to learn React](/the-road-to-learn-react/) follows that learning concept. It covers all the mentioned topics which you would have to learn in order to understand React.
 
 # Lightweight Components => Best Practices
 

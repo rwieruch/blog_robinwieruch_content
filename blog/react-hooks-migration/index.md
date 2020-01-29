@@ -12,9 +12,9 @@ author: ""
 
 <Sponsorship />
 
-React Hooks were introduced to React to make state and side-effects available in React Function Components. Before it was only possible to have these in React Class Components; but since [React's way of implementing Components has changed over the years](https://www.robinwieruch.de/react-component-types), we have the class component's features available with React Hooks in React Function Components now.
+React Hooks were introduced to React to make state and side-effects available in React Function Components. Before it was only possible to have these in React Class Components; but since [React's way of implementing Components has changed over the years](/react-component-types), we have the class component's features available with React Hooks in React Function Components now.
 
-This tutorial shows a migration path on how to write React Class Components as React Function Components with [React Hooks](https://www.robinwieruch.de/react-hooks). Therefore we will go into examples on how to convert both state management and side-effects that are used in a Class Component to be used in a Function Component.
+This tutorial shows a migration path on how to write React Class Components as React Function Components with [React Hooks](/react-hooks). Therefore we will go into examples on how to convert both state management and side-effects that are used in a Class Component to be used in a Function Component.
 
 It isn't my intention to encourage developers to rewrite all their React Class Components to React Function Components with Hooks. Rather the tutorial should show you how to implement a Class Component as Function Component with the same features. From there, you can decide yourself to write all future components as Function Components with Hooks.
 
@@ -120,7 +120,7 @@ class App extends React.Component {
 
 Now, every time the component updates (e.g. when state changes), the value from the state -- initially coming from the changed value from the input field -- is stored in the browser's local storage. When the application is started again by refreshing the browser, the constructor of the component makes sure to take the initial state from the local storage.
 
-Since this component is using the local storage, it's output from the render method is not predictable from only knowing about the [props](https://www.robinwieruch.de/react-pass-props-to-component/), because a side-effect is involved to get information from somewhere else than the input (props) of the component.
+Since this component is using the local storage, it's output from the render method is not predictable from only knowing about the [props](/react-pass-props-to-component/), because a side-effect is involved to get information from somewhere else than the input (props) of the component.
 
 Let's see how the identical feature -- synchronizing the value from the input field with the local storage -- can be implemented with a Function Component using React's useEffect Hook:
 
@@ -198,4 +198,4 @@ Custom Hooks put reusable logic perfectly together in one function. Whereas all 
 
 Most of the demonstrated examples can be explored over [here](https://github.com/the-road-to-learn-react/react-component-types). I highly recommend to read through the different React Component Types from the project to get a better understanding on how React evolved from a historical perspective.
 
-The tutorial has shown you how to write React Class Components as React Function Components by using Hooks for state management and side-effects. The next time you implement a component with state or a side-effect, check whether you can implement it with a React Hook in a React Function Component. React offers all the tools to do it. For instance, [fetching data with a React Hook in a Function Component](https://www.robinwieruch.de/react-hooks-fetch-data/) is a good exercise to familiarize yourself with the concept of hooks.
+The tutorial has shown you how to write React Class Components as React Function Components by using Hooks for state management and side-effects. The next time you implement a component with state or a side-effect, check whether you can implement it with a React Hook in a React Function Component. React offers all the tools to do it. For instance, [fetching data with a React Hook in a Function Component](/react-hooks-fetch-data/) is a good exercise to familiarize yourself with the concept of hooks.

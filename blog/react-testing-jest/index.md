@@ -31,7 +31,7 @@ import App from './App';
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
-The App component in your *src/App.js* file will be a [React Function Component](https://www.robinwieruch.de/react-function-component/) with [React Hooks](https://www.robinwieruch.de/react-hooks/). It uses axios as third-party library, so make sure to install the node package on the command line with `npm install axios` for your React application.
+The App component in your *src/App.js* file will be a [React Function Component](/react-function-component/) with [React Hooks](/react-hooks/). It uses axios as third-party library, so make sure to install the node package on the command line with `npm install axios` for your React application.
 
 ```javascript
 import React from 'react';
@@ -106,9 +106,9 @@ export default App;
 
 The React application is doing two things:
 
-* First, it renders a Counter component which [receives props](https://www.robinwieruch.de/react-pass-props-to-component/) to render a counter property. The counter property is managed as state up in the App component with a [useState React Hook](https://www.robinwieruch.de/react-usestate-hook/). In addition, the counter state can be updated with two buttons by incrementing and decrementing the state.
+* First, it renders a Counter component which [receives props](/react-pass-props-to-component/) to render a counter property. The counter property is managed as state up in the App component with a [useState React Hook](/react-usestate-hook/). In addition, the counter state can be updated with two buttons by incrementing and decrementing the state.
 
-* Second, the App component [fetches data](https://www.robinwieruch.de/react-fetching-data) from a [third-party API](https://www.robinwieruch.de/what-is-an-api-javascript/) when it's rendered for the first time. Here we are using [React's useReducer Hook](https://www.robinwieruch.de/react-usereducer-hook/) to manage the data state -- which is either the actual data or an error. If there is an error, we render an error message. If there is data, we render the data as a [list of items in our React component](https://www.robinwieruch.de/react-list-components/).
+* Second, the App component [fetches data](/react-fetching-data) from a [third-party API](/what-is-an-api-javascript/) when it's rendered for the first time. Here we are using [React's useReducer Hook](/react-usereducer-hook/) to manage the data state -- which is either the actual data or an error. If there is an error, we render an error message. If there is data, we render the data as a [list of items in our React component](/react-list-components/).
 
 Note that we already export our two components and the reducer function from the file to make them testable in our test file(s) later on. This way, every component and the reducer can be tested in isolation -- which makes especially sense for the reducer function to test the state transitions from one to another state. That's what you would call a real unit test: The function is tested with an input and the test asserts an expected output.
 
@@ -330,7 +330,7 @@ describe('Counter', () => {
 
 Most of the time, Snapshot Tests look the same for every React component. You render the component, transform its rendered output to JSON to make it comparable, and match it with the previous snapshot. Having Snapshot Tests in place keeps testing React components more lightweight. Also, Snapshot Tests can be perfectly used to supplement your unit testing and integration tests, because they don't test any implementation logic explicitly.
 
-*Note: If you are using [Styled Components](https://www.robinwieruch.de/react-styled-components/) in React for CSS-in-JS, check out [jest-styled-components](https://github.com/styled-components/jest-styled-components) for testing your CSS style defintions with snapshot tests as well.*
+*Note: If you are using [Styled Components](/react-styled-components/) in React for CSS-in-JS, check out [jest-styled-components](https://github.com/styled-components/jest-styled-components) for testing your CSS style defintions with snapshot tests as well.*
 
 ### Exercises:
 
@@ -342,7 +342,7 @@ Most of the time, Snapshot Tests look the same for every React component. You re
 
 # Jest Unit/Integration Testing in React
 
-Jest can be used to test your JavaScript logic as integration or unit tests as well. For instance, your App component fetches data and stores the result as state with a [reducer function](https://www.robinwieruch.de/javascript-reducer/) by using a React Hook. This reducer function is exported as standalone JavaScript function which doesn't know anything about React. Thus, there doesn't need to be any rendering for the React component and we can test this reducer function as plain JavaScript function.
+Jest can be used to test your JavaScript logic as integration or unit tests as well. For instance, your App component fetches data and stores the result as state with a [reducer function](/javascript-reducer/) by using a React Hook. This reducer function is exported as standalone JavaScript function which doesn't know anything about React. Thus, there doesn't need to be any rendering for the React component and we can test this reducer function as plain JavaScript function.
 
 ```javascript{4,6,9,10,11,12,13,14,15,16,17,18,19}
 import React from 'react';

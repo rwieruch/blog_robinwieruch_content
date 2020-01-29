@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-In this article, you will find a concise step by step guide on how to install React on MacOS. It follows the philosophy of having one IDE to manage most of your web development tasks. That's how you can focus on your task at hand as a developer. However, if you like to compose your development environment with lightweight tools rather than with an full-blown IDE, checkout [my personal recommendations for such a setup](https://www.robinwieruch.de/developer-setup). Nevertheless, if you just want to find a way for getting started with React on Mac OS quickly, follow the guide below.
+In this article, you will find a concise step by step guide on how to install React on MacOS. It follows the philosophy of having one IDE to manage most of your web development tasks. That's how you can focus on your task at hand as a developer. However, if you like to compose your development environment with lightweight tools rather than with an full-blown IDE, checkout [my personal recommendations for such a setup](/developer-setup). Nevertheless, if you just want to find a way for getting started with React on Mac OS quickly, follow the guide below.
 
 # Node.js and NPM on MacOS
 
@@ -62,23 +62,23 @@ npm start
 
 The command line should give you an output where you can find the application in the browser. The default should be localhost:8080. If you are only using Safari on your MacOS machine, I can recommend you to install Chrome as well to access the developer environment and the React Developer Tools which are available as Chrome extension.
 
-If you just want to learn React now, you could start to read [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). It's a pragmatic book which guides you step by step through building a React application from scratch. Along the way, you will transition from JavaScript ES5 to JavaScript ES6 and you will lots of exercises to improve your React skills.
+If you just want to learn React now, you could start to read [The Road to learn React](/the-road-to-learn-react/). It's a pragmatic book which guides you step by step through building a React application from scratch. Along the way, you will transition from JavaScript ES5 to JavaScript ES6 and you will lots of exercises to improve your React skills.
 
 # Git for Visual Studio Code and MacOS
 
 At some point, you might want to share your projects on GitHub or collaborate with other people via the git version control. If you want to use GitHub as your platform of choice, you should create an account via [their official website](https://github.com/). GitHub is a social platform where you can follow other people ([you could have your first social interaction with me](https://github.com/rwieruch)), like (star) their projects or collaborate on open source projects with other people.
 
-In order to have git available on the command line and in Visual Studio Code, you need to install it. You can find all the instructions on the official [git website](https://git-scm.com/). However, I recommend it via Homebrew. If you want to follow this recommendation, checkout [the Homebrew and Git/Github sections over here](https://www.robinwieruch.de/developer-setup). After installing it, you should have it available on the command line.
+In order to have git available on the command line and in Visual Studio Code, you need to install it. You can find all the instructions on the official [git website](https://git-scm.com/). However, I recommend it via Homebrew. If you want to follow this recommendation, checkout [the Homebrew and Git/Github sections over here](/developer-setup). After installing it, you should have it available on the command line.
 
 ```javascript
 git --version
 ```
 
-If it doesn't show up in Visual Studio Code, you may have to restart the application. Afterward, you should see that Visual Studio Code already comes with a git integration as well. It's convenient to use git from this integration, but you can also use it from the command line now. That's it for the git installation and the account creation on GitHub. Furthermore, you can check out [this essential guide on how to use git and GitHub](https://www.robinwieruch.de/git-essential-commands/).
+If it doesn't show up in Visual Studio Code, you may have to restart the application. Afterward, you should see that Visual Studio Code already comes with a git integration as well. It's convenient to use git from this integration, but you can also use it from the command line now. That's it for the git installation and the account creation on GitHub. Furthermore, you can check out [this essential guide on how to use git and GitHub](/git-essential-commands/).
 
 <Divider />
 
-That's everything you need for a React development setup in MacOS. I hope you have everything to get started in React on your machine. Let me know what other tools you are using on MacOS in the comments below. Otherwise, if you are curios about the tools that I am using on my machine, head over to [my personal development setup guide](https://www.robinwieruch.de/developer-setup).
+That's everything you need for a React development setup in MacOS. I hope you have everything to get started in React on your machine. Let me know what other tools you are using on MacOS in the comments below. Otherwise, if you are curios about the tools that I am using on my machine, head over to [my personal development setup guide](/developer-setup).
 
 <LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "https://www.robinwieruch.de/how-to-use-prettier-vscode" }]} />
 

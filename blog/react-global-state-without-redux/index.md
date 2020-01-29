@@ -67,13 +67,13 @@ const Item = ({ item }) => <li>{item}</li>;
 export default App;
 ```
 
-All state is [passed as props](https://www.robinwieruch.de/react-pass-props-to-component/) to the child components. In this simple scenario, the props are used in the immediate child components (List, Toggle). But you can imagine that the props can be passed down more than one component down the component hierarchy (Item). On the other hand, each component which is interested in updating the global state (Toggle), which is managed in the App component, receives a function from the App component to perform a state update (onToggleList). That's how the top level component, in this case the App component, can be used to manage global state in React without a third-party state management library such as Redux.
+All state is [passed as props](/react-pass-props-to-component/) to the child components. In this simple scenario, the props are used in the immediate child components (List, Toggle). But you can imagine that the props can be passed down more than one component down the component hierarchy (Item). On the other hand, each component which is interested in updating the global state (Toggle), which is managed in the App component, receives a function from the App component to perform a state update (onToggleList). That's how the top level component, in this case the App component, can be used to manage global state in React without a third-party state management library such as Redux.
 
 The shown example is only a simplified version of a larger application. But the basics in React, passing props and managing state, is used in larger React applications too. Thus even though a child component is more than one level away from the top level App component, it could still receive (due to props) and update state (due to function in props) from/in the App component.
 
 # Global States with Pages in React
 
-At some point, you will use something like React Router to distribute your application on multiple pages (URLs) with so called Page components (e.g. AccountPage, ProfilePage). It doesn't need to be called Page component, but I have seen it in various React applications used this way. The [complete Firebase in React authentication tutorial](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/) showcases such an application with React Router and multiple Page components.
+At some point, you will use something like React Router to distribute your application on multiple pages (URLs) with so called Page components (e.g. AccountPage, ProfilePage). It doesn't need to be called Page component, but I have seen it in various React applications used this way. The [complete Firebase in React authentication tutorial](/complete-firebase-authentication-react-tutorial/) showcases such an application with React Router and multiple Page components.
 
 When using this architecture for your application with routing, you will still have a top level component (e.g. App component) but also Page components which are consolidated within this App component.
 
@@ -191,7 +191,7 @@ However, once you need global state again, which can be distributed to all Page 
 Prop drilling is a phenomena in React that happens when props are passed down multiple levels in a React component hierarchy and components in between are not interested in this props, so they just pass it along to the next child component. This problem can happen when using only React state as global state and your application's component hierarchy grows vertically. However, there are two techniques to prevent the prop drilling phenomena until there is really no way around a proper state management library such as Redux or MobX. You can read more about these techniques over here:
 
 * [React Slot Pattern](https://github.com/the-road-to-learn-react/react-slot-pattern-example)
-* [React's Context API](https://www.robinwieruch.de/react-context/)
+* [React's Context API](/react-context/)
 
 However, while the React Slot Pattern is a great way to advance your React application, React's Context API shouldn't be exploited as sophisticated state management layer. It is only a way to pass props from a parent component to grandchild components without having to pass the props through all child components.
 

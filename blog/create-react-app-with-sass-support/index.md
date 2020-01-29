@@ -41,7 +41,7 @@ class App extends Component {
 export default App;
 ```
 
-Next, create the Navigation component in a *src/Navigation.js* file. As you can see, it takes a list of links [as props](https://www.robinwieruch.de/react-pass-props-to-component/) and renders its content in a list of anchor tags.
+Next, create the Navigation component in a *src/Navigation.js* file. As you can see, it takes a list of links [as props](/react-pass-props-to-component/) and renders its content in a list of anchor tags.
 
 ```javascript
 import React from 'react';
@@ -165,5 +165,5 @@ Finally, the variables are usable in the *src/Navigation.scss* file. Once you st
 
 <Divider />
 
-Sass comes with plenty of powerful features, such as nesting and variables, to give you more flexibility when building your web applications. However, it is only one way of styling your applications. There are plenty of other ways to do it. In React, two other common ways of styling applications are [styled-components](https://github.com/the-road-to-learn-react/react-styled-components-example) and [CSS Modules](https://www.robinwieruch.de/create-react-app-css-modules).
+Sass comes with plenty of powerful features, such as nesting and variables, to give you more flexibility when building your web applications. However, it is only one way of styling your applications. There are plenty of other ways to do it. In React, two other common ways of styling applications are [styled-components](https://github.com/the-road-to-learn-react/react-styled-components-example) and [CSS Modules](/create-react-app-css-modules).
 

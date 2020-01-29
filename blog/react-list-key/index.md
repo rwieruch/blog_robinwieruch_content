@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-Everyone dealing with React knows about this warning: **Warning: Each child in a list should have a unique "key" prop.** It shows up in your development tools of your browser and it's one of the warnings you encounter very early in your React career. The following [list component](https://www.robinwieruch.de/react-list-component) results in this warning:
+Everyone dealing with React knows about this warning: **Warning: Each child in a list should have a unique "key" prop.** It shows up in your development tools of your browser and it's one of the warnings you encounter very early in your React career. The following [list component](/react-list-component) results in this warning:
 
 ```javascript
 const list = ['Learn React', 'Learn GraphQL'];
@@ -28,7 +28,7 @@ const ListWithoutKey = () => (
 );
 ```
 
-The warning says we only need to add a key attribute to each of our list item elements. Since we are using the [built-in JavaScript array map method](https://www.robinwieruch.de/javascript-map-array/), we have access to the index of each rendered item in the list. That should do the trick, shouldn't it?
+The warning says we only need to add a key attribute to each of our list item elements. Since we are using the [built-in JavaScript array map method](/javascript-map-array/), we have access to the index of each rendered item in the list. That should do the trick, shouldn't it?
 
 ```javascript{4,5}
 const ListWithoutKey = () => (
@@ -78,7 +78,7 @@ const ListWithUnstableIndex = () => {
 };
 ```
 
-The example showcases the same list, but this time managed with [React Hooks](https://www.robinwieruch.de/react-hooks/) as [state](https://www.robinwieruch.de/react-state/). The new button element reverses our list and stores it as state. If you try the example, everything works and *seems* alright. The bug stays hidden because we don't render much here. However, if we add another uncontrolled element to our rendered list items, we can see the bug happening:
+The example showcases the same list, but this time managed with [React Hooks](/react-hooks/) as [state](/react-state/). The new button element reverses our list and stores it as state. If you try the example, everything works and *seems* alright. The bug stays hidden because we don't render much here. However, if we add another uncontrolled element to our rendered list items, we can see the bug happening:
 
 ```javascript{16}
 const initialList = ['Learn React', 'Learn GraphQL'];
@@ -111,7 +111,7 @@ const ListWithUnstableIndex = () => {
 };
 ```
 
-The checkbox -- since it's an [uncontrolled element](https://www.robinwieruch.de/react-controlled-components/) for the sake of demonstrating what's happening here -- manages its own internal state. If you check the first of the two items with the checkbox, and reverse them with the button, you will notice that the checked checkbox is rendered at the same place while the order of the list items have changed.
+The checkbox -- since it's an [uncontrolled element](/react-controlled-components/) for the sake of demonstrating what's happening here -- manages its own internal state. If you check the first of the two items with the checkbox, and reverse them with the button, you will notice that the checked checkbox is rendered at the same place while the order of the list items have changed.
 
 ```javascript
 // the initially rendered list of items

@@ -22,7 +22,7 @@ I will use only Jest in this brief testing tutorial for React Redux components. 
 
 <ReadMore label="How to test React components with Jest" link="https://www.robinwieruch.de/react-testing-jest" />
 
-Let's say we have a connected React component that receives state from the Redux store. We call this state -- coming in as [props to our component](https://www.robinwieruch.de/react-pass-props-to-component/) -- `myState`. Our component has also a button element which dispatches an action to our Redux store. We call this action `myAction(payload)` whereas ``payload` can be any parameters passed to that action. In conclusion, our React component is connected both ways to the Redux store: it receives state (e.g. via mapStateToProps) and dispatches an action (e.g. via mapDispatchToProps).
+Let's say we have a connected React component that receives state from the Redux store. We call this state -- coming in as [props to our component](/react-pass-props-to-component/) -- `myState`. Our component has also a button element which dispatches an action to our Redux store. We call this action `myAction(payload)` whereas ``payload` can be any parameters passed to that action. In conclusion, our React component is connected both ways to the Redux store: it receives state (e.g. via mapStateToProps) and dispatches an action (e.g. via mapDispatchToProps).
 
 ```javascript
 Redux State -> React Component -> Redux Action

@@ -41,7 +41,7 @@ class App extends Component {
 export default App;
 ```
 
-Next, create the Navigation component in a *src/Navigation.js* file. As you can see, it takes a list of links [as props](https://www.robinwieruch.de/react-pass-props-to-component/) and renders its content in a list of anchor tags.
+Next, create the Navigation component in a *src/Navigation.js* file. As you can see, it takes a list of links [as props](/react-pass-props-to-component/) and renders its content in a list of anchor tags.
 
 ```javascript
 import React from 'react';
@@ -124,5 +124,5 @@ export default Navigation;
 
 In case of the navigation style, you can retrieve it with `styles.navigation` too. However, for the other styles with dashes you need to retrieve them with strings from the object.
 
-Once you start your application, everything should work as expected. You can find the final application in this [GitHub repository](https://github.com/the-road-to-learn-react/create-react-app-with-css-modules). CSS modules are only one way of styling your applications. There are plenty of other ways to do it. In React, two other common ways of styling applications are [styled-components](https://github.com/the-road-to-learn-react/react-styled-components-example) and [Sass](https://www.robinwieruch.de/create-react-app-with-sass-support).
+Once you start your application, everything should work as expected. You can find the final application in this [GitHub repository](https://github.com/the-road-to-learn-react/create-react-app-with-css-modules). CSS modules are only one way of styling your applications. There are plenty of other ways to do it. In React, two other common ways of styling applications are [styled-components](https://github.com/the-road-to-learn-react/react-styled-components-example) and [Sass](/create-react-app-with-sass-support).
 

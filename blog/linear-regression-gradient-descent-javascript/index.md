@@ -91,7 +91,7 @@ In addition, in the example, I have chosen a **linear model**, so a straight lin
 
 # Hypothesis and Cost Function in JavaScript
 
-In order to predict a price of a house with a particular size, we need to come up with the straight line that goes through the data set as most predicting as possible. The straight line can be defined as a function. The function is called **hypothesis** in machine learning. The function can be defined as `h(x) => thetaZero + thetaOne * x` for a univariate linear regression problem whereas the chosen model type is a linear model. Otherwise it would be a [polynomial linear regression](https://www.robinwieruch.de/polynomial-regression-model-selection-javascript/). In JavaScript, it can be expressed as:
+In order to predict a price of a house with a particular size, we need to come up with the straight line that goes through the data set as most predicting as possible. The straight line can be defined as a function. The function is called **hypothesis** in machine learning. The function can be defined as `h(x) => thetaZero + thetaOne * x` for a univariate linear regression problem whereas the chosen model type is a linear model. Otherwise it would be a [polynomial linear regression](/polynomial-regression-model-selection-javascript/). In JavaScript, it can be expressed as:
 
 ```javascript
 const hypothesis = x => thetaZero + thetaOne * x;
@@ -155,7 +155,7 @@ Price +
                                            Size
 ```
 
-The ideal outcome would be a minimum of costs. But that's not going to happen and could [lead to the problem of overfitting](https://www.robinwieruch.de/improving-gradient-descent-javascript/).
+The ideal outcome would be a minimum of costs. But that's not going to happen and could [lead to the problem of overfitting](/improving-gradient-descent-javascript/).
 
 ```javascript
 Price +
@@ -228,4 +228,4 @@ You can find an example of the [linear regression with gradient descent in JavaS
 
 <Divider />
 
-In conclusion, I hope the walkthrough in JavaScript was useful for you to understand linear regression and gradient descent. If you are sharing the article, it would make me aware of people actually wanting to read more about those topics, so I can write more about them in the future. The next article in this series shows a [vectorized implementation of gradient descent in JavaScript](https://www.robinwieruch.de/linear-regression-gradient-descent-vectorization-javascript). I learn the topic myself, so please leave a comment if there is any mistake.
+In conclusion, I hope the walkthrough in JavaScript was useful for you to understand linear regression and gradient descent. If you are sharing the article, it would make me aware of people actually wanting to read more about those topics, so I can write more about them in the future. The next article in this series shows a [vectorized implementation of gradient descent in JavaScript](/linear-regression-gradient-descent-vectorization-javascript). I learn the topic myself, so please leave a comment if there is any mistake.

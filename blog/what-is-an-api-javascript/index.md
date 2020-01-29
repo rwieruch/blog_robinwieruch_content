@@ -155,7 +155,7 @@ Everyone should be aware of it. Everyone is unconsciously an API architect. Even
 
 Through my journey at university, I learned programming with APIs. Distributed systems was the subject that kept me learning programming. By using APIs with concrete examples, be it the browser API, a third-party library or a remote RESTful service accessed by its API, you can use these concrete examples to learn. I found it highly empowering, leaving my sandbox in order to learn programming. You get the real world content from others to experiment with.
 
-After reflecting on this topic of APIs, I try to use them to teach programming. Consider a third-party platform that has an API to access its resources. Rather than leaving students bored by having them to push around arbitrary data, you can give them access to real world data. I use this concept of teaching programming with third-party platforms often. Yes, you run into problems with changing APIs, but you still empower your students. I use this principle in my [book to teach the fundamentals of React](https://www.robinwieruch.de/the-road-to-learn-react/).
+After reflecting on this topic of APIs, I try to use them to teach programming. Consider a third-party platform that has an API to access its resources. Rather than leaving students bored by having them to push around arbitrary data, you can give them access to real world data. I use this concept of teaching programming with third-party platforms often. Yes, you run into problems with changing APIs, but you still empower your students. I use this principle in my [book to teach the fundamentals of React](/the-road-to-learn-react/).
 
 <Divider />
 

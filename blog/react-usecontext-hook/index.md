@@ -14,7 +14,7 @@ author: ""
 
 <LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "React Context", url: "https://www.robinwieruch.de/react-context/" }]} />
 
-[React's Function Components](https://www.robinwieruch.de/react-function-component) come with [React Hooks](https://www.robinwieruch.de/react-hooks) these days. Not only can [React Hooks be used for State in React](https://www.robinwieruch.de/react-state) but also for using React's Context in a more convenient way. This tutorial shows you how to use React's useContext Hook. Before, make sure to read the previous tutorial for getting an introduction to [React's Context](https://www.robinwieruch.de/react-context/):
+[React's Function Components](/react-function-component) come with [React Hooks](/react-hooks) these days. Not only can [React Hooks be used for State in React](/react-state) but also for using React's Context in a more convenient way. This tutorial shows you how to use React's useContext Hook. Before, make sure to read the previous tutorial for getting an introduction to [React's Context](/react-context/):
 
 * Why React Context?
 * What is React Context?
@@ -73,7 +73,7 @@ const C = () => (
 
 That's the most basic approach of using React's Context API with a single top-level Provider component and one Consumer component in a React child component sitting somewhere below. There can be many more child components using the Consumer component though, but they have to be located somewhere below the component using the Provider component.
 
-Now comes the crucial part where we shift towards React's useContext Hook. As you can see, the Consumer component coming from React's Context is by default a [render prop component](https://www.robinwieruch.de/react-render-props). In a world where we can use React Hooks, a render prop component isn't always the best choice. Let's see the previous example with React's useContext Hook instead:
+Now comes the crucial part where we shift towards React's useContext Hook. As you can see, the Consumer component coming from React's Context is by default a [render prop component](/react-render-props). In a world where we can use React Hooks, a render prop component isn't always the best choice. Let's see the previous example with React's useContext Hook instead:
 
 ```javascript{7}
 // src/ComponentC.js

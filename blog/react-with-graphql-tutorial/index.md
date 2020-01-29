@@ -52,9 +52,9 @@ Along the way, you will build a simplified GitHub client, basically an issue tra
 
 # Writing your first React GraphQL Client
 
-After the last sections, you should be ready to use queries and mutations in your React application. In this section, you will create a React application that consumes the GitHub GraphQL API. The application should show open issues in a GitHub repository, making it a simple issue tracker. Again, if you lack experience with React, see [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react) to learn more about it. After that you should be well set up for the following section.
+After the last sections, you should be ready to use queries and mutations in your React application. In this section, you will create a React application that consumes the GitHub GraphQL API. The application should show open issues in a GitHub repository, making it a simple issue tracker. Again, if you lack experience with React, see [The Road to learn React](/the-road-to-learn-react) to learn more about it. After that you should be well set up for the following section.
 
-For this application, no elaborate React setup is needed. You will simply use [create-react-app](https://github.com/facebook/create-react-app) to create your React application with zero-configuration. If you want to have an elaborated React setup instead, read this [setup guide for using Webpack with React](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/). For now, let's create the application with create-react-app. In your general projects folder, type the following instructions:
+For this application, no elaborate React setup is needed. You will simply use [create-react-app](https://github.com/facebook/create-react-app) to create your React application with zero-configuration. If you want to have an elaborated React setup instead, read this [setup guide for using Webpack with React](/minimal-react-webpack-babel-setup/). For now, let's create the application with create-react-app. In your general projects folder, type the following instructions:
 
 ```javascript
 npx create-react-app react-graphql-github-vanilla
@@ -154,7 +154,7 @@ The initial axios setup is essentially the same as we completed using the Graphi
 
 Next, set up a form for capturing details about a GitHub organization and repository from a user. It should be possible to fill out an input field to request a paginated list of issues for a specific GitHub repository. First, there needs to be a form with an input field to enter the organization and repository. The input field has to update React's local state. Second, the form needs a submit button to request data about the organization and repository that the user provided in the input field, which are located in the component's local state. Third, it would be convenient to have an initial local state for the organization and repository to request initial data when the component mounts for the first time.
 
-Let's tackle implementing this scenario in two steps. The render method has to render a form with an input field. The form has to have an `onSubmit` handler, and the input field needs an `onChange` handler. The input field uses the `path` from the local state as a value to be a [controlled component](https://www.robinwieruch.de/react-controlled-components/). The `path` value in the local state from the `onChange` handler updates in the second step.
+Let's tackle implementing this scenario in two steps. The render method has to render a form with an input field. The form has to have an `onSubmit` handler, and the input field needs an `onChange` handler. The input field uses the `path` from the local state as a value to be a [controlled component](/react-controlled-components/). The `path` value in the local state from the `onChange` handler updates in the second step.
 
 ```javascript
 class App extends Component {
@@ -251,7 +251,7 @@ class App extends Component {
 }
 ```
 
-The previous setup for the form--using input field(s), a submit button, `onChange()` and `onSubmit()` class methods--is a common way to implement forms in React. The only addition is the initial data fetching in the `componentDidMount()` lifecycle method to improve user experience by providing an initial state for the query to request data from the backend. It is a useful foundation for [fetching data from a third-party API in React](https://www.robinwieruch.de/react-fetching-data/).
+The previous setup for the form--using input field(s), a submit button, `onChange()` and `onSubmit()` class methods--is a common way to implement forms in React. The only addition is the initial data fetching in the `componentDidMount()` lifecycle method to improve user experience by providing an initial state for the query to request data from the backend. It is a useful foundation for [fetching data from a third-party API in React](/react-fetching-data/).
 
 When you start the application on the command line, you should see the initial state for the `path` in the input field. You should be able to change the state by entering something else in the input field, but nothing happens with `componentDidMount()` and submitting the form yet.
 
@@ -419,7 +419,7 @@ const Organization = ({ organization }) => (
 );
 ```
 
-In the final step, you have to decide what should be rendered when nothing is fetched yet, and what should be rendered when errors occur. To solve these edge cases, you can use [conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/) in React. For the first edge case, simply check whether an `organization` is present or not.
+In the final step, you have to decide what should be rendered when nothing is fetched yet, and what should be rendered when errors occur. To solve these edge cases, you can use [conditional rendering](/conditional-rendering-react/) in React. For the first edge case, simply check whether an `organization` is present or not.
 
 ```javascript{5,13,14,15,16,17}
 class App extends Component {
@@ -724,7 +724,7 @@ class App extends Component {
 }
 ```
 
-You can always split your applications into parts, be they functions or components, to make them concise, readable, reusable and [testable](https://www.robinwieruch.de/react-testing-tutorial/). The function that is passed to `this.setState()` can be extracted as higher-order function. It has to be a higher-order function, because you need to pass the result of the promise, but also provide a function for the `this.setState()` method.
+You can always split your applications into parts, be they functions or components, to make them concise, readable, reusable and [testable](/react-testing-tutorial/). The function that is passed to `this.setState()` can be extracted as higher-order function. It has to be a higher-order function, because you need to pass the result of the promise, but also provide a function for the `this.setState()` method.
 
 ```javascript{1,2,3,4,10,11}
 const resolveIssuesQuery = queryResult => () => ({

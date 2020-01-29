@@ -170,7 +170,7 @@ Basically that's how props are passed to React components. As you may have notic
 
 # React Props vs. State
 
-Passing only props from component to component doesn't make the component interactive, because nothing is there to change the props. Props are read-only. That's the time when [React State](https://www.robinwieruch.de/react-state) comes into play which can be changed. The state is co-located to a React component.
+Passing only props from component to component doesn't make the component interactive, because nothing is there to change the props. Props are read-only. That's the time when [React State](/react-state) comes into play which can be changed. The state is co-located to a React component.
 
 ```javascript{4,5,6,7,8,9,10,12,13,14,19,21,22,23}
 import React, { Component } from 'react';
@@ -206,7 +206,7 @@ const Greeting = ({ greeting }) => <h1>{greeting}</h1>;
 export default App;
 ```
 
-In this case, the code uses a ternary operator to either show the greeting or not. You can read up [this tutorial about all the conditional renderings in React](https://www.robinwieruch.de/conditional-rendering-react/). The state makes the React components interactive. You can **read and write state**, whereas **props are read-only**. Once the state changes, the component renders again. In addition, state can be passed as props to child components too.
+In this case, the code uses a ternary operator to either show the greeting or not. You can read up [this tutorial about all the conditional renderings in React](/conditional-rendering-react/). The state makes the React components interactive. You can **read and write state**, whereas **props are read-only**. Once the state changes, the component renders again. In addition, state can be passed as props to child components too.
 
 ```javascript{21,31,32}
 import React, { Component } from 'react';
@@ -483,7 +483,7 @@ const Greeting = ({
   ...
 ```
 
-You can do all of this code formatting on your own or use a code formatter instead. [Prettier](https://github.com/prettier/prettier) is the most popular choice when it comes to opinionated code formatters. If you are interested in using Prettier, here you can read up on how to set it up on [Windows](https://www.robinwieruch.de/react-js-windows-setup/) or [MacOS](https://www.robinwieruch.de/react-js-macos-setup/) in Visual Studio Code.
+You can do all of this code formatting on your own or use a code formatter instead. [Prettier](https://github.com/prettier/prettier) is the most popular choice when it comes to opinionated code formatters. If you are interested in using Prettier, here you can read up on how to set it up on [Windows](/react-js-windows-setup/) or [MacOS](/react-js-macos-setup/) in Visual Studio Code.
 
 # React ...props syntax
 
@@ -706,9 +706,9 @@ Many people refer to this as **slot pattern** in React. You can find a working m
 
 # Children as a Function
 
-The concept of **children as a function** or **child as a function**, also called **render prop**, is one of the advanced patterns in React (next to [higher-order components](https://www.robinwieruch.de/react-higher-order-components/)). The components which implement this pattern can be called **render prop components.**
+The concept of **children as a function** or **child as a function**, also called **render prop**, is one of the advanced patterns in React (next to [higher-order components](/react-higher-order-components/)). The components which implement this pattern can be called **render prop components.**
 
-The following implementations can be difficult to follow when not having used render props in React before. Please read up this article [as introduction to render props in React](https://www.robinwieruch.de/react-render-props/) first.
+The following implementations can be difficult to follow when not having used render props in React before. Please read up this article [as introduction to render props in React](/react-render-props/) first.
 
 First, let's start with the render prop. Basically it is a function passed as prop (usually called render, but the name can be anything). The function receives arguments (in this case the amount), but also renders JSX (in this case the components for the currency conversion).
 
@@ -824,7 +824,7 @@ You can find a working minimal project on [GitHub](https://github.com/the-road-t
 
 At some point, you are passing a lot of props down your component tree. Depending on the depth of the component tree, it can happen that many props are passed from a top level component to all the leaf components. Every component in between has to pass the props even though it may not be interested in the props. The problem is called **prop drilling** in React. There are a couple of solutions to overcome this "problem". You have already learned about one solution: passing components as props by using the slot pattern. Then you don't have to pass a prop through all components, but rather distribute the props at a top level to all slotted components.
 
-Another solution is **React's Context API** which can be used to pass props implicitly down to component tree. Every component which is interested in the props passed by React's Context API can consume them. All the other components don't need to consume them and thus they will never know about the props. Moreover, the components between the top level and the leaf components don't need to know about the props as well. Checkout [React's Context API](https://www.robinwieruch.de/react-context/) if you are interested in using it.
+Another solution is **React's Context API** which can be used to pass props implicitly down to component tree. Every component which is interested in the props passed by React's Context API can consume them. All the other components don't need to consume them and thus they will never know about the props. Moreover, the components between the top level and the leaf components don't need to know about the props as well. Checkout [React's Context API](/react-context/) if you are interested in using it.
 
 # How to set props to state?
 
@@ -1032,7 +1032,7 @@ Basically that's how you pass props to styled components and how you get props i
 
 ## Pass props with React Router
 
-React Router is another [essential React library](https://www.robinwieruch.de/react-libraries/) which is often used to complement React applications. Mapping URL routes to React components usually looks similar to this:
+React Router is another [essential React library](/react-libraries/) which is often used to complement React applications. Mapping URL routes to React components usually looks similar to this:
 
 ```javascript
 const App = ({ user }) =>

@@ -40,13 +40,13 @@ Action => Reducer(s) => Store => View => User Interaction => Action ...
 
 That's all of Redux (State) in context of a library like React (View). Every part in the chain has its task. Everything is clearly separated from each other and serves a purpose for the greater goal: state management.
 
-However, too many people associate Redux tightly with React. Once they start learning React, they go all-in by combining [React with Redux from the start](https://www.robinwieruch.de/learn-react-before-using-redux/) which demotivates lots of developers with its complexity. However, Redux in a nutshell isn't that complex, if just considering Redux, because after all, it's just a state container (object) which holds state; with an API that enables one
+However, too many people associate Redux tightly with React. Once they start learning React, they go all-in by combining [React with Redux from the start](/learn-react-before-using-redux/) which demotivates lots of developers with its complexity. However, Redux in a nutshell isn't that complex, if just considering Redux, because after all, it's just a state container (object) which holds state; with an API that enables one
 
 * to manipulate the state
 * to receive the state
 * to listen to state changes
 
-Let's recap all parts of Redux briefly in JS. This is a [Redux Reducer](https://www.robinwieruch.de/javascript-reducer/) that acts on two Redux Actions which has no dependencies on the Redux library at all:
+Let's recap all parts of Redux briefly in JS. This is a [Redux Reducer](/javascript-reducer/) that acts on two Redux Actions which has no dependencies on the Redux library at all:
 
 ```javascript
 function reducer(state, action) {
@@ -99,7 +99,7 @@ store.subscribe(() => {
 });
 ```
 
-That's Redux in a nutshell with all its fragments: Action, Reducer, Store. There is no React and no View yet. The View could be considered as the `console.log`. If you didn't learn Redux yet, feel free to check out this long read [React + Redux tutorial](https://www.robinwieruch.de/react-redux-tutorial) which teaches Redux before it integrates into React.
+That's Redux in a nutshell with all its fragments: Action, Reducer, Store. There is no React and no View yet. The View could be considered as the `console.log`. If you didn't learn Redux yet, feel free to check out this long read [React + Redux tutorial](/react-redux-tutorial) which teaches Redux before it integrates into React.
 
 Redux's Actions, Reducers, Store have all their mandatory place in the Redux toolchain. If there needs to be syntax sugar on top, one can add Action Creators and Selectors. All you need to get started is the [redux](https://github.com/reduxjs/redux) library to create the Redux Store. Everything else is just JavaScript. Also there is nothing to see about a library like React yet. It's clearly separated with its own library -- [react-redux](https://github.com/reduxjs/react-redux) -- and ecosystem.
 
@@ -207,7 +207,7 @@ const toggledTodo = {
 };
 ```
 
-It was just a wonderful addition to JavaScript which made many libraries like Redux, but also [React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/), flourish.
+It was just a wonderful addition to JavaScript which made many libraries like Redux, but also [React](/javascript-fundamentals-react-requirements/), flourish.
 
 # Unidirectional Data Flow
 
@@ -302,7 +302,7 @@ Redux gives a great demonstration of event driven systems for any web developer 
 
 Domain-driven design (DDD) isn't a thing in Redux itself, and may be a bit far fetched here arguably, but once you get beyond a small-sized application, every developer or team of developers has to think about how to split up state/reducers into their domains when using Redux.
 
-You may end up with reducers for (A) various entities (e.g. todos, users) that are fetched from a [remote API](https://www.robinwieruch.de/what-is-an-api-javascript), (B) filters (e.g. show all incomplete todos, show all active users) and (C) statistics (e.g. calculate the number of completed todos by active users).
+You may end up with reducers for (A) various entities (e.g. todos, users) that are fetched from a [remote API](/what-is-an-api-javascript), (B) filters (e.g. show all incomplete todos, show all active users) and (C) statistics (e.g. calculate the number of completed todos by active users).
 
 ```javascript
 import { createStore, combineReducers } from 'redux';

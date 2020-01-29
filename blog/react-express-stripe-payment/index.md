@@ -18,7 +18,7 @@ I dealt with the same issue in a React application. After researching the topic,
 
 In this React tutorial, you will setup a minimal React application where you can charge money with a credit card React Stripe form and a minimal Express server that receives the payment request. The request gets forwared from your payment server to Stripe via its platform API. The tutorial doesn't come with a lot extra on top. It tries to keep the solution to a minimum so that you can adapt it to your needs.
 
-If you are interested in a full blown payment solution with Stripe and PayPal in React, you can also read [about the PayPal in React setup](https://www.robinwieruch.de/react-paypal-payment/) in my other article.
+If you are interested in a full blown payment solution with Stripe and PayPal in React, you can also read [about the PayPal in React setup](/react-paypal-payment/) in my other article.
 
 # Stripe Platform
 
@@ -56,7 +56,7 @@ The next step is to install a couple of libraries:
 npm install --save axios react-stripe-checkout
 ```
 
-You will use [axios](https://github.com/mzabriskie/axios) to make your payment request to your own Express backend. However, it is up to you to use another solution such as superagent or the native fetch [API](https://www.robinwieruch.de/what-is-an-api-javascript/) of the browser. After all, you are in a React environment, so [you can opt-in whatever solution suits you](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/).
+You will use [axios](https://github.com/mzabriskie/axios) to make your payment request to your own Express backend. However, it is up to you to use another solution such as superagent or the native fetch [API](/what-is-an-api-javascript/) of the browser. After all, you are in a React environment, so [you can opt-in whatever solution suits you](/reasons-why-i-moved-from-angular-to-react/).
 
 The second library you will use is [react-stripe-checkout](https://github.com/azmenak/react-stripe-checkout). It does two things for you:
 
@@ -371,4 +371,4 @@ All the implementation is done. Now it is about testing it. When you start backe
 
 There should be an obvious alert when the payment succeeded, but also an error alert when it failed. Once it succeeded, you can find the payment on your Stripe dashboard using the test mode. If you charged a real credit card in production environment, the payment should be visible on the dashboard in live mode.
 
-You can find the final application and the installation README.md on [GitHub](https://github.com/rwieruch/react-express-stripe). If you like it, make sure to star it. Otherwise, if you need help to deploy your Stripe payment server to production, follow this [Digital Ocean deployment guide](https://www.robinwieruch.de/deploy-applications-digital-ocean/). I deploy all my applications there with Dokku.
+You can find the final application and the installation README.md on [GitHub](https://github.com/rwieruch/react-express-stripe). If you like it, make sure to star it. Otherwise, if you need help to deploy your Stripe payment server to production, follow this [Digital Ocean deployment guide](/deploy-applications-digital-ocean/). I deploy all my applications there with Dokku.

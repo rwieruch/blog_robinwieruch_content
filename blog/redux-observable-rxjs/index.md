@@ -57,7 +57,7 @@ import 'rxjs';
 
 After we've set up everything accordingly, we can start to replace the thunk approach observables. We do this from scratch and you can compare the solution afterwards with the thunk approach we used before.
 
-First we need to authenticate our app with the SoundCloud API ([What's an API?](https://www.robinwieruch.de/what-is-an-api-javascript/)).
+First we need to authenticate our app with the SoundCloud API ([What's an API?](/what-is-an-api-javascript/)).
 
 *src/actions/auth.js*
 

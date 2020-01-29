@@ -16,7 +16,7 @@ author: ""
 
 In this short visual guide, I want to show you how to activate the Facebook authentication for your Firebase or Firestore application. It should only take you a couple of minutes to set up the Facebook as web login for your app. Afterward, there is no email needed for your users to authenticate with your application.
 
-First, on your Firebase project's dashboard, navigate to the Authentication/Sign-in method option. There you can enable the Facebook sign in method that enables you to login people via Facebook to your [Firebase application](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial).
+First, on your Firebase project's dashboard, navigate to the Authentication/Sign-in method option. There you can enable the Facebook sign in method that enables you to login people via Facebook to your [Firebase application](/complete-firebase-authentication-react-tutorial).
 
 ![firebase sign in methods](./images/banner.jpg)
 
@@ -42,4 +42,4 @@ Afterward, under the Settings configuration for the Facebook Login, provide the 
 
 ![facebook app oauth redirect uri](./images/facebook-app-oauth-redirect-uri.jpg)
 
-You should be able to use the Facebook App in your [Firebase application](https://www.robinwieruch.de/react-firebase-social-login) or any other application now.
+You should be able to use the Facebook App in your [Firebase application](/react-firebase-social-login) or any other application now.

@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-In this article, you will find a concise step by step guide on how to install React on Windows. There are plenty of articles out there on how to setup your web development environment on MacOS, but very few on how to setup it on Windows. Especially when people want to enter the world of React.js in Windows, there is a missing starting point. I wanted to address this issue, since a lot of people reading [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/) are coming from Windows too.
+In this article, you will find a concise step by step guide on how to install React on Windows. There are plenty of articles out there on how to setup your web development environment on MacOS, but very few on how to setup it on Windows. Especially when people want to enter the world of React.js in Windows, there is a missing starting point. I wanted to address this issue, since a lot of people reading [The Road to learn React](/the-road-to-learn-react/) are coming from Windows too.
 
 Just recently I worked closely with a group of developers who are required to develop on a Windows machine, because of company internal policies. Thus I had to go through the whole React setup on a Windows machine with them. That's why I think I can give you a concise way on how to use React on a Windows machine in 4 steps.
 
@@ -68,7 +68,7 @@ npm start
 
 The command line should give you an output where you can find the application in the browser. The default should be localhost:8080. If you are only using IE or Edge on your Windows machine, I can recommend you to install Chrome as well to access the developer environment and the React Developer Tools which are available as Chrome extension. On the other side, now you have an advantage over the MacOS developers, because you can debug your web applications in the Internet Explorer and Edge too.
 
-If you just want to learn React now, you could start to read [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react/). It's a pragmatic book which guides you step by step through building a React application from scratch. Along the way, you will transition from JavaScript ES5 to JavaScript ES6 and you will lots of exercises to improve your React skills.
+If you just want to learn React now, you could start to read [The Road to learn React](/the-road-to-learn-react/). It's a pragmatic book which guides you step by step through building a React application from scratch. Along the way, you will transition from JavaScript ES5 to JavaScript ES6 and you will lots of exercises to improve your React skills.
 
 # Git for Visual Studio Code and Windows
 
@@ -80,11 +80,11 @@ In order to have git available on the command line and in Visual Studio Code, yo
 git --version
 ```
 
-If it doesn't show up in Visual Studio Code, you may have to restart the application. Afterward, you should see that Visual Studio Code already comes with a git integration as well. It's convenient to use git from this integration, but you can also use it from the command line now. That's it for the git installation and the account creation on GitHub. Furthermore, you can check out [this essential guide on how to use git and GitHub](https://www.robinwieruch.de/git-essential-commands/).
+If it doesn't show up in Visual Studio Code, you may have to restart the application. Afterward, you should see that Visual Studio Code already comes with a git integration as well. It's convenient to use git from this integration, but you can also use it from the command line now. That's it for the git installation and the account creation on GitHub. Furthermore, you can check out [this essential guide on how to use git and GitHub](/git-essential-commands/).
 
 <Divider />
 
-That's everything you need for a React development setup in Windows. I hope you have everything to get started in React on your PC. Let me know what other tools you are using on Windows in the comments below. Otherwise, if you are curios about the tools that I am using on my machine, head over to [my personal development setup guide](https://www.robinwieruch.de/developer-setup).
+That's everything you need for a React development setup in Windows. I hope you have everything to get started in React on your PC. Let me know what other tools you are using on Windows in the comments below. Otherwise, if you are curios about the tools that I am using on my machine, head over to [my personal development setup guide](/developer-setup).
 
 <LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "https://www.robinwieruch.de/how-to-use-prettier-vscode" }]} />
 

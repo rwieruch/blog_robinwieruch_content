@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-In JavaScript ES6, you can import and export functionalities from modules. These can be functions, classes, components, constants, essentially anything you can [assign to a JavaScript variable](https://www.robinwieruch.de/javascript-variable). Modules can be single files or whole folders with one index file as entry point.
+In JavaScript ES6, you can import and export functionalities from modules. These can be functions, classes, components, constants, essentially anything you can [assign to a JavaScript variable](/javascript-variable). Modules can be single files or whole folders with one index file as entry point.
 
 The import and export statements in JavaScript help you to share code across multiple files. Historically there were already several solutions for this in the JavaScript environment, but it was a mess because there wasn't standardized method of performing this task. JavaScript ES6 added it as a native behavior eventually.
 

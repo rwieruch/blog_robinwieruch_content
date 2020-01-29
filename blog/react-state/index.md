@@ -34,7 +34,7 @@ State can be various things:
 
 * 1) A boolean which tells the UI that a dialog/modal/popover component is opened or closed.
 * 2) An user object which reflects the currently signed in user of the application.
-* 3) Data from a [remote API](https://www.robinwieruch.de/what-is-an-api-javascript) (e.g. an object/list of users), that is [fetched in React](https://www.robinwieruch.de/react-fetching-data) and displayed in your UI.
+* 3) Data from a [remote API](/what-is-an-api-javascript) (e.g. an object/list of users), that is [fetched in React](/react-fetching-data) and displayed in your UI.
 
 State is just another fancy word for a JavaScript data structure representing the state with JavaScript primitives and objects. For instance, a simple state could be a JavaScript boolean whereas a more complex UI state could be a JavaScript object:
 
@@ -71,7 +71,7 @@ Every of these states could be managed by a single React component which is main
 * B) enabling the user to modify the state
 * C) updating the UI once the state has been changed
 
-This can be done *within* a React component with [React Hooks](https://www.robinwieruch.de/react-hooks/). I am saying *within* here, because it's co-located state to the React component by using Hooks. Later you will learn about other state that is managed *globally and outside* of React components. Let's explore the React Hooks for state first.
+This can be done *within* a React component with [React Hooks](/react-hooks/). I am saying *within* here, because it's co-located state to the React component by using Hooks. Later you will learn about other state that is managed *globally and outside* of React components. Let's explore the React Hooks for state first.
 
 # React State: useState
 
@@ -127,12 +127,12 @@ After all, React's useState is your gateway into state management with React. Ev
 
 ### Exercises:
 
-* Read more about [React's useState Hook](https://www.robinwieruch.de/react-usestate-hook)
-* Read more about [Controlled Components in React](https://www.robinwieruch.de/react-controlled-components)
+* Read more about [React's useState Hook](/react-usestate-hook)
+* Read more about [Controlled Components in React](/react-controlled-components)
 
 # React State: useReducer
 
-React's useReducer derives from the concept of a [JavaScript Reducer](https://www.robinwieruch.de/javascript-reducer). The idea: A reducer function takes the current state and an action with payload and computes it to a new state:
+React's useReducer derives from the concept of a [JavaScript Reducer](/javascript-reducer). The idea: A reducer function takes the current state and an action with payload and computes it to a new state:
 
 ```javascript
 (state, action) => newState
@@ -227,13 +227,13 @@ In contrast to the React's useState hook, the state update function from the use
 
 ### Exercises:
 
-* Read more about [JavaScript Reducer](https://www.robinwieruch.de/javascript-reducer)
-* Read more about [React's useReducer Hook](https://www.robinwieruch.de/react-usereducer-hook)
-* Read more about [when to use useState or useReducer](https://www.robinwieruch.de/react-usereducer-vs-usestate)
+* Read more about [JavaScript Reducer](/javascript-reducer)
+* Read more about [React's useReducer Hook](/react-usereducer-hook)
+* Read more about [when to use useState or useReducer](/react-usereducer-vs-usestate)
 
 # React State: useContext
 
-Technically React's useContext hook isn't related to state. It makes it just more convenient to pass props down the component tree. Normally [React props are passed from parent to child components](https://www.robinwieruch.de/react-pass-props-to-component/); however, [React's Context API](https://www.robinwieruch.de/react-context) allows it to tunnel React components in between. Thus it's possible to pass props from a grandfather component to a grandchild component without bothering the other React components in between of the chain.
+Technically React's useContext hook isn't related to state. It makes it just more convenient to pass props down the component tree. Normally [React props are passed from parent to child components](/react-pass-props-to-component/); however, [React's Context API](/react-context) allows it to tunnel React components in between. Thus it's possible to pass props from a grandfather component to a grandchild component without bothering the other React components in between of the chain.
 
 However, React's Context API mechanism is indeed used for more advanced state management in React: It tunnels the current state and the state update function -- either returned from useState or useReducer -- through many React components. This way, developers started to manage React state at top-level components with useReducer/useState and pass their returned values -- current state and state update function -- with useContext to all the React child components that are interested in this state or updating this state.
 
@@ -265,8 +265,8 @@ In the previous code snippet, the ability to modify todo items with the `dispatc
 
 ### Exercises:
 
-* Read more about [React's useContext Hook](https://www.robinwieruch.de/react-usecontext-hook)
-* Read more about [useContext combined with useState and useReducer for React state](https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext/)
+* Read more about [React's useContext Hook](/react-usecontext-hook)
+* Read more about [useContext combined with useState and useReducer for React state](/react-state-usereducer-usestate-usecontext/)
 
 # Local vs Global State
 
@@ -307,7 +307,7 @@ Let's explore such implementation together with `useCombinedReducers` in the exe
 
 ### Exercises:
 
-* Read more about [how to create Redux with useReducer and useContext](https://www.robinwieruch.de/redux-with-react-hooks)
+* Read more about [how to create Redux with useReducer and useContext](/redux-with-react-hooks)
   * Postpone reading this tutorial to the next section, if you need more clarity about Redux first
 
 # React State: Redux
@@ -318,7 +318,7 @@ Even though React's useReducer came into the world after Redux, its concept orig
 React => Action => Reducer(s) => Store => React
 ```
 
-Whereas `Action => Reducer(s) => Store` encapsulates Redux. Let's recap all parts of Redux briefly in JS. This is a [Redux Reducer](https://www.robinwieruch.de/javascript-reducer/) that acts on two Redux Actions which has no dependencies on the Redux library at all:
+Whereas `Action => Reducer(s) => Store` encapsulates Redux. Let's recap all parts of Redux briefly in JS. This is a [Redux Reducer](/javascript-reducer/) that acts on two Redux Actions which has no dependencies on the Redux library at all:
 
 ```javascript
 function reducer(state, action) {
@@ -373,14 +373,14 @@ store.subscribe(() => {
 
 That's Redux in a nutshell with all its fragments: Action, Reducer, Store. If you attach the store subscription to React, the React UI can update whenever the state in Redux changes.
 
-**Another popular alternative for Redux is MobX for state in React:** Both state management libraries got very popular in the early days of React. However, there are [other state management libraries](https://www.robinwieruch.de/react-libraries) out there, competing with both titans, by offering a more lightweight state management solution.
+**Another popular alternative for Redux is MobX for state in React:** Both state management libraries got very popular in the early days of React. However, there are [other state management libraries](/react-libraries) out there, competing with both titans, by offering a more lightweight state management solution.
 
 ### Exercises:
 
-* Read more about [why Redux makes you a better JS developer](https://www.robinwieruch.de/redux-javascript)
-* Read more about [Redux vs useReducer](https://www.robinwieruch.de/redux-vs-usereducer)
-* Read more about [Redux vs MobX](https://www.robinwieruch.de/redux-mobx)
-  * Optional: [Learn Redux and Redux with React](https://www.robinwieruch.de/react-redux-tutorial)
+* Read more about [why Redux makes you a better JS developer](/redux-javascript)
+* Read more about [Redux vs useReducer](/redux-vs-usereducer)
+* Read more about [Redux vs MobX](/redux-mobx)
+  * Optional: [Learn Redux and Redux with React](/react-redux-tutorial)
 
 # Origin of State
 
@@ -410,7 +410,7 @@ That's where another technology comes into play: GraphQL.
 
 # React State: GraphQL
 
-GraphQL is not strictly related to state. [GraphQL is an alternative to REST for client-server communication](https://www.robinwieruch.de/why-graphql-advantages-disadvantages-alternatives/). However, with the right GraphQL library in place for your React application, managing state that origins from a server application becomes much simpler.
+GraphQL is not strictly related to state. [GraphQL is an alternative to REST for client-server communication](/why-graphql-advantages-disadvantages-alternatives/). However, with the right GraphQL library in place for your React application, managing state that origins from a server application becomes much simpler.
 
 For instance, Apollo Client is one of these GraphQL client libraries. It can be used to read and write data from and to a remote GraphQL API via GraphQL queries and mutations. For instance, using a query to read data with Apollo within a React component may look the following way:
 
@@ -467,13 +467,13 @@ For many React applications, I strongly believe it would make state management a
 
 ### Exercises:
 
-* [Learn GraphQL with React](https://www.robinwieruch.de/the-road-to-graphql-book)
+* [Learn GraphQL with React](/the-road-to-graphql-book)
 
 # React State: this.state and setState (Legacy)
 
-If you are not using React Class Components but only [React Function Components](https://www.robinwieruch.de/react-function-component/), you don't need to read any further here. If you are still using React Class Components, then either
+If you are not using React Class Components but only [React Function Components](/react-function-component/), you don't need to read any further here. If you are still using React Class Components, then either
 
-* [migrate them to React Function Components](https://www.robinwieruch.de/react-hooks-migration) for enabling React Hooks
+* [migrate them to React Function Components](/react-hooks-migration) for enabling React Hooks
 * deal with state management in React Class Components the old-school way
 
 The following example shows you how to manage state in React Class Components:

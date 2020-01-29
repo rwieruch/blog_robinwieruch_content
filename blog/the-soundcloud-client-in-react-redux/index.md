@@ -22,7 +22,7 @@ It took me some weeks to implement the [SoundCloud Client FaveSound](http://www.
 
 Professionally I grew with the code base, but also got an entry point into the open source community by providing a [larger code base example for beginners](https://github.com/rwieruch/favesound-redux) in the React + Redux world. Since I made this great experience, I wanted to give the community this hands on tutorial, which will guide people to get started in React + Redux with a compelling real world application - a SoundCloud client.
 
-At the end of this tutorial you can expect to have a running React + Redux app, which consumes the SoundCloud API ([What's an API?](https://www.robinwieruch.de/what-is-an-api-javascript/)). You will be able to login with your SoundCloud account, list your latest tracks and listen to them within the browser. Additionally you will learn a lot about tooling with Webpack and Babel.
+At the end of this tutorial you can expect to have a running React + Redux app, which consumes the SoundCloud API ([What's an API?](/what-is-an-api-javascript/)). You will be able to login with your SoundCloud account, list your latest tracks and listen to them within the browser. Additionally you will learn a lot about tooling with Webpack and Babel.
 
 In the future I am going to write some [smaller tutorials](#extensions) based on this one. They will simply build on top of this project and help you to get started in various topics. So keep an eye on this tutorial, follow me on [Twitter](https://twitter.com/rwieruch) or [GitHub](https://github.com/rwieruch) or simply star the [repository](https://github.com/rwieruch/react-redux-soundcloud) to get updates.
 
@@ -34,12 +34,12 @@ In the future I am going to write some [smaller tutorials](#extensions) based on
 
 A list of extensions which can be applied on top of the SoundCloud Client with React + Redux tutorial afterwards.
 
-* [React ESLint: Code Style like Airbnb in React](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-eslint)
-* [Flow: Type Checking with Flow in React + Redux](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-flow)
-* [Redux Ducks: Restructure your Redux App with Ducks](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-ducks)
-* [Redux Normalizr: Improve your State Management](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-normalizr)
-* [Redux Observable RxJS: Going Epic with Reactive Programming](https://www.robinwieruch.de/redux-observable-rxjs/)
-* [MobX React: Simplified State Management in React](https://www.robinwieruch.de/mobx-react/)
+* [React ESLint: Code Style like Airbnb in React](/the-soundcloud-client-in-react-redux-eslint)
+* [Flow: Type Checking with Flow in React + Redux](/the-soundcloud-client-in-react-redux-flow)
+* [Redux Ducks: Restructure your Redux App with Ducks](/the-soundcloud-client-in-react-redux-ducks)
+* [Redux Normalizr: Improve your State Management](/the-soundcloud-client-in-react-redux-normalizr)
+* [Redux Observable RxJS: Going Epic with Reactive Programming](/redux-observable-rxjs/)
+* [MobX React: Simplified State Management in React](/mobx-react/)
 
 # A project from scratch
 
@@ -53,7 +53,7 @@ Additionally I can recommend to read *The Road to learn React* before you dive i
 
 # Let’s get started
 
-Before you can write your first React component, you have to install Webpack and Babel. I extracted the React setup into an own article to make it reusable and maintainable for the future. You can follow the [instructions in the article](https://www.robinwieruch.de/minimal-react-webpack-babel-setup/) to setup your project. After that you can come back to this tutorial and continue here to write your first React component.
+Before you can write your first React component, you have to install Webpack and Babel. I extracted the React setup into an own article to make it reusable and maintainable for the future. You can follow the [instructions in the article](/minimal-react-webpack-babel-setup/) to setup your project. After that you can come back to this tutorial and continue here to write your first React component.
 
 Is your project set up? Then let's render some data. It makes sense to render a list of tracks, since we are writing a SoundCloud application.
 
@@ -2009,12 +2009,12 @@ Let’s start our app again. We login, we see our tracks as a list, we are able 
 
 Add one of the following tutorials on top of your current SoundCloud project:
 
-* [React ESLint: Code Style like Airbnb in React](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-eslint)
-* [Flow: Type Checking with Flow in React + Redux](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-flow)
-* [Redux Ducks: Restructure your Redux App with Ducks](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-ducks)
-* [Redux Normalizr: Improve your State Management](https://www.robinwieruch.de/the-soundcloud-client-in-react-redux-normalizr)
-* [Redux Observable RxJS: Going Epic with Reactive Programming](https://www.robinwieruch.de/redux-observable-rxjs)
-* [MobX React: Simplified State Management in React](https://www.robinwieruch.de/mobx-react)
+* [React ESLint: Code Style like Airbnb in React](/the-soundcloud-client-in-react-redux-eslint)
+* [Flow: Type Checking with Flow in React + Redux](/the-soundcloud-client-in-react-redux-flow)
+* [Redux Ducks: Restructure your Redux App with Ducks](/the-soundcloud-client-in-react-redux-ducks)
+* [Redux Normalizr: Improve your State Management](/the-soundcloud-client-in-react-redux-normalizr)
+* [Redux Observable RxJS: Going Epic with Reactive Programming](/redux-observable-rxjs)
+* [MobX React: Simplified State Management in React](/mobx-react)
 
 # Troubleshoot
 

@@ -94,7 +94,7 @@ const Form = ({ onSubmit }) => {
 export default App;
 ```
 
-*Note: The Form component uses React Hooks that are not released yet. If you want, you can learn more about [React Hooks](https://www.robinwieruch.de/react-hooks/). Essentially they enable you to have function components with state and side-effects.*
+*Note: The Form component uses React Hooks that are not released yet. If you want, you can learn more about [React Hooks](/react-hooks/). Essentially they enable you to have function components with state and side-effects.*
 
 Now, wherever we use the Form component, we can capture the username of a user. It's identical to the HTML form from before, isn't it? Not really. At the moment, the Form is only capable of doing one thing. We did loose all the benefits from the HTML element composition from before, because we ended up with a specialized Form component. It can be reused anywhere in our React application, but it handles only one case. To make it effortless to see the difference, we would have to rename the Form component:
 
@@ -138,7 +138,7 @@ Since we encapsulated everything in one React component, it's difficult to tear 
 
 # Entering React Component Composition?
 
-There is one property ([React prop](https://www.robinwieruch.de/react-pass-props-to-component/)) that helps us out with this dilemma for our React component: **the React children prop**. It's one special prop provided by React to render something within a component whereas the component isn't aware ahead of time what it will be. A basic example may be the following:
+There is one property ([React prop](/react-pass-props-to-component/)) that helps us out with this dilemma for our React component: **the React children prop**. It's one special prop provided by React to render something within a component whereas the component isn't aware ahead of time what it will be. A basic example may be the following:
 
 ```javascript
 const Button = ({ onClick, type = 'button', children }) => (
@@ -343,7 +343,7 @@ const UsernameForm = ({ onSubmit }) => {
 ...
 ```
 
-From there it really depends on your React application on whether you want to use the generic Form component (e.g. Form) or specialize it as standalone Form component with a special use case (e.g. UsernameForm). My recommendation: Do the latter only if you catch yourself copying and pasting the same generic Form component from A to B to reuse it somewhere else. Then I would advice to implement this specialized Form component which encapsulates all the logic and can be reused anywhere in your application. In addition, it's beneficial for [testing your React component](https://www.robinwieruch.de/react-testing-tutorial/) in isolation.
+From there it really depends on your React application on whether you want to use the generic Form component (e.g. Form) or specialize it as standalone Form component with a special use case (e.g. UsernameForm). My recommendation: Do the latter only if you catch yourself copying and pasting the same generic Form component from A to B to reuse it somewhere else. Then I would advice to implement this specialized Form component which encapsulates all the logic and can be reused anywhere in your application. In addition, it's beneficial for [testing your React component](/react-testing-tutorial/) in isolation.
 
 # Fine-grained Props Control
 
@@ -567,7 +567,7 @@ Whereas the Copyright component is just another React component:
 const Copyright = ({ label }) => <div>Copyright by {label}</div>;
 ```
 
-This pattern, not widely known under the synonym [slot pattern](https://www.robinwieruch.de/react-pass-props-to-component/), is used when you have more than one children that you want to compose into another component. Again the component, in this case the SplitPane component, doesn't know ahead of time what will be rendered in there. It just receives something as props to render in these slots. In the example, two slots are used. But it scales up to any number of props you want to pass to the component to render something.
+This pattern, not widely known under the synonym [slot pattern](/react-pass-props-to-component/), is used when you have more than one children that you want to compose into another component. Again the component, in this case the SplitPane component, doesn't know ahead of time what will be rendered in there. It just receives something as props to render in these slots. In the example, two slots are used. But it scales up to any number of props you want to pass to the component to render something.
 
 # Dynamic Component Compositions in React
 
@@ -613,6 +613,6 @@ Composing React Components doesn't end here. There are two other advanced React 
 * Render Prop Components
 * Higher-Order Components
 
-[React's Render Prop Components](https://www.robinwieruch.de/react-render-props/) can be seen as extension of the shown slot pattern. However, in these slots you wouldn't pass directly what you want to render like in the slot pattern, but rather a function that returns the thing you want to render. By having this function at your disposal, you are able to pass information from the inner component that uses the slot pattern to the components that are used within these slots.
+[React's Render Prop Components](/react-render-props/) can be seen as extension of the shown slot pattern. However, in these slots you wouldn't pass directly what you want to render like in the slot pattern, but rather a function that returns the thing you want to render. By having this function at your disposal, you are able to pass information from the inner component that uses the slot pattern to the components that are used within these slots.
 
-[React's Higher-Order Components](https://www.robinwieruch.de/react-higher-order-components/) can be used for Component Compositions too. Basically a Higher-Order Component receives a React component as input and outputs an enhanced version of this component. If you take this one step further, you can also have more than one Higher-Order Component enhancing one component which leads us to a component composition again. Remember the function composition from the beginning? It can be done for React components too.
+[React's Higher-Order Components](/react-higher-order-components/) can be used for Component Compositions too. Basically a Higher-Order Component receives a React component as input and outputs an enhanced version of this component. If you take this one step further, you can also have more than one Higher-Order Component enhancing one component which leads us to a component composition again. Remember the function composition from the beginning? It can be done for React components too.

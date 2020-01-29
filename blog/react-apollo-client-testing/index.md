@@ -94,7 +94,7 @@ In this case, a client-side schema is used (and no GraphQL introspection) to def
 
 Now you have an actual Apollo Client instance for your application in one file and the mocked Apollo Client in another file. The latter should be used in the following sections for testing your interaction between React and the mocked Apollo Client.
 
-Since the application is set up with create-react-app, it already comes with Jest as testing framework. Jest can be used as test runner and assertion library at the same time. You can read more about it in this [comprehensive React testing tutorial](https://www.robinwieruch.de/react-testing-tutorial/) which covers [Jest](https://facebook.github.io/jest) but also other libraries such as [Sinon](http://sinonjs.org) and [Enzyme](https://github.com/airbnb/enzyme), which you are going to use in the following sections, for React applications. In order to have access to Enzyme and Sinon next to Jest, you have to install them as development dependencies to your project.
+Since the application is set up with create-react-app, it already comes with Jest as testing framework. Jest can be used as test runner and assertion library at the same time. You can read more about it in this [comprehensive React testing tutorial](/react-testing-tutorial/) which covers [Jest](https://facebook.github.io/jest) but also other libraries such as [Sinon](http://sinonjs.org) and [Enzyme](https://github.com/airbnb/enzyme), which you are going to use in the following sections, for React applications. In order to have access to Enzyme and Sinon next to Jest, you have to install them as development dependencies to your project.
 
 ```javascript
 npm install enzyme enzyme-adapter-react-16 sinon --save-dev

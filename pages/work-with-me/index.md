@@ -30,7 +30,7 @@ I want to continue teaching others. So far, I have written two ebooks about [lea
 
 * **Do you want to teach others?** My biggest advice is to start a personal blog yourself. But if you just want to get started in contributing to a community of like minded people in the domain of React, you can checkout this [Slack Community](https://slack-the-road-to-learn-react.wieruch.com/) where people help each other to learn React. Otherwise, feel free to reach out to me regarding **quality** guest blog posts to boost your personal audience or even paid blog posts. I can give you all the details then.
 
-* **Do you want to support me so that I can continue providing (free) teaching material?** Checkout my [Patreon](https://www.patreon.com/rwieruch) and be my Patron. I would love to have you on board! Otherwise, check out my [about me page](https://www.robinwieruch.de/about) to find out about more ways to support me.
+* **Do you want to support me so that I can continue providing (free) teaching material?** Checkout my [Patreon](https://www.patreon.com/rwieruch) and be my Patron. I would love to have you on board! Otherwise, check out my [about me page](/about) to find out about more ways to support me.
 
 # Making
 
@@ -78,7 +78,7 @@ So, if you are seeking for a on-site/remote german/english speaking software eng
 
 * **Do you have a product idea but can't execute it yourself?** I am able to build a MVP for you from scratch. It would be a vertical cut through all the technologies from the client-side application, connecting it to a database, deploying and hosting it. Along the way, it should solve the most complex problems of your use case. Afterward, it can go even beyond the initial MVP which is up to you. It's your opportunity to have me as dedicated developer to bootstrap your idea in an effective and efficient way.
 
-* **Does your company consider a migration to web technologies but no one is there for a proper on-boarding?** I gathered plenty of experiences in the domain of web development, software engineering and JavaScript during the last years, especially in JavaScript, and can help you transitioning to it. In my recent company, I made the exact same experiences by migrating from a Java Wicket application to a Angular application and from a [Angular 1.x to React](https://www.robinwieruch.de/reasons-why-i-moved-from-angular-to-react/). There were a lot of challenges to overcome. It's your opportunity to have me as your helping hand for this endavour.
+* **Does your company consider a migration to web technologies but no one is there for a proper on-boarding?** I gathered plenty of experiences in the domain of web development, software engineering and JavaScript during the last years, especially in JavaScript, and can help you transitioning to it. In my recent company, I made the exact same experiences by migrating from a Java Wicket application to a Angular application and from a [Angular 1.x to React](/reasons-why-i-moved-from-angular-to-react/). There were a lot of challenges to overcome. It's your opportunity to have me as your helping hand for this endavour.
 
 * **Does your application need more contributing developers?** In the past, I have collected enough knowledge to work efficiently in large code bases with a team and different workflows and tools. I would want to be invested in your project, to learn about it, but also to earn my share. The other way around, you get a reliable developer who is eager to have an impact in your tech stack, who solves complex problems, and who is keen to work with your team.
 
@@ -92,7 +92,7 @@ As a software engineer, it is too easy to get lost in your tech bubble without t
 
 That's why I made the decision that I want to accomplish all the previous cornerstones, teaching, making and consulting, from abroad. I want to immerse in different cultures and countries, trying to avoid to be exposed to the tech bubble all the time, and get as much as inspiration from the people in these countries and their culture.
 
-I always found it meaningful to give something back to less blessed people. When traveling, I don't want to spend my days as a tourist in a foreign country. I want to have an impact while traveling. Especially, I want to be able to leave an impact on children's education in developing countries by teaching myself or [educating others about it](https://www.robinwieruch.de/giving-back-by-learning-react/). I deeply hope that I will get to know those small organizations that want to make a change where I can have an impact and spend some of my remaining time outside of the tech bubble.
+I always found it meaningful to give something back to less blessed people. When traveling, I don't want to spend my days as a tourist in a foreign country. I want to have an impact while traveling. Especially, I want to be able to leave an impact on children's education in developing countries by teaching myself or [educating others about it](/giving-back-by-learning-react/). I deeply hope that I will get to know those small organizations that want to make a change where I can have an impact and spend some of my remaining time outside of the tech bubble.
 
 **Your opportunities to work with me:**
 
@@ -102,4 +102,4 @@ I always found it meaningful to give something back to less blessed people. When
 
 <Divider />
 
-It is an exciting time for me right now. At the moment, I am working with companies in Berlin remotely migrating their tech stack to web technologies. So if your company is keen to work with me on such things, or mentioned opportunities from the list, reach out to me. Otherwise, [there are a couple of ways to simply support me](https://www.robinwieruch.de/about/). Looking forward to [hearing](mailto:hello@rwieruch.com) from you :-)
+It is an exciting time for me right now. At the moment, I am working with companies in Berlin remotely migrating their tech stack to web technologies. So if your company is keen to work with me on such things, or mentioned opportunities from the list, reach out to me. Otherwise, [there are a couple of ways to simply support me](/about/). Looking forward to [hearing](mailto:hello@rwieruch.com) from you :-)

@@ -28,7 +28,7 @@ Please let me know if the tutorial needs any updates for others learning about t
 
 # Requirements
 
-The requirements for this tutorial are a working [editor or IDE/terminal](https://www.robinwieruch.de/developer-setup/), and recent versions of [node and npm](https://nodejs.org/en/). You should have learned about React in the first place. [The Road to learn React](https://www.robinwieruch.de/the-road-to-learn-react) is a free ebook that provides all the fundamentals of React. You will build a larger application in plain React, and transition from JavaScript ES5 to JavaScript ES6 and beyond. This tutorial will not dive into all the details taught in the ebook, so take the chance to grab your copy of it to learn those first.
+The requirements for this tutorial are a working [editor or IDE/terminal](/developer-setup/), and recent versions of [node and npm](https://nodejs.org/en/). You should have learned about React in the first place. [The Road to learn React](/the-road-to-learn-react) is a free ebook that provides all the fundamentals of React. You will build a larger application in plain React, and transition from JavaScript ES5 to JavaScript ES6 and beyond. This tutorial will not dive into all the details taught in the ebook, so take the chance to grab your copy of it to learn those first.
 
 # Table of Contents
 
@@ -38,7 +38,7 @@ The requirements for this tutorial are a working [editor or IDE/terminal](https:
 
 Let's get started with the React + Firebase application we are going to build together. The application should be the perfect starter project to realize your ideas. It should be possible to display information with React, to navigate from URL to URL with React Router and to store and retrieve data with Firebase. Also the application will have everything that's needed to register, login and logout users. In the end, you should be able to implement any feature on top of this application to create well-rounded React applications.
 
-If you lack information on how to setup your React development environment, checkout these setup guides for [MacOS](https://www.robinwieruch.de/react-js-macos-setup) and [Windows](https://www.robinwieruch.de/react-js-windows-setup). Now, there are two ways to begin with this application: either follow my guidance in this section; or find a starter project in this [GitHub repository](https://github.com/the-road-to-react-with-firebase/react-firebase-authentication-starter-kit) and follow its installation instructions. This section will show how to set up the same project from scratch, whereas the starter project grants instant access without setting up the folder/file structure yourself.
+If you lack information on how to setup your React development environment, checkout these setup guides for [MacOS](/react-js-macos-setup) and [Windows](/react-js-windows-setup). Now, there are two ways to begin with this application: either follow my guidance in this section; or find a starter project in this [GitHub repository](https://github.com/the-road-to-react-with-firebase/react-firebase-authentication-starter-kit) and follow its installation instructions. This section will show how to set up the same project from scratch, whereas the starter project grants instant access without setting up the folder/file structure yourself.
 
 The application we are going to build with React and Firebase will be set up with Facebook's official React boilerplate project, called [create-react-app](https://github.com/facebookincubator/create-react-app). You can set up your project with it on the command line whereas the name for the project is up to you. Afterward, navigate on the command line into the project:
 
@@ -133,8 +133,8 @@ The application with its folders and files is set up, and you can verify this by
 
 * Familiarize yourself with the folder structure of a project.
 * Optionally, introduce a test for your App component and test the application.
-* Optionally, introduce [CSS Modules](https://www.robinwieruch.de/create-react-app-css-modules), [SASS](https://www.robinwieruch.de/create-react-app-with-sass-support) or [Styled Components](https://www.robinwieruch.de/react-styled-components) and style the application.
-* Optionally, introduce [Git and keep track of your changes by having your project on GitHub](https://www.robinwieruch.de/git-essential-commands).
+* Optionally, introduce [CSS Modules](/create-react-app-css-modules), [SASS](/create-react-app-with-sass-support) or [Styled Components](/react-styled-components) and style the application.
+* Optionally, introduce [Git and keep track of your changes by having your project on GitHub](/git-essential-commands).
 
 # React Router for Firebase Auth
 
@@ -275,7 +275,7 @@ const App = () => (
 export default App;
 ```
 
-If a route matches a path prop, the respective component will be displayed; thus, all the page components in the App component are exchangeable by changing the route, but the Navigation component stays fixed independently of any route changes. This is how you enable a static frame with various components (e.g. Navigation) around your dynamic pages driven by routes. It's all made possible by [React's powerful composition](https://www.robinwieruch.de/react-component-composition).
+If a route matches a path prop, the respective component will be displayed; thus, all the page components in the App component are exchangeable by changing the route, but the Navigation component stays fixed independently of any route changes. This is how you enable a static frame with various components (e.g. Navigation) around your dynamic pages driven by routes. It's all made possible by [React's powerful composition](/react-component-composition).
 
 Previously, you created basic components for each page component used by our routes. Now you should be able to start the application again. When you click through the links in the Navigation component, the displayed page component should change according to the URL. The routes for the PasswordForget and SignUp components are not used in the Navigation component, but will be defined elsewhere later. For now, you have successfully implemented fundamental routing for this application.
 
@@ -288,7 +288,7 @@ Previously, you created basic components for each page component used by our rou
 
 The main focus here is using Firebase in React for the application we'll build together. Firebase, bought by Google in 2014, enables realtime databases, extensive authentication and authorization, and even for deployment. You can build real-world applications with React and Firebase without worrying about implementing a backend application. All the things a backend application would handle, like authentication and a database, is handled by Firebase. Many businesses use React and Firebase to power their applications, as it is the ultimate combination to launch an [MVP](https://en.wikipedia.org/wiki/Minimum_viable_product).
 
-To start, sign up on the [official Firebase website](https://firebase.google.com/). After you have created a Firebase account, you should be able to create projects and be granted access to the project dashboard. We'll begin by creating a project for this application on their platform whereas the project can have any name. In the case of this application, run it on the free pricing plan. If you want to scale your application later, you can change the plan. Follow this [visual Firebase setup and introduction guide](https://www.robinwieruch.de/firebase-tutorial) to learn more about Firebase's dashboard and features. It would also give you first guidelines on how to acivate Firebase's Realtime Database instead of Firebase's Cloud Firestore.
+To start, sign up on the [official Firebase website](https://firebase.google.com/). After you have created a Firebase account, you should be able to create projects and be granted access to the project dashboard. We'll begin by creating a project for this application on their platform whereas the project can have any name. In the case of this application, run it on the free pricing plan. If you want to scale your application later, you can change the plan. Follow this [visual Firebase setup and introduction guide](/firebase-tutorial) to learn more about Firebase's dashboard and features. It would also give you first guidelines on how to acivate Firebase's Realtime Database instead of Firebase's Cloud Firestore.
 
 Next, find the project's configuration in the settings on your project's dashboard. There, you'll have access to all the necessary information: secrets, keys, ids and other details to set up your application. Copy these in the next step to your React application.
 
@@ -439,7 +439,7 @@ You created a Firebase class, but you are not using it in your React application
 * It is more difficult to test your React components.
 * It is more error prone, because Firebase should only be initialized once in your application ([singleton](https://en.wikipedia.org/wiki/Singleton_pattern)) and by exposing the Firebase class to every React component, you could end up by mistake with multiple Firebase instances.
 
-An alternative way is to use [React's Context API](https://www.robinwieruch.de/react-context/) to provide a Firebase instance once at the top-level of your component hierarchy. Create a new *src/components/Firebase/context.js* file in your Firebase module and provide the following implementation details:
+An alternative way is to use [React's Context API](/react-context/) to provide a Firebase instance once at the top-level of your component hierarchy. Create a new *src/components/Firebase/context.js* file in your Firebase module and provide the following implementation details:
 
 ```javascript
 import React from 'react';
@@ -504,7 +504,7 @@ Firebase and React are now connected, the fundamental step to make the layers co
 
 ### Exercises:
 
-* Read more about [React's Context API](https://www.robinwieruch.de/react-context/)
+* Read more about [React's Context API](/react-context/)
 * Confirm your [source code for the last section](http://bit.ly/2VrUms0)
 
 # Firebase's Authentication API
@@ -806,9 +806,9 @@ class SignUpForm extends Component {
 ...
 ```
 
-Let's take the last implemented code block apart. All the input fields implement the unidirectional data flow of React; thus, each input field gets a value from the local state and updates the value in the local state with a `onChange` handler. The input fields are controlled by the local state of the component and don't control their own states. [They are controlled components](https://www.robinwieruch.de/react-controlled-components/).
+Let's take the last implemented code block apart. All the input fields implement the unidirectional data flow of React; thus, each input field gets a value from the local state and updates the value in the local state with a `onChange` handler. The input fields are controlled by the local state of the component and don't control their own states. [They are controlled components](/react-controlled-components/).
 
-In the last part of the form, there is an optional error message from an error object. The error objects from Firebase have this message property by default, so you can rely on it to display the proper text for your application's user. However, the message is only shown when there is an actual error using a [conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/).
+In the last part of the form, there is an optional error message from an error object. The error objects from Firebase have this message property by default, so you can rely on it to display the proper text for your application's user. However, the message is only shown when there is an actual error using a [conditional rendering](/conditional-rendering-react/).
 
 One piece in the form is missing: validation. Let's use an `isInvalid` boolean to enable or disable the submit button.
 
@@ -893,7 +893,7 @@ If the request resolves successfully, you can set the local state of the compone
 
 Also, the `preventDefault()` method on the event prevents a reload of the browser which otherwise would be a natural behavior when using a submit in a form. Note that the signed up user object from the Firebase API is available in the callback function of the then block in our request. You will use it later with the username.
 
-You may have also noticed that one essential piece is missing: We didn't make the Firebase instance available in the SignUpForm [component's props](https://www.robinwieruch.de/react-pass-props-to-component/) yet. Let's change this by utilizing our Firebase Context in the SignUpPage component, and by passing the Firebase instance to the SignUpForm.
+You may have also noticed that one essential piece is missing: We didn't make the Firebase instance available in the SignUpForm [component's props](/react-pass-props-to-component/) yet. Let's change this by utilizing our Firebase Context in the SignUpPage component, and by passing the Firebase instance to the SignUpForm.
 
 ```javascript{4,10,11,12}
 import React, { Component } from 'react';
@@ -920,7 +920,7 @@ class SignUpForm extends Component {
 ...
 ```
 
-Now the registration of a new user should work. However, I'd like to make one improvement on how we access the Firebase instance here. Rather than using a [render prop component](https://www.robinwieruch.de/react-render-props/), which is automatically given with React's Context Consumer component, it may be simpler to use a [higher-order component](https://www.robinwieruch.de/react-higher-order-components/). Let's implement this higher-order component in the *src/components/Firebase/context.js*:
+Now the registration of a new user should work. However, I'd like to make one improvement on how we access the Firebase instance here. Rather than using a [render prop component](/react-render-props/), which is automatically given with React's Context Consumer component, it may be simpler to use a [higher-order component](/react-higher-order-components/). Let's implement this higher-order component in the *src/components/Firebase/context.js*:
 
 ```javascript{5,6,7,8,9}
 import React from 'react';
@@ -1057,9 +1057,9 @@ Run your application again. If you signed up a user successfully, it should redi
 
 ### Exercises:
 
-* Read more about [data fetching in React](https://www.robinwieruch.de/react-fetching-data/)
-* Read more about [higher-order components in React](https://www.robinwieruch.de/react-higher-order-components/)
-* Read more about [render prop components in React](https://www.robinwieruch.de/react-render-props/)
+* Read more about [data fetching in React](/react-fetching-data/)
+* Read more about [higher-order components in React](/react-higher-order-components/)
+* Read more about [render prop components in React](/react-render-props/)
 * Confirm your [source code for the last section](http://bit.ly/2VkrTEA)
 
 # Sign In with React and Firebase
@@ -1229,7 +1229,7 @@ Regarding components, everything is set to fulfil a full authentication roundtri
 
 # Session Handling with Firebase/React
 
-This section is the most important one for the authentication process. You have all the components needed to fulfil an authentication roundtrip in React, and all that's missing is an overseer for the session state.  Logic regarding the current authenticated user needs to be stored and made accessible to other components. This is often the point where developers start to use a state management library like [Redux or MobX](https://www.robinwieruch.de/redux-mobx/). Without these, we'll make due using [global state](https://www.robinwieruch.de/react-global-state-without-redux/) instead of state management libraries.
+This section is the most important one for the authentication process. You have all the components needed to fulfil an authentication roundtrip in React, and all that's missing is an overseer for the session state.  Logic regarding the current authenticated user needs to be stored and made accessible to other components. This is often the point where developers start to use a state management library like [Redux or MobX](/redux-mobx/). Without these, we'll make due using [global state](/react-global-state-without-redux/) instead of state management libraries.
 
 Since our application is made under the umbrella of App component, it's sufficient to manage the session state in the App component using React's local state. The App component only needs to keep track of an authenticated user (session). If a user is authenticated, store it in the local state and pass the authenticated user object down to all components that are interested in it. Otherwise, pass the authenticated user down as `null`. That way, all components interested in it can adjust their behavior (e.g. use conditional rendering) based on the session state. For instance, the Navigation component is interested because it has to show different options to authenticated and non authenticated users. The SignOut component shouldn't show up for a non authenticated user, for example.
 
@@ -1346,7 +1346,7 @@ export default withFirebase(App);
 
 The helper function `onAuthStateChanged()` receives a function as parameter that has access to the authenticated user. Also, the passed function is called every time something changes for the authenticated user. It is called when a user signs up, signs in, and signs out. If a user signs out, the `authUser` object becomes null, so the `authUser` property in the local state is set to null and all components depending on it adjust their behavior (e.g. display different options like the Navigation component).
 
-We also want to avoid memory leaks that lead to [performance issues](https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-component/), so we'll remove the listener if the component unmounts.
+We also want to avoid memory leaks that lead to [performance issues](/react-warning-cant-call-setstate-on-an-unmounted-component/), so we'll remove the listener if the component unmounts.
 
 ```javascript{7,16,17,18}
 ...
@@ -2110,7 +2110,7 @@ The paths in the `ref()` method match the location where your entities (users) w
 
 ### Exercises:
 
-* Activate [Firebase's Realtime Database](https://www.robinwieruch.de/firebase-tutorial/) on your Firebase Dashboard
+* Activate [Firebase's Realtime Database](/firebase-tutorial/) on your Firebase Dashboard
   * Set your Database Rules on your Firebase Project's Dashboard to `{ "rules": { ".read": true, ".write": true } }` to give everyone read and write access for now.
 * Read more about [Firebase's realtime database setup for Web](https://firebase.google.com/docs/database/web/start)
 * Confirm your [source code for the last section](http://bit.ly/2VpDkdW)

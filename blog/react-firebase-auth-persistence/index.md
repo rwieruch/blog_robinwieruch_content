@@ -64,7 +64,7 @@ const withAuthentication = Component => {
 export default withAuthentication;
 ```
 
-After the Firebase authentication listener is invoked for the first time, the authenticated user may be there, because Firebase has its internal state for auth persistence. Also, the routes are made visible in the Navigation component due to the authenticated user being there now. While it's good that Firebase keeps the state of the authenticated user, the UI glitch in the beginning hurts the user experience. Let's avoid this using the [browser's local storage](https://www.robinwieruch.de/local-storage-react/) for the authenticated user:
+After the Firebase authentication listener is invoked for the first time, the authenticated user may be there, because Firebase has its internal state for auth persistence. Also, the routes are made visible in the Navigation component due to the authenticated user being there now. While it's good that Firebase keeps the state of the authenticated user, the UI glitch in the beginning hurts the user experience. Let's avoid this using the [browser's local storage](/local-storage-react/) for the authenticated user:
 
 ```javascript{16,20}
 ...

@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-If you haven't used state management excessively in [React Function Components](https://www.robinwieruch.de/react-function-component/), this tutorial may help you to get a better understanding of how [React Hooks](https://www.robinwieruch.de/react-hooks/) -- such as useState, useReducer, and useContext -- can be used in combination for impressive state management in React applications. In this tutorial, we will almost reach the point where these hooks mimic sophisticated state management libraries like [Redux](https://www.robinwieruch.de/react-redux-tutorial/) for globally managed state. Let's dive into the application which we will implement together step by step.
+If you haven't used state management excessively in [React Function Components](/react-function-component/), this tutorial may help you to get a better understanding of how [React Hooks](/react-hooks/) -- such as useState, useReducer, and useContext -- can be used in combination for impressive state management in React applications. In this tutorial, we will almost reach the point where these hooks mimic sophisticated state management libraries like [Redux](/react-redux-tutorial/) for globally managed state. Let's dive into the application which we will implement together step by step.
 
 # Table of Contents
 
@@ -20,7 +20,7 @@ If you haven't used state management excessively in [React Function Components](
 
 # React useState: simple State
 
-We start with a list of items -- in our scenario a list of todo items -- which are rendered in our function component with a [JavaScript Map Method for Arrays](https://www.robinwieruch.de/javascript-map-array/). Each todo item rendered as list item receives a [key attribute](https://www.robinwieruch.de/react-list-key) to notify React about its place in the [rendered list](https://www.robinwieruch.de/react-list-component):
+We start with a list of items -- in our scenario a list of todo items -- which are rendered in our function component with a [JavaScript Map Method for Arrays](/javascript-map-array/). Each todo item rendered as list item receives a [key attribute](/react-list-key) to notify React about its place in the [rendered list](/react-list-component):
 
 ```javascript
 import React from 'react';
@@ -114,7 +114,7 @@ const App = () => {
 };
 ```
 
-Now the input field has become a [controlled input field](https://www.robinwieruch.de/react-controlled-components/), because the value comes directly from the React managed state and the handler changes the state. We implemented our first managed state with the State Hook in React. The whole source code can be seen [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/3e6e5a27561bd0e0cc99e39efb853a187ac7339e/src/App.js).
+Now the input field has become a [controlled input field](/react-controlled-components/), because the value comes directly from the React managed state and the handler changes the state. We implemented our first managed state with the State Hook in React. The whole source code can be seen [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/3e6e5a27561bd0e0cc99e39efb853a187ac7339e/src/App.js).
 
 To continue, let's implement a submit button to add the new todo item to the list of items eventually:
 
@@ -159,7 +159,7 @@ const App = () => {
 };
 ```
 
-The submit handler doesn't add the new todo item yet, but it makes the input field's value empty again after submitting the new todo item. Also it prevents the [default behavior of the browser, because otherwise the browser would perform a refresh after the submit button has been clicked](https://www.robinwieruch.de/react-preventdefault).
+The submit handler doesn't add the new todo item yet, but it makes the input field's value empty again after submitting the new todo item. Also it prevents the [default behavior of the browser, because otherwise the browser would perform a refresh after the submit button has been clicked](/react-preventdefault).
 
 In order to add the todo item to our list of todo items, we need to make the todo items managed as state within the component as well. We can use again the useState hook:
 
@@ -344,7 +344,7 @@ const App = () => {
 };
 ```
 
-Last, by having the id at our disposal, we can only alter the affected todo item in our list -- by negating the complete flag -- and return every other todo item as before. [By using the map method, we return a new array made up of the changed todo item and the remaining todo items](https://www.robinwieruch.de/react-state-array-add-update-remove/):
+Last, by having the id at our disposal, we can only alter the affected todo item in our list -- by negating the complete flag -- and return every other todo item as before. [By using the map method, we return a new array made up of the changed todo item and the remaining todo items](/react-state-array-add-update-remove/):
 
 ```javascript{6,7,8,9,10,11,12,13,14}
 const App = () => {
@@ -396,11 +396,11 @@ That's it. The new todo items are immediately set as state for the list of todo 
 
 ### Exercises:
 
-* Read more about [React's useState Hook](https://www.robinwieruch.de/react-usestate-hook)
+* Read more about [React's useState Hook](/react-usestate-hook)
 
 # React useReducer: complex State
 
-The useState hook is great to manage simple state. However, once you run into more complex state objects or state transitions -- which you want to keep maintainable and predictable --, the [useReducer hook](https://www.robinwieruch.de/react-usereducer-hook/) is a great candidate to manage them. [Here you can find a comparison of when to use the useState or useReducer hook.](https://www.robinwieruch.de/react-usereducer-vs-usestate/) Let's continue implementing our application with the useReducer hook by going through a simpler example first. In our next scenario, we want to add buttons to filter our list of todos for three cases:
+The useState hook is great to manage simple state. However, once you run into more complex state objects or state transitions -- which you want to keep maintainable and predictable --, the [useReducer hook](/react-usereducer-hook/) is a great candidate to manage them. [Here you can find a comparison of when to use the useState or useReducer hook.](/react-usereducer-vs-usestate/) Let's continue implementing our application with the useReducer hook by going through a simpler example first. In our next scenario, we want to add buttons to filter our list of todos for three cases:
 
 * show all todo items
 * show only complete todo items
@@ -563,7 +563,7 @@ The filter buttons should work now. Every time a button is clicked an action wit
 
 The whole source code can be seen [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/08d4b7130613eef209687f5f4c270c86716f1f09/src/App.js) and all changes [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/commit/08d4b7130613eef209687f5f4c270c86716f1f09).
 
-*Note: The shown use case -- also every other use case with [useReducer -- can be implemented with useState](https://www.robinwieruch.de/javascript-reducer/) as well. However, even though this one is a simpler example for the sake of learning about it, it shows clearly how much its helps for the reasoning for the state transitions by just reading the reducer function.*
+*Note: The shown use case -- also every other use case with [useReducer -- can be implemented with useState](/javascript-reducer/) as well. However, even though this one is a simpler example for the sake of learning about it, it shows clearly how much its helps for the reasoning for the state transitions by just reading the reducer function.*
 
 The useReducer hook is great for predictable state transitions as we have seen in the previous example. Next, we are going to see how it is a good fit for complex state objects too. Therefore, we will start to manage our todo items in a reducer hook and manipulate it with the following transitions:
 
@@ -705,13 +705,13 @@ You have seen how useState and useReducer can be used for simple and complex sta
 
 ### Exercises:
 
-* Read more about [React's useReducer Hook](https://www.robinwieruch.de/react-usereducer-hook)
+* Read more about [React's useReducer Hook](/react-usereducer-hook)
 
 # React useContext: global State
 
 We can take our state management one step further. At the moment, the state is managed co-located to the component. That's because we only have one component after all. What if we would have a deep component tree? How could we dispatch state changes from anywhere?
 
-Let's dive into [React's Context API and the useContext hook](https://www.robinwieruch.de/react-context/) to mimic more a Redux's philosophy by making state changes available in the whole component tree. Before we can do this, let's refactor our one component into a component tree. First, the App component renders all its child components and passes the necessary state and dispatch functions to them:
+Let's dive into [React's Context API and the useContext hook](/react-context/) to mimic more a Redux's philosophy by making state changes available in the whole component tree. Before we can do this, let's refactor our one component into a component tree. First, the App component renders all its child components and passes the necessary state and dispatch functions to them:
 
 ```javascript{23,24,25}
 const App = () => {
@@ -836,7 +836,7 @@ const AddTodo = ({ dispatch }) => {
 };
 ```
 
-In the end, we have a component tree whereas each component receives [state as props](https://www.robinwieruch.de/react-pass-props-to-component/) and dispatch functions to alter the state. Most of the state is managed by the parent App component. That's it for the refactoring. The whole source code can be seen [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/d024a244193142fed675ce43d67c71039947548c/src/App.js) and all changes [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/commit/d024a244193142fed675ce43d67c71039947548c).
+In the end, we have a component tree whereas each component receives [state as props](/react-pass-props-to-component/) and dispatch functions to alter the state. Most of the state is managed by the parent App component. That's it for the refactoring. The whole source code can be seen [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/blob/d024a244193142fed675ce43d67c71039947548c/src/App.js) and all changes [here](https://github.com/the-road-to-learn-react/react-with-redux-philosophy/commit/d024a244193142fed675ce43d67c71039947548c).
 
 Now, the component tree isn't very deep and it isn't difficult to pass props down. However, in larger applications it can be a burden to pass down everything several levels. That's why React came up with the idea of the context container. Let's see how we can pass the dispatch functions down with React's Context API. First, we create the context:
 
@@ -968,8 +968,8 @@ The application works again, but we are able to dispatch changes for our todo li
 
 ### Exercises:
 
-* Read more about [React's useContext Hook](https://www.robinwieruch.de/react-usecontext-hook)
-* Read more about [implementing Redux with React Hooks](https://www.robinwieruch.de/redux-with-react-hooks)
+* Read more about [React's useContext Hook](/react-usecontext-hook)
+* Read more about [implementing Redux with React Hooks](/redux-with-react-hooks)
 
 <Divider />
 

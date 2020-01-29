@@ -14,7 +14,7 @@ author: ""
 
 <LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "The minimal Node.js with Babel Setup", url: "https://www.robinwieruch.de/minimal-node-js-babel-setup/" }]} />
 
-You may be already using npm (node package manager) for installing libraries (node packages) to your JavaScript projects. For instance, in Node.js you may be used to [Express.js](https://www.robinwieruch.de/node-js-express-tutorial/) for [creating REST APIs](https://www.robinwieruch.de/node-express-server-rest-api/). In frontend development, you may be used to [React.js](https://www.robinwieruch.de/learn-react-js/) to build component-based web applications. This makes you a consumer of the npm ecosystem, because you are regularly installing packages for your projects to get them running with the help of others.
+You may be already using npm (node package manager) for installing libraries (node packages) to your JavaScript projects. For instance, in Node.js you may be used to [Express.js](/node-js-express-tutorial/) for [creating REST APIs](/node-express-server-rest-api/). In frontend development, you may be used to [React.js](/learn-react-js/) to build component-based web applications. This makes you a consumer of the npm ecosystem, because you are regularly installing packages for your projects to get them running with the help of others.
 
 But what about getting started as a producer for the JavaScript ecosystem yourself? There are many developers out there who contribute to open source by publishing their node packages to the npm registry. Afterward, other people can install these packages for their projects. This tutorial shows you how to get started. You can find the final project from this tutorial on [GitHub](https://github.com/rwieruch/node-open-source-boilerplate) as well.
 
@@ -161,7 +161,7 @@ If you want to upgrade your node package; change the source code, and afterward 
 
 ### Exercises:
 
-* Read more about [how to test your open sourced node package with Mocha and Chai](https://www.robinwieruch.de/node-js-testing-mocha-chai/)
+* Read more about [how to test your open sourced node package with Mocha and Chai](/node-js-testing-mocha-chai/)
 
 # Publishing a Node Package with Webpack
 
@@ -246,7 +246,7 @@ Now you are ready to give `npm run build` a shot. Afterward, you should find a n
 
 ### Exercises:
 
-* Read more about [Code Splitting in Webpack](https://www.robinwieruch.de/webpack-code-splitting-library)
+* Read more about [Code Splitting in Webpack](/webpack-code-splitting-library)
 
 <Divider />
 

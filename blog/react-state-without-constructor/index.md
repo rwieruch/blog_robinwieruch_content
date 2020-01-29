@@ -112,8 +112,8 @@ However, perhaps you are not looking for using React state without a constructor
 
 At this point in time, the answer is: You cannot. It is not possible to have state in a functional component. This may change in the future, but for now, there are only two advanced React patterns which can be used to give your functional components state in React.
 
-* [React higher-order components](https://www.robinwieruch.de/react-higher-order-components/)
-* [React render prop components](https://www.robinwieruch.de/react-render-props/)
+* [React higher-order components](/react-higher-order-components/)
+* [React render prop components](/react-render-props/)
 
 ## React State with Higher-Order Components
 
@@ -357,4 +357,4 @@ That's how values can be passed to render props component; simply by using props
 
 <Divider />
 
-You have learned, that there is no constructor needed to set the initial state of a React component by using class field declarations in enviroments where these are supported. Moreover, you have experienced how higher-order components or render prop components can be used to make a functional component stateful. These were only two examples on using higher-order components and render prop components, so make sure to checkout the referenced articles to learn more in depth about them. Otherwise, if you want to dig deeper into render prop components for managing state, checkout this article about [building a GraphQL client yourself by using render prop components](https://www.robinwieruch.de/react-graphql-client-library).
+You have learned, that there is no constructor needed to set the initial state of a React component by using class field declarations in enviroments where these are supported. Moreover, you have experienced how higher-order components or render prop components can be used to make a functional component stateful. These were only two examples on using higher-order components and render prop components, so make sure to checkout the referenced articles to learn more in depth about them. Otherwise, if you want to dig deeper into render prop components for managing state, checkout this article about [building a GraphQL client yourself by using render prop components](/react-graphql-client-library).

@@ -20,7 +20,7 @@ Conditional rendering in React isn't difficult. In JSX - the syntax extension us
 
 # Conditional Rendering in React: if
 
-The most basic conditional rendering logic in React is done with a single **if** statement. Imagine you don't want to render something in your [React component](https://www.robinwieruch.de/react-function-component), because it doesn't have the necessary [React props](https://www.robinwieruch.de/react-pass-props-to-component/) available. For instance, a [List component in React](https://www.robinwieruch.de/react-list-component) shouldn't render the list HTML elements in a view if there is no list of items in the first place. You can use a plain JavaScript if statement to return earlier (guard pattern):
+The most basic conditional rendering logic in React is done with a single **if** statement. Imagine you don't want to render something in your [React component](/react-function-component), because it doesn't have the necessary [React props](/react-pass-props-to-component/) available. For instance, a [List component in React](/react-list-component) shouldn't render the list HTML elements in a view if there is no list of items in the first place. You can use a plain JavaScript if statement to return earlier (guard pattern):
 
 ```javascript{16-18}
 const users = [
@@ -62,7 +62,7 @@ function Item({ item }) {
 
 Try it yourself by setting `users` to null oder undefined. If the information from the props is null or undefined, the React component returns null in the conditional rendering. There, a React component that returns null instead of JSX will render nothing.
 
-In this example, we have done the conditional rendering based on props, but the conditional rendering could be based on [state](https://www.robinwieruch.de/react-state) and [hooks](https://www.robinwieruch.de/react-hooks) too. Notice, how we didn't use the if statement inside the JSX yet but only outside before the return statement.
+In this example, we have done the conditional rendering based on props, but the conditional rendering could be based on [state](/react-state) and [hooks](/react-hooks) too. Notice, how we didn't use the if statement inside the JSX yet but only outside before the return statement.
 
 # Conditional Rendering in React: if else
 
@@ -418,7 +418,7 @@ It works, however I would recommend to avoid nested conditional renders, because
 
 # Conditional Rendering with HOC
 
-[Higher-Order Components (HOCs)](https://www.robinwieruch.de/react-higher-order-components/) are a perfect match for a conditional rendering in React. HOCs can help with multiple use cases, yet one use case could be to alter the look of a component with a conditional rendering. Let's check out a HOC that either shows a element or a component:
+[Higher-Order Components (HOCs)](/react-higher-order-components/) are a perfect match for a conditional rendering in React. HOCs can help with multiple use cases, yet one use case could be to alter the look of a component with a conditional rendering. Let's check out a HOC that either shows a element or a component:
 
 ```javascript
 // Higher-Order Component
@@ -449,7 +449,7 @@ function App({ list, isLoading }) {
 }
 ```
 
-In this example, the List component can focus on rendering the list. It doesn't have to bother with a loading status. A HOC hides away all the noise from your actual component. Ultimately, you could add multiple higher-order components (composition) to hide away more than one conditional rendering edge case. As alternative to HOCs, you could also use [conditional rendering with a render prop](https://www.robinwieruch.de/react-render-props).
+In this example, the List component can focus on rendering the list. It doesn't have to bother with a loading status. A HOC hides away all the noise from your actual component. Ultimately, you could add multiple higher-order components (composition) to hide away more than one conditional rendering edge case. As alternative to HOCs, you could also use [conditional rendering with a render prop](/react-render-props).
 
 # If Else Components in React
 

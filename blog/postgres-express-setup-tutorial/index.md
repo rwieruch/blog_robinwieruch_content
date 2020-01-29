@@ -35,7 +35,7 @@ author: ""
 
 Eventually every Node.js project running with Express.js as web application will need a database. Since most server applications are stateless, in order to scale them horizontally with multiple server instances, there is no way to persist data without another third-party (e.g. database). That's why it is fine to develop an initial application with sample data, where it is possible to read and write data without a database, but at some point you want to introduce a database to manage the data. The database would keep the data persistence across servers or even though one of your servers is not running.
 
-The following sections will show you how to connect your Express application to a PostgreSQL database with Sequelize as ORM. If you haven't installed PostgreSQL on your machine yet, head over to this [guide on how to install PostgreSQL for your machine](https://www.robinwieruch.de/postgres-sql-macos-setup). It comes with a MacOS and a Windows setup guide. Afterward come back to the next section of this guide to learn more about using PostgreSQL in Express.
+The following sections will show you how to connect your Express application to a PostgreSQL database with Sequelize as ORM. If you haven't installed PostgreSQL on your machine yet, head over to this [guide on how to install PostgreSQL for your machine](/postgres-sql-macos-setup). It comes with a MacOS and a Windows setup guide. Afterward come back to the next section of this guide to learn more about using PostgreSQL in Express.
 
 # PostgreSQL with Sequelize in Express Installation
 

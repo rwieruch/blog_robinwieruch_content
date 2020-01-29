@@ -20,7 +20,7 @@ In his book, Adam Grant dives deep into the spectrum of altruistic to selfish pe
 
 You cannot apply it like a cookbook. Nobody wants to encourage a faking personality. But it certainly will help you to understand the principles of giving and taking personalities. Perhaps the book is a good incentive to change your behavior to the better.
 
-The book had a lasting impact on me. [I read it while I travelled Laos, got to know different volunteering projects and decided to donate money to it](https://www.robinwieruch.de/giving-back-by-learning-react/).
+The book had a lasting impact on me. [I read it while I travelled Laos, got to know different volunteering projects and decided to donate money to it](/giving-back-by-learning-react/).
 
 In addition, I was able to see the intersection of the topic to give and take and open source in software development. Contributing in open source can be a draining volunteering task. The book shows ways to prevent the burnout of giving that shows up too often for open source contributors.
 
@@ -373,7 +373,7 @@ The technique of chunking gets adopted by companies too. They slice their weekda
 
 Experiments have shown the best amount of time to spend on volunteering regarding happiness. It seems that people who volunteer more than 100 hours but less than 800 hours are more satisfied than people volunteering outside of these time constraints. The 100-hour rule of volunteering is "the range where giving is maximally energizing and minimally draining". 100 hours a year breaks down to only two hours a week.
 
-The act of volunteering has a lasting impact, because the satisfaction of people goes up one year later. Other research shows that the energizing impact of giving wasn't felt during but after the act of giving. Is the act of giving itself a [flow](https://www.robinwieruch.de/lessons-learned-deep-work-flow/) activity?
+The act of volunteering has a lasting impact, because the satisfaction of people goes up one year later. Other research shows that the energizing impact of giving wasn't felt during but after the act of giving. Is the act of giving itself a [flow](/lessons-learned-deep-work-flow/) activity?
 
 Companies, who struggle to give their employees time for volunteering, should learn about these benefits. But the act of volunteering has to be meaningful to the employee without being an obligation. It shouldn't be enforced by the company.
 

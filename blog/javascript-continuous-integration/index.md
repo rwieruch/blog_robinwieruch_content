@@ -14,7 +14,7 @@ author: ""
 
 The following tutorial will show you how to set up continuous integration with Travis CI. The continuous integration should make sure that the JavaScript application is built and tested with every change in the code base that reaches your CI. For instance, the CI would fail if the tests are not running through successfully or if the build process would fail. That's how you can always see whether your JavaScript application has a successful build and tests before deploying it.
 
-If you have no GitHub account nor a setup for git, you should make sure to follow this guide [to set up GitHub and git on your machine](https://www.robinwieruch.de/git-essential-commands/). Afterward, create a repository for your JavaScript project on GitHub and commit/push all changes to it. From there, your continuous integration will pick up your project to test and build it.
+If you have no GitHub account nor a setup for git, you should make sure to follow this guide [to set up GitHub and git on your machine](/git-essential-commands/). Afterward, create a repository for your JavaScript project on GitHub and commit/push all changes to it. From there, your continuous integration will pick up your project to test and build it.
 
 Now, create an account for [Travis CI](https://travis-ci.org/) by using your GitHub account. Once you have created it, you can visit your dashboard on their platform where you can see all your GitHub repositories. Each GitHub repository can be synchronized individually with Travis CI. For instance, if you have a JavaScript project on GitHub at the moment, synchronize it on your Travis CI dashboard for giving this tutorial a more practical touch.
 

@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-Eventually you will come across the concept of a JavaScript Closure. I want to give you a step by step walkthrough on how to implement a JavaScript Closure. Along the way, you will find out yourself why it makes sense to implement certain things with JavaScript Closures. The whole source code can be found on [GitHub](https://github.com/rwieruch/javascript-closure). If you want to code along the way, make sure to [set up a JavaScript project](https://www.robinwieruch.de/javascript-project-setup-tutorial/) before.
+Eventually you will come across the concept of a JavaScript Closure. I want to give you a step by step walkthrough on how to implement a JavaScript Closure. Along the way, you will find out yourself why it makes sense to implement certain things with JavaScript Closures. The whole source code can be found on [GitHub](https://github.com/rwieruch/javascript-closure). If you want to code along the way, make sure to [set up a JavaScript project](/javascript-project-setup-tutorial/) before.
 
 # Why a JavaScript Closure?
 

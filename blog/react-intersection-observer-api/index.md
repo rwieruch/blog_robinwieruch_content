@@ -16,9 +16,9 @@ author: ""
 
 The Intersection Observer API is a browser API which can be used to track the position of HTML elements in context to the actual viewport of the browser. The [official documentation](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) says: *"The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document's viewport."*
 
-**It can be used for various scenarios:** For instance, what about coloring the background color of your application or animating SVGs when a user scrolls through your application? What about [fetching more data](https://www.robinwieruch.de/react-fetching-data/) when [reaching the end of a list of items](https://www.robinwieruch.de/react-paginated-list/)? In order to implement such behaviors, you need to know when an HTML element enters (or leaves) the viewport (the user's visible area of a web page) in your browser. Historically there was no dedicated API for this and one had to use other APIs (e.g. [Element.getBoundingClientRect()](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)) for workarounds. Now it is possible with the intersection observer API.
+**It can be used for various scenarios:** For instance, what about coloring the background color of your application or animating SVGs when a user scrolls through your application? What about [fetching more data](/react-fetching-data/) when [reaching the end of a list of items](/react-paginated-list/)? In order to implement such behaviors, you need to know when an HTML element enters (or leaves) the viewport (the user's visible area of a web page) in your browser. Historically there was no dedicated API for this and one had to use other APIs (e.g. [Element.getBoundingClientRect()](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect)) for workarounds. Now it is possible with the intersection observer API.
 
-In this tutorial, I want to show you how to use the intersection observer API in React. We will implement a specific use case with it, but as mentioned, there are various scenarios where the intersection observer API can be applied (in React). In order to get started, it's good to know about [React's ref API](https://www.robinwieruch.de/react-ref-attribute-dom-node/), because it is applied to enable the connection between DOM nodes and the intersection observer in React. Otherwise React is a declarative view layer library where it is not planned to access DOM nodes.
+In this tutorial, I want to show you how to use the intersection observer API in React. We will implement a specific use case with it, but as mentioned, there are various scenarios where the intersection observer API can be applied (in React). In order to get started, it's good to know about [React's ref API](/react-ref-attribute-dom-node/), because it is applied to enable the connection between DOM nodes and the intersection observer in React. Otherwise React is a declarative view layer library where it is not planned to access DOM nodes.
 
 # Anchor-based Navigation in React
 
@@ -72,7 +72,7 @@ class App extends Component {
 export default App;
 ```
 
-The application uses the neat [lorem-ipsum](https://github.com/knicklabs/lorem-ipsum.js) node package to generate sample text. It comes with a couple of configurations that can be used, for instance, to adjust the length of text. You can install it via npm with `npm install lorem-ipsum`. Furthermore, the application uses [JavaScript arrow functions](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/) for keeping the rendered list of items in React's JSX concise.
+The application uses the neat [lorem-ipsum](https://github.com/knicklabs/lorem-ipsum.js) node package to generate sample text. It comes with a couple of configurations that can be used, for instance, to adjust the length of text. You can install it via npm with `npm install lorem-ipsum`. Furthermore, the application uses [JavaScript arrow functions](/javascript-fundamentals-react-requirements/) for keeping the rendered list of items in React's JSX concise.
 
 Second, let's implement the anchor-based navigation. It's not really related to React and only requires you to use anchor tags which navigate to an identifier with a `#` prefix and each element of the list of items to have a matching identifier. We will use JavaScript template literals to interpolate the prefix with the identifier.
 
@@ -280,7 +280,7 @@ class App extends Component {
 export default App;
 ```
 
-The selected styling comes into play in the next section of this tutorial where the intersection observer API is applied to check whether a section is currently viewed by a user or not. For now, every section gets a `false` selection boolean flag [passed as prop](https://www.robinwieruch.de/react-pass-props-to-component/) except for the matching section with the id "a".
+The selected styling comes into play in the next section of this tutorial where the intersection observer API is applied to check whether a section is currently viewed by a user or not. For now, every section gets a `false` selection boolean flag [passed as prop](/react-pass-props-to-component/) except for the matching section with the id "a".
 
 ![react anchor-based navigation](./images/article-navigation-side-by-side.png)
 

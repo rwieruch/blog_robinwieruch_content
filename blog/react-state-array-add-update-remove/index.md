@@ -12,13 +12,13 @@ author: ""
 
 <Sponsorship />
 
-After learning [how to pass props in React](https://www.robinwieruch.de/react-pass-props-to-component/), the next thing you will learn is often [state in React](https://www.robinwieruch.de/react-state). Managing JavaScript primitives such as strings, booleans, and integers in React State are the basics for state management in React. But what about more complex data structures such as JavaScript arrays? There are many questions popping up for React beginners on how to manage arrays in React state. Often the answer is to grab a [fundamental JavaScript function](https://www.robinwieruch.de/javascript-fundamentals-react-requirements/) that does the job for you. It's not always about using React for the task at hand.
+After learning [how to pass props in React](/react-pass-props-to-component/), the next thing you will learn is often [state in React](/react-state). Managing JavaScript primitives such as strings, booleans, and integers in React State are the basics for state management in React. But what about more complex data structures such as JavaScript arrays? There are many questions popping up for React beginners on how to manage arrays in React state. Often the answer is to grab a [fundamental JavaScript function](/javascript-fundamentals-react-requirements/) that does the job for you. It's not always about using React for the task at hand.
 
 This tutorial walks you through the most common scenarios for managing arrays in React state. For each I want to show you a array example in React state, such as how to push an item to an array or how to update an item in an array, when React state is used to store it.
 
 # Arrays in React State
 
-Before we are going to manipulate a JavaScript array in React state, let's recap state in React shortly. State in React can be initialized in the [constructor of a React component](https://www.robinwieruch.de/react-state-without-constructor) and afterward used by accessing it via the React component's class instance with the `this` object.
+Before we are going to manipulate a JavaScript array in React state, let's recap state in React shortly. State in React can be initialized in the [constructor of a React component](/react-state-without-constructor) and afterward used by accessing it via the React component's class instance with the `this` object.
 
 ```javascript
 import React, { Component } from 'react';
@@ -124,7 +124,7 @@ class App extends Component {
 export default App;
 ```
 
-That's only one way of providing a fallback for an array being null. As alternative, you can also use [React's conditional rendering](https://www.robinwieruch.de/conditional-rendering-react/) for it.
+That's only one way of providing a fallback for an array being null. As alternative, you can also use [React's conditional rendering](/conditional-rendering-react/) for it.
 
 The second question, which asks how to push an empty array in React state, involves manipulating the state with `this.setState()`. Let's say you want to empty the array on a button click. Then you can do it the following way:
 

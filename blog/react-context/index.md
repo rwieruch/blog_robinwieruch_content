@@ -14,7 +14,7 @@ author: ""
 
 React Context is a powerful feature. If your React application grows in size beyond a small application, there is nothing wrong in giving it a try. Many third-party libraries like Redux are using it under the hood anyway, so why not learning about it.
 
-Especially if your component hierarchy grows in vertical size, it becomes tedious [passing props several React components down](https://www.robinwieruch.de/react-pass-props-to-component/) -- from a parent component to a deeply nested child component. Most often all the React components in between are not interested in these props and just pass the props to the next child component until it reaches the desired child component.
+Especially if your component hierarchy grows in vertical size, it becomes tedious [passing props several React components down](/react-pass-props-to-component/) -- from a parent component to a deeply nested child component. Most often all the React components in between are not interested in these props and just pass the props to the next child component until it reaches the desired child component.
 
 This tutorial gives you a walkthrough of using React Context for a simple use case.
 
@@ -153,7 +153,7 @@ const ThemeContext = React.createContext(null);
 export default ThemeContext;
 ```
 
-Second, component A would have to provide the context with the given Provider component. In this case, its `value` is given to it right away, but it can be anything from component state (e.g. [fetched data](https://www.robinwieruch.de/react-fetching-data)) to props. If the value comes from a modifiable [React State](https://www.robinwieruch.de/react-state), the value passed to the Provider component can be changed too.
+Second, component A would have to provide the context with the given Provider component. In this case, its `value` is given to it right away, but it can be anything from component state (e.g. [fetched data](/react-fetching-data)) to props. If the value comes from a modifiable [React State](/react-state), the value passed to the Provider component can be changed too.
 
 ```javascript
 // src/ComponentA.js
@@ -189,14 +189,14 @@ const C = () => (
 );
 ```
 
-The component can derive its style by consuming the context. The Consumer component makes the passed context available by using a [render prop](https://www.robinwieruch.de/react-render-props). As you can imagine, following this way every component that needs to be styled according to the theme could get the necessary information from React's Context by using the ThemeContext's Consumer component now. You only have to use the Provider component which passes the value once somewhere above them.
+The component can derive its style by consuming the context. The Consumer component makes the passed context available by using a [render prop](/react-render-props). As you can imagine, following this way every component that needs to be styled according to the theme could get the necessary information from React's Context by using the ThemeContext's Consumer component now. You only have to use the Provider component which passes the value once somewhere above them.
 
 # React Context: When
 
 When should you use React Context? Generally speaking there are two use cases when to use it:
 
 * When your React component hierarchy grows vertically in size and you want to be able to pass props to child components without bothering components in between. We have used this use case as example throughout this whole React Context tutorial.
-* When you want to have [advanced state management in React with React Hooks](https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext/) for passing state and state updater functions via React Context through your React application. Doing it via React Context allows you to create a shared and global state.
+* When you want to have [advanced state management in React with React Hooks](/react-state-usereducer-usestate-usecontext/) for passing state and state updater functions via React Context through your React application. Doing it via React Context allows you to create a shared and global state.
 
 <Divider />
 

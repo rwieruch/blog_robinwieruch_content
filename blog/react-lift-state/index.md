@@ -12,15 +12,15 @@ author: ""
 
 <Sponsorship />
 
-In a scaling application, you will notice that you pass a lot of [state down to child components as props](https://www.robinwieruch.de/react-pass-props-to-component/). These props are often passed down multiple component levels. That's how state is shared vertically in your application. Yet, the other way around, you will notice that more components need to use and thus share the same state. That's how state needs to be shared horizontally across components in your component tree. These two scaling issues, sharing state vertically and horizontally, are common in local state management in React. Therefore you can lift the state up and down for keeping your local state architecture maintainable. Lifting the state prevents sharing too much or too little state in your component tree. Basically, it is a refactoring that you have to do once in a while to keep your components maintainable and focused on only consuming the state that they need to consume.
+In a scaling application, you will notice that you pass a lot of [state down to child components as props](/react-pass-props-to-component/). These props are often passed down multiple component levels. That's how state is shared vertically in your application. Yet, the other way around, you will notice that more components need to use and thus share the same state. That's how state needs to be shared horizontally across components in your component tree. These two scaling issues, sharing state vertically and horizontally, are common in local state management in React. Therefore you can lift the state up and down for keeping your local state architecture maintainable. Lifting the state prevents sharing too much or too little state in your component tree. Basically, it is a refactoring that you have to do once in a while to keep your components maintainable and focused on only consuming the state that they need to consume.
 
 In order to experience up and down lifting of local state, the following tutorial will demonstrate it with two examples. The first example that demonstrates the lifting up of state is called: "Search a List"-example. The second example that demonstrates the lifting down of state is called "Archive in a List"-example.
 
 # How to lift State up?
 
-The "Search a List"-example has three components. Two sibling components, a Search component and a List component, that are used in an overarching SearchableList component. All of them are [function components](https://www.robinwieruch.de/react-function-component/).
+The "Search a List"-example has three components. Two sibling components, a Search component and a List component, that are used in an overarching SearchableList component. All of them are [function components](/react-function-component/).
 
-First, the implementation of the Search component which is a [controlled component](https://www.robinwieruch.de/react-controlled-components/) due to the input field being controlled  by React:
+First, the implementation of the Search component which is a [controlled component](/react-controlled-components/) due to the input field being controlled  by React:
 
 ```javascript
 const Search = ({ children }) => {
@@ -39,7 +39,7 @@ const Search = ({ children }) => {
 };
 ```
 
-Second, the implementation of [List component](https://www.robinwieruch.de/react-list-components/):
+Second, the implementation of [List component](/react-list-components/):
 
 ```javascript
 const List = ({ list }) => (
@@ -51,7 +51,7 @@ const List = ({ list }) => (
 );
 ```
 
-Third, the SearchableList component which uses both components, the Search and List components, for [React's component composition](https://www.robinwieruch.de/react-component-composition/) and thus both components become siblings in the component tree:
+Third, the SearchableList component which uses both components, the Search and List components, for [React's component composition](/react-component-composition/) and thus both components become siblings in the component tree:
 
 ```javascript
 const SearchableList = ({ list }) => (
