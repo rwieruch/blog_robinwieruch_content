@@ -328,20 +328,12 @@ Like in any other web application, the most common payment providers are Stripe 
 
 If your React application is dealing with lots of dates and timezones, you should introduce a library which manages these things for you. The most popular library is [moment.js](https://momentjs.com/). More lightweight alternatives are [date-fns](https://github.com/date-fns/date-fns) and [Day.js](https://github.com/iamkun/dayjs).
 
-**Recommendations:**
-
-* date-fns or Day.js
-
 # React Desktop Applications
 
 [Electron](https://www.electronjs.org/) is the go to framework for cross-platform desktop applications. However, there exist alternatives such as:
 
 * [NW.js](https://nwjs.io/)
 * [Neutralino.js](https://github.com/neutralinojs/neutralinojs)
-
-**Recommendations:**
-
-* Electron
 
 # Mobile Development with React
 
@@ -372,53 +364,53 @@ If you are in charge of writing the documentation for your software, UI library 
 So in the end, the React ecosystem can be seen as a framework for React, but it stays flexible. It is a flexible framework where you can make own decisions on which libraries you want to opt-in. You can start small and add only libraries to solve specific problems for you. You can scale your building blocks along the way when your application grows. Otherwise you can stay lightweight by using plain React. Therefore here again a list of libraries that could complement React as the core of the application regarding different project sizes. Keep in mind that the list is opinionated, but I am keen to get your feedback too.
 
 * Small Application
- * **Boilerplate:** create-react-app
- * **Styling Libraries:** basic CSS and inline style
- * **Asynchronous Requests:** fetch or axios
- * **Code Style:** none
- * **Type Checking:** none
- * **State Management:** React Hooks
- * **Routing:** none or React Router
- * **Authentication:** Firebase
- * **Database:** Firebase
- * **UI Libraries:** none
- * **Form Libraries**: none
- * **Testing Libraries:** Jest
- * **Utility Libraries:** JavaScript
- * **Internationalizing:** react-i18next
- * **React Desktop:** Electron
+  * **Boilerplate:** create-react-app
+  * **Styling Libraries:** basic CSS and inline style
+  * **Asynchronous Requests:** fetch or axios
+  * **Code Style:** none
+  * **Type Checking:** none
+  * **State Management:** React Hooks
+  * **Routing:** none or React Router
+  * **Authentication:** Firebase
+  * **Database:** Firebase
+  * **UI Libraries:** none
+  * **Form Libraries**: none
+  * **Testing Libraries:** Jest
+  * **Utility Libraries:** JavaScript
+  * **Internationalizing:** react-i18next
+  * **React Desktop:** Electron
 * Medium Application
- * **Boilerplate:** Next.js or Gatsby.js
- * **Styling Libraries:** CSS Modules or Styled Components
- * **Asynchronous Requests:** fetch or axios
- * **Code Style:** Prettier, ESLint
- * **Type Checking:** none or TypeScript
- * **State Management:** React Hooks and/or Apollo
- * **Routing:** React Router
- * **Authentication:** Firebase
- * **Database:** Firebase
- * **UI Libraries:** none or UI component library
- * **Form Libraries**: none or Formik or React Hook Form
- * **Testing Libraries:** Jest with React Testing Library
- * **Utility Libraries:** JavaScript
- * **Internationalizing:** react-i18next
- * **React Desktop:** Electron
+  * **Boilerplate:** Next.js or Gatsby.js
+  * **Styling Libraries:** CSS Modules or Styled Components
+  * **Asynchronous Requests:** fetch or axios
+  * **Code Style:** Prettier, ESLint
+  * **Type Checking:** none or TypeScript
+  * **State Management:** React Hooks and/or Apollo
+  * **Routing:** React Router
+  * **Authentication:** Firebase
+  * **Database:** Firebase
+  * **UI Libraries:** none or UI component library
+  * **Form Libraries**: none or Formik or React Hook Form
+  * **Testing Libraries:** Jest with React Testing Library
+  * **Utility Libraries:** JavaScript
+  * **Internationalizing:** react-i18next
+  * **React Desktop:** Electron
 * Large Application
- * **Boilerplate:** Next.js, Gatsby.js, custom setup
- * **Styling Libraries:** CSS Modules or Styled Components
- * **Asynchronous Requests:** axios or Apollo Client, if GraphQL API
- * **Code Style:** Prettier, ESLint
- * **Type Checking:** TypeScript
- * **State Management:** React Hooks and/or Apollo/Redux/MobX
- * **Routing:** React Router
- * **Authentication:** Solution with own Node.js Server + Passport.js
- * **Database:** Solution with own Node.js Server with a SQL/NoSQL DB
- * **UI Libraries:** UI component library or roll your own UI components
- * **Form Libraries**: none or Formik or React Hook Form
- * **Testing Libraries:** Jest with React Testing Library and Cypress
- * **Utility Libraries:** JavaScript, Lodash
- * **Internationalizing:** react-i18next
- * **React Desktop:** Electron
+  * **Boilerplate:** Next.js, Gatsby.js, custom setup
+  * **Styling Libraries:** CSS Modules or Styled Components
+  * **Asynchronous Requests:** axios or Apollo Client, if GraphQL API
+  * **Code Style:** Prettier, ESLint
+  * **Type Checking:** TypeScript
+  * **State Management:** React Hooks and/or Apollo/Redux/MobX
+  * **Routing:** React Router
+  * **Authentication:** Solution with own Node.js Server + Passport.js
+  * **Database:** Solution with own Node.js Server with a SQL/NoSQL DB
+  * **UI Libraries:** UI component library or roll your own UI components
+  * **Form Libraries**: none or Formik or React Hook Form
+  * **Testing Libraries:** Jest with React Testing Library and Cypress
+  * **Utility Libraries:** JavaScript, Lodash
+  * **Internationalizing:** react-i18next
+  * **React Desktop:** Electron
 
 The previous recommendations are opinionated. You can choose your own flexible framework for your ideal React application. Every "ideal" React setup is subjective to its needs of the developers and project. After all, there is no ideal React application setup.
 
