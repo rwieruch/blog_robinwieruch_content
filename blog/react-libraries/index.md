@@ -43,9 +43,9 @@ If you are tempted to choose a custom boilerplate project, try to narrow down yo
 
 React comes with built-in hooks to manage local state: [useState](/react-usestate-hook), [useReducer](/react-usereducer-hook), [useContext](/react-usecontext-hook). All of them can be used for [sophisticated local state management](/react-state-usereducer-usestate-usecontext) in React. It goes even so far that you can [mimic Redux](/redux-with-react-hooks), a popular state management library for React, with it.
 
-All of React's built-in hooks are great for local state management. When it comes to state management of remote data, I would recommend to use [Apollo Client](/graphql-apollo-client-tutorial), which is only possible if the remote data comes with a GraphQL endpoint. Alternatives for Apollo Client are [urql](https://github.com/FormidableLabs/urql) and [Relay](https://relay.dev/).
+All of React's built-in hooks are great for local state management. When it comes to state management of remote data, I would recommend to use [Apollo Client](/graphql-apollo-client-tutorial), if the remote data comes with a GraphQL endpoint. Alternatives for Apollo Client are [urql](https://github.com/FormidableLabs/urql) and [Relay](https://relay.dev/).
 
-If the remote data doesn't come from a GraphQL endpoint, try to manage it with React's Hooks. If it doesn't work out, a solution like [Redux](/react-redux-tutorial) or [MobX](https://mobx.js.org) may help.
+If the remote data doesn't come from a GraphQL endpoint, try to manage it with React's Hooks. If it doesn't work out, a solution like [Redux](/react-redux-tutorial) or [MobX](https://mobx.js.org)/[Mobx State tree](https://mobx-state-tree.js.org) may help.
 
 If you want to go into more detail, head over to my [comprehensive state management in React tutorial](/react-state).
 
@@ -53,7 +53,7 @@ If you want to go into more detail, head over to my [comprehensive state managem
 
 * Local State: React's useState, useReducer, useContext Hooks
 * Remote State via GraphQL: Apollo Client
-* Remote State via REST: React Hooks or Redux/MobX
+* Remote State via REST: React Hooks or Redux/MobX/Mobx State Tree
 
 # Routing with React Router
 
@@ -195,9 +195,9 @@ If you have the luxury to deal with a GraphQL API, I recommend using Apollo Clie
 
 **Recommendations:**
 
-* the browser's native fetch API
+* the browser's native fetch API/XMLHTTPRequest
 * axios
-* Apollo Client, if GraphQL API
+* Apollo Client(Works for both Graphql and REST via linkState)
 
 # React Type Checking
 
@@ -258,7 +258,7 @@ If you are looking for an all-in-one solution for authentication + database, sti
 
 # React Hosting
 
-You can deploy and host a React application like any other web application. If you want to have full control, choose something like [Digital Ocean](https://m.do.co/c/fb27c90322f3). If you want to have someone taking care of everything, [Netlify](https://www.netlify.com/) is a popular solution If you are already using a third-party for authentication/database like Firebase, you can check whether they offer hosting (e.g. [Firebase Hosting](https://firebase.google.com/docs/hosting)) as well.
+You can deploy and host a React application like any other web application. If you want to have full control, choose something like [Digital Ocean](https://m.do.co/c/fb27c90322f3). If you want to have someone taking care of everything, [Netlify](https://www.netlify.com/) is a popular solution If you are already using a third-party for authentication/database like Firebase, you can check whether they offer hosting (e.g. [Firebase Hosting](https://firebase.google.com/docs/hosting)) as well. You can also use S3's static site hosting along with Cloudfront.
 
 # Testing in React
 
@@ -295,7 +295,7 @@ However, you might come to a point where you have to choose a utility library th
 
 # React and Immutable Data Structures
 
-Vanilla JavaScript gives you plenty of built-in tools to handle with data structures as if they are immutable. However, if you and your team feel the need to enforce immutable data structures, one of the most popular choices is [Immer](https://github.com/immerjs/immer). Personally I don't use it, but any time someone asks about immutability in JS, people will point it out.
+Vanilla JavaScript gives you plenty of built-in tools to handle with data structures as if they are immutable. However, if you and your team feel the need to enforce immutable data structures, one of the most popular choices is [Immer](https://github.com/immerjs/immer). Personally I don't use it, but any time someone asks about immutability in JS, people will point it out. This can be coupled with redux or react hooks.
 
 # React Internationalizing
 
@@ -398,7 +398,7 @@ So in the end, the React ecosystem can be seen as a framework for React, but it 
 * Large Application
   * **Boilerplate:** Next.js, Gatsby.js, custom setup
   * **Styling Libraries:** CSS Modules or Styled Components
-  * **Asynchronous Requests:** axios or Apollo Client, if GraphQL API
+  * **Asynchronous Requests:** axios or Apollo Client
   * **Code Style:** Prettier, ESLint
   * **Type Checking:** TypeScript
   * **State Management:** React Hooks and/or Apollo/Redux/MobX
@@ -408,7 +408,7 @@ So in the end, the React ecosystem can be seen as a framework for React, but it 
   * **UI Libraries:** UI component library or roll your own UI components
   * **Form Libraries**: none or Formik or React Hook Form
   * **Testing Libraries:** Jest with React Testing Library and Cypress
-  * **Utility Libraries:** JavaScript, Lodash
+  * **Utility Libraries:** JavaScript Platform APIs, Lodash
   * **Internationalizing:** react-i18next
   * **React Desktop:** Electron
 
