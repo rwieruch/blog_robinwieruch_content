@@ -84,3 +84,7 @@ That's it. ESLint should be happy about Babel's Module Resolver now.
 <Divider />
 
 Babel Module Resolver helps you to tidy up your relative imports for your entire JavaScript application. If you want to avoid moving up and down folders with relative paths, add aliases to crucial paths of your application to make it easier to import modules from these areas.
+
+<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "Babel Module Resolver with Jest", url: "https://www.robinwieruch.de/babel-module-resolver-jest" }]} />
+
+<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "Babel Module Resolver with TypeScript", url: "https://www.robinwieruch.de/babel-module-resolver-typescript" }]} />

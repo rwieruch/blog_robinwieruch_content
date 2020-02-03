@@ -1,6 +1,6 @@
 ---
 date: "2018-07-04T13:50:46+02:00"
-title: "Why Apollo: Advantages, Disadvantages & Alternatives"
+title: "Why Apollo: Advantages and Disadvantages"
 description: "Overview about the advantages and disadvantages of using Apollo and its ecosystem for JavaScript applications. It mentions also Apollo alternatives such as Urql and Relay for React applications ..."
 categories: ["React", "GraphQL"]
 keywords: ["apollo alternatives", "apollo advantages", "apollo disadvantages", "why apollo", "apollo benefits"]

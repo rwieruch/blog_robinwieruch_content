@@ -195,9 +195,9 @@ If you have the luxury to deal with a GraphQL API, I recommend using Apollo Clie
 
 **Recommendations:**
 
-* the browser's native fetch API/XMLHTTPRequest
+* the browser's native fetch API
 * axios
-* Apollo Client(Works for both Graphql and REST via [REST Link](https://www.apollographql.com/docs/link/links/rest/))
+* Apollo Client
 
 # React Type Checking
 
