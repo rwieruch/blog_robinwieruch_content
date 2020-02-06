@@ -286,7 +286,7 @@ const List = ({ list }) =>
   </div>
 ```
 
-However, you might come to a point where you have to choose a utility library that gives you more elaborate functionalities. You might even want to be more flexible when chaining these utility functions or even compose them dynamically into each other. That's the point in time where you would introduce a utility library: [Lodash](https://lodash.com/) or [Ramda](https://ramdajs.com/). Whereas Lodash is the more down to earth library for every JavaScript developer, Ramda comes with a powerful core when functional programming comes into play. eep in mind though that modern JavaScript gives you plenty of features out of the box and it becomes less necessary these days to use a utility library.
+However, you might come to a point where you have to choose a utility library that gives you more elaborate functionalities. You might even want to be more flexible when chaining these utility functions or even compose them dynamically into each other. That's the point in time where you would introduce a utility library: [Lodash](https://lodash.com/) or [Ramda](https://ramdajs.com/). Whereas Lodash is the more down to earth library for every JavaScript developer, Ramda comes with a powerful core when functional programming comes into play. Keep in mind though that modern JavaScript gives you plenty of features out of the box and it becomes less necessary these days to use a utility library.
 
 **Recommendations:**
 
