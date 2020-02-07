@@ -94,7 +94,7 @@ export default App;
 
 As you can see, the props are received in React's class component via the `this` instance of the class. A common question which comes up then: [Why aren't the props received in the render methods signature?](https://github.com/facebook/react/issues/1387) It would be similar to functional stateless components then. As for now, the team behind React considered it, but didn't change the API for React class components yet. Maybe it will be changed at some point.
 
-<ReadMore label="React class components and functional stateless components" link="https://www.robinwieruch.de/javascript-fundamentals-react-requirements" />
+<ReadMore label="React class components and functional stateless components" link="/javascript-fundamentals-react-requirements" />
 
 In a functional stateless component, the props are received in the function signature as arguments:
 

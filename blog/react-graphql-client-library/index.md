@@ -14,7 +14,7 @@ author: ""
 
 <ReactGraphQLBook />
 
-<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "A complete React with GraphQL Tutorial", url: "https://www.robinwieruch.de/react-with-graphql-tutorial/" }, { prefix: "Part 2:", label: "A complete React with Apollo and GraphQL Tutorial", url: "https://www.robinwieruch.de/react-graphql-apollo-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "A complete React with GraphQL Tutorial", url: "/react-with-graphql-tutorial/" }, { prefix: "Part 2:", label: "A complete React with Apollo and GraphQL Tutorial", url: "/react-graphql-apollo-tutorial/" }]} />
 
 You may have used a GraphQL client library that was view-layer agnostic and thus able to work with React or other solutions like Angular or Vue. Other GraphQL client libraries like Relay and Urql aren't so powerful, because they are used only for React. The next chapter is to illustrate how to implement a GraphQL client library that works with React. The takeaway shouldn't be "build your own GraphQL client for your production ready applications", however, you should instead learn:
 
@@ -970,4 +970,4 @@ There's a big difference between this lightweight GraphQL client and a sophistic
 
 This implementation of a GraphQL client in React should have illustrated that it's not as complicated as it seems. Hopefully this will eventually inspire you to contribute to the GraphQL and React ecosystem with your own libraries. Perhaps you'll create more sophisticated GraphQL client libraries on top of the previous ideas.  You can find the previous GraphQL client as [library and repository on GitHub](https://github.com/rwieruch/react-graphql-client-library). Check it out to find your own solutions and open source them on npm as library. I am looking forward to seeing what you come up with, so please contact me when you'd like to discuss contributing to the ecosystem.
 
-<ReadMore label="A minimal Apollo Client in React Example" link="https://www.robinwieruch.de/react-apollo-client-example" />
+<ReadMore label="A minimal Apollo Client in React Example" link="/react-apollo-client-example" />

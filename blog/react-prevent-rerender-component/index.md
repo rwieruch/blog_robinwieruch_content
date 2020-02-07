@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1a:", label: "How to setup React.js on Windows", url: "https://www.robinwieruch.de/react-js-windows-setup/" }, { prefix: "Part 1b:", label: "How to setup React.js on MacOS", url: "https://www.robinwieruch.de/react-js-macos-setup/" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1a:", label: "How to setup React.js on Windows", url: "/react-js-windows-setup/" }, { prefix: "Part 1b:", label: "How to setup React.js on MacOS", url: "/react-js-macos-setup/" }]} />
 
 In this React performance optimization tutorial, you will learn about React's shouldComponentUpdate lifecycle method and React's PureComponent API to a prevent rerender for React components. Usually React components and their child components rerender if state or props change. However, by using React's API, you can step in and make the decision when to rerender a component. You can find the finished application in this [GitHub repository](https://github.com/the-road-to-learn-react/react-prevent-rerender-component).
 

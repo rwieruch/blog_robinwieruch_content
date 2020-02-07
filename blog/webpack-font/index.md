@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in 'Webpack with Fonts'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack with Babel", url: "https://www.robinwieruch.de/webpack-babel-setup-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in 'Webpack with Fonts'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack with Babel", url: "/webpack-babel-setup-tutorial/" }]} />
 
 In this tutorial, you will learn how to set up a local font with Webpack. We will use Open Sans, but you can decide to use any other web font as well. If you have your font files already at your disposal, don't bother about downloading them again. For our case, we will download the font to our local setup from [Google Webfonts](https://google-webfonts-helper.herokuapp.com). Therefore, follow the next steps to download your desired font files:
 

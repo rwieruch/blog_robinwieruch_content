@@ -92,4 +92,4 @@ To list all your databases, you can type `\list`. Your will see any new database
 * \d - List the relations of your currently connected database.
 * \d mytablename - Shows information for a specific table.
 
-<ReadMore label="PostgreSQL with Sequelize in Express Tutorial" link="https://www.robinwieruch.de/postgres-express-setup-tutorial" />
+<ReadMore label="PostgreSQL with Sequelize in Express Tutorial" link="/postgres-express-setup-tutorial" />

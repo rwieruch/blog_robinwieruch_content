@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 3 of 3 in the 'Frontend Setup'-series." links={[{ prefix: "Part 1:", label: "How to set up a modern JavaScript project", url: "https://www.robinwieruch.de/javascript-project-setup-tutorial/" }, { prefix: "Part 2:", label: "How to set up a Webpack project", url: "https://www.robinwieruch.de/webpack-setup-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in the 'Frontend Setup'-series." links={[{ prefix: "Part 1:", label: "How to set up a modern JavaScript project", url: "/javascript-project-setup-tutorial/" }, { prefix: "Part 2:", label: "How to set up a Webpack project", url: "/webpack-setup-tutorial/" }]} />
 
 [Babel](https://babeljs.io/) enables one writing code with JavaScript features that aren't supported by most browser yet. Perhaps you have heard about [JavaScript ES6 (ES2015)](https://babeljs.io/docs/learn-es2015/), ES7, and other versions of ECMAScript specification which are up and coming for the JavaScript language. At the time of reading this, various versions may be already included in the JavaScript language.
 
@@ -102,12 +102,12 @@ Babel enables you to use future JavaScript features in your browser, because it 
   * Import the new JavaScript file in your *src/index.js* file
   * Add a logging statement to your new JavaScript file and check whether it shows up in the browser
 
-<LinkCollection label="This tutorial is part 1 of 2 in 'React Setup'-series." links={[{ prefix: "Part 2:", label: "How to set up React with Webpack and Babel", url: "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in 'React Setup'-series." links={[{ prefix: "Part 2:", label: "How to set up React with Webpack and Babel", url: "/minimal-react-webpack-babel-setup/" }]} />
 
-<LinkCollection label="This tutorial is part 1 of 2 in 'Webpack with ESLint'-series." links={[{ prefix: "Part 2:", label: "How to use ESLint in Webpack", url: "https://www.robinwieruch.de/webpack-eslint/" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in 'Webpack with ESLint'-series." links={[{ prefix: "Part 2:", label: "How to use ESLint in Webpack", url: "/webpack-eslint/" }]} />
 
-<LinkCollection label="This tutorial is part 1 of 2 in 'Webpack with Fonts'-series." links={[{ prefix: "Part 2:", label: "How to use Fonts with Webpack", url: "https://www.robinwieruch.de/webpack-font/" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in 'Webpack with Fonts'-series." links={[{ prefix: "Part 2:", label: "How to use Fonts with Webpack", url: "/webpack-font/" }]} />
 
-<LinkCollection label="This tutorial is part 1 of 2 in 'Webpack with Images'-series." links={[{ prefix: "Part 2:", label: "How to use Images with Webpack", url: "https://www.robinwieruch.de/webpack-images/" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in 'Webpack with Images'-series." links={[{ prefix: "Part 2:", label: "How to use Images with Webpack", url: "/webpack-images/" }]} />
 
-<LinkCollection label="This tutorial is part 2 of 3 in 'Webpack Setup'-series." links={[{ prefix: "Part 1:", label: "How to set up a Webpack project", url: "https://www.robinwieruch.de/webpack-setup-tutorial/" }, { prefix: "Part 3:", label: "How to set up an advanced Webpack application", url: "https://www.robinwieruch.de/webpack-advanced-setup-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 2 of 3 in 'Webpack Setup'-series." links={[{ prefix: "Part 1:", label: "How to set up a Webpack project", url: "/webpack-setup-tutorial/" }, { prefix: "Part 3:", label: "How to set up an advanced Webpack application", url: "/webpack-advanced-setup-tutorial/" }]} />

@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "React Context", url: "https://www.robinwieruch.de/react-context/" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "React Context", url: "/react-context/" }]} />
 
 [React's Function Components](/react-function-component) come with [React Hooks](/react-hooks) these days. Not only can [React Hooks be used for State in React](/react-state) but also for using React's Context in a more convenient way. This tutorial shows you how to use React's useContext Hook. Before, make sure to read the previous tutorial for getting an introduction to [React's Context](/react-context/):
 

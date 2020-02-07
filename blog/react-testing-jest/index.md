@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "How to set up React with Webpack and Babel", url: "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "How to set up React with Webpack and Babel", url: "/minimal-react-webpack-babel-setup/" }]} />
 
 [Jest](https://facebook.github.io/jest/) got introduced by Facebook for testing JavaScript and especially React applications. It's one of the most popular ways to test React components nowadays. Since it comes with its own test runner, you can simply call Jest from the command line to run all your tests. All your tests are defined as test suites (e.g. `describe`-block) and test cases (e.g. `it`-block or `test`-block).
 
@@ -451,10 +451,10 @@ Jest gives you (almost) everything you need to test your React components. You c
 
 However, testing the DOM of a React component with Jest is more difficult. That's why there exist other third-party libraries such as React Testing Library or Enzyme to make React component unit testing possible for you. Follow the tutorial series for more testing examples in React.
 
-<LinkCollection label="This tutorial is part 2 of 3 in the series." links={[{ prefix: "Part 1:", label: "How to set up React with Webpack and Babel", url: "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" }, { prefix: "Part 3:", label: "How to test React components with Jest & Enzyme", url: "https://www.robinwieruch.de/react-testing-jest-enzyme" }]} />
+<LinkCollection label="This tutorial is part 2 of 3 in the series." links={[{ prefix: "Part 1:", label: "How to set up React with Webpack and Babel", url: "/minimal-react-webpack-babel-setup/" }, { prefix: "Part 3:", label: "How to test React components with Jest & Enzyme", url: "/react-testing-jest-enzyme" }]} />
 
-<ReadMore label="How to shallow render Jest Snapshot Tests" link="https://www.robinwieruch.de/jest-snapshot-shallow-render" />
+<ReadMore label="How to shallow render Jest Snapshot Tests" link="/jest-snapshot-shallow-render" />
 
-<ReadMore label="How to Jest Snapshot Test the Difference" link="https://www.robinwieruch.de/jest-snapshot-test-difference" />
+<ReadMore label="How to Jest Snapshot Test the Difference" link="/jest-snapshot-test-difference" />
 
-<ReadMore label="How to test React-Redux connected Components" link="https://www.robinwieruch.de/react-connected-component-test" />
+<ReadMore label="How to test React-Redux connected Components" link="/react-connected-component-test" />

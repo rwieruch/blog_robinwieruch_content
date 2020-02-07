@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This React tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "The SoundCloud Client in React + Redux", url: "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" }]} />
+<LinkCollection label="This React tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "The SoundCloud Client in React + Redux", url: "/the-soundcloud-client-in-react-redux/" }]} />
 
 MobX is a state management solution. It is a standalone pure technical solution without being opinionated about the architectural state management app design. The 4 pillars State, Actions, Reactions and Derivations make state management in MobX possible. First the State encapsulates all of your application state which can consist of primitives to complex objects. While Actions mutate the State, Reactions are running every time the State was mutated. Derivations are similar to Reactions, but they produce a new value depending on the State.
 

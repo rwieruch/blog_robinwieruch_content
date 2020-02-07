@@ -18,22 +18,22 @@ author: ""
     {
       prefix: "Part 1:",
       label: "The minimal Node.js with Babel Setup",
-      url: "https://www.robinwieruch.de/minimal-node-js-babel-setup/"
+      url: "/minimal-node-js-babel-setup/"
     },
     {
       prefix: "Part 2:",
       label: "How to setup Express.js in Node.js",
-      url: "https://www.robinwieruch.de/node-js-express-tutorial/"
+      url: "/node-js-express-tutorial/"
     },
     {
       prefix: "Part 3:",
       label: "How to create a REST API with Express.js in Node.js",
-      url: "https://www.robinwieruch.de/node-express-server-rest-api/"
+      url: "/node-express-server-rest-api/"
     },
     {
       prefix: "Part 4:",
       label: "Setup PostgreSQL with Sequelize in Express",
-      url: "https://www.robinwieruch.de/postgres-express-setup-tutorial/"
+      url: "/postgres-express-setup-tutorial/"
     }
   ]}
 />

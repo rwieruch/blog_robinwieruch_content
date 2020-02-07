@@ -18,7 +18,7 @@ contribute: ""
     {
       prefix: "Part 1:",
       label: "How to set up Webpack with Babel",
-      url: "https://www.robinwieruch.de/webpack-babel-setup-tutorial/",
+      url: "/webpack-babel-setup-tutorial/",
     },
   ]}
 />

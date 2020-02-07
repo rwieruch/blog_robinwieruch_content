@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "GitHub and Git Setup and Essentials", url: "https://www.robinwieruch.de/git-essential-commands/" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "GitHub and Git Setup and Essentials", url: "/git-essential-commands/" }]} />
 
 When I have been working with my clients over the last years, I have seen how crucial it can be to establish a **common sense git workflow for a team to become productive**. I experienced several constellations -- for instance when working in a team of thrown together developers, in an established team that just transitioned from another version control system, or as the new member of a team where no git practices were established and I wanted to get up to speed quickly -- where it made sense to align everyone on one git framework to follow a common sense and best practices.
 
@@ -233,6 +233,6 @@ Some of these git commits will change your local commit history. If you have pus
 
 I would be curious about other git workflows, if there exist any, so let me know about them in the comments. If you have any git best practices or gotchas you want to add, then let us know abou them. After all, I hope this walkthrough helps you to establish a git workflow for your team working with git. In the long run, it will make you and your team more productive by aligning you on a common sense process.
 
-<ReadMore label="The minimal Node.js with Babel Setup" link="https://www.robinwieruch.de/minimal-node-js-babel-setup" />
+<ReadMore label="The minimal Node.js with Babel Setup" link="/minimal-node-js-babel-setup" />
 
-<ReadMore label="The minimal React + Webpack 4 + Babel Setup" link="https://www.robinwieruch.de/minimal-react-webpack-babel-setup" />
+<ReadMore label="The minimal React + Webpack 4 + Babel Setup" link="/minimal-react-webpack-babel-setup" />

@@ -975,4 +975,4 @@ The application works again, but we are able to dispatch changes for our todo li
 
 You have learned how modern state management is used in React with useState, useReducer and useContext. Whereas useState is used for simple state (e.g. input field), useReducer is a greater asset for complex objects and complicated state transitions. In larger applications, useContext can be used to pass down dispatch functions (or state) from the useReducer hook.
 
-<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to create Redux with React Hooks?", url: "https://www.robinwieruch.de/redux-with-react-hooks/" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to create Redux with React Hooks?", url: "/redux-with-react-hooks/" }]} />

@@ -153,6 +153,6 @@ As I said, these community thoughts of mine are more general thoughts. I think a
 
 In conclusion I hope these reasons help you to have a better understanding of the React ecosystem. Maybe they help you to make a personal decision if you want to hop on the React train in 2017. Personally it helped me to reflect about my decision to start to learn React. Apart from that it was an upside that my company [Small Improvements](https://careers.small-improvements.com/?ref=robinwieruch.de) did this step as well in the mid of last year. But we have plenty of Angular leftovers and are keen to hire people who know both solutions.
 
-<ReadMore label="Tips to learn React + Redux" link="https://www.robinwieruch.de/tips-to-learn-react-redux" />
+<ReadMore label="Tips to learn React + Redux" link="/tips-to-learn-react-redux" />
 
-<ReadMore label="The SoundCloud Client in React + Redux" link="https://www.robinwieruch.de/the-soundcloud-client-in-react-redux" />
+<ReadMore label="The SoundCloud Client in React + Redux" link="/the-soundcloud-client-in-react-redux" />

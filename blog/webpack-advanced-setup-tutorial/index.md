@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 3 of 3 in 'Webpack Setup'-series." links={[{ prefix: "Part 1:", label: "How to set up a Webpack project", url: "https://www.robinwieruch.de/webpack-setup-tutorial/" }, { prefix: "Part 2:", label: "How to set up Webpack with Babel", url: "https://www.robinwieruch.de/webpack-babel-setup-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in 'Webpack Setup'-series." links={[{ prefix: "Part 1:", label: "How to set up a Webpack project", url: "/webpack-setup-tutorial/" }, { prefix: "Part 2:", label: "How to set up Webpack with Babel", url: "/webpack-babel-setup-tutorial/" }]} />
 
 The previous tutorials have shown you how to set up a basic web application with Webpack 4. So far, Webpack is only used to bundle all your JavaScript files, to transpile new JavaScript features via Babel, and to serve your bundle in development mode via Webpack's Development Server. Basically that's everything that's needed to get started with creating your first web application.
 
@@ -683,4 +683,4 @@ You will see your build optimized Webpack bundle with two different visualizatio
 
 You have seen how Webpack can be used to bundle your web application in a sophisticated way. It helps you to automate certain steps and to optimize your build process. You can find the finished project on [GitHub](https://github.com/rwieruch/webpack-advanced-setup). If you have any other internal plugins or libraries that you are using with Webpack, let me know about them in the comments below.
 
-<ReadMore label="How to set up React with Webpack and Babel" link="https://www.robinwieruch.de/minimal-react-webpack-babel-setup" />
+<ReadMore label="How to set up React with Webpack and Babel" link="/minimal-react-webpack-babel-setup" />

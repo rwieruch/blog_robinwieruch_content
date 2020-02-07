@@ -20,32 +20,32 @@ author: ""
     {
       prefix: "Part 1:",
       label: "A Firebase in React Tutorial for Beginners",
-      url: "https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial"
+      url: "/complete-firebase-authentication-react-tutorial"
     },
     {
       prefix: "Part 2:",
       label: "React Firebase Authorization with Roles",
-      url: "https://www.robinwieruch.de/react-firebase-authorization-roles-permissions"
+      url: "/react-firebase-authorization-roles-permissions"
     },
     {
       prefix: "Part 3:",
       label: "React Firebase Auth Persistence with Local Storage",
-      url: "https://www.robinwieruch.de/react-firebase-auth-persistence"
+      url: "/react-firebase-auth-persistence"
     },
     {
       prefix: "Part 4:",
       label: "React Firebase Social Login: Google, Facebook, Twitter",
-      url: "https://www.robinwieruch.de/react-firebase-social-login"
+      url: "/react-firebase-social-login"
     },
     {
       prefix: "Part 5:",
       label: "React Firebase: Link Social Logins",
-      url: "https://www.robinwieruch.de/react-firebase-link-social-logins"
+      url: "/react-firebase-link-social-logins"
     },
     {
       prefix: "Part 6:",
       label: "React Firebase: Email Verification",
-      url: "https://www.robinwieruch.de/react-firebase-email-verification"
+      url: "/react-firebase-email-verification"
     }
   ]}
 />

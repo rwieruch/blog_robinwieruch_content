@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to make Prettier work with ESLint", url: "https://www.robinwieruch.de/prettier-eslint" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to make Prettier work with ESLint", url: "/prettier-eslint" }]} />
 
 A brief step by step tutorial on how to install and use Prettier in VS Code. [Prettier](https://prettier.io/) is an opinionated code formatter which ensures one unified code format. It can be used within VS Code by installing it from the VS Code marketplace. Once you have integrated it in VS Code, you can configure Prettier to format your files when saving them or committing them to a version control system (e.g. Git, SVN). This way, you never need to worry about your source code formatting and Prettier takes care about it. In addition, you can give Prettier a global or project based configuration file to adapt it to your needs. For instance, you can decide the length of your code lines and when the code line should break into two lines.
 
@@ -56,4 +56,4 @@ The following configuration is only my personal recommendation for a Prettier co
 
 After setting up this configuration, Prettier makes sure that trailing semicolons and commas are enforced, that only single quotes are used, and that the line length is set to the given number of characters. Prettier should be able to format your code with the general configuration file but also for each project individually by doing it the shown way.
 
-<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to make Prettier work with ESLint", url: "https://www.robinwieruch.de/prettier-eslint" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to make Prettier work with ESLint", url: "/prettier-eslint" }]} />

@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 3 of 3 in the series." links={[{ prefix: "Part 1:", label: "How to set up React with Webpack and Babel", url: "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" }, { prefix: "Part 2:", label: "How to use ESLint in Webpack", url: "https://www.robinwieruch.de/webpack-eslint/" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in the series." links={[{ prefix: "Part 1:", label: "How to set up React with Webpack and Babel", url: "/minimal-react-webpack-babel-setup/" }, { prefix: "Part 2:", label: "How to use ESLint in Webpack", url: "/webpack-eslint/" }]} />
 
 In this tutorial I want to walk you through setting up ESLint for React. You should go through the previous tutorials in order to learn about the basic setup for Webpack and ESLint though. It will also tell you about all the benefits that come with the code style improvements which ESLint is giving your projects.
 
@@ -59,4 +59,4 @@ That's it. After running your npm start script which uses Webpack, you should se
 
 Airbnb's ESLint config is only one of many popular pre-configured sets of ESLint rules. If you just want to double down on React, you may want to check out the [ESLint plugin for React](https://github.com/yannickcr/eslint-plugin-react). It comes with lots of recommendations from the React community. However, if you need a full-blown ESLint solution for React in addition to JavaScript, you are good to go with Airbnb's code style recommendations.
 
-<LinkCollection label="This tutorial is part 1 of 3 in the series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "https://www.robinwieruch.de/how-to-use-prettier-vscode/" }, { prefix: "Part 3:", label: "How to make Prettier work with ESLint", url: "https://www.robinwieruch.de/prettier-eslint/" }]} />
+<LinkCollection label="This tutorial is part 1 of 3 in the series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "/how-to-use-prettier-vscode/" }, { prefix: "Part 3:", label: "How to make Prettier work with ESLint", url: "/prettier-eslint/" }]} />

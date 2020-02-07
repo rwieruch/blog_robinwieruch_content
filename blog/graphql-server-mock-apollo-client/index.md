@@ -14,7 +14,7 @@ author: ""
 
 <ReactGraphQLBook />
 
-<LinkCollection label="This tutorial is part 2 of 3 in this series." links={[{ prefix: "Part 1:", label: "A minimal Apollo Client in React Application", url: "https://www.robinwieruch.de/react-apollo-client-example" }, { prefix: "Part 3:", label: "Writing Tests for Apollo Client in React", url: "https://www.robinwieruch.de/react-apollo-client-testing" }]} />
+<LinkCollection label="This tutorial is part 2 of 3 in this series." links={[{ prefix: "Part 1:", label: "A minimal Apollo Client in React Application", url: "/react-apollo-client-example" }, { prefix: "Part 3:", label: "Writing Tests for Apollo Client in React", url: "/react-apollo-client-testing" }]} />
 
 Often you run into the case where you have to mock your GraphQL server for your GraphQL client application. It can be for testing your GraphQL client or when your GraphQL server is not (always) available for development. Then it comes in handy to know how to mock your GraphQL server. The following tutorial will show you how to do it for Apollo Client which is used in a React application.
 
@@ -459,4 +459,4 @@ The last function adds your resolver functions to the schema by mutating it dire
 
 The last sections have shown you two approaches to create a GraphQL schema which matches (partly) your GraphQL server schema. The reconstructed/fetched schema can be used with client-sided resolvers to mock your data for the Apollo Client. Once the executable schema is created, it is used for the Apollo Client instantiation. It may be also possible to consider one or the other approach for mocking the GraphQL data for testing your React components which depend on a query or mutation. After all, hopefully the last sections have helped you to mock your GraphQL server data for your GraphQL client-side application.
 
-<LinkCollection label="This tutorial is part 2 of 3 in this series." links={[{ prefix: "Part 1:", label: "A minimal Apollo Client in React Application", url: "https://www.robinwieruch.de/react-apollo-client-example" }, { prefix: "Part 3:", label: "Writing Tests for Apollo Client in React", url: "https://www.robinwieruch.de/react-apollo-client-testing" }]} />
+<LinkCollection label="This tutorial is part 2 of 3 in this series." links={[{ prefix: "Part 1:", label: "A minimal Apollo Client in React Application", url: "/react-apollo-client-example" }, { prefix: "Part 3:", label: "Writing Tests for Apollo Client in React", url: "/react-apollo-client-testing" }]} />

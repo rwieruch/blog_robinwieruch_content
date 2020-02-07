@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 3 of 3 in the series." links={[{ prefix: "Part 1:", label: "How to set up React with Webpack and Babel", url: "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" }, { prefix: "Part 2:", label: "How to test React components with Jest", url: "https://www.robinwieruch.de/react-testing-jest" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in the series." links={[{ prefix: "Part 1:", label: "How to set up React with Webpack and Babel", url: "/minimal-react-webpack-babel-setup/" }, { prefix: "Part 2:", label: "How to test React components with Jest", url: "/react-testing-jest" }]} />
 
 End-to-end testing (E2E) was always a tedious task with testing frameworks from the past. However, nowadays many people are using [Cypress.io](https://cypress.io) for it. Their documentation has a high quality and their API is concise and clean. Let's use Cypress for this React testing tutorial series. First, you have to install it on the command line to your dev dependencies:
 
@@ -235,6 +235,6 @@ That's it. You have written your first two E2E tests with Cypress. You can navig
 * If you need to provide sample data for your E2E tests, checkout the best practice of using fixtures in Cypress.
 * If you need to spy, stub or mock functions in Cypress, you can use Sinon for it. Cypress comes with built-in Sinon to test your asynchronous code.
 
-<ReadMore label="Test Coverage in JavaScript" link="https://www.robinwieruch.de/javascript-test-coverage" />
+<ReadMore label="Test Coverage in JavaScript" link="/javascript-test-coverage" />
 
-<ReadMore label="How to test React components with Jest & Enzyme" link="https://www.robinwieruch.de/react-testing-jest-enzyme" />
+<ReadMore label="How to test React components with Jest & Enzyme" link="/react-testing-jest-enzyme" />

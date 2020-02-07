@@ -20,22 +20,22 @@ author: ""
     {
       prefix: "Part 1:",
       label: "Getting Started with GitHub's GraphQL API",
-      url: "https://www.robinwieruch.de/getting-started-github-graphql-api"
+      url: "/getting-started-github-graphql-api"
     },
     {
       prefix: "Part 2:",
       label: "A GraphQL Tutorial for Beginners",
-      url: "https://www.robinwieruch.de/graphql-tutorial/"
+      url: "/graphql-tutorial/"
     },
     {
       prefix: "Part 3:",
       label: "A complete React with GraphQL Tutorial",
-      url: "https://www.robinwieruch.de/react-with-graphql-tutorial/"
+      url: "/react-with-graphql-tutorial/"
     },
     {
       prefix: "Part 5:",
       label: "A complete React with Apollo and GraphQL Tutorial",
-      url: "https://www.robinwieruch.de/react-graphql-apollo-tutorial/"
+      url: "/react-graphql-apollo-tutorial/"
     }
   ]}
 />
@@ -344,22 +344,22 @@ You have seen how Apollo Client can be used standalone in a Node.js project. Bef
     {
       prefix: "Part 1:",
       label: "Getting Started with GitHub's GraphQL API",
-      url: "https://www.robinwieruch.de/getting-started-github-graphql-api"
+      url: "/getting-started-github-graphql-api"
     },
     {
       prefix: "Part 2:",
       label: "A GraphQL Tutorial for Beginners",
-      url: "https://www.robinwieruch.de/graphql-tutorial/"
+      url: "/graphql-tutorial/"
     },
     {
       prefix: "Part 3:",
       label: "A complete React with GraphQL Tutorial",
-      url: "https://www.robinwieruch.de/react-with-graphql-tutorial/"
+      url: "/react-with-graphql-tutorial/"
     },
     {
       prefix: "Part 5:",
       label: "A complete React with Apollo and GraphQL Tutorial",
-      url: "https://www.robinwieruch.de/react-graphql-apollo-tutorial/"
+      url: "/react-graphql-apollo-tutorial/"
     }
   ]}
 />

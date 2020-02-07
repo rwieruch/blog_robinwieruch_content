@@ -80,6 +80,6 @@ If it doesn't show up in Visual Studio Code, you may have to restart the applica
 
 That's everything you need for a React development setup in MacOS. I hope you have everything to get started in React on your machine. Let me know what other tools you are using on MacOS in the comments below. Otherwise, if you are curios about the tools that I am using on my machine, head over to [my personal development setup guide](/developer-setup).
 
-<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "https://www.robinwieruch.de/how-to-use-prettier-vscode" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "/how-to-use-prettier-vscode" }]} />
 
-<ReadMore label="How to set up React with Webpack and Babel" link="https://www.robinwieruch.de/minimal-react-webpack-babel-setup" />
+<ReadMore label="How to set up React with Webpack and Babel" link="/minimal-react-webpack-babel-setup" />

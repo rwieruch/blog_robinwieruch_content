@@ -20,7 +20,7 @@ contribute: ""
     {
       prefix: "Part 1:",
       label: "Why GraphQL: Advantages, Disadvantages & Alternatives",
-      url: "https://www.robinwieruch.de/why-graphql-advantages-disadvantages-alternatives",
+      url: "/why-graphql-advantages-disadvantages-alternatives",
     },
   ]}
 />
@@ -146,7 +146,7 @@ When it comes to [Apollo Server](https://github.com/apollographql/apollo-server)
 
 There are many reasons to use Apollo and its striving ecosystem for JavaScript applications, when you want to use a GraphQL interface over a RESTful interface. Their libraries are framework agnostic, so they can be used with a wide variety of frameworks on the client-side like React, Angular, Vue, and server-side applications like Express, Koa, Hapi.
 
-<ReadMore label="A complete React with Apollo and GraphQL Tutorial" link="https://www.robinwieruch.de/react-graphql-apollo-tutorial" />
+<ReadMore label="A complete React with Apollo and GraphQL Tutorial" link="/react-graphql-apollo-tutorial" />
 
-<ReadMore label="A complete Apollo Server with GraphQL and Express Tutorial" link="https://www.robinwieruch.de/graphql-apollo-server-tutorial" />
+<ReadMore label="A complete Apollo Server with GraphQL and Express Tutorial" link="/graphql-apollo-server-tutorial" />
 

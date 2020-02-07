@@ -20,17 +20,17 @@ author: ""
     {
       prefix: "Part 1:",
       label: "A Firebase in React Tutorial for Beginners",
-      url: "https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial"
+      url: "/complete-firebase-authentication-react-tutorial"
     },
     {
       prefix: "Part 2:",
       label: "React Firebase Authorization with Roles",
-      url: "https://www.robinwieruch.de/react-firebase-authorization-roles-permissions"
+      url: "/react-firebase-authorization-roles-permissions"
     },
     {
       prefix: "Part 3:",
       label: "React Firebase Auth Persistence with Local Storage",
-      url: "https://www.robinwieruch.de/react-firebase-auth-persistence"
+      url: "/react-firebase-auth-persistence"
     }
   ]}
 />

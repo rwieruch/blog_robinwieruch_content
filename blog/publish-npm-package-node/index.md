@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "The minimal Node.js with Babel Setup", url: "https://www.robinwieruch.de/minimal-node-js-babel-setup/" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup/" }]} />
 
 You may be already using npm (node package manager) for installing libraries (node packages) to your JavaScript projects. For instance, in Node.js you may be used to [Express.js](/node-js-express-tutorial/) for [creating REST APIs](/node-express-server-rest-api/). In frontend development, you may be used to [React.js](/learn-react-js/) to build component-based web applications. This makes you a consumer of the npm ecosystem, because you are regularly installing packages for your projects to get them running with the help of others.
 

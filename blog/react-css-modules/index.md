@@ -19,7 +19,7 @@ author: ""
       {
         prefix: "Part 1:",
         label: "How to set up React with Webpack and Babel",
-        url: "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/"
+        url: "/minimal-react-webpack-babel-setup/"
       }
     ]
   }
@@ -88,4 +88,4 @@ export default App;
 
 From here you are prepared to add more CSS files next to your React components. Normally one would use one style file for each React component. In this CSS file, you are free to add as many CSS classes as you need to style your React component. Simply import the styles from the CSS file and use them as shown before in your React component.
 
-<ReadMore label="Alternative to CSS Modules: Styled Components" link="https://www.robinwieruch.de/react-styled-components" />
+<ReadMore label="Alternative to CSS Modules: Styled Components" link="/react-styled-components" />

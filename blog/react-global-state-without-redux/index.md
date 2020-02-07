@@ -199,4 +199,4 @@ However, while the React Slot Pattern is a great way to advance your React appli
 
 You have seen how global state can be used in React without having a state management library such as Redux or MobX in place. In smaller applications you can use a top level component for it; in larger applications you can use multiple page components. Once your applications grows vertically in size, you can deploy different techniques in React to overcome the shortcoming of the prop drilling phenomena. However, at some point your application may become too large for React alone being able to manage the global state. There are simply to many props to be passed down the component hierarchy. That's when you would opt-in a library such as Redux.
 
-<ReadMore label="Things to learn in React before using Redux" link="https://www.robinwieruch.de/learn-react-before-using-redux" />
+<ReadMore label="Things to learn in React before using Redux" link="/learn-react-before-using-redux" />

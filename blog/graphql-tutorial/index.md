@@ -20,22 +20,22 @@ author: ""
     {
       prefix: "Part 1:",
       label: "Getting Started with GitHub's GraphQL API",
-      url: "https://www.robinwieruch.de/getting-started-github-graphql-api"
+      url: "/getting-started-github-graphql-api"
     },
     {
       prefix: "Part 3:",
       label: "A complete React with GraphQL Tutorial",
-      url: "https://www.robinwieruch.de/react-with-graphql-tutorial/"
+      url: "/react-with-graphql-tutorial/"
     },
     {
       prefix: "Part 4:",
       label: "A Apollo Client Tutorial for Beginners",
-      url: "https://www.robinwieruch.de/graphql-apollo-client-tutorial/"
+      url: "/graphql-apollo-client-tutorial/"
     },
     {
       prefix: "Part 5:",
       label: "A complete React with Apollo and GraphQL Tutorial",
-      url: "https://www.robinwieruch.de/react-graphql-apollo-tutorial/"
+      url: "/react-graphql-apollo-tutorial/"
     }
   ]}
 />
@@ -539,22 +539,22 @@ Interacting with GitHub's GraphQL API via GraphiQL or GitHub's GraphQL Explorer 
     {
       prefix: "Part 1:",
       label: "Getting Started with GitHub's GraphQL API",
-      url: "https://www.robinwieruch.de/getting-started-github-graphql-api"
+      url: "/getting-started-github-graphql-api"
     },
     {
       prefix: "Part 3:",
       label: "A complete React with GraphQL Tutorial",
-      url: "https://www.robinwieruch.de/react-with-graphql-tutorial/"
+      url: "/react-with-graphql-tutorial/"
     },
     {
       prefix: "Part 4:",
       label: "A Apollo Client Tutorial for Beginners",
-      url: "https://www.robinwieruch.de/graphql-apollo-client-tutorial/"
+      url: "/graphql-apollo-client-tutorial/"
     },
     {
       prefix: "Part 5:",
       label: "A complete React with Apollo and GraphQL Tutorial",
-      url: "https://www.robinwieruch.de/react-graphql-apollo-tutorial/"
+      url: "/react-graphql-apollo-tutorial/"
     }
   ]}
 />

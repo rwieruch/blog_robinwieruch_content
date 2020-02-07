@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "My development setup as a JavaScript web developer", url: "https://www.robinwieruch.de/developer-setup/" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "My development setup as a JavaScript web developer", url: "/developer-setup/" }]} />
 
 When you get started with Git, it can be quite overwhelming. First, the idea of a distributed version control system and the benefits of it are not clear for everyone. And second, there are plenty of commands with additional options in order to master Git on the command line. It can be intimidating.
 
@@ -377,8 +377,8 @@ The essential Git commands break down to:
 
 Obviously, there are more Git commands (git bisect, git reflog, ...) that you could master. However, I don't find myself using them very often. You can look these up, once you need them, before you have to memorize them. After all, in most cases you will more likely lookup the issue you want to solve in Git rather than a specific command. Most of these issues in Git are well explained when you search for them.
 
-<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to establish a Git Team Workflow", url: "https://www.robinwieruch.de/git-team-workflow/" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to establish a Git Team Workflow", url: "/git-team-workflow/" }]} />
 
-<ReadMore label="The minimal Node.js with Babel Setup" link="https://www.robinwieruch.de/minimal-node-js-babel-setup" />
+<ReadMore label="The minimal Node.js with Babel Setup" link="/minimal-node-js-babel-setup" />
 
-<ReadMore label="The minimal React + Webpack 4 + Babel Setup" link="https://www.robinwieruch.de/minimal-react-webpack-babel-setup" />
+<ReadMore label="The minimal React + Webpack 4 + Babel Setup" link="/minimal-react-webpack-babel-setup" />

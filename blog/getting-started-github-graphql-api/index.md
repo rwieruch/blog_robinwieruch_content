@@ -20,22 +20,22 @@ author: ""
     {
       prefix: "Part 2:",
       label: "A GraphQL Tutorial for Beginners",
-      url: "https://www.robinwieruch.de/graphql-tutorial/"
+      url: "/graphql-tutorial/"
     },
     {
       prefix: "Part 3:",
       label: "A complete React with GraphQL Tutorial",
-      url: "https://www.robinwieruch.de/react-with-graphql-tutorial/"
+      url: "/react-with-graphql-tutorial/"
     },
     {
       prefix: "Part 4:",
       label: "A Apollo Client Tutorial for Beginners",
-      url: "https://www.robinwieruch.de/graphql-apollo-client-tutorial/"
+      url: "/graphql-apollo-client-tutorial/"
     },
     {
       prefix: "Part 5:",
       label: "A complete React with Apollo and GraphQL Tutorial",
-      url: "https://www.robinwieruch.de/react-graphql-apollo-tutorial/"
+      url: "/react-graphql-apollo-tutorial/"
     }
   ]}
 />
@@ -120,22 +120,22 @@ After you've set up GitHub to use their GraphQL API to learn about GraphQL, you 
     {
       prefix: "Part 2:",
       label: "A GraphQL Tutorial for Beginners",
-      url: "https://www.robinwieruch.de/graphql-tutorial/"
+      url: "/graphql-tutorial/"
     },
     {
       prefix: "Part 3:",
       label: "A complete React with GraphQL Tutorial",
-      url: "https://www.robinwieruch.de/react-with-graphql-tutorial/"
+      url: "/react-with-graphql-tutorial/"
     },
     {
       prefix: "Part 4:",
       label: "A Apollo Client Tutorial for Beginners",
-      url: "https://www.robinwieruch.de/graphql-apollo-client-tutorial/"
+      url: "/graphql-apollo-client-tutorial/"
     },
     {
       prefix: "Part 5:",
       label: "A complete React with Apollo and GraphQL Tutorial",
-      url: "https://www.robinwieruch.de/react-graphql-apollo-tutorial/"
+      url: "/react-graphql-apollo-tutorial/"
     }
   ]}
 />

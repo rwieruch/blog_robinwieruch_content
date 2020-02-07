@@ -97,4 +97,4 @@ By clicking it, you should get the all the things you need for displaying it in 
 
 This badge references my project. So make sure to reference your own project by exchanging the account/organization and the repository name. That's it. You have set up continuous integration for your project which informs you when your build fails. Furthermore, it shows a fancy badge in your repository to inform other people that your project builds successfully which adds credibility to your project.
 
-<ReadMore label="Test Coverage in JavaScript" link="https://www.robinwieruch.de/javascript-test-coverage" />
+<ReadMore label="Test Coverage in JavaScript" link="/javascript-test-coverage" />

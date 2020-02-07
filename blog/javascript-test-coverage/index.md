@@ -12,9 +12,9 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "How to set up Continuous Integration for JavaScript", url: "https://www.robinwieruch.de/javascript-continuous-integration/" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "How to set up Continuous Integration for JavaScript", url: "/javascript-continuous-integration/" }]} />
 
-<LinkCollection label="This tutorial is part 3 of 3 in the series." links={[{ prefix: "Part 1:", label: "How to set up React with Webpack and Babel", url: "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" }, { prefix: "Part 2:", label: "How to test React components with Jest", url: "https://www.robinwieruch.de/react-testing-jest" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in the series." links={[{ prefix: "Part 1:", label: "How to set up React with Webpack and Babel", url: "/minimal-react-webpack-babel-setup/" }, { prefix: "Part 2:", label: "How to test React components with Jest", url: "/react-testing-jest" }]} />
 
 Coveralls is used to show you the test coverage of your JavaScript application. Let's see how it can be used for your JavaScript project which is already on GitHub and connected to your Travis CI due to the previous CI setup tutorial. First, sign up at [Coveralls.io](https://coveralls.io/) with your GitHub account. Second, synchronize your GitHub repositories and toggle a specific repository to be used for code coverage.
 
@@ -98,6 +98,6 @@ module.exports = {
 
 That's everythin in a nutshell about testing coverage in JavaScript projects.
 
-<ReadMore label="How to test React components with Jest" link="https://www.robinwieruch.de/react-testing-jest" />
+<ReadMore label="How to test React components with Jest" link="/react-testing-jest" />
 
-<ReadMore label="How to end-to-end test React components with Cypress" link="https://www.robinwieruch.de/react-testing-cypress" />
+<ReadMore label="How to end-to-end test React components with Cypress" link="/react-testing-cypress" />

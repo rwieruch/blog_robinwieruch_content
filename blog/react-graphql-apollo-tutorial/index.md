@@ -20,22 +20,22 @@ author: ""
     {
       prefix: "Part 1:",
       label: "Getting Started with GitHub's GraphQL API",
-      url: "https://www.robinwieruch.de/getting-started-github-graphql-api"
+      url: "/getting-started-github-graphql-api"
     },
     {
       prefix: "Part 2:",
       label: "A GraphQL Tutorial for Beginners",
-      url: "https://www.robinwieruch.de/graphql-tutorial/"
+      url: "/graphql-tutorial/"
     },
     {
       prefix: "Part 3:",
       label: "A complete React with GraphQL Tutorial",
-      url: "https://www.robinwieruch.de/react-with-graphql-tutorial/"
+      url: "/react-with-graphql-tutorial/"
     },
     {
       prefix: "Part 4:",
       label: "A Apollo Client Tutorial for Beginners",
-      url: "https://www.robinwieruch.de/graphql-apollo-client-tutorial/"
+      url: "/graphql-apollo-client-tutorial/"
     }
   ]}
 />
@@ -3360,4 +3360,4 @@ pre {
 
 You can find the final [repository on GitHub](https://github.com/rwieruch/react-graphql-github-apollo) that showcases most of the exercise tasks. The application is not feature-complete and it doesn't cover all edge cases, but it should give insight into using GraphQL with Apollo in React applications. If you want to dive more deeply into different topics like testing and state management with GraphQL on the client-side, you can start here: [A minimal Apollo Client in React Example](/react-apollo-client-example). Try to apply what you've learned in this application (e.g. testing, state management). Otherwise, I encourage you to try to build your own GraphQL client library, which helps you understand more of the GraphQL internals: [How to build a GraphQL client library for React](/react-graphql-client-library). Whichever you decide, keep tinkering on this application, or start with another GraphQL client application to fortify your skill set. You have finished all the GraphQL client chapters now.
 
-<ReadMore label="GraphQL Server Tutorial with Apollo Server and Express" link="https://www.robinwieruch.de/graphql-apollo-server-tutorial" />
+<ReadMore label="GraphQL Server Tutorial with Apollo Server and Express" link="/graphql-apollo-server-tutorial" />

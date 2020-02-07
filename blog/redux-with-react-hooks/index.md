@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "React State with Hooks: useReducer, useState, useContext", url: "https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext/" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "React State with Hooks: useReducer, useState, useContext", url: "/react-state-usereducer-usestate-usecontext/" }]} />
 
 There are several React Hooks that make state management in React Components possible. Whereas the last tutorial has shown you how to use these hooks -- useState, useReducer, and useContext -- for modern state management in React, this tutorial pushes it to the next level by implementing one global state container with useReducer and useContext.
 

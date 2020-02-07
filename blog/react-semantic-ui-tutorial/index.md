@@ -454,7 +454,7 @@ export default () => (
       <Menu.Item as="a" header>
         <Image
           size="small"
-          src="https://www.robinwieruch.de/img/page/logo.svg"
+          src="/img/page/logo.svg"
         />
       </Menu.Item>
 
@@ -520,7 +520,7 @@ import React from 'react';
 import { Image } from 'semantic-ui-react';
 
 const ImageExample = () => (
-  <Image src="https://www.robinwieruch.de/img/page/logo.svg" />
+  <Image src="/img/page/logo.svg" />
 );
 ```
 

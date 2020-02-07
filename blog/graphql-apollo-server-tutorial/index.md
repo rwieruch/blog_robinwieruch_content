@@ -20,17 +20,17 @@ author: ""
     {
       prefix: "Part 1:",
       label: "Why GraphQL: Advantages, Disadvantages & Alternatives",
-      url: "https://www.robinwieruch.de/why-graphql-advantages-disadvantages-alternatives/"
+      url: "/why-graphql-advantages-disadvantages-alternatives/"
     },
     {
       prefix: "Part 2:",
       label: "Why Apollo: Advantages, Disadvantages & Alternatives",
-      url: "https://www.robinwieruch.de/why-apollo-advantages-disadvantages-alternatives/"
+      url: "/why-apollo-advantages-disadvantages-alternatives/"
     },
     {
       prefix: "Part 3:",
       label: "The minimal Node.js with Babel Setup",
-      url: "https://www.robinwieruch.de/minimal-node-js-babel-setup"
+      url: "/minimal-node-js-babel-setup"
     }
   ]}
 />
@@ -4766,4 +4766,4 @@ In a real world scenario, you would want to use something else to start your app
 
 You built a sophisticated GraphQL server boilerplate project with Express and Apollo Server. You should have learned that GraphQL isn't opinionated about various things, and about authentication, authorization, database access, and pagination. Most of the operations we learned were more straightforward because of Apollo Server over the GraphQL reference implementation in JavaScript. That's okay, because many people are using Apollo Server to build GraphQL servers. Use this application as a starter project to realize your own ideas, or find my starter project with a GraphQL client built in React in [this GitHub repository](https://github.com/the-road-to-graphql/fullstack-apollo-express-postgresql-boilerplate).
 
-<ReadMore label="A complete React with Apollo and GraphQL Tutorial" link="https://www.robinwieruch.de/react-graphql-apollo-tutorial" />
+<ReadMore label="A complete React with Apollo and GraphQL Tutorial" link="/react-graphql-apollo-tutorial" />

@@ -535,7 +535,7 @@ class App extends React.Component {
 
 The state gets updated once the request fulfils successfully. Once the state is updated, the `render()` method runs again and you can use the list in your state to render your elements by using JavaScript's built-in map functionality.
 
-<ReadMore label="How to fetch data in React" link="https://www.robinwieruch.de/react-fetching-data" />
+<ReadMore label="How to fetch data in React" link="/react-fetching-data" />
 
 That's the power of JSX in React, because you can use vanilla JavaScript to render multiple elements.
 

@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in 'Webpack with ESLint'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack with Babel", url: "https://www.robinwieruch.de/webpack-babel-setup-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in 'Webpack with ESLint'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack with Babel", url: "/webpack-babel-setup-tutorial/" }]} />
 
 So far, you should have a working JavaScript with Webpack application. In this tutorial, we will take this one step further by introducing ESLint for an enforced unified code style without code smells. Code style becomes an important topic for developers. If you just code for yourself, it might be alright to violate best practices. However, in a team of developers you have to have a common code style as foundation. You should follow the same rules to make your code look alike. It helps others developers to read your code, but also to avoid code smells.
 
@@ -191,6 +191,6 @@ Still, once your JavaScript project is set up, you need to run `eslint --init` i
 
 * Set up a new JavaScript project and run `eslint --init` yourself
 
-<LinkCollection label="This tutorial is part 1 of 3 in the series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "https://www.robinwieruch.de/how-to-use-prettier-vscode/" }, { prefix: "Part 3:", label: "How to make Prettier work with ESLint", url: "https://www.robinwieruch.de/prettier-eslint/" }]} />
+<LinkCollection label="This tutorial is part 1 of 3 in the series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "/how-to-use-prettier-vscode/" }, { prefix: "Part 3:", label: "How to make Prettier work with ESLint", url: "/prettier-eslint/" }]} />
 
-<ReadMore label="How to set up an advanced Webpack application" link="https://www.robinwieruch.de/webpack-advanced-setup-tutorial" />
+<ReadMore label="How to set up an advanced Webpack application" link="/webpack-advanced-setup-tutorial" />

@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "How to publish a npm package?", url: "https://www.robinwieruch.de/publish-npm-package-node/" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "How to publish a npm package?", url: "/publish-npm-package-node/" }]} />
 
 Just recently I had to apply Webpack's Code Splitting, because the bundle size of a single file for my JavaScript library got too big when installing and importing it in another JavaScript project. After going through the process of Code Splitting my library, I was able to reduce my bundle size significantly by not importing the whole library at once, but by importing only parts of it from relative paths of the library's entry points.
 

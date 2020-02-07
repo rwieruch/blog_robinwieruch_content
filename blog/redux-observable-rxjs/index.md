@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This React tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "The SoundCloud Client in React + Redux", url: "https://www.robinwieruch.de/the-soundcloud-client-in-react-redux/" }]} />
+<LinkCollection label="This React tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "The SoundCloud Client in React + Redux", url: "/the-soundcloud-client-in-react-redux/" }]} />
 
 The good thing about the Redux + React ecosystem is you can always have a shot at something novel in the JavaScript landscape. Especially when it comes to the middleware of Redux to handle asynchronous requests, one will find a great selection of paradigms and implementations to choose from. In the beginning you often end up with a Promise based middleware to deal with asynchronous actions, but there is more in JavaScript like Observables and Generators to deal with asynchronous requests.
 

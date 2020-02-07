@@ -18,17 +18,17 @@ author: ""
     {
       prefix: "Part 1:",
       label: "How to set up a modern JavaScript project",
-      url: "https://www.robinwieruch.de/javascript-project-setup-tutorial/"
+      url: "/javascript-project-setup-tutorial/"
     },
     {
       prefix: "Part 2:",
       label: "How to set up a Webpack project",
-      url: "https://www.robinwieruch.de/webpack-setup-tutorial/"
+      url: "/webpack-setup-tutorial/"
     },
     {
       prefix: "Part 3:",
       label: "How to set up Webpack with Babel",
-      url: "https://www.robinwieruch.de/webpack-babel-setup-tutorial/"
+      url: "/webpack-babel-setup-tutorial/"
     }
   ]}
 />
@@ -255,15 +255,15 @@ Congratulations, you have created your [first function component](/react-functio
   * Put it into your minimal React with Webpack application
   * Confirm your final result with the official [advanced React with Webpack setup](https://github.com/rwieruch/advanced-react-webpack-babel-setup)
 
-<LinkCollection label="This tutorial is part 1 of 3 in the series." links={[{ prefix: "Part 2:", label: "How to use ESLint in Webpack", url: "https://www.robinwieruch.de/webpack-eslint/" }, { prefix: "Part 3:", label: "How to use ESLint in React", url: "https://www.robinwieruch.de/react-eslint-webpack-babel/" }]} />
+<LinkCollection label="This tutorial is part 1 of 3 in the series." links={[{ prefix: "Part 2:", label: "How to use ESLint in Webpack", url: "/webpack-eslint/" }, { prefix: "Part 3:", label: "How to use ESLint in React", url: "/react-eslint-webpack-babel/" }]} />
 
-<ReadMore label="How to use Prettier in VS Code" link="https://www.robinwieruch.de/how-to-use-prettier-vscode" />
+<ReadMore label="How to use Prettier in VS Code" link="/how-to-use-prettier-vscode" />
 
-<ReadMore label="How to use CSS Modules in React?" link="https://www.robinwieruch.de/react-css-modules" />
+<ReadMore label="How to use CSS Modules in React?" link="/react-css-modules" />
 
-<ReadMore label="How to use SVG Icons as React Components?" link="https://www.robinwieruch.de/react-svg-icon-components" />
+<ReadMore label="How to use SVG Icons as React Components?" link="/react-svg-icon-components" />
 
-<ReadMore label="How to use Fonts in React?" link="https://www.robinwieruch.de/webpack-font" />
+<ReadMore label="How to use Fonts in React?" link="/webpack-font" />
 
-<ReadMore label="How to use Images in React?" link="https://www.robinwieruch.de/webpack-images" />
+<ReadMore label="How to use Images in React?" link="/webpack-images" />
 

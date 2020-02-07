@@ -14,7 +14,7 @@ author: ""
 
 <ReactGraphQLBook />
 
-<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "A complete React with GraphQL Tutorial", url: "https://www.robinwieruch.de/react-with-graphql-tutorial/" }, { prefix: "Part 2:", label: "A complete React with Apollo and GraphQL Tutorial", url: "https://www.robinwieruch.de/react-graphql-apollo-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "A complete React with GraphQL Tutorial", url: "/react-with-graphql-tutorial/" }, { prefix: "Part 2:", label: "A complete React with Apollo and GraphQL Tutorial", url: "/react-graphql-apollo-tutorial/" }]} />
 
 It's time to get you started with a minimal Apollo Client in React application that can be used as boilerplate project. There will be sections later on where you can use this application as starter project, but also you may want to experiment with it on your own. After all, it gives you all the necessary parts to consume GitHub's GraphQL API in your React application by using Apollo Client in a minimal starter project. In addition though, there will be some local state management with React only to show you that local state management for local data is still used when having Apollo Client for your remote data.
 
@@ -345,6 +345,6 @@ That's it for the selection feature implementation. You should be able to select
 
 Remember that this solution with React's local state would already be sufficient to deal with this problem. No one else than the one component is interested in the selected repositories. So the state is co-located to the component. But following applications will show you how to replace React's local state management with Apollo Link State or Redux which is used side by side with Apollo Client. The minimal boilerplate application can be found in this [GitHub repository as boilerplate project](https://github.com/rwieruch/react-apollo-client-example).
 
-<LinkCollection label="This tutorial is part 1 of 3 in this series." links={[{ prefix: "Part 2:", label: "Mocking a GraphQL Server for Apollo Client", url: "https://www.robinwieruch.de/graphql-server-mock-apollo-client" }, { prefix: "Part 3:", label: "Writing Tests for Apollo Client in React", url: "https://www.robinwieruch.de/react-apollo-client-testing" }]} />
+<LinkCollection label="This tutorial is part 1 of 3 in this series." links={[{ prefix: "Part 2:", label: "Mocking a GraphQL Server for Apollo Client", url: "/graphql-server-mock-apollo-client" }, { prefix: "Part 3:", label: "Writing Tests for Apollo Client in React", url: "/react-apollo-client-testing" }]} />
 
-<LinkCollection label="This tutorial is part 1 of 3 in this series." links={[{ prefix: "Part 2:", label: "A apollo-link-state Tutorial for Local State in React", url: "https://www.robinwieruch.de/react-apollo-link-state-tutorial" }, { prefix: "Part 3:", label: "How to use Redux with Apollo Client and GraphQL in React", url: "https://www.robinwieruch.de/react-redux-apollo-client-state-management-tutorial" }]} />
+<LinkCollection label="This tutorial is part 1 of 3 in this series." links={[{ prefix: "Part 2:", label: "A apollo-link-state Tutorial for Local State in React", url: "/react-apollo-link-state-tutorial" }, { prefix: "Part 3:", label: "How to use Redux with Apollo Client and GraphQL in React", url: "/react-redux-apollo-client-state-management-tutorial" }]} />

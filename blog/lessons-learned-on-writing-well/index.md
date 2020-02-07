@@ -130,6 +130,6 @@ The last paragraph form the last chapter, "Write as Well as You Can", is still s
 
 I can recommend to read the book [On Writing Well by William Zinsser](http://amzn.to/2AsoDzh). It taught me a lot. But these are only my lessons learned. Maybe you can distill other learnings when you read it.
 
-<ReadMore label="Lessons learned from Deep Work and Flow" link="https://www.robinwieruch.de/lessons-learned-deep-work-flow" />
+<ReadMore label="Lessons learned from Deep Work and Flow" link="/lessons-learned-deep-work-flow" />
 
-<ReadMore label="Lessons learned from Give and Take" link="https://www.robinwieruch.de/lessons-learned-give-and-take" />
+<ReadMore label="Lessons learned from Give and Take" link="/lessons-learned-give-and-take" />

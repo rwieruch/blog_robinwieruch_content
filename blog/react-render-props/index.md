@@ -506,4 +506,4 @@ You can find the final render prop component's implementation in this [GitHub re
 
 Another advanced pattern in React are higher-order components which are used as well to abstract functionality away from your components but not in such a dynamic way. However, you have also seen that problems which are solved by renders props can be solved by other patterns (e.g. simply rendering the component within or lifting state) too. Last but not least, the article should have shed some light into the terminology of the render prop pattern/components, children as a function and render prop itself.
 
-<ReadMore label="How to build a GraphQL client library for React" link="https://www.robinwieruch.de/react-graphql-client-library" />
+<ReadMore label="How to build a GraphQL client library for React" link="/react-graphql-client-library" />

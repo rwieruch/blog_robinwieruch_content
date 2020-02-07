@@ -451,4 +451,4 @@ That's it. You have styled a slider component in React, made its interaction pos
 
 The React Slider Component was inspired by this [pure JavaScript implementation](https://javascript.info/mouse-drag-and-drop). Let me know in the comments how you improved your component and how you liked the tutorial.
 
-<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "How to React Range", url: "https://www.robinwieruch.de/react-range/" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "How to React Range", url: "/react-range/" }]} />

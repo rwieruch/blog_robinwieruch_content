@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "How to React Slide", url: "https://www.robinwieruch.de/react-slider/" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "How to React Slide", url: "/react-slider/" }]} />
 
 In this React component tutorial by example, we will create a React Range Component with [React Hooks](/react-hooks) and a [Function Component](/react-function-component). You can see the final output of this implementation in this [CodeSandbox](https://codesandbox.io/s/github/the-road-to-learn-react/react-range/tree/master/?fontsize=14) or in this [GitHub repository](https://github.com/the-road-to-learn-react/react-range). If you want to implement it step by step, just follow the tutorial.
 

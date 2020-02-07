@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 3 of 3 in the series." links={[{ prefix: "Part 1:", label: "How to set up React with Webpack and Babel", url: "https://www.robinwieruch.de/minimal-react-webpack-babel-setup/" }, { prefix: "Part 2:", label: "How to test React components with Jest", url: "https://www.robinwieruch.de/react-testing-jest" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in the series." links={[{ prefix: "Part 1:", label: "How to set up React with Webpack and Babel", url: "/minimal-react-webpack-babel-setup/" }, { prefix: "Part 2:", label: "How to test React components with Jest", url: "/react-testing-jest" }]} />
 
 In this React testing tutorial, we will introduce Enzyme in our Jest testing environment. Jest is commonly used as test runner -- to be able to run your test suites and test cases from the command line with optional configuration -- but also to make assertions in your test cases. In contrast, Enzyme can be used within Jest to render components, to access the DOM of these components, and to make assertions based on the DOM. Enzyme adds up perfectly to Jest, because it can cover unit and integration tests, whereas Jest is mainly used for snapshot tests. However, Enzyme is not strictly tied to Jest, it can be used in any other test runner too.
 
@@ -472,8 +472,8 @@ What's different is that we mock a promise with an error. This way, we can test 
 
 The testing tutorial has shown you how Jest and Enzyme can be used perfectly together to snapshot/unit/integration test your React components. You can traverse the DOM of rendered components, mock away and wait for asynchronous logic to happen, and simulate events on HTML elements to mimic the user's behavior. You can find all the tests written for this tutorial in this [GitHub repository](https://github.com/the-road-to-learn-react/react-testing-jest-enzyme).
 
-<ReadMore label="How to test Axios in Jest by Example" link="https://www.robinwieruch.de/axios-jest" />
+<ReadMore label="How to test Axios in Jest by Example" link="/axios-jest" />
 
-<ReadMore label="End to End Testing React with Cypress" link="https://www.robinwieruch.de/react-testing-cypress" />
+<ReadMore label="End to End Testing React with Cypress" link="/react-testing-cypress" />
 
-<ReadMore label="Test Coverage in JavaScript" link="https://www.robinwieruch.de/javascript-test-coverage" />
+<ReadMore label="Test Coverage in JavaScript" link="/javascript-test-coverage" />

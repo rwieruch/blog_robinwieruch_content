@@ -20,7 +20,7 @@ contribute: ""
     {
       prefix: "Part 2",
       label: "Why Apollo: Advantages, Disadvantages & Alternatives",
-      url: "https://www.robinwieruch.de/why-apollo-advantages-disadvantages-alternatives",
+      url: "/why-apollo-advantages-disadvantages-alternatives",
     },
   ]}
 />
@@ -199,7 +199,7 @@ There are plenty of reasons to adopt GraphQL for your JavaScript applications in
     {
       prefix: "Part 2",
       label: "Why Apollo: Advantages, Disadvantages & Alternatives",
-    url: "https://www.robinwieruch.de/why-apollo-advantages-disadvantages-alternatives",
+    url: "/why-apollo-advantages-disadvantages-alternatives",
     },
   ]}
 />

@@ -18,12 +18,12 @@ contribute: ""
     {
       prefix: "Part 1:",
       label: "How to set up a modern JavaScript project",
-      url: "https://www.robinwieruch.de/javascript-project-setup-tutorial/",
+      url: "/javascript-project-setup-tutorial/",
     },
     {
       prefix: "Part 3",
       label: "How to set up Webpack with Babel",
-      url: "https://www.robinwieruch.de/webpack-babel-setup-tutorial/",
+      url: "/webpack-babel-setup-tutorial/",
     },
   ]}
 />
@@ -233,12 +233,12 @@ After starting the application with `npm start`, open the [application in your b
     {
       prefix: "Part 1:",
       label: "How to set up a modern JavaScript project",
-      url: "https://www.robinwieruch.de/javascript-project-setup-tutorial/",
+      url: "/javascript-project-setup-tutorial/",
     },
     {
       prefix: "Part 3",
       label: "How to set up Webpack with Babel",
-      url: "https://www.robinwieruch.de/webpack-babel-setup-tutorial/",
+      url: "/webpack-babel-setup-tutorial/",
     },
   ]}
 />

@@ -571,4 +571,4 @@ If you are curious about how recompose makes stateless components stateful, you 
 
 I hope the article helped you to learn higher-order components in the context of conditional rendering. In addition, I hope that it gave you inspiration on how you can use abstraction and functional programming with higher-order components.
 
-<ReadMore label="How to build a GraphQL client library for React" link="https://www.robinwieruch.de/react-graphql-client-library" />
+<ReadMore label="How to build a GraphQL client library for React" link="/react-graphql-client-library" />
