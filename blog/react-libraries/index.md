@@ -297,9 +297,9 @@ However, you might come to a point where you have to choose a utility library th
 
 Vanilla JavaScript gives you plenty of built-in tools to handle with data structures as if they are immutable. However, if you and your team feel the need to enforce immutable data structures, one of the most popular choices is [Immer](https://github.com/immerjs/immer). Personally I don't use it, but any time someone asks about immutability in JS, people will point it out. This can be coupled with redux or react hooks.
 
-# React Internationalizing
+# React Internationalization
 
-When it comes to i18n for your React application, you need to think not only about translations, but also about pluralizations, date formattings and a handful of other things. These are the most popular libraries for dealing with it:
+When it comes to [internationalization i18n for your React application](/react-internationalization), you need to think not only about translations, but also about pluralizations, formattings for dates and currencies, and a handful of other things. These are the most popular libraries for dealing with it:
 
 * [react-i18next](https://github.com/i18next/react-i18next)
 * [react-intl](https://github.com/formatjs/react-intl)
