@@ -128,15 +128,20 @@ If you are looking for top quality people to help you with your online business,
 
 * **Logo Design:** I worked with [Ahmad Foysal](https://www.upwork.com/freelancers/~0170e67141ec1ff11c) on my website's logo. His creative work and thought process are well suited to meet your needs if you are looking for a new logo or corporative brand design. If you want to see his previous work, ask him to send you his Behance account.
 
-### Revue
+### Newsletter
 
-Not long ago I switched from MailChimp to Revue for my Newsletter. [Revue](https://www.getrevue.co/referrals/adNOMX8eMpOQ5ndAIyXovw) is perfect for my needs to setup a Newsletter for my website. It has everything I need even though I relied heavily on MailChimp before. Revue has the following great features:
+[Revue](https://www.getrevue.co/referrals/adNOMX8eMpOQ5ndAIyXovw) is perfect for my needs to setup a Newsletter for my website. It has everything I need even though I relied heavily on MailChimp before. Revue has the following great features:
 
 * permalinks to newsletters
 * powerful integrations for fetching content automatically
 * simple and intuitive UI/UX
 * great pricing model for a larger audience
 * statistics and analytics
+
+### Email Marketing
+
+Another email marketing tool I rely heavily on is [Convertkit](https://app.convertkit.com/referrals/l/530f9272-ddb5-413e-9f71-16cd35ef5515
+). After developers sign up on my course platform, they receive a sequence of emails about all my courses. Without Convertkit I wouldn't be able to give these developers a showreel of my courses.
 
 ### Leanpub
 
