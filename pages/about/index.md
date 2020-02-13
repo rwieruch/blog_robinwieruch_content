@@ -25,7 +25,7 @@ Even though I do a lot of programming in my professional and spare time, there a
 * [Give and Take](http://amzn.to/2olhgRv) by Adam Grant ([notes](/lessons-learned-give-and-take/))
 * [The One Thing](http://amzn.to/2jR19Kj) by Gary Keller
 * [The Power of Habit](http://amzn.to/2AsuCUP) by Charles Duhigg
-* [On Writing Well](http://amzn.to/2AsoDzh) by William Zinsser [notes]((https://www.robinwieruch.de/lessons-learned-on-writing-well/))
+* [On Writing Well](http://amzn.to/2AsoDzh) by William Zinsser [notes](https://www.robinwieruch.de/lessons-learned-on-writing-well/)
 
 In another life, I wanted to [do music](https://soundcloud.com/schlenkermitturnbeutel). But I avoided the stage at nightclubs when I got the first requests in my inbox. I preferred the anonymous internet over any stage. That's why I never revealed my identity back in the days and maybe that's why I never tried public speaking for conferences. Eventually, I decided to code and started to enjoy it too. Still, music is one reason why I am staying partly in Berlin. Nowhere else, I believe, will you find such a great selection of electronic music.
 
