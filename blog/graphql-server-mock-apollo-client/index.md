@@ -399,7 +399,13 @@ async function render() {
 render();
 ```
 
-Notice how you may receive several similar warnings in your console logs in the browser once you start your application: *"Type "Starrable" is missing a "resolveType" resolver. Pass false into "resolverValidationOptions.requireResolversForResolveType" to disable this warning."*. You should receive similar warnings, but not the warning shown for the `Starrable` type. It is because you have already defined its resolveType function in your resolvers:
+Notice how you may receive several similar warnings in your console logs in the browser once you start your application:
+
+```text
+Type "Starrable" is missing a "resolveType" resolver. Pass false into "resolverValidationOptions.requireResolversForResolveType" to disable this warning.
+```
+
+You should receive similar warnings, but not the warning shown for the `Starrable` type. It is because you have already defined its resolveType function in your resolvers:
 
 ```javascript
 const resolvers = {
