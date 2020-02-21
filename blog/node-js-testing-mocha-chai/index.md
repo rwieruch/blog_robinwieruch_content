@@ -1,10 +1,10 @@
 ---
-title: "Node Testing Setup with Mocha, Chai, Sinon"
+title: "Node.js Testing with Mocha, Chai, Sinon"
 description: "How to get started with testing in Node.js with Mocha, Chai, Sinon. This setup tutorial shows you how to use Mocha as test runner and Chai as assertion library for Node.js projects ..."
 date: "2019-05-05T07:52:46+02:00"
 categories: ["Node"]
 keywords: ["node js testing", "node testing", "node js test", "node test", "node mocha", "node chai", "node mocha chai", "node sinon"]
-hashtags: ["#ReactJs"]
+hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""
@@ -113,7 +113,7 @@ Congratulations, you have set up your first unit test in Node.js. When you run y
 
 # Node.js with Sinon
 
-Testing JavaScript primitives, complex objects and arrays with Chai in Mocha is a great start.  Eventually you will run also in the case of testing functions to be called. Therefore you need a utility to spy, stub, or mock functions. Sinon is a powerful library that helps you with it. Let's first dive into the use case which we want to test and then how to test it with Sinon in Mocha and Chai. In a new *src/callMyFunction.js* file implement the following function:
+Testing JavaScript primitives, complex objects and arrays with Chai in Mocha is a great start. Eventually you will run also in the case of testing functions to be called. Therefore you need a utility to spy, stub, or mock functions. Sinon is a powerful library that helps you with it. Let's first dive into the use case which we want to test and then how to test it with Sinon in Mocha and Chai. In a new *src/call-my-function.js* file implement the following function:
 
 ```javascript
 function callMyFunction(callback) {
@@ -127,7 +127,7 @@ The function only takes another function as argument -- it is a higher-order fun
 
 ```javascript{2,6,7,8}
 import sum from './sum.js';
-import callMyFunction from './callMyFunction.js';
+import callMyFunction from './call-my-function.js';
 
 console.log(sum(1, 2));
 
@@ -142,12 +142,12 @@ How would we test this function to be called within the other function? Let's in
 npm install sinon --save-dev
 ```
 
-In a new *src/callMyFunction.spec.js* file, let's write our test for this new higher-order function:
+In a new *src/call-my-function.spec.js* file, let's write our test for this new higher-order function:
 
 ```javascript
 import { expect } from 'chai';
 
-import callMyFunction from './callMyFunction.js';
+import callMyFunction from './call-my-function.js';
 
 describe('callMyFunction function', () => {
   it('calls the passed function', () => {
@@ -164,7 +164,7 @@ Now we can test it with a Sinon spy which is used instead of the empty function:
 import { expect } from 'chai';
 import { spy } from 'sinon';
 
-import callMyFunction from './callMyFunction.js';
+import callMyFunction from './call-my-function.js';
 
 describe('callMyFunction function', () => {
   it('calls the passed function', () => {

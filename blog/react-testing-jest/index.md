@@ -160,7 +160,7 @@ In this Jest configuration file, add the following test pattern matching to run 
 }
 ```
 
-The `testRegex` configuration is a regular expression that can be used to specify the naming of the files where your Jest tests will be located. In this case, the files will have the name `*.spec.js`. That's how you can separate them clearly from other files in your *src/* folder. Finally, add a test file next to your App component's file in a new `src/App.spec.js` file. First, create the test file on the command line:
+The `testRegex` configuration is a regular expression that can be used to specify the naming of the files where your Jest tests will be located. In this case, the files will have the name `*spec.js`. That's how you can separate them clearly from other files in your *src/* folder. Finally, add a test file next to your App component's file in a new `src/App.spec.js` file. First, create the test file on the command line:
 
 ```javascript
 touch src/App.spec.js
