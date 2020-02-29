@@ -391,16 +391,7 @@ module.exports = {
     header: '',
     subheader: '',
     courseUrl: '',
-    items: [
-      {
-        header: '',
-        benefits: [''],
-        price: 0,
-        label: '',
-        courseId: '',
-        bundleId: '',
-      },
-    ],
+    courseId: '',
   },
   newsletter: {
     // Create a Revue Newsletter Account: https://www.getrevue.co/referrals/adNOMX8eMpOQ5ndAIyXovw
