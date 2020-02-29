@@ -99,7 +99,7 @@ module.exports = {
     header: 'The Road to React',
     text:
       'Learn React by building real world applications. No setup configuration. No tooling. Plain React in 200+ pages of learning material. Learn React like <strong>50.000+ readers</strong>.',
-    cta: 'Get the Book for free',
+    cta: 'Get the Book',
     ctaSecondary: 'Get it on Amazon.',
     url: 'https://roadtoreact.com/',
     urlSecondary: 'https://amzn.to/2LHjxRB',
@@ -410,7 +410,7 @@ module.exports = {
     header: 'Take Part',
     subheader: 'Never miss an article about web development and JavaScript.',
     items: [
-      'Join 45.000+ Developers',
+      'Join 50.000+ Developers',
       'Learn Web Development with JavaScript',
       'Tips and Tricks',
       'Access Tutorials, eBooks and Courses',
