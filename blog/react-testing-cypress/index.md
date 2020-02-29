@@ -154,7 +154,7 @@ describe('App E2E', () => {
 });
 ```
 
-Basically, that's how a selector and assertion in Cypress work. Now you your test again on the command line. It should turn out to be successful.
+Basically, that's how a selector and assertion in Cypress work. Now run your test again on the command line. It should turn out to be successful.
 
 A best practice in Cypress testing is adding the base URL to your **cypress.json** configuration file. It's not only to keep your code DRY, but has also performance impacts.
 
