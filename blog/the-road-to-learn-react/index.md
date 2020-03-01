@@ -20,50 +20,6 @@ Essentially, you will learn to build your own React application from scratch, wi
 
 {{% package_box "The Road to React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 200+ pages of learning material. Pay what you want like <strong>50.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://roadtoreact.com/" %}}
 
-# React Book Testimonials
-
-There are many [testimonials](https://roadtoreact.com/), [ratings](https://www.goodreads.com/book/show/37503118-the-road-to-learn-react) and [reviews](https://amzn.to/2QY2ONp) about the book that you can read to ascertain its quality. I am proud of it, and I never expected such overwhelming feedback. I would love to find your rating/review. It helps me to spread the word about the book and make improvements for future projects. The following shows a short excerpt of these voices:
-
-**[Muhammad Kashif](https://twitter.com/appsdevpk/status/848625244956901376):** "The Road to Learn React is a unique book that I recommend to any student or professional interested in learning react basics to advanced level. It is packed with insightful tips and techniques that are hard to find elsewhere, and remarkably thorough in its use of examples and references to sample problems, i have 17 years of experience in web and desktop app development, and before reading this book i was having trouble in learning react, but this book works like magic."
-
-**[Andre Vargas](https://twitter.com/andrevar66/status/853789166987038720):** "The Road to Learn React by Robin Wieruch is such an awesome book! Most of what I learned about React and even ES6 was through it!"
-
-**[Nicholas Hunt-Walker, Instructor of Python at a Seattle Coding School](https://twitter.com/nhuntwalker/status/845730837823840256):** "This is one of the most well-written & informative coding books I've ever worked through. A solid React & ES6 introduction."
-
-**[Austin Green](https://twitter.com/AustinGreen/status/845321540627521536):** "Thanks, really loved the book. Perfect blend to learn React, ES6, and higher level programming concepts."
-
-**[Nicole Ferguson](https://twitter.com/nicoleffe/status/833488391148822528):** "I'm doing Robin's Road to Learn React course this weekend & I almost feel guilty for having so much fun."
-
-**[Karan](https://twitter.com/kvss1992/status/889197346344493056):** "Just finished your Road to React. Best book for a beginner in the world of React and JS. Elegant exposure to ES. Kudos! :)"
-
-**[Eric Priou](https://twitter.com/erixtekila/status/840875459730657283):** "The Road to React by Robin Wieruch is a must read. Clean and concise for React and JavaScript."
-
-# Book FAQ
-
-**How to get updates?** I have two channels where I share updates about my content. You can [subscribe to updates by email](https://www.getrevue.co/profile/rwieruch) or [follow me on Twitter](https://twitter.com/rwieruch). Regardless of the channel, my objective is to only share quality content. Once you receive notification the book has changed, you can download a new version of it.
-
-**Does it use the recent React version?** The book always receives an update when the React version is updated. Programming books are usually outdated soon after their release, but since this book is self-published, I can update it as needed.
-
-**Does it cover Redux?** It doesn't, so I have written a second book. The Road to React should give you a solid foundation before you dive into advanced topics. The implementation of the sample application in the book will show that you don't need Redux to build an application in React. After you have read the book, you should be able to implement a solid application without Redux. Then you can read my second book, Taming the State in React, to learn Redux.
-
-**Does it use JavaScript ES6?** Yes. Don't worry, though, you will be fine if you are familiar with JavaScript ES5. All JavaScript ES6 features, that I describe in The Journey to Learn React, will transition from ES5 to ES6. The book does not only teach React, but also all useful JavaScript ES6 features.
-
-**What are the reading formats?** In addition to the .pdf, .epub, and .mobi formats, you can read it in pure markdown on GitHub. In general, I recommend reading it on a suitable format, otherwise the code snippets will have ugly line breaks.
-
-**How can I get help while reading the book?** The book has a [Slack Group](https://slack-the-road-to-learn-react.wieruch.com/) for people who are reading along. You can join the channel to get help, or to help others, as helping others may help you internalize your own understanding. If there is no one available to help you, you can always reach out to me.
-
-**Why is the book pay what you want?** I have put a lot of effort into this and will do so in the future. My desire is to reach as many people as possible. Everyone should be enabled to learn React. Still you could pay, if you can afford it. In addition, the [book attempts to support projects that educate children in the developing world](/giving-back-by-learning-react/). You can have an impact too.
-
-**How to support the project?** If you believe in the content I create, you can [support me](/about/). It also helps if you spread the word about this book, or you can sign on as my [Patron on Patreon](https://www.patreon.com/rwieruch).
-
-**Is there a call to action?** Yes. I want you to take a moment to think about a person who would be a good match to learn React. The person could have shown the interest already, could be in the middle of learning React or might not yet be aware about wanting to learn React. Reach out to that person and share the book. It would mean a lot to me. The book is intended to be given to others.
-
-# Education for Children
-
-The book should enable everyone to learn React. However, not everyone has access to the required resources, because not everyone is educated in the English language. I want to use this project to support other projects that teach children English in the developing world.
-
-* 11. April to 18. April, 2017, [Giving Back, By Learning React](/giving-back-by-learning-react/)
-
 # Book Changelog
 
 I keep the learning material up to date to the recent changes in the React ecosystem.
