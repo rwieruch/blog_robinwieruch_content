@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-I am excited to launch my course [Taming the State in React](https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE). I worked on the course for the last 6 months and squeezed every of my free minutes during a workweek, weekends and holidays into it. For instance, when writing the book, I woke up two hours earlier before my 9 to 5 job to write ~750 qualitative words a day. It continued by building a platform around the course, by recording screencasts, by building exciting applications and boilerplate projects for course participants and by doing a bit of outreach with the of help my better half.
+I am excited to launch my course [The Road to Redux](https://roadtoredux.com). I worked on the course for the last 6 months and squeezed every of my free minutes during a workweek, weekends and holidays into it. For instance, when writing the book, I woke up two hours earlier before my 9 to 5 job to write ~750 qualitative words a day. It continued by building a platform around the course, by recording screencasts, by building exciting applications and boilerplate projects for course participants and by doing a bit of outreach with the of help my better half.
 
 So now I am on the finish line and I am terrified to launch something that I have been working on deliberately over the last half year. I procrastinated the last 10% before the launch and felt that growing impostor syndrome. When I asked others about these feelings, they knew it very well before launching a product.
 
@@ -50,7 +50,7 @@ For the last three years, I worked on larger scale applications using Angular an
 
 Last year, I started to write heavily about React and JavaScript. Over the time, I had the chance to advance my writing and teaching style due to my readers feedback. End of last year, I published an book about learning React from scratch. It got downloaded over 13.000 times which was an overwhelming surprise for me. I received great feedback and it makes me really happy to see how people are making progress in their learnings.
 
-So by now, I believe that I am able to teach things about web development, JavaScript and React in a good way. I hope you believe in this as well. So jump on the train and [learn Redux and/or MobX](https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE) :-)
+So by now, I believe that I am able to teach things about web development, JavaScript and React in a good way. I hope you believe in this as well. So jump on the train and [learn Redux and/or MobX](https://roadtoredux.com) :-)
 
 <Divider />
 

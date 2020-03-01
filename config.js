@@ -101,7 +101,7 @@ module.exports = {
       'Learn React by building real world applications. No setup configuration. No tooling. Plain React in 200+ pages of learning material. Learn React like <strong>50.000+ readers</strong>.',
     cta: 'Get the Book',
     ctaSecondary: 'Get it on Amazon.',
-    url: 'https://roadtoreact.com/',
+    url: 'https://courses.robinwieruch.de',
     urlSecondary: 'https://amzn.to/2LHjxRB',
   },
 
@@ -113,7 +113,7 @@ module.exports = {
     links: [
       { to: '/about', label: 'About' },
       { to: '/blog', label: 'Blog' },
-      { to: 'https://roadtoreact.com', label: 'Courses' },
+      { to: 'https://courses.robinwieruch.de', label: 'Courses' },
     ],
   },
 
@@ -221,7 +221,7 @@ module.exports = {
       {
         label: 'Online Courses',
         description: 'My in-depth content ...',
-        url: 'https://roadtoreact.com',
+        url: 'https://courses.robinwieruch.de',
       },
       {
         label: 'Open Source',
@@ -416,7 +416,7 @@ module.exports = {
         items: [
           {
             label: 'Online Courses',
-            url: 'https://roadtoreact.com/',
+            url: 'https://courses.robinwieruch.de',
           },
           {
             label: 'Open Source',

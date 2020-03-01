@@ -452,7 +452,7 @@ class App extends Component {
 }
 ```
 
-That's all about the basics in data fetching with plain React. You can read more about managing the fetched data in React's local state or libraries such as Redux in [Taming the State in React](https://roadtoreact.com/).
+That's all about the basics in data fetching with plain React. You can read more about managing the fetched data in React's local state or libraries such as Redux in [The Road to Redux](https://roadtoredux.com/).
 
 # How to fetch data with Axios in React
 

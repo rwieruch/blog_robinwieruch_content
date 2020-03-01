@@ -73,7 +73,7 @@ The first section will setup MobX, where we'll add a state layer separately from
 * Messages in React Local State -> Messages in MobX Message Store
 * Authenticated User in React Local State + React Context -> Authenticated User in MobX Session Store
 
-If you are not familiar with MobX, I recommend [Taming the State in React](http://roadtoreact.com). Most of the MobX knowledge is required for the migration from only using React to MobX.
+If you are not familiar with MobX, I recommend [The Road to Redux](http://roadtoredux.com). Most of the MobX knowledge is required for the migration from only using React to MobX.
 
 # MobX Setup in React Firebase Application
 

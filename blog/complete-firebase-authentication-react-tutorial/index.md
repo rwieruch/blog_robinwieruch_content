@@ -12,7 +12,7 @@ contribute: ""
 
 <Sponsorship />
 
-*Interested in reading this tutorial as one of many chapters in my advanced React with Firebase book? Checkout the entire [The Road to React with Firebase](https://roadtoreact.com) book that teaches you to create business web applications without the need to create a backend application with a database yourself.*
+*Interested in reading this tutorial as one of many chapters in my advanced React with Firebase book? Checkout the entire [The Road to Firebase](https://roadtofirebase.com) book that teaches you to create business web applications without the need to create a backend application with a database yourself.*
 
 This comprehensive tutorial walks you through a real-world application using React and Firebase. React is used to display applications in web browsers and to store local state in components, while Firebase is used for authentication, authorization, and managing a realtime database.
 

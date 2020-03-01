@@ -18,7 +18,7 @@ In the Road to learn React, I offer a foundation before you dive into the broade
 
 Essentially, you will learn to build your own React application from scratch, with features like pagination, client-side caching, and interactions like searching and sorting. Additionally, you will transition from JavaScript ES5 to JavaScript ES6. I hope this book captures my enthusiasm for React and JavaScript, and that it helps you get started with it.
 
-{{% package_box "The Road to learn React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 200+ pages of learning material. Pay what you want like <strong>50.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://roadtoreact.com/" %}}
+{{% package_box "The Road to React" "Build a Hacker News App along the way. No setup configuration. No tooling. No Redux. Plain React in 200+ pages of learning material. Pay what you want like <strong>50.000+ readers</strong>." "Get the Book" "img/page/cover.png" "https://roadtoreact.com/" %}}
 
 # React Book Testimonials
 
@@ -104,7 +104,7 @@ I keep the learning material up to date to the recent changes in the React ecosy
 * 15% improved content
 * 3 new chapters (Bindings, Event Handlers, Error Handling)
 * 200+ pages of learning material
-* [+9 Source Code Projects](https://roadtoreact.com)
+* +9 Source Code Projects
 
 **17. February 2018:**
 
@@ -119,7 +119,7 @@ I keep the learning material up to date to the recent changes in the React ecosy
 **31. August 2018:**
 
 * professional proofreading and editing by Emmanuel Stalling
-* [18 Source Code Projects](https://roadtoreact.com)
+* 18 Source Code Projects
 
 **3. October 2018:**
 

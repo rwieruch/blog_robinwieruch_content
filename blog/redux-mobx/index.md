@@ -18,7 +18,7 @@ Often the article references [React as view layer library](/react-libraries/) fo
 
 In the beginning of 2016 I wrote a [fairly big application in React + Redux](https://github.com/rwieruch/favesound-redux). After I discovered MobX as alternative, I took the time to [refactor the application from Redux to MobX](https://github.com/rwieruch/favesound-mobx/pull/1). I feel pretty comfortable in using both and in explaining their approaches.
 
-What is this article going to be about? First, I want to revisit shortly the problem a state management library is solving for us. After all, you would be doing fine by just using `this.setState()` and `this.state` in React or a variation of it in another view layer library or SPA framework. Second, I will continue to give you an overview of both solutions by showing the consistencies and differences. Third, I want to give beginners to the React ecosystem a roadmap to [learn state management in React](https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE). Spoiler alert: [Begin with React's local state before you dive into MobX or Redux](/learn-react-before-using-redux/). Last but not least, if you already have an application running with MobX or Redux, I want to give you more insights in refactoring from one to another state management library.
+What is this article going to be about? First, I want to revisit shortly the problem a state management library is solving for us. After all, you would be doing fine by just using `this.setState()` and `this.state` in React or a variation of it in another view layer library or SPA framework. Second, I will continue to give you an overview of both solutions by showing the consistencies and differences. Third, I want to give beginners to the React ecosystem a roadmap to [learn state management in React](https://roadtoredux.com). Spoiler alert: [Begin with React's local state before you dive into MobX or Redux](/learn-react-before-using-redux/). Last but not least, if you already have an application running with MobX or Redux, I want to give you more insights in refactoring from one to another state management library.
 
 # Table of Contents
 
@@ -332,9 +332,9 @@ While in Redux you have an established ceremony how to set up things, MobX is le
 
 Both libraries are great. While Redux is already well established, MobX becomes an valid alternative for state management.
 
-<ReadMore label="Learn plain React with setState and this.state" link="http://www.robinwieruch.de/the-road-to-learn-react" />
+<ReadMore label="Learn plain React with setState and this.state" link="https://roadtoreact.com" />
 
-<ReadMore label="Learn Redux and MobX in React in a full-blown course" link="https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE" />
+<ReadMore label="Learn Redux and MobX in React in a full-blown course" link="https://roadtoredux.com" />
 
 # Fact Sheet
 

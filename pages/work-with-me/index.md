@@ -43,6 +43,7 @@ All these items are ideas about applications, things I want to learn, things I w
 A couple of things that I have built or contributed along the way. Just if you are curious and want to check them out:
 
 * [Road to React](https://roadtoreact.com)
+* [Other Courses & Books](https://courses.robinwieruch.de/)
 * [Bri.im](https://bri.im)
 * [Small Improvements](https://www.small-improvements.com/?ref=robinwieruch.de)
 * [Machine Learning Projects](https://github.com/javascript-machine-learning/organization-overview)

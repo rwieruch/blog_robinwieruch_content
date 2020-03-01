@@ -28,7 +28,7 @@ So even though the server-side application makes a transition to being GraphQL p
 
 I also want to point out that Redux may not be needed at all when introducing Apollo Client to your tech stack. Whereas Apollo Client would be used for your remote data, React's local state may be sufficient to manage local data. [Only if the state management for your local data becomes complex](/learn-react-before-using-redux/), you want to introduce a sophisticated state management solution such as Redux.
 
-If you are not interested in Redux at all, it may be still valuable to read up the following approach and discussion for using other state management libraries in combination with Apollo Client. In general, if you are interested in using Redux with Apollo Client, but you have never learned Redux before, you should take the time to go through the [Taming the State in React](https://roadtoreact.com/) course to get a high level yet pragmatic understanding about it.
+If you are not interested in Redux at all, it may be still valuable to read up the following approach and discussion for using other state management libraries in combination with Apollo Client. In general, if you are interested in using Redux with Apollo Client, but you have never learned Redux before, you should take the time to go through the [The Road to Redux](https://roadtoredux.com/) course to get a high level yet pragmatic understanding about it.
 
 # Redux for Local Data, Apollo Client for Remote Data
 

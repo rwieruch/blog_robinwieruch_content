@@ -73,7 +73,7 @@ This section is divided into two parts, the first of which will set up Redux. Yo
 * Users in React Local State -> Users in Redux Store.
 * Messages in React Local State -> Messages in Redux Store.
 
-If you are not familiar with Redux, I recommend to check out [Taming the State in React](http://roadtoreact.com). Most of the Redux knowledge about Actions, Reducers, and the Store are required for the following migration from only using React to Redux.
+If you are not familiar with Redux, I recommend to check out [The Road to Redux](http://roadtoredux.com). Most of the Redux knowledge about Actions, Reducers, and the Store are required for the following migration from only using React to Redux.
 
 # Redux Setup in React Firebase Application
 

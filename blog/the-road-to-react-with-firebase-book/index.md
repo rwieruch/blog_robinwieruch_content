@@ -1,5 +1,5 @@
 ---
-title: "The Road to React with Firebase [Book]"
+title: "The Road to Firebase [Book]"
 description: "The free React with Firebase book takes you on a journey to master a minimal tech stack with React and Firebase in JavaScript. You will learn how both technologies help you to realize your business idea. Grab your free PDF, EPUB, or MOBI and get free updates for new releases ..."
 date: "2019-01-28T13:50:46+02:00"
 categories: ["React", "Firebase"]
@@ -10,15 +10,15 @@ contribute: ""
 author: ""
 ---
 
-Today, I am thrilled to announce [The Road to React with Firebase](https://roadtoreact.com/course-details?courseId=THE_ROAD_TO_REACT_WITH_FIREBASE), my book that started as a tutorial in 2017 and has evolved into course material. The tutorial has been one of the most-read and well-received articles on my website, and this gave me the idea to add enough content to make a complete volume.
+Today, I am thrilled to announce [The Road to Firebase](https://roadtofirebase.com), my book that started as a tutorial in 2017 and has evolved into course material. The tutorial has been one of the most-read and well-received articles on my website, and this gave me the idea to add enough content to make a complete volume.
 
 Perhaps the best thing about the book is that I **release it for free**. I think everyone should have the chance to learn Firebase. Because I self-published it, I can update the PDF, EPUB, or MOBI versions as often as possible, and I can keep the e-book versions in a state of constant improvement.
 
 The book walks you through building a full-blown application with **advanced React** and Firebase. Firebase enables you to build full-stack applications without worrying about the backend. You will learn how to setup a register, login and logout mechanism in React with Firebase, how to access the application with Facebook and Google, and how to manage your data in the Firebase database.
 
-{{% package_box "The Road to React with Firebase" "Your journey to master web applications with a minimal tech stack to get you started with your business and MVPs." "Get the Book" "img/page/the-road-to-react-with-firebase-book.jpg" "https://roadtoreact.com/course-details?courseId=THE_ROAD_TO_REACT_WITH_FIREBASE" %}}
+{{% package_box "The Road to Firebase" "Your journey to master web applications with a minimal tech stack to get you started with your business and MVPs." "Get the Book" "img/page/the-road-to-react-with-firebase-book.jpg" "https://roadtofirebase.com" %}}
 
-I wrote the The Road to React with Firebase over the last two years. During this time, I came to understand the practical genius of Firebase, and how it dramatically reduces the tech stack to focus on getting sh*t done. Once you have set up your starter kit project -- that's what we are going to do together in this book -- you are ready to iterate fast on your personal ideas. There is no need to complicate things by adding backend application with a database to your frontend application, because Firebase takes care of it.
+I wrote the The Road to Firebase over the last two years. During this time, I came to understand the practical genius of Firebase, and how it dramatically reduces the tech stack to focus on getting sh*t done. Once you have set up your starter kit project -- that's what we are going to do together in this book -- you are ready to iterate fast on your personal ideas. There is no need to complicate things by adding backend application with a database to your frontend application, because Firebase takes care of it.
 
 I have been using React and Firebase as minimal tech stack for a while. Just these two applications power my business applications, and I heard several success stories from readers who used my tutorials as a foundation to power their own businesses. I wanted to pass on what I had learned about minimal tech stacks to a wider audience.
 
@@ -88,5 +88,5 @@ Also, if you take the complete course, you will receive the identical starter ki
 
 <Divider />
 
-The Road to React with Firebase is an expression of my enthusiasm for the topic. I hope it becomes a valuable resource among other courses, tutorials, and books on the pragmatic use of Firebase for web applications. As always, feedback through any of the available platforms is welcome and encouraged :)
+The Road to Firebase is an expression of my enthusiasm for the topic. I hope it becomes a valuable resource among other courses, tutorials, and books on the pragmatic use of Firebase for web applications. As always, feedback through any of the available platforms is welcome and encouraged :)
 
