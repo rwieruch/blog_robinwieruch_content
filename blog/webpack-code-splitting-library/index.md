@@ -66,7 +66,7 @@ module.exports = {
 }
 ```
 
-While */src/index.js* exports the functions from */src/add.js* and */src/add.js* to bundle it still as the whole library in the *main* entry point, both functions get bundled themselves for their *add* and *subtract* entry points respectively.
+While */src/index.js* exports the functions from */src/add.js* and */src/subtract.js* to bundle it still as the whole library in the *main* entry point, both functions get bundled themselves for their *add* and *subtract* entry points respectively.
 
 ```javascript{5}
 {
