@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-The content of this section is a crash course in node and npm. It is not exhaustive, but it will cover all of the necessary tools. The **node package manager** (npm) installs external node packages (libraries) from the command line. These packages can be a set of utility functions, libraries, or whole frameworks, and they are the dependencies of your application. You can either install these packages to your global node package folder or to your local project folder.
+The content of this section is a crash course in node and npm. It is not exhaustive, but it will cover all of the necessary tools. The **node package manager** (npm) installs external node packages (libraries) from the command line. These packages can be a set of utility functions, libraries, or whole frameworks, and they are the dependencies of your application. You can install these packages to either your global node package folder or your local project folder.
 
 Global node packages are accessible from everywhere in the terminal, and only need to be installed to the global directory once. Install a global package by typing the following into a terminal:
 
