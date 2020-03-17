@@ -231,7 +231,7 @@ Some of these git commits will change your local commit history. If you have pus
 
 <Divider />
 
-I would be curious about other git workflows, if there exist any, so let me know about them in the comments. If you have any git best practices or gotchas you want to add, then let us know abou them. After all, I hope this walkthrough helps you to establish a git workflow for your team working with git. In the long run, it will make you and your team more productive by aligning you on a common sense process.
+I would be curious about other git workflows, if there exist any, so let me know about them in the comments. If you have any git best practices or gotchas you want to add, then let us know about them. After all, I hope this walkthrough helps you to establish a git workflow for your team working with git. In the long run, it will make you and your team more productive by aligning you on a common sense process.
 
 <ReadMore label="The minimal Node.js with Babel Setup" link="/minimal-node-js-babel-setup" />
 
