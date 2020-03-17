@@ -290,7 +290,7 @@ If you don't want to "throw away" all changes by stashing, but only selected fil
 git checkout -- <path/to/file>
 ```
 
-The file goes from unstaged to not changed at all. But remember, whereas stashing allows you to get the stash back from the heap, the checkout reverts all changes in the files. So you are not able to retrieve these changes.
+The file goes from unstaged to not changed at all. But remember, whereas stashing allows you to get the stash back from the head, the checkout reverts all changes in the files. So you are not able to retrieve these changes.
 
 # Delete Branches
 
