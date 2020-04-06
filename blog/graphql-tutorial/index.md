@@ -1,5 +1,5 @@
 ---
-title: "A GraphQL Tutorial for Beginners"
+title: "GraphQL Tutorial for Beginners"
 description: "This GraphQL tutorial for beginners takes you on a journey to learn GraphQL. You will explore GraphQL with GitHub's GraphQL API and later learn how to build fullstack web applications with it ..."
 date: "2018-11-01T13:50:46+02:00"
 categories: ["GraphQL"]
@@ -29,12 +29,12 @@ author: ""
     },
     {
       prefix: "Part 4:",
-      label: "A Apollo Client Tutorial for Beginners",
+      label: "Apollo Client Tutorial for Beginners",
       url: "/graphql-apollo-client-tutorial/"
     },
     {
       prefix: "Part 5:",
-      label: "A complete React with Apollo and GraphQL Tutorial",
+      label: "React with Apollo and GraphQL Tutorial",
       url: "/react-graphql-apollo-tutorial/"
     }
   ]}
@@ -548,12 +548,12 @@ Interacting with GitHub's GraphQL API via GraphiQL or GitHub's GraphQL Explorer 
     },
     {
       prefix: "Part 4:",
-      label: "A Apollo Client Tutorial for Beginners",
+      label: "Apollo Client Tutorial for Beginners",
       url: "/graphql-apollo-client-tutorial/"
     },
     {
       prefix: "Part 5:",
-      label: "A complete React with Apollo and GraphQL Tutorial",
+      label: "React with Apollo and GraphQL Tutorial",
       url: "/react-graphql-apollo-tutorial/"
     }
   ]}

@@ -259,7 +259,7 @@ const INITIAL_LIST = [
   },
   {
     id: '1',
-    title: 'A complete React with Apollo and GraphQL Tutorial',
+    title: 'React with Apollo and GraphQL Tutorial',
     url: 'https://www.robinwieruch.de/react-graphql-apollo-tutorial',
   },
 ];

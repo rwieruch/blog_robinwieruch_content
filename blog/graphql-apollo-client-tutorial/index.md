@@ -1,5 +1,5 @@
 ---
-title: "A Apollo Client Tutorial for Beginners"
+title: "Apollo Client Tutorial for Beginners"
 description: "This tutorial shows you how to use Apollo Client for GraphQL without any other third-party library. Then you'll learn how to use Apollo Client in React ..."
 date: "2018-11-01T02:50:46+02:00"
 categories: ["GraphQL", "JavaScript"]
@@ -24,7 +24,7 @@ author: ""
     },
     {
       prefix: "Part 2:",
-      label: "A GraphQL Tutorial for Beginners",
+      label: "GraphQL Tutorial for Beginners",
       url: "/graphql-tutorial/"
     },
     {
@@ -34,7 +34,7 @@ author: ""
     },
     {
       prefix: "Part 5:",
-      label: "A complete React with Apollo and GraphQL Tutorial",
+      label: "React with Apollo and GraphQL Tutorial",
       url: "/react-graphql-apollo-tutorial/"
     }
   ]}
@@ -348,7 +348,7 @@ You have seen how Apollo Client can be used standalone in a Node.js project. Bef
     },
     {
       prefix: "Part 2:",
-      label: "A GraphQL Tutorial for Beginners",
+      label: "GraphQL Tutorial for Beginners",
       url: "/graphql-tutorial/"
     },
     {
@@ -358,7 +358,7 @@ You have seen how Apollo Client can be used standalone in a Node.js project. Bef
     },
     {
       prefix: "Part 5:",
-      label: "A complete React with Apollo and GraphQL Tutorial",
+      label: "React with Apollo and GraphQL Tutorial",
       url: "/react-graphql-apollo-tutorial/"
     }
   ]}

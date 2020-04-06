@@ -24,17 +24,17 @@ author: ""
     },
     {
       prefix: "Part 2:",
-      label: "A GraphQL Tutorial for Beginners",
+      label: "GraphQL Tutorial for Beginners",
       url: "/graphql-tutorial/"
     },
     {
       prefix: "Part 4:",
-      label: "A Apollo Client Tutorial for Beginners",
+      label: "Apollo Client Tutorial for Beginners",
       url: "/graphql-apollo-client-tutorial/"
     },
     {
       prefix: "Part 5:",
-      label: "A complete React with Apollo and GraphQL Tutorial",
+      label: "React with Apollo and GraphQL Tutorial",
       url: "/react-graphql-apollo-tutorial/"
     }
   ]}
@@ -1477,17 +1477,17 @@ I've shown how to implement a React application with GraphQL and HTTP requests w
     },
     {
       prefix: "Part 2:",
-      label: "A GraphQL Tutorial for Beginners",
+      label: "GraphQL Tutorial for Beginners",
       url: "/graphql-tutorial/"
     },
     {
       prefix: "Part 4:",
-      label: "A Apollo Client Tutorial for Beginners",
+      label: "Apollo Client Tutorial for Beginners",
       url: "/graphql-apollo-client-tutorial/"
     },
     {
       prefix: "Part 5:",
-      label: "A complete React with Apollo and GraphQL Tutorial",
+      label: "React with Apollo and GraphQL Tutorial",
       url: "/react-graphql-apollo-tutorial/"
     }
   ]}

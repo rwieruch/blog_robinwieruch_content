@@ -19,7 +19,7 @@ author: ""
   links={[
     {
       prefix: "Part 2:",
-      label: "A GraphQL Tutorial for Beginners",
+      label: "GraphQL Tutorial for Beginners",
       url: "/graphql-tutorial/"
     },
     {
@@ -29,12 +29,12 @@ author: ""
     },
     {
       prefix: "Part 4:",
-      label: "A Apollo Client Tutorial for Beginners",
+      label: "Apollo Client Tutorial for Beginners",
       url: "/graphql-apollo-client-tutorial/"
     },
     {
       prefix: "Part 5:",
-      label: "A complete React with Apollo and GraphQL Tutorial",
+      label: "React with Apollo and GraphQL Tutorial",
       url: "/react-graphql-apollo-tutorial/"
     }
   ]}
@@ -119,7 +119,7 @@ After you've set up GitHub to use their GraphQL API to learn about GraphQL, you 
   links={[
     {
       prefix: "Part 2:",
-      label: "A GraphQL Tutorial for Beginners",
+      label: "GraphQL Tutorial for Beginners",
       url: "/graphql-tutorial/"
     },
     {
@@ -129,12 +129,12 @@ After you've set up GitHub to use their GraphQL API to learn about GraphQL, you 
     },
     {
       prefix: "Part 4:",
-      label: "A Apollo Client Tutorial for Beginners",
+      label: "Apollo Client Tutorial for Beginners",
       url: "/graphql-apollo-client-tutorial/"
     },
     {
       prefix: "Part 5:",
-      label: "A complete React with Apollo and GraphQL Tutorial",
+      label: "React with Apollo and GraphQL Tutorial",
       url: "/react-graphql-apollo-tutorial/"
     }
   ]}

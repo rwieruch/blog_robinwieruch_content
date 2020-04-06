@@ -14,7 +14,7 @@ author: ""
 
 <ReactGraphQLBook />
 
-<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "A complete React with GraphQL Tutorial", url: "/react-with-graphql-tutorial/" }, { prefix: "Part 2:", label: "A complete React with Apollo and GraphQL Tutorial", url: "/react-graphql-apollo-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "A complete React with GraphQL Tutorial", url: "/react-with-graphql-tutorial/" }, { prefix: "Part 2:", label: "React with Apollo and GraphQL Tutorial", url: "/react-graphql-apollo-tutorial/" }]} />
 
 It's time to get you started with a minimal Apollo Client in React application that can be used as boilerplate project. There will be sections later on where you can use this application as starter project, but also you may want to experiment with it on your own. After all, it gives you all the necessary parts to consume GitHub's GraphQL API in your React application by using Apollo Client in a minimal starter project. In addition though, there will be some local state management with React only to show you that local state management for local data is still used when having Apollo Client for your remote data.
 
