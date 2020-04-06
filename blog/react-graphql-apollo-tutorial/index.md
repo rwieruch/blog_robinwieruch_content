@@ -175,7 +175,7 @@ To initialize Apollo Client, you must specify link and cache properties on the c
 
 * Confirm your [source code for the last section](http://bit.ly/2CYjRdg)
   * Confirm the [changes from the last section](http://bit.ly/2VqgK4W)
-* Read more about [the network layer configuration in Apollo Client](https://www.apollographql.com/docs/react/advanced/network-layer.html)
+* Read more about [the network layer configuration in Apollo Client](https://www.apollographql.com/docs/react/networking/network-layer/)
 * Invest 3 minutes of your time and take the [quiz](https://www.surveymonkey.com/r/5FYZT8T)
 
 # Connect Data-Layer to View-Layer: Introducing React Apollo
@@ -212,7 +212,7 @@ Now you have implicit access to the Apollo Client in your React view-layer. It s
 
 * Confirm your [source code for the last section](http://bit.ly/2CZjMWO)
   * Confirm the [changes from the last section](http://bit.ly/2VpXNPO)
-* Read more about [configuring and connecting Apollo Client to React](https://www.apollographql.com/docs/react/essentials/get-started.html)
+* Read more about [configuring and connecting Apollo Client to React](https://www.apollographql.com/docs/react/get-started/)
 * Invest 3 minutes of your time and take the [quiz](https://www.surveymonkey.com/r/5FHMHW8)
 
 # GraphQL Query with Apollo Client in React
@@ -546,7 +546,7 @@ What you have done in the last steps of this section were pure React implementat
 
 * Confirm your [source code for the last section](http://bit.ly/2CZbwpU)
   * Confirm the [changes from the last section](http://bit.ly/2VnYJV7)
-* Read more about [queries with Apollo Client in React](https://www.apollographql.com/docs/react/essentials/queries.html)
+* Read more about [queries with Apollo Client in React](https://www.apollographql.com/docs/react/data/queries/)
 * Invest 3 minutes of your time and take the [quiz](https://www.surveymonkey.com/r/53Q6K3V)
 
 # Apollo Client Error Handling in React
@@ -669,7 +669,7 @@ That's how two or multiple links can be composed for creating an Apollo Client i
 
 * Confirm your [source code for the last section](http://bit.ly/2CWx5aA)
   * Confirm the [changes from the last section](http://bit.ly/2Vo7n63)
-* Read more about [different Apollo Error types and error policies](https://www.apollographql.com/docs/react/features/error-handling.html)
+* Read more about [different Apollo Error types and error policies](https://www.apollographql.com/docs/react/data/error-handling/)
 * Read more about [Apollo Links](https://www.apollographql.com/docs/link/)
 * Read more about [composable Apollo Links](https://www.apollographql.com/docs/link/composition.html)
 * Implement the [apollo-link-retry](https://www.apollographql.com/docs/link/links/retry.html) in case a network request fails
@@ -872,7 +872,7 @@ When you star a repository as above, the "Star" button disappears. This is what 
 
 * Confirm your [source code for the last section](http://bit.ly/2CYyXiN)
   * Confirm the [changes from the last section](http://bit.ly/2Vpdg2L)
-* Read more about [mutations with Apollo Client in React](https://www.apollographql.com/docs/react/essentials/mutations.html)
+* Read more about [mutations with Apollo Client in React](https://www.apollographql.com/docs/react/data/mutations/)
 * Implement other mutations in the RepositoryItem component
   * Implement the `removeStar` mutation when the `viewerHasStarred` boolean is true
   * Show a button with the watchers count which should be used to watch/unwatch a repository
@@ -1134,13 +1134,13 @@ On an implementation level, you learned about extracting fragments from a query 
 
 * Confirm your [source code for the last section](http://bit.ly/2VoiWKr)
   * Confirm the [changes from the last section](http://bit.ly/2Vp8D8V)
-* Read more about [Local State Management in Apollo Client](https://www.apollographql.com/docs/react/essentials/local-state.html)
-* Read more about [Fragments in Apollo Client](https://www.apollographql.com/docs/react/advanced/fragments.html)
+* Read more about [Local State Management in Apollo Client](https://www.apollographql.com/docs/react/data/local-state/)
+* Read more about [Fragments in Apollo Client](https://www.apollographql.com/docs/react/data/fragments/)
 * Implement local cache updates for all the other mutations from the previous exercises
   * Implement the identical local cache update, but with decreasing the count of stargazers, for your `removeStar` mutation
   * Implement the local cache update for the `updateSubscription` mutation
   * You will see in the next section a working solution for it
-* Read more about [Caching in Apollo Client and the composite key to identify entities](https://www.apollographql.com/docs/react/advanced/caching.html)
+* Read more about [Caching in Apollo Client and the composite key to identify entities](https://www.apollographql.com/docs/react/caching/cache-configuration/)
 * Invest 3 minutes of your time and take the [quiz](https://www.surveymonkey.com/r/5BSDXF7)
 
 # Apollo Client Optimistic UI in React
@@ -1320,7 +1320,7 @@ The first three are about **inserting** a data-layer into the view-layer, while 
 * Throttle your internet connection (often browsers offers such functionality) and experience how the `optimisticResponse` takes the `update` function into account even though the request is slow
 * Try different ways of co-locating or inserting your data-layer with render props and higher-order components
 * Implement the optimistic UIs for the star and unstar mutations
-* Read more about [Apollo Optimistic UI in React with GraphQL](https://www.apollographql.com/docs/react/features/optimistic-ui.html)
+* Read more about [Apollo Optimistic UI in React with GraphQL](https://www.apollographql.com/docs/react/performance/optimistic-ui/)
 * Invest 3 minutes of your time and take the [quiz](https://www.surveymonkey.com/r/5B6D8BX)
 
 # GraphQL Pagination with Apollo Client in React
@@ -1699,7 +1699,7 @@ That's it for the abstraction of the FetchMore button for paginated lists with A
 
 * Confirm your [source code for the last section](http://bit.ly/2VnG7EE)
   * Confirm the [changes from the last section](http://bit.ly/2VqPWSb)
-* Read more about [pagination with Apollo Client in React](https://www.apollographql.com/docs/react/features/pagination.html)
+* Read more about [pagination with Apollo Client in React](https://www.apollographql.com/docs/react/data/pagination/)
 * Invest 3 minutes of your time and take the [quiz](https://www.surveymonkey.com/r/5HYMGN7)
 
 # GraphQL Caching of Queries with Apollo Client in React
@@ -2971,7 +2971,7 @@ That's it. Once the button is hovered, it should prefetch the issues for the nex
 
 * Confirm your [source code for the last section](http://bit.ly/2Vma9IF)
   * Confirm the [changes from the last section](http://bit.ly/2VqhIy6)
-* Read more about [Apollo Prefetching and Query Splitting in React](https://www.apollographql.com/docs/react/recipes/performance.html)
+* Read more about [Apollo Prefetching and Query Splitting in React](https://www.apollographql.com/docs/react/performance/performance/)
 * Invest 3 minutes of your time and take the [quiz](https://www.surveymonkey.com/r/5PLMBR3)
 
 # Exercise: Commenting Feature
@@ -2992,7 +2992,7 @@ This last section is for hands-on experience with the application and implementi
 
 * Implement an AddComment component that shows a `textarea` and a `submit` button to enable user comments. Use the `addComment` mutation from GitHub's GraphQL API and the Mutation component from React Apollo to execute the mutation with the submit button.
 
-* Improve the AddComment component with the optimistic UI feature (perhaps read again the [Apollo documentation about the optimistic UI with a list of items](https://www.apollographql.com/docs/react/features/optimistic-ui.html)). A comment should show up in the list of comments, even if the request is pending.
+* Improve the AddComment component with the optimistic UI feature (perhaps read again the [Apollo documentation about the optimistic UI with a list of items](https://www.apollographql.com/docs/react/performance/optimistic-ui/)). A comment should show up in the list of comments, even if the request is pending.
 
 I hope this section, building your own feature in the application with all the learned tools and techniques, matched your skills and challenged you to implement React applications with Apollo and GraphQL. I would recommend working to improve and extend the existing application. If you haven't implemented a GraphQL server yet, find other third-party APIs that offer a GraphQL API and build your own React with Apollo application by consuming it. Keep yourself challenged to grow your skills as a developer.
 
