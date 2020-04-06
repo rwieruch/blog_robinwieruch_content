@@ -60,7 +60,7 @@ After you've cloned and installed the Node.js boilerplate project and created yo
 npm install apollo-boost graphql --save
 ```
 
-The [apollo-boost](https://github.com/apollographql/apollo-client/tree/master/packages/apollo-boost) package gives access to a zero-configuration Apollo Client, and the [graphql](https://github.com/graphql/graphql-js) package allows GraphQL queries, mutations, and subscriptions on both the client and server. It is JavaScript's reference implementation of [Facebook's GraphQL specification](https://github.com/facebook/graphql).
+The [apollo-boost](https://www.apollographql.com/docs/react/get-started/#apollo-boost) package gives access to a zero-configuration Apollo Client, and the [graphql](https://github.com/graphql/graphql-js) package allows GraphQL queries, mutations, and subscriptions on both the client and server. It is JavaScript's reference implementation of [Facebook's GraphQL specification](https://github.com/facebook/graphql).
 
 In the next steps, you will configure and use the Apollo Client that comes with Apollo Boost in the *src/index.js* file of the project. The project stays small, and you will only implement it in this section, so for now we can have everything in one file for the sake of learning.
 
@@ -145,7 +145,7 @@ The error should disappear when you start the application from the command line,
 
 * Confirm your [source code for the last section](http://bit.ly/2D2pRSh)
   * Confirm the [changes from the last section](http://bit.ly/2VqyY6i)
-* Read more about [other view integrations such as Angular and Vue](https://www.apollographql.com/docs/react/integrations.html)
+* Read more about [other view integrations such as Angular and Vue](https://www.apollographql.com/docs/react/integrations/integrations/)
 * Invest a few minutes of your time and take the [quiz](https://www.surveymonkey.com/r/5T3W9BB)
 
 # Apollo Client and a GraphQL Query
