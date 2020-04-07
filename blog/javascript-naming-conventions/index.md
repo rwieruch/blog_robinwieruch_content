@@ -310,7 +310,7 @@ There are two strategies of naming files in JavaScript: PascalCase and kebab-cas
 ----- Table.js
 ```
 
-In contrast, in JavaScript backend application, kebap-case is the common sense:
+In contrast, in JavaScript backend application, kebab-case is the common sense:
 
 ```javascript
 - routing/
@@ -318,7 +318,7 @@ In contrast, in JavaScript backend application, kebap-case is the common sense:
 --- messages-route.js
 ```
 
-You will also see camelCase namings, but similar to PascalCase (sorry frontend applications), there is a risk that operating systems are handling them differently which may lead to bugs. That's why sticking to kebap-case should be the norm for file names in JavaScript.
+You will also see camelCase namings, but similar to PascalCase (sorry frontend applications), there is a risk that operating systems are handling them differently which may lead to bugs. That's why sticking to kebab-case should be the norm for file names in JavaScript.
 
 <Divider />
 

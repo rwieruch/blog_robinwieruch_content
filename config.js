@@ -298,27 +298,24 @@ module.exports = {
     ],
   },
   table: {
-    header: '',
-    subheader: '',
-    chapters: [
-      {
-        label: '',
-        sections: [''],
-      },
-    ],
-    code: [
-      {
-        label: '',
-        sections: [''],
-      },
-    ],
-    screencasts: [
-      {
-        label: '',
-        sections: [''],
-      },
-    ],
-  },
+    header: '',
+    subheader: '',
+    chapters: [
+      {
+        label: '',
+        sections: [''],
+      },
+    ],
+    secondaryHeader: '',
+    secondarySubheader: '',
+    curriculum: [
+      {
+        label: '',
+        type: '',
+        sections: [''],
+      },
+    ],
+  },
   sproof: {
     header: '',
     subheader: '',
