@@ -14,7 +14,7 @@ author: ""
 
 How to structure large React apps into folders and files is a highly opinionated topic. I struggled for a while writing about this subject, because there is no right way to do it. However, every other week people ask me about how I structure my React projects. Not only about folder structures for small React projects, but more importantly about scalable React applications. After implementing React applications for a few years now, I want to give you a breakdown on how I approach this matter for my personal projects, for my client's projects, and for my React workshops. It only takes 5 steps, and you decide what makes sense to you and how far you want to push it. So let's get started.
 
-*For anyone who says "I move files around until it feels right": This may be alright as a solo developer or in a small team. But is that really something you would do in a cross-functional team of 4 developers with a total of 5 cross-functional teams in your company? At a higher scale of teams it becomes tricky to "just move files around without a clear vision".*
+*For anyone who says "I move files around until it feels right": This may be alright as a solo developer or in a small team. But is that really something you would do in a cross-functional team of 4 developers with a total of 5 cross-functional teams in your company? At a higher scale of teams it becomes tricky to "just move files around without a clear vision". In addition, this is nothing I could tell my clients when they ask me about this matter. Hence this walkthrough as reference guide for anyone who is looking for some more clarity about the topic.*
 
 # Single React file
 
