@@ -88,7 +88,7 @@ The second step follows the rule: Multiple files to rule them all. Take for inst
 --- List.js
 ```
 
-While the *src/List.js* file would have the implementation details of the List and ListItem components, it would only [export](/javascript-import-export) the List component from the file:
+While the *src/List.js* file would have the implementation details of the List and ListItem components, it would only [export](/javascript-import-export) the List component from the file as public API to this file:
 
 ```javascript{18}
 const List = ({ list }) => (
@@ -136,7 +136,7 @@ const list = [
 const App = () => <List list={list} />;
 ```
 
-If you would take this one step further, you could also extract the ListItem component in its own file and let the List component import the ListItem component:
+If you would take this one step further, you could also extract the ListItem component into its own file and let the List component import the ListItem component:
 
 ```text{4}
 - src/
