@@ -114,6 +114,7 @@ module.exports = {
       { to: '/about', label: 'About' },
       { to: '/blog', label: 'Blog' },
       { to: 'https://courses.robinwieruch.de', label: 'Courses' },
+      { to: '/rss.xml', label: 'RSS' }
     ],
   },
 
