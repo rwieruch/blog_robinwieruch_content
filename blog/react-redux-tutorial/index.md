@@ -2024,6 +2024,8 @@ As you can see, testing reducers, selectors and action creators always follow a 
 
 <Divider />
 
+*Note: The tutorial has taught you the fundamentals of Redux. However, as Redux evolves as well, there are some new things you should check out: For one there is [Redux Toolkit](https://redux-toolkit.js.org/) which simplifies lots of the things in Redux. In addition there are also [React hooks for Redux](https://react-redux.js.org/api/hooks) available now.*
+
 Implementing this application could go on infinitely. I would have plenty of features in my head that I would want to add to it. What about you?
 
 The project went through all the vertical subjects Redux offers to build a sophisticated application with it. However, it only scratched various topics on the surface (connecting React and Redux with the connect higher-order component, asynchronous actions with Redux Saga, testing, immutability). If you want to dive deeper into these topics, checkout the book Taming the State in React. The following is a list about technical things you could add to your application. Some of these things may be doable without reading the book, whereas other things may not (e.g. normalization).
