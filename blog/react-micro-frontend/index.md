@@ -72,7 +72,7 @@ const App = ({ title }) => (
 export default App;
 ```
 
-The App component takes care of the routing with React router, therefore displays the navigation with links, and renders depending on the route a Programming oder Installation component. Both of these components will be our micro frontends. But more about this later.
+The App component takes care of the routing with React router, therefore displays the navigation with links, and renders depending on the route a Programming or Installation component. Both of these components will be our micro frontends. But more about this later.
 
 For the sake of completeness, this is the *src/constants/routes.js* file:
 
