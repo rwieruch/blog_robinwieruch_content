@@ -161,7 +161,7 @@ From here it becomes more interesting and more opinionated. Every React componen
 --- List.css
 ```
 
-One can already see that this doesn't scale well, because with every additional component in the *src/* folder we will loose more sight of every individual component. That's why I like to have one folder for each React component:
+One can already see that this doesn't scale well, because with every additional component in the *src/* folder we will lose more sight of every individual component. That's why I like to have one folder for each React component:
 
 ```text
 - src/
