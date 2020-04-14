@@ -205,7 +205,7 @@ All translation files could have the following content:
   "en": "English"
 }
 
-// de/translation.json
+// de/welcome.json
 
 {
   "title": "Hallo React",
@@ -214,7 +214,7 @@ All translation files could have the following content:
   }
 }
 
-// en/translation.json
+// en/welcome.json
 
 {
   "title": "Hello React",
