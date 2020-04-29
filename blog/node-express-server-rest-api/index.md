@@ -1,7 +1,7 @@
 ---
 title: "How to create a REST API with Express.js in Node.js"
 description: "A Node.js with Express tutorial to learn how to create a REST API for CRUD operations which can be consumed by a client application ..."
-date: "2019-01-14T07:50:46+02:00"
+date: "2020-04-24T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["node express tutorial", "express tutorial", "express rest api"]
 hashtags: ["#NodeJs"]
@@ -18,13 +18,13 @@ An Express application is most often used as backend application in a client-ser
 
 However, don't mistake client application *always* for frontend and server application *always* for backend here. These terms cannot be exchanged that easily. Whereas a frontend application is usually something seen in the browser, a backend usually performs business logic that shouldn't be exposed in a browser and often connects to a database as well.
 
-```javascript
+```text
 Frontend -> Backend -> Database
 ```
 
-But, in contrast, the terms client and server are a matter of perspective. A backend application (Backend 1) which *consumes* another backend application (Backend 2) suddenly becomes a client application for the latter server application (Backend 2). However, the same backend application (Backend 1) is still the server for another client application which is the frontend application (Frontend).
+But, in contrast, the terms client and server are a matter of perspective. A backend application (Backend 1) which *consumes* another backend application (Backend 2) becomes a client application (Backend 1) for the server application (Backend 2). However, the same backend application (Backend 1) is still the server for another client application which is the frontend application (Frontend).
 
-```javascript
+```text
 Frontend -> Backend 1 -> Backend 2 -> Database
 
 // Frontend: Client of Backend 1
@@ -36,34 +36,43 @@ If you want to answer the client-server question if someone asks you what role t
 
 That's the theory behind client-server architectures and how to relate to them. Let's get more practical again. How do client and server applications communicate with each other? Over the years, there existed a few popular communication interfaces ([APIs](https://en.wikipedia.org/wiki/Application_programming_interface)) between both entities. However, the most popular one is called [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) defined in 2000 by Roy Fielding. It's an architecture that leverages the [HTTP protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) to enable communication between a client and a server application. A server application that offers a REST API is also called a RESTful server. Servers that don't follow the REST architecture a 100% are rather called RESTish than RESTful. In the following, we are going to implement such REST API for our Express server application, but first let's get to know the tooling that enables us to interact with a REST API.
 
+### Exercises:
+
+* What's a client-server architecture?
+* Read more about [REST APIs and other APIs](/what-is-an-api-javascript/).
+
 # cURL for REST APIs
 
 If you haven't heard about cURL, this section gives you a short excursus about what's cURL and how to use it to interact with (REST) APIs. The definition taken from [Wikipedia](https://en.wikipedia.org/wiki/CURL) says: *"cURL [...] is a computer software project providing a library and command-line tool for transferring data using various protocols."* Since REST is an architecture that uses HTTP, a server that exposes a RESTful API can be consumed with cURL, because HTTP is one of the various protocols.
 
 First, let's install it one the command line. For now, the installation guide is for MacOS users, but I guess by looking up "curl for windows" online, you will find the setup guide for your desired OS (e.g. Windows) too. In this guide, we will use Homebrew to install it. If you don't have Homebrew, install it with the following command on the command line:
 
-```javascript
+```text
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 If you haven't heard about Homebrew, read more about it over [here](/developer-setup/). Next, install cURL with Homebrew:
 
-```javascript
+```text
 brew install curl
 ```
 
 Now, start your Express server from the previous sections. Once your application is started, execute `curl http://localhost:3000` in another command line window. Make sure the port matches your port and the Express server is running. After executing the command, you should see the "Hello World!" printed on the command line. Congratulations, you just have consumed your Express server as a client with something else than a browser.
 
-```javascript
+```text
 Browser (Client) -> Express Server
-Command Line Tool (Client with cURL) -> Express Server
+cURL (Client) -> Express Server
 ```
 
 Whether you access your Express application on `http://localhost:3000` in the browser or via the command line with cURL, you should see the same result. Both tools act as clients whereas the Express application is your server. You will see in the next sections how to use cURL to verify your Express application's REST API, that we are going to implement together, on the command line instead of in the browser.
 
-# Express Routes: HTTP Methods and REST Operations
+### Exercises:
 
-Express is a perfect choice for a server when it comes to creating and exposing APIs (e.g. REST API, GraphQL API) to communicate as a client with your server application. Previously you have already implemented one Express route, which sends a "Hello World!", that you have accessed via the browser and cURL on the command line. Let's set up more routes to accommodate a RESTful API for your Express application eventually. Add the following routes to your Express application whereas the URI itself doesn't change, but the method used from your Express application:
+* Get yourself more familiar with the terms client/server and frontend/backend.
+
+# Express Routes: HTTP Methods are REST Operations
+
+Express is a perfect choice for a server when it comes to creating and exposing APIs (e.g. REST API) to communicate as a client with your server application. Previously you have already implemented one Express route, which sends a "Hello World!", that you have accessed via the browser and cURL. Let's set up more routes to accommodate a RESTful API for your Express application eventually. Add the following routes to your Express application whereas the URI itself doesn't change, but the method used from your Express instance:
 
 ```javascript{9,10,11,13,14,15,17,18,19,21,22,23}
 import 'dotenv/config';
@@ -95,9 +104,9 @@ app.listen(process.env.PORT, () =>
 );
 ```
 
-Now start your Express server on the command line again, if it isn't running already, and execute four cURL commands in another command line window. You should see the following output for the commands:
+Every Express instance's method maps to a HTTP method. Let's see how this works: Start your Express server on the command line again, if it isn't running already, and execute four cURL commands in another command line window. You should see the following output for the commands:
 
-```javascript
+```text
 curl http://localhost:3000
 -> Received a GET HTTP method
 
@@ -113,11 +122,18 @@ curl -X DELETE http://localhost:3000
 
 By default cURL will use a HTTP GET method. However, you can specify the HTTP method with the `-X` flag (or `--request` flag). Depending on the HTTP method you are choosing, you will access different routes of your Express application -- which here represent only a single API endpoint with an URI so far. You will see later other additions that you can add to your cURL requests.
 
-That's one of the key aspects of REST: It uses HTTP methods to perform operations on URI(s). Often these operations are referred to as [CRUD operations](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) for create, read, update, and delete operations. Next you will see on what these operations are used on the URIs (resources).
+That's one of the key aspects of REST: It uses HTTP methods to perform operations on URI(s). Often these operations are referred to as CRUD operations for create, read, update, and delete operations. Next you will see on what these operations are used on the URIs (resources).
 
-# Express Routes: URIs and Resources
+### Exercises:
 
-Another important aspect of REST is that every URI acts as a resource. So far, you have only operated on the root URI with your CRUD operations. It's doesn't really represent a resource in REST. In contrast, a resource could be a user resource, for example:
+* Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-server-rest-api/tree/http-methods).
+  * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-server-rest-api/compare/init...http-methods?expand=1).
+* Read more about [CRUD operations](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete).
+* Try some more cURL commands yourself on the command line.
+
+# Express Routes: URIs are REST Resources
+
+Another important aspect of REST is that every URI acts as a resource. So far, you have only operated on the root URI with your CRUD operations, which doesn't really represent a resource in REST. In contrast, a resource could be a user resource, for example. Change your previously introduced routes to the following:
 
 ```javascript{3,4,7,8,11,12,15,16}
 ...
@@ -141,7 +157,23 @@ app.delete('/users', (req, res) => {
 ...
 ```
 
-With cURL on your command line, you can go through the resource represented by one URI with different operations by using the `http://localhost:3000/users` API endpoint again. You will see a similar output as before, but this time you are operating on a user resource. One piece is missing to make the PUT HTTP method (update operation) and DELETE HTTP method (delete operation) RESTful from a URI's point of view:
+With cURL on your command line, you can go through the resource -- represented by one URI `http://localhost:3000/users` -- which offers all the CRUD operations via HTTP methods:
+
+```text
+C for Create: HTTP POST
+R for Read: HTTP GET
+U for Update: HTTP PUT
+D for Delete: HTTP DELETE
+```
+
+You will see a similar output as before, but this time you are operating on a user resource. For example, if you want to create a user, you hit the following URI:
+
+```text
+curl -X POST http://localhost:3000/users
+-> POST HTTP method on user resource
+```
+
+Obviously we don't transfer any information for creating a user yet, however, the API endpoint for creating a user would be available now. One piece is missing to make the PUT HTTP method (update operation) and DELETE HTTP method (delete operation) RESTful from a URI's point of view:
 
 ```javascript{11,13,17,19}
 ...
@@ -169,7 +201,14 @@ app.delete('/users/:userId', (req, res) => {
 ...
 ```
 
-In order to delete or update a user resource, you would need to know the exact user. That's where unique identifiers are used in programming. In our Express routes, we can assign unique identifiers with parameters in the URI. Then the callback function holds the parameter in the request object's parameters. Try again a cURL operation  on `/users/1`, `/users/2` or another identifier with a DELETE or UPDATE HTTP method and verify that the identifier shows up in the command line as output.
+In order to delete or update a user resource, you would need to know the exact user. That's where unique identifiers are used. In our Express routes, we can assign unique identifiers with parameters in the URI. Then the callback function holds the URI's parameter in the request object's properties. Try again a cURL operation  on `/users/1`, `/users/2` or another identifier with a DELETE or UPDATE HTTP method and verify that the identifier shows up in the command line as output.
+
+### Exercises:
+
+* Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-server-rest-api/tree/uris).
+  * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-server-rest-api/compare/http-methods...uris?expand=1).
+* Try to delete or update a user by identifier with cURL.
+* Read more about [basic routing in Express](https://expressjs.com/en/starter/basic-routing.html).
 
 # Making sense of REST
 
@@ -177,30 +216,36 @@ You may be still wondering: *What value brings the combination of URIs and HTTP 
 
 Let's imagine we wouldn't just return a result, as we do at the moment, but would act properly on the received operation instead. For instance, the Express server could be connected to a database that stores user entities in a user table. Now, when consuming the REST API as a client (e.g. cURL, browser, or also a [React.js application](/react-fetching-data/)), you could retrieve all users from the database with a HTTP GET method on the `/users` URI or, on the same resource, create a new user with a HTTP POST method.
 
-```javascript
+```text
 // Making sense of the Naming
 
 Express Route's Method <=> HTTP Method <=> REST Operation
 Express Route's Path <=> URI <=> REST Resource
 ```
 
-Suddenly you would be able to read and write data from and to a database from a client application. Everything that makes it possible is a backend application which enables you to write a interface (e.g. REST API) for CRUD operations.
+Suddenly you would be able to read and write data from and to a database from a client application. Everything that makes it possible is a backend application which enables you to write a interface (e.g. REST API) for CRUD operations:
 
-```javascript
+```text
 Client -> REST API -> Server -> Database
 ```
 
-Whereas it's important to notice that the REST API belongs to the server application. You can take this always one step further by having multiple server applications offering REST APIs. Often you they come with the name microservices or web services whereas each server application offers a well-encapsulated functionality. The servers even don't have to use the same programming language, because they are communicating over a programming language agnostic interface. Also the interfaces (APIs) doesn't have to be necessary REST API.
+Whereas it's important to notice that the REST API belongs to the server application:
 
-```javascript
-       -> REST API -> Server -> GraphQL API -> Server -> Database
+```text
+Client -> (REST API -> Server) -> Database
+```
+
+You can take this always one step further by having multiple server applications offering REST APIs. Often they come with the name microservices or web services whereas each server application offers a well-encapsulated functionality. The servers even don't have to use the same programming language, because they are communicating over a programming language agnostic interface (HTTP with REST). Although the interfaces (APIs) don't have to be necessary REST APIs.
+
+```text
+       -> (GraphQL API -> Server) -> Database
 Client
-       -> REST API -> Server -> Database
+       -> (REST API -> Server) -> Database
 ```
 
 Let's take everything we learned in theory, so far, one step further towards a real application by sending real data across the wire. The data will be sample data, which will not come from a database yet, but will be hardcoded in the source code instead:
 
-```javascript{3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27}
+```javascript{3-25}
 ...
 
 let users = {
@@ -278,11 +323,18 @@ app.listen(process.env.PORT, () =>
 );
 ```
 
-Try out all four routes with cURL on the command line yourself. That's only about reading data. Next, we will discuss the other CRUD operations to create, update and delete resources to actually write data. However, we will not get around a custom Express middleware and a Express middleware provided by the Express ecosystem. That's why we will discuss the subject of the Express middleware next while implementing the missing CRUD operations.
+Try all four routes with cURL on the command line yourself. That's only about reading data. Next, we will discuss the other CRUD operations to create, update and delete resources to actually write data. However, we will not get around a custom Express middleware and a Express middleware provided by the Express ecosystem. That's why we will discuss the subject of the Express middleware next while implementing the missing CRUD operations.
 
-# Express Middleware
+### Exercises:
 
-Let's see how a scenario for creating a message could be implemented in our Express application. Since we are creating a message without a database ourselves, we need a helper library to generate unique identifiers for us. Install this helper library on the command line:
+* Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-server-rest-api/tree/rest-sense).
+  * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-server-rest-api/compare/uris...rest-sense?expand=1).
+* Read more about [REST](https://en.wikipedia.org/wiki/Representational_state_transfer).
+* Read more about [GraphQL as popular alternative to REST](/why-graphql-advantages-disadvantages-alternatives/).
+
+# Application-Level Express Middleware
+
+Before we jump into Express middleware again, let's see how a scenario for creating a message could be implemented in our Express application. Since we are creating a message without a database ourselves, we need a helper library to generate unique identifiers for us. Install this helper library on the command line:
 
 ```javascript
 npm install uuid
@@ -291,7 +343,7 @@ npm install uuid
 Next import it at the top of your *src/index.js* file:
 
 ```javascript{1}
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 ```
 
 Now, create a message with a new route that uses a HTTP POST method:
@@ -313,9 +365,9 @@ app.post('/messages', (req, res) => {
 ...
 ```
 
-We generate a unique identifier for the message with the new library, use it as property in a message object, assign the message by identifier in the messages object -- which is our pseudo database --, and return the new message after it has been created.
+We generate a unique identifier for the message with the new library, use it as property in a message object with a [shorthand object property initialization](/javascript-object-property-shorthand), assign the message by identifier in the messages object -- which is our pseudo database --, and return the new message after it has been created.
 
-However, something is missing for the message. In order to create a message, a client has to provide the `text` string for the message. Fortunately a A HTTP POST method makes it possible to send data as payload in a body. That's why we can use the incoming request (`req`) to extract a payload from it.
+However, something is missing for the message. In order to create a message, a client has to provide the `text` string for the message. Fortunately a HTTP POST method makes it possible to send data as payload in a body. That's why we can use the incoming request (`req`) to extract a payload from it:
 
 ```javascript{7}
 ...
@@ -335,17 +387,13 @@ app.post('/messages', (req, res) => {
 ...
 ```
 
-Accessing the payload of an HTTP POST request is now provided within Express in version 4.16.0+.  Express exposes this built-in middleware (based on ([body-parser](http://expressjs.com/en/resources/middleware/body-parser.html)) under the covers) to transform two of the body types we might receive - json, and urlencoded.
+Accessing the payload of an HTTP POST request is provided within Express with its built-in middleware which is based on [body-parser](http://expressjs.com/en/resources/middleware/body-parser.html). It enables us to transform body types from our request object (e.g. json, urlencoded). We can use the built-in middleware the Express instance's `use` method:
 
-We can use the built-in middleware like so:
-
-```javascript{8,9}
+```javascript{6,7}
 ...
 import express from 'express';
 
 const app = express();
-
-...
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -353,23 +401,31 @@ app.use(express.urlencoded({ extended: true }));
 ...
 ```
 
-This extracts the entire body portion of an incoming request stream and makes it accessible on `req.body` ([Source](http://expressjs.com/en/4x/api.html#express.json)):
+This extracts the entire body portion of an incoming request stream and makes it accessible on `req.body`. Now the body with the message's text is accessible in the request whether it is send by a regular POST request or a POST request from a HTML form. Both options should work, because all data should be received and send as JSON payload now. That's another aspect of REST, which itself is no opinionated about the payload format (JSON, XML), but once you have chosen a format, you should stick to it for your entire API.
 
-* express.json(): Parses the text as JSON and exposes the resulting object on req.body.
+In this last step, we have used a built-in Express middleware and made it available on an application-level -- which means that each request that arrives at one of our Express routes goes through the middleware. Therefore, all data send by a client to our server is available in the incoming request's body object. Try it by creating a message yourself: In a cURL request you can specify HTTP headers with the `-H` flag -- that's how we are saying we want to transfer JSON -- and data as payload with the `-d` flag. You should be able to create messages this way:
 
-* express.urlencoded(): Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST) and exposes the resulting object (containing the keys and values) on req.body.
-
-Now the body with the message's text is accessible in the request whether it is send by a regular POST request or a POST request from a HTML form. Both ways should work now. All data should be received and send as JSON payload now. That's another aspect of REST, which itself is no opinionated about the payload format (JSON, XML), but once you have chosen a format, you should stick to it for your entire API.
-
-In the last steps we have installed a new Express middleware and made it available on an application-level. Each request that arrives at one of our Express routes goes through the middleware. Therefore, all data send by a client to our server is available in the incoming request. Try it by creating a message yourself. In a cURL request you can specify HTTP headers with the `-H` flag -- that's how we are saying we want to transfer JSON -- and data as payload with the `-d` flag. You should be able to create messages this way:
-
-```javascript
+```text
 curl -X POST -H "Content-Type:application/json" http://localhost:3000/messages -d '{"text":"Hi again, World"}'
 ```
 
-So far, we have only imported third-party Express middleware and have used it on an application-level. Now, let's build a custom Express middleware, which is used on an application-level, ourselves. The blueprint for a middleware is similar to the Express functions we have seen before:
+You should see the created messaged returned to you on the command line. You can double check whether the message was really created in your messages object (aka pseudo database) by performing another cURL requests on the command line:
 
-```javascript{3,4,5,6}
+```text
+curl http://localhost:3000/messages
+```
+
+There you should see the new message which has been created for you. In addition, you should also be able to request your new message by identifier. Perform the following cURL request to get a single message entity, but use your actual message identifier for it, because my identifier is different from yours:
+
+```text
+curl http://localhost:3000/messages/849d9407-d7c6-4712-8c91-1a99f7b22ef5
+```
+
+That's it. You have created your first message via your REST API and requested the new message(s) from your REST API. On top of that, you have used a built-in Express middleware to make the data available in the request's body object.
+
+So far, we have only imported third-party Express middleware (CORS) or used a built-in Express middleware (body parser) -- both on an application-level. Now, let's build a custom Express middleware ourselves, which will be used on an application-level too. The blueprint for a middleware is similar to the Express functions we have seen before:
+
+```javascript{3-6}
 ...
 
 app.use((req, res, next) => {
@@ -380,18 +436,20 @@ app.use((req, res, next) => {
 ...
 ```
 
-The next function, which is available as third argument, is called to signalize that the middleware has finished its job. This becomes more important when your middleware uses asynchronous functions. In between of the middleware function you could do anything now. We could simply `console.log()` the time or do something with the request (`req`) or response (`res`). In our case, for creating a message, we need somehow to know who is creating the message. Let's do a simple version of a middleware that determines a pseudo "authenticated" user that is sending the request. Then it's possible to append this user as message creator to the message:
+A middleware is just a JavaScript function which has access to three arguments: `req`, `res`, `next`. You already know `req` and `res` -- they are our request and response objects. In addition, the next function should be called to signalize that the middleware has finished its job. In between of the middleware function you can do anything now. We could simply `console.log()` the time or do something with the request (`req`) or response (`res`) objects.
 
-```javascript{4,15}
-...
+In our particular case, when creating a message on the message resource, we need to know who is creating the message to assign a `userId` to it. Let's do a simple version of a middleware that determines a pseudo authenticated user that is sending the request. In the following case, the authenticated user is the user with the identifier `1` which gets assigned as `me` property to the request object:
 
+```javascript{1}
 app.use((req, res, next) => {
   req.me = users[1];
   next();
 });
+```
 
-...
+Afterward, you can get the authenticated user from the request object and append it as message creator to the message:
 
+```javascript{6}
 app.post('/messages', (req, res) => {
   const id = uuidv4();
   const message = {
@@ -404,15 +462,13 @@ app.post('/messages', (req, res) => {
 
   return res.send(message);
 });
-
-...
 ```
 
-Suddenly we would have access to the `me` user in the request object, which is the authenticated user, in our routes. This user can be used then to be assigned as creator of the message. You can imagine how such middleware could be used later to intercept each incoming request to determine from the incoming HTTP headers whether the request comes from an authenticated user or not. If the request comes from an authenticated user, the user is propagated to every Express route to be used there. That's how the Express server can be stateless while a client always sends over the information of the currently authenticated user.
+You can imagine how such middleware could be used later to intercept each incoming request to determine from the incoming HTTP headers whether the request comes from an authenticated user or not. If the request comes from an authenticated user, the user is propagated to every Express route to be used there. That's how the Express server can be stateless while a client always sends over the information of the currently authenticated user.
 
-Being a stateless is another characteristic of RESTful services. After all, it should be possible to create multiple server instances to balance the incoming traffic evenly between the servers. If you heard about the term load balancing before, that's exactly what's used when having multiple servers at your disposal. That's why a server cannot keep the state (e.g. authenticated user) and the client always has to send this information along with each request. Then a server can have a middleware which takes care of the authentication on an application-level and provides the session state (e.g. authenticated user) to every route in your Express application.
+Being a stateless is another characteristic of RESTful services. After all, it should be possible to create multiple server instances to balance the incoming traffic evenly between the servers. If you heard about the term load balancing before, that's exactly what's used when having multiple servers at your hands. That's why a server shouldn't keep the state (e.g. authenticated user) -- except for in a database -- and the client always has to send this information along with each request. Then a server can have a middleware which takes care of the authentication on an application-level and provides the session state (e.g. authenticated user) to every route in your Express application.
 
-Now that you have learned the essentials about application-level middleware in Express, let's implement the last routes to complete our  application's routes. What about the operation to delete a message:
+Now, that you have learned the essentials about application-level middleware in Express, let's implement the last routes to complete our application's routes. What about the operation to delete a message:
 
 ```javascript{3,4,5,6,7,8,9,10,11,12}
 ...
@@ -431,15 +487,15 @@ app.delete('/messages/:messageId', (req, res) => {
 ...
 ```
 
-You can try it with the following cURL command:
+Here we used a [dynamic object property](/javascript-object-property-dynamic) to exclude the message we want to delete from the [rest](/javascript-destructuring-rest-parameters) of the messages object. You can try to verify the functionality with the following cURL command:
 
 ```javascript
 curl -X DELETE http://localhost:3000/messages/1
 ```
 
-The Update operation on a message resource is for you to implement yourself as an exercise. I will spare it for a later section, because it quickly raises a new topic: permissions. The question: Who is allowed to edit a message? It should only be possible for the authenticated user (`me`) who is the creator of the message, should it?
+The update operation on a message resource is for you to implement yourself as an exercise. I will spare it for a later section, because it quickly raises a new topic: permissions. The question: Who is allowed to edit a message? It should only be possible for the authenticated user (`me`) who is the creator of the message.
 
-Last, since you have already the pseudo authenticated user at your disposal due to the application-wide middleware, you can offer a dedicated route for this resource too:
+Last, since you have already the pseudo authenticated user at your hands due to the application-wide middleware, you can offer a dedicated route for this resource too:
 
 ```javascript{3,4,5}
 ...
@@ -453,11 +509,20 @@ app.get('/session', (req, res) => {
 
 It's the first time you break the rules of being entirely RESTful, because you offer an API endpoint for a very specific feature. It will not be the first time you break the laws of REST, because most often REST is not fully implemented RESTful but rather RESTish. If you want to dive deeper into REST, you can do it by yourself. [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) and other REST related topics are not covered in detail and implemented here.
 
+### Exercises:
+
+* Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-server-rest-api/tree/middleware).
+  * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-server-rest-api/compare/rest-sense...middleware?expand=1).
+* Read more about [using middleware](https://expressjs.com/en/guide/using-middleware.html) in Express.
+  * Focus on the application-level middleware, the built-in middleware, and the third-party middleware.
+* Read more about [writing middleware](https://expressjs.com/en/guide/using-middleware.html) in Express.
+
 # Modular Models in Express as Data Sources
 
-At the moment, all of our implementation sits in the *src/index.js* file. However, at some point you may want to modularize your implementation details and put them into dedicated files and folders whereas the *src/index.js* file should only care about putting everything together and starting the application. Before we dive into modularizing the routing, let's see how we can modularize our sample data in so called models first. From your *src/* folder type the following commands to create a folder/file structure for the models.
+At the moment, all of our implementation sits in the *src/index.js* file. However, at some point you may want to modularize your implementation details and put them into dedicated files and folders whereas the *src/index.js* file should only care about putting everything together and starting the application. Before we dive into modularizing the routing, let's see how we can modularize our sample data in so called models first. From your root folder type the following commands to create a folder/file structure for the models.
 
-```javascript
+```text
+cd src
 mkdir models
 cd models
 touch index.js
@@ -572,11 +637,17 @@ app.delete('/messages/:messageId', (req, res) => {
 
 We are using the application-wide middleware to pass the models to all our routes in a context object now. The models are living outside of the *src/index.js* file and can be refactored to actual database interfaces later. Next, since we made the routing independent from all side-effects and pass everything needed to them via the request object with the context object, we can move the routes to separated places too.
 
+### Exercises:
+
+* Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-server-rest-api/tree/modular-models).
+  * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-server-rest-api/compare/middleware...modular-models?expand=1).
+
 # Modular Routing with Express Router
 
-So far, you have mounted routes directly on the Express application instance in the *src/index.js* file. This will become verbose eventually, because this file should only care about all the important topics to start our application. It shouldn't reveal implementation details of the routes. Now the best practice would be to move the routes into their dedicated folder/file structure. That's why we want to give each REST resource their own file in a dedicated folder. From your *src/* folder, type the following on the command line to create a folder/file structure for the modular routes:
+So far, you have mounted routes directly on the Express application instance in the *src/index.js* file. This will become verbose eventually, because this file should only care about all the important topics to start our application. It shouldn't reveal implementation details of the routes. Now the best practice would be to move the routes into their dedicated folder/file structure. That's why we want to give each REST resource their own file in a dedicated folder. From your root folder, type the following on the command line to create a folder/file structure for the modular routes:
 
 ```javascript
+cd src
 mkdir routes
 cd routes
 touch index.js session.js user.js message.js
@@ -649,7 +720,7 @@ export default router;
 Notice how we don't need to define the `/users` URI (path) but only the subpaths, because we did this already in the mounting process of the route in the Express application (see *src/index.js* file). Next, implement the *src/routes/message.js* file to define the last of our modular routes:
 
 ```javascript
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import { Router } from 'express';
 
 const router = Router();
@@ -693,12 +764,9 @@ Every of our modular routes from Express Router is mounted to our Express applic
 
 ### Exercises:
 
-* What's a client-server architecture?
-* Read more about [REST APIs and other APIs](/what-is-an-api-javascript/)
-* Read more about [GraphQL as popular alternative to REST](/why-graphql-advantages-disadvantages-alternatives/)
-* Read more about [basic routing in Express](https://expressjs.com/en/starter/basic-routing.html)
-* Read more about [advanced routing in Express](https://expressjs.com/en/guide/routing.html)
-* Read more about [middleware in Express](https://expressjs.com/en/guide/using-middleware.html)
+* Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-server-rest-api/tree/modular-routing).
+  * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-server-rest-api/compare/modular-models...modular-routing?expand=1).
+* Read more about [advanced routing in Express](https://expressjs.com/en/guide/routing.html).
 
 <LinkCollection
   label="This tutorial is part 3 of 4 in this series."

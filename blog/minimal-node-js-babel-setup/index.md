@@ -1,7 +1,7 @@
 ---
 title: "The minimal Node.js with Babel Setup"
 description: "A common sense minimal Node.js setup guide which uses Babel and Nodemon: Whereas Babel with the Babel Cli is used for enabling recent JavaScript language features, Nodemon is used for keeping your node process up and running ..."
-date: "2019-06-15T13:58:46+02:00"
+date: "2020-04-22T07:50:46+02:00"
 categories: ["Node", "Tooling", "JavaScript"]
 keywords: ["node setup", "node js setup", "node babel setup", "node js babel setup"]
 hashtags: ["#NodeJs"]
@@ -153,7 +153,7 @@ That's a basic understanding of Node.js environment variables. They should be us
 
 ### Exercises:
 
-* Confirm your [source code](https://github.com/rwieruch/node-babel-server)
+* Confirm your [source code](https://github.com/rwieruch/node-babel-server).
 * Ask yourself:
   * What's `npm init` doing when you setup your Node.js project?
   * What benefit is Nodemon giving us?

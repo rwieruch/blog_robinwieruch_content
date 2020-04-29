@@ -29,7 +29,7 @@ For Microsoft Windows, it requires a manual download of the installer (.msi) fro
 
 To use MongoDB on Windows, the *bin* folder must be included under thepath in the environmental variables. To do this navigate to System Properties and find the Advanced System Settings tab, where the Environmental Variables button can be seen at the bottom of the Window below Startup and Recovery. Add the directory *C:\Program Files\MongoDB\Server\4.0\binunder* the system variablePath. Here, *4.0* is for the versions *4.x.x* , in the future it can be different depending on your version. You can verify the installation in the command prompt by navigating to the MongoDB installation folder and running this command:
 
-```javascript
+```text
 mongo --version
 MongoDB shell version v4.0.5
 git version: 3739429dd92b92d1b0ab120911a23d50bf03c412
@@ -43,13 +43,13 @@ build environment:
 
 You need to create a directory so MongoDB can store its data.
 
-```javascript
+```text
 md c:\data\db
 ```
 
 Now you will run mongo daemon. Which is a service which runs in the background and listens for connections on a given port. Run this command:
 
-```javascript
+```text
 mongod
 ```
 

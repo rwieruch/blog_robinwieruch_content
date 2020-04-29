@@ -1,7 +1,7 @@
 ---
 title: "How to setup MongoDB on MacOS"
 description: "A installation guide for a MongoDB on MacOS setup for having a NoSQL database available on your OS. It comes with everything that's needed to connect a Node.js application to your database in JavaScript ..."
-date: "2019-01-25T13:50:46+02:00"
+date: "2020-04-26T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["mongodb macos", "mongodb setup", "mongodb os setup"]
 hashtags: ["#NodeJs"]
@@ -20,40 +20,41 @@ If you want to run MongoDB on Windows instead, you will find guidance over here:
 
 I recommend [Homebrew](https://brew.sh/) for installing and managing applications on MacOS. It is installed using the following command in the MacOS terminal. Open up the terminal and paste the command:
 
-```javascript
+```text
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 The terminal runs through a series of installation operations, and will probably create folders in your local machine to accommodate Homebrews storage requirements. You can find more detailed instructions [here](/developer-setup/). After it's installed, update the Homebrew dependencies and install MongoDB on the command line:
 
-```javascript
+```text
 brew update
-brew install mongodb
+brew tap mongodb/brew
+brew install mongodb-community
 ```
 
 It will take a few seconds. Once it's done, create a directory so MongoDB can store its data.
 
-```javascript
+```text
 sudo mkdir -p /data/db
 ```
 
 Now to make sure this data directory have the right permissions, you'll run this command:
 
-```javascript
+```text
 sudo chown -R `id -un` /data/db
 ```
 
 Now our data directory is ready with right permissions. Next run mongo daemon. Which is a service which runs in the background and listens for connections on a given port. Run this command:
 
-```javascript
+```text
 mongod
 ```
 
 Now mongo daemon will be running in the background and can be used by your applications. Next, check your MongoDB version:
 
-```javascript
+```text
 mongo --version
-MongoDB shell version: 4.0.5
+MongoDB shell version v4.2.6
 ```
 
 The command line results will show the version you have installed on your local machine. I recommend using the latest version of libraries and software whenever possible to avoid compatibility issues with client-side applications.

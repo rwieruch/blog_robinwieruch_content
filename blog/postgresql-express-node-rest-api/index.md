@@ -1,7 +1,7 @@
 ---
 title: "Creating a REST API with Express.js and PostgreSQL"
 description: "A Node.js with Express and PostgreSQL tutorial to learn step by step how to create a REST API for CRUD operations which can be consumed by a client application ..."
-date: "2019-02-24T07:50:46+02:00"
+date: "2020-04-28T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["express postgresql rest api", "express postgresql rest", "express postgresql crud"]
 hashtags: ["#NodeJs"]
@@ -176,6 +176,7 @@ Basically that's it for connecting PostgreSQL to Express routes with Sequelize. 
 
 ### Exercises
 
-* Confirm your [source code](https://github.com/rwieruch/node-express-postgresql-server)
+* Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-postgresql-server/tree/sequelize-rest). Be aware that the project cannot run properly in the Sandbox, because there is no database.
+  * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-postgresql-server/compare/seed...sequelize-rest?expand=1).
 * Check the [source code of the alternative MongoDB with Mongoose implementation](https://github.com/rwieruch/node-express-mongodb-server)
-* Experiment with your REST API with CURL operations.
+* Experiment with your REST API with cURL operations.

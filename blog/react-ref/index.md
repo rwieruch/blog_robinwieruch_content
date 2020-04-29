@@ -40,7 +40,7 @@ function Counter() {
 }
 ```
 
-React offers us the **React useRef Hook** which is the status quo API when using refs in [React function components](https://www.robinwieruch.de/react-function-component/). The useRef Hook returns us a mutable object which stays interact over the lifetime of a React component. Specifically, the returned object has a `current` property which can hold any modifiable value for us:
+React offers us the **React useRef Hook** which is the status quo API when using refs in [React function components](https://www.robinwieruch.de/react-function-component/). The useRef Hook returns us a mutable object which stays intact over the lifetime of a React component. Specifically, the returned object has a `current` property which can hold any modifiable value for us:
 
 ```javascript{2,11,14}
 function Counter() {

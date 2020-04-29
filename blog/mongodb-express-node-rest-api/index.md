@@ -1,7 +1,7 @@
 ---
 title: "Creating a REST API with Express.js and MongoDB"
 description: "A Node.js with Express and MongoDB tutorial to learn step by step how to create a REST API for CRUD operations which can be consumed by a client application ..."
-date: "2019-02-24T07:50:46+02:00"
+date: "2020-04-27T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["express mongodb rest api", "express mongodb rest", "express mongodb crud"]
 hashtags: ["#NodeJs"]
@@ -195,6 +195,7 @@ Basically that's it for connecting MongoDB to Express routes with Mongoose. All 
 
 ### Exercises
 
-* Confirm your [source code](https://github.com/rwieruch/node-express-mongodb-server)
-* Check the [source code of the alternative PostgreSQL with Sequelize implementation](https://github.com/rwieruch/node-express-postgresql-server)
-* Experiment with your REST API with CURL operations.
+* Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-mongodb-server/tree/mongoose-rest). Be aware that the project cannot run properly in the Sandbox, because there is no database.
+  * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-mongodb-server/compare/seed...mongoose-rest?expand=1).
+* Check the [source code of the alternative PostgreSQL with Sequelize implementation](https://github.com/rwieruch/node-express-postgresql-server).
+* Experiment with your REST API with cURL operations.

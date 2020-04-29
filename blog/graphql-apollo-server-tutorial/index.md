@@ -850,7 +850,7 @@ npm install uuid --save
 And import it to your file:
 
 ```javascript
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 ```
 
 Now you can give your message a unique identifier:
@@ -1063,7 +1063,7 @@ export default {
 Since you have passed the models to your Apollo Server context, they are accessible in each resolver. Next, move the resolvers to the *src/resolvers/index.js* file, and adjust the resolver's function signature by adding the models when they are needed to read/write users or messages.
 
 ```javascript{5,6,8,9,14,15,17,18,23,31,32,37,38,44,51,52,59,60}
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
   Query: {
@@ -1264,7 +1264,7 @@ export default {
 Next, add the message resolvers in the *src/resolvers/message.js* file:
 
 ```javascript
-import uuidv4 from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
   Query: {

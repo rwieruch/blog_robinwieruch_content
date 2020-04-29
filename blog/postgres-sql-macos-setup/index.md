@@ -1,7 +1,7 @@
 ---
 title: "How to setup PostgreSQL on MacOS"
 description: "A installation guide for a PostgreSQL on MacOS setup for having a SQL database available on your OS. It comes with everything that's needed to connect a Node.js application to your database in JavaScript ..."
-date: "2019-01-08T13:50:46+02:00"
+date: "2020-04-25T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["postgres macos", "postgresql macos", "postgres setup", "postgresql setup", "postgres os setup"]
 hashtags: ["#NodeJs"]
@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-This is a tutorial for setting up PostgreSQL 11 on MacOS. You might be wondering why there's a need for another setup guide for Postgres in the first place, since there are a few across the web. I found many tutorials and guides on how to set it up, but found most of them to be unclear and outdated, based on old PostgreSQL versions. The checklist is not comprehensive, though, as it is used for several tutorials on my website, I keep it updated with the recent versions of PostgreSQL. If you spot any flaws in this guide, a comment below would be very helpful to keep it up to date for other developers.
+This is a tutorial for setting up PostgreSQL on MacOS. You might be wondering why there's a need for another setup guide for Postgres in the first place, since there are a few across the web. I found many tutorials and guides on how to set it up, but found most of them to be unclear and outdated, based on old PostgreSQL versions. The checklist is not comprehensive, though, as it is used for several tutorials on my website, I keep it updated with the recent versions of PostgreSQL. If you spot any flaws in this guide, a comment below would be very helpful to keep it up to date for other developers.
 
 If you want to run PostgreSQL on Windows instead, you will find guidance over here: [How to setup PostgreSQL on Windows](/postgres-sql-windows-setup).
 
@@ -35,7 +35,7 @@ Next, check your PostgreSQL version:
 
 ```javascript
 postgres --version
-postgres (PostgreSQL) 11.1
+postgres (PostgreSQL) 12.2
 ```
 
 The command line results will show the version you have installed on your local machine. I recommed using the latest version of libraries and software whenever possible to avoid compatibility issues with client-side applications.

@@ -1,7 +1,7 @@
 ---
 title: "Setup PostgreSQL with Sequelize in Express"
 description: "A tutorial on how to setup PostgreSQL for Express.js in a Node.js application. It comes with the database installation and how to connect it to Express with Sequelize as ORM. You can choose to use another ORM, if you want to ..."
-date: "2019-02-10T13:50:46+02:00"
+date: "2020-04-28T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["postgresql express", "postgres express", "postgres sequelize", "postgresql sequelize", "node postgresql", "node postgres"]
 hashtags: ["#NodeJs"]
@@ -233,18 +233,14 @@ Note: If you don't have a super user or dedicated database for your application 
 
 Lastly, use the created Sequelize instance in your Express application. It connects to the database asynchronously and once this is done you can start your Express application.
 
-```javascript
+```javascript{4,10,14}
 import express from 'express';
-
-// Express related imports
-// other node package imports
 ...
 
 import models, { sequelize } from './models';
 
 const app = express();
 
-// additional Express stuff: middleware, routes, ...
 ...
 
 sequelize.sync().then(() => {
@@ -269,6 +265,11 @@ sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
 ```
 
 That's it for defining your database models for your Express application and for connecting everything to the database once you start your application. Once you start your application again, the command line results will show how the tables in your database were created.
+
+### Exercises:
+
+* Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-postgresql-server/tree/postgres-sequelize-setup). Be aware that the project cannot run properly in the Sandbox, because there is no database.
+  * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-postgresql-server/compare/init...postgres-sequelize-setup?expand=1).
 
 # How to seed a PostgreSQL Database?
 
@@ -375,11 +376,12 @@ That's it. In our case, we have used our models to create users with associated 
 
 ### Exercises:
 
-* Confirm your [source code](https://github.com/rwieruch/node-express-postgresql-server), but keep in mind that we didn't connect the API to PostgreSQL in this section yet.
+* Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-postgresql-server/tree/seed). Be aware that the project cannot run properly in the Sandbox, because there is no database.
+  * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-postgresql-server/compare/postgres-sequelize-setup...seed?expand=1).
 * Explore:
- * What else could be used instead of Sequelize as ORM alternative?
- * What else could be used instead of PostgreSQL as database alternative?
- * Compare your source code with the source code from the [MongoDB + Mongoose alternative](https://github.com/rwieruch/node-express-mongodb-server).
+  * What else could be used instead of Sequelize as ORM alternative?
+  * What else could be used instead of PostgreSQL as database alternative?
+  * Compare your source code with the source code from the [MongoDB + Mongoose alternative](https://github.com/rwieruch/node-express-mongodb-server).
 * Ask yourself:
   * When would you seed an application in a production ready environment?
   * Are ORMs like Sequelize essential to connect your application to a database?

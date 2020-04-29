@@ -1,7 +1,7 @@
 ---
 title: "Setup MongoDB with Mongoose in Express"
 description: "A tutorial on how to setup MongoDB for Express.js in a Node.js application. It comes with the database installation and how to connect it to Express with Mongoose as ORM. You can choose to use another ORM, if you want to ..."
-date: "2019-02-16T13:50:46+02:00"
+date: "2020-04-27T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["mongodb express", "mongodb mongoose", "node mongodb"]
 hashtags: ["#NodeJs"]
@@ -206,18 +206,14 @@ DATABASE_URL=mongodb://localhost:27017/node-express-mongodb-server
 
 Lastly, use the function in your Express application. It connects to the database asynchronously and once this is done you can start your Express application.
 
-```javascript
+```javascript{4,10,14}
 import express from 'express';
-
-// Express related imports
-// other node package imports
 ...
 
 import models, { connectDb } from './models';
 
 const app = express();
 
-// additional Express stuff: middleware, routes, ...
 ...
 
 connectDb().then(async () => {
@@ -249,6 +245,11 @@ connectDb().then(async () => {
 ```
 
 That's it for defining your database models for your Express application and for connecting everything to the database once you start your application. Once you start your application again, the command line results will show how the tables in your database were created.
+
+### Exercises:
+
+* Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-mongodb-server/tree/mongo-mongoose-setup). Be aware that the project cannot run properly in the Sandbox, because there is no database.
+  * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-mongodb-server/compare/init...mongo-mongoose-setup?expand=1).
 
 # How to seed a MongoDB Database?
 
@@ -358,11 +359,12 @@ That's it. In our case, we have used our models to create users with associated 
 
 ### Exercises:
 
-* Confirm your [source code](https://github.com/rwieruch/node-express-mongodb-server), but keep in mind that we didn't connect the API to MongoDB in this section yet.
+* Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-mongodb-server/tree/seed). Be aware that the project cannot run properly in the Sandbox, because there is no database.
+  * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-mongodb-server/compare/mongo-mongoose-setup...seed?expand=1).
 * Explore:
- * What else could be used instead of Mongoose as ORM alternative?
- * What else could be used instead of MongoDB as database alternative?
- * Compare your source code with the source code from the [PostgreSQL + Sequelize alternative](https://github.com/rwieruch/node-express-postgresql-server).
+  * What else could be used instead of Mongoose as ORM alternative?
+  * What else could be used instead of MongoDB as database alternative?
+  * Compare your source code with the source code from the [PostgreSQL + Sequelize alternative](https://github.com/rwieruch/node-express-postgresql-server).
 * Ask yourself:
   * When would you seed an application in a production ready environment?
   * Are ORMs like Mongoose essential to connect your application to a database?
