@@ -1,6 +1,6 @@
 ---
 title: "React Folder Structure in 5 Steps"
-description: "A walkthrough on how to structure a large React apps into folders and files for a scalable React project ..."
+description: "How to structure large React apps into folders and files for a scalable React project ..."
 date: "2020-04-06T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react folder structure", "react project structure", "how to structure a large React apps"]
