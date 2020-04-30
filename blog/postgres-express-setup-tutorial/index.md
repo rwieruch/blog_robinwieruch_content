@@ -73,6 +73,10 @@ const user = (sequelize, DataTypes) => {
     username: {
       type: DataTypes.STRING,
       unique: true,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
     },
   });
 
@@ -82,14 +86,20 @@ const user = (sequelize, DataTypes) => {
 export default user;
 ```
 
-As you can see, the user has a username field which is represented as string type. Also we don't want to have duplicated usernames in our database, hence we add the unique attribute to the field. Next, we may want to associate the user with messages. Since a user can have many messages, we use a 1 to N association:
+As you can see, the user has a username field which is represented as string type. In addition, we added some more validation for our user entity. First, we don't want to have duplicated usernames in our database, hence we add the unique attribute to the field. And second, we want to make the username string required, so that there is no user without a username. Each user will automatically come with a `createdAt` and a `updatedAt` field.
 
-```javascript{9,10,11}
+Next, we may want to associate the user with messages. Since a user can have many messages, we use a 1 to N association:
+
+```javascript{13-15}
 const user = (sequelize, DataTypes) => {
   const User = sequelize.define('user', {
     username: {
       type: DataTypes.STRING,
       unique: true,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
     },
   });
 
@@ -105,12 +115,16 @@ export default user;
 
 We can also implement additional methods on our model. Let's assume our user entity ends up with an email field in the future. Then we could add a method that finds a user by their an abstract "login" term, which is the username or email in the end, in the database. That's helpful when users are able to login to your application via username *or* email adress. You can implement it as method for your model. After, this method would be available next to all the other build-in methods that come from your chosen ORM:
 
-```javascript{13,14,15,16,17,18,19,20,21,22,23,24,25}
+```javascript{17-29}
 const user = (sequelize, DataTypes) => {
   const User = sequelize.define('user', {
     username: {
       type: DataTypes.STRING,
       unique: true,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
     },
   });
 
@@ -144,6 +158,10 @@ The message model looks quite similar, even though we don't add any custom metho
 const message = (sequelize, DataTypes) => {
   const Message = sequelize.define('message', {
     text: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   });
 
   Message.associate = models => {
@@ -158,12 +176,16 @@ export default message;
 
 Now, in case a user is deleted, we may want to perform a so called cascade delete for all messages in relation to the user. That's why you can extend schemas with a CASCADE flag. In this case, we add the flag to our user schema to remove all messages of this user on its deletion:
 
-```javascript{10}
+```javascript{14}
 const user = (sequelize, DataTypes) => {
   const User = sequelize.define('user', {
     username: {
       type: DataTypes.STRING,
       unique: true,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
     },
   });
 

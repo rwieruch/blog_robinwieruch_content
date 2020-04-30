@@ -68,29 +68,39 @@ The User and Message entities have fields that define both their identity within
 ```javascript
 import mongoose from 'mongoose';
 
-const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    unique: true,
+const userSchema = new mongoose.Schema(
+  {
+    username: {
+      type: String,
+      unique: true,
+      required: true,
+    },
   },
-});
+  { timestamps: true },
+);
 
 const User = mongoose.model('User', userSchema);
 
 export default User;
 ```
 
-As you can see, the user has a username field which is represented as string type. Also we don't want to have duplicated usernames in our database, hence we add the unique attribute to the field. We can also implement additional methods on our model. Let's assume our user entity ends up with an email field in the future. Then we could add a method that finds a user by their an abstract "login" term, which is the username or email in the end, in the database. That's helpful when users are able to login to your application via username *or* email adress. You can implement it as method for your model. After, this method would be available next to all the other build-in methods that come from your chosen ORM:
+As you can see, the user has a username field which is represented as string type. In addition, we added some more validation for our user entity. First, we don't want to have duplicated usernames in our database, hence we add the unique attribute to the field. And second, we want to make the username string required, so that there is no user without a username. Last but not least, we defined timestamps for this database entity, which will result in additional `createdAt` and `updatedAt` fields.
 
-```javascript{10,11,12,13,14,15,16,17,18,19,20}
+We can also implement additional methods on our model. Let's assume our user entity ends up with an email field in the future. Then we could add a method that finds a user by their an abstract "login" term, which is the username or email in the end, in the database. That's helpful when users are able to login to your application via username *or* email adress. You can implement it as method for your model. After, this method would be available next to all the other build-in methods that come from your chosen ORM:
+
+```javascript{14-24}
 import mongoose from 'mongoose';
 
-const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    unique: true,
+const userSchema = new mongoose.Schema(
+  {
+    username: {
+      type: String,
+      unique: true,
+      required: true,
+    },
   },
-});
+  { timestamps: true },
+);
 
 userSchema.statics.findByLogin = async function (login) {
   let user = await this.findOne({
@@ -114,12 +124,15 @@ The message model looks quite similar, even though we don't add any custom metho
 ```javascript
 import mongoose from 'mongoose';
 
-const messageSchema = new mongoose.Schema({
-  text: {
-    type: String,
-    required: true,
+const messageSchema = new mongoose.Schema(
+  {
+    text: {
+      type: String,
+      required: true,
+    },
   },
-});
+  { timestamps: true },
+);
 
 const Message = mongoose.model('Message', messageSchema);
 
@@ -128,16 +141,19 @@ export default Message;
 
 However, we may want to associate the message with a user:
 
-```javascript{8}
+```javascript{9}
 import mongoose from 'mongoose';
 
-const messageSchema = new mongoose.Schema({
-  text: {
-    type: String,
-    required: true,
+const messageSchema = new mongoose.Schema(
+  {
+    text: {
+      type: String,
+      required: true,
+    },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   },
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-});
+  { timestamps: true },
+);
 
 const Message = mongoose.model('Message', messageSchema);
 
@@ -146,15 +162,19 @@ export default Message;
 
 Now, in case a user is deleted, we may want to perform a so called cascade delete for all messages in relation to the user. That's why you can extend schemas with hooks. In this case, we add a pre hook to our user schema to remove all messages of this user on its deletion:
 
-```javascript{22,23,24}
+```javascript{26-28}
 import mongoose from 'mongoose';
 
-const userSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    unique: true,
+const userSchema = new mongoose.Schema(
+  {
+    username: {
+      type: String,
+      unique: true,
+      required: true,
+    },
   },
-});
+  { timestamps: true },
+);
 
 userSchema.statics.findByLogin = async function (login) {
   let user = await this.findOne({

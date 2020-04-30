@@ -69,6 +69,7 @@ Whether you access your Express application on `http://localhost:3000` in the br
 ### Exercises:
 
 * Get yourself more familiar with the terms client/server and frontend/backend.
+* If you want to have an alternative for cURL which works in the browser, check out [Isomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/).
 
 # Express Routes: HTTP Methods are REST Operations
 
@@ -217,7 +218,7 @@ You may be still wondering: *What value brings the combination of URIs and HTTP 
 Let's imagine we wouldn't just return a result, as we do at the moment, but would act properly on the received operation instead. For instance, the Express server could be connected to a database that stores user entities in a user table. Now, when consuming the REST API as a client (e.g. cURL, browser, or also a [React.js application](/react-fetching-data/)), you could retrieve all users from the database with a HTTP GET method on the `/users` URI or, on the same resource, create a new user with a HTTP POST method.
 
 ```text
-// Making sense of the Naming
+// making sense of the naming
 
 Express Route's Method <=> HTTP Method <=> REST Operation
 Express Route's Path <=> URI <=> REST Resource
@@ -387,7 +388,7 @@ app.post('/messages', (req, res) => {
 ...
 ```
 
-Accessing the payload of an HTTP POST request is provided within Express with its built-in middleware which is based on [body-parser](http://expressjs.com/en/resources/middleware/body-parser.html). It enables us to transform body types from our request object (e.g. json, urlencoded). We can use the built-in middleware the Express instance's `use` method:
+Accessing the payload of an HTTP POST request is provided within Express with its built-in middleware which is based on [body-parser](http://expressjs.com/en/resources/middleware/body-parser.html). It enables us to transform body types from our request object (e.g. json, urlencoded):
 
 ```javascript{6,7}
 ...
@@ -401,7 +402,14 @@ app.use(express.urlencoded({ extended: true }));
 ...
 ```
 
-This extracts the entire body portion of an incoming request stream and makes it accessible on `req.body`. Now the body with the message's text is accessible in the request whether it is send by a regular POST request or a POST request from a HTML form. Both options should work, because all data should be received and send as JSON payload now. That's another aspect of REST, which itself is no opinionated about the payload format (JSON, XML), but once you have chosen a format, you should stick to it for your entire API.
+This extracts the entire body portion of an incoming request stream and makes it accessible on `req.body`. Now the body with the message's text is accessible in the request whether it is send by a regular POST request or a POST request from a HTML form. Both options should work, because all data should be received and send as JSON payload now. That's another aspect of REST, which itself is no opinionated about the payload format (JSON, XML), but once you have chosen a format (here JSON), you should stick to it for your entire API.
+
+Note that all data that comes with the request object's body tag isn't typed yet. Everything comes as a JSON string. In the case of the message's `text`, we are doing fine with just keeping it as a string. However, for other types you would have to convert the JSON string:
+
+```javascript
+const date = Date.parse(req.body.date);
+const count = Number(req.body.count);
+```
 
 In this last step, we have used a built-in Express middleware and made it available on an application-level -- which means that each request that arrives at one of our Express routes goes through the middleware. Therefore, all data send by a client to our server is available in the incoming request's body object. Try it by creating a message yourself: In a cURL request you can specify HTTP headers with the `-H` flag -- that's how we are saying we want to transfer JSON -- and data as payload with the `-d` flag. You should be able to create messages this way:
 
