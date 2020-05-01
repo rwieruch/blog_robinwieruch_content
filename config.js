@@ -114,7 +114,7 @@ module.exports = {
       { to: '/about', label: 'About' },
       { to: '/blog', label: 'Blog' },
       { to: 'https://courses.robinwieruch.de', label: 'Courses' },
-      { to: '/rss.xml', label: 'RSS' }
+      { to: '/index.xml', label: 'RSS' },
     ],
   },
 
@@ -299,24 +299,24 @@ module.exports = {
     ],
   },
   table: {
-    header: '',
-    subheader: '',
-    chapters: [
-      {
-        label: '',
-        sections: [''],
-      },
-    ],
-    secondaryHeader: '',
-    secondarySubheader: '',
-    curriculum: [
-      {
-        label: '',
-        type: '',
-        sections: [''],
-      },
-    ],
-  },
+    header: '',
+    subheader: '',
+    chapters: [
+      {
+        label: '',
+        sections: [''],
+      },
+    ],
+    secondaryHeader: '',
+    secondarySubheader: '',
+    curriculum: [
+      {
+        label: '',
+        type: '',
+        sections: [''],
+      },
+    ],
+  },
   sproof: {
     header: '',
     subheader: '',
