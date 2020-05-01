@@ -1377,7 +1377,7 @@ export default withFirebase(App);
 
 Start your application and verify that your sign up, sign in, and sign out functionality works, and that the Navigation component displays the options depending on the session state (authenticated user).
 
-Congratulations, you have successfully implemented the authentication process with Firebase in React. Everything in the following sections reagrding authentication is considered extra, to improve the developer's experience and add a couple of useful features along the way.
+Congratulations, you have successfully implemented the authentication process with Firebase in React. Everything in the following sections regarding authentication is considered extra, to improve the developer's experience and add a couple of useful features along the way.
 
 ### Exercises:
 
