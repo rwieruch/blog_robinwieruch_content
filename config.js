@@ -55,7 +55,7 @@ module.exports = {
     otherCategories: {
       prefix: 'Read more about',
       suffix: '',
-      labelFn: category => category,
+      labelFn: (category) => category,
       limit: 4,
     },
 
@@ -68,7 +68,7 @@ module.exports = {
         customCategory: true,
         byGrouping: {
           category: 'recent',
-          categoryFn: edges =>
+          categoryFn: (edges) =>
             edges.sort(
               (a, b) =>
                 new Date(b.node.fields.date) - new Date(a.node.fields.date)
@@ -112,6 +112,7 @@ module.exports = {
     hasLogo: true,
     links: [
       { to: '/about', label: 'About' },
+      { to: '/work-with-me', label: 'Hire' },
       { to: '/blog', label: 'Blog' },
       { to: 'https://courses.robinwieruch.de', label: 'Courses' },
       { to: '/index.xml', label: 'RSS' },

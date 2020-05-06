@@ -11,7 +11,7 @@ contribute: ""
 
 Hi, it's Robin. I am a german software engineer from Berlin but working remotely most of the time. First of all, thank you for reading my blog. It's such a pleasure to have you here! Just to make sure: I am the guy on the right-hand side of the picture :)
 
-A couple of words about my professional life: I graduated from university with a Master of Science in Computer Science in 2014. At university [I discovered how empowering it can be to build applications](/what-is-an-api-javascript/) and thus built several applications in different programming languages, domains and platforms. Straight out of university, I worked in a full-time position as software engineer on a [large scale web application using JavaScript and Java](https://www.small-improvements.com/?ref=robinwieruch.de) to help thousands of customers to introduce a feedback culture in their companies. Those years gave me a lot of practical experiences in the field and I tried to convey a part of the information on my blog. During this journey, I found out about teaching as a fulfilling activity and therefore [self-published 2 ebooks](https://leanpub.com/u/rwieruch) and [launched a course platform](https://courses.robinwieruch.de). Fast forward in 2017, I decided to be self-employed, doing freelance and consultant work mostly related to web development. But I am always keen to learn something new, so I try to push myself every day. One of my recent learnings, by doing courses, reading books, listening to audio material and [applying those learnings in JavaScript](/machine-learning-javascript-web-developers/), is machine learning. I am open for any opportunities in this field or software engineering, [so find out how to work with me](/work-with-me/).
+A couple of words about my professional life: I graduated from university with a Master of Science in Computer Science in 2014. At university [I discovered how empowering it can be to build applications](/what-is-an-api-javascript/) and thus built several applications in different programming languages, domains and platforms. Straight out of university, I worked in a full-time position as software engineer on a [large scale web application using JavaScript and Java](https://www.small-improvements.com/?ref=robinwieruch.de) to help thousands of customers to introduce a feedback culture in their companies. Those years gave me a lot of practical experiences in the field and I tried to convey a part of the information on my blog. During this journey, I found out about teaching as a fulfilling activity and therefore [self-published 2 ebooks](https://leanpub.com/u/rwieruch) and [launched a course platform](https://courses.robinwieruch.de). Fast forward in 2017, I decided to be self-employed, doing freelance and consultant work mostly related to web development. But I am always keen to learn something new, so I try to push myself every day. I am open for any opportunities in this field or software engineering, [so find out how to work with me](work-with-me/).
 
 # Values and Mission
 
@@ -33,33 +33,29 @@ The most important part in my life is my girlfriend Liesa. Without her I wouldn'
 
 # You like my content? Here are a couple of ways to support it.
 
-I invest a lot of my free time into this website. Several hours a working week and most of my weekend time. That way, I hope that I can help others to learn the things that I have learned by myself. But I cannot deny that it costs a lot of time and energy to keep the website up and running. As a return of investment, I get revenue from selling my courses on [Road to React](https://courses.robinwieruch.de) and a little affiliate marketing, but that's nothing compared to the time and energy I put into it. Sometimes I wonder how much easier it would be to quit, but then my readers encourage me to keep going. I think it applies to everything in life: people have a big impact on this when they cheer you up.
+I invest a lot of my free time into this website. Several hours a working week and most of my weekend time. That way, I hope that I can help others to learn the things that I have learned by myself. But I cannot deny that it costs a lot of time and energy to keep the website up and running. As a return of investment, I get revenue from [selling my courses](https://courses.robinwieruch.de) and a little affiliate marketing, but that's nothing compared to the time and energy I put into it. Sometimes I wonder how much easier it would be to quit, but then my readers encourage me to keep going. I think it applies to everything in life: people have a big impact on this when they cheer you up.
 
 If you appreciate what I am doing, there are several ways to support me. It keeps the educational content of mine up and running. Furthermore, it may help me to dedicate more time to teaching students. I already made the leap to being self-employed, but most of my time still goes into working with companies on their problems. If you like the content on my website and other projects I create, you can consider one of the following ways to support me with my adventure.
 
-### Be my Patron
-
-First, I run a [Patreon](https://www.patreon.com/rwieruch) account where you can back me up. Your monthly pledge would help me to sustain my work in educating people. Most of the time, I do it for free by writing educational articles, open sourcing libraries or educational projects. Patreon is the perfect fit for people like me.
-
 ### Follow Me
 
-Second, you can encourage me by following me on my social media channels: [Twitter](https://twitter.com/rwieruch), [Facebook](https://www.facebook.com/rwieruch). There you will get only quality updates about my content. You can follow me as well on [GitHub](https://github.com/rwieruch) for trending, useful, or educational projects. In addition, you can [subscribe to my Newsletter](https://www.getrevue.co/profile/rwieruch) where many people already receive quality updates from me.
+First, you can encourage me by following me on my social media channels: [Twitter](https://twitter.com/rwieruch), [Facebook](https://www.facebook.com/rwieruch). There you will get only quality updates about my content. You can follow me as well on [GitHub](https://github.com/rwieruch) for trending, useful, or educational projects. In addition, you can [subscribe to my Newsletter](https://www.getrevue.co/profile/rwieruch) where many people already receive quality updates from me.
 
 ### Leave a Review
 
-Third, since I am writing educational books, my content began to end up on platforms such as Goodreads and Amazon. If you liked it, it would mean a lot to me if you would invest a couple of minutes to leave a rating or review. You can find my books on [Goodreads](https://www.goodreads.com/author/show/16218990.Robin_Wieruch) and [Amazon](https://amzn.to/2QY2ONp). It's one of my pillars to sustain my adventure to give out lots of content for free.
+Second, since I am writing educational books, my content began to end up on platforms such as Goodreads and Amazon. If you liked it, it would mean a lot to me if you would invest a couple of minutes to leave a rating or review. You can find my books on [Goodreads](https://www.goodreads.com/author/show/16218990.Robin_Wieruch) and [Amazon](https://amzn.to/2QY2ONp). It's one of my pillars to sustain my adventure to give out lots of content for free.
 
 ### Share
 
-Fourth, I am grateful for every share on social media of my articles. When you read something on my website and find it valuable, please don't hesitate to share it. I am always eager to keep the quality of my articles on a high level and I always try my best to keep the content up to date. But it's not only for me: There might be a follower of yours who finds it interesting too.
+Third, I am grateful for every share on social media of my articles. When you read something on my website and find it valuable, please don't hesitate to share it. I am always eager to keep the quality of my articles on a high level and I always try my best to keep the content up to date. But it's not only for me: There might be a follower of yours who finds it interesting too.
 
 ### Learn React
 
-Fifth, it encourages me when people learn React through my articles, [eBooks](https://www.amazon.com/Robin-Wieruch/e/B07BBS273X) or [courses](https://courses.robinwieruch.de/). It keeps me motivated to improve the material all the time. Even though the eBook is pay what you want, you can support me by paying for it. It helps me to take more time to update, improve and extend the material. A lot of people learned with my articles, books and courses and I encourage you to give it a shot as well. If you liked it, spread the word to your friends who want to learn it as well.
+Fourth, it encourages me when people learn React through my articles, [eBooks](https://www.amazon.com/Robin-Wieruch/e/B07BBS273X) or [courses](https://courses.robinwieruch.de/). It keeps me motivated to improve the material all the time. Even though the eBook is pay what you want, you can support me by paying for it. It helps me to take more time to update, improve and extend the material. A lot of people learned with my articles, books and courses and I encourage you to give it a shot as well. If you liked it, spread the word to your friends who want to learn it as well.
 
 ### Contribute
 
-Sixth, you can have a direct impact yourself. Every of my articles has a link to the [GitHub repository](https://github.com/rwieruch/blog_robinwieruch_content) where I manage all of my content. You can open Issues or Pull Requests to improve the articles. It is not easy to keep everything up to date being all by myself. Additionally, it is not easy as a non native speaker.
+Fifth, you can have a direct impact yourself. Every of my articles has a link to the [GitHub repository](https://github.com/rwieruch/blog_robinwieruch_content) where I manage all of my content. You can open Issues or Pull Requests to improve the articles. It is not easy to keep everything up to date being all by myself. Additionally, it is not easy as a non native speaker.
 
 In addition, you can write a guest blog post. Do you have an own website? Do you write quality content? Do you want to get more readers to your website? My website generates lots of traffic. You can help a lot of people in your topic of choice by teaching them. A guest blog post that links to your website is a great contribution. It has to relate to my content though.
 
@@ -90,18 +86,24 @@ In order to use my own domain for my E-Mails, but also to keep my E-Mails privat
 
 ### Editor and Terminal
 
-Every developer needs an IDE or editor/terminal combination. I like to have multiple tools, by having each tool for a specific purpose, but combining them to one great developer experience. That's why I am using Sublime Text and iTerm. If you want to know how to set it up, you can find more about it over here: [a developer's setup](/developer-setup/).
+Every developer needs an IDE or editor/terminal combination. I like to have multiple tools, by having each tool for a specific purpose, but combining them to one great developer experience. That's why I am using VS Code and iTerm. If you want to know how to set it up, you can find more about it over here: [a developer's setup](/developer-setup/).
 
-### Nomad Gear
+### Technical Gear
 
-Since I am often working remotely, I have a couple of technical gadgets I heavily rely on:
+I have a couple of technical gadgets I heavily rely on:
 
-* MacBook Pro 2015 with 13-inch, 2,7 GHz Intel Core i5, 16 GB, 256 GB and QWERTY-Layout
+* MacBook Pro 2015
+  * 13-inch
+  * 2,7 GHz Intel Core i5
+  * 16 GB
+  * 256 GB
+  * QWERTY
+* Backup MacBook Pro 2015
 * [Laptop Stand](https://amzn.to/2SOhYGn) (the best thing to work in co-working spaces when not having an external display)
-* [Trackpad](https://amzn.to/2RwCPwg) and [Keyboard](https://amzn.to/2SPqZ1K) (when using the laptop stand ...)
-* [Headphones](https://amzn.to/2SPghIE) (having done lots of music in the past, I cannot turn away from these headphones)
-* [Display](https://amzn.to/2RChPEq) (trying to buy and sell it whenever I am staying somewhere for a longer period of time)
-* [Microphone](https://amzn.to/2RAEu4g) (makes sense for me when doing lots of recordings or calls with clients of mine)
+* [Trackpad](https://amzn.to/2RwCPwg) and [Keyboard](https://amzn.to/2SPqZ1K)
+* [Headphones](https://amzn.to/2SPghIE)
+* [Display](https://amzn.to/2RChPEq)
+* [Microphone](https://amzn.to/2RAEu4g)
 
 ### Apps
 
@@ -117,6 +119,7 @@ Since I am often working remotely, I have a couple of technical gadgets I heavil
 * [SoundCloud](https://itunes.apple.com/us/app/soundcloud-music-audio/id336353151?mt=8)
 * [Duolingo](https://itunes.apple.com/us/app/duolingo/id570060128?mt=8)
 * [Audible](https://itunes.apple.com/us/app/audible-audio-books-podcasts/id379693831?mt=8)
+* [Figma](https://www.figma.com/)
 
 ### Freelancers
 
@@ -150,6 +153,10 @@ Leanpub has helped me to self-publish [my first ebook](https://leanpub.com/the-r
 ### Educative
 
 Next to Leanpub, I used [educative.io](https://www.educative.io/collection/5740745361195008/5676830073815040) to release a course. The platform is pretty new on the market. The creators of educative are helpful, supportive and very kind. I enjoyed the collaboration with them. The platform itself offers all the tools you need to setup your course.
+
+### TransferWise and PayPal
+
+Whenever I need to pay people abroad where I cannot use the usual bank transfer, I use [TransferWise](https://transferwise.com/u/robinw212) or PayPal.
 
 <Divider />
 
