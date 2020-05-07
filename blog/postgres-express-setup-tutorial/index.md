@@ -157,11 +157,13 @@ The message model looks quite similar, even though we don't add any custom metho
 ```javascript
 const message = (sequelize, DataTypes) => {
   const Message = sequelize.define('message', {
-    text: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true,
-    },
+    text: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    }
   });
 
   Message.associate = models => {
