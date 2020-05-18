@@ -16,6 +16,12 @@ After learning [how to pass props in React](/react-pass-props-to-component/), th
 
 This tutorial walks you through the most common scenarios for managing arrays in React state. For each I want to show you a array example in React state, such as how to push an item to an array or how to update an item in an array, when React state is used to store it.
 
+The following tutorial shows you array manipulation in React with class components. If you are interested in seeing this with function components and React Hooks, check out the following guides:
+
+* [Add an Item to a List in React](/react-add-item-to-list)
+* [Update an Item in a List in React](/react-update-item-in-list)
+* [Remove an Item from a List in React](/react-remove-item-from-list)
+
 # Arrays in React State
 
 Before we are going to manipulate a JavaScript array in React state, let's recap state in React shortly. State in React can be initialized in the [constructor of a React component](/react-state-without-constructor) and afterward used by accessing it via the React component's class instance with the `this` object.

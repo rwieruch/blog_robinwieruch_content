@@ -70,7 +70,7 @@ const App = () => {
 };
 ```
 
-Now we have a stateful list and we are able to alter it. Let's add an input field and a button, each with a [handler function](/react-event-handler), which deal updating the input field's state and eventually adding an item to the list:
+Now we have a stateful list and we are able to alter it. Let's add an input field and a button, each with a [handler function](/react-event-handler), which deal with updating the input field's state and eventually adding an item to the list:
 
 ```javascript{4-6,8-10,13-19,26}
 const App = () => {
@@ -103,7 +103,7 @@ const App = () => {
 };
 ```
 
-Before we can add any item, we need to track the input field's state, because without the value from the input field, we don't have any text for the item which we want to add to our list. So let's add some state management for this first:
+Before we can add any item, we need to track the input field's state, because without the value from the input field, we don't have any text for the item which we want to add to our list. So let's add some state management to this first:
 
 ```javascript{3,5-6,16}
 const App = () => {
@@ -173,7 +173,9 @@ const App = () => {
 };
 ```
 
-We are using a [object property shorthand initialization](/javascript-object-property-shorthand) here, because the variable `name` equals the object's property `name`. Adding an item works, but only with some flaws. What's missing are two things. First, we should clean up the input field. And second, we need to define an identifier `id` property for the item too, otherwise we wouldn't have a stable key attribute for the in JSX mapped list item anymore. I am using the [uuid node package](https://www.npmjs.com/package/uuid) here, which you can install with `npm install uuid`:
+We are using a [object property shorthand initialization](/javascript-object-property-shorthand) here, because the variable `name` equals the object's property `name`. Then we are just using the state updater function to pass in the new list.
+
+Adding an item works, but only with some flaws. What's missing are two things. First, we should clean up the input field. And second, we need to define an identifier `id` property for the item too, otherwise we wouldn't have a stable key attribute for the in JSX mapped list item anymore. I am using the [uuid node package](https://www.npmjs.com/package/uuid) here, which you can install with `npm install uuid`:
 
 ```javascript{2,15,19}
 import React from 'react';
