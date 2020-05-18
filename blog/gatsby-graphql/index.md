@@ -48,7 +48,7 @@ In the code snippet above, the createPage action is used to create a page at `/s
 * `component` - This is the path to the React component which is used as template for this page.
 * `context` - This is an object that can contain any data to be passed down to the React component as [props](/react-pass-props-to-component).
 
-Essential createPage helps us everywhere where we need to create pages dynamically. A more practical use for the createPage action would be creating multiple pages for each article in a publication website. It's the best method for this use case because it allows creating multiple pages programmatically from an external source. It's also a good option because we could use the data gotten from the external source to create permalinks/paths for the pages. Let's take a look at an example:
+Essentially createPage helps us everywhere where we need to create pages dynamically. A more practical use for the createPage action would be creating multiple pages for each article in a publication website. It's the best method for this use case because it allows creating multiple pages programmatically from an external source. It's also a good option because we could use the data gotten from the external source to create permalinks/paths for the pages. Let's take a look at an example:
 
 ```javascript
 // gatsby-node.js
