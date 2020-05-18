@@ -42,7 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
 }
 ```
 
-In the code snippet above, the createPage action is used to create a page at `/store` . The [createPage](https://www.gatsbyjs.org/docs/actions/#createPage) action accepts multiple arguments but I'll focus on the following arguments:
+In the code snippet above, the createPage action is used to create a page at `/store`. The [createPage](https://www.gatsbyjs.org/docs/actions/#createPage) action accepts multiple arguments but I'll focus on the following arguments:
 
 * `path` - This is the relative URL of the page and should always start with a slash.
 * `component` - This is the path to the React component which is used as template for this page.
