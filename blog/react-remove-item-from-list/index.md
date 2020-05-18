@@ -1,5 +1,5 @@
 ---
-title: "Remove an Item from List in React"
+title: "Remove an Item from a List in React"
 description: "Learn how to remove an item from a list in React with React's state. It's a common task to delete an item from an array in ..."
 date: "2020-05-14T07:52:46+02:00"
 categories: ["React"]
@@ -86,7 +86,7 @@ const App = () => {
 };
 ```
 
-Now we have a stateful list and we are able to alter it. Let's add a button with a [handler function](/react-event-handler) which deals with the click event:
+Now we have a stateful list and we are able to alter it. Let's add a button with a [handler function](/react-event-handler) which deals with a click event for each item in the list. In this case, the button should be there for removing an item:
 
 ```javascript{4-6,15-17}
 const App = () => {
@@ -170,11 +170,11 @@ const App = () => {
 };
 ```
 
-Rather than mutating the list, we keep it as immutable data structure and therefore create a new list based on the old list and the filter condition. It's because the filter function doesn't modify the list but only returns a new list.
+Rather than mutating the list, we keep it as [immutable data structure](/javascript-immutable) and therefore create a new list based on the old list and the filter condition. It's because the filter function doesn't modify the list but only returns a new list.
 
-Now, when our state updater function from React's useState Hook is called, the list without the item is set as new state and the component re-renders to display only the remaining items. That's everything there is to know about removing an entry from an array in React. But there is more if you want to learn more.
+Now, when our state updater function from React's useState Hook is called, the list without the item is set as new state and the component re-renders to display only the remaining items. That's everything there is to know about removing an entry from an array in React. But there is more ...
 
-For example, in our case everything happens in one component. What would happen if you would want to remove an item from the list from a child component? Let's continue with splitting the component into multiple components. We will need a callback handler to pass the functionality as [destructured](/javascript-destructuring-object) [props](/react-pass-props-to-component) in order to remove an item from App to Item component:
+For example, in our case everything happens in one component. What would happen if you would want to remove an item from the list from a child component? Let's continue with splitting the component into multiple components. We will need a callback handler to pass the functionality as [destructured](/javascript-destructuring-object) [props](/react-pass-props-to-component) in order to remove an item:
 
 ```javascript{10,13-19,21-30}
 const App = () => {
@@ -211,7 +211,7 @@ const Item = ({ item, onRemove }) => (
 
 That's it. You are able to remove an item from a child component whereas the list is managed as state somewhere up in a parent component. If you would want to manage the list as state in the List component instead of managing it in the App component, you would have to [lift state](/react-lift-state).
 
-Now, we will continue by exchanging React's useState with [React's useReducer Hook](/react-usereducer-hook). The reducer hook can be used in React for complex state and complex state transitions. This is not the case for our state at the moment, but it could be of interest for your particular case. Let's start by defining a [reducer function](/javascript-reducer) for managing the stateful list:
+Now, we will continue by exchanging React's useState with [React's useReducer Hook](/react-usereducer-hook). The reducer hook can be used in React for complex state and complex state transitions. This is not the case for our state at the moment, but it could be of interest for your particular case in the future. Let's start by defining a [reducer function](/javascript-reducer) for managing the stateful list:
 
 ```javascript
 const listReducer = (state, action) => {
@@ -228,7 +228,7 @@ Essentially a reducer function takes a state and action as input and returns a n
 
 Next, we will exchange the component's useState hook with a useReducer hook. This hook returns the state and a dispatch function as array which we conveniently access again via [array destructuring](/javascript-destructuring-array). The dispatch function is then used in our handler function by passing an appropriate action to it:
 
-```javascript{2-5,6}
+```javascript{2-5,8}
 const App = () => {
   const [list, dispatchList] = React.useReducer(
     listReducer,
@@ -245,7 +245,7 @@ const App = () => {
 
 That's it for using useReducer instead of useState. Both state hooks are useful in React, so you should decide based on your needs whether you need a [useReducer or useState hook](/react-usereducer-vs-usestate).
 
-Last but not least, it may not always be the case that your state is only the list. More often you will have a more complex state object and the list is only one property of this object. How would you remove an item from this list in the object then? Let's go through this example first with React's useState Hook again. Let's say next to the list there is a boolean flag to either show or hide the list with a [conditional rendering](/conditional-rendering-react):
+Last but not least, it may not always be the case that your state is only the list. Often you will have a more complex state object and the list is only one property of this object. How would you remove an item from this list in the object then? Let's go through this example first with React's useState Hook again. Let's say next to the list there is a boolean flag to either show or hide the list with a [conditional rendering](/conditional-rendering-react):
 
 ```javascript{2-5,8,11,15-17,19}
 const App = () => {
