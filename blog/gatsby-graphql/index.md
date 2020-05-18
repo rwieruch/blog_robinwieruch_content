@@ -1,6 +1,6 @@
 ---
 title: "How to use GraphQL in Gatsby"
-description: " ..."
+description: "Learn how to work with GraphQL in Gatsby more efficient with these tips about creating dynamic pages, GraphQL fragments, and static vs page queries ..."
 date: "2020-05-17T07:52:46+02:00"
 categories: ["React"]
 keywords: ["gatsby graphql"]
