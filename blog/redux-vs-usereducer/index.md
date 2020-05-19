@@ -102,7 +102,7 @@ Popular side-effect libraries in Redux are [Redux Thunk](https://github.com/redu
 
 These two things are the main points which are missing to make useReducer plus other things (e.g. useContext) a full-fledged Redux implementation. Maybe we will get there, but then the best argument against it would be: Why do we want to reinvent the wheel? Anyway, please let me know in the comments how useReducer + useContext make up a valid Redux alternative for you.
 
-I guess there are a few rules of thumb to follow: If you state management doesn't need all the Redux features, use useState, useReducer and useContext. If your state management needs Redux as *one global state container with middleware*, introduce Redux to your application to handle state logic in complex and large applications.
+I guess there are a few rules of thumb to follow: If your state management doesn't need all the Redux features, use useState, useReducer and useContext. If your state management needs Redux as *one global state container with middleware*, introduce Redux to your application to handle state logic in complex and large applications.
 
 * Use useState for basic and simple/small size applications.
 * Use useState + useReducer + useContext for advanced/medium size applications.
