@@ -270,6 +270,7 @@ That's it for defining your database models for your Express application and for
 
 * Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/node-express-mongodb-server/tree/mongo-mongoose-setup). Be aware that the project cannot run properly in the Sandbox, because there is no database.
   * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-mongodb-server/compare/init...mongo-mongoose-setup?expand=1).
+* Read more about [Mongoose](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/mongoose).
 
 # How to seed a MongoDB Database?
 
