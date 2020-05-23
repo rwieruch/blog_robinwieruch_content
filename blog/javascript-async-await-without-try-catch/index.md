@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-When you have learned about JavaScript promises for the first time, you learned about the promise's method then and catch. While the former's callback function is called whenver a JavaScript promise resolves successfully, the latter is used for error handling:
+When you have learned about JavaScript promises for the first time, you learned about the promise's methods then and catch. While the former's callback function is called whenever a JavaScript promise resolves successfully, the latter is used for error handling:
 
 ```javascript
 function findUserById(id) {
@@ -51,7 +51,7 @@ async function findUserById(id) {
 }
 ```
 
-This broke all the concisness from async/await again, because instead of having asynchronous callbacks in then/catch blocks, we ended up with a try/catch block surrounding everything. So what if you could get the best out of both worlds?
+This broke all the conciseness from async/await again, because instead of having asynchronous callbacks in then/catch blocks, we ended up with a try/catch block surrounding everything. So what if you could get the best out of both worlds?
 
 ```javascript{3-5}
 async function findUserById(id) {
