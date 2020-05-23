@@ -34,7 +34,7 @@ async function findUserById(id) {
 }
 ```
 
-The shift from then/catch to async/await was a pretty powerful one, because suddenly you would be able to read your code in a synchronous way again. Every line happening after the await statement has to wait until the promise resolves. In addition, writing code like this felt way more concise. But then there was the error handling for async/await with a try/catch block:
+The shift from then/catch to async/await was a pretty powerful one, because suddenly you would be able to read your code in a synchronous way again. Every line happening after the await statement has to wait until the promise resolves. In addition, writing code like this felt way more concise. But then there is the error handling for async/await with a try/catch block:
 
 ```javascript{2,4,7-9}
 async function findUserById(id) {
@@ -66,12 +66,11 @@ async function findUserById(id) {
 
 This works, the only flaw here is that in a case of an error all the code after the await statement will still execute. We would have to guard it with a condition, but only if you would need to avoid this behavior:
 
-```javascript{5,8-12}
+```javascript{7-11}
 async function findUserById(id) {
   const user = await database.getUserById(id)
     .catch(error => {
       // do something with error
-      return;
     });
 
   if (!user) {
