@@ -187,7 +187,7 @@ class SomeComponent extends Component {
 
 The only difference is that Apollo Link State manages a global state and React' local state only a component co-located state. After all, by using Apollo Link State, you have made your state globally accessible by using GraphQL queries.
 
-The reading local data part of the equation works. What about the writing local data part then? The Select component is broken as it is now, because in the last implementation the `toggleSelectRepository()` callback function was removed since it cannot be used anymore to update the identifiers in React's local state. The state lives in Apollo Client Cache now.
+The reading local data part of the equation works. What about the writing local data part then? The Select component is broken as it is now, because in the last implementation the `toggleSelectRepository()` [callback function](/javascript-callback-function) was removed since it cannot be used anymore to update the identifiers in React's local state. The state lives in Apollo Client Cache now.
 
 # Apollo Link State for Local State: Write Data
 

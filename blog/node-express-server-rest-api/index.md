@@ -202,7 +202,7 @@ app.delete('/users/:userId', (req, res) => {
 ...
 ```
 
-In order to delete or update a user resource, you would need to know the exact user. That's where unique identifiers are used. In our Express routes, we can assign unique identifiers with parameters in the URI. Then the callback function holds the URI's parameter in the request object's properties. Try again a cURL operation  on `/users/1`, `/users/2` or another identifier with a DELETE or UPDATE HTTP method and verify that the identifier shows up in the command line as output.
+In order to delete or update a user resource, you would need to know the exact user. That's where unique identifiers are used. In our Express routes, we can assign unique identifiers with parameters in the URI. Then the [callback function](/javascript-callback-function) holds the URI's parameter in the request object's properties. Try again a cURL operation  on `/users/1`, `/users/2` or another identifier with a DELETE or UPDATE HTTP method and verify that the identifier shows up in the command line as output.
 
 ### Exercises:
 

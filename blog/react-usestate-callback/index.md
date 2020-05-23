@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-If you have started to use [React's useState hook](/react-usestate-hook) for your application, you may be missing a callback function, because only the initial state can be passed to the hook. In React class components, the setState method offers an optional second argument to pass a callback function. However, this second argument isn't available for React's useState hook. If you are moving from [React class components to function components](/react-hooks-migration/), this may be a concern for you. In this tutorial, I want to explain you how to implement it.
+If you have started to use [React's useState hook](/react-usestate-hook) for your application, you may be missing a [callback function](/javascript-callback-function), because only the initial state can be passed to the hook. In React class components, the setState method offers an optional second argument to pass a callback function. However, this second argument isn't available for React's useState hook. If you are moving from [React class components to function components](/react-hooks-migration/), this may be a concern for you. In this tutorial, I want to explain you how to implement it.
 
 Note: If you are just looking for an out of the box solution, check out this [custom useState hook with callback function](https://github.com/the-road-to-learn-react/use-state-with-callback). That's what you are going to implement in this tutorial anyway.
 

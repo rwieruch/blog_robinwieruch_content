@@ -127,7 +127,7 @@ We are creating a reference for our Custom Element -- which is passed as ref att
 
 *Note: If you would have a built-in DOM event (e.g. `click` or `change` event) in your Web Component, you could also register to this event. However, this Web Component already dispatches a custom event which matches the naming convention of React components.*
 
-An improvement would be to extract the event listener callback function in order to remove the listener when the component unmounts.
+An improvement would be to extract the event listener [callback function](/javascript-callback-function) in order to remove the listener when the component unmounts.
 
 ```javascript{9,13,15}
 import React from 'react';

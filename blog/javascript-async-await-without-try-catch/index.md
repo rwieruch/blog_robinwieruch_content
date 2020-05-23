@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-When you have learned about JavaScript promises for the first time, you learned about the promise's methods then and catch. While the former's callback function is called whenever a JavaScript promise resolves successfully, the latter is used for error handling:
+When you have learned about JavaScript promises for the first time, you learned about the promise's methods then and catch. While the former's [callback function](/javascript-callback-function) is called whenever a JavaScript promise resolves successfully, the latter is used for error handling:
 
 ```javascript
 function findUserById(id) {

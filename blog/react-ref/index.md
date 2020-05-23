@@ -350,7 +350,7 @@ function ComponentWithRefRead() {
 }
 ```
 
-You could also be more specific here with the dependency array of the useCallback hook. For example, execute the callback function of the callback ref only if state (here `text`) has changed and, of course, for the first render of the component:
+You could also be more specific here with the dependency array of the useCallback hook. For example, execute the [callback function](/javascript-callback-function) of the callback ref only if state (here `text`) has changed and, of course, for the first render of the component:
 
 ```javascript{14}
 function ComponentWithRefRead() {

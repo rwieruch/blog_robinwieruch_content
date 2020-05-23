@@ -98,7 +98,7 @@ This way you can ensure to update your state depending on correct state and prop
 this.setState((prevState, props) => ({ counter: prevState.counter + props.addition }));
 ```
 
-Another benefit is that you can test the state updating in isolation when using a function. Simply extract the callback function that is used in `this.setState(fn)` to be standalone and export it to make it testable. It should be a pure function where you can test simply the output depending on the input.
+Another benefit is that you can test the state updating in isolation when using a function. Simply extract the [callback function](/javascript-callback-function) that is used in `this.setState(fn)` to be standalone and export it to make it testable. It should be a pure function where you can test simply the output depending on the input.
 
 # React's State and Props
 

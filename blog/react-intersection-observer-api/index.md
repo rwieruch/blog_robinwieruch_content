@@ -415,7 +415,7 @@ class App extends Component {
 export default App;
 ```
 
-The IntersectionObserver constructor takes two arguments: a callback function which is called every time an observed element (single ref) changes its position relatively to the viewport (root ref) and a configuration object. In the configuration object, you can pass the root reference. If it is not passed, it defaults to the browser's viewport. The threshold is another configuration where you can make a fine-grained choice when to trigger the callback function of the observer.
+The IntersectionObserver constructor takes two arguments: a [callback function](/javascript-callback-function) which is called every time an observed element (single ref) changes its position relatively to the viewport (root ref) and a configuration object. In the configuration object, you can pass the root reference. If it is not passed, it defaults to the browser's viewport. The threshold is another configuration where you can make a fine-grained choice when to trigger the callback function of the observer.
 
 **Root:** *"The element that is used as the viewport for checking visibility of the target. Must be the ancestor of the target. Defaults to the browser viewport if not specified or if null."*
 

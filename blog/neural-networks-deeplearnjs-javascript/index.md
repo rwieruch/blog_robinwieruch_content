@@ -436,7 +436,7 @@ class ColorAccessibilityModel {
 export default ColorAccessibilityModel;
 ```
 
-The setup isn't done before preparing the training set for the neural network. First, you can support the computation by using a callback function in the GPU performed math context. But it's not mandatory and you could perform the computation without it.
+The setup isn't done before preparing the training set for the neural network. First, you can support the computation by using a [callback function](/javascript-callback-function) in the GPU performed math context. But it's not mandatory and you could perform the computation without it.
 
 ```javascript{21,22,23}
 import {
