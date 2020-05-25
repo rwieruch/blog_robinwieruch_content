@@ -1,7 +1,7 @@
 ---
 title: "Computed Properties in React"
 description: "There are no computed properties in React. However, deriving values from state is a common implementation in React too ..."
-date: "2020-05-05T07:52:46+02:00"
+date: "2020-05-18T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react computed properties"]
 hashtags: ["#ReactJs"]
