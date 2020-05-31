@@ -137,7 +137,7 @@ In return, this clutters every component in between which has to pass down these
                       +----------------+
 ```
 
-**Who provides/consumes React Context?** React component A -- our top-level component -- provides the context and React component C -- as one of the child components -- consumes the context. Somewhere in between are components D and E though. Since components D and E don't care about the information, they don't consume the context. Only component C consumes it. If component any other component below component A wants to access the context, it can consume it though.
+**Who provides/consumes React Context?** React component A -- our top-level component -- provides the context and React component C -- as one of the child components -- consumes the context. Somewhere in between are components D and E though. Since components D and E don't care about the information, they don't consume the context. Only component C consumes it. If any other component below component A wants to access the context, it can consume it though.
 
 # React Context: How
 
