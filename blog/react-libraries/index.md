@@ -45,7 +45,7 @@ React comes with built-in hooks to manage local state: [useState](/react-usestat
 
 All of React's built-in hooks are great for local state management. When it comes to state management of remote data, I would recommend to use [Apollo Client](/graphql-apollo-client-tutorial), if the remote data comes with a GraphQL endpoint. Alternatives for Apollo Client are [urql](https://github.com/FormidableLabs/urql) and [Relay](https://relay.dev/).
 
-If the remote data doesn't come from a GraphQL endpoint, try to manage it with React's Hooks. If it doesn't work out, a solution like [Redux](/react-redux-tutorial) or [MobX](https://mobx.js.org)/[Mobx State tree](https://mobx-state-tree.js.org) may help.
+If the remote data doesn't come from a GraphQL endpoint, try to manage it with React's Hooks. If it doesn't work out, a solution like [Redux](/react-redux-tutorial) or [MobX](https://mobx.js.org)/[Mobx State tree](https://mobx-state-tree.js.org) may help. Otherwise check out whether [React Query](https://github.com/tannerlinsley/react-query) is something for you.
 
 If you want to go into more detail, head over to my [comprehensive state management in React tutorial](/react-state).
 
@@ -53,7 +53,7 @@ If you want to go into more detail, head over to my [comprehensive state managem
 
 * Local State: React's useState, useReducer, useContext Hooks
 * Remote State via GraphQL: Apollo Client
-* Remote State via REST: React Hooks or Redux/MobX/Mobx State Tree
+* Remote State via REST: React Hooks or Redux/MobX/Mobx State Tree or React Query
 
 # Routing with React Router
 
@@ -67,7 +67,9 @@ Before you introduce a heavy router in your application, when you are just about
 
 # Styling Libraries in React
 
-There are many opinions about styling in React out there. As a React beginner, it is just fine to start with inline style and bare bones CSS:
+There are many opinions about styling in React out there. If you want to have a more comprehensive guide about styling in React, check out this guide: [React CSS Styling](/react-css-styling).
+
+But let's get started with a brief overview. As a React beginner, it is just fine to start with inline style and bare bones CSS:
 
 ```javascript
 import './Headline.css';
@@ -191,13 +193,14 @@ function App() {
 
 Basically you wouldn't have to add any other library to do the job. However, there exist libraries which only purpose it is to provide sophisticated asynchronous requests. They come with more powerful functionalities yet are only a lightweight libraries. One of these libraries that I would recommend is called [axios](https://github.com/mzabriskie/axios). It can be used instead of the native fetch API when your application grows in size.
 
-If you have the luxury to deal with a GraphQL API, I recommend using Apollo Client. Alternative GraphQL clients would be urql or Relay.
+If you have the luxury to deal with a GraphQL API, I recommend using Apollo Client. Alternative GraphQL clients would be urql or Relay. If you have no GraphQL API but a REST API, use [React Query](https://github.com/tannerlinsley/react-query).
 
 **Recommendations:**
 
 * the browser's native fetch API
 * axios
-* Apollo Client
+* Apollo Client (GraphQL API)
+* React Query (REST API)
 
 # React Type Checking
 
@@ -266,13 +269,14 @@ If you want to get a deep dive about testing in React, read this: [How to test c
 
 At the minimum, you can render React components in your Jest tests with [react-test-renderer](https://reactjs.org/docs/test-renderer.html). This is already sufficient to perform so called [Snapshot Tests with Jest](/react-testing-jest). A snapshot test works the following way: Once you run your tests, a snapshot of your rendered DOM elements of the React component is created. When you run your tests again at some point in time, another snapshot is created which is used as diff for the previous snapshot. If the diff is not identical, Jest will complain and you either have to accept the snapshot or change the implementation of your component.
 
-Eventually you will find yourself using [Enzyme](https://github.com/airbnb/enzyme) or [React Testing Library](https://github.com/testing-library/react-testing-library) -- both used within the Jest testing environment too -- for a more elaborate testing feature set. Both libraries make it possible to render your components and to simulate events on HTML elements. Afterward, Jest is used for the assertions on the DOM nodes.
+Eventually you will find yourself using [Enzyme](/react-testing-jest-enzyme) or [React Testing Library](/react-testing-library) -- both used within the Jest testing environment too -- for a more elaborate testing feature set. Both libraries make it possible to render your components and to simulate events on HTML elements. Afterward, Jest is used for the assertions on the DOM nodes.
 
-If you are looking for a testing tool for React end-to-end (E2E) tests, [Cypress](https://www.cypress.io/) is the most popular choice.
+If you are looking for a testing tool for React end-to-end (E2E) tests, [Cypress](/react-testing-cypress) is the most popular choice.
 
 **Recommendations:**
 
-* Unit/Integration/Snapshot Tests: Jest + React Testing Library
+* Unit/Integration: Jest + React Testing Library
+* Snapshot Tests: Jest
 * E2E Tests: Cypress
 
 # Utility Libraries for React
@@ -349,7 +353,7 @@ It's possible to dive into virtual reality or augmented reality with React To be
 
 # Design Prototyping for React
 
-If you are coming from a UI/UX background, you may want to use a tool for fast prototyping for new React components, layouts, or UI/UX concepts. I used [Sketch](https://www.sketch.com) in the past, but switched to [Figma](https://www.figma.com/) recently. Even though I like both, I don't regret using Figma now. Another popular tool is [Framer](https://www.framer.com).
+If you are coming from a UI/UX background, you may want to use a tool for fast prototyping for new React components, layouts, or UI/UX concepts. I used [Sketch](https://www.sketch.com) in the past, but switched to [Figma](https://www.figma.com/) recently. Even though I like both, I don't regret using Figma now. Another popular tool is [Framer](https://www.framer.com). Often a tool like [Excalidraw](https://excalidraw.com/) may be sufficient though.
 
 # Writing Documentation with React
 
@@ -381,7 +385,7 @@ So in the end, the React ecosystem can be seen as a framework for React, but it 
   * **React Desktop:** Electron
 * Medium Application
   * **Boilerplate:** Next.js or Gatsby.js
-  * **Styling Libraries:** CSS Modules or Styled Components
+  * **Styling Libraries:** CSS Modules/Styled Components/Tailwind CSS
   * **Asynchronous Requests:** fetch or axios
   * **Code Style:** Prettier, ESLint
   * **Type Checking:** none or TypeScript
@@ -397,7 +401,7 @@ So in the end, the React ecosystem can be seen as a framework for React, but it 
   * **React Desktop:** Electron
 * Large Application
   * **Boilerplate:** Next.js, Gatsby.js, custom setup
-  * **Styling Libraries:** CSS Modules or Styled Components
+  * **Styling Libraries:** CSS Modules/Styled Components/Tailwind CSS
   * **Asynchronous Requests:** axios or Apollo Client
   * **Code Style:** Prettier, ESLint
   * **Type Checking:** TypeScript
