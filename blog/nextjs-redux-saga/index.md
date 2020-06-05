@@ -4,7 +4,7 @@ description: "A couple of basic setup steps to use Redux combined with Redux Sag
 date: "2017-06-28T13:50:46+02:00"
 categories: ["React", "Redux"]
 keywords: ["nextjs redux saga"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

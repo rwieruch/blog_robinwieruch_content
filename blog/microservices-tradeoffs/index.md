@@ -4,7 +4,7 @@ description: "As a solo developer working on my side-projects, I used Microservi
 date: "2020-04-13T07:52:46+02:00"
 categories: ["Web Development"]
 keywords: ["microservices tradeoff"]
-hashtags: ["#Microservices"]
+hashtags: ["#100DaysOfCode", "#Microservices"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "JavaScript import and export are used to share code across folders
 date: "2019-12-21T07:52:46+02:00"
 categories: ["JavaScript"]
 keywords: ["javascript import export"]
-hashtags: ["#JavaScript"]
+hashtags: ["#100DaysOfCode", "#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

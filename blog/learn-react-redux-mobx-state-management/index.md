@@ -4,7 +4,7 @@ description: "A full blown React with Redux and MobX course to learn state manag
 date: "2017-09-26T13:50:46+02:00"
 categories: ["React", "Redux", "MobX"]
 keywords: ["redux book", "mobx book", "mobx course", "learn react redux mobx"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 contribute: ""
 banner: "./images/banner.jpg"
 author: ""

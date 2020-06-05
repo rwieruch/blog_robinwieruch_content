@@ -4,7 +4,7 @@ description: "This guide helps you to setup React with Parcel from 0 to 1. Learn
 date: "2018-02-10T13:50:46+02:00"
 categories: ["React", "Tooling"]
 keywords: ["react parcel"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

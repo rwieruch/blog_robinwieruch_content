@@ -4,7 +4,7 @@ description: "Wondering how you can use SVG in React? This article gives you a w
 date: "2017-08-30T13:50:46+02:00"
 categories: ["React"]
 keywords: ["svg patterns react"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

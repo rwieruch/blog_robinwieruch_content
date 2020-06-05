@@ -4,7 +4,7 @@ description: "A tutorial on how to use Web Components in React. It comes with a 
 date: "2019-06-12T13:50:46+02:00"
 categories: ["Web Components", "React"]
 keywords: ["react web components"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

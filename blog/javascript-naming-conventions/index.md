@@ -4,7 +4,7 @@ description: "Introduction to JavaScript Naming Conventions for differen data ty
 date: "2019-10-06T07:52:46+02:00"
 categories: ["JavaScript"]
 keywords: ["javascript naming conventions", "js naming conventions", "javascript naming conventions variable", "javascript naming conventions constant", "javascript naming conventions global", "javascript naming conventions private"]
-hashtags: ["#JavaScript"]
+hashtags: ["#100DaysOfCode", "#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "Learn how to countBy in JavaScript without Lodash but just using v
 date: "2020-06-02T14:50:46+02:00"
 categories: ["JavaScript"]
 keywords: ["javascript countBy"]
-hashtags: ["#JavaScript"]
+hashtags: ["#100DaysOfCode", "#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

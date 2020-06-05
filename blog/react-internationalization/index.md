@@ -4,7 +4,7 @@ description: "A React tutorial about internationalization in React with i18n for
 date: "2020-02-12T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react internationalization", "react i18n"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 contribute: ""
 banner: "./images/banner.jpg"
 author: ""

@@ -4,7 +4,7 @@ description: "Self-reflection as a privileged developer who travels South East A
 date: "2017-04-11T13:50:46+02:00"
 categories: ["React"]
 keywords: ["learn react"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

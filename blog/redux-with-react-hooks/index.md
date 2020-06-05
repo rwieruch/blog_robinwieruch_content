@@ -4,7 +4,7 @@ description: "React's useContext and useReducer hooks can be used to mimic Redux
 date: "2019-05-20T07:52:46+02:00"
 categories: ["React"]
 keywords: ["redux react hooks", "usereducer redux"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

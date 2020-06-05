@@ -4,7 +4,7 @@ description: "Comparing useState and useReducer in React, when to use them for d
 date: "2019-04-17T07:52:46+02:00"
 categories: ["React"]
 keywords: ["useReducer vs useState"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

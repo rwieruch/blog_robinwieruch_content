@@ -4,7 +4,7 @@ description: "By Example: You will learn how to use Babel Module Resolver for yo
 date: "2019-09-01T13:56:46+02:00"
 categories: ["Web Development", "Tooling", "ESLint", "Babel"]
 keywords: ["babel module resolver", "babel module resolver eslint"]
-hashtags: ["#Git"]
+hashtags: ["#100DaysOfCode", "#Git"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "The Flow: Type Checking with Flow in React + Redux tutorial will t
 date: "2016-06-21T13:50:46+02:00"
 categories: ["React", "Redux"]
 keywords: ["redux flow"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

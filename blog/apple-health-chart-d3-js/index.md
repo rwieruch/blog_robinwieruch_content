@@ -4,7 +4,7 @@ description: "Last year Apple released their new collection of iPhones. One inno
 date: "2014-12-30T13:50:46+02:00"
 categories: ["Angular", "D3"]
 keywords: ["angular d3"]
-hashtags: ["#d3js,#angularjs"]
+hashtags: ["#100DaysOfCode", "#d3js,#angularjs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

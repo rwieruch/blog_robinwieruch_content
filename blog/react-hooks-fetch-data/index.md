@@ -4,7 +4,7 @@ description: "A tutorial on how to fetch data in React with Hooks from third-par
 date: "2019-03-07T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react fetch data hooks"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

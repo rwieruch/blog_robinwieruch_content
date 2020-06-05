@@ -4,7 +4,7 @@ description: "The tutorial walks you through a Webpack with ESLint setup to impr
 date: "2019-06-15T13:53:46+02:00"
 categories: ["Tooling", "Webpack", "Babel", "ESLint"]
 keywords: ["webpack eslint"]
-hashtags: ["#Webpack"]
+hashtags: ["#100DaysOfCode", "#Webpack"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

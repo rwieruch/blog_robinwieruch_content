@@ -4,7 +4,7 @@ description: "A walkthrough on how to use code splitting for your library to red
 date: "2019-11-24T07:52:46+02:00"
 categories: ["Node", "Tooling", "JavaScript"]
 keywords: ["webpack code splitting library"]
-hashtags: ["#JavaScript"]
+hashtags: ["#100DaysOfCode", "#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

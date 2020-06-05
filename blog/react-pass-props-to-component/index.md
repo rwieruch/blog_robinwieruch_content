@@ -4,7 +4,7 @@ description: "Everything you need to know about props in React. How to pass prop
 date: "2018-07-29T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react pass props to component", "react props vs state", "react props explained", "react props example", "react props best practices"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

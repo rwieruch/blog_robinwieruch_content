@@ -4,7 +4,7 @@ description: "Everything you need to know about JavaScript variables if you are 
 date: "2019-12-10T07:52:46+02:00"
 categories: ["JavaScript"]
 keywords: ["javascript variable"]
-hashtags: ["#JavaScript"]
+hashtags: ["#100DaysOfCode", "#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

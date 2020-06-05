@@ -4,7 +4,7 @@ description: "The tutorial walks you through a Webpack with Fonts setup to load 
 date: "2019-08-05T13:53:46+02:00"
 categories: ["Tooling", "Webpack", "Babel"]
 keywords: ["webpack font", "webpack fonts"]
-hashtags: ["#Webpack"]
+hashtags: ["#100DaysOfCode", "#Webpack"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

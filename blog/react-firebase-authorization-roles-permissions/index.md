@@ -4,7 +4,7 @@ description: "A tutorial on how to use authorization with roles and permissions 
 date: "2018-11-26T07:50:46+02:00"
 categories: ["React", "Firebase"]
 keywords: ["react firebase authorization", "react firebase protected routes", "react firebase permissions", "firebase set user properties"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

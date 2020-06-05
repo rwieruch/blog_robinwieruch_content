@@ -4,7 +4,7 @@ description: "The tutorial shows you how to deploy a React.js application to Fir
 date: "2019-01-20T07:52:46+02:00"
 categories: ["React", "Firebase"]
 keywords: ["firebase deploy react", "firebase react js deployment", "create-react-app firebase deploy"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

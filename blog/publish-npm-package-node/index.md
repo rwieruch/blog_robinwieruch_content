@@ -4,7 +4,7 @@ description: "A tutorial on how to publish a npm package to the npm registry wit
 date: "2019-05-12T07:52:46+02:00"
 categories: ["Node", "Tooling", "JavaScript"]
 keywords: ["publish npm package"]
-hashtags: ["#JavaScript"]
+hashtags: ["#100DaysOfCode", "#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

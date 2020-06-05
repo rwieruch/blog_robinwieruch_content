@@ -4,7 +4,7 @@ description: "A tutorial to guide you through styling your React application wit
 date: "2019-01-06T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react semantic ui tutorial"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: "Yomi Eluwande"

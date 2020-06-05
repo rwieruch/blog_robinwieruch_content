@@ -4,7 +4,7 @@ description: "A installation guide for a MongoDB on MacOS setup for having a NoS
 date: "2020-04-26T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["mongodb macos", "mongodb setup", "mongodb os setup"]
-hashtags: ["#NodeJs"]
+hashtags: ["#100DaysOfCode", "#NodeJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

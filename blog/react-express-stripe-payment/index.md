@@ -4,7 +4,7 @@ description: "Ever wondered how to integrate Stripe in your React application? T
 date: "2017-06-20T13:50:46+02:00"
 categories: ["React", "Node"]
 keywords: ["react express stripe"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 contribute: ""
 banner: "./images/banner.jpg"
 author: ""

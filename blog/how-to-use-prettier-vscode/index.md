@@ -4,7 +4,7 @@ description: "Tutorial on how to install Prettier for VS Code (Visual Studio Cod
 date: "2019-06-14T13:50:46+02:00"
 categories: ["JavaScript", "VS Code", "Tooling"]
 keywords: ["vscode prettier", "vscode prettier on save", "vscode prettier format on save", "vscode prettier line length", "install prettier vscode"]
-hashtags: ["#VSCode"]
+hashtags: ["#100DaysOfCode", "#VSCode"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

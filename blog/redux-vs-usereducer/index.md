@@ -4,7 +4,7 @@ description: "Does useContext and useReducer replace Redux? Since React Hooks we
 date: "2019-05-13T07:52:46+02:00"
 categories: ["React"]
 keywords: ["useReducer vs redux", "useReducer redux"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "The free React with Firebase book takes you on a journey to master
 date: "2019-01-28T13:50:46+02:00"
 categories: ["React", "Firebase"]
 keywords: ["react firebase book", "firebase book pdf", "book about firebase", "books on firebase", "learning firebase book", "firebase books", "firebase book", "best firebase book"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

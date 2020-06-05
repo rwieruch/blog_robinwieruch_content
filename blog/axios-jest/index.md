@@ -4,7 +4,7 @@ description: "How to mock Axios in Jest by example for mocking get and post requ
 date: "2019-11-18T07:52:46+02:00"
 categories: ["JavaScript"]
 keywords: ["axios jest"]
-hashtags: ["#JavaScript"]
+hashtags: ["#100DaysOfCode", "#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

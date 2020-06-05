@@ -4,7 +4,7 @@ description: "A installation guide for a PostgreSQL on MacOS setup for having a 
 date: "2020-04-25T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["postgres macos", "postgresql macos", "postgres setup", "postgresql setup", "postgres os setup"]
-hashtags: ["#NodeJs"]
+hashtags: ["#100DaysOfCode", "#NodeJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

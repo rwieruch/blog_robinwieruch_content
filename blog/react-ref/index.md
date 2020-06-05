@@ -4,7 +4,7 @@ description: "Learn everything about React refs and JSX's ref attribute with Rea
 date: "2020-04-25T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react ref", "react refs", "react useRef", "react callback ref"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

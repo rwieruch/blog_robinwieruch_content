@@ -4,7 +4,7 @@ description: "Learn how to test your React application with Mocha, Chai & Enzyme
 date: "2019-07-21T13:56:46+02:00"
 categories: ["React", "Tooling", "Webpack", "Babel", "Enzyme"]
 keywords: ["react testing enzyme", "react mocha", "react chai", "react sinon", "react enzyme"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

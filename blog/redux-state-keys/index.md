@@ -4,7 +4,7 @@ description: "Redux state keys enable a dynamically allocated yet predictable su
 date: "2016-10-31T13:50:46+02:00"
 categories: ["React", "Redux"]
 keywords: ["redux state keys"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

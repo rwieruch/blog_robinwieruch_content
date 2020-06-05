@@ -4,7 +4,7 @@ description: "Are you considering to use Gatsby.js as static side generator for 
 date: "2019-07-08T07:50:46+02:00"
 categories: ["React", "Gatsby"]
 keywords: ["gatsby.js", "gatsbyjs", "gatsby react"]
-hashtags: ["#GatsbyJs"]
+hashtags: ["#100DaysOfCode", "#GatsbyJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

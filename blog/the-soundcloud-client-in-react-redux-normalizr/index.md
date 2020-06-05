@@ -4,7 +4,7 @@ description: "The Redux Normalizr: Improve your State Management tutorial will t
 date: "2016-07-09T13:50:46+02:00"
 categories: ["React", "Redux"]
 keywords: ["redux normalizr"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

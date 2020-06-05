@@ -4,7 +4,7 @@ description: "In this Web Components tutorial, you will learn how to implement y
 date: "2019-06-10T13:50:46+02:00"
 categories: ["Web Components", "JavaScript"]
 keywords: ["web components tutorial"]
-hashtags: ["#WebComponents"]
+hashtags: ["#100DaysOfCode", "#WebComponents"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

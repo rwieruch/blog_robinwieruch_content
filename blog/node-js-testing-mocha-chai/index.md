@@ -4,7 +4,7 @@ description: "How to get started with testing in Node.js with Mocha, Chai, Sinon
 date: "2019-05-05T07:52:46+02:00"
 categories: ["Node"]
 keywords: ["node js testing", "node testing", "node js test", "node test", "node mocha", "node chai", "node mocha chai", "node sinon"]
-hashtags: ["#NodeJs"]
+hashtags: ["#100DaysOfCode", "#NodeJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

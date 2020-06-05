@@ -4,7 +4,7 @@ description: "There are no computed properties in React. However, deriving value
 date: "2020-05-18T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react computed properties"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

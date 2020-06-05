@@ -4,7 +4,7 @@ description: "The tutorial guides you through building a minimal Apollo Client i
 date: "2018-06-05T13:50:46+02:00"
 categories: ["React", "GraphQL"]
 keywords: ["react apollo client example", "react apollo example", "react graphql boilerplate", "react graphql example", "react apollo demo", "react apollo tutorial"]
-hashtags: ["#ReactJs,#GraphQL"]
+hashtags: ["#100DaysOfCode", "#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

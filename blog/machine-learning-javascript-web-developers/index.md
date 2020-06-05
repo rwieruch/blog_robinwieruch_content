@@ -4,7 +4,7 @@ description: "An extensive walkthrough for machine learning in JavaScript. The m
 date: "2018-01-10T04:50:46+02:00"
 categories: ["Machine Learning", "JavaScript"]
 keywords: ["machine learning javascript", "ai javascript", "deep learning javascript"]
-hashtags: ["#JavaScript,#MachineLearning"]
+hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "A installation guide for a MongoDB on Windows setup for having a N
 date: "2019-01-25T13:50:46+02:00"
 categories: ["Node"]
 keywords: ["mongodb windows", "mongodb setup", "mongodb os setup"]
-hashtags: ["#NodeJs"]
+hashtags: ["#100DaysOfCode", "#NodeJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

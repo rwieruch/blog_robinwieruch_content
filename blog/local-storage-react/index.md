@@ -4,7 +4,7 @@ description: "Tutorial to showcase the usage of session storage and local storag
 date: "2019-04-03T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react local storage", "react session storage"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

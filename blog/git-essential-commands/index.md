@@ -4,7 +4,7 @@ description: "In this article, I want to give you the essentials about Git and G
 date: "2018-06-19T13:50:46+02:00"
 categories: ["Web Development"]
 keywords: ["git github project setup"]
-hashtags: ["#Git,#GitHub"]
+hashtags: ["#100DaysOfCode", "#Git,#GitHub"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

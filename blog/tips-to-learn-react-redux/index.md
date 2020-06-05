@@ -4,7 +4,7 @@ description: "An extensive guide of tips, tricks and resources to learn React.js
 date: "2018-01-09T13:50:46+02:00"
 categories: ["React", "Redux"]
 keywords: ["learn react redux 2018", "learn react 2018", "learn redux 2018", "react book", "reactjs book"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

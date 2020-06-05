@@ -4,7 +4,7 @@ description: "A tutorial about the reducer pattern in JavaScript for beginners  
 date: "2019-04-19T07:52:46+02:00"
 categories: ["JavaScript"]
 keywords: ["reducer", "reducer pattern", "reducer function", "reducer javascript"]
-hashtags: ["#JavaScript"]
+hashtags: ["#100DaysOfCode", "#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "Learn how to initialize state from props and how to update state f
 date: "2020-05-18T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react update state from props", "react derive state from props", "react initialize state from props", "react sync state and props"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

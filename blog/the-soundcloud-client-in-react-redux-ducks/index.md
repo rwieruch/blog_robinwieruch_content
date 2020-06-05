@@ -4,7 +4,7 @@ description: "Redux Ducks: Restructure your Redux App with Ducks will teach you 
 date: "2016-06-26T13:50:46+02:00"
 categories: ["React", "Redux"]
 keywords: ["redux ducks"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

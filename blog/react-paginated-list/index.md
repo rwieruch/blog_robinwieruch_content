@@ -4,7 +4,7 @@ description: "The series of React tutorials focuses on building a complex yet el
 date: "2017-05-29T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react paginated list"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 contribute: ""
 banner: "./images/banner.jpg"
 author: ""

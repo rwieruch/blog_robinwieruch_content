@@ -4,7 +4,7 @@ description: "An extensive tutorial on how to implement a neural network in Java
 date: "2017-12-05T09:50:46+02:00"
 categories: ["Machine Learning", "JavaScript"]
 keywords: ["machine learning javascript", "neural network javascript deeplearnjs"]
-hashtags: ["#JavaScript,#MachineLearning"]
+hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

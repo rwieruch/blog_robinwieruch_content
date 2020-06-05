@@ -4,7 +4,7 @@ description: "A tutorial to showcase how to use React global state without Redux
 date: "2018-10-02T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react global state without redux", "react state management without redux", "react context API", "react prop drilling"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

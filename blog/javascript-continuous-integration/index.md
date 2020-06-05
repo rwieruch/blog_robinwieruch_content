@@ -4,7 +4,7 @@ description: "Learn how to set up Continuous Integration for your JavaScript pro
 date: "2019-07-19T13:56:46+02:00"
 categories: ["JavaScript", "Tooling"]
 keywords: ["javascript continuous integration"]
-hashtags: ["#JavaScript"]
+hashtags: ["#100DaysOfCode", "#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

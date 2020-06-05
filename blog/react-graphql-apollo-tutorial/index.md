@@ -4,7 +4,7 @@ description: "This React with Apollo and GraphQL tutorial shows you how to use G
 date: "2018-05-01T02:50:46+02:00"
 categories: ["React", "GraphQL"]
 keywords: ["react graphql apollo tutorial", "react with graphql apollo tutorial", "react graphql apollo book", "react apollo book", "react apollo example", "react apollo query", "react apollo mutation", "react apollo client", "react apollo demo"]
-hashtags: ["#ReactJs,#GraphQL"]
+hashtags: ["#100DaysOfCode", "#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

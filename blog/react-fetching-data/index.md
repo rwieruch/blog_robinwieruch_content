@@ -4,7 +4,7 @@ description: "Do you want to go beyond a static React application? Then it's abo
 date: "2018-07-06T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react fetching data", "react fetch API"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

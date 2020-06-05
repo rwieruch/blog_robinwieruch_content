@@ -4,7 +4,7 @@ description: "A tutorial to learn about the Intersection Observer API in React. 
 date: "2018-09-05T13:50:46+02:00"
 categories: ["React", "JavaScript"]
 keywords: ["react intersection observer api", "react createRef", "react ref API"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

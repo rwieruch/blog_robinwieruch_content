@@ -4,7 +4,7 @@ description: "Learn how to use React Testing Library in this tutorial. You will 
 date: "2020-06-01T09:52:46+02:00"
 categories: ["React"]
 keywords: ["react testing library tutorial"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

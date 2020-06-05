@@ -4,7 +4,7 @@ description: "Strategies to optimize / improve gradient descent: learning rate, 
 date: "2017-11-16T07:50:46+02:00"
 categories: ["Machine Learning", "JavaScript"]
 keywords: ["machine learning javascript", "optimize gradient descent javascript", "improve gradient descent javascript"]
-hashtags: ["#JavaScript,#MachineLearning"]
+hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

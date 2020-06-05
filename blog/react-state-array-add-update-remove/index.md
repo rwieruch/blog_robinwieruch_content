@@ -4,7 +4,7 @@ description: "Learn how to manipulate arrays in React state by using JavaScript 
 date: "2020-05-17T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react state array", "react state array example", "react create empty array", "react initial state empty array", "react state array add item", "react state array push", "react state array concat", "react state update array", "react state update array item", "react state update item", "react state array replace", "react state array remove item", "react state array change"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 contribute: ""
 banner: "./images/banner.jpg"
 author: ""

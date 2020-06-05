@@ -4,7 +4,7 @@ description: "A JavaScript tutorial that walks you through your first JavaScript
 date: "2019-06-15T13:50:46+02:00"
 categories: ["JavaScript", "Tooling"]
 keywords: ["javascript setup", "javascript project setup", "javascript tutorial"]
-hashtags: ["#JavaScript"]
+hashtags: ["#100DaysOfCode", "#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

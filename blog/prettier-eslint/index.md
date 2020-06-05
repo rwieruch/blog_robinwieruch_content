@@ -4,7 +4,7 @@ description: "Brief step by step tutorial on how to combine Prettier and ESLint 
 date: "2019-06-14T13:50:46+02:00"
 categories: ["JavaScript", "VS Code", "Tooling"]
 keywords: ["eslint prettier", "prettier eslint", "prettier eslint vscode", "prettier eslint sublime", "prettier eslint rules"]
-hashtags: ["#VSCode"]
+hashtags: ["#100DaysOfCode", "#VSCode"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

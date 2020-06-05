@@ -4,7 +4,7 @@ description: "A brief tutorial which shows how to scroll to an item in a React L
 date: "2019-05-07T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react scroll to item"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

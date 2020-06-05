@@ -4,7 +4,7 @@ description: "The Road to React book is your way to learn React.js by building a
 date: "2020-02-29T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react book", "react ebook", "learn react", "react.js book", "react js book"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 contribute: ""
 banner: "./images/banner.jpg"
 author: ""

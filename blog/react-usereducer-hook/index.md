@@ -4,7 +4,7 @@ description: "A tutorial about React's useReducer hook by example for state mana
 date: "2019-04-28T03:52:46+02:00"
 categories: ["React"]
 keywords: ["react usereducer"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

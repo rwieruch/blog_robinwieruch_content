@@ -4,7 +4,7 @@ description: "React Hooks change how we will write React applications in the fut
 date: "2019-03-26T07:50:46+02:00"
 categories: ["React"]
 keywords: ["react hooks", "react hooks migration", "react hooks class component", "react hooks function component"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

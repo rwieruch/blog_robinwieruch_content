@@ -4,7 +4,7 @@ description: "A guide that explains React Component Composition step by step. Le
 date: "2019-01-30T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react component composition", "react component composition example", "react dynamic component composition", "react component composition pattern"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

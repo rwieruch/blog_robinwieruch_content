@@ -4,7 +4,7 @@ title: "Why GraphQL: Advantages and Disadvantages"
 description: "An overview about the advantages and disadvantages of using GraphQL instead of REST for JavaScript applications. It answers the question: 'What is GraphQL' and 'Why you should use GraphQL' for your next JavaScript application ..."
 categories: ["Starter", "React", "GraphQL", "JavaScript"]
 keywords: ["graphql alternatives", "graphql advantages", "graphql disadvantages", "why graphql", "graphql benefits", "graphql rest"]
-hashtags: ["#GraphQL", "#ReactJs"]
+hashtags: ["#100DaysOfCode", "#GraphQL", "#ReactJs"]
 banner: "./images/banner.jpg"
 author: ""
 contribute: ""

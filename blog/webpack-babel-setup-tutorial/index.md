@@ -4,7 +4,7 @@ description: "A step by step tutorial on how to integrate Babel into Webpack to 
 date: "2019-06-15T13:52:46+02:00"
 categories: ["JavaScript", "Tooling", "Webpack", "Babel"]
 keywords: ["webpack babel"]
-hashtags: ["#Webpack"]
+hashtags: ["#100DaysOfCode", "#Webpack"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

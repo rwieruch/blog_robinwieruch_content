@@ -4,7 +4,7 @@ description: "A walkthrough on how to use SVG Icons in React applications. SVGR 
 date: "2019-04-23T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react svg icons", "react svgr"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

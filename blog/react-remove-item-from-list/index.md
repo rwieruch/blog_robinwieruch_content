@@ -4,7 +4,7 @@ description: "Learn how to remove an item from a list in React with React's stat
 date: "2020-05-14T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react remove item from list", "react delete item from array"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

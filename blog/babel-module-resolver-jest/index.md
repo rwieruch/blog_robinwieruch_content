@@ -4,7 +4,7 @@ description: "How to use Jest with Babel Module Resolver for aliases that are de
 date: "2020-02-01T13:56:46+02:00"
 categories: ["Tooling"]
 keywords: ["babel module resolver jest"]
-hashtags: ["#JavaScript"]
+hashtags: ["#100DaysOfCode", "#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

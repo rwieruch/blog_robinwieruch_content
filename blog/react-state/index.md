@@ -4,7 +4,7 @@ description: "Everything you need to know about React State. From simple state t
 date: "2019-10-14T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react state"]
-hashtags: ["#JavaScript"]
+hashtags: ["#100DaysOfCode", "#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

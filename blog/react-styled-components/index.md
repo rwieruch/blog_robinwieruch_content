@@ -4,7 +4,7 @@ description: "A beginner friendly tutorial for CSS-in-JS with Styled Components 
 date: "2019-03-30T07:50:46+02:00"
 categories: ["React"]
 keywords: ["react styled components", "react styled components tutorial"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: "Yomi Eluwande"

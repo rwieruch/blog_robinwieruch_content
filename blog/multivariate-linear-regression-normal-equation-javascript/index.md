@@ -4,7 +4,7 @@ description: "Explaining and implementing normal equation in JavaScript and disc
 date: "2017-12-02T13:50:46+02:00"
 categories: ["Machine Learning", "JavaScript"]
 keywords: ["machine learning javascript", "normal equation javascript"]
-hashtags: ["#JavaScript,#MachineLearning"]
+hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

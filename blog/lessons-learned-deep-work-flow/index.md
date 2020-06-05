@@ -4,7 +4,7 @@ description: "The following article summarizes my lessons learned from the books
 date: "2017-02-09T13:50:46+02:00"
 categories: ["Growth"]
 keywords: ["book summary deep work flow"]
-hashtags: ["#growth"]
+hashtags: ["#100DaysOfCode", "#growth"]
 contribute: ""
 banner: "./images/banner.jpg"
 author: ""

@@ -4,7 +4,7 @@ description: "Ever wondered how to integrate Paypal in your React application? T
 date: "2018-02-04T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react paypal", "react paypal integration"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

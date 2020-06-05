@@ -4,7 +4,7 @@ description: "Logistic regression with gradient descent in JavaScript with imple
 date: "2017-12-04T13:50:46+02:00"
 categories: ["Machine Learning", "JavaScript"]
 keywords: ["machine learning javascript", "logistic regression javascript", "gradient descent javascript"]
-hashtags: ["#JavaScript,#MachineLearning"]
+hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

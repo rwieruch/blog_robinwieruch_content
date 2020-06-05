@@ -4,7 +4,7 @@ description: "Learn how to build a Reason React application with this tutorial. 
 date: "2018-12-01T07:52:46+02:00"
 categories: ["React", "JavaScript", "Reason"]
 keywords: ["reason react", "reason react tutorial", "reason react examples", "reasonreact"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: "Benjamin Johnson"

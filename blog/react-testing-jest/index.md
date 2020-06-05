@@ -4,7 +4,7 @@ description: "Learn how to test your React application with Jest. Jest will be u
 date: "2019-07-16T13:56:46+02:00"
 categories: ["React", "Tooling", "Webpack", "Babel", "Jest"]
 keywords: ["react testing jest", "react jest setup", "react jest"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

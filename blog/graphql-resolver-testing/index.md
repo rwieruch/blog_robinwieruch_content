@@ -4,7 +4,7 @@ description: "Learn how to test GraphQL resolvers with Jest. More advanced resol
 date: "2020-03-08T13:56:46+02:00"
 categories: ["Firebase"]
 keywords: ["graphql resolver testing", "graphql testing"]
-hashtags: ["#GraphQL"]
+hashtags: ["#100DaysOfCode", "#GraphQL"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

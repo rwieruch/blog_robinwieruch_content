@@ -4,7 +4,7 @@ description: "A tutorial on how to build a GraphQL client library for React appl
 date: "2018-06-13T13:50:46+02:00"
 categories: ["React", "GraphQL", "Tooling"]
 keywords: ["react graphql client", "react graphql client library", "graphql react book", "graphql apollo book"]
-hashtags: ["#ReactJs,#GraphQL"]
+hashtags: ["#100DaysOfCode", "#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

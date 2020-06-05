@@ -4,7 +4,7 @@ description: "A Node.js with Express tutorial to learn how to setup a Node.js ap
 date: "2020-04-23T07:50:46+02:00"
 categories: ["Starter", "Node"]
 keywords: ["node express tutorial", "express tutorial"]
-hashtags: ["#NodeJs"]
+hashtags: ["#100DaysOfCode", "#NodeJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

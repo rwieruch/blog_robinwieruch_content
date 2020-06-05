@@ -4,7 +4,7 @@ description: "Learn about React's event handlers and how to use them for onClick
 date: "2020-01-15T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react event handler"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "The article guides you through the setup of an automated Slack inv
 date: "2017-11-05T09:50:46+02:00"
 categories: ["React", "JavaScript"]
 keywords: ["slack invite react", "slack invite javascript"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

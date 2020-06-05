@@ -4,7 +4,7 @@ description: "The article gives advice on how to implement visual regression tes
 date: "2018-10-30T13:50:46+02:00"
 categories: ["React", "Web Development"]
 keywords: ["visual regression testing react", "react storybook testing"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

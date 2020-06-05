@@ -4,7 +4,7 @@ description: "A crash course for using npm on the command line. You will learn h
 date: "2019-12-15T07:52:46+02:00"
 categories: ["Node", "Web Development", "Tooling", "JavaScript"]
 keywords: ["npm crash course"]
-hashtags: ["#JavaScript"]
+hashtags: ["#100DaysOfCode", "#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

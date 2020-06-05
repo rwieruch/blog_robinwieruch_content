@@ -4,7 +4,7 @@ description: "Learn how to groupBy in JavaScript without Lodash but just using v
 date: "2020-06-02T13:50:46+02:00"
 categories: ["JavaScript"]
 keywords: ["javascript groupBy"]
-hashtags: ["#JavaScript"]
+hashtags: ["#100DaysOfCode", "#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

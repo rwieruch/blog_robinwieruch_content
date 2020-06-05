@@ -4,7 +4,7 @@ description: "A beginners tutorial to learn Firestore in React for business appl
 date: "2019-01-26T07:50:46+02:00"
 categories: ["React", "Firebase"]
 keywords: ["react firestore", "react firestore tutorial", "react authentication", "react firestore authentication tutorial", "react session", "react authorization", "react protected routes"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

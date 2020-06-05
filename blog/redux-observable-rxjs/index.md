@@ -4,7 +4,7 @@ description: "The Redux Observable RxJS: Going Epic tutorial will show you how t
 date: "2016-08-13T13:50:46+02:00"
 categories: ["React", "Redux"]
 keywords: ["redux observable"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

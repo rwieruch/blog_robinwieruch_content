@@ -4,7 +4,7 @@ description: "A short walkthrough on how to install a Docker setup on Mac / MacO
 date: "2020-02-18T03:45:46+02:00"
 categories: ["Docker"]
 keywords: ["docker"]
-hashtags: ["#Docker"]
+hashtags: ["#100DaysOfCode", "#Docker"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

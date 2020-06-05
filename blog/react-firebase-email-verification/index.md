@@ -4,7 +4,7 @@ description: "A Firebase React tutorial on how to enable email verification. Onl
 date: "2018-12-20T07:52:46+02:00"
 categories: ["React", "Firebase"]
 keywords: ["react firebase email verification", "react firebase email confirmation", "react firebase double opt in"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

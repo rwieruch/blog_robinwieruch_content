@@ -4,7 +4,7 @@ description: "Are you just getting started with web development? This list of we
 date: "2016-11-09T13:50:46+02:00"
 categories: ["Web Development"]
 keywords: ["web developer setup", "javascript developer setup", "web development setup", "web development environment"]
-hashtags: ["#JavaScript"]
+hashtags: ["#100DaysOfCode", "#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

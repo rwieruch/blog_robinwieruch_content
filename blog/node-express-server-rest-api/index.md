@@ -4,7 +4,7 @@ description: "A Node.js with Express tutorial to learn how to create a REST API 
 date: "2020-04-24T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["node express tutorial", "express tutorial", "express rest api"]
-hashtags: ["#NodeJs"]
+hashtags: ["#100DaysOfCode", "#NodeJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

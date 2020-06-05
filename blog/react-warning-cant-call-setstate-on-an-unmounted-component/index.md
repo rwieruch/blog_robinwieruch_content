@@ -4,7 +4,7 @@ description: "How to avoid the React warning: Can only update a mounted or mount
 date: "2018-10-21T13:50:46+02:00"
 categories: ["React"]
 keywords: ["can't call setstate on an unmounted component", "react prevent setState on unmounted Component"]
-hashtags: ["#ReactJs"]
+hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""
