@@ -211,7 +211,7 @@ In order to delete or update a user resource, you would need to know the exact u
 * Try to delete or update a user by identifier with cURL.
 * Read more about [basic routing in Express](https://expressjs.com/en/starter/basic-routing.html).
 
-# Making sense of REST
+# Making sense of REST with Express
 
 You may be still wondering: *What value brings the combination of URIs and HTTP methods* -- which make up the majority of the REST philosophy -- *to my application?*
 
