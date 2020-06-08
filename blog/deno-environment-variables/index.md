@@ -1,6 +1,6 @@
 ---
 title: "Environment Variables in Deno"
-description: "Learn how to use environment variables in Deno with .env and dotenv for sensitive data ..."
+description: "Learn how to use environment variables in Deno with .env and dotenv for sensitive data (e.g. API keys, credentials) which shouldn't be visible in version control (e.g. Git) ..."
 date: "2020-06-07T09:52:46+02:00"
 categories: ["Deno"]
 keywords: ["deno environment variables"]
