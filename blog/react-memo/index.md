@@ -1,7 +1,7 @@
 ---
 title: "How to use React memo"
 description: "Learn how to use React memo for performance optimizations of your React components ..."
-date: "2020-06-03T08:52:46+02:00"
+date: "2020-06-09T08:52:46+02:00"
 categories: ["React"]
 keywords: ["react memo"]
 hashtags: ["#100DaysOfCode", "#ReactJs"]
