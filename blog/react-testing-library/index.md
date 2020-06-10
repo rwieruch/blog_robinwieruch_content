@@ -686,7 +686,7 @@ describe('App', () => {
 
     expect(screen.queryByText(/Searches for JavaScript/)).toBeNull();
 
-    userEvent.type(screen.getByRole('textbox'), 'JavaScript');
+    await userEvent.type(screen.getByRole('textbox'), 'JavaScript');
 
     expect(
       screen.getByText(/Searches for JavaScript/)
@@ -741,9 +741,9 @@ describe('Search', () => {
 
 Here again, we can see how userEvent matches the user behavior in the browser more closely as fireEvent. While fireEvent executes the change event by only calling the callback function once, userEvent triggers it for every key stroke:
 
-```javascript{11,13}
+```javascript{2,11,13}
 describe('Search', () => {
-  test('calls the onChange callback handler', () => {
+  test('calls the onChange callback handler', async () => {
     const onChange = jest.fn();
 
     render(
@@ -752,7 +752,7 @@ describe('Search', () => {
       </Search>
     );
 
-    userEvent.type(screen.getByRole('textbox'), 'JavaScript');
+    await userEvent.type(screen.getByRole('textbox'), 'JavaScript');
 
     expect(onChange).toHaveBeenCalledTimes(10);
   });
@@ -834,7 +834,7 @@ describe('App', () => {
 
     render(<App />);
 
-    userEvent.click(screen.getByRole('button'));
+    await userEvent.click(screen.getByRole('button'));
 
     const items = await screen.findAllByRole('listitem');
 
@@ -869,7 +869,7 @@ describe('App', () => {
 
     render(<App />);
 
-    userEvent.click(screen.getByRole('button'));
+    await userEvent.click(screen.getByRole('button'));
 
     const message = await screen.findByText(/Something went wrong/);
 
@@ -903,7 +903,7 @@ describe('App', () => {
 
     render(<App />);
 
-    userEvent.click(screen.getByRole('button'));
+    await userEvent.click(screen.getByRole('button'));
 
     await act(() => promise);
 
