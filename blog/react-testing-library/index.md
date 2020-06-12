@@ -697,7 +697,7 @@ describe('App', () => {
 
 Whenever possible, use userEvent over fireEvent when using React Testing Library. At the time of writing this, userEvent doesn't include all the features of fireEvent, however, this may change in the future.
 
-# Testing React Callback Handlers
+# React Testing Library: Callback Handlers
 
 Sometimes you will test React components in isolation as unit tests. Often these components will not have any side-effects or state, but only input (props) and output (JSX, callback handlers). We have already seen how we can test the rendered JSX given a component and props. Now we will test callback handlers for this Search component:
 
