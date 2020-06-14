@@ -71,7 +71,7 @@ Watch Usage
  › Press Enter to trigger a test run.
 ```
 
-After running through all tests, which should turn green for your cases, Jest offers you an interactive interface where you can give it further instructions. However, often it's just the one test output you are looking for which should turn green for all your tests. If you are changing a a file, be it source code or test, Jest runs all your tests again.
+After running through all tests, which should turn green for your cases, Jest offers you an interactive interface where you can give it further instructions. However, often it's just the one test output you are looking for which should turn green for all your tests. If you are changing a file, be it source code or test, Jest runs all your tests again.
 
 ```javascript
 function sum(x, y) {
