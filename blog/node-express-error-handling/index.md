@@ -1,7 +1,7 @@
 ---
 title: "How to handle errors in Express"
 description: "Learn about error handling in Express applications with Express middleware to handle errors ..."
-date: "2020-05-21T07:50:46+02:00"
+date: "2020-06-15T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["node express error handling", "express error handling"]
 hashtags: ["#100DaysOfCode", "#NodeJs"]
