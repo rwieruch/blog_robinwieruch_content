@@ -1,5 +1,5 @@
 ---
-title: "From Class Components to Function Components"
+title: "React Hooks Migration"
 description: "React Hooks change how we will write React applications in the future. This tutorial shows how to convert from React class components to React Function components with React Hooks ..."
 date: "2019-03-26T07:50:46+02:00"
 categories: ["React"]
