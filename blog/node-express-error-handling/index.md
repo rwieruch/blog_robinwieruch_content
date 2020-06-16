@@ -202,7 +202,7 @@ router.post('/', async (req, res, next) => {
 });
 ```
 
-Optionally you could extract this as a reusable error which could be located in a *src/utils/errors.js* file. This new error class extends the commonly used JavaScript `Error` class. The only feature we add here is the 400 HTTP status code:
+Optionally you could extract this as a [reusable custom error](/javascript-custom-error) which could be located in a *src/utils/errors.js* file. This new error class extends the commonly used JavaScript `Error` class. The only feature we add here is the 400 HTTP status code:
 
 ```javascript
 export class BadRequestError extends Error {
