@@ -12,9 +12,9 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup/" }, { prefix: "Part 2:", label: "How to setup Express.js in Node.js", url: "/node-js-express-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup" }, { prefix: "Part 2:", label: "How to setup Express.js in Node.js", url: "/node-js-express-tutorial" }]} />
 
-An Express application is most often used as backend application in a client-server architecture whereas the client could be written in React.js or another popular frontend solution and the server could be written in Express. Both entities result in a client-server architecture (frontend and backend relationship) whereas the backend would be needed for (A) business logic that shouldn't be exposed as source code to the frontend application -- otherwise it would be accessible in the browser -- or for (B) establishing connections to third-party data sources (e.g. database(s)).
+An Express application is most often used as a backend application in a client-server architecture whereas the client could be written in React.js or another popular frontend solution and the server could be written in Express. Both entities result in a client-server architecture (frontend and backend relationship) whereas the backend would be needed for (A) business logic that shouldn't be exposed as source code to the frontend application -- otherwise it would be accessible in the browser -- or for (B) establishing connections to third-party data sources (e.g. database(s)).
 
 However, don't mistake client application *always* for frontend and server application *always* for backend here. These terms cannot be exchanged that easily. Whereas a frontend application is usually something seen in the browser, a backend usually performs business logic that shouldn't be exposed in a browser and often connects to a database as well.
 
@@ -32,7 +32,7 @@ Frontend -> Backend 1 -> Backend 2 -> Database
 // Backend 2: Server for Backend 1
 ```
 
-If you want to answer the client-server question if someone asks you what role the entity plays in a client-server architecture, always ask yourself who (server) is serving whom (client) and who (client) consumes whom's (backend) functionalities?
+If you want to answer the client-server question if someone asks you what role an entity plays in a client-server architecture, always ask yourself who (server) is serving whom (client) and who (client) consumes whom's (backend) functionalities?
 
 That's the theory behind client-server architectures and how to relate to them. Let's get more practical again. How do client and server applications communicate with each other? Over the years, there existed a few popular communication interfaces ([APIs](https://en.wikipedia.org/wiki/Application_programming_interface)) between both entities. However, the most popular one is called [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) defined in 2000 by Roy Fielding. It's an architecture that leverages the [HTTP protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) to enable communication between a client and a server application. A server application that offers a REST API is also called a RESTful server. Servers that don't follow the REST architecture a 100% are rather called RESTish than RESTful. In the following, we are going to implement such REST API for our Express server application, but first let's get to know the tooling that enables us to interact with a REST API.
 
@@ -69,7 +69,7 @@ Whether you access your Express application on `http://localhost:3000` in the br
 ### Exercises:
 
 * Get yourself more familiar with the terms client/server and frontend/backend.
-* If you want to have an alternative for cURL which works in the browser, check out [Isomnia](https://insomnia.rest/) or [Postman](https://www.postman.com/).
+* If you want to have an alternative for cURL which works in the browser, check out [Postman](https://www.postman.com/) or [Isomnia](https://insomnia.rest/).
 
 # Express Routes: HTTP Methods are REST Operations
 
@@ -215,7 +215,7 @@ In order to delete or update a user resource, you would need to know the exact u
 
 You may be still wondering: *What value brings the combination of URIs and HTTP methods* -- which make up the majority of the REST philosophy -- *to my application?*
 
-Let's imagine we wouldn't just return a result, as we do at the moment, but would act properly on the received operation instead. For instance, the Express server could be connected to a database that stores user entities in a user table. Now, when consuming the REST API as a client (e.g. cURL, browser, or also a [React.js application](/react-fetching-data/)), you could retrieve all users from the database with a HTTP GET method on the `/users` URI or, on the same resource, create a new user with a HTTP POST method.
+Let's imagine we wouldn't just return a result, as we do at the moment, but would act properly on the received operation instead. For instance, the Express server could be connected to a database that stores user entities in a user table. Now, when consuming the REST API as a client (e.g. cURL, browser, or also a [React.js application](/react-fetching-data)), you could retrieve all users from the database with a HTTP GET method on the `/users` URI or, on the same resource, create a new user with a HTTP POST method.
 
 ```text
 // making sense of the naming
@@ -411,7 +411,7 @@ const date = Date.parse(req.body.date);
 const count = Number(req.body.count);
 ```
 
-In this last step, we have used a built-in Express middleware and made it available on an application-level -- which means that each request that arrives at one of our Express routes goes through the middleware. Therefore, all data send by a client to our server is available in the incoming request's body object. Try it by creating a message yourself: In a cURL request you can specify HTTP headers with the `-H` flag -- that's how we are saying we want to transfer JSON -- and data as payload with the `-d` flag. You should be able to create messages this way:
+In this last step, we have used a built-in Express middleware and made it available on an application-level -- which means that each request that arrives at one of our Express routes goes through the middleware. Therefore, all data send by a client to our server is available in the incoming request's body. Try it by creating a message yourself: In a cURL request you can specify HTTP headers with the `-H` flag -- that's how we are saying we want to transfer JSON -- and data as payload with the `-d` flag. You should be able to create messages this way:
 
 ```text
 curl -X POST -H "Content-Type:application/json" http://localhost:3000/messages -d '{"text":"Hi again, World"}'
@@ -429,7 +429,7 @@ There you should see the new message which has been created for you. In addition
 curl http://localhost:3000/messages/849d9407-d7c6-4712-8c91-1a99f7b22ef5
 ```
 
-That's it. You have created your first message via your REST API and requested the new message(s) from your REST API. On top of that, you have used a built-in Express middleware to make the data available in the request's body object.
+That's it. You have created your first resource (message) via your REST API and requested the same resource (message(s)) from your REST API. On top of that, you have used a built-in Express middleware to make the data available in the request's body object.
 
 So far, we have only imported third-party Express middleware (CORS) or used a built-in Express middleware (body parser) -- both on an application-level. Now, let's build a custom Express middleware ourselves, which will be used on an application-level too. The blueprint for a middleware is similar to the Express functions we have seen before:
 
@@ -591,7 +591,7 @@ app.use((req, res, next) => {
 ...
 ```
 
-Then, instead of having access to the sample data in all routes from outside variables as before -- which is an unnecessary side-effect and doesn't keep the function pure --, we want to use the models (and authenticated user) from the function's arguments now.
+Then, instead of having access to the sample data in all routes from outside variables as before -- which is an unnecessary side-effect and doesn't keep the function pure --, we want to use the models (and authenticated user) from the function's arguments now:
 
 ```javascript{4,8,12,16,20,28,31,40,42}
 ...
@@ -661,7 +661,7 @@ cd routes
 touch index.js session.js user.js message.js
 ```
 
-Then, assumed the routes would be already defined, import the all the modular routes in the *src/index.js* file and *use* them to mount them as modular routes. Each modular route receives a URI which in REST is our resource.
+Then, assumed the routes would be already defined, import the all the modular routes in the *src/index.js* file and *use* them to mount them as modular routes. Each modular route receives a URI which in REST is our resource:
 
 ```javascript{3,9,10,11}
 ...

@@ -12,15 +12,15 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup/" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup" }]} />
 
-Express.js is the most popular choice when it comes to building web applications with Node.js. However, when saying web applications with Node.js, it's often not for anything visible in the browser (excluding server-side rendering of a frontend application here). Instead, Express.js, a web application framework for Node.js, enables you to build server applications in Node.js. As a backend application, it is the glue between your frontend application and a potential database or other data sources (e.g. REST APIs, GraphQL APIs). Just to give you an idea, the following is a list of tech stacks to build client-server architectures:
+Express.js is the most popular choice when it comes to building web applications with Node.js. However, when saying web applications with Node.js, it's often not for anything visible in the browser (excluding server-side rendering of a frontend application). Instead, Express.js, a web application framework for Node.js, enables you to build server applications in Node.js. As a backend application, it is the glue between your frontend application and a potential database or other data sources (e.g. REST APIs, GraphQL APIs). Just to give you an idea, the following is a list of tech stacks to build client-server architectures:
 
 * React.js (Frontend) + Express.js (Backend) + PostgreSQL (Database)
 * Vue.js (Frontend) + Koa.js (Backend) + MongoDB (Database)
 * Angular.js (Frontend) + Hapi.js (Backend) + Neo4j (Database)
 
-Express.js is exchangeable with other web application frameworks for the backend the same way as React.js is exchangeable with Vue.js and Angular.js when it comes to frontend applications. The Node.js ecosystem doesn't offer only one solution, but various solutions that come with their strengths and weaknesses. However, for this application we will use a Express server, because it is the most popular choice when it comes to building JavaScript backend applications with Node.js.
+[Express.js](https://github.com/expressjs/express) is exchangeable with other web application frameworks for the backend the same way as React.js is exchangeable with Vue.js and Angular.js when it comes to frontend applications. The Node.js ecosystem doesn't offer only one solution, but various solutions that come with their strengths and weaknesses. However, for this application we will use a Express server, because it is the most popular choice when it comes to building JavaScript backend applications with Node.js.
 
 The Node.js application from before comes with a watcher script to restart your application once your source code has changed, Babel to enable JavaScript features that are not supported in Node.js yet, and environment variables for your application's sensitive information. That's a great foundation to get you started with Express.js in Node.js. Let's continue by installing Express.js in your Node.js application from before on the command line:
 
@@ -28,7 +28,7 @@ The Node.js application from before comes with a watcher script to restart your 
 npm install express
 ```
 
-Now, in your *src/index.js* file, use the following code to import Express.js, to create an instance of an Express application, and to start it as Express server:
+Now, in your *src/index.js* JavaScript file, use the following code to import Express.js, to create an instance of an Express application, and to start it as Express server:
 
 ```javascript
 import express from 'express';
@@ -50,7 +50,7 @@ Your Express server is up and running. Everything that should happen after your 
 
 ## Routes in Express.js
 
-In web applications frameworks like Express.js, you can create routes once you have created your application's instance. All routes make up your application's entire routing. Let's set up such a single route:
+Routes in web applications for the backend are used to map URIs to middleware. These URIs could serve a text message, a HTML page, or data in JSON via REST or GraphQL. In a larger application, this would mean having several routes (middleware) which map to several URIs. In Express, a middleware is everything needed for a route, because routes are just another abstraction on top. Let's set up such a single route with Express:
 
 ```javascript{5,6,7}
 import express from 'express';
@@ -66,9 +66,9 @@ app.listen(3000, () =>
 );
 ```
 
-The route points to the root of your domain: `http://localhost:3000/` which can also be used as `http://localhost:3000` without the trailing slash. Once you save the file, the application should restart automatically due to our setup. You can verify it on the command line. Afterward, visit the browser at `http://localhost:3000` to see what it outputs for you. You should see the printed *"Hello World!"* there. In our code, we are using the `res` object's `send` method to send something back to our client application. Whereas the `res` object is everything we need related to specifiyng a *response* for our client, the `req` object is everything we get from this particular *request* from our client. That's it for your first route in Express.js. We will learn more about routes and how to interact with them later.
+The route points to the root (`/`) of your domain. In the browser, you can visit this route with `http://localhost:3000/` or `http://localhost:3000` without the trailing slash. Once you save the file, the application should restart automatically due to our setup. You can verify it on the command line. Afterward, visit the browser to see what it outputs for you. You should see the printed "Hello World!" there. In our code, we are using the `res` object's `send` method to send something back to our client application. Whereas the `res` object is everything we need related to specifiyng a *response* for our client, the `req` object is everything we get from this particular *request* from our client. That's it for your first route in Express.js. We will learn more about routes and how to interact with them later.
 
-Essentially every Express application is a just **a series of routing and middleware function calls**. You have seen the former, the routing with a single route, previously for the `http://localhost:3000` URL or `/` route. You can extend the application with additional URIs (e.g. `http://localhost:3000/example`) by using routes in Express.js (e.g. `/example`) as shown before. Try it yourself!
+Essentially every Express application is a just a series of routing and middleware function calls. You have seen the former, the routing with a single route, previously for the `http://localhost:3000` URL or `/` route. You can extend the application with additional URIs (e.g. `http://localhost:3000/example`) by using routes in Express.js (e.g. `/example`) as shown before. Try it yourself!
 
 ## Middleware in Express.js
 
@@ -150,5 +150,6 @@ Instead of exposing the port that is used in the source code, you have stored it
 * Optional: Checkout the configuration that can be used with the CORS library.
 * Optional: Upload your project to [GitHub with Git](/git-essential-commands/).
   * Exclude the *.env* file from Git with a *.gitignore* file.
+* Explore alternatives for Express.
 
-<LinkCollection label="This tutorial is part 2 of 3 in this series." links={[{ prefix: "Part 1:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup/" }, { prefix: "Part 3:", label: "How to create a REST API with Express.js in Node.js", url: "/node-express-server-rest-api/" }]} />
+<LinkCollection label="This tutorial is part 2 of 3 in this series." links={[{ prefix: "Part 1:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup" }, { prefix: "Part 3:", label: "How to create a REST API with Express.js in Node.js", url: "/node-express-server-rest-api" }]} />

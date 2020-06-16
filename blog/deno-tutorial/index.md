@@ -523,3 +523,5 @@ After all, the port of a server application may be not the best example for sens
 <Divider />
 
 The last sections have introduced you to all the basics in Deno. Deno will be used in the same areas as Node.js, from small script to full-blown server application, yet with a much more improved set of defaults. It's secure by default with its permissions, compatible with lots of client-side APIs, fitted with modern features like top level await, and utilized with JavaScript or TypeScript.
+
+<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "Getting started with Oak in Deno", url: "/deno-oak" }]} />
