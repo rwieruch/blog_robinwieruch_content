@@ -14,7 +14,7 @@ author: ""
 
 Writing tests is an essential part of software development to ensure a robust application. Tests enable us to automatically verify that our application is working on a certain level. The certain level depends on the quality, quantity (coverage) and type of your tests (unit tests, integration tests, snapshot tests, end-to-end tests (also called E2E tests)). The following tutorial series should **guide you through the whole topic of testing React applications**. Primarily, you will test React components but also pure JavaScript logic. The tutorials showcase different testing libraries for your React application whereas you can decide which of these solutions make sense for you. It guides you through the whole testing setup for your React application and how to write the tests for the React components.
 
-*Note: If you are coming from a [create-react-app](https://github.com/facebook/create-react-app) application, you can ignore most of the setup sections. The create-react-app application comes with Jest as test runner and assertion library. You could add various other testing libraries such as Enzyme and React Testing Library to it. Otherwise, I would recommend to use [this article to set up a minimal React with Webpack application](/minimal-react-webpack-babel-setup/).*
+*Note: If you are coming from a [create-react-app](https://github.com/facebook/create-react-app) application, you can ignore most of the setup sections. The create-react-app application comes with Jest as test runner and assertion library. You could add various other testing libraries such as Enzyme and React Testing Library to it. Otherwise, I would recommend to use [this article to set up a minimal React with Webpack application](/minimal-react-webpack-babel-setup/), if you are not using create-react-app.*
 
 As mentioned, the tutorial series will show you **how to setup different testing libraries in your React application and how to use them**. We will follow mostly the constraints of the [testing pyramid](https://www.google.com/search?q=testing+pyramid). It says that you should write mostly unit tests, followed by several integration tests and only a few end-to-end-tests (E2E tests). However, there exists a second philosophy for React applications, because it uses components and not many functions: The second testing philosophy says that you should write "mostly integration tests and not so many unit tests". We will come back to this topic later for the tutorial series.
 
@@ -26,17 +26,22 @@ Another goal of this testing tutorial series is to show you a couple of **common
 
 # React Testing Libraries
 
-There exist various testing libraries for your React components. If you entering the React ecosystem with a Node.js background, you may be familiar with Mocha, Chai and Sinon to test JavaScript applications. Whereas Mocha is your test runner, Chai will be your assertion library. Sinon can be used optionally to test your JavaScript logic with spies, stubs, and mocks. Actually all three testing libraries can be used to test React applications as well: [How to test React components with Mocha, Chai and Enzyme](/react-testing-mocha-chai-enzyme-sinon/). As you can see, another library called Enzyme is added to the mix to render your React components. Still everything would run within Mocha and Chai is used as assertion library.
+There are various testing libraries for your React components. If you entering the React ecosystem with a Node.js background, you may be familiar with Mocha, Chai and Sinon to test JavaScript applications. Whereas Mocha is your test runner, Chai will be your assertion library. Sinon can be used optionally to test your JavaScript logic with spies, stubs, and mocks. Actually all three testing libraries can be used to test React applications as well: [How to test React components with Mocha, Chai and Enzyme](/react-testing-mocha-chai-enzyme-sinon/). As you can see, another library called Enzyme is added to the mix to render your React components. Still everything would run within Mocha and Chai is used as assertion library.
 
-However, if you really want to test React components the idiomatic way, you will not get around Jest. Jest was released by Facebook to test React components and brings the combined power of Mocha, Chai, Sinon and more. It is a test runner, assertion library, and offers spies, stubs and mocks as well. Jest can be combined with Enzyme or React Testing Library to test your React components in an even more powerful way. The following tutorial series gives you a great introduction to testing React components:
+However, if you really want to test React components the idiomatic way, you will not get around Jest. Jest was released by Facebook to test React components and brings the combined power of Mocha, Chai, Sinon and more. It is a test runner, assertion library, and offers spies, stubs and mocks as well. **Jest can be combined with Enzyme or React Testing Library to test your React components** in an even more powerful way. The following tutorials give you a great introduction to testing React components:
 
-* [How to test React components with Jest](/react-testing-jest)
-* [How to test React components with Jest & Enzyme](/react-testing-jest-enzyme)
+* Jest + React Testing Library
+  * [How to test React components with React Testing Library](/react-testing-library)
+* Jest + Enzyme:
+  * [How to test React components with Jest](/react-testing-jest)
+  * [How to test React components with Jest & Enzyme](/react-testing-jest-enzyme)
 
 As you can see, there are various ways to test React components:
 
 * Mocha, Chai, Sinon + Enzyme: If you are coming from a Node.js environment.
 * Jest + Enzyme/React Testing Library: If you want to test the more idiomatic way.
+
+**My prefered way: Jest + React Testing library.**
 
 In addition, you may want to end-to-end test your React applications as well. I have found Cypress the best option to conduct these kinds of tests: [How to test React components E2E with Cypress](/react-testing-cypress). If you want to dive into visual regression testing, you can use React Storybook: [Visual Regression Tests and React Storybook](/visual-regression-testing-react-storybook).
 

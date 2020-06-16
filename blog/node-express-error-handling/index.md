@@ -12,6 +12,28 @@ author: ""
 
 <Sponsorship />
 
+<LinkCollection
+  label="This tutorial is part 2 of 2 in this series."
+  links={[
+    {
+      prefix: "Part 1:",
+      label: "Creating a REST API with Express.js and MongoDB",
+      url: "/mongodb-express-node-rest-api"
+    },
+  ]}
+/>
+
+<LinkCollection
+  label="This tutorial is part 2 of 2 in this series."
+  links={[
+    {
+      prefix: "Part 1:",
+      label: "Creating a REST API with Express.js and PostgreSQL",
+      url: "/postgresql-express-node-rest-api"
+    },
+  ]}
+/>
+
 Handling errors in Express is often an afterthought. However, it should usually start with your Express routes, because if an error happens, your user needs to be notified about it. With the right techniques at hand, error handling in Express becomes pretty straight forward.
 
 There are several scenarios why an error might happen. It can be that a user doesn't provide all information for a RESTful request, that your ORM/ODM layer (e.g. Mongoose) cannot perform the desired operation (due to validation or some other restrictions) on the database, or that a user is not authorized to perform a certain operation on a RESTful resource.

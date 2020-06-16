@@ -180,3 +180,14 @@ Basically that's it for connecting PostgreSQL to Express routes with Sequelize. 
   * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-postgresql-server/compare/seed...sequelize-rest?expand=1).
 * Check the [source code of the alternative MongoDB with Mongoose implementation](https://github.com/rwieruch/node-express-mongodb-server)
 * Experiment with your REST API with cURL operations.
+
+<LinkCollection
+  label="This tutorial is part 1 of 2 in this series."
+  links={[
+    {
+      prefix: "Part 2:",
+      label: "How to handle errors in Express",
+      url: "/node-express-error-handling"
+    },
+  ]}
+/>

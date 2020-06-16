@@ -198,3 +198,14 @@ Basically that's it for connecting MongoDB to Express routes with Mongoose. All 
   * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-mongodb-server/compare/seed...mongoose-rest?expand=1).
 * Check the [source code of the alternative PostgreSQL with Sequelize implementation](https://github.com/rwieruch/node-express-postgresql-server).
 * Experiment with your REST API with cURL operations.
+
+<LinkCollection
+  label="This tutorial is part 1 of 2 in this series."
+  links={[
+    {
+      prefix: "Part 2:",
+      label: "How to handle errors in Express",
+      url: "/node-express-error-handling"
+    },
+  ]}
+/>
