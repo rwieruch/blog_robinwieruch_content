@@ -463,7 +463,7 @@ If you want to start your Deno application in TypeScript again, note that you ha
 deno run --allow-net index.ts
 ```
 
-Deno comes with a default TypeScript configuration. If you want to customize it, you can add a custom *tsconfig.js* file (see exercises). After all, since TypeScript is as much first class citizen as JavaScript, it's up to you which file extension you take for your future Deno project.
+Deno comes with a default TypeScript configuration. If you want to customize it, you can add a custom *tsconfig.json* file (see exercises). After all, since TypeScript is as much first class citizen as JavaScript, it's up to you which file extension you take for your future Deno project.
 
 ### Exercises:
 
