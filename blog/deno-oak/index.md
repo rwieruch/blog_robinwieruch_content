@@ -39,13 +39,7 @@ app.addEventListener('listen', () => {
 await app.listen({ port });
 ```
 
-Remember to put the event listener (addEventListener) in front of the actual listening (listen), otherwise the listener will never get executed. Once you start your application on the command line with `deno run --allow-net server.ts`, which includes the permission for network access for this server, you should be able to see the output in the command line:
-
-```text
-Listening on localhost:8000
-```
-
-Your Oak server is up and running. Everything that should happen after your Oak application has started goes into the `addEventListener` methods's [callback function](/javascript-callback-function). The `listen` method takes as first parameter a configuration object with the [port](https://en.wikipedia.org/wiki/Port_(computer_networking)) -- which we initialized with a [property shorthand in an object](/javascript-object-property-shorthand) -- for the running application . That's why after starting it, the application is available via `http://localhost:8000` in the browser, although nothing should be available at this URL yet when you visit it in your browser.
+Remember to put the event listener (addEventListener) in front of the actual listening (listen), otherwise the listener will never get executed. Everything that should happen after your Oak application has started goes into the `addEventListener` methods's [callback function](/javascript-callback-function). The `listen` method takes as first parameter a configuration object with the [port](https://en.wikipedia.org/wiki/Port_(computer_networking)) -- which we initialized with a [property shorthand in an object](/javascript-object-property-shorthand) -- for the running application . That's why after finally starting it, the should be available via `http://localhost:8000` in the browser.
 
 The Oak application has two methods: use and listen. While the `listen` method starts the server and starts processing requests with registered middleware, the `use` method sets up the middleware in the first place. We will set up one basic middleware with Oak before diving into this topic more in depth later:
 
