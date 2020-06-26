@@ -127,7 +127,7 @@ var lastName = 'Wieruch';
 
 var sentence = `Hello, my name is ${firstName} ${lastName}.`;
 
-console.log(name);
+console.log(sentence);
 // "Hello, my name is Robin Wieruch."
 ```
 
@@ -139,7 +139,7 @@ var lastName = 'Wieruch';
 
 var sentence = 'Hello, my name is ' + firstName + ' ' + lastName + '.';
 
-console.log(name);
+console.log(sentence);
 // "Hello, my name is Robin Wieruch."
 ```
 
