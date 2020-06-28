@@ -29,7 +29,7 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY . <div class=""></div>
+COPY . .
 ```
 
 Notice how we have no `EXPOSE` or `CMD` statements in this Dockerfile anymore. The Dockerfile is only there for creating the application as Docker image. There are no ports exposed nor any commands to run it. That's where Docker Compose comes into play. First, create a *docker-compose.yml* file in your project's root directory from the command line:
