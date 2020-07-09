@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-React's useCallback Hook can be used to **optimize the rendering behavior** of your [React function components](/react-function-component). We will got through an example component to illustrate the problem first, and then solve it with **React's useCallback Hook**.
+React's useCallback Hook can be used to **optimize the rendering behavior** of your [React function components](/react-function-component). We will go through an example component to illustrate the problem first, and then solve it with **React's useCallback Hook**.
 
 Keep in mind that most of the performance optimizations in React are premature. React is fast by default, so *every* performance optimization is opt-in in case something starts to feel slow.
 
