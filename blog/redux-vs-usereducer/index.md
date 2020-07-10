@@ -1,9 +1,9 @@
 ---
-title: "React's useReducer vs Redux"
-description: "Does useContext and useReducer replace Redux? Since React Hooks were released in React, developers are wondering whether they still need Redux for their React application ..."
+title: "React's useReducer Hook vs Redux"
+description: "Do React Hooks with useReducer and useContext replace Redux? Since React Hooks were released in React, developers are wondering whether they still need Redux for their React application ..."
 date: "2019-05-13T07:52:46+02:00"
 categories: ["React"]
-keywords: ["useReducer vs redux", "useReducer redux"]
+keywords: ["useReducer redux", "react hooks vs redux"]
 hashtags: ["#100DaysOfCode", "#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
