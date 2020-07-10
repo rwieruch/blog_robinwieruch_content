@@ -4,7 +4,7 @@ description: "Components become more important these days. In the future you wil
 date: "2015-04-03T13:50:46+02:00"
 categories: ["Angular", "D3"]
 keywords: ["angular d3"]
-hashtags: ["#100DaysOfCode", "#d3js,#angularjs"]
+hashtags: ["#d3js,#angularjs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "A tutorial on how to have state in React without a constructor in 
 date: "2018-10-02T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react state without constructor", "react state without class", "react set initial state without constructor", "react setState without constructor", "react create state without a constructor"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "This GraphQL tutorial for beginners takes you on a journey to lear
 date: "2018-11-01T13:50:46+02:00"
 categories: ["GraphQL"]
 keywords: ["graphql tutorial"]
-hashtags: ["#100DaysOfCode", "#GraphQL"]
+hashtags: ["#GraphQL"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

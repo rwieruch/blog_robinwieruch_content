@@ -4,7 +4,7 @@ description: "A brief walkthrough that explains reusable components in React by 
 date: "2019-05-26T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react reusable components", "react reusable component"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

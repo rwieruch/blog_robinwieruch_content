@@ -4,7 +4,7 @@ description: "Everything you need to know about React Function Components -- als
 date: "2019-03-18T07:50:46+02:00"
 categories: ["React"]
 keywords: ["react function component", "react functional component", "react arrow function component", "react js function component"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

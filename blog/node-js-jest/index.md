@@ -4,7 +4,7 @@ description: "How to get started with testing in Node.js with Jest. This setup t
 date: "2020-02-20T03:56:46+02:00"
 categories: ["Node"]
 keywords: ["node jest", "node js jest", "node js testing", "node testing", "node js test", "node test"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
+hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

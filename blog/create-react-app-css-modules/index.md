@@ -4,7 +4,7 @@ description: "The article is a short how to use CSS Modules in your create-react
 date: "2018-10-03T13:50:46+02:00"
 categories: ["React"]
 keywords: ["create-react-app css modules", "create-react-app css modules without eject"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "An elaborate walkthrough for React state management example with u
 date: "2019-04-06T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react state hooks", "react usereducer", "react usestate", "react usecontext"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

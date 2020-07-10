@@ -4,7 +4,7 @@ description: "A tutorial on how to activate Facebook login for Firebase or Fires
 date: "2018-12-07T07:52:46+02:00"
 categories: ["React", "Firebase"]
 keywords: ["firebase facebook login", "firebase facebook login no email", "firebase login with facebook", "firebase facebook sign in", "firebase facebook login web"]
-hashtags: ["#100DaysOfCode", "#Firebase"]
+hashtags: ["#Firebase"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

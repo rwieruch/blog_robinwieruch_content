@@ -4,7 +4,7 @@ description: "A tutorial on how to use RxJS in React for state management. It sh
 date: "2018-10-22T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react rxjs tutorial", "rxjs react js tutorial", "react rxjs hoc", "react with rxjs", "react rxjs example", "react rxjs event", "react rxjs state", "react rxjs observable", "react rxjs component"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

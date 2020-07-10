@@ -4,7 +4,7 @@ description: "How to fit your data with model selection and polynomial regressio
 date: "2017-10-30T13:50:46+02:00"
 categories: ["Machine Learning", "JavaScript"]
 keywords: ["machine learning javascript", "polynomial regression javascript", "model selection javascript"]
-hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
+hashtags: ["#JavaScript,#MachineLearning"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

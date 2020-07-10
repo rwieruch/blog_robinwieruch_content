@@ -4,7 +4,7 @@ description: "Learn how to snapshot test the difference in changing snapshot tes
 date: "2019-08-15T13:56:46+02:00"
 categories: ["React", "Jest"]
 keywords: ["jest snapshot test difference"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

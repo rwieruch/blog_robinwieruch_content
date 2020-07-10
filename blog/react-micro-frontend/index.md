@@ -4,7 +4,7 @@ description: "This tutorial shows an example how to create a micro frontend arch
 date: "2020-03-10T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react micro frontend"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

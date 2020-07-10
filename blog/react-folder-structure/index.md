@@ -4,7 +4,7 @@ description: "How to structure large React apps into folders and files for a sca
 date: "2020-04-06T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react folder structure", "react project structure", "how to structure a large React apps"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "A tutorial on how to setup MongoDB for Express.js in a Node.js app
 date: "2020-04-27T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["mongodb express", "mongodb mongoose", "node mongodb"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
+hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

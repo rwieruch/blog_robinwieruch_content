@@ -4,7 +4,7 @@ description: "A comprehensive Oak with Deno tutorial for beginners. Learn what m
 date: "2020-06-21T09:52:46+02:00"
 categories: ["Deno"]
 keywords: ["deno oak", "deno oak tutorial"]
-hashtags: ["#100DaysOfCode", "#Deno"]
+hashtags: ["#Deno"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

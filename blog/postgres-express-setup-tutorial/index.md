@@ -4,7 +4,7 @@ description: "A tutorial on how to setup PostgreSQL for Express.js in a Node.js 
 date: "2020-04-28T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["postgresql express", "postgres express", "postgres sequelize", "postgresql sequelize", "node postgresql", "node postgres"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
+hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

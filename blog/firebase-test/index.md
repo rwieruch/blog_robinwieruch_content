@@ -4,7 +4,7 @@ description: "Learn how to test Firebase functions from database and authenticat
 date: "2020-02-06T13:56:46+02:00"
 categories: ["Firebase"]
 keywords: ["firebase test", "firebase testing", "firebase jest", "firebase mock"]
-hashtags: ["#100DaysOfCode", "#Firebase"]
+hashtags: ["#Firebase"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "In this React component tutorial, we will build a React Slider Com
 date: "2019-12-02T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react slider", "react slider component", "react slider example", "react slider range", "react range"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

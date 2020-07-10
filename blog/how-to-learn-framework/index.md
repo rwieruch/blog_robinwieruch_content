@@ -4,7 +4,7 @@ description: "How to learn React, Vue, Angular or any other framework? For many 
 date: "2018-01-31T13:50:46+02:00"
 categories: ["Starter", "React", "JavaScript", "Vue", "Angular"]
 keywords: ["learn react", "react book", "reactjs book"]
-hashtags: ["#100DaysOfCode", "#ReactJs,#VueJs,#AngularJs"]
+hashtags: ["#ReactJs,#VueJs,#AngularJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "An extensive walkthrough for JavaScript developers who want to get
 date: "2019-03-06T07:52:46+02:00"
 categories: ["JavaScript"]
 keywords: ["map javascript", "array map javascript", "array map method", "array map function"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
+hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: "Benjamin Johnson"

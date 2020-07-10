@@ -4,7 +4,7 @@ description: "Everything you need to know about conditional rendering in React. 
 date: "2020-01-16T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react conditional rendering", "react conditional render"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

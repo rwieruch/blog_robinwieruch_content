@@ -4,7 +4,7 @@ description: "A comprehensive Deno tutorial for beginners. Learn what makes Deno
 date: "2020-06-07T09:52:46+02:00"
 categories: ["Deno"]
 keywords: ["deno", "deno tutorial"]
-hashtags: ["#100DaysOfCode", "#Deno"]
+hashtags: ["#Deno"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

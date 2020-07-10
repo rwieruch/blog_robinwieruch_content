@@ -4,7 +4,7 @@ description: "A brief explanation for uncontrolled vs controlled components in R
 date: "2019-04-10T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react controlled components", "react uncontrolled components", "react controlled vs components", "react controlled input"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "Learn how to run end to end tests for React with Cypress. E2E test
 date: "2019-07-18T13:56:46+02:00"
 categories: ["React", "Tooling", "Webpack", "Babel"]
 keywords: ["react testing cypress", "react end to end testing", "react cypress"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

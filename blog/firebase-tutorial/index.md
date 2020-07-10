@@ -4,7 +4,7 @@ description: "A short visual Firebase tutorial should help you to create your fi
 date: "2018-12-07T07:52:46+02:00"
 categories: ["React", "Firebase"]
 keywords: ["firebase tutorial", "firebase authentication", "firebase cloud firestore", "firestore", "firebase realtime database", "firebase hosting"]
-hashtags: ["#100DaysOfCode", "#Firebase"]
+hashtags: ["#Firebase"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "Learn how to use environment variables in Deno with .env and doten
 date: "2020-06-07T09:52:46+02:00"
 categories: ["Deno"]
 keywords: ["deno environment variables"]
-hashtags: ["#100DaysOfCode", "#Deno"]
+hashtags: ["#Deno"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

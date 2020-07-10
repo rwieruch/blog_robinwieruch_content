@@ -4,7 +4,7 @@ description: "How to use TypeScript with Babel Module Resolver for aliases that 
 date: "2020-02-01T13:56:46+02:00"
 categories: ["Tooling"]
 keywords: ["babel module resolver typescript"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
+hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

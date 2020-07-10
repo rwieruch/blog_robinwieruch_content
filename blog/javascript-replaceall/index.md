@@ -4,7 +4,7 @@ description: "Learn how to replace all occurrences of a string in JavaScript wit
 date: "2020-06-02T12:50:46+02:00"
 categories: ["JavaScript"]
 keywords: ["javascript replaceAll"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
+hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

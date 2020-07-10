@@ -4,7 +4,7 @@ description: "Everything you need to know about using MobX in a create-react-app
 date: "2017-10-10T13:50:46+02:00"
 categories: ["React", "MobX"]
 keywords: ["create-react-app mobx decorators"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "Build a React + Redux SoundCloud Client. It is a huge tutorial whe
 date: "2016-06-11T13:50:46+02:00"
 categories: ["React", "Redux"]
 keywords: ["react redux"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

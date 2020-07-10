@@ -4,7 +4,7 @@ description: "A tutorial about React's useState hook by example for state manage
 date: "2019-05-30T03:52:46+02:00"
 categories: ["React"]
 keywords: ["react usestate"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

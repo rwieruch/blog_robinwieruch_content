@@ -4,7 +4,7 @@ description: "Learn about custom errors in JavaScript, how to create a new custo
 date: "2020-05-22T07:50:46+02:00"
 categories: ["JavaScript"]
 keywords: ["javascript custom error"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
+hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

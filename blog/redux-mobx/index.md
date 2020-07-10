@@ -4,7 +4,7 @@ description: "Using Redux or MobX in your React application? The article shows y
 date: "2017-03-28T13:50:46+02:00"
 categories: ["Redux", "MobX"]
 keywords: ["redux mobx"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "How to set up CSS Modules in React with Webpack or Create React Ap
 date: "2019-10-19T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react css modules"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

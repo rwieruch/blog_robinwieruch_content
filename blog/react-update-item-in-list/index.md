@@ -4,7 +4,7 @@ description: "Learn how to update an item in a list in React with React's state.
 date: "2020-05-14T09:52:46+02:00"
 categories: ["React"]
 keywords: ["react update item in list", "react change item in array", "react edit item in list", "react modify item in array"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

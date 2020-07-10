@@ -4,7 +4,7 @@ description: "How to become a React developer in 2020. A guide that shows one ho
 date: "2020-01-01T07:52:46+02:00"
 categories: ["Starter", "React"]
 keywords: ["learn react js", "learn react js step by step free", "learn react js fast", "learn react js book", "learn reactjs from scratch", "learn react js online"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

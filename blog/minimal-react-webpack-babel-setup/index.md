@@ -4,7 +4,7 @@ description: "A step by step tutorial to set up React with Webpack and Babel fro
 date: "2019-06-15T13:55:46+02:00"
 categories: ["React", "JavaScript", "Tooling", "Webpack", "Babel"]
 keywords: ["react webpack", "react webpack babel", "react babel", "react webpack tutorial", "react webpack example", "react webpack boilerplate"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

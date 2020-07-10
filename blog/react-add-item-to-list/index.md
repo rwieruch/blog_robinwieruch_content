@@ -4,7 +4,7 @@ description: "Learn how to add an item to a list in React with React's state. It
 date: "2020-05-14T08:52:46+02:00"
 categories: ["React"]
 keywords: ["react add item to list", "react add item to array"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

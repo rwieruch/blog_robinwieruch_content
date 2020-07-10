@@ -4,7 +4,7 @@ description: "A brief explanation why we need to call event.preventDefault() on 
 date: "2019-05-28T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react preventdefault"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

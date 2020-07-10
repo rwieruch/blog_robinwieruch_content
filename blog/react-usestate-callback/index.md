@@ -4,7 +4,7 @@ description: "If you have used setState before, you may be missing a callback fu
 date: "2019-06-03T03:52:46+02:00"
 categories: ["React"]
 keywords: ["react usestate callback"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

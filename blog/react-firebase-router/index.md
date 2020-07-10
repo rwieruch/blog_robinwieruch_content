@@ -4,7 +4,7 @@ description: "A React tutorial on how to combine React Router and Firebase to na
 date: "2019-01-01T07:52:46+02:00"
 categories: ["React", "Firebase"]
 keywords: ["react firebase router", "react router firebase"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

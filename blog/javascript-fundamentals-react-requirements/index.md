@@ -4,7 +4,7 @@ description: "All the fundamentals in JavaScript for learning React. Often React
 date: "2019-07-14T13:50:46+02:00"
 categories: ["React", "JavaScript"]
 keywords: ["react javascript", "javascript fundamentals react", "react js requirements", "react javascript tutorial"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

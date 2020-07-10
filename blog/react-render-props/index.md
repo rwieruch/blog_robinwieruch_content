@@ -4,7 +4,7 @@ description: "The concept of children as a function or child as a function, also
 date: "2018-08-08T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react render props", "react render prop component"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

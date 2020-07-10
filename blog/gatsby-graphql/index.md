@@ -4,7 +4,7 @@ description: "Learn how to work with GraphQL in Gatsby more efficient with these
 date: "2020-05-17T07:52:46+02:00"
 categories: ["React"]
 keywords: ["gatsby graphql"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: "Yomi Eluwande"

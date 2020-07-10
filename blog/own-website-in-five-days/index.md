@@ -4,7 +4,7 @@ description: "Technical cheatsheet to create and host your own website in five d
 date: "2016-11-09T13:50:46+02:00"
 categories: ["Web Development"]
 keywords: ["website in five days", "hugo website"]
-hashtags: ["#100DaysOfCode", "#programming"]
+hashtags: ["#programming"]
 contribute: ""
 author: ""
 ---

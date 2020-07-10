@@ -4,7 +4,7 @@ description: "A common sense minimal Node.js setup guide which uses Babel and No
 date: "2020-04-22T07:50:46+02:00"
 categories: ["Node", "Tooling", "JavaScript"]
 keywords: ["node setup", "node js setup", "node babel setup", "node js babel setup"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
+hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "A tutorial about React's useContext hook by example for React's Co
 date: "2019-10-19T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react usecontext"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

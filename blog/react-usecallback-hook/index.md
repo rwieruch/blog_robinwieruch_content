@@ -4,7 +4,7 @@ description: "A tutorial about React's useCallback hook by example for performan
 date: "2020-07-06T09:52:46+02:00"
 categories: ["React"]
 keywords: ["react usecallback"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

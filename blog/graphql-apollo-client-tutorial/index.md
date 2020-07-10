@@ -4,7 +4,7 @@ description: "This tutorial shows you how to use Apollo Client for GraphQL witho
 date: "2018-11-01T02:50:46+02:00"
 categories: ["GraphQL", "JavaScript"]
 keywords: ["apollo client tutorial", "graphql apollo tutorial"]
-hashtags: ["#100DaysOfCode", "#GraphQL"]
+hashtags: ["#GraphQL"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

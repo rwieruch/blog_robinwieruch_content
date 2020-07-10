@@ -4,7 +4,7 @@ description: "By Example: How to unit test React-Redux connected components? By 
 date: "2019-08-30T13:56:46+02:00"
 categories: ["React", "Redux"]
 keywords: ["react connected component test"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

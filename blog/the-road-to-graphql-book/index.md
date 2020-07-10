@@ -4,7 +4,7 @@ description: "The free GraphQL book takes you on a journey to master GraphQL in 
 date: "2018-11-05T13:50:46+02:00"
 categories: ["React", "GraphQL", "Node"]
 keywords: ["graphql javascript book", "graphql book pdf", "book about graphql", "books on graphql", "learning graphql book", "graphql books", "graphql apollo book", "react graphql book", "graphql node book", "best graphql book"]
-hashtags: ["#100DaysOfCode", "#ReactJs,#GraphQL"]
+hashtags: ["#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "Learn how to set up test coverage with Coveralls for your JavaScri
 date: "2019-07-20T13:56:46+02:00"
 categories: ["React", "JavaScript", "Tooling", "Webpack", "Babel"]
 keywords: ["javascript test coverage", "javascript test coverage jest"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
+hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

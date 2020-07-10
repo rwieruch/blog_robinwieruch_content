@@ -4,7 +4,7 @@ description: "A Node.js with Express and MongoDB tutorial to learn step by step 
 date: "2020-04-27T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["express mongodb rest api", "express mongodb rest", "express mongodb crud"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
+hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

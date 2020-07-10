@@ -4,7 +4,7 @@ description: "A comprehensive Oak with Deno tutorial for REST APIs. Learn how to
 date: "2020-06-29T10:52:46+02:00"
 categories: ["Deno"]
 keywords: ["deno oak rest api"]
-hashtags: ["#100DaysOfCode", "#Deno"]
+hashtags: ["#Deno"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

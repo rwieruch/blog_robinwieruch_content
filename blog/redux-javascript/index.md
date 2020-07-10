@@ -4,7 +4,7 @@ description: "Redux greatly shaped how we develop modern JavaScript applications
 date: "2019-09-21T07:52:46+02:00"
 categories: ["JavaScript", "Redux", "React"]
 keywords: ["javascript redux", "react redux"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
+hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

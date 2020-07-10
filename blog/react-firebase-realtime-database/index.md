@@ -4,7 +4,7 @@ description: "A React with Firebase tutorial on how to work with Firebase's real
 date: "2019-01-16T07:52:46+02:00"
 categories: ["React", "Firebase"]
 keywords: ["react firebase realtime database", "react firebase associate", "react firebase data fetching"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "What about the ref attribute in React.js? This article gives you c
 date: "2017-03-22T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react ref"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

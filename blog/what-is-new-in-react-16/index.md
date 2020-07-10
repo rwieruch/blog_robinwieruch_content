@@ -4,7 +4,7 @@ title: "What's new in React 16?"
 description: "All React 16 changes in one article. It tells you about the new return types with fragments and strings, portals in React, componentDidCatch and error boundaries for a robust error handling in React, setState with returning null and custom DOM attributes in React.js ..."
 categories: ["React"]
 keywords: ["react 16"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 author: ""
 contribute: ""

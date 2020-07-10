@@ -4,7 +4,7 @@ description: "An extensive walkthrough on how to host your application on Digita
 date: "2017-10-31T13:50:46+02:00"
 categories: ["JavaScript", "Web Development"]
 keywords: ["single multiple applications digital ocean"]
-hashtags: ["#100DaysOfCode", "#DigitalOcean"]
+hashtags: ["#DigitalOcean"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

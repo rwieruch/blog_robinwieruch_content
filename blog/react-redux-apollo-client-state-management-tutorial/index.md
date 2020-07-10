@@ -4,7 +4,7 @@ description: "When having a GraphQL server, Apollo Client can be a valid option 
 date: "2018-06-26T13:50:46+02:00"
 categories: ["React", "GraphQL", "Redux"]
 keywords: ["apollo client redux", "react graphql redux", "apollo redux store", "apollo link state redux", "apollo vs redux", "apollo client vs redux", "how to use redux with apollo", "how to use apollo with redux", "graphql react book"]
-hashtags: ["#100DaysOfCode", "#ReactJs,#GraphQL"]
+hashtags: ["#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "By Example: How to set up Redux Persist in Next.js to persist your
 date: "2019-07-25T13:56:46+02:00"
 categories: ["React", "NextJs", "Redux"]
 keywords: ["redux persist nextjs"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "Learn how to set up a GraphQL middleware with resolvers handling a
 date: "2020-03-08T13:56:46+02:00"
 categories: ["Firebase"]
 keywords: ["graphql middleware", "graphql authorization", "graphql permissions"]
-hashtags: ["#100DaysOfCode", "#GraphQL"]
+hashtags: ["#GraphQL"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

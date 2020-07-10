@@ -4,7 +4,7 @@ title: "How to set up a Webpack project [Tutorial]"
 description: "A Webpack setup tutorial that walks you through your first JavaScript application set up with Webpack. Bonus: You will add Babel to enable advanced JavaScript features ..."
 categories: ["JavaScript", "Tooling", "Webpack"]
 keywords: ["webpack setup", "webpack tutorial", "webpack babel"]
-hashtags: ["#100DaysOfCode", "#JavaScript", "#Webpack"]
+hashtags: ["#JavaScript", "#Webpack"]
 banner: "./images/banner.jpg"
 author: ""
 contribute: ""

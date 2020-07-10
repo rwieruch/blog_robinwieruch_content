@@ -4,7 +4,7 @@ description: "Learn how to test your React application with Jest & Enzyme. Jest 
 date: "2019-07-17T13:56:46+02:00"
 categories: ["React", "Tooling", "Webpack", "Babel", "Enzyme"]
 keywords: ["react testing jest enzyme", "react testing enzyme", "react enzyme setup", "react enzyme"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

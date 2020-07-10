@@ -4,7 +4,7 @@ description: "Learn styling in React with CSS, CSS Modules (CSS-in-CSS), Styled 
 date: "2020-05-10T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react styling", "react css"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

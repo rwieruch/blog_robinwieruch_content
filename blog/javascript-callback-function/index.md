@@ -4,7 +4,7 @@ description: "Learn about callback functions in JavaScript, how to use callback 
 date: "2020-05-22T12:50:46+02:00"
 categories: ["JavaScript"]
 keywords: ["javascript custom error"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
+hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

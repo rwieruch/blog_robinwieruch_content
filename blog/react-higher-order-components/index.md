@@ -4,7 +4,7 @@ description: "A comprehensive yet easy to understand introduction to higher-orde
 date: "2017-04-04T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react higher order components"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

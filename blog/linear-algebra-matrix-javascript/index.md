@@ -4,7 +4,7 @@ description: "How to use matrix operations from linear algebra in JavaScript. Wh
 date: "2017-10-23T13:50:46+02:00"
 categories: ["Machine Learning", "JavaScript"]
 keywords: ["machine learning javascript", "matrix javascript", "matrix math.js"]
-hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
+hashtags: ["#JavaScript,#MachineLearning"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

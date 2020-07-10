@@ -4,7 +4,7 @@ description: "Facts about React that should be known before using Redux (or MobX
 date: "2017-07-19T13:50:46+02:00"
 categories: ["React", "Redux"]
 keywords: ["learn react redux"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

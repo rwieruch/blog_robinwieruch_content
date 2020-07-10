@@ -4,7 +4,7 @@ description: "A concise step by step guide on how to setup React.js on MacOS. In
 date: "2018-02-20T13:50:46+02:00"
 categories: ["React", "VS Code", "Web Development"]
 keywords: ["react macos setup", "react mac os", "how to install react", "install react"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

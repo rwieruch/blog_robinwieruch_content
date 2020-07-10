@@ -4,7 +4,7 @@ description: "A installation guide for a PostgreSQL on Windows setup for having 
 date: "2019-01-08T13:50:46+02:00"
 categories: ["Node"]
 keywords: ["postgres windows", "postgresql windows", "postgres setup", "postgresql setup", "postgres os setup"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
+hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

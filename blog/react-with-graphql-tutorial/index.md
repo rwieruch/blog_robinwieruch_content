@@ -4,7 +4,7 @@ description: "This React with GraphQL tutorial shows you how to use GraphQL in y
 date: "2018-04-09T13:50:46+02:00"
 categories: ["React", "GraphQL"]
 keywords: ["react graphql tutorial", "react with graphql tutorial", "react graphql book", "react graphql example", "react graphql query", "react graphql mutation", "react graphql client", "react graphql demo"]
-hashtags: ["#100DaysOfCode", "#ReactJs,#GraphQL"]
+hashtags: ["#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

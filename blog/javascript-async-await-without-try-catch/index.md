@@ -4,7 +4,7 @@ description: "Learn how to use async await without a try catch block in JavaScri
 date: "2020-05-22T07:50:46+02:00"
 categories: ["JavaScript"]
 keywords: ["async await without try catch"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
+hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

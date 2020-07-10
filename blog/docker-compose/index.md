@@ -4,7 +4,7 @@ description: "Everything I have learned about Docker Compose for creating Docker
 date: "2020-02-18T03:56:46+02:00"
 categories: ["Docker"]
 keywords: ["docker compose"]
-hashtags: ["#100DaysOfCode", "#Docker"]
+hashtags: ["#Docker"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

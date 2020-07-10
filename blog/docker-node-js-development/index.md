@@ -4,7 +4,7 @@ description: "A short walkthrough on how to use Docker with Node.js in a develop
 date: "2020-02-18T03:52:46+02:00"
 categories: ["Docker", "Node"]
 keywords: ["docker node", "docker nodejs", "docker node js", "docker node js development"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
+hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

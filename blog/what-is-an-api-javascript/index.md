@@ -4,7 +4,7 @@ title: "Nobody introduced me to the API"
 description: "A storytelling approach to learn about the term API. There is a knowledge gap when it comes to APIs. People assume that the knowledge about APIs is common ground, but it isn't. This article takes you on a journey to explore APIs and their empowering effects..."
 categories: ["Web Development"]
 keywords: ["what javascript api"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
+hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"
 author: ""
 contribute: ""

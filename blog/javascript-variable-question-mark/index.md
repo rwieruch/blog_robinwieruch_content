@@ -4,7 +4,7 @@ description: "The question mark after a JavaScript variable declaration is used 
 date: "2019-09-30T07:52:46+02:00"
 categories: ["JavaScript"]
 keywords: ["javascript question mark"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
+hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

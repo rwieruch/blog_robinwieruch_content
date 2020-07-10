@@ -4,7 +4,7 @@ description: "Learn how to test React components by setting up unit, integration
 date: "2019-07-27T13:50:46+02:00"
 categories: ["React", "Tooling"]
 keywords: ["react testing tutorial", "react testing frameworks", "react testing library", "react testing best practices", "react testing components"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

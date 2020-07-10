@@ -4,7 +4,7 @@ description: "The article is a summary of my lessons learned from On Writing Wel
 date: "2017-01-25T13:50:46+02:00"
 categories: ["Growth"]
 keywords: ["book summary on writing well"]
-hashtags: ["#100DaysOfCode", "#growth"]
+hashtags: ["#growth"]
 contribute: ""
 banner: "./images/banner.jpg"
 author: ""

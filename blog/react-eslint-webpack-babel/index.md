@@ -4,7 +4,7 @@ description: "You want to setup ESLint in your React application? Your project i
 date: "2019-06-15T13:56:46+02:00"
 categories: ["React", "Tooling", "Webpack", "Babel", "ESLint"]
 keywords: ["react eslint"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

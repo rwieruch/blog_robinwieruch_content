@@ -4,7 +4,7 @@ description: "A short guide on how to add Sass support to your create-react-app 
 date: "2018-10-03T13:50:46+02:00"
 categories: ["React"]
 keywords: ["create-react-app sass", "create-react-app sass support", "create-react-app sass without eject"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

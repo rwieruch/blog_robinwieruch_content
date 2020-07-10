@@ -4,7 +4,7 @@ description: "A brief JavaScript Closure Example to get you to know closures in 
 date: "2019-07-16T13:52:46+02:00"
 categories: ["JavaScript"]
 keywords: ["javascript closure"]
-hashtags: ["#100DaysOfCode", "#JavaScript"]
+hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

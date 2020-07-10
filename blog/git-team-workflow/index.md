@@ -4,7 +4,7 @@ description: "Learn how to establish a Git Team Workflow with branching techniqu
 date: "2019-08-22T13:56:46+02:00"
 categories: ["Web Development"]
 keywords: ["git team workflow", "git team cheatsheet"]
-hashtags: ["#100DaysOfCode", "#Git"]
+hashtags: ["#Git"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

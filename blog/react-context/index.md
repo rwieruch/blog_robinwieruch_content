@@ -4,7 +4,7 @@ description: "React Context is a powerful feature for passing props down the com
 date: "2019-10-17T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react context"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

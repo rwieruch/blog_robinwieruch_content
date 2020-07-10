@@ -4,7 +4,7 @@ description: "A tutorial on how to use social a login with Firebase in React. Th
 date: "2018-12-02T07:51:46+02:00"
 categories: ["React", "Firebase"]
 keywords: ["react firebase social login", "react firebase google", "react firebase facebook", "react firebase twitter", "react firebase authentication", "react firebase auth"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "The article should help people to understand the benefits of React
 date: "2017-01-31T13:50:46+02:00"
 categories: ["React", "Angular"]
 keywords: ["angular or react"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 contribute: ""
 banner: "./images/banner.jpg"
 author: ""

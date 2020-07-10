@@ -4,7 +4,7 @@ description: "Learn how to use React memo for performance optimizations of your 
 date: "2020-06-09T08:52:46+02:00"
 categories: ["React"]
 keywords: ["react memo"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

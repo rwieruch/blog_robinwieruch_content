@@ -4,7 +4,7 @@ description: "The tutorial shows you how to mock your GraphQL server for your Gr
 date: "2018-05-28T13:50:46+02:00"
 categories: ["React", "GraphQL"]
 keywords: ["apollo client mocking", "apollo server mocking", "apollo server mock", "apollo client mock", "apollo mock link", "apollo client mock testing", "apollo client mock data", "apollo client mock response", "apollo mock query"]
-hashtags: ["#100DaysOfCode", "#ReactJs,#GraphQL"]
+hashtags: ["#ReactJs,#GraphQL"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

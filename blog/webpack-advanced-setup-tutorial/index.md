@@ -4,7 +4,7 @@ description: "A step by step tutorial on how to set up an advanced Webpack 4 app
 date: "2019-06-22T13:52:46+02:00"
 categories: ["JavaScript", "Tooling", "Webpack", "Babel"]
 keywords: ["webpack advanced", "webpack 4 tutorial"]
-hashtags: ["#100DaysOfCode", "#Webpack"]
+hashtags: ["#Webpack"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

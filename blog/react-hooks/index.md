@@ -4,7 +4,7 @@ description: "React Hooks are a way to use state and side-effects in React funct
 date: "2018-10-29T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react hooks"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

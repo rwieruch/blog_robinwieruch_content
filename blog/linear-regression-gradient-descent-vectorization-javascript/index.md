@@ -4,7 +4,7 @@ description: "An article guiding through the vectorized implementation of gradie
 date: "2017-11-21T09:50:46+02:00"
 categories: ["Machine Learning", "JavaScript"]
 keywords: ["machine learning javascript", "linear regression javascript", "vectorized gradient descent javascript", "vectorization gradient descent javascript"]
-hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
+hashtags: ["#JavaScript,#MachineLearning"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "Learn how to shallow render components for Jest snapshot tests. Th
 date: "2019-08-10T13:56:46+02:00"
 categories: ["React", "Jest"]
 keywords: ["jest shallow render snapshot"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

@@ -4,7 +4,7 @@ description: "How to use multivariate linear regression with gradient descent (v
 date: "2017-11-23T13:50:46+02:00"
 categories: ["Machine Learning", "JavaScript"]
 keywords: ["machine learning javascript", "linear regression javascript", "multivariate linear regression javascript", "gradient descent javascript", "vectorization gradient descent javascript", "feature scaling javascript"]
-hashtags: ["#100DaysOfCode", "#JavaScript,#MachineLearning"]
+hashtags: ["#JavaScript,#MachineLearning"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

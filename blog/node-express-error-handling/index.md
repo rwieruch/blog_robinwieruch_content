@@ -4,7 +4,7 @@ description: "Learn about error handling in Express applications with Express mi
 date: "2020-06-15T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["node express error handling", "express error handling"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
+hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

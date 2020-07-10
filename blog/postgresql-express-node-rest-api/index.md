@@ -4,7 +4,7 @@ description: "A Node.js with Express and PostgreSQL tutorial to learn step by st
 date: "2020-04-28T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["express postgresql rest api", "express postgresql rest", "express postgresql crud"]
-hashtags: ["#100DaysOfCode", "#NodeJs"]
+hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""

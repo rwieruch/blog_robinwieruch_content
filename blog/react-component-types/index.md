@@ -4,7 +4,7 @@ description: "There a various React Component Types that make it difficult for R
 date: "2019-03-12T07:50:46+02:00"
 categories: ["React"]
 keywords: ["react component types", "react component patterns"]
-hashtags: ["#100DaysOfCode", "#ReactJs"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""
