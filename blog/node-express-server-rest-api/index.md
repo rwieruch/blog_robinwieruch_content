@@ -796,24 +796,3 @@ Every of our modular routes from Express Router is mounted to our Express applic
     }
   ]}
 />
-
-<LinkCollection
-  label="This tutorial is part 3 of 4 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "The minimal Node.js with Babel Setup",
-      url: "/minimal-node-js-babel-setup/"
-    },
-    {
-      prefix: "Part 2:",
-      label: "How to setup Express.js in Node.js",
-      url: "/node-js-express-tutorial/"
-    },
-    {
-      prefix: "Part 4:",
-      label: "Setup MongoDB with Mongoose in Express Tutorial",
-      url: "/mongodb-express-setup-tutorial/"
-    }
-  ]}
-/>
