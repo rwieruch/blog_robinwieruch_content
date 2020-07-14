@@ -16,7 +16,7 @@ author: ""
 
 The previous tutorials have shown you how to set up a basic web application with Webpack 4. So far, Webpack is only used to bundle all your JavaScript files, to transpile new JavaScript features via Babel, and to serve your bundle in development mode via Webpack's Development Server. Basically that's everything that's needed to get started with creating your first web application.
 
-However, Webpack comes with so much more to explore. For instance, eventually you may want to take your project to production. That's when Webpack can help you to build a production ready bundle which comes with all the optimizations for your source code. In this tutorial, you will learn more about Webpack and how to configure it to your needs. If you don't have a basic Webpack application at your hands, you can take [this one](https://github.com/rwieruch/minimal-webpack-babel-setup) from the previous tutorials. The final advanced Webpack setup can be found on [GitHub](https://github.com/rwieruch/webpack-advanced-setup) as well. Make sure to give it a start if you like it.
+However, Webpack comes with so much more to explore. For instance, eventually you may want to take your project to production. That's when Webpack can help you to build a production ready bundle which comes with all the optimizations for your source code. In this tutorial, you will learn more about Webpack and how to configure it to your needs. If you don't have a basic Webpack application at your hands, you can take [this one](https://github.com/rwieruch/minimal-webpack-babel-setup) from the previous tutorials. The final advanced Webpack setup can be found on [GitHub](https://github.com/rwieruch/webpack-advanced-setup) as well.
 
 # Table of Contents
 
