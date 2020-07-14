@@ -87,7 +87,7 @@ ESLint rules apply for a lot of different code style use cases. Check out the [l
 {
   ...
   "rules": {
-    "max-len": [1, 70, 2, {ignoreComments: true}]
+    "max-len": [1, 70, 2, {"ignoreComments": true}]
   }
   ...
 }
@@ -99,7 +99,7 @@ The rule checks the length of characters in a line of code. If the length is mor
 {
   ...
   "rules": {
-    "max-len": [1, 120, 2, {ignoreComments: true}]
+    "max-len": [1, 120, 2, {"ignoreComments": true}]
   }
   ...
 }
