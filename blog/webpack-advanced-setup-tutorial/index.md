@@ -368,14 +368,14 @@ As you can see, we reference a new shared *webpack.config.js* for both npm scrip
 Now, create the shared *build-utils/webpack.config.js* file again, but this time in the new dedicated *build-utils* folder, and give it the following configuration:
 
 ```javascript
-const webpackMerge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 
 const commonConfig = require('./webpack.common.js');
 
 module.exports = ({ env }) => {
   const envConfig = require(`./webpack.${env}.js`);
 
-  return webpackMerge(commonConfig, envConfig);
+  return merge(commonConfig, envConfig);
 };
 ```
 
@@ -602,7 +602,7 @@ Webpack has a large ecosystem of [plugins](https://webpack.js.org/plugins/). Sev
 Note how this new npm script runs another npm script but with additional configuration (here Webpack addons). However, the Webpack addons will not run magically. In this case, they are only passed as flags to our Webpack configuration. Let's see how we can use them in our *build-utils/webpack.config.js* file:
 
 ```javascript{5,6,7,8,9,10,11,12,13,15,18}
-const webpackMerge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 
 const commonConfig = require('./webpack.common.js');
 
@@ -619,7 +619,7 @@ const getAddons = addonsArgs => {
 module.exports = ({ env, addon }) => {
   const envConfig = require(`./webpack.${env}.js`);
 
-  return webpackMerge(commonConfig, envConfig, ...getAddons(addon));
+  return merge(commonConfig, envConfig, ...getAddons(addon));
 };
 ```
 
