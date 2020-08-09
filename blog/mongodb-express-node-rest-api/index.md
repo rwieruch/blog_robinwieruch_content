@@ -97,7 +97,7 @@ const router = Router();
 
 router.get('/', async (req, res) => {
   const user = await req.context.models.User.findById(
-    req.context.me.id,
+    req.context.me._id,
   );
   return res.send(user);
 });
@@ -155,7 +155,7 @@ router.get('/:messageId', async (req, res) => {
 router.post('/', async (req, res) => {
   const message = await req.context.models.Message.create({
     text: req.body.text,
-    user: req.context.me.id,
+    user: req.context.me._id,
   });
 
   return res.send(message);
