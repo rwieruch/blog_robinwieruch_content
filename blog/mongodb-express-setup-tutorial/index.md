@@ -329,7 +329,7 @@ const createUsersWithMessages = async () => {
 
   const message1 = new models.Message({
     text: 'Published the Road to learn React',
-    user: user1.id,
+    user: user1._id,
   });
 
   await message1.save();
@@ -354,17 +354,17 @@ const createUsersWithMessages = async () => {
 
   const message1 = new models.Message({
     text: 'Published the Road to learn React',
-    user: user1.id,
+    user: user1._id,
   });
 
   const message2 = new models.Message({
     text: 'Happy to release ...',
-    user: user2.id,
+    user: user2._id,
   });
 
   const message3 = new models.Message({
     text: 'Published a complete ...',
-    user: user2.id,
+    user: user2._id,
   });
 
   await message1.save();
