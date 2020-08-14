@@ -14,25 +14,25 @@ author: ""
 
 Let's start with a story: When people outside of my professional bubble ask me about what I am doing, I say *"I build websites."*. If they are curious, I add that these websites are sometimes more complex. If they continue to ask, I try to elaborate with examples: Facebook, Spotify, Twitter. It's not that I work for these companies, but I hope it gives a good impression about "what kind of websites I build". However, most often it doesn't get beyond "I build websites" and I am fine with it.
 
-A website doesn't equal a website these days. A website ranges from a marketing website for a product to a sophisticated social media platform. As someone new to web development, it's not easy to grasp the landscape: What starts out as a traditional website with HTML and CSS, which is returned from a web server, turns into a way more difficult full-stack application with sophisticated client-server communication and state management. Maybe you are already into learning HTML, CSS, and JavaScript, without knowing about the fundamentals of websites and web applications in the first place, so this tutorial is for you.
+A website doesn't equal a website these days. A website ranges from a marketing website for a product to a sophisticated social media platform. As someone new to web development, it's not easy to grasp the landscape: What starts out as a traditional website with HTML and CSS, which is returned from a web server, turns into a way more difficult full-stack application with sophisticated client-server communication and state management. If you are already into learning HTML, CSS, and JavaScript, without knowing about the fundamentals of websites and web applications in the first place, then this tutorial is for you.
 
 In this walkthrough, I want to show you the evolution of web development from website to web application where we clarify terms like client/server, client application/server application, frontend/backend, website/web application, REST/GraphQL, web server/application server, server-side rendering vs client-side rendering, server-side routing vs client-side routing and full-stack applications.
 
 # A traditional Website
 
-If you are learning about web development, you will most likely start with a traditional website build with HTML and CSS. A website which isn't styled (CSS) and doesn't have any logic (JavaScript) does come with only HTML.
+If you are learning about web development, you will most likely start with a traditional website build with HTML and CSS. A website which isn't styled (CSS) and doesn't have any logic (JavaScript) comes with just HTML.
 
 ![](./images/1.png)
 
 If you navigate to a specific [URL](https://en.wikipedia.org/wiki/URL) in your browser (e.g. Firefox) on your laptop or smartphone, a request is made to the web server which is in charge for this URL. If the web server is able to match the request to a website, it serves the HTML file for the website back to your browser.
 
-For transferring a website to a browser, [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) is used as communicate protocol for requests and responses between client and web server. This is why there is a "http" in front of every URL.
+For transferring a website to a browser, [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) is used as the communication protocol for requests and responses between client and web server. This is why there is a "http" in front of every URL.
 
 The communication between client and server is asynchronous, which means that your website isn't displayed immediately. It takes time to send a request from client to web server and vice versa a response from web server to client.
 
 ![](./images/2.png)
 
-A HTTP request comes with four essential HTTP methods that I want to tackle here: GET, POST, PUT, DELETE. While a HTTP GET method is used to read a resource, the remaining methods are used to write resources -- whereas a resource can be anything from HTML to JSON. All four methods can be abstracted to the infamous [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations: Create, Read, Update, Delete.
+A HTTP request comes with four essential HTTP methods that I want to tackle here: GET, POST, PUT, DELETE. While a HTTP GET method is used to read a resource, the remaining methods are used to write resources -- where a resource can be anything from HTML to JSON. All four methods can be abstracted to the infamous [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations: Create, Read, Update, Delete.
 
 ```text
 Create  -> HTTP POST
@@ -55,17 +55,17 @@ One can say that there is no client without a server and no server without a cli
 
 ![](./images/4.png)
 
-Since a client doesn't need to be necessarily a browser on your local machine, it could be somewhere remote as well. But more about this later.
+Since a client doesn't necessarily need to be a browser on your local machine, it could be somewhere remote as well. But more about this later.
 
 ## What's the difference between Web Server and Application Server?
 
-A Web Server serves resources (e.g. HTML, CSS, JavaScript) which are designed to be communicated via HTTP. When a client requests resources from a web server, the web server fulfils the request by sending the resources back to the client. The resources are just files on this server. If HTML is send to a client, the client (here browser) just executes the HTML to render it.
+A Web Server serves resources (e.g. HTML, CSS, JavaScript) which are designed to be communicated via HTTP. When a client requests resources from a web server, the web server fulfils the request by sending the resources back to the client. The resources are just files on this server. If HTML is sent to a client, the client (here browser) just executes the HTML to render it.
 
-In contrast, an Application Server serves resources beyond HTML, CSS, JavaScript. For example, [JSON](https://en.wikipedia.org/wiki/JSON) can be send if a client requests data in a data friendly format. In addition, an application server isn't bound to a protocol as well. Whereas a web server is mainly used with the HTTP protocol, an application server can use other protocols too. The most important fact is that an application server can have sophisticated [logic](https://en.wikipedia.org/wiki/Business_logic) on its server-side in a specific programming language (e.g. [JavaScript with Node.js](https://nodejs.org/en/), PHP, Java, Ruby, C#).
+In contrast, an Application Server serves resources beyond HTML, CSS, JavaScript. For example, [JSON](https://en.wikipedia.org/wiki/JSON) can be sent if a client requests data in a data friendly format. In addition, an application server isn't bound to a protocol as well. Whereas a web server is mainly used with the HTTP protocol, an application server can use other protocols too. The most important fact is that an application server can have sophisticated [logic](https://en.wikipedia.org/wiki/Business_logic) on its server-side in a specific programming language (e.g. [JavaScript with Node.js](https://nodejs.org/en/), PHP, Java, Ruby, C#).
 
-Both, web server and application server, can be classified as servers. So usually you will hear people talk about servers, when they mean one of them. However, people will also say server to the physical computer, which runs somewhere remote, which employs the web server or application server.
+Both web server and application server can be classified as servers. So usually you will hear people talk about servers, when they mean one of these two. However, people will also say server for the physical computer, which runs somewhere remote, which employs the web server or application server.
 
-There are two more terms which may come up: deploying and hosting. Let me keep it short on these terms: While deploying describes the act of taking a website live on a server, hosting describes the continuous act of serving the website from this server. That's why when developing a website on your computer, you have open it up with the URL localhost, which just means that you are the local host of this website.
+There are two more terms which may come up: deploying and hosting. Let me keep it short on these terms: While deploying describes the act of taking a website live on a server, hosting describes the continuous act of serving the website from this server. That's why when developing a website on your computer, you have to open it up with the URL localhost, which just means that you are the local host of this website.
 
 ## What's happens when I change the path of an URL?
 
@@ -73,7 +73,7 @@ What happens if a user visits a website by URL and navigates at this domain (e.g
 
 ![](./images/5.png)
 
-For every URL, a distinct HTTP GET method is send to the dedicated web server to fulfil the request. When a user accesses a website on its `/about` path (also called page or route) in a browser, for example `http://www.mywebsite.com/about`, the web server sends all the information about this URL back to the browser. This act is called **server-side routing**, because the server decides which resource is send to a client on each URL. You will learn about client-side routing later.
+For every URL, a distinct HTTP GET method is sent to the dedicated web server to fulfil the request. When a user accesses a website on its `/about` path (also called page or route) in a browser, for example `http://www.mywebsite.com/about`, the web server sends all the information about this URL back to the browser. This act is called **server-side routing**, because the server decides which resource is sent to a client on each URL. You will learn about client-side routing later.
 
 ## What's happens when my website is more than HTML?
 
@@ -97,19 +97,19 @@ However, at least if there are multiple HTML `link` tags in the initial HTML fil
 
 ![](./images/6.1.png)
 
-Eventually the browser will have all resources (e.g. HTML, CSS, JavaScript, PNGs, JPGs, SVGs) for a specific URL and renders the desired result for you. It's ready to interact with it as a user.
+Eventually the browser will have all resources (e.g. HTML, CSS, JavaScript, PNGs, JPGs, SVGs) for a specific URL and renders the desired result for you. It's ready for you to interact with it as a user.
 
 # Websites in Web 2.0
 
-Eventually just serving **static content** from a web server wasn't enough for the [Web 2.0](https://en.wikipedia.org/wiki/Web_2.0) where it became possible for users not only to read content, but also to create content; which led to **dynamic content**. Remember the HTTP methods from earlier? So far, we have only seen HTTP GET methods in action for reading resources, but what about the other HTTP methods?
+Eventually just serving **static content** from a web server wasn't enough. In [Web 2.0](https://en.wikipedia.org/wiki/Web_2.0), it became possible for users not only to read content, but also to create content; which led to **dynamic content**. Remember the HTTP methods from earlier? So far, we have only seen HTTP GET methods in action for reading resources, but what about the other HTTP methods?
 
-With the rise of [content management systems](https://en.wikipedia.org/wiki/Content_management_system) like Wordpress, a web server had to enable users to manipulate resources and not only to see them. For example, a user using a content management system must be able to log in, to create a blog post, to update a blog post, to delete a blog post, and to log out. At this time, [PHP](https://en.wikipedia.org/wiki/PHP) as a programming language, which could be interpreted by a web server on the server-side, was the best fit for these kinds of dynamic websites.
+With the rise of [content management systems](https://en.wikipedia.org/wiki/Content_management_system) like Wordpress, a web server had to enable users to not only see resources, but also to manipulate them. For example, a user using a content management system must be able to log in, to create a blog post, to update a blog post, to delete a blog post, and to log out. At this time, the programming language [PHP](https://en.wikipedia.org/wiki/PHP) (which could be interpreted by a web server on the server-side) was the best fit for these kinds of dynamic websites.
 
 ![](./images/7.png)
 
 Having the logic on the server-side, developers are enabled to process reading and writing requests from their users. If a user wants to create a blog post (write operation), the user has to write the blog post in a browser and click a "Save" button to send the content to the server-side logic running on the web server. This logic verifies the user is authorized, validates the blog content, and writes the content in a database.
 
-Since we still have **server-side routing**, the web server is able to redirect the user after the blog post has been created successfully to a new page. For example, the redirect could be to the newly published blog post. If there is no redirect, a HTTP POST/PUT/DELETE request usually leads to a page refresh/reload anyway.
+Since we still have **server-side routing**, the web server is able to redirect the user to a new page after the blog post has been created successfully. For example, the redirect could be to the newly published blog post. If there is no redirect, a HTTP POST/PUT/DELETE request usually leads to a page refresh/reload anyway.
 
 ![](./images/8.png)
 
@@ -123,7 +123,7 @@ Once the blog post is inserted in the database, an unique identifier may be gene
 
 Now, after a blog post has been created, how does a server send a HTML file for a blog post if the data for it isn't static, but instead stored in a database? That's where the principal of **server-side rendering** (not to mistake with server-side routing) comes into play.
 
-Both, Web 1.0 with consumer oriented websites (static content) and Web 2.0 with producer oriented websites (dynamic content), return HTML from the server. A user navigates to an URL in the browser and requests the HTML for it. However, for the dynamic content in Web 2.0, the HTML which is send to the client isn't a static HTML file with static content anymore, because it gets interpolated with dynamic content from the database now.
+Both Web 1.0 with consumer oriented websites (static content) and Web 2.0 with producer oriented websites (dynamic content) return HTML from the server. A user navigates to an URL in the browser and requests the HTML for it. However, for the dynamic content in Web 2.0, the HTML which is sent to the client isn't a static HTML file with static content anymore, because it gets interpolated with dynamic content from the database now.
 
 ```html
 <?php if ($expression == true): ?>
@@ -133,17 +133,17 @@ Both, Web 1.0 with consumer oriented websites (static content) and Web 2.0 with 
 <?php endif; ?>
 ```
 
-**Templating engines** for different programming languages (e.g. Pug for JavaScript on Node.js, Twig for PHP, JSP for Java, Django for Python) enable the interpolation of HTML and dynamic data before it's send to the client. With the help of server-side rendering, user generated content can be served from a server to a client within HTML by creating the HTML on the fly when a client requests for it.
+**Templating engines** for different programming languages (e.g. Pug for JavaScript on Node.js, Twig for PHP, JSP for Java, Django for Python) enable the interpolation of HTML and dynamic data before it's sent to the client. With the help of server-side rendering, user generated content can be served from a server to a client within HTML by creating the HTML on the fly when a client requests it.
 
-Are we still dealing with a Website here? Technically yes, but most often websites which go beyond static content by serving dynamic content from a web  server (or application server) with a database may be called web applications instead of websites as well. The line between both types is blurry though.
+Are we still dealing with a Website here? Technically yes, but websites which go beyond static content by serving dynamic content from a web server (or application server) with a database may be called web applications as well. The line between both types is blurry though.
 
 # Single-Page Applications
 
-The rise of [single-page applications (SPAs)](https://en.wikipedia.org/wiki/Single-page_application) made JavaScript popular. But I am getting ahead of myself. Prior this era, website were mainly made with HTML plus CSS and only a sprinkle of JavaScript. The little JavaScript was used for animations or DOM manipulations (e.g. removing, adding, modifying of HTML elements), but not much beyond this. And [jQuery](https://en.wikipedia.org/wiki/JQuery) was one of the most popular libraries to perform such tasks.
+The rise of [single-page applications (SPAs)](https://en.wikipedia.org/wiki/Single-page_application) made JavaScript popular. But I am getting ahead of myself. Prior to this era, website were mainly made with HTML plus CSS and only a sprinkle of JavaScript. The little JavaScript was used for animations or DOM manipulations (e.g. removing, adding, modifying of HTML elements), but not much beyond this. And [jQuery](https://en.wikipedia.org/wiki/JQuery) was one of the most popular libraries to perform such tasks.
 
-But who would have thought that entire applications could be build with JavaScript? A few of the earlier libraries/frameworks to write single-page applications in JavaScript were Knockout.js, Ember.js, and Angular.js; while React.js and Vue.js were released later. Most of them are still very active to this date in modern web applications.
+But who would have thought that entire applications could be build with JavaScript? A few of the earlier libraries/frameworks to write single-page applications in JavaScript were Knockout.js, Ember.js, and Angular.js; while React.js and Vue.js were released later. Most of them are still very active to this day in modern web applications.
 
-Prior single-page applications, a browser would request the HTML file and all linked files from a web server for a website. If a user happens to navigate from page (e.g. /home) to page (e.g. /about) within the same domain (e.g. mywebsite.com), there would be *a new request to the web server for every navigation*.
+Prior to single-page applications, a browser would request the HTML file and all linked files from a web server for a website. If a user happens to navigate from page (e.g. /home) to page (e.g. /about) within the same domain (e.g. mywebsite.com), there would be *a new request to the web server for every navigation*.
 
 ![](./images/9.2.png)
 
@@ -180,7 +180,7 @@ ReactDOM.render(
 );
 ```
 
-In this little React application, only a variable called `title` is displayed in a HTML `div` element. However, everything between the HTML `div` element can be replaced with an entire HTML structure build with React and its templating syntax JSX -- which is essentially a templating engine from earlier, but just executed on the client instead of the server and therefore isn't server-side rendering anymore.
+In this little React application, only a variable called `title` is displayed in a HTML `div` element. However, everything between the HTML `div` element can be replaced with an entire HTML structure built with React and its templating syntax JSX. This is essentially a templating engine from earlier, but just executed on the client instead of the server and therefore this isn't server-side rendering anymore.
 
 Because of this change from server to client execution of the rendering, we call it **client-side rendering** now. In other words: Instead of serving the pre-rendered HTML directly from the web server, we serve mainly JavaScript from the web server which executes on the client and only then renders the HTML.
 
@@ -203,7 +203,7 @@ One could say that before single-page application we have worked with multi-page
 
 # Full-Stack Applications
 
-We are entering the paradigm of full-stack applications now. A full-stack application includes client (e.g. SPA) and server application. If companies are looking for full-stack developers, they often want to have someone who is able to create client-server applications on both ends. Sometimes client and server share the same programming language (e.g. JavaScript with React on the client, JavaScript with Node.js on the server), but they don't have to.
+We are entering the paradigm of full-stack applications now. A full-stack application includes client (e.g. SPA) and server application. If companies are looking for full-stack developers, they often want to have someone who is able to create client-server applications on both ends. Sometimes the client and server share the same programming language (e.g. JavaScript with React on the client, JavaScript with Node.js on the server), but they don't have to.
 
 Anyway, why do we need full-stack applications? The need for full-stack applications was born due to the rise of single-page applications on the client-side.
 
@@ -211,7 +211,7 @@ Anyway, why do we need full-stack applications? The need for full-stack applicat
 
 So far, we went from traditional websites with HTML/CSS/JavaScript to modern web applications (e.g. React applications). Rendering static content is fine, but how do we render dynamic content, for example user specific content like a blog post, if only JavaScript (and a little HTML) is served from a web server to a client when dealing with SPAs?
 
-The SPA application -- which is encapsulated in a JavaScript file -- doesn't have any user specific data. It's just the logic for the pages; how they look like and how they behave for user interactions. The actual data isn't embedded in there, because it still sits somewhere in a database and doesn't get interpolated on the server anymore. That's the tradeoff you have to make when moving from server-side rendering to client-side rendering.
+The SPA application -- which is encapsulated in a JavaScript file -- doesn't have any user specific data. It's just the logic for the pages; what they look like and how they behave for user interactions. The actual data isn't embedded in there, because it still sits somewhere in a database and doesn't get interpolated on the server anymore. That's the tradeoff you have to make when moving from server-side rendering to client-side rendering.
 
 ![](./images/10.2.png)
 
@@ -223,9 +223,9 @@ Once everything is rendered in the browser, a user starts to interact with the a
 
 ![](./images/12.png)
 
-Client-side rendered applications come with the caveat of not having all the data at their disposal from the beginning. They have to request everything to fill in the blanks. In addition, they have to deal with problem of state management, because user interactions and data need to be stored and managed somewhere on the client. When performing client-side routing, from one page to another page, and back to the initial page, in the best case scenario, the data should be already cached on the client and not requested again from the server.
+Client-side rendered applications come with the caveat of not having all the data at their disposal from the beginning. They have to request everything to fill in the blanks. In addition, they have to deal with problem of state management, because user interactions and data need to be stored and managed somewhere on the client. When performing client-side routing, requests for data can be minimised through state management. Ideally, navigating from one page to another and then back to the initial page should not trigger a second request for data for that initial page -- it should already be cached on the client.
 
-Last but not least, the interface between a client and a server is called [API](https://en.wikipedia.org/wiki/Application_programming_interface). In this case, it's a specific kind of API between two remote entities, here client and a server, however lots of things are called APIs in programming.
+Last, but not least, the interface between a client and a server is called an [API](https://en.wikipedia.org/wiki/Application_programming_interface). In this case, it's a specific kind of API between two remote entities, here a client and a server, however lots of things are called APIs in programming.
 
 ### Exercises:
 
@@ -239,13 +239,13 @@ However, when using a REST API we are using these HTTP methods on **RESTful reso
 
 ![](./images/13.1.png)
 
-A REST API connects client and server application which don't need to be implemented in the same programming language. They only need to offer a library for sending HTTP. REST is a communication paradigm which is free of a data format (but most often you will see JSON) and programming language.
+A REST API connects client and server applications without them needing to be implemented in the same programming language. They only need to offer a library for sending HTTP. REST is a communication paradigm which is free of a data format (but most often you will see JSON) and programming language.
 
 ![](./images/13.png)
 
 A modern alternative to REST is [GraphQL](/why-graphql-advantages-disadvantages-alternatives) for APIs between clients and servers. GraphQL isn't bound to a data format either, and in contrast to REST not bound to HTTP, but most often you will see HTTP and JSON used here as well.
 
-After all, full-stack applications finally decouple client and server applications. Both communicate via a well-chosen API (e.g. REST or GraphQL). While the client application renders everything necessary for the web application in the browser, the server application handles requests from the client for read and write operations.
+With the technology discussed up to this point, full-stack applications decouple client and server applications. Both communicate via a well-chosen API (e.g. REST or GraphQL). While the client application renders everything necessary for the web application in the browser, the server application handles requests from the client for read and write operations.
 
 ### Exercises:
 
@@ -302,15 +302,15 @@ If all of this wasn't too confusing for you yet, try to keep up with me with the
 * Server-Side Rendering (X) to Client-Side Rendering (Y)
 * Server-Side Routing (X) to Client-Side Routing (Y)
 
-In the following, I want to present you two approaches, which philosophies (SSR, SSG) aren't new but which are super powerful when used with modern libraries (e.g. React) and other frameworks (e.g. Next.js, Gatsby.js) which make these approaches possible. I am a React developer, that's why the suggestions for these technologies are biased, however, I am sure you may find similar technologies for your preferences as well.
+In the following, I want to present you two approaches, whose philosophies (SSR, SSG) aren't new but which are super powerful when used with modern libraries (e.g. React) and other frameworks (e.g. Next.js, Gatsby.js) which make these approaches possible. I am a React developer, that's why the suggestions for these technologies are biased, however, I am sure you may find similar technologies for your preferences as well.
 
 ## Server-Side Rendering 2.0 (SSR)
 
-We have learned about server-side rendering for Web 2.0 before. In a later point in time, full-stack applications decoupled client and server and introduced client-side rendering with libraries like React. So what about taking one step back again and use React for server-side rendering?
+We have learned about server-side rendering for Web 2.0 before. At a later point in time, full-stack applications decoupled client and server and introduced client-side rendering with libraries like React. So what about taking one step back again and use React for server-side rendering?
 
-When using the popular Next.js framework, which sits on top of React, you are still developing React applications. However, everything you implement in Next.js will be server-side rendered React. In Next.js, you implement each page (e.g. /about, /home) with React. When a user navigates from page to page, only a fraction of the server-side rendered React is send to the browser. The great thing about it: You can already request the data to fill in the blanks on the server, interpolate the data with React, and send it to the client without any gaps.
+When using the popular Next.js framework, which sits on top of React, you are still developing React applications. However, everything you implement in Next.js will be server-side rendered React. In Next.js, you implement each page (e.g. /about, /home) with React. When a user navigates from page to page, only a fraction of the server-side rendered React is sent to the browser. The great thing about it: You can already request the data to fill in the blanks on the server, interpolate the data with React, and send it to the client without any gaps.
 
-This is different from client-side rendering, because there React only takes over on the client-side and only then starts to request the data to fill in the gaps. With SSR React, you have control on both ends.
+This is different from client-side rendering, because there React only takes over on the client-side, and only starts to request the data to fill in the gaps once it has received the initial javascript. With SSR React, you have control on both ends.
 
 ### Exercises:
 
