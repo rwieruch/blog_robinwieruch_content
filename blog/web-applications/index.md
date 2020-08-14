@@ -26,9 +26,9 @@ If you are learning about web development, you will most likely start with a tra
 
 If you navigate to a specific [URL](https://en.wikipedia.org/wiki/URL) in your browser (e.g. Firefox) on your laptop or smartphone, a request is made to the web server which is in charge for this URL. If the web server is able to match the request to a website, it serves the HTML file for the website back to your browser.
 
-For transferring a website to a browser, [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) is used as communicate protocol for requests and responses between client and web server. This is why there is a "http" in front of every URL.
+For transferring a website to a browser, [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) is used as communication protocol for requests and responses between client and web server. This is why there is a "http" in front of every URL.
 
-The communication between client and server is asynchronous, which means that your website isn't displayed immediately. It takes time to send a request from client to web server and vice versa a response from web server to client.
+The communication between client and server is synchronous, however your website isn't displayed immediately. It takes time to send a request from client to web server and vice versa a response from web server to client.
 
 ![](./images/2.png)
 
