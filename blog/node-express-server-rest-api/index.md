@@ -523,7 +523,7 @@ It's the first time you break the rules of being entirely RESTful, because you o
   * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-server-rest-api/compare/rest-sense...middleware?expand=1).
 * Read more about [using middleware](https://expressjs.com/en/guide/using-middleware.html) in Express.
   * Focus on the application-level middleware, the built-in middleware, and the third-party middleware.
-* Read more about [writing middleware](https://expressjs.com/en/guide/using-middleware.html) in Express.
+* Read more about [writing middleware](https://expressjs.com/en/guide/writing-middleware.html) in Express.
 
 # Modular Models in Express as Data Sources
 
