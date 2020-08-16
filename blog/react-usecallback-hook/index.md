@@ -82,7 +82,7 @@ const ListItem = ({ item, onRemove }) => {
 export default App;
 ```
 
-Using what we learned about [React memo](/react-memo) (if you don't know React memo, read the guide first and then come back), which has similar components to our example, we want to prevent the re-rendering for every component when a user uses the input field.
+Using what we learned about [React memo](/react-memo) (if you don't know React memo, read the guide first and then come back), which has similar components to our example, we want to prevent every component from re-rendering when a user types into the input field.
 
 ```javascript{2,8,19}
 const App = () => {
@@ -115,7 +115,7 @@ const ListItem = ({ item, onRemove }) => {
 };
 ```
 
-Typing into the input field for adding an item to the list should only trigger a re-render for the App component, but not for its child components which don't care about this state change. Thus, React memo will be used to prevent the update of the child components:
+Typing into the input field for adding an item to the list should only trigger a re-render for the App component, but not for its child components which don't care about this state change. Thus, React memo will be used to prevent the child components from updating:
 
 ```javascript{1,10,12,22}
 const List = React.memo(({ list, onRemove }) => {
@@ -165,13 +165,13 @@ const App = () => {
 }
 ```
 
-As long as no item is added or removed from the `list` prop, it should stay intact even if the App component re-renders after typing something into the input field. So the culprit is the `onRemove` callback handler.
+As long as no item is added or removed from the `list` prop, it should stay intact even if the App component re-renders after a user types something into the input field. So the culprit is the `onRemove` callback handler.
 
 Whenever the App component re-renders after someone types into the input field, the `handleRemove` handler function in the App gets re-defined. 
 
 By passing this **new** callback handler as a prop to the List component, it notices **a prop changed compared to the previous render**. That's why the re-render for the List and ListItem components kicks in.
 
-Finally we have our use case for React's useCallback Hook. We can use useCallback to **memoize a function** which means that this function only gets re-defined if any of its dependencies in the dependency array change:
+Finally we have our use case for React's useCallback Hook. We can use useCallback to **memoize a function**, which means that this function only gets re-defined if any of its dependencies in the dependency array change:
 
 ```javascript{4,6-7}
 const App = () => {
@@ -192,7 +192,7 @@ However, if someone only types into the input field, the function doesn't get re
 
 You might be wondering why you wouldn't use React's useCallback Hook on all your functions or why React's useCallback Hook isn't the default for all functions in the first place. 
 
-Internally React's useCallback Hook has to compare the dependencies from the dependency array for every re-render to decide whether it should re-define the function. Often the computation for this comparison can be more expensive than just re-defining the function.
+Internally, React's useCallback Hook has to compare the dependencies from the dependency array for every re-render to decide whether it should re-define the function. Often the computation for this comparison can be more expensive than just re-defining the function.
 
 <Divider />
 
