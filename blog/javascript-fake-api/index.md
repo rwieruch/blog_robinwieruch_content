@@ -38,7 +38,7 @@ let users = {
 
 Next we need unique identifiers, which aren't important with only two items in the fake database, but which are important for creating more items eventually:
 
-```javascript{1,3-4,8-9,14-15}
+```javascript{1,3-4,7-8,13-14}
 import { v4 as uuidv4 } from 'uuid';
 
 const idOne = uuidv4();
