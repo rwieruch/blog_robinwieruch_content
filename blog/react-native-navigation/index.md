@@ -1,7 +1,7 @@
 ---
 title: "React Native Navigation Tutorial"
 description: "A tutorial about navigation in React Native. Teaches you about how to navigate from page to page, how to use drawer, switch, and tab navigations, and how to apply it for authentication ..."
-date: "2020-08-30T07:52:46+02:00"
+date: "2020-09-05T12:52:46+02:00"
 categories: ["React Native"]
 keywords: ["react native navigation"]
 hashtags: ["#ReactJs"]

@@ -1,7 +1,7 @@
 ---
-title: "JavaScript Fake API with Mock Data"
+title: "JavaScript fake API with Mock Data"
 description: "Learn how to mock data with a fake API in JavaScript for mocking REST APIs (or other kinds of asynchronous calls) if there is no backend yet and you need to fake it till you make it ..."
-date: "2019-09-05T13:52:46+02:00"
+date: "2020-09-05T13:52:46+02:00"
 categories: ["JavaScript"]
 keywords: ["javascript fake api"]
 hashtags: ["#JavaScript"]
@@ -238,17 +238,14 @@ Next, updating an item. If the item is not found, the API will throw an error. O
 ```javascript
 const updateUser = (id, data) =>
   new Promise((resolve, reject) => {
-    const { [id]: user, ...rest } = users;
-
-    if (!user) {
+    if (!users[id]) {
       return setTimeout(
         () => reject(new Error('User not found')),
         250
       );
     }
 
-    const modifiedUser = { ...user, ...data };
-    users = { ...rest, [id]: modifiedUser };
+    users[id] = { ...users[id], ...data };
 
     return setTimeout(() => resolve(true), 250);
   });
@@ -299,3 +296,5 @@ doDeleteUser('1');
 ```
 
 We have implemented the entire fake API for a RESTful resource (here user resource). It includes all CRUD operations, has a fake delay and returns an asynchronous result. For the write operations, the API only returns an acknowledgment (boolean), however, you could also decide to return an identifier (e.g. identifier of the removed item) or an item (e.g. the created/updated item).
+
+<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to mock data in React with a fake API", url: "/react-mock-data" }]} />
