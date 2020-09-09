@@ -57,7 +57,7 @@ If you haven't heard about Homebrew, read more about it over [here](/developer-s
 brew install curl
 ```
 
-Now, start your Oak server from the previous sections. Once your application is started, execute `curl http://localhost:8000` in another command line window. Make sure the port matches your port and the Oak server is running. After executing the command, you should see the "Hello World!" printed on the command line. Congratulations, you just have consumed your Oak server as a client with something else than a browser.
+Now, start your Oak server from the previous sections. Once your application is started, execute `curl http://localhost:8000` in another command line window. Make sure the port matches your port and the Oak server is running. After executing the command, you should see the "Hello Deno!" printed on the command line. Congratulations, you just have consumed your Oak server as a client with something else than a browser.
 
 ```text
 Browser (Client) -> Oak Server
