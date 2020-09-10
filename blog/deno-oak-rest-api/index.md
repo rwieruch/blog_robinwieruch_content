@@ -435,15 +435,14 @@ We generate a unique identifier for the message with the new library, use it as 
 
 However, something is missing for the message. In order to create a message, a client has to provide the `text` string for the message. Fortunately a HTTP POST method makes it possible to send data as payload in a body. That's why we can use the incoming request to extract a payload from it:
 
-```javascript{3,6-8,12}
+```javascript{3,6-7,11}
 ...
 
 router.post('/messages', async (ctx) => {
   const id = v4.generate();
 
-  const {
-    value: { text },
-  } = await ctx.request.body();
+  const { value } = ctx.request.body({ type: 'json' });
+  const { text } = await value;
 
   messages.set(id, {
     id,
@@ -508,15 +507,14 @@ app.use(router.routes());
 
 Afterward, you can get the authenticated user from the request object and append it as message creator to the message:
 
-```javascript{13}
+```javascript{12}
 ...
 
 router.post('/messages', async (ctx) => {
   const id = v4.generate();
 
-  const {
-    value: { text },
-  } = await ctx.request.body();
+  const { value } = ctx.request.body({ type: 'json' });
+  const { text } = await value;
 
   messages.set(id, {
     id,
@@ -663,7 +661,7 @@ app.use(async (ctx, next) => {
 
 Then, instead of having access to the sample data in all routes from outside variables as before -- which is an unnecessary side-effect and doesn't keep the function pure --, we want to use the models (and authenticated user) from the function's arguments now:
 
-```javascript{4,8,13,17,22,32,38,44}
+```javascript{4,8,13,17,22,32,37,43}
 ...
 
 router.get('/session', (ctx) => {
@@ -691,9 +689,8 @@ router.get('/messages/:messageId', (ctx) => {
 router.post('/messages', async (ctx) => {
   const id = v4.generate();
 
-  const {
-    value: { text },
-  } = await ctx.request.body();
+  const { value } = ctx.request.body({ type: 'json' });
+  const { text } = await value;
 
   ctx.state.models.messages.set(id, {
     id,
@@ -834,9 +831,8 @@ router.get('/messages/:messageId', (ctx) => {
 router.post('/messages', async (ctx) => {
   const id = v4.generate();
 
-  const {
-    value: { text },
-  } = await ctx.request.body();
+  const { value } = ctx.request.body({ type: 'json' });
+  const { text } = await value;
 
   ctx.state.models.messages.set(id, {
     id,
