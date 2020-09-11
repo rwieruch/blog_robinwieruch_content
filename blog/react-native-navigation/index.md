@@ -710,7 +710,7 @@ const App = () => {
 
 The implementation logic for the password forget feature goes into the PasswordForget screen component. If you want to handle this logic on a more central location like the App component, you would have to pass down a callback handler like you did for the sign in and sign up.
 
-After all, we should have everything essential set up for the authentication flow within the framework of React Navigation. The actual implementation logic for the authentication is up to you. For example, if you don't want to implement a backend application yourself, Firebase may be a great solution here. If you are able to implement a backend for the authentication, a Node.js application ma be a good choice.
+After all, we should have everything essential set up for the authentication flow within the framework of React Navigation. The actual implementation logic for the authentication is up to you. For example, if you don't want to implement a backend application yourself, Firebase may be a great solution here. If you are able to implement a backend for the authentication, a Node.js application may be a good choice.
 
 ### Exercises:
 
