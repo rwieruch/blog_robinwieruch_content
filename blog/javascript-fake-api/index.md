@@ -1,7 +1,7 @@
 ---
 title: "JavaScript fake API with Mock Data"
 description: "Learn how to mock data with a fake API in JavaScript for mocking REST APIs (or other kinds of asynchronous calls) if there is no backend yet and you need to fake it till you make it ..."
-date: "2020-09-05T13:52:46+02:00"
+date: "2020-09-13T13:52:46+02:00"
 categories: ["JavaScript"]
 keywords: ["javascript fake api"]
 hashtags: ["#JavaScript"]
