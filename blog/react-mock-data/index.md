@@ -1,7 +1,7 @@
 ---
 title: "How to mock data in React with a fake API"
 description: "Learn how to mock data for your React application with a fake API which mocks REST APIs (or other kinds of asynchronous calls) if there is no backend yet and you need to fake it till you make it ..."
-date: "2020-09-14T13:52:46+02:00"
+date: "2020-09-18T13:52:46+02:00"
 categories: ["React"]
 keywords: ["react mock data"]
 hashtags: ["#ReactJs"]
