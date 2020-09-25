@@ -1,6 +1,6 @@
 ---
 title: "Hire Me"
-description: "Are you looking for a german/english speaking freelancer/consultant to work with you on a modern web application with React.js, GraphQL and Node.js? Let's talk! ..."
+description: "German/English Freelancer/Consultant for full-stack JavaScript with React, Node and GraphQL. Workshops, Contract Work, Consulting, MVPs, Migrations, Complex Problem Solving ..."
 date: "2020-03-01T13:50:46+02:00"
 categories: ["JavaScript", "Web Development"]
 keywords: ["german react consultant", "german react freelance", "german javascript freelance", "german javascript consultant"]
@@ -12,7 +12,7 @@ contribute: ""
 
 Hello, my name is Robin Wieruch and I am a german/english speaking JavaScript enthusiast. In 2017 I quit my job at a Berlin tech startup. I made the decision to move on after being a software engineer for 2,5 years at this great company. It was a tough decision to make, because the company had a huge impact on me from a personal and professional perspective. It is always difficult to move on. But then again, I didn't want to get too comfortable.
 
-The next natural step for me was being self-employed. Over the last years, I've put a lot of effort into my website and I started teaching people about full-stack software engineering and web development with JavaScript. I want to be bold and try to make this next step to have more time for the things that I truly value. I would separate these into four cornerstones: teaching, working, making, and volunteering.
+The next natural step for me was being self-employed. Over the last years, I've put a lot of effort into my website and I started teaching thousands of people about full-stack software engineering and web development with JavaScript. I want to be bold and try to make this next step to have more time for the things that I truly value. I would separate these into four cornerstones: teaching, working, making, and volunteering.
 
 # Teaching
 
@@ -20,11 +20,9 @@ The first cornerstone of my endeavour is teaching. Writing about my learnings in
 
 **Your opportunities to work with me:**
 
-* **Are you looking for workshops for your development team?** Every month I offer workshops for companies who want to get their development department up and running in full-stack JavaScript. My workshops are mainly focused around React.js, Node.js and GraphQL, but here and there I teach a workshop about Webpack or other tech stacks as well. Usually a workshop takes up to 3 days and can be done on-site or remotely.
+* **Are you looking for workshops for your development team?** Every month I offer workshops for companies who want to get their development department up and running in full-stack JavaScript. My workshops are mainly focused on React.js, Node.js and GraphQL, but here and there I teach a workshop about Webpack or other tech stacks as well. Usually a workshop takes up from 2 to 3 days and can be done on-site or remotely. The workshop will be highly engaging, meaning that it should be taken with smaller groups up to 5 people where everyone can share their screen while engaging in pair programming and discussions. I charge a fee per person per day. Interested in hearing more? Contact me.
 
 * **Are you looking for a place to advertise your open hiring positions?** Your company name, a couple of words about your company, and a link to your open positions could show for every of my articles to attract potential candidates for your mission. This website has enough readers to make this an interesting opportunity for you and it already worked out well for other companies. Contact me to get more details about website impressions and how all of this would work out in detail.
-
-* **Do you want to advertise tech relevant to JavaScript?** Together, we could find a way to offer other developers a way to dive into your solution by giving them a beginner friendly tutorial. Exposure is always a great way to find an audience for your idea and my website has grown to a large audience of readers over the last years.
 
 # Working: Consulting and Freelancing
 
@@ -54,7 +52,7 @@ All these items are ideas about applications, things I want to learn, things I w
 
 **Your opportunities to work with me:**
 
-* **Are you a freelancer or consultant yourself and looking for work?** I try to assemble a team of reliable, communicative, skilled and "able to meet a client's needs" freelancers to work with me. Even though I am self-employed myself, I get plenty of requests every day but cannot accept all of them. That's where I would love to give you the opportunity to work with me on these projects. If you are interested, shoot me a mail with a cover letter, your availabilities (time/place) and skills.
+* **Are you a freelancer or consultant yourself and looking for work?** I try to assemble a team of reliable, communicative, skilled and "able to meet a client's needs" freelancers to work with me. Even though I am self-employed myself, I get plenty of requests every day but cannot accept all of them. That's where I would love to give you the opportunity to work with me on these projects. If you are interested, shoot me a mail with a cover letter, your availabilities (time/place), skills, and the projects you have worked on in the past.
 
 # Volunteering
 
