@@ -1,5 +1,5 @@
 ---
-title: "How to useReducer in React?"
+title: "How to useReducer in React"
 description: "A tutorial about React's useReducer hook by example for state management in React function components. It uses a reducer function to map action types to state transitions ..."
 date: "2019-04-28T03:52:46+02:00"
 categories: ["React"]

@@ -347,8 +347,8 @@ Even though there are ways to overcome this, it doesn't make this whole props pa
 
 ```javascript
 const UserWithData = compose(
-  withFetch(userId => `https://api.mydomain/user/${userId}`),
-  withFetch(userId => `https://api.mydomain/user/${userId}/profile`),
+  withFetch(props => `https://api.mydomain/user/${props.userId}`),
+  withFetch(props => `https://api.mydomain/user/${props.userId}/profile`),
 )(User);
 
 const App = () => {
@@ -369,8 +369,8 @@ Making this scenario even more complex by adding another challenge: What happens
 
 ```javascript
 const UserProfileWithData = compose(
-  withFetch(userId => `https://api.mydomain/users/${userId}`),
-  withFetch(profileId => `https://api.mydomain/profile/${profileId}`),
+  withFetch(props => `https://api.mydomain/users/${props.userId}`),
+  withFetch(props => `https://api.mydomain/profile/${props.profileId}`),
 )(UserProfile);
 
 const App = () => {

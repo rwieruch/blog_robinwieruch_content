@@ -153,6 +153,7 @@ Any animation in a web application starts with CSS. Eventually you will notice t
 
 If you really want to build charts from the ground up yourself, there is no way around [D3](https://d3js.org/). It's a low level visualization library that gives you everything you need to create amazing charts. However, learning D3 is a whole other adventure, thus many developers just pick a React charting library which does everything for them in exchange for flexibility. These are some popular solutions:
 
+* [visx](https://github.com/airbnb/visx)
 * [nivo](https://nivo.rocks/)
 * [Victory](https://formidable.com/open-source/victory/)
 * [react-vis](https://uber.github.io/react-vis/)

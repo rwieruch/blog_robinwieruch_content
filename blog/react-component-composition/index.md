@@ -16,7 +16,7 @@ There are various advanced concepts and patterns in React to master on becoming 
 
 # What's Composition in Code?
 
-Let's take on step backwards before tackling composition in React. What's composition in general? It's the ingredients and the arrangement of these ingredients to create something bigger out of it. It's the samples in a piece of music that make up a track. It's the fruits that are used for the perfect smoothie. It's the choreography of dancers in a musical. And it's the internals of a function in programming that need to be arranged in a way to get the desired output:
+Let's take one step backwards before tackling composition in React. What's composition in general? It's the ingredients and the arrangement of these ingredients to create something bigger out of it. It's the samples in a piece of music that make up a track. It's the fruits that are used for the perfect smoothie. It's the choreography of dancers in a musical. And it's the internals of a function in programming that need to be arranged in a way to get the desired output:
 
 ```javascript
 const convertCurrency = (amount, fromCurrency, toCurrency) => {

@@ -1,5 +1,5 @@
 ---
-title: "How to useState in React?"
+title: "How to useState in React"
 description: "A tutorial about React's useState hook by example for state management in React function components ..."
 date: "2019-05-30T03:52:46+02:00"
 categories: ["React"]
