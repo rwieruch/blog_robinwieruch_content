@@ -14,7 +14,7 @@ author: ""
 
 In a modern React world, everyone uses [function components](/react-function-component) with [React Hooks](/react-hooks). However, the concept of [higher-order components (HOCs)](/react-higher-order-components) is still applicable in a modern React world, because they can be used for class components and function components. Therefore they are the perfect bridge for using reusable abstractions among [legacy and modern React components](/react-component-types).
 
-I am still an advocate for higher-order components these days, because there composable nature of enhancing components fascinates me. However, there are problems with HOCs which shouldn't be denied and which are entirely solved by React Hooks. This is why I want to point out these problems, so that developers can make an informed decision whether they want to use an HOC over an Hook for certain scenarios or whether they just want to go all-in with React Hooks after all.
+I am still an advocate for higher-order components these days because their composable nature of enhancing components fascinates me. However, there are problems with HOCs which shouldn't be denied and which are entirely solved by React Hooks. This is why I want to point out these problems, so that developers can make an informed decision whether they want to use an HOC over an Hook for certain scenarios or whether they just want to go all-in with React Hooks after all.
 
 # HOCs vs Hooks: Prop Confusion
 
@@ -92,7 +92,7 @@ const App = () => {
 };
 ```
 
-Without knowing the implementation details of the HOCs, would you know which props are consumed by the HOCs and which are dedicated the the underlying component? It's not clear which props are really passed through to the actual DataTable component and wich props are consumed by HOCs on the way.
+Without knowing the implementation details of the HOCs, would you know which props are consumed by the HOCs and which are dedicated the the underlying component? It's not clear which props are really passed through to the actual DataTable component and which props are consumed by HOCs on the way.
 
 Let's take this example one step further, by introducing another HOC for data fetching where we don't show the implementation details:
 
@@ -161,7 +161,7 @@ This wasn't as clear with HOCs before, because we didn't clearly see which props
 
 # HOCs vs Hooks: Name Conflicts/Collision
 
-If you give a component two times a prop with the same name, the latter will override the former:
+If you give a component a prop with the same name two times, the latter will override the former:
 
 ```javascript
 <Headline text="Hello World" text="Hello React" />
@@ -193,7 +193,7 @@ const App = () => {
 };
 ```
 
-This is a very common scenario, because often components need to fetch from multiple API endpoints.
+This is a very common scenario; often components need to fetch from multiple API endpoints.
 
 As we have learned before, the `withFetch` HOC expects an `url` prop for the data fetching. Now we want to use this HOC two times and thus we are not able anymore fulfil both HOCs contract. In contrast, both HOCs will just operate on the latter URL which will lead to a problem. A solution (and yes, there is more than one solution) to this problem would be changing our `withFetch` HOC to something more powerful in order to perform not a single but multiple requests:
 
@@ -220,7 +220,7 @@ const App = () => {
 };
 ```
 
-This solution seems plausible, but let's sink this in for a moment: The `withFetch` HOC, previously just concerned about one data fetching -- which based on this one data fetching sets states for `isLoading` and `error` -- suddenly becomes a monster of complexity. There are many questions to answer here:
+This solution seems plausible, but let's let this sink in for a moment: The `withFetch` HOC, previously just concerned about one data fetching -- which based on this one data fetching sets states for `isLoading` and `error` -- suddenly becomes a monster of complexity. There are many questions to answer here:
 
 * Does the loading indicator still show up even though one of the requests finished earlier?
 * Does the whole component render as an error if only one request fails?
@@ -260,8 +260,8 @@ const App = () => {
   }
 
   const userProfile = userProfileIsLoading
-    : <div>User profile is loading ...</div>
-    ? <UserProfile userProfile={userProfileData} />;
+    ? <div>User profile is loading ...</div>
+    : <UserProfile userProfile={userProfileData} />;
 
   return (
     <User
@@ -322,7 +322,7 @@ const App = () => {
 };
 ```
 
-This contributes an (1) positive and (2) negative effect to the Prop Confusion problem from before, because now we have (2) more than one place from where the HOC receives props (which doesn't make things easier to understand), but then again (2) we can avoid the implicit prop passing from the parent component (where we don't know whether this prop is consumed by the HOC or the underlying component) and try to pass props from the very beginning when enhancing the component instead.
+This contributes an (1) positive and (2) negative effect to the Prop Confusion problem from before, because now we have (2) more than one place from where the HOC receives props (which doesn't make things easier to understand), but then again (1) we can avoid the implicit prop passing from the parent component (where we don't know whether this prop is consumed by the HOC or the underlying component) and try to pass props from the very beginning when enhancing the component instead.
 
 However, in the end, these arguments (here the objects with `errorText` and `loadingText`) passed when enhancing the component are static. We are not able to interpolate them with any props from the parent component here, because we are creating the composed component outside of any component. For instance, in the data fetching example we wouldn't be able to introduce a flexible user ID:
 
