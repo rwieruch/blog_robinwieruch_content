@@ -18,7 +18,7 @@ For all my React Native tutorials, I intend to use Expo as baseline, because it 
 
 Expo is a powerful environment for React Native which helps you from creation to distribution of your React Native apps. Without the need to directly use XCode (iOS) or Android Studio, Expo allows you to see your work in progress apps on a phone, emulator, or browser. It's fair to say that Expo makes React Native development much easier, because it takes all the friction away. When you write code in Expo, you still write React Native code, but with the support of the Expo CLI and Expo Client on your phone. We will explore both in a bit.
 
-For the instllation of Expo, your best bet may be following the [installation instructions](https://expo.io/learn) from the official Expo documentation, because its dependencies change from time to time. However, I want to try to keep these in sync here, so you may want to follow my instructions as well.
+For the installation of Expo, your best bet may be following the [installation instructions](https://expo.io/learn) from the official Expo documentation, because its dependencies change from time to time. However, I want to try to keep these in sync here, so you may want to follow my instructions as well.
 
 First, you have to install [Node.js](https://nodejs.org/en/). This makes [npm](http://npmjs.com/) -- the Node.js package manager -- and node itself available on the command line. Afterward, install the Expo CLI (command line interface) globally on your machine:
 
