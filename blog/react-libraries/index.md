@@ -135,6 +135,7 @@ If you don't want to build all necessary React UI components from scratch, you c
 * [Semantic UI](/react-semantic-ui-tutorial)
 * [Material UI](https://material-ui.com/)
 * [React Bootstrap](https://react-bootstrap.github.io/)
+* [KendoReact](https://www.telerik.com/kendo-react-ui/)
 
 # Animations in React
 
