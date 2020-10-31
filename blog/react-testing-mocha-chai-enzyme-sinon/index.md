@@ -262,7 +262,7 @@ Now you have both helper files for your tests in place. One to expose functions 
 
 ```javascript{3}
 "scripts": {
-  "start": "webpack-dev-server --config ./webpack.config.js",
+  "start": "webpack serve --config ./webpack.config.js",
   "test:unit": "mocha --require @babel/register --require ./test/helpers.js --require ./test/dom.js 'src/**/*.spec.js'"
 },
 ```
@@ -275,7 +275,7 @@ The script can be executed by running `npm run test:unit` on the command line no
 
 ```javascript{4}
 "scripts": {
-  "start": "webpack-dev-server --config ./webpack.config.js",
+  "start": "webpack serve --config ./webpack.config.js",
   "test:unit": "mocha --require @babel/register --require ./test/helpers.js --require ./test/dom.js 'src/**/*.spec.js'",
   "test:unit:watch": "npm run test:unit -- --watch"
 },
@@ -289,7 +289,7 @@ Last but not least, before diving into testing with Mocha and Chai, there is one
 
 ```javascript{3}
 "scripts": {
-  "start": "webpack-dev-server --config ./webpack.config.js",
+  "start": "webpack serve --config ./webpack.config.js",
   "test:unit": "mocha --require @babel/register --require ./test/helpers.js --require ./test/dom.js --require ignore-styles 'src/**/*.spec.js'",
   "test:unit:watch": "npm run test:unit -- --watch"
 },

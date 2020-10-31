@@ -23,7 +23,7 @@ After you have set up your React project, visit it on `http://localhost:8080` to
 Before we can continue with Docker, we need to change one line in our *package.json* for starting the Webpack development server. The host has to be specified as 0.0.0.0. if you want to make the development server accessible to the outside; meaning: making it accessible for Docker.
 
 ```javascript
-"start": "webpack-dev-server --host 0.0.0.0 --config ./webpack.config.js --mode development",
+"start": "webpack  --host 0.0.0.0 --config ./webpack.config.js --mode development",
 ```
 
 Now, we will ship this React application in a **Docker container** by using **Docker image**. First of all, create a so called **Dockerfile**:

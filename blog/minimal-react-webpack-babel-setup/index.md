@@ -1,6 +1,6 @@
 ---
-title: "How to set up React with Webpack and Babel [Tutorial]"
-description: "A step by step tutorial to set up React with Webpack and Babel from scratch for beginners. You will learn everything about the tooling around React ..."
+title: "How to React with Webpack 5 and Babel [Tutorial]"
+description: "A React with Webpack 5 and Babel tutorial for beginners where you will learn step by step how to set up a React project with Webpack from scratch ..."
 date: "2019-06-15T13:55:46+02:00"
 categories: ["React", "JavaScript", "Tooling", "Webpack", "Babel"]
 keywords: ["react webpack", "react webpack babel", "react babel", "react webpack tutorial", "react webpack example", "react webpack boilerplate"]
@@ -22,12 +22,12 @@ author: ""
     },
     {
       prefix: "Part 2:",
-      label: "How to set up a Webpack project",
+      label: "How to set up Webpack 5",
       url: "/webpack-setup-tutorial/"
     },
     {
       prefix: "Part 3:",
-      label: "How to set up Webpack with Babel",
+      label: "How to set up Webpack 5 with Babel",
       url: "/webpack-babel-setup-tutorial/"
     }
   ]}
@@ -45,7 +45,7 @@ Fourth, the tutorial is not about the boilerplate project itself. The tutorial i
 
 Last but not least, there is already a great official way introduced by Facebook to start a React project: [create-react-app](https://github.com/facebookincubator/create-react-app) comes without any build configuration which I can only recommend for anyone who is getting started with React. If you are a beginner, you probably shouldn't bother with a setup of Webpack and Babel yourself. I use create-react-app to teach plain React in my book [the Road to learn React](/the-road-to-learn-react/) too. You should take the time to read it before you get started with the tooling around React with this tutorial.
 
-That should be enough said about my motivation behind this tutorial. Let's dive into my personal minimal setup for a React project. This tutorial supports the latest versions of React, Webpack 4, and Babel 7.
+That should be enough said about my motivation behind this tutorial. Let's dive into my personal minimal setup for a React project. This tutorial supports the latest versions of React, Webpack 5, and Babel 7.
 
 # Table of Contents
 

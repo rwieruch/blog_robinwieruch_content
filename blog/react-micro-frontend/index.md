@@ -135,16 +135,16 @@ We will start with the *package.json* file and move all the layers down to our W
 {
   ...
   "scripts": {
-    "start": "webpack-dev-server --config build-utils/webpack.config.js --env.env=dev",
-    "start:programming": "webpack-dev-server --config build-utils/webpack.config.js --env.env=dev --env.micro=Programming",
-    "start:installation": "webpack-dev-server --config build-utils/webpack.config.js --env.env=dev --env.micro=Installation",
+    "start": "webpack serve --config build-utils/webpack.config.js --env env=dev",
+    "start:programming": "webpack serve --config build-utils/webpack.config.js --env env=dev --env micro=Programming",
+    "start:installation": "webpack serve --config build-utils/webpack.config.js --env env=dev --env micro=Installation",
     ...
   },
   ...
 }
 ```
 
-The only thing changed to the previous start script are these new `--env.micro` flags. That's how we can distinguish in Webpack which application should start as micro frontend. Our *build-utils/webpack.config.js* file looks like this one:
+The only thing changed to the previous start script are these new `--env micro` flags. That's how we can distinguish in Webpack which application should start as micro frontend. Our *build-utils/webpack.config.js* file looks like this one:
 
 ```javascript
 const webpackMerge = require('webpack-merge');

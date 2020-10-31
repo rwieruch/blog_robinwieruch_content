@@ -17,7 +17,7 @@ contribute: ""
   links={[
     {
       prefix: "Part 1:",
-      label: "How to set up Webpack with Babel",
+      label: "How to set up Webpack 5 with Babel",
       url: "/webpack-babel-setup-tutorial/",
     },
   ]}

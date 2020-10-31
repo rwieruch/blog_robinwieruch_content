@@ -1,7 +1,7 @@
 ---
 date: "2019-06-15T13:51:46+02:00"
-title: "How to set up a Webpack project [Tutorial]"
-description: "A Webpack setup tutorial that walks you through your first JavaScript application set up with Webpack. Bonus: You will add Babel to enable advanced JavaScript features ..."
+title: "How to set up Webpack 5 [Tutorial]"
+description: "A Webpack 5 tutorial that walks you through your first JavaScript application setup with Webpack. Bonus: You will add Babel to enable advanced JavaScript features ..."
 categories: ["JavaScript", "Tooling", "Webpack"]
 keywords: ["webpack setup", "webpack tutorial", "webpack babel"]
 hashtags: ["#JavaScript", "#Webpack"]
@@ -22,7 +22,7 @@ contribute: ""
     },
     {
       prefix: "Part 3",
-      label: "How to set up Webpack with Babel",
+      label: "How to set up Webpack 5 with Babel",
       url: "/webpack-babel-setup-tutorial/",
     },
   ]}
@@ -137,7 +137,7 @@ In your *package.json* file, change the start script to the following script for
 {
   ...
   "scripts": {
-    "start": "webpack-dev-server --mode development",
+    "start": "webpack serve --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -151,7 +151,7 @@ You can run your *npm start* script on the command line again, however, this tim
 {
   ...
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "webpack serve --config ./webpack.config.js --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -237,7 +237,7 @@ After starting the application with `npm start`, open the [application in your b
     },
     {
       prefix: "Part 3",
-      label: "How to set up Webpack with Babel",
+      label: "How to set up Webpack 5 with Babel",
       url: "/webpack-babel-setup-tutorial/",
     },
   ]}

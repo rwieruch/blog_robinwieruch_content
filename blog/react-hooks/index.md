@@ -1,5 +1,5 @@
 ---
-title: "Introduction to React Hooks"
+title: "React Hooks Tutorial"
 description: "A comprehensive tutorial about React Hooks, why React uses Hooks, what Hooks are available, and how to use Hooks in React for state management and side-effects in React function components ..."
 date: "2020-09-01T13:50:46+02:00"
 categories: ["React"]

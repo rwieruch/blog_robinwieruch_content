@@ -38,7 +38,7 @@ Second, add a new script to your *package.json* file to introduce Coveralls to i
 
 ```javascript{4}
 "scripts": {
-  "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+  "start": "webpack serve --config ./webpack.config.js --mode development",
   "test": "jest --config ./jest.config.json",
   "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
 },

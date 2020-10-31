@@ -1,6 +1,6 @@
 ---
 title: "How to set up an advanced Webpack application"
-description: "A step by step tutorial on how to set up an advanced Webpack 4 application. It comes with Babel 7, development and production build, automations, and source maps ..."
+description: "A step by step tutorial on how to set up an advanced Webpack 5 application. It comes with Babel 7, development and production build, automations, and source maps ..."
 date: "2019-06-22T13:52:46+02:00"
 categories: ["JavaScript", "Tooling", "Webpack", "Babel"]
 keywords: ["webpack advanced", "webpack 4 tutorial"]
@@ -12,9 +12,9 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 3 of 3 in 'Webpack Setup'-series." links={[{ prefix: "Part 1:", label: "How to set up a Webpack project", url: "/webpack-setup-tutorial/" }, { prefix: "Part 2:", label: "How to set up Webpack with Babel", url: "/webpack-babel-setup-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in 'Webpack Setup'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5", url: "/webpack-setup-tutorial/" }, { prefix: "Part 2:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }]} />
 
-The previous tutorials have shown you how to set up a basic web application with Webpack 4. So far, Webpack is only used to bundle all your JavaScript files, to transpile new JavaScript features via Babel, and to serve your bundle in development mode via Webpack's Development Server. Basically that's everything that's needed to get started with creating your first web application.
+The previous tutorials have shown you how to set up a basic web application with Webpack 5. So far, Webpack is only used to bundle all your JavaScript files, to transpile new JavaScript features via Babel, and to serve your bundle in development mode via Webpack's Development Server. Basically that's everything that's needed to get started with creating your first web application.
 
 However, Webpack comes with so much more to explore. For instance, eventually you may want to take your project to production. That's when Webpack can help you to build a production ready bundle which comes with all the optimizations for your source code. In this tutorial, you will learn more about Webpack and how to configure it to your needs. If you don't have a basic Webpack application at your hands, you can take [this one](https://github.com/rwieruch/minimal-webpack-babel-setup) from the previous tutorials. The final advanced Webpack setup can be found on [GitHub](https://github.com/rwieruch/webpack-advanced-setup) as well.
 
@@ -51,7 +51,7 @@ Second, if you type `npm start`, Webpack will create this *bundle.js* file on th
 {
   ...
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "webpack serve --config ./webpack.config.js --mode development",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   ...
@@ -64,7 +64,7 @@ Now let's introduce a second npm script to actually build your application for p
 {
   ...
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "webpack serve --config ./webpack.config.js --mode development",
     "build": "webpack --config ./webpack.config.js --mode production",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
@@ -297,7 +297,7 @@ So far, we have used one common Webpack configuration for development and produc
 {
   ...
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.dev.js",
+    "start": "webpack serve --config ./webpack.dev.js",
     "build": "webpack --config ./webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
@@ -355,8 +355,8 @@ At the moment, your Webpack configuration files for development and production s
 {
   ...
   "scripts": {
-    "start": "webpack-dev-server --config build-utils/webpack.config.js --env.env=dev",
-    "build": "webpack --config build-utils/webpack.config.js --env.env=prod",
+    "start": "webpack serve --config build-utils/webpack.config.js --env env=dev",
+    "build": "webpack --config build-utils/webpack.config.js --env env=prod",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   ...
@@ -590,9 +590,9 @@ Webpack has a large ecosystem of [plugins](https://webpack.js.org/plugins/). Sev
 {
   ...
   "scripts": {
-    "start": "webpack-dev-server --config build-utils/webpack.config.js --env.env=dev",
-    "build": "webpack --config build-utils/webpack.config.js --env.env=prod",
-    "build:analyze": "npm run build -- --env.addon=bundleanalyze --env.addon=bundlevisualizer",
+    "start": "webpack serve --config build-utils/webpack.config.js --env env=dev",
+    "build": "webpack --config build-utils/webpack.config.js --env env=prod",
+    "build:analyze": "npm run build -- --env addon=bundleanalyze",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   ...
@@ -639,32 +639,18 @@ module.exports = {
 };
 ```
 
-Next with the *build-utils/addons/webpack.bundlevisualizer.js* file:
+Next, install the Webpack addon via npm on the command line:
 
 ```javascript
-const Visualizer = require('webpack-visualizer-plugin');
-
-module.exports = {
-  plugins: [
-    new Visualizer()
-  ]
-};
+npm install --save-dev webpack-bundle-analyzer
 ```
 
-Finally, install both Webpack addons via npm on the command line:
+As you can see, you have introduced a specific Webpack addon, which can be optionally added, in a new *build-utils/addons/* folder. The naming of the addon files matches the passed flag from the npm script in your *package.json*. Your Webpack merge makes sure to add all passed addon flags as actual addons to your Webpack configuration.
 
-```javascript
-npm install --save-dev webpack-bundle-analyzer webpack-visualizer-plugin
-```
-
-As you can see, you have introduced specific Webpack addons, which can be optionally added, in a new *build-utils/addons/* folder. The naming of the addon files matches the passed flag from the npm script in your *package.json*. Your Webpack merge makes sure to add all passed addon flags as actual addons to your Webpack configuration.
-
-Now try the optional tools for Webpack analytics and visualization yourself. On your command line, type `npm run build:analyze`. Afterward, check your *dist/* folder for new files. You should find two of them which you can open the following way:
+Now try the optional tool for Webpack analytics and visualization yourself. On your command line, type `npm run build:analyze`. Afterward, check your *dist/* folder for new files. You should find one which you can open the following way:
 
 * Webpack's bundleanalyze: *dist/report.html*
   * open via `http-server dist`, vist the URL, and append */report.html*
-* Webpack's bundlevisualizer: -> *dist/stats.html*
-  * open via `http-server dist`, vist the URL, and append */stats.html*
 
 You will see your build optimized Webpack bundle with two different visualizations. You don't have much code in your application yet, but once you introduce more source code and more external libraries (dependencies) with your node package manager, you will see how your Webpack bundle will grow in size. Eventually you will introduce a large library by accident which makes your application too big. Then both analytic and visualization tools can help you to find this culprit.
 

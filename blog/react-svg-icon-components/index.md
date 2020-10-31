@@ -90,7 +90,7 @@ However, this doesn't work yet because the *src/Icons/* folder is empty. There a
   "main": "index.js",
   "scripts": {
     "svgr": "svgr -d src/Icons/ assets/",
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+    "start": "webpack serve --config ./webpack.config.js --mode development"
   },
   "keywords": [],
   ...

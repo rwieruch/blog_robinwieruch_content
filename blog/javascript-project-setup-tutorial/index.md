@@ -14,7 +14,7 @@ author: ""
 
 <LinkCollection label="This tutorial is part 1 of 2 in the 'Backend Setup'-series." links={[{ prefix: "Part 2:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup" }]} />
 
-<LinkCollection label="This tutorial is part 1 of 3 in the 'Frontend Setup'-series." links={[{ prefix: "Part 2:", label: "How to set up a Webpack project", url: "/webpack-setup-tutorial/" }, { prefix: "Part 3:", label: "How to set up Webpack with Babel", url: "/webpack-babel-setup-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 1 of 3 in the 'Frontend Setup'-series." links={[{ prefix: "Part 2:", label: "How to set up Webpack 5", url: "/webpack-setup-tutorial/" }, { prefix: "Part 3:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }]} />
 
 In this tutorial, I want to show you how to set up a JavaScript project from scratch. Afterward, you can continue by advancing the project to a frontend (e.g. React.js) or backend (e.g. Node.js with Express) application. In case you decide to go with the frontend application, you will set it up the modern way by not linking JavaScript files in HTML files, but by using a project bundler that will automate this process for you. It's one of the most popular ways to start with a JavaScript project nowadays.
 
@@ -87,4 +87,4 @@ Congratulations, you have set up your first JavaScript project with Node and npm
 
 <LinkCollection label="This tutorial is part 1 of 2 in the 'Backend Setup'-series." links={[{ prefix: "Part 2:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup" }]} />
 
-<LinkCollection label="This tutorial is part 1 of 3 in the 'Frontend Setup'-series." links={[{ prefix: "Part 2:", label: "How to set up a Webpack project", url: "/webpack-setup-tutorial/" }, { prefix: "Part 3:", label: "How to set up Webpack with Babel", url: "/webpack-babel-setup-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 1 of 3 in the 'Frontend Setup'-series." links={[{ prefix: "Part 2:", label: "How to set up Webpack 5", url: "/webpack-setup-tutorial/" }, { prefix: "Part 3:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }]} />

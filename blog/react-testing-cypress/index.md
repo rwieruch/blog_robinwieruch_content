@@ -35,7 +35,7 @@ Third, add a script for npm to your *package.json* file. That way, you are able 
 {
   ...
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "webpack serve --config ./webpack.config.js --mode development",
     "test:cypress": "cypress open"
   },
   ...
@@ -96,7 +96,7 @@ If you want, you can change the script slightly for Cypress to run every test by
 {
   ...
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "webpack serve --config ./webpack.config.js --mode development",
     "test:cypress": "cypress run"
   },
   ...
@@ -133,7 +133,7 @@ Second, add it to your *package.json* file's npm scripts. The library expects th
 {
   ...
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "webpack serve --config ./webpack.config.js --mode development",
     "test:cypress": "start-server-and-test start http://localhost:8080 cypress",
     "cypress": "cypress run"
   },

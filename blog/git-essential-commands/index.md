@@ -381,4 +381,4 @@ Obviously, there are more Git commands (git bisect, git reflog, ...) that you co
 
 <ReadMore label="The minimal Node.js with Babel Setup" link="/minimal-node-js-babel-setup" />
 
-<ReadMore label="The minimal React + Webpack 4 + Babel Setup" link="/minimal-react-webpack-babel-setup" />
+<ReadMore label="The minimal React + Webpack 5 + Babel Setup" link="/minimal-react-webpack-babel-setup" />

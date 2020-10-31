@@ -235,4 +235,4 @@ I would be curious about other git workflows, if there exist any, so let me know
 
 <ReadMore label="The minimal Node.js with Babel Setup" link="/minimal-node-js-babel-setup" />
 
-<ReadMore label="The minimal React + Webpack 4 + Babel Setup" link="/minimal-react-webpack-babel-setup" />
+<ReadMore label="The minimal React + Webpack 5 + Babel Setup" link="/minimal-react-webpack-babel-setup" />

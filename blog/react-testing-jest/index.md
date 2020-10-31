@@ -126,7 +126,7 @@ In your *package.json* file, create a new npm script which runs Jest:
 {
   ...
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "webpack serve --config ./webpack.config.js --mode development",
     "test": "jest"
   },
   ...
@@ -139,7 +139,7 @@ In addition, we want to have more configuration in our tests written with Jest. 
 {
   ...
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "webpack serve --config ./webpack.config.js --mode development",
     "test": "jest --config ./jest.config.json"
   },
   ...
@@ -184,7 +184,7 @@ Last but not least, add another npm script for watching your Jest tests. By usin
 {
   ...
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "webpack serve --config ./webpack.config.js --mode development",
     "test": "jest --config ./jest.config.json",
     "test:watch": "npm run test -- --watch"
   },

@@ -1,5 +1,5 @@
 ---
-title: "How to set up Webpack with Babel [Tutorial]"
+title: "How to set up Webpack 5 with Babel [Tutorial]"
 description: "A step by step tutorial on how to integrate Babel into Webpack to access powerful JavaScript features (ES6, ES7, ES8, ES9) from the future ..."
 date: "2019-06-15T13:52:46+02:00"
 categories: ["JavaScript", "Tooling", "Webpack", "Babel"]
@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 3 of 3 in the 'Frontend Setup'-series." links={[{ prefix: "Part 1:", label: "How to set up a modern JavaScript project", url: "/javascript-project-setup-tutorial/" }, { prefix: "Part 2:", label: "How to set up a Webpack project", url: "/webpack-setup-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in the 'Frontend Setup'-series." links={[{ prefix: "Part 1:", label: "How to set up a modern JavaScript project", url: "/javascript-project-setup-tutorial/" }, { prefix: "Part 2:", label: "How to set up Webpack 5", url: "/webpack-setup-tutorial/" }]} />
 
 [Babel](https://babeljs.io/) enables one writing code with JavaScript features that aren't supported by most browser yet. Perhaps you have heard about [JavaScript ES6 (ES2015)](https://babeljs.io/docs/learn-es2015/), ES7, and other versions of ECMAScript specification which are up and coming for the JavaScript language. At the time of reading this, various versions may be already included in the JavaScript language.
 
@@ -110,4 +110,4 @@ Babel enables you to use future JavaScript features in your browser, because it 
 
 <LinkCollection label="This tutorial is part 1 of 2 in 'Webpack with Images'-series." links={[{ prefix: "Part 2:", label: "How to use Images with Webpack", url: "/webpack-images/" }]} />
 
-<LinkCollection label="This tutorial is part 2 of 3 in 'Webpack Setup'-series." links={[{ prefix: "Part 1:", label: "How to set up a Webpack project", url: "/webpack-setup-tutorial/" }, { prefix: "Part 3:", label: "How to set up an advanced Webpack application", url: "/webpack-advanced-setup-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 2 of 3 in 'Webpack Setup'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5", url: "/webpack-setup-tutorial/" }, { prefix: "Part 3:", label: "How to set up an advanced Webpack application", url: "/webpack-advanced-setup-tutorial/" }]} />
