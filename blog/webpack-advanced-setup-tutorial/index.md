@@ -1,7 +1,7 @@
 ---
-title: "How to set up an advanced Webpack application"
+title: "How to advanced Webpack 5 - Setup Tutorial"
 description: "A step by step tutorial on how to set up an advanced Webpack 5 application. It comes with Babel 7, development and production build, automations, and source maps ..."
-date: "2019-06-22T13:52:46+02:00"
+date: "2020-10-30T14:55:46+02:00"
 categories: ["JavaScript", "Tooling", "Webpack", "Babel"]
 keywords: ["webpack advanced", "webpack 4 tutorial"]
 hashtags: ["#Webpack"]
@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 3 of 3 in 'Webpack Setup'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5", url: "/webpack-setup-tutorial/" }, { prefix: "Part 2:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in 'Webpack Advanced Setup'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5", url: "/webpack-setup-tutorial/" }, { prefix: "Part 2:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }]} />
 
 The previous tutorials have shown you how to set up a basic web application with Webpack 5. So far, Webpack is only used to bundle all your JavaScript files, to transpile new JavaScript features via Babel, and to serve your bundle in development mode via Webpack's Development Server. Basically that's everything that's needed to get started with creating your first web application.
 
@@ -74,11 +74,10 @@ Now let's introduce a second npm script to actually build your application for p
 
 If you run `npm run build`, you will see how Webpack bundles all the files for you. Once the script went through successfully, you can see the *dist/bundle.js* file not generated on the fly, but created for real in your *dist/* folder.
 
-The only thing left for you is to upload your *dist/* folder to a web server now. However, in order to check locally whether the *dist/* folder has everything you need to run your application on a remote web server, install a local web server to try it out yourself. On your command line, install [http-server](https://github.com/indexzero/http-server#readme) globally to try it:
+The only thing left for you is to upload your *dist/* folder to a web server now. However, in order to check locally whether the *dist/* folder has everything you need to run your application on a remote web server, use a [local web server](https://github.com/indexzero/http-server) to try it out yourself:
 
 ```javascript
-npm install -g http-server
-http-server dist
+npx http-server dist
 ```
 
 It should output an URL which you can visit in a browser. If everything works as expected, you can upload the *dist/* folder with its content to your web server. Personally I prefer to use [DigitalOcean](https://m.do.co/c/fb27c90322f3) to host my static websites and web applications.
@@ -102,34 +101,32 @@ npm install --save-dev html-webpack-plugin
 
 After a successful installation, introduce the Webpack plugin in your Webpack *webpack.config.js* file:
 
-```javascript{1,17,18,19}
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+```javascript{2,22}
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, './src/index.js'),
   module: {
     rules: [
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
-      }
-    ]
+        use: ['babel-loader'],
+      },
+    ],
   },
   resolve: {
-    extensions: ['*', '.js']
+    extensions: ['*', '.js'],
   },
-  plugins: [
-    new HtmlWebpackPlugin()
-  ],
   output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, './dist'),
+    filename: 'bundle.js',
   },
+  plugins: [new HtmlWebpackPlugin()],
   devServer: {
-    contentBase: './dist'
-  }
+    contentBase: path.resolve(__dirname, './dist'),
+  },
 };
 ```
 
@@ -143,7 +140,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Hello Webpack bundled JavaScript Project',
-      template: './src/index.html'
+      template: path.resolve(__dirname, './src/index.html'),
     })
   ],
   ...
@@ -178,9 +175,10 @@ npm install --save-dev clean-webpack-plugin
 
 Then introduce it in your *webpack.config.js* file:
 
-```javascript{1,7}
+```javascript{3,8}
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   ...
@@ -188,8 +186,8 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Hello Webpack bundled JavaScript Project',
-      template: './src/index.html'
-    })
+      template: path.resolve(__dirname, './src/index.html'),
+    }),
   ],
   ...
 };
@@ -248,7 +246,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 ```
 
-Take this one step further and introduce the bug in your Webpack build for production instead. Run `npm run build` and `http-server dist` to see the error in your browser again:
+Take this one step further and introduce the bug in your Webpack build for production instead. Run `npm run build` and `npx http-server dist` to see the error in your browser again:
 
 ```javascript
 bundle.js:1 Uncaught ReferenceError: c is not defined
@@ -264,16 +262,16 @@ In conclusion, it's not a great developer experience, because it becomes more di
 
 In order to overcome this problem, there are [source maps](https://webpack.js.org/configuration/devtool/) which can be introduced to give Webpack a reference to the origin source code. By using the source maps, Webpack can map all the bundled source code back to the original source. In your *webpack.config.js* file, introduce one common configuration for source maps:
 
-```javascript{4}
+```javascript{5}
 ...
 
 module.exports = {
-  devtool: 'source-map',
   ...
+  devtool: 'source-map',
 };
 ```
 
-Afterward, with the bug still in your source code, run `npm run build` and `http-server dist` again. In your browser, note how the bug can be tracked down to the causing file:
+Afterward, with the bug still in your source code, run `npm run build` and `npx http-server dist` again. In your browser, note how the bug can be tracked down to the causing file *sum.js*:
 
 ```javascript
 sum.js:2 Uncaught ReferenceError: c is not defined
@@ -331,13 +329,13 @@ Your npm scripts to start and build your application should work again. But you 
 
 In a growing Webpack configuration, you will introduce things (e.g. plugins, rules, source maps) which should behave differently for development and production. For instance, let's take the source maps which we have implemented previously. It's a performance heavy process to create source map files for a large code base. In order to keep the development build operating fast and efficient for a great developer experience, you want to have your source maps in development not 100% effective as the source maps from your production build. It should be faster to create them for development mode. That's why you can introduce your first change for the *webpack.dev.js* file which is not reflected in your production configuration:
 
-```javascript{5}
+```javascript{6}
 ...
 
 module.exports = {
   mode: 'development',
-  devtool: 'eval-source-map',
   ...
+  devtool: 'eval-source-map',
 };
 ```
 
@@ -393,13 +391,13 @@ Next, we have to implement three files in the *build-utils* folder now:
 
 Let's start with the shared Webpack configuration in a new *build-utils/webpack.common.js* file:
 
-```javascript{1,27}
+```javascript{1,6,23,27,31}
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, '..', './src/index.js'),
   module: {
     rules: [
       {
@@ -416,16 +414,15 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Hello Webpack bundled JavaScript Project',
-      template: './src/index.html'
+      template: path.resolve(__dirname, '..', './src/index.html'),
     })
   ],
   output: {
-    path: path.resolve(__dirname, '../', 'dist'),
-    publicPath: '/',
+    path: path.resolve(__dirname, '..', './dist'),
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: path.resolve(__dirname, '..', './dist'),
   },
 };
 ```
@@ -437,7 +434,7 @@ Move on by creating the *build-utils/webpack.dev.js* file and give it the follow
 ```javascript
 module.exports = {
   mode: 'development',
-  devtool: 'eval-source-map'
+  devtool: 'eval-source-map',
 };
 ```
 
@@ -446,7 +443,7 @@ Last but not least, the new *build-utils/webpack.prod.js* file which receives th
 ```javascript
 module.exports = {
   mode: 'production',
-  devtool: 'source-map'
+  devtool: 'source-map',
 };
 ```
 
@@ -481,12 +478,11 @@ That's it. Your `npm start` and `npm run build` scripts should work now. Both ar
 
 Sometimes you may want to know in your source code whether you are in development or production mode. For these cases you can specify dynamic environment variables via Webpack. Since you have a Webpack configuration file for each environment (dev, prod), you can define dedicated environment variables for them. In your *build-utils/webpack.dev.js*, define a environment variable the following way:
 
-```javascript{1,6,7,8,9,10,11,12}
+```javascript{1,5-11}
 const { DefinePlugin } = require('webpack');
 
 module.exports = {
   mode: 'development',
-  devtool: 'eval-source-map',
   plugins: [
     new DefinePlugin({
       'process.env': {
@@ -494,17 +490,17 @@ module.exports = {
       }
     }),
   ],
+  devtool: 'eval-source-map',
 };
 ```
 
 The same applies to your *build-utils/webpack.prod.js* file, but with a different environment variable:
 
-```javascript{1,6,7,8,9,10,11,12}
+```javascript{1,5-11}
 const { DefinePlugin } = require('webpack');
 
 module.exports = {
   mode: 'production',
-  devtool: 'source-map',
   plugins: [
     new DefinePlugin({
       'process.env': {
@@ -512,6 +508,7 @@ module.exports = {
       }
     }),
   ],
+  devtool: 'source-map',
 };
 ```
 
@@ -546,33 +543,35 @@ npm install dotenv-webpack --save-dev
 
 Second, use it in your *build-utils/webpack.dev.js* file for the development mode:
 
-```javascript{1,7,8,9}
+```javascript{2,7-9}
+const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
-  devtool: 'eval-source-map',
   plugins: [
     new Dotenv({
-      path: './.env.development',
+      path: path.resolve(__dirname, '..', './.env.development'),
     })
   ],
+  devtool: 'eval-source-map',
 };
 ```
 
 And third, use it in your *build-utils/webpack.prod.js* file for the production mode:
 
-```javascript{1,7,8,9}
+```javascript{2,7-9}
+const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
-  devtool: 'eval-source-map',
   plugins: [
     new Dotenv({
-      path: './.env.production',
+      path: path.resolve(__dirname, '..', './.env.production'),
     })
   ],
+  devtool: 'eval-source-map',
 };
 ```
 
@@ -601,19 +600,19 @@ Webpack has a large ecosystem of [plugins](https://webpack.js.org/plugins/). Sev
 
 Note how this new npm script runs another npm script but with additional configuration (here Webpack addons). However, the Webpack addons will not run magically. In this case, they are only passed as flags to our Webpack configuration. Let's see how we can use them in our *build-utils/webpack.config.js* file:
 
-```javascript{5,6,7,8,9,10,11,12,13,15,18}
+```javascript{5-13,15,18}
 const { merge } = require('webpack-merge');
 
 const commonConfig = require('./webpack.common.js');
 
-const getAddons = addonsArgs => {
+const getAddons = (addonsArgs) => {
   const addons = Array.isArray(addonsArgs)
     ? addonsArgs
     : [addonsArgs];
 
   return addons
     .filter(Boolean)
-    .map(name => require(`./addons/webpack.${name}.js`));
+    .map((name) => require(`./addons/webpack.${name}.js`));
 };
 
 module.exports = ({ env, addon }) => {
@@ -626,16 +625,22 @@ module.exports = ({ env, addon }) => {
 Now, not only the common and environment specific Webpack configuration get merged, but also the optional addons which we will put into a dedicated *build-utils/addons* folder. Let's start with the *build-utils/addons/webpack.bundleanalyze.js* file:
 
 ```javascript
-const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const path = require('path');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   plugins: [
-    new WebpackBundleAnalyzer({
+    new BundleAnalyzerPlugin({
       analyzerMode: 'static',
-      reportFilename: './report.html',
-      openAnalyzer: false
-    })
-  ]
+      reportFilename: path.resolve(
+        __dirname,
+        '..',
+        '..',
+        './dist/report.html'
+      ),
+      openAnalyzer: false,
+    }),
+  ],
 };
 ```
 
@@ -650,7 +655,7 @@ As you can see, you have introduced a specific Webpack addon, which can be optio
 Now try the optional tool for Webpack analytics and visualization yourself. On your command line, type `npm run build:analyze`. Afterward, check your *dist/* folder for new files. You should find one which you can open the following way:
 
 * Webpack's bundleanalyze: *dist/report.html*
-  * open via `http-server dist`, vist the URL, and append */report.html*
+  * open via `npx http-server dist`, vist the URL, and append */report.html*
 
 You will see your build optimized Webpack bundle with two different visualizations. You don't have much code in your application yet, but once you introduce more source code and more external libraries (dependencies) with your node package manager, you will see how your Webpack bundle will grow in size. Eventually you will introduce a large library by accident which makes your application too big. Then both analytic and visualization tools can help you to find this culprit.
 

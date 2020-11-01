@@ -1,7 +1,7 @@
 ---
-date: "2019-08-05T13:53:46+02:00"
-title: "How to use Images with Webpack"
+title: "How to use Images with Webpack 5 - Setup Tutorial"
 description: "The tutorial walks you through a Webpack with Images setup to load an image as local asset to your JavaScript applications ..."
+date: "2020-10-30T14:55:46+02:00"
 categories: ["Tooling", "Webpack", "Babel"]
 keywords: ["webpack images"]
 hashtags: ["#JavaScript", "#Webpack"]

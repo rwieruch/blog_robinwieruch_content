@@ -1,7 +1,7 @@
 ---
-title: "How to use SVG Icons as React Components?"
+title: "How to use SVG Icons as React Components"
 description: "A walkthrough on how to use SVG Icons in React applications. SVGR + Webpack are the perfect fit to make it happen..."
-date: "2019-04-23T07:52:46+02:00"
+date: "2020-10-30T15:54:46+02:00"
 categories: ["React"]
 keywords: ["react svg icons", "react svgr"]
 hashtags: ["#ReactJs"]
@@ -28,7 +28,7 @@ In this section, we will start by generating SVG icons manually for your React a
 
 Next, put all your .svg icon files into a */assets* folder next to your *src/* folder. We don't want to have the assets mixed with our source code files, because we will generate JavaScript files based on them. These JavaScript files -- being React icon components -- are mixed with your other source code files then.
 
-```javascript{1,2,3,4}
+```javascript{1-4}
 assets/
 -- twitter.svg
 -- facebook.svg
@@ -53,7 +53,7 @@ src/
 
 The desired outcome would be to use the React icon components in our *src/App.js* component:
 
-```javascript{3,4,5,11,15,19}
+```javascript{3-5,11,15,19}
 import React from 'react';
 
 import TwitterIcon from './Icons/Twitter.js';
@@ -111,7 +111,7 @@ That's all it needs to generate React components from SVGs. Every time you have 
 
 Running the SVGR script every time to update your SVG icons is not the best solution though. What about integrating the whole process in your Webpack configuration? You should start out with an empty *src/Icons* folder. Afterward, move all your SVG files to this folder and remove the *assets/* folder. Your folder structure should look like the following:
 
-```javascript{5,6,7}
+```javascript{5-7}
 src/
 -- index.js
 -- App.js
@@ -123,7 +123,7 @@ src/
 
 Your App component imports SVG files rather than JavaScript files now:
 
-```javascript{3,4,5}
+```javascript{3-5}
 import React from 'react';
 
 import TwitterIcon from './Icons/Twitter.svg';
@@ -154,11 +154,12 @@ export default App;
 
 Starting your application wouldn't work, because we cannot simply import SVG files this way. Fortunately, we can make Webpack doing the work for us implicitly with every application start. Let's add the following configuration to our *webpack.config.js* file:
 
-```javascript{12,13,14,15}
+```javascript{13-16}
+const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, './src/index.js'),
   module: {
     rules: [
       {
@@ -188,11 +189,12 @@ Once you start your application, Webpack is doing its thing and you don't need t
 
 If you are using Webpack, you can also use a simplified SVG loader instead of SVGR. For instance, [react-svg-loader](https://github.com/boopathi/react-svg-loader) can be used within your Webpack configuration. Note that it replaces SVGR:
 
-```javascript{12,13,14,15,16,17}
+```javascript{13-18}
+const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, './src/index.js'),
   module: {
     rules: [
       {
@@ -226,11 +228,11 @@ When I worked with my last client on their React application, I had the problem 
 
 The default SVGR template in your *webpack.config.js* file looks like the following:
 
-```javascript{14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33}
+```javascript{14-33}
 ...
 
 module.exports = {
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, './src/index.js'),
   module: {
     rules: [
       {
@@ -273,7 +275,7 @@ By having this template at your disposal, you can change the code which is gener
 ...
 
 module.exports = {
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, './src/index.js'),
   module: {
     rules: [
       {
@@ -369,7 +371,7 @@ Now, we can use the hook for our SVG template in the *webpack.config.js* file:
 ...
 
 module.exports = {
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, './src/index.js'),
   module: {
     rules: [
       ...

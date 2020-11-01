@@ -1,7 +1,7 @@
 ---
-title: "How to React with Webpack 5 and Babel [Tutorial]"
+title: "How to React with Webpack 5  - Setup Tutorial"
 description: "A React with Webpack 5 and Babel tutorial for beginners where you will learn step by step how to set up a React project with Webpack from scratch ..."
-date: "2019-06-15T13:55:46+02:00"
+date: "2020-10-30T15:55:46+02:00"
 categories: ["React", "JavaScript", "Tooling", "Webpack", "Babel"]
 keywords: ["react webpack", "react webpack babel", "react babel", "react webpack tutorial", "react webpack example", "react webpack boilerplate"]
 hashtags: ["#ReactJs"]
@@ -72,29 +72,30 @@ In your *.babelrc* (or *package.json*) file -- depending on where you have your 
 
 Next, let's inform Webpack in our *webpack.config.js* file about files with the JSX extension to make sure that they run through the transpiling step as well:
 
-```javascript{6,13}
+```javascript{8,15}
+const path = require('path');
+
 module.exports = {
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, './src/index.js'),
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
-      }
-    ]
+        use: ['babel-loader'],
+      },
+    ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx'],
   },
   output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, './dist'),
+    filename: 'bundle.js',
   },
   devServer: {
-    contentBase: './dist'
-  }
+    contentBase: path.resolve(__dirname, './dist'),
+  },
 };
 ```
 
@@ -161,35 +162,33 @@ npm install --save-dev react-hot-loader
 
 Second, add the configuration to your *webpack.config.js* file:
 
-```javascript{1,22,23,24,27}
+```javascript{1,22,25}
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, './src/index.js'),
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
-      }
-    ]
+        use: ['babel-loader'],
+      },
+    ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx'],
   },
   output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, './dist'),
+    filename: 'bundle.js',
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
-    contentBase: './dist',
-    hot: true
-  }
+    contentBase: path.resolve(__dirname, './dist'),
+    hot: true,
+  },
 };
 ```
 

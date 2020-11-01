@@ -1,7 +1,7 @@
 ---
-title: "How to set up Webpack 5 with Babel [Tutorial]"
+title: "How to Webpack 5 with Babel - Setup Tutorial"
 description: "A step by step tutorial on how to integrate Babel into Webpack to access powerful JavaScript features (ES6, ES7, ES8, ES9) from the future ..."
-date: "2019-06-15T13:52:46+02:00"
+date: "2020-10-30T11:55:46+02:00"
 categories: ["JavaScript", "Tooling", "Webpack", "Babel"]
 keywords: ["webpack babel"]
 hashtags: ["#Webpack"]
@@ -30,7 +30,7 @@ npm install --save-dev babel-loader
 
 Now, with all libraries (node packages) in place, you need to adjust your *package.json* and *webpack.config.js* (if necessary) to respect the Babel changes. These changes will include all packages you have installed before. First, in your *package.json*, include the [Babel Preset](https://babeljs.io/docs/en/presets):
 
-```javascript{3,4,5,6,7}
+```javascript{3-7}
 {
   ...
   "babel": {
@@ -46,9 +46,11 @@ Now, with all libraries (node packages) in place, you need to adjust your *packa
 
 Second, your *webpack.config.js* file needs to include Babel in its build process as well. There, make use of the previously installed [Loader for Babel](https://github.com/babel/babel-loader). You need to tell Webpack on which files to use the loader (e.g. *.js* files) and optionally which folders to exclude from the process (e.g. *node_modules*):
 
-```javascript{3,4,5,6,7,8,9,10,11,12,13,14}
+```javascript{3-16}
+const path = require('path');
+
 module.exports = {
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, './src/index.js'),
   module: {
     rules: [
       {
@@ -62,13 +64,12 @@ module.exports = {
     extensions: ['*', '.js']
   },
   output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, './dist'),
+    filename: 'bundle.js',
   },
   devServer: {
-    contentBase: './dist'
-  }
+    contentBase: path.resolve(__dirname, './dist'),
+  },
 };
 ```
 
@@ -106,8 +107,10 @@ Babel enables you to use future JavaScript features in your browser, because it 
 
 <LinkCollection label="This tutorial is part 1 of 2 in 'Webpack with ESLint'-series." links={[{ prefix: "Part 2:", label: "How to use ESLint in Webpack", url: "/webpack-eslint/" }]} />
 
-<LinkCollection label="This tutorial is part 1 of 2 in 'Webpack with Fonts'-series." links={[{ prefix: "Part 2:", label: "How to use Fonts with Webpack", url: "/webpack-font/" }]} />
+<LinkCollection label="This tutorial is part 1 of 4 in 'Webpack with Style'-series." links={[{ prefix: "Part 2:", label: "How to use CSS with Webpack", url: "/webpack-css/" }, { prefix: "Part 3:", label: "How to use Webpack with SASS", url: "/webpack-sass" }, { prefix: "Part 4:", label: "How to use Webpack with PostCSS", url: "/webpack-postcss" }]} />
+
+<LinkCollection label="This tutorial is part 1 of 3 in 'Webpack with Font'-series." links={[{ prefix: "Part 2:", label: "How to use CSS with Webpack", url: "/webpack-css/" }, { prefix: "Part 3:", label: "How to use Webpack with Fonts", url: "/webpack-font" }]} />
 
 <LinkCollection label="This tutorial is part 1 of 2 in 'Webpack with Images'-series." links={[{ prefix: "Part 2:", label: "How to use Images with Webpack", url: "/webpack-images/" }]} />
 
-<LinkCollection label="This tutorial is part 2 of 3 in 'Webpack Setup'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5", url: "/webpack-setup-tutorial/" }, { prefix: "Part 3:", label: "How to set up an advanced Webpack application", url: "/webpack-advanced-setup-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 2 of 3 in 'Webpack Advanced Setup'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5", url: "/webpack-setup-tutorial/" }, { prefix: "Part 3:", label: "How to set up an advanced Webpack application", url: "/webpack-advanced-setup-tutorial/" }]} />

@@ -1,7 +1,7 @@
 ---
-title: "How to use Fonts with Webpack"
+title: "How to use Fonts with Webpack 5 - Setup Tutorial"
 description: "The tutorial walks you through a Webpack with Fonts setup to load a font as local asset to your JavaScript applications ..."
-date: "2019-08-05T13:53:46+02:00"
+date: "2020-10-30T13:55:46+02:00"
 categories: ["Tooling", "Webpack", "Babel"]
 keywords: ["webpack font", "webpack fonts"]
 hashtags: ["#Webpack"]
@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in 'Webpack with Fonts'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in 'Webpack with Font'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 2:", label: "How to use Webpack with CSS", url: "/webpack-css" }]} />
 
 In this tutorial, you will learn how to set up a local font with Webpack. We will use Open Sans, but you can decide to use any other web font as well. If you have your font files already at your disposal, don't bother about downloading them again. For our case, we will download the font to our local setup from [Google Webfonts](https://google-webfonts-helper.herokuapp.com). Therefore, follow the next steps to download your desired font files:
 
@@ -59,7 +59,7 @@ npm install url-loader --save-dev
 
 And third, include the new loader in your Webpack configuration:
 
-```javascript{6,7,8,9,10,11}
+```javascript{6-11}
 module.exports = {
   ...
   module: {
@@ -79,9 +79,35 @@ module.exports = {
 
 It's quite similar to setting up [images with Webpack](/webpack-images/). In this case, we are only bundling the woff and woff2 font file extensions to our application. However, if you need to include other file extensions for older browsers as fallbacks, make sure to include them here as well. Also the [url-loader](https://github.com/webpack-contrib/url-loader) supports optional options which you should read more about in the official documentation.
 
-# Define @font-face in CSS-in-JS
+# Define Font in CSS
 
-Previously, you included your font files in your Webpack bundle. Now you can import them in your web application and include them in your [@font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) definitions. In our example, we will be using CSS-in-JS to define your styles in general, but also to define our font in JavaScript.
+Previously, you included your font files in your Webpack bundle. Now you can load them in your web application and include them in your [@font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) definitions:
+
+```css
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url('./assets/fonts/OpenSans-Regular.woff2') format('woff2'),
+    url('./assets/fonts/OpenSans-Regular.woff') format('woff');
+}
+
+html,
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+```
+
+In this example, we are defining the regular font style for Open Sans in a @font-face definition. As sources, we are using the loaded font files with the relevant extensions for modern browsers. Whereas the first defined url is our primary source, the second defined url is our fallback source. If none of these sources apply, our browser will fallback to a default font (e.g. Helvetica).
+
+![rendered font](./images/rendered-font.jpg)
+
+*Note: You can check your **actual** rendered font in your browser's web development tools with the following steps. Notice that the output in step 4 and 5 must not be the same, because 4 is your desired/defined font and 5 the actual rendered font. For instance, if the German ß is not supported by your font definition -- like in the image --, there would be a fallback to your browser's font.*
+
+# Define Font in CSS-in-JS
+
+As alternative, in the next example, we will be using [CSS-in-JS](/react-css-styling) to define the font drectly in JavaScript. As sources, we are using the loaded font files with the relevant extensions for modern browsers:
 
 ```javascript
 import OpenSansRegularWoffTwo from './assets/fonts/OpenSans-Regular.woff2';
@@ -103,22 +129,15 @@ const myGlobalCSS = `
 `;
 ```
 
-In this example, we are defining the regular font style for Open Sans in a @font-face definition. As sources, we are using the imported font files with the relevant extensions for modern browsers. Whereas the first defined url is our primary source, the second defined url is our fallback source. If none of these sources apply, our browser will fallback to a default font (e.g. Helvetica).
-
-*Note: You can check your **actual** rendered font in your browser's web development tools with the following steps. Notice that the output in step 4 and 5 must not be the same, because 4 is your desired/defined font and 5 the actual rendered font. For instance, if the German ß is not supported by your font definition -- like in the image --, there would be a fallback to your browser's font.*
-
-![rendered font](./images/rendered-font.jpg)
-
 Also you can specify more than one font style with your font face definitions. If you wouldn't specify font styles for italic or semibold for example, your browser would do its own fallback for these font variations.
 
 ```javascript
-import OpenSansRegularWoffTwo from './assets/fonts/OpenSans-Regular.woff2';
-import OpenSansRegularItalicWoffTwo from './assets/fonts/OpenSans-RegularItalic.woff2';
-import OpenSansSemiBoldWoffTwo from './assets/fonts/OpenSans-SemiBold.woff2';
-
 import OpenSansRegularWoff from './assets/fonts/OpenSans-Regular.woff';
+import OpenSansRegularWoffTwo from './assets/fonts/OpenSans-Regular.woff2';
 import OpenSansRegularItalicWoff from './assets/fonts/OpenSans-RegularItalic.woff';
+import OpenSansRegularItalicWoffTwo from './assets/fonts/OpenSans-RegularItalic.woff2';
 import OpenSansSemiBoldWoff from './assets/fonts/OpenSans-SemiBold.woff';
+import OpenSansSemiBoldWoffTwo from './assets/fonts/OpenSans-SemiBold.woff2';
 
 const myGlobalCSS = `
   @font-face {
@@ -189,3 +208,5 @@ export default App;
 ```
 
 Hopefully this tutorial has helped you to set up local fonts with Webpack in your JavaScript application. In the comments below, let me know about your techniques to include fonts and define font faces.
+
+<ReadMore label="How to use SASS with Webpack" link="/webpack-sass" />

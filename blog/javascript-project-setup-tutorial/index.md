@@ -1,7 +1,7 @@
 ---
-title: "How to set up a modern JavaScript project [Tutorial]"
+title: "How to JavaScript - Setup Tutorial"
 description: "A JavaScript tutorial that walks you through your first JavaScript project's setup. Afterward, you can decide whether you want to continue with it as backend or frontend application ..."
-date: "2019-06-15T13:50:46+02:00"
+date: "2020-10-29T10:55:46+02:00"
 categories: ["JavaScript", "Tooling"]
 keywords: ["javascript setup", "javascript project setup", "javascript tutorial"]
 hashtags: ["#JavaScript"]

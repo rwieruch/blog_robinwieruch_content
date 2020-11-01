@@ -1,7 +1,7 @@
 ---
-title: "How to use ESLint in Webpack"
+title: "How to use ESLint in Webpack 5 - Setup Tutorial"
 description: "The tutorial walks you through a Webpack with ESLint setup to improve the code style of your JavaScript applications ..."
-date: "2019-06-15T13:53:46+02:00"
+date: "2020-10-30T12:55:46+02:00"
 categories: ["Tooling", "Webpack", "Babel", "ESLint"]
 keywords: ["webpack eslint"]
 hashtags: ["#Webpack"]

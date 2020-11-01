@@ -1,7 +1,7 @@
 ---
-date: "2019-06-15T13:51:46+02:00"
-title: "How to set up Webpack 5 [Tutorial]"
+title: "How to Webpack 5 - Setup Tutorial"
 description: "A Webpack 5 tutorial that walks you through your first JavaScript application setup with Webpack. Bonus: You will add Babel to enable advanced JavaScript features ..."
+date: "2020-10-30T10:55:46+02:00"
 categories: ["JavaScript", "Tooling", "Webpack"]
 keywords: ["webpack setup", "webpack tutorial", "webpack babel"]
 hashtags: ["#JavaScript", "#Webpack"]
@@ -185,8 +185,7 @@ module.exports = {
   entry: './src/index.js',
   // 2
   output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
+    path: '/dist',
     filename: 'bundle.js'
   },
   // 3
@@ -201,6 +200,23 @@ The Webpack configuration file gives the following instructions:
 * (1) Use the *src/index.js* file as entry point to bundle it. If the *src/index.js* file imports other JavaScript files, bundle them as well.
 * (2) The bundled source code files shall result in a *bundle.js* file in the */dist* folder.
 * (3) The */dist* folder will be used to serve our application to the browser.
+
+In order to be more correct about these paths across operating systems, we should resolve them properly:
+
+```javascript{1,4,6,10}
+const path = require('path');
+
+module.exports = {
+  entry: path.resolve(__dirname, './src/index.js'),
+  output: {
+    path: path.resolve(__dirname, './dist'),
+    filename: 'bundle.js',
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, './dist'),
+  },
+};
+```
 
 After all, you should be able to start the Webpack Dev Server again. Before, make sure that your *dist/index.html* includes the generated *bundle.js* file as already shown previously:
 

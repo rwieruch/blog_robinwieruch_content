@@ -231,16 +231,10 @@ function removeList() {
 
 You can see that it was quite some work to solve the defined problem from the article. There needs to be someone in charge of the DOM. The DOM update happens in a very naive way here, because it just removes a previous result if there is already one and appends the new result to the DOM again. Everything works just fine to solve the defined problem, but the code gets complex once you add functionality or extend the features of the application.
 
-If you haven't npm installed, install it first via [node](https://nodejs.org/en/). Finally, you can test your two files as application in your local browser by installing a HTTP server on the command line with npm.
+If you haven't npm installed, install it first via [node](https://nodejs.org/en/). Finally, you can test your two files as application in your local browser by using a HTTP server on the command line with npm in the directory where you have created your index.html and index.js files:
 
 ```javascript
-npm install http-server -g
-```
-
-Afterwards, you can start the HTTP server from the command line in the directory where you have created your index.html and index.js files:
-
-```javascript
-http-server
+npx http-server
 ```
 
 The output should give you a URL where you can find your application in the browser.
