@@ -194,14 +194,15 @@ function App() {
 
 Basically you wouldn't have to add any other library to do the job. However, there exist libraries which only purpose it is to provide sophisticated asynchronous requests. They come with more powerful functionalities yet are only a lightweight libraries. One of these libraries that I would recommend is called [axios](https://github.com/mzabriskie/axios). It can be used instead of the native fetch API when your application grows in size.
 
-If you have the luxury to deal with a GraphQL API, I recommend using Apollo Client. Alternative GraphQL clients would be urql or Relay. If you have no GraphQL API but a REST API, use [React Query](https://github.com/tannerlinsley/react-query).
+If you have the luxury to deal with a GraphQL API, I recommend using Apollo Client. Alternative GraphQL clients would be urql or Relay. [React Query](https://github.com/tannerlinsley/react-query) is agnositic of the backend you are using. [SWR](https://swr.vercel.app/) is almost similar to React Query, but provides a more lightweight option.
 
 **Recommendations:**
 
 * the browser's native fetch API
 * axios
 * Apollo Client (GraphQL API)
-* React Query (REST API)
+* React Query (Promise, REST, GraphQL)
+* useSWR (Promise, REST, GraphQL)
 
 # React Type Checking
 
