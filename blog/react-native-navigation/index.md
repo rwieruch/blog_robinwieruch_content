@@ -989,7 +989,7 @@ const HomeTabs = () => {
 
 Finally, use it in the Drawer Navigation. Instead of using the HomeScreen there, use the new HomeTabs (which in return use the Home screen now):
 
-```javascript{9}
+```javascript{8}
 ...
 
 const Drawer = createDrawerNavigator();
