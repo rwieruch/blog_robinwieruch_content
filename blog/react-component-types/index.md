@@ -1,5 +1,5 @@
 ---
-title: "Types of React Component"
+title: "Types of React Components"
 description: "There are lots of React Component Types that make it difficult for React beginners to get started with React. This tutorial goes through each React Component Type by example ..."
 date: "2019-03-12T07:50:46+02:00"
 categories: ["React"]

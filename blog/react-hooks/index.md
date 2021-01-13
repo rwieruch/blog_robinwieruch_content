@@ -816,9 +816,11 @@ React Hooks being reusable is the best thing about them, because there is the po
 
 If you want to dive deeper into the state and effect hooks, check out my other React Hook tutorials:
 
-* [How to useEffect Hook?](/react-usecontext-hook)
+* [How to useState Hook?](/react-usestate-hook)
 * [How to useReducer Hook?](/react-usereducer-hook)
+* [How to useEffect Hook?](/react-usecontext-hook)
 * [How to useCallback Hook?](/react-usecallback-hook)
-* [How to useMemo Hook?](/react-usememo-hook).
+* [How to useMemo Hook?](/react-usememo-hook)
+* [How to useRef Hook?](/react-ref)
 
 Check out the official [FAQ](https://reactjs.org/docs/hooks-faq.html) and [Rules](https://reactjs.org/docs/hooks-rules.html) for hooks in React's documentation to learn more about their fine-grained behaviour. In addition, you can checkout [all officially available React Hooks](https://reactjs.org/docs/hooks-reference.html) too.

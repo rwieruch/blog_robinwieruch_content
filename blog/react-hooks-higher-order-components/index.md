@@ -1,6 +1,6 @@
 ---
 title: "Why React Hooks over HOCs"
-description: "There are several advantages of using React Hooks over Higher-Order Components which I want to show you by example ..."
+description: "There are advantages of using React Hooks over Higher-Order Components (HOC) which I want to show you by example ..."
 date: "2020-10-01T03:52:46+02:00"
 categories: ["React"]
 keywords: ["react hooks higher order components", "hooks higher order components", "react hooks hocs", "react hooks hoc"]
@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-In a modern React world, everyone uses [function components](/react-function-component) with [React Hooks](/react-hooks). However, the concept of [higher-order components (HOCs)](/react-higher-order-components) is still applicable in a modern React world, because they can be used for class components and function components. Therefore they are the perfect bridge for using reusable abstractions among [legacy and modern React components](/react-component-types).
+In a modern React world, everyone uses [function components](/react-function-component) with [React Hooks](/react-hooks). However, the concept of [higher-order components (HOC)](/react-higher-order-components) is still applicable in a modern React world, because they can be used for class components and function components. Therefore they are the perfect bridge for using reusable abstractions among [legacy and modern React components](/react-component-types).
 
 I am still an advocate for higher-order components these days because their composable nature of enhancing components fascinates me. However, there are problems with HOCs which shouldn't be denied and which are entirely solved by React Hooks. This is why I want to point out these problems, so that developers can make an informed decision whether they want to use an HOC over an Hook for certain scenarios or whether they just want to go all-in with React Hooks after all.
 
