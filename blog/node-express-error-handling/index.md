@@ -241,4 +241,4 @@ If we would have to deal with different scenarios here, so not only a validation
 * Confirm your [source code for the last section](https://codesandbox.io/s/github/rwieruch/fullstack-express-mongodb-boilerplate/tree/error-handling). Be aware that the project cannot run properly in the Sandbox, because there is no database.
   * Confirm your [changes from the last section](https://github.com/rwieruch/fullstack-express-mongodb-boilerplate/compare/init...error-handling?expand=1).
 * Extend all other API endpoints where we perform database requests with proper error handling.
-* Go through potential [HTTP status codes](en.wikipedia.org/wiki/List_of_HTTP_status_codes) that you may need for your error cases.
+* Go through potential [HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) that you may need for your error cases.

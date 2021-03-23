@@ -299,7 +299,7 @@ const useReducerWithMiddleware = (
 
 For the afterward functions, we don't have the action at our disposal anymore. We can change this by using a [ref instance variable](/react-ref) -- which will be written before we dispatch the action and which can then be read after we dispatched the action:
 
-```javascript{9,14,20,22}
+```javascript{9,14,20,22,24}
 const useReducerWithMiddleware = (
   reducer,
   initialState,
@@ -322,6 +322,8 @@ const useReducerWithMiddleware = (
     if (!aRef.current) return;
 
     afterwareFns.forEach((afterwareFn) => afterwareFn(aRef.current));
+
+    aRef.current = null;
   }, [afterwareFns]);
 
   return [state, dispatchWithMiddleware];
@@ -332,7 +334,7 @@ In addition, this instance variable adds the benefit of not having the side-effe
 
 We are done with our middleware and afterware. If you want to pass in more information to your middleware/afterware functions, you can do it like this:
 
-```javascript{1-2,5-6,21,33,35}
+```javascript{1-2,5-6,21,33,37}
 const loggerBefore = (action, state) => {
   console.log('logger before:', action, state);
 };
@@ -367,6 +369,8 @@ const useReducerWithMiddleware = (
     afterwareFns.forEach((afterwareFn) =>
       afterwareFn(aRef.current, state)
     );
+
+    aRef.current = null;
   }, [afterwareFns, state]);
 
   return [state, dispatchWithMiddleware];
