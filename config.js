@@ -393,19 +393,17 @@ module.exports = {
     courseId: '',
   },
   newsletter: {
-    // Create a Revue Newsletter Account: https://www.getrevue.co/referrals/adNOMX8eMpOQ5ndAIyXovw
-    // provide Revue API KEY as GATSBY_GET_REVUE_API_KEY in .env or .env.development/.env.production
     enabled: true,
-    doubleOptIn: true,
     header: 'Take Part',
     subheader: 'Never miss an article about web development and JavaScript.',
     items: [
       'Join 50.000+ Developers',
-      'Learn Web Development with JavaScript',
-      'Tips and Tricks',
+      'Learn Web Development',
+      'Learn JavaScript',
       'Access Tutorials, eBooks and Courses',
       'Personal Development as a Software Engineer',
     ],
+    url: 'https://www.getrevue.co/profile/rwieruch',
   },
   subfooter: {
     enabled: true,
