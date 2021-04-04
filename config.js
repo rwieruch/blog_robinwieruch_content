@@ -38,6 +38,8 @@ module.exports = {
     'graphql',
   ],
 
+  monetization: '$ilp.uphold.com/xBpREnjPwD4j',
+
   hashtags: ['#ReactJs'],
 
   blog: {
