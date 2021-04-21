@@ -14,7 +14,7 @@ author: ""
 
 When working with multiple developers on one React application, it's always good to align the team on a common set of best practices. This holds also true for [styling React components](/react-css-styling). Over the past years, I was fortunate to work with many React freelance developers on different applications where we had to **align the best practices throughout the project**. While there were certainly applications styled with CSS-in-CSS (e.g. CSS Modules) or Utility-first CSS (e.g. Tailwind), the chance of working with Styled Components (CSS-in-JS) was pretty high, because it's one of the most popular styling approaches.
 
-In this guide, I want to give you an overview of the best practices we tried to establish as a team when working with Styled Components and which I tried to refine from project to project. As you will see, sometimes there is no right way to do it, because it depends more on the mindset your team aligns on.
+In this guide, I want to give you an overview of the best practices, we tried to establish as a team when working with Styled Components and which I tried to refine from project to project. As you will see, sometimes there is no right way to do it, because it depends more on the mindset your team aligns on. However, these tips and tricks should help you using Styled Components by example in a consistent way.
 
 # Co-Located Styled Components
 
@@ -90,7 +90,7 @@ const Text = styled.p`
 `;
 ```
 
-Last but not least: What happens if you want to **share a styled component across multiple components**? The answer is the same as for any other React component: Keep them in a more top-level folder where it can be imported by more than one component folder. If you change the style of the styled component, check all components which import it. If no component uses the style anymore, delete the styled component from the top-level folder.
+Last but not least: What happens if you want to **share a styled component across multiple components**? The answer is the same as for any other React component: Keep them in a more top-level folder where it can be imported by more than one component folder. If you change the style of the styled component, check all components which import it. If no component uses the style anymore, delete the styled component from the top-level folder. If you want to use global styles, then you may want to check Styled Component's `createGlobalStyle` utility function.
 
 # Import Styled Components as Object
 
@@ -128,7 +128,7 @@ const Content = ({ title, children }) => {
 };
 ```
 
-Developers tend to import all their styles either with `Styled` or in an even more short form:
+Developers tend to import all their styles either with `Styled` or in an even more short form naming convention:
 
 ```javascript{1,6}
 import * as S from './styles';
