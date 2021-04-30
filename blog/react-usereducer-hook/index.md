@@ -156,7 +156,7 @@ const [todos, dispatch] = React.useReducer(todoReducer, initialTodos);
 dispatch({ type: 'DO_TODO', id: 'a' });
 ```
 
-The previous example wouldn't work without being executed in a React component, but it demonstrates how the state can be changed by dispatching an action. Let's see how this would look like in a React component. We will start with a [React component rendering a list of items](/react-list-components/). Each item has a checkbox as [controlled component](/react-controlled-components/):
+The previous example wouldn't work without being executed in a React component, but it demonstrates how the state can be changed by dispatching an action. Let's see how this would look like in a React component. We will start with a [React component rendering a list of items](/react-list-component/). Each item has a checkbox as [controlled component](/react-controlled-components/):
 
 ```javascript
 import React from 'react';
