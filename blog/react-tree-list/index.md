@@ -1,7 +1,7 @@
 ---
 title: "API Design for a React Tree Table"
 description: "On how to create an asynchronous tree table in React with lots of data and its API decisions I had to make along the way ..."
-date: "2021-04-29T03:55:46+02:00"
+date: "2021-05-03T03:55:46+02:00"
 categories: ["React"]
 keywords: ["react tree table", "react tree list"]
 hashtags: ["#ReactJs"]
