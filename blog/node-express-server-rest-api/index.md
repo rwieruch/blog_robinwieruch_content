@@ -69,7 +69,7 @@ Whether you access your Express application on `http://localhost:3000` in the br
 ### Exercises:
 
 * Get yourself more familiar with the terms client/server and frontend/backend.
-* If you want to have an alternative for cURL which works in the browser, check out [Postman](https://www.postman.com/) or [Isomnia](https://insomnia.rest/).
+* If you want to have an alternative for cURL which works in the browser, check out [Postman](https://www.postman.com/) or [Insomnia](https://insomnia.rest/).
 
 # Express Routes: HTTP Methods are REST Operations
 
