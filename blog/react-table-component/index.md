@@ -2,7 +2,7 @@
 title: "How to create a React Table Component"
 description: "A step by step tutorial on how to create a React table component with React Table Library ..."
 date: "2021-05-17T13:56:46+02:00"
-categories: ["React"]
+categories: ["React", "React Table Library"]
 keywords: ["react table component"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
