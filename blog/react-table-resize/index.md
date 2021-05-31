@@ -1,7 +1,7 @@
 ---
 title: "How to: React Table with Resize"
 description: "How to use React Table Library with column resizing. On a column, use the resize property with optional min width configuration ..."
-date: "2021-05-08T13:56:46+02:00"
+date: "2021-05-30T13:56:46+02:00"
 categories: ["React", "React Table Library"]
 keywords: ["react table resize"]
 hashtags: ["#ReactJs"]
