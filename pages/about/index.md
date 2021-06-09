@@ -4,7 +4,7 @@ title: "About Me"
 description: "Software Engineer for React.js, Node.js, GraphQL and JavaScript. Based in Berlin, German/English speaking. Consulting/Freelancing for Web Development project: Code Audits/Reviews, Workshops, Training, Implementation ..."
 keywords: ["german react consultant", "german react freelancer", "german javascript freelancer", "german javascript consultant"]
 hashtags: ["#JavaScript", "#ReactJs", "NodeJs", "GraphQL"]
-banner: "./images/banner.jpg"
+banner: ""
 author: ""
 contribute: ""
 ---
