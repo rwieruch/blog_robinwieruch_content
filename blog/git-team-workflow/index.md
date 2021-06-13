@@ -118,7 +118,7 @@ Thus, a commit message could look like the following:
 
 As mentioned, you don't need to follow this naming convention, but to keep everyone in your team on the same page, align on one naming convention yourself. This applies to commit messages more importantly than branch namings.
 
-Last but not leats, after you have added and committed your changes, push everything up to your remote repository with `git push origin <branch_name>`. This step is optional, because you can first accumulated commits before pushing all changes up to make it available to your team.
+Last but not least, after you have added and committed your changes, push everything up to your remote repository with `git push origin <branch_name>`. This step is optional, because you can first accumulated commits before pushing all changes up to make it available to your team.
 
 # How to keep a branch up-to-date?
 
