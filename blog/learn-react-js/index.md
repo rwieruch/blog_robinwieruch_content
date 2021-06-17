@@ -90,7 +90,7 @@ Being referred to the documentation of a library as a beginner in web developmen
 * latest material and updates for new versions
 * API references
 
-Every time I pick up a new tech, I don't check any courses or books, I go straight to the tech's documentation and check whether there is a beginner tutorial. Often there is one and that's my entry point into a new world. From there, I can always check for other learning material, but my starting point will always be the official documentation of the new thing I intend to learn. After all, that's why I write my tutorials and books in close relation to the documentation by always refereing it in my guides. That's how beginners learn to use the documentation and that's what will make them more efficient and effecrtive when learning a new tech in the future.
+Every time I pick up a new tech, I don't check any courses or books, I go straight to the tech's documentation and check whether there is a beginner tutorial. Often there is one and that's my entry point into a new world. From there, I can always check for other learning material, but my starting point will always be the official documentation of the new thing I intend to learn. After all, that's why I write my tutorials and books in close relation to the documentation by always refereing it in my guides. That's how beginners learn to use the documentation and that's what will make them more efficient and effective when learning a new tech in the future.
 
 ## Learn React with Projects
 
