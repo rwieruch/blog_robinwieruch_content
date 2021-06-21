@@ -14,11 +14,11 @@ author: ""
 
 <LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "What is a reducer in JavaScript?", url: "/javascript-reducer/" }]} />
 
-Since [React Hooks](/react-hooks/) have been released, [function components](/react-function-component/) can use state and side-effects. There are two hooks that are used for modern state management in React: useState and useReducer. This tutorial goes step by step through a useReducer example in React for getting you started with this React Hook for state management.
+Since [React Hooks](/react-hooks/) have been released, [function components](/react-function-component/) can use state and side-effects. There are two hooks that are used for modern state management in React: useState and useReducer. This tutorial goes step-by-step through a useReducer example in React for getting you started with this React Hook for state management.
 
 # Reducer in React
 
-If you haven't heard about reducers as concept or as implementation in JavaScript, you should read more about them over here: [Reducers in JavaScript](/javascript-reducer/). This tutorial builds up on this knowledge, so be prepared what's coming. The following function is a reducer function for managing state transitions for a list of items:
+If you haven't heard about reducers as concept or as implementation in JavaScript, you should read more about them over here: [Reducers in JavaScript](/javascript-reducer/). This tutorial builds up on this knowledge, so be prepared for what's coming. The following function is a reducer function for managing state transitions for a list of items:
 
 ```javascript
 const todoReducer = (state, action) => {
@@ -45,7 +45,7 @@ const todoReducer = (state, action) => {
 };
 ```
 
-There are two types of actions for an equivalent of two state transitions. They are used to toggle the `complete` boolean to true or false of a todo item. As additional payload an identifier is needed which coming from the incoming action's payload.
+There are two types of actions for an equivalent of two state transitions. They are used to toggle the `complete` boolean to true or false of a Todo item. As an additional payload, an identifier is needed which comes from the incoming action's payload.
 
 The state which is managed in this reducer is an array of items:
 
@@ -102,7 +102,7 @@ console.log(newTodos);
 // ]
 ```
 
-So far, everything demonstrated here is not related to React. If you have any difficulties to understand the reducer concept, please revisit the referenced tutorial from the beginning for Reducers in JavaScript. Now, let's dive into React's useReducer hook to integrate reducers in React step by step.
+So far, everything demonstrated here is not related to React. If you have any difficulties understanding the reducer concept, please revisit the referenced tutorial from the beginning for Reducers in JavaScript. Now, let's dive into React's useReducer hook to integrate reducers in React step-by-step.
 
 # React's useReducer Hook
 
@@ -156,7 +156,7 @@ const [todos, dispatch] = React.useReducer(todoReducer, initialTodos);
 dispatch({ type: 'DO_TODO', id: 'a' });
 ```
 
-The previous example wouldn't work without being executed in a React component, but it demonstrates how the state can be changed by dispatching an action. Let's see how this would look like in a React component. We will start with a [React component rendering a list of items](/react-list-component/). Each item has a checkbox as [controlled component](/react-controlled-components/):
+The previous example wouldn't work without being executed in a React component, but it demonstrates how the state can be changed by dispatching an action. Let's see how this would look in a React component. We will start with a [React component rendering a list of items](/react-list-component/). Each item has a checkbox as a [controlled component](/react-controlled-components/):
 
 ```javascript
 import React from 'react';
@@ -250,7 +250,7 @@ const App = () => {
 export default App;
 ```
 
-Now we can use the handler to dispatch an action for our reducer function. Since we need the `id` as the identifier of a todo item in order to toggle its `complete` flag, we can pass the item within the handler function by using a encapsulating arrow function:
+Now we can use the handler to dispatch an action for our reducer function. Since we need the `id` as the identifier of a Todo item in order to toggle its `complete` flag, we can pass the item within the handler function by using a encapsulating arrow function:
 
 ```javascript{7,8,9,19}
 const App = () => {
@@ -282,7 +282,7 @@ const App = () => {
 };
 ```
 
-This implementation works only one way though: Todo items can be completed, but the operation cannot be reversed by using our reducer's second state transition. Let's implement this behavior in our handler by checking whether a todo item is completed or not:
+This implementation works only one way though: Todo items can be completed, but the operation cannot be reversed by using our reducer's second state transition. Let's implement this behavior in our handler by checking whether a Todo item is completed or not:
 
 ```javascript{9}
 const App = () => {
@@ -317,8 +317,8 @@ const App = () => {
 };
 ```
 
-Depending on the state of our todo item, the correct action is dispatched for our reducer function. Afterward, the React component is rendered again but using the new state from the useReducer hook. The demonstrated useReducer example can be found in this [GitHub repository](https://github.com/the-road-to-learn-react/react-usereducer-hook).
+Depending on the state of our Todo item, the correct action is dispatched for our reducer function. Afterward, the React component is rendered again but using the new state from the useReducer hook. The demonstrated useReducer example can be found in this [GitHub repository](https://github.com/the-road-to-learn-react/react-usereducer-hook).
 
 <Divider />
 
-React's useReducer hook is a powerful way to manage state in React. It can be used [with useState and useContext](/react-state-usereducer-usestate-usecontext/) for modern state management in React. Also, it is often used [in favor of useState](/react-usereducer-vs-usestate/) for complex state and state transitions. After all, the useReducer hook hits the sweet spot for middle sized applications that don't need [Redux for React](/react-redux-tutorial/) yet.
+React's useReducer hook is a powerful way to manage state in React. It can be used with [useState and useContext](/react-state-usereducer-usestate-usecontext/) for modern state management in React. Also, it is often used in favor of [useState](/react-usereducer-vs-usestate/) for complex state and state transitions. After all, the useReducer hook hits the sweet spot for middle sized applications that don't need [Redux for React](/react-redux-tutorial/) yet.
