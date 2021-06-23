@@ -354,6 +354,8 @@ const ClickMe = ({ to = '', onClick = () => {} }) => {
 
 There are several hidden gotchas in the Styled Component's API, so check all of them to get the best out of this world. It makes also sense to go through these features with the whole team to settle on agreed ways of doings things.
 
+<ReadMore label="How to use Context in Styled Components" link="/react-usecontext-hook" />
+
 <Divider />
 
 You see that there is not one right way to use Styled Components, however, once you know your options, you can decide more informed how to apply these to your React project. Most often it really depends on the developers, whether they are CSS purists or lean more towards JavaScript.
