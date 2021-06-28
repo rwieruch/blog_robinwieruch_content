@@ -379,7 +379,7 @@ const Book = ({ item }) => {
 
 Optionally, I expose a [HOC](/react-hooks-higher-order-components), if I have to use context in third-parties like [Styled Components](/styled-components):
 
-```javascript{7-11,13}
+```javascript{7-11,22}
 import React from 'react';
 
 const CurrencyContext = React.createContext(null);
@@ -391,6 +391,15 @@ const withCurrency = (Component) => (props) => {
 
   return <Component {...props} currency={currency} />;
 };
+
+// if ref is used
+//
+// const withCurrency = (Component) =>
+//   React.forwardRef((props, ref) => {
+//     const currency = useCurrency();
+
+//     return <Component {...props} ref={ref} currency={currency} />;
+//   });
 
 export { CurrencyContext, useCurrency, withCurrency };
 ```
