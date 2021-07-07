@@ -33,7 +33,7 @@ State => UI
 State can be various things:
 
 * 1) A boolean which tells the UI that a dialog/modal/popover component is opened or closed.
-* 2) An user object which reflects the currently signed in user of the application.
+* 2) A user object which reflects the currently signed in user of the application.
 * 3) Data from a [remote API](/what-is-an-api-javascript) (e.g. an object/list of users), that is [fetched in React](/react-fetching-data) and displayed in your UI.
 
 State is just another fancy word for a JavaScript data structure representing the state with JavaScript primitives and objects. For instance, a simple state could be a JavaScript boolean whereas a more complex UI state could be a JavaScript object:
@@ -65,7 +65,7 @@ const users = {
 };
 ```
 
-Every of these states could be managed by a single React component which is mainly doing three things:
+Each of these states could be managed by a single React component which is mainly doing three things:
 
 * A) storing the state
 * B) enabling the user to modify the state
