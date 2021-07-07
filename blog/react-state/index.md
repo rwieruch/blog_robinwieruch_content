@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-State in React is one of the most important topics when [learning React](http://robinwieruch.de/learn-react-js). State breathes live into your React application. It's what makes your application grow beyond static content being displayed on a website, because a user can interact with it. Every interaction of a user with your application may change the underlying state which lead to changes in the UI represented by the state.
+State in React is one of the most important topics when [learning React](http://robinwieruch.de/learn-react-js). State breathes life into your React application. It's what makes your application grow beyond static content being displayed on a website, because a user can interact with it. Every interaction of a user with your application may change the underlying state which lead to changes in the UI represented by the state.
 
 In this extensive walkthrough, I want to guide you through all the possibilities of state management in React. We will start with simple state management that is co-located to React components, exploring all its features with React Hooks, and end with more complex global state in React managed by React itself or third-party libraries.
 
