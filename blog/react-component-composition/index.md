@@ -217,8 +217,8 @@ const Form = ({ onSubmit, children }) => (
   <form onSubmit={onSubmit}>{children}</form>
 );
 
-const Button = ({ onClick, type = 'button', children }) => (
-  <button type={type} onClick={onClick}>
+const Button = ({ type = 'button', children }) => (
+  <button type={type}>
     {children}
   </button>
 );
@@ -254,8 +254,8 @@ const Form = ({ onSubmit, children }) => (
   <form onSubmit={onSubmit}>{children}</form>
 );
 
-const Button = ({ onClick, type = 'button', children }) => (
-  <button type={type} onClick={onClick}>
+const Button = ({ type = 'button', children }) => (
+  <button type={type}>
     {children}
   </button>
 );
