@@ -14,6 +14,8 @@ author: ""
 
 Deno is a new runtime for JavaScript and TypeScript. If this doesn't tell you much and you don't know what to expect, then take this statement as secondary introduction: Ryan Dahl, inventor of Node.js, released Deno in 2020 as answer to improve Node.js. However, Deno isn't Node.js, but a complete new runtime for JavaScript, but also TypeScript. Similar to Node.js, Deno can be used for server-side JavaScript, but aims to negate the mistakes that were made with Node.js. It's like Node.js 2.0 and only the future can tell whether people will adopt it as much as they did Node.js back in 2009.
 
+<LinkCollection label="This tutorial is part 1 of 3 in this series." links={[{ prefix: "Part 1:", label: "How to get started with Deno", url: "/deno-tutorial" }, { prefix: "Part 2:", label: "Getting started with Oak in Deno", url: "/deno-oak" }, { prefix: "Part 3:", label: "How to create a REST API with Oak in Deno", url: "/deno-oak-rest-api" }]} />
+
 # Why Deno
 
 Ryan Dahl, the inventor of Node (2009) and Deno (2020), released Deno as addition to the JavaScript ecosystem. When Ryan announced Deno the first time at a conference, he talked about the mistakes made in Node.js. Watching this conference talk (see exercises) is a lesson on humility, because Node.js has become indispensable for the JavaScript ecosystem, used by millions of people, and yet Ryan Dahl feels bad about decisions which were made back at the time. Now, Ryan Dahl wants to make things right with Deno by addressing the design flaws from Node. Deno is a brand new runtime for secure server-side JavaScript and TypeScript implemented by the V8 JavaScript engine, Rust and TypeScript.
@@ -524,4 +526,4 @@ After all, the port of a server application may be not the best example for sens
 
 The last sections have introduced you to all the basics in Deno. Deno will be used in the same areas as Node.js, from small script to full-blown server application, yet with a much more improved set of defaults. It's secure by default with its permissions, compatible with lots of client-side APIs, fitted with modern features like top level await, and utilized with JavaScript or TypeScript.
 
-<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "Getting started with Oak in Deno", url: "/deno-oak" }]} />
+<LinkCollection label="This tutorial is part 1 of 3 in this series." links={[{ prefix: "Part 1:", label: "How to get started with Deno", url: "/deno-tutorial" }, { prefix: "Part 2:", label: "Getting started with Oak in Deno", url: "/deno-oak" }, { prefix: "Part 3:", label: "How to create a REST API with Oak in Deno", url: "/deno-oak-rest-api" }]} />
