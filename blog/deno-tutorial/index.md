@@ -319,14 +319,15 @@ You have learned that imports for Deno's standard library or third party librari
 Let's see how this works: Start by creating a second file in your project with the name *stories.js* which should be placed next to your *index.js* file. In this *stories.js* file, put the following implementation which is essentially the mapping that we did previously in the other file:
 
 ```javascript{1-10}
-import { format } from 'https://deno.land/x/date_fns/index.js';
+import format from 'https://deno.land/x/date_fns/format/index.js';
 
 export const mapStory = (story) => ({
   title: story.title,
   url: story.url,
   createdAt: format(
     new Date(story.created_at_i * 1000),
-    'yyyy-MM-dd'
+    'yyyy-MM-dd',
+    {}
   ),
 });
 ```
