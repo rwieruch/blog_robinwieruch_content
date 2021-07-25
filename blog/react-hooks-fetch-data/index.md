@@ -790,7 +790,7 @@ const useDataApi = (initialUrl, initialData) => {
 };
 ```
 
-Now, when fetching data, the dispatch function can be used to send information to the reducer function. The object being send with the dispatch function has a mandatory `type` property and an optional `payload` property. The type tells the reducer function which state transition needs to be applied and the payload can additionally be used by the reducer to distill the new state. After all, we only have three state transitions: initializing the fetching process, notifying about a successful data fetching result, and notifying about an errornous data fetching result.
+Now, when fetching data, the dispatch function can be used to send information to the reducer function. The object being send with the dispatch function has a mandatory `type` property and an optional `payload` property. The type tells the reducer function which state transition needs to be applied and the payload can additionally be used by the reducer to distill the new state. After all, we only have three state transitions: initializing the fetching process, notifying about a successful data fetching result, and notifying about an erroneous data fetching result.
 
 In the end of the custom hook, the state is returned as before, but because we have a state object and not the standalone states anymore. This way, the one who calls the `useDataApi` custom hook still gets access to `data`, `isLoading` and `isError`:
 
