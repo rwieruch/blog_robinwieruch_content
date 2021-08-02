@@ -9,9 +9,13 @@ author: ""
 contribute: ""
 ---
 
-Hi, it's Robin. I am a german software engineer and freelance developer from Berlin. First of all, thank you for reading my blog. It's such a pleasure to have you here! Just to make sure: I am the guy on the right-hand side of the picture :)
+Hi, it's Robin. I am a german software engineer and freelance developer from Berlin/Germany. First of all, thank you for reading my blog. It's such a pleasure to have you here!
 
-A couple of words about my professional life: I graduated from university with a Master of Science in Computer Science in 2014. At university [I discovered how empowering it can be to build applications](/what-is-an-api-javascript/) and thus built several applications in different programming languages, domains and platforms. Straight out of university, I worked in a full-time position as software engineer on a [large scale web application using JavaScript and Java](https://www.small-improvements.com/?ref=robinwieruch.de) to help thousands of customers to introduce a feedback culture in their companies. Those years gave me a lot of practical experiences in the field and I tried to convey a part of the information on my blog. During this journey, I found out about teaching as a fulfilling activity and therefore [self-published 2 ebooks](https://leanpub.com/u/rwieruch) and [launched a course platform](https://courses.robinwieruch.de). Fast forward in 2017, I decided to be self-employed, doing freelance and consultant work mostly related to web development. But I am always keen to learn something new, so I try to push myself every day. I am open for any opportunities in this field or software engineering, [so find out how to work with me](work-with-me/).
+A couple of words about my professional life: I am a German software and web developer dedicated to learning and teaching JavaScript. After obtaining my Master's Degree in computer science, I gained experience from the startup world where I used JavaScript intensively during both my professional life and spare time. For a few years, I worked closely with an exceptional team of engineers at a company in Berlin, developing large-scale JavaScript applications, which eventually led to a desire to teach others about these topics.
+
+During my time as a developer in Berlin, I regularly wrote articles about web development on my website. I received great feedback from people learning from my articles which allowed me to improve my writing and teaching style. Article after article, I grew my ability to teach others. I find it it fulfilling to see students strive by giving them clear objectives and short feedback loops.
+
+Currently, I am a self-employed developer helping companies in creating their MVPs, conducting workshops and code audits/reviews, and creating large-scale JavaScript applications. You can find more information about me, ways to support me, and how to work with me in the next sections.
 
 # Values and Mission
 
