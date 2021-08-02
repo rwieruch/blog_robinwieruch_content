@@ -1,15 +1,15 @@
 ---
-date: "2018-11-30T13:35:13.234Z"
-title: "About Me"
-description: "Software Engineer for React.js, Node.js, GraphQL and JavaScript. Based in Berlin, German/English speaking. Consulting/Freelancing for Web Development project: Code Audits/Reviews, Workshops, Training, Implementation ..."
-keywords: ["german react consultant", "german react freelancer", "german javascript freelancer", "german javascript consultant"]
+date: "2021-07-01T13:35:13.234Z"
+title: "Robin Wieruch - Freelance Developer for React, Node.js, GraphQL and JavaScript"
+description: "Freelance Developer for React, Node.js, GraphQL and JavaScript from Berlin (German/English). Consulting & Freelancing for Web Development: Code Audits & Reviews, Workshops, Training, MVP ..."
+keywords: ["react freelance", "react freelancer", "react freelance developer"]
 hashtags: ["#JavaScript", "#ReactJs", "NodeJs", "GraphQL"]
 banner: ""
 author: ""
 contribute: ""
 ---
 
-Hi, it's Robin. I am a german software engineer from Berlin but working remotely most of the time. First of all, thank you for reading my blog. It's such a pleasure to have you here! Just to make sure: I am the guy on the right-hand side of the picture :)
+Hi, it's Robin. I am a german software engineer and freelance developer from Berlin. First of all, thank you for reading my blog. It's such a pleasure to have you here! Just to make sure: I am the guy on the right-hand side of the picture :)
 
 A couple of words about my professional life: I graduated from university with a Master of Science in Computer Science in 2014. At university [I discovered how empowering it can be to build applications](/what-is-an-api-javascript/) and thus built several applications in different programming languages, domains and platforms. Straight out of university, I worked in a full-time position as software engineer on a [large scale web application using JavaScript and Java](https://www.small-improvements.com/?ref=robinwieruch.de) to help thousands of customers to introduce a feedback culture in their companies. Those years gave me a lot of practical experiences in the field and I tried to convey a part of the information on my blog. During this journey, I found out about teaching as a fulfilling activity and therefore [self-published 2 ebooks](https://leanpub.com/u/rwieruch) and [launched a course platform](https://courses.robinwieruch.de). Fast forward in 2017, I decided to be self-employed, doing freelance and consultant work mostly related to web development. But I am always keen to learn something new, so I try to push myself every day. I am open for any opportunities in this field or software engineering, [so find out how to work with me](work-with-me/).
 
