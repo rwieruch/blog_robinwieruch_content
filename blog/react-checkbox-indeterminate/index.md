@@ -1,6 +1,6 @@
 ---
 title: "Using a indeterminate React Checkbox"
-description: "How to create an indeterminate checkbox in React, also known under the name tri state checkbox. By example you will learn how to use the indeterminate state ..."
+description: "How to create an indeterminate checkbox in React with hooks, also known under the name tri state checkbox. By example you will learn how to use the indeterminate state ..."
 date: "2021-05-16T13:56:46+02:00"
 categories: ["React"]
 keywords: ["react indeterminate checkbox"]
