@@ -15,7 +15,7 @@ author: ""
 In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) for **server-side data** featuring examples of **server-side pagination, server-side search & filter, and server-side sort**. Let's start with the foundation by installing React Table Library via your command line:
 
 ```javascript
-npm install @table-library/react-table-library
+npm install @table-library/react-table-library styled-components
 ```
 
 We will use the feature rich [Hacker News API](https://hn.algolia.com/api) for fetching server-side data, but also for performing server-side operations like **paging, searching/filtering, and sorting**. Let's start by [fetching some initial data](/react-hooks-fetch-data) in our React component. We will be using [axios to fetch the server-side data](/react-axios), but feel free to use something else. If you want to use axios as well, do not forget to install it on the command line.

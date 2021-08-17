@@ -17,7 +17,7 @@ In this tutorial, I want to show you how to use [React Table Library](https://re
 Let's begin by installing React Table Library via your command line:
 
 ```javascript
-npm install @table-library/react-table-library
+npm install @table-library/react-table-library styled-components
 ```
 
 The task is to present the following list of items in a React table component:
