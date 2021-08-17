@@ -1,5 +1,5 @@
 ---
-title: "How to fetch data with React Hooks?"
+title: "How to fetch data with React Hooks"
 description: "A tutorial on how to fetch data in React with Hooks from third-party APIs. You will use state and effect hooks for the data request from a real API ..."
 date: "2019-03-07T13:50:46+02:00"
 categories: ["React"]

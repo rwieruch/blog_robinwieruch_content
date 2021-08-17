@@ -26,7 +26,7 @@ printText('do something', function printSomethingElse() {
 });
 ```
 
-In this case, our `printText` function takes two arguments: a text and a callback function. The callback function is passed as an inlined function to `printText`. You could extract it as a function definition before passing it to `printText` as well:
+In this case, our `printText` function takes two arguments: a text and a callback function. The callback function is passed as an inlined function to `printText`. You could extract it as a function declaration before passing it to `printText` as well:
 
 ```javascript{5-7,9}
 function printText(text, fn) {
