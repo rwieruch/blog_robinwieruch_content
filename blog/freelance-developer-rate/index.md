@@ -1,6 +1,6 @@
 ---
 title: "Freelance Developer: Charge by Time, not Value"
-description: "Freelance Developers have a rate by time or by value. Here I, as a freelance React developer, want to argue in favor of charging by time ..."
+description: "Freelance Developers have to rate their services by time or by value. Here I, as a freelance React developer, want to argue in favor of charging by time ..."
 date: "2021-08-16T13:50:46+02:00"
 categories: ["Freelance"]
 keywords: ["freelance developer rate", "freelance developer hourly rate"]
