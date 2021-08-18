@@ -155,12 +155,10 @@ const Users = () => {
   const userTableOptions = { ... };
 
   return (
-    <div>
-      <UserTable
-        users={users}
-        tableOptions={userTableOptions}
-      />
-    </div>
+    <UserTable
+      users={users}
+      tableOptions={userTableOptions}
+    />
   );
 };
 ```
