@@ -228,21 +228,21 @@ Second, you can use it to generate a unique identifier:
 
 ```javascript{2,6,11,16,32}
 import React, { useState } from 'react';
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 
 const initialTodos = [
   {
-    id: uuid(),
+    id: uuidv4(),
     task: 'Learn React',
     complete: true,
   },
   {
-    id: uuid(),
+    id: uuidv4(),
     task: 'Learn Firebase',
     complete: true,
   },
   {
-    id: uuid(),
+    id: uuidv4(),
     task: 'Learn GraphQL',
     complete: false,
   },
@@ -258,7 +258,7 @@ const App = () => {
 
   const handleSubmit = event => {
     if (task) {
-      setTodos(todos.concat({ id: uuid(), task, complete: false }));
+      setTodos(todos.concat({ id: uuidv4(), task, complete: false }));
     }
 
     setTask('');
