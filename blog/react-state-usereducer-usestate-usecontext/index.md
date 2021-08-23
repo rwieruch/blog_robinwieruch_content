@@ -672,7 +672,7 @@ const App = () => {
 
   const handleSubmit = event => {
     if (task) {
-      dispatchTodos({ type: 'ADD_TODO', task, id: uuid() });
+      dispatchTodos({ type: 'ADD_TODO', task, id: uuidv4() });
     }
 
     setTask('');
@@ -817,7 +817,7 @@ const AddTodo = ({ dispatch }) => {
 
   const handleSubmit = event => {
     if (task) {
-      dispatch({ type: 'ADD_TODO', task, id: uuid() });
+      dispatch({ type: 'ADD_TODO', task, id: uuidv4() });
     }
 
     setTask('');
@@ -910,7 +910,7 @@ const AddTodo = () => {
 
   const handleSubmit = event => {
     if (task) {
-      dispatch({ type: 'ADD_TODO', task, id: uuid() });
+      dispatch({ type: 'ADD_TODO', task, id: uuidv4() });
     }
 
     setTask('');
