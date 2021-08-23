@@ -29,8 +29,8 @@ In this tutorial, I want to show you how to use [React Table Library](https://re
 <Row
   key={item.id}
   item={item}
-  onClick={(tableItem, event) =>
-    console.log('Click Row', tableItem, event)
+  onClick={(node, event) =>
+    console.log('Click Row', node, event)
   }
 >
 ```
@@ -41,8 +41,8 @@ In contrast, a double click on a row can be achieved this way:
 <Row
   key={item.id}
   item={item}
-  onDoubleClick={(tableItem, event) =>
-    console.log('Click Row', tableItem, event)
+  onDoubleClick={(node, event) =>
+    console.log('Click Row', node, event)
   }
 >
 ```

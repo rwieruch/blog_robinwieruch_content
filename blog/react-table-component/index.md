@@ -104,7 +104,7 @@ By using these components, you can create a table as a composition from componen
 
 Next, let's display our items like we are used to when [rendering lists in React](/react-list-component) by rendering Row components with a [key](/react-list-key) for each item within a Body component:
 
-```javascript{7-9,20,25-47,48}
+```javascript{7-9,20,25-43,44}
 import * as React from 'react';
 import {
   Table,
@@ -132,23 +132,19 @@ const App = () => {
           <Body>
             {tableList.map((item) => (
               <Row key={item.id} item={item}>
-                {(tableItem) => (
-                  <>
-                    <Cell>{tableItem.name}</Cell>
-                    <Cell>
-                      {tableItem.deadline.toLocaleDateString(
-                        'en-US',
-                        {
-                          year: 'numeric',
-                          month: '2-digit',
-                          day: '2-digit',
-                        }
-                      )}
-                    </Cell>
-                    <Cell>{tableItem.type}</Cell>
-                    <Cell>{tableItem.isComplete.toString()}</Cell>
-                  </>
-                )}
+                <Cell>{item.name}</Cell>
+                <Cell>
+                  {item.deadline.toLocaleDateString(
+                    'en-US',
+                    {
+                      year: 'numeric',
+                      month: '2-digit',
+                      day: '2-digit',
+                    }
+                  )}
+                </Cell>
+                <Cell>{item.type}</Cell>
+                <Cell>{item.isComplete.toString()}</Cell>
               </Row>
             ))}
           </Body>
@@ -158,10 +154,6 @@ const App = () => {
   );
 };
 ```
-
-The Row component is similar to the Table component, because it utilizes the children as a function feature from React as well. Therefore, you can access the `tableItem` to display its properties within the provided Cell components.
-
-Important: Here again, do not use the outer `item`, because the `tableItem` has all the applied modifications which comes from plugins such as sorting, searching, and pagination.
 
 Since you have full control over what to render in the Cell components, you can format the data as you need to. A boolean can be translated into a string and a date can be formatted to a readable version. There are no special props for the Cell components to get the rendering done.
 
