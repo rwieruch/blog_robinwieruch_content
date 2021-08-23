@@ -83,7 +83,7 @@ import {
 
 And use these new select components in the table composition:
 
-```javascript{10,21}
+```javascript{10,19}
 const App = () => {
   ...
 
@@ -102,13 +102,9 @@ const App = () => {
           <Body>
             {tableList.map((item) => (
               <Row key={item.id} item={item}>
-                {(tableItem) => (
-                  <>
-                    <CellSelect item={tableItem} />
-                    <Cell>{tableItem.name}</Cell>
-                    ...
-                  </>
-                )}
+                <CellSelect item={item} />
+                <Cell>{item.name}</Cell>
+                ...
               </Row>
             ))}
           </Body>
@@ -251,7 +247,7 @@ const App = () => {
 
 Note how the select object from the useRowSelect hook gives you everything thats needed to create your custom component. This way, you can customize the select component for each table row too:
 
-```javascript{17-27}
+```javascript{15-25}
 const App = () => {
   ...
 
@@ -266,23 +262,19 @@ const App = () => {
           <Body>
             {tableList.map((item) => (
               <Row key={item.id} item={item}>
-                {(tableItem) => (
-                  <>
-                    <Cell shrink>
-                      <MaterialCheckbox
-                        size="small"
-                        checked={select.state.ids.includes(
-                          tableItem.id
-                        )}
-                        onChange={() =>
-                          select.fns.onToggleById(tableItem.id)
-                        }
-                      />
-                    </Cell>
-                    <Cell>{tableItem.name}</Cell>
-                    ...
-                  </>
-                )}
+                <Cell shrink>
+                  <MaterialCheckbox
+                    size="small"
+                    checked={select.state.ids.includes(
+                      item.id
+                    )}
+                    onChange={() =>
+                      select.fns.onToggleById(item.id)
+                    }
+                  />
+                </Cell>
+                <Cell>{item.name}</Cell>
+                ...
               </Row>
             ))}
           </Body>

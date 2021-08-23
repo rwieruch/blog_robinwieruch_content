@@ -48,7 +48,7 @@ const App = () => {
 
 For the eventually arriving server-side data, because we have set the nodes as an empty list as initial state, we can render the Table component for both cases -- the empty list and the fetched list:
 
-```javascript{3-11,19-58}
+```javascript{3-11,19-54}
 ...
 
 import {
@@ -82,24 +82,20 @@ const App = () => {
           <Body>
             {tableList.map((item) => (
               <Row key={item.id} item={item}>
-                {(tableItem) => (
-                  <>
-                    <Cell>
-                      <a href={tableItem.url}>{tableItem.title}</a>
-                    </Cell>
-                    <Cell>
-                      {new Date(
-                        tableItem.created_at
-                      ).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: '2-digit',
-                        day: '2-digit',
-                      })}
-                    </Cell>
-                    <Cell>{tableItem.points}</Cell>
-                    <Cell>{tableItem.num_comments}</Cell>
-                  </>
-                )}
+                <Cell>
+                  <a href={item.url}>{item.title}</a>
+                </Cell>
+                <Cell>
+                  {new Date(
+                    item.created_at
+                  ).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                  })}
+                </Cell>
+                <Cell>{item.points}</Cell>
+                <Cell>{item.num_comments}</Cell>
               </Row>
             ))}
           </Body>

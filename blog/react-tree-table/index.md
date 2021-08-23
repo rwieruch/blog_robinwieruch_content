@@ -84,7 +84,7 @@ import {
 
 And use these new tree component in the table composition:
 
-```javascript{17-19}
+```javascript{15-17}
 const App = () => {
   ...
 
@@ -99,14 +99,10 @@ const App = () => {
           <Body>
             {tableList.map((item) => (
               <Row key={item.id} item={item}>
-                {(tableItem) => (
-                  <>
-                    <CellTree item={tableItem}>
-                      {tableItem.name}
-                    </CellTree>
-                    ...
-                  </>
-                )}
+                <CellTree item={item}>
+                  {item.name}
+                </CellTree>
+                ...
               </Row>
             ))}
           </Body>
