@@ -1,5 +1,5 @@
 ---
-title: "How to create a React Tree"
+title: "How to: React Tree Table"
 description: "How to create a React Tree, a React Tree View, or a React Tree List by using React Table Library ..."
 date: "2021-08-01T13:56:46+02:00"
 categories: ["React", "React Table Library"]
