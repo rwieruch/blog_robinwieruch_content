@@ -47,7 +47,7 @@ const App = () => {
 };
 ```
 
-Last, convert your header columns to sortable header columns:
+Third, convert your header columns to sortable header columns:
 
 ```javascript{3,15-58}
 import {
@@ -121,17 +121,53 @@ const App = () => {
 };
 ```
 
+And fourth, create respective sort functions for each sort key:
+
+```javascript{5-19}
+const App = () => {
+  const data = { nodes };
+
+  const sort = useSort(data, null, {
+    sortFns: {
+      TASK: (array) =>
+        array.sort((a, b) => a.name.localeCompare(b.name)),
+      DEADLINE: (array) =>
+        array.sort((a, b) => a.deadline - b.deadline),
+      TYPE: (array) =>
+        array.sort((a, b) => a.type.localeCompare(b.type)),
+      COMPLETE: (array) =>
+        array.sort((a, b) => a.isComplete - b.isComplete),
+      TASKS: (array) =>
+        array.sort(
+          (a, b) =>
+            (a.nodes || []).length - (b.nodes || []).length
+        ),
+    },
+  });
+
+  return (
+    <Table data={data} sort={sort}>
+      ...
+    </Table>
+  );
+};
+```
+
 That's it. With just a few lines you have a working table sort. We can sort by string (alphabetically), sort by date, sort by boolean, and sort by enum. Since you are passing the sortBy function yourself, it's up to you how to sort the column.
 
 What may be missing is a notifier as developer to **get the current sort** from the table. Let's see how this works with the useSort hook:
 
-```javascript{4-6,8-10}
+```javascript{5-7,13-15}
 const App = () => {
   const data = { nodes };
 
-  const sort = useSort(data, {
-    onChange: onSortChange,
-  });
+  const sort = useSort(data,
+    {
+      onChange: onSortChange,
+    }, {
+      sortFns: ...,
+    }
+  );
 
   function onSortChange(action, state) {
     console.log(action, state);
@@ -151,15 +187,13 @@ Anyway, a column sort in a table often comes with lots of more requirements. Let
 
 For example, sometimes a user wants to have an **initial sort state**. This can be achieved with the useSort hook too, by passing in a **default sorting state**:
 
-```javascript{5-10}
+```javascript{5-8}
 const App = () => {
   ...
 
   const sort = useSort(data, {
     state: {
       sortKey: 'TASK',
-      sortFn: (array) =>
-        array.sort((a, b) => a.name.localeCompare(b.name)),
       reverse: false,
     },
     onChange: onSortChange,
@@ -193,6 +227,7 @@ const App = () => {
           <KeyboardArrowDownOutlinedIcon fontSize="small" />
         ),
       },
+      sortFns: ...
     }
   );
 
@@ -217,7 +252,7 @@ import KeyboardArrowDownOutlinedIcon from '@material-ui/icons/KeyboardArrowDownO
 
 Second, use the third-party button for the table header:
 
-```javascript{4-14,22-39}
+```javascript{4-14,22-35}
 const App = () => {
   ...
 
@@ -247,10 +282,6 @@ const App = () => {
                   onClick={() =>
                     sort.fns.onToggleSort({
                       sortKey: 'TASK',
-                      sortFn: (array) =>
-                        array.sort((a, b) =>
-                          a.name.localeCompare(b.name)
-                        ),
                     })
                   }
                 >
