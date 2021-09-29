@@ -47,6 +47,19 @@ For example, you can define a min width for each table column if you don't agree
 <HeaderCell resize={{ minWidth: 50 }}>Task</HeaderCell>
 ```
 
+You can also change the highlight color of the resize area and expand the resize area's size:
+
+```javascript
+<HeaderCell
+  resize={{
+    resizerWidth: 15,
+    resizerHighlight: '#98d8ff',
+  }}
+>
+  Task
+</HeaderCell>
+```
+
 Be careful if you table or your table rows have any additional padding due to CSS (e.g. padding, margin, border), then you need to define an offset which mitigates this padding:
 
 ```javascript{1,4-9,13}
