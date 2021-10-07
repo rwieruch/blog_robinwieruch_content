@@ -1,9 +1,9 @@
 ---
-title: "Hire Me"
-description: "German/English Freelancer/Consultant for full-stack JavaScript with React, Node and GraphQL. Workshops, Contract Work, Consulting, MVPs, Migrations, Complex Problem Solving ..."
+title: "Freelance React Developer"
+description: "Freelance React Developer for React, Node.js, GraphQL and JavaScript from Berlin (German/English). Consulting & Freelancing for Web Development: Code Audits & Reviews, Workshops, Training, MVP ..."
 date: "2020-03-01T13:50:46+02:00"
 categories: ["JavaScript", "Web Development"]
-keywords: ["german react consultant", "german react freelance", "german javascript freelance", "german javascript consultant"]
+keywords: ["react freelance", "react freelancer", "react freelance developer"]
 hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"
 author: ""

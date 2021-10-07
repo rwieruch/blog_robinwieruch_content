@@ -1,7 +1,7 @@
 ---
 date: "2021-07-01T13:35:13.234Z"
-title: "Robin Wieruch - Freelance Developer for React, Node.js, GraphQL and JavaScript"
-description: "Freelance Developer for React, Node.js, GraphQL and JavaScript from Berlin (German/English). Consulting & Freelancing for Web Development: Code Audits & Reviews, Workshops, Training, MVP ..."
+title: "About Me"
+description: "Freelance React Developer for React, Node.js, GraphQL and JavaScript from Berlin (German/English). Consulting & Freelancing for Web Development: Code Audits & Reviews, Workshops, Training, MVP ..."
 keywords: ["react freelance", "react freelancer", "react freelance developer"]
 hashtags: ["#JavaScript", "#ReactJs", "NodeJs", "GraphQL"]
 banner: ""
