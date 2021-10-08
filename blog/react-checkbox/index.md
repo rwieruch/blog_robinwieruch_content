@@ -39,9 +39,7 @@ const App = () => {
 };
 ```
 
-In your browser, this checkbox can already change its checked state by showing either a check mark or nothing. However, this is just the checkbox's internal HTML state which isn't controlled by React yet.
-
-Let's change this by transforming this checkbox from being [uncontrolled to controlled](/react-controlled-components):
+In your browser, this checkbox can already change its checked state by showing either a check mark or nothing. However, this is just the checkbox's internal HTML state which isn't controlled by React yet. Let's change this by transforming this checkbox from being [uncontrolled to controlled](/react-controlled-components):
 
 ```javascript{2,4-6,13-14,19}
 const App = () => {
@@ -62,15 +60,13 @@ const App = () => {
         My Value
       </label>
 
-      <p>Is "Value 1" checked? {checked.toString()}</p>
+      <p>Is "My Value" checked? {checked.toString()}</p>
     </div>
   );
 };
 ```
 
-By using [React's useState Hook](/react-usestate-hook) and an event handler, we can keep track of the checkbox's value via [React's state](/react-state) and change the value via its onChange property with an [event handler](/react-event-handler).
-
-Next we may want to create a checkbox component which can be used more than once throughout a React project. Therefore, we will extract it as a new [function component](/react-function-component) and [pass the necessary props](/react-pass-props-to-component) to it:
+By using [React's useState Hook](/react-usestate-hook) and an [event handler](/react-event-handler), we can keep track of the checkbox's value via [React's state](/react-state). Next we may want to create a checkbox component which can be used more than once throughout a React project. Therefore, we will extract it as a new [function component](/react-function-component) and [pass the necessary props](/react-pass-props-to-component) to it:
 
 ```javascript{10-14,21-28}
 const App = () => {
@@ -83,12 +79,12 @@ const App = () => {
   return (
     <div>
       <Checkbox
-        label="Value 1"
+        label="My Value"
         value={checked}
         onChange={handleChange}
       />
 
-      <p>Is "Value 1" checked? {checked.toString()}</p>
+      <p>Is "My Value" checked? {checked.toString()}</p>
     </div>
   );
 };
@@ -103,11 +99,11 @@ const Checkbox = ({ label, value, onChange }) => {
 };
 ```
 
-Our checkbox component is a [reusable component](/react-reusable-components) now. For example, if you would give your checkbox some [CSS style in React](/react-css-styling), every Checkbox component which is used in your React project would use the same style.
+Our checkbox component is a [reusable component](/react-reusable-components) now. For example, if you would give your input element some [CSS style in React](/react-css-styling), every Checkbox component which is used in your React project would use the same style.
 
-If you would want to create a checkbox group instead, you could just use multiple checkbox components side by side and maybe style them with some border and some alignment, so that a user perceives them as a group of checkboxes:
+If you would want to create a checkbox group now, you could just use multiple checkbox components side by side and maybe style them with some border and some alignment, so that a user perceives them as a group of checkboxes:
 
-```javascript{2-3,5-7,9-11,15-24}
+```javascript
 const App = () => {
   const [checkedOne, setCheckedOne] = React.useState(false);
   const [checkedTwo, setCheckedTwo] = React.useState(false);
@@ -137,4 +133,4 @@ const App = () => {
 };
 ```
 
-That's is for creating a checkbox component in React. If you are a beginner in React, I hope this tutorial helped you to understand some concepts and patterns in React.
+That's is it for creating a checkbox component in React. If you are a beginner in React, I hope this tutorial helped you to understand some concepts and patterns!
