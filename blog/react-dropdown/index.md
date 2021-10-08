@@ -199,4 +199,4 @@ const App = () => {
 };
 ```
 
-That's is it for creating a dropdown component in React. If you are a beginner in React, I hope this tutorial helped you to understand some concepts and patterns!
+That's is it for creating a Dropdown component in React. If you are a beginner in React, I hope this tutorial helped you to understand some concepts and patterns!
