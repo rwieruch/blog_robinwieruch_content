@@ -1,5 +1,5 @@
 ---
-title: "What is preventDefault() in React?"
+title: "What is preventDefault() in React"
 description: "A brief explanation why we need to call event.preventDefault() on button, form, or submit events ..."
 date: "2019-05-28T07:52:46+02:00"
 categories: ["React"]
