@@ -49,7 +49,7 @@ const App = () => {
 
 Third, convert your header columns to sortable header columns:
 
-```javascript{3,15-58}
+```javascript{3,15-29}
 import {
   useSort,
   HeaderCellSort ,
@@ -64,48 +64,19 @@ const App = () => {
         <>
           <Header>
             <HeaderRow>
-              <HeaderCellSort
-                sortKey="TASK"
-                sortFn={(array) =>
-                  array.sort((a, b) => a.name.localeCompare(b.name))
-                }
-              >
+              <HeaderCellSort sortKey="TASK">
                 Task
               </HeaderCellSort>
-              <HeaderCellSort
-                sortKey="DEADLINE"
-                sortFn={(array) =>
-                  array.sort((a, b) => a.deadline - b.deadline)
-                }
-              >
+              <HeaderCellSort sortKey="DEADLINE">
                 Deadline
               </HeaderCellSort>
-              <HeaderCellSort
-                sortKey="TYPE"
-                sortFn={(array) =>
-                  array.sort((a, b) => a.type.localeCompare(b.type))
-                }
-              >
+              <HeaderCellSort sortKey="TYPE">
                 Type
               </HeaderCellSort>
-              <HeaderCellSort
-                sortKey="COMPLETE"
-                sortFn={(array) =>
-                  array.sort((a, b) => a.isComplete - b.isComplete)
-                }
-              >
+              <HeaderCellSort sortKey="COMPLETE">
                 Complete
               </HeaderCellSort>
-              <HeaderCellSort
-                sortKey="TASKS"
-                sortFn={(array) =>
-                  array.sort(
-                    (a, b) =>
-                      (a.nodes || []).length -
-                      (b.nodes || []).length
-                  )
-                }
-              >
+              <HeaderCellSort sortKey="TASKS">
                 Tasks
               </HeaderCellSort>
             </HeaderRow>
@@ -187,17 +158,21 @@ Anyway, a column sort in a table often comes with lots of more requirements. Let
 
 For example, sometimes a user wants to have an **initial sort state**. This can be achieved with the useSort hook too, by passing in a **default sorting state**:
 
-```javascript{5-8}
+```javascript{6-9}
 const App = () => {
   ...
 
-  const sort = useSort(data, {
-    state: {
-      sortKey: 'TASK',
-      reverse: false,
-    },
-    onChange: onSortChange,
-  });
+  const sort = useSort(data,
+    {
+      state: {
+        sortKey: 'TASK',
+        reverse: false,
+      },
+      onChange: onSortChange,
+    }, {
+      sortFns: ...,
+    }
+  );
 
   ...
 };
