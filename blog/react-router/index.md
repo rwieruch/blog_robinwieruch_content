@@ -255,8 +255,8 @@ const Layout = () => {
           paddingBottom: '1rem',
         }}
       >
-        <Link to="/home" style={style}>Home</Link>
-        <Link to="/users" style={style}>Users</Link>
+        <NavLink to="/home" style={style}>Home</NavLink>
+        <NavLink to="/users" style={style}>Users</NavLink>
       </nav>
 
       <main style={{ padding: '1rem 0' }}>
