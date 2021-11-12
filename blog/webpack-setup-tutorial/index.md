@@ -190,7 +190,7 @@ module.exports = {
   },
   // 3
   devServer: {
-    contentBase: './dist'
+    static: './dist'
   }
 };
 ```
@@ -213,7 +213,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   devServer: {
-    contentBase: path.resolve(__dirname, './dist'),
+    static: path.resolve(__dirname, './dist'),
   },
 };
 ```
