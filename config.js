@@ -13,6 +13,44 @@ module.exports = {
     icon: 'static/icon.png',
   },
 
+  // sitemap
+  sitemap: {
+    exclude: [
+      '/legal',
+      '/categories/recent',
+      '/categories/recent/**',
+      '/categories/react/**',
+      '/categories/javascript/**',
+      '/categories/freelance/**',
+      '/categories/react-table-library/**',
+      '/categories/tooling/**',
+      '/categories/webpack/**',
+      '/categories/babel/**',
+      '/categories/eslint/**',
+      '/categories/react-native/**',
+      '/categories/firebase/**',
+      '/categories/web-development/**',
+      '/categories/deno/**',
+      '/categories/node/**',
+      '/categories/docker/**',
+      '/categories/redux/**',
+      '/categories/jest/**',
+      '/categories/nextjs/**',
+      '/categories/enzyme/**',
+      '/categories/gatsby/**',
+      '/categories/vs-node/**',
+      '/categories/web-components/**',
+      '/categories/mobx/**',
+      '/categories/reason/**',
+      '/categories/graphql/**',
+      '/categories/angular/**',
+      '/categories/vue/**',
+      '/categories/machine-learning/**',
+      '/categories/growth/**',
+      '/categories/d3/**',
+    ],
+  },
+
   // can be specified in gatsby-config.js
   // default rss.xml
   rssUrl: 'index.xml',
@@ -28,11 +66,8 @@ module.exports = {
   // can be specified in frontmatter
   keywords: [
     'freelancer',
-    'consultant',
-    'german',
-    'berlin',
+    'developer',
     'web development',
-    'software engineer',
     'reactjs',
     'nodejs',
     'graphql',
