@@ -15,6 +15,7 @@ module.exports = {
 
   // sitemap
   sitemap: {
+    enabled: true,
     exclude: [
       '/legal',
       '/categories/recent',
@@ -134,8 +135,7 @@ module.exports = {
   goodie: {
     enabled: true,
     header: 'The Road to React',
-    text:
-      'Learn React by building real world applications. No setup configuration. No tooling. Plain React in 200+ pages of learning material. Learn React like <strong>50.000+ readers</strong>.',
+    text: 'Learn React by building real world applications. No setup configuration. No tooling. Plain React in 200+ pages of learning material. Learn React like <strong>50.000+ readers</strong>.',
     cta: 'Get the Book',
     ctaSecondary: 'Get it on Amazon.',
     url: 'https://courses.robinwieruch.de',
@@ -148,9 +148,9 @@ module.exports = {
     enabled: true,
     hasLogo: true,
     links: [
-      { to: '/about', label: 'About' },
-      { to: '/work-with-me', label: 'Hire' },
-      { to: '/blog', label: 'Blog' },
+      { to: '/about/', label: 'About' },
+      { to: '/work-with-me/', label: 'Hire' },
+      { to: '/blog/', label: 'Blog' },
       { to: 'https://courses.robinwieruch.de', label: 'Courses' },
       { to: '/index.xml', label: 'RSS' },
     ],
@@ -270,7 +270,7 @@ module.exports = {
       {
         label: 'Tutorials',
         description: 'My free content ...',
-        url: '/blog',
+        url: '/blog/',
       },
     ],
   },
@@ -458,7 +458,7 @@ module.exports = {
           },
           {
             label: 'Tutorials',
-            url: '/blog',
+            url: '/blog/',
           },
         ],
       },
@@ -467,15 +467,15 @@ module.exports = {
         items: [
           {
             label: 'About me',
-            url: '/about',
+            url: '/about/',
+          },
+          {
+            label: 'How to work with me',
+            url: '/work-with-me/',
           },
           {
             label: 'What I use',
             url: '/about#what-i-use',
-          },
-          {
-            label: 'How to work with me',
-            url: '/work-with-me',
           },
           {
             label: 'How to support me',
@@ -494,15 +494,11 @@ module.exports = {
       },
       {
         icon: 'github-round',
-        url: 'https://www.github.com/rwieruch/',
+        url: 'https://www.github.com/rwieruch',
       },
       {
         icon: 'facebook-round',
-        url: 'https://www.facebook.com/rwieruch/',
-      },
-      {
-        icon: 'instagram-round',
-        url: 'https://www.instagram.com/rwieruch/',
+        url: 'https://www.facebook.com/rwieruch',
       },
       { icon: 'email', url: 'mailto:hello@rwieruch.com' },
     ],
@@ -513,7 +509,7 @@ module.exports = {
       },
       {
         label: 'Privacy & Terms',
-        url: '/legal',
+        url: '/legal/',
       },
     ],
   },

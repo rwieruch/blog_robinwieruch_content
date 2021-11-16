@@ -12,15 +12,15 @@ author: ""
 
 <Sponsorship />
 
-React's useMemo Hook can be used to **optimize the computation costs** of your [React function components](/react-function-component). We will go through an example component to illustrate the problem first, and then solve it with **React's useMemo Hook**.
+React's useMemo Hook can be used to **optimize the computation costs** of your [React function components](/react-function-component/). We will go through an example component to illustrate the problem first, and then solve it with **React's useMemo Hook**.
 
 Keep in mind that most of the performance optimizations in React are premature. React is fast by default, so *every* performance optimization is opt-in in case something starts to feel slow.
 
-*Note: Don't mistake React's useMemo Hook with [React's memo API](/react-memo). While useMemo is used to memoize values, React memo is used to wrap React components to prevent re-renderings.*
+*Note: Don't mistake React's useMemo Hook with [React's memo API](/react-memo/). While useMemo is used to memoize values, React memo is used to wrap React components to prevent re-renderings.*
 
-*Note: Don't mistake React's useMemo Hook with [React's useCallback Hook](/react-usecallback-hook). While useMemo is used to memoize values, useCallback is used to memoize functions.*
+*Note: Don't mistake React's useMemo Hook with [React's useCallback Hook](/react-usecallback-hook/). While useMemo is used to memoize values, useCallback is used to memoize functions.*
 
-Let's take the following example of a React application which [renders a list](/react-list-component) of users and allows us to filter the users by their name. The catch: The filter happens only when a user explicitly clicks a button; not already when the user types into the input field:
+Let's take the following example of a React application which [renders a list](/react-list-component/) of users and allows us to filter the users by their name. The catch: The filter happens only when a user explicitly clicks a button; not already when the user types into the input field:
 
 ```javascript
 import React from 'react';

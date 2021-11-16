@@ -153,7 +153,7 @@ const ThemeContext = React.createContext(null);
 export default ThemeContext;
 ```
 
-Second, component A would have to provide the context with the given Provider component. In this case, its `value` is given to it right away, but it can be anything from component state (e.g. [fetched data](/react-fetching-data)) to props. If the value comes from a modifiable [React State](/react-state), the value passed to the Provider component can be changed too.
+Second, component A would have to provide the context with the given Provider component. In this case, its `value` is given to it right away, but it can be anything from component state (e.g. [fetched data](/react-fetching-data/)) to props. If the value comes from a modifiable [React State](/react-state/), the value passed to the Provider component can be changed too.
 
 ```javascript
 // src/ComponentA.js
@@ -189,7 +189,7 @@ const C = () => (
 );
 ```
 
-The component can derive its style by consuming the context. The Consumer component makes the passed context available by using a [render prop](/react-render-props). As you can imagine, following this way every component that needs to be styled according to the theme could get the necessary information from React's Context by using the ThemeContext's Consumer component now. You only have to use the Provider component which passes the value once somewhere above them.
+The component can derive its style by consuming the context. The Consumer component makes the passed context available by using a [render prop](/react-render-props/). As you can imagine, following this way every component that needs to be styled according to the theme could get the necessary information from React's Context by using the ThemeContext's Consumer component now. You only have to use the Provider component which passes the value once somewhere above them.
 
 # React Context: When
 

@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-**Recommended alternative: Instead of Mocha/Chai, [using Jest as test runner and assertion library for unit, integration and snapshot tests](/react-testing-jest).**
+**Recommended alternative: Instead of Mocha/Chai, [using Jest as test runner and assertion library for unit, integration and snapshot tests](/react-testing-jest/).**
 
 Before setting up the test setup with different testing libraries and writing the React component tests, you will need a simple React application which can be tested in the first place. You will introduce a simple App component which can be tested in the following sections. If it's too difficult for you to follow the next parts of the React application, you should grab a copy of [The Road to learn React](/the-road-to-learn-react/) to learn about React itself before testing a React application.
 

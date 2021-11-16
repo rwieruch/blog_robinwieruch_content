@@ -47,7 +47,7 @@ const App = () => {
 };
 ```
 
-In your browser, this dropdown can already change its select state by showing every of its values individually. However, this is just the select's internal HTML state which isn't controlled by React yet. Let's change this by transforming this select from being [uncontrolled to controlled](/react-controlled-components):
+In your browser, this dropdown can already change its select state by showing every of its values individually. However, this is just the select's internal HTML state which isn't controlled by React yet. Let's change this by transforming this select from being [uncontrolled to controlled](/react-controlled-components/):
 
 ```javascript{2,4-6,12,19}
 const App = () => {
@@ -74,7 +74,7 @@ const App = () => {
 };
 ```
 
-By using [React's useState Hook](/react-usestate-hook) and an [event handler](/react-event-handler), we can keep track of the select's value via [React's state](/react-state). We can refine this component by rendering the options more dynamically:
+By using [React's useState Hook](/react-usestate-hook/) and an [event handler](/react-event-handler/), we can keep track of the select's value via [React's state](/react-state/). We can refine this component by rendering the options more dynamically:
 
 ```javascript{2-6,19-21}
 const App = () => {
@@ -107,7 +107,7 @@ const App = () => {
 };
 ```
 
-A great analogy for this refactoring of the component is the list component in React](/react-list-component). Next we may want to create a Dropdown component which can be used more than once throughout a React project. Therefore, we will extract it as a new [function component](/react-function-component) and [pass the necessary props](/react-pass-props-to-component) to it:
+A great analogy for this refactoring of the component is the list component in React](/react-list-component/). Next we may want to create a Dropdown component which can be used more than once throughout a React project. Therefore, we will extract it as a new [function component](/react-function-component/) and [pass the necessary props](/react-pass-props-to-component/) to it:
 
 ```javascript{16-21,28-39}
 const App = () => {
@@ -151,7 +151,7 @@ const Dropdown = ({ label, value, options, onChange }) => {
 };
 ```
 
-Our Dropdown component is a [reusable component](/react-reusable-components) now. For example, if you would give your select element some [CSS style in React](/react-css-styling), every Dropdown component which is used in your React project would use the same style.
+Our Dropdown component is a [reusable component](/react-reusable-components/) now. For example, if you would give your select element some [CSS style in React](/react-css-styling/), every Dropdown component which is used in your React project would use the same style.
 
 If you would want to create a dropdown group now, you could just use multiple Dropdown components side by side and maybe style them with some border and some alignment, so that a user perceives them as a group of dropdowns:
 

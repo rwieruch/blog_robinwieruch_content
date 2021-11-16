@@ -14,7 +14,7 @@ author: ""
 
 This is a tutorial for setting up PostgreSQL 11 on Windows. You might be wondering why there's a need for another setup guide for Postgres in the first place, since there are a few across the web. I found many tutorials and guides on how to set it up, but found most of them to be unclear and outdated, based on old PostgreSQL versions. The checklist is not comprehensive, though, as it is used for several tutorials on my website, I keep it updated with the recent versions of PostgreSQL. If you spot any flaws in this guide, a comment below the article would be very helpful to keep it up to date for other developers.
 
-If you want to run PostgreSQL on MacOS instead, you will find guidance over here: [How to setup PostgreSQL on MacOS](/postgres-sql-macos-setup). Make sure to read it as well, even though you are on Windows, because this guide only shows you the Windows installation for PostgreSQL but not how to create databases or how to interact with them. That's covered in the MacOS guide instead.
+If you want to run PostgreSQL on MacOS instead, you will find guidance over here: [How to setup PostgreSQL on MacOS](/postgres-sql-macos-setup/). Make sure to read it as well, even though you are on Windows, because this guide only shows you the Windows installation for PostgreSQL but not how to create databases or how to interact with them. That's covered in the MacOS guide instead.
 
 # PostgreSQL Installation on Windows
 

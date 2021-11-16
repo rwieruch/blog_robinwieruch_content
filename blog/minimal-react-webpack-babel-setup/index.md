@@ -250,7 +250,7 @@ Congratulations, you have created your [first function component](/react-functio
 
 ### Exercises:
 
-* Check out the [advanced Webpack setup](/webpack-advanced-setup-tutorial)
+* Check out the [advanced Webpack setup](/webpack-advanced-setup-tutorial/)
   * Put it into your minimal React with Webpack application
   * Confirm your final result with the official [advanced React with Webpack setup](https://github.com/rwieruch/advanced-react-webpack-babel-setup)
 

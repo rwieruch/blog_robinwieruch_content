@@ -199,7 +199,7 @@ In the end, regardless of the programming language you are using, you will find 
 
 # How to apply those learnings in Machine learning?
 
-The previous learnings gave a basic understanding of linear algebra with matrices used in JavaScript. How does it help us in machine learning? You can take the example of [linear regression](/linear-regression-gradient-descent-javascript). Matrix operations can be used to make linear regression simpler to execute and computational efficient. But also other machine learning algorithms in the future. For instance, when having three (trained) **competing hypotheses** functions for a linear regression, it becomes simple with matrices to calculate their results.
+The previous learnings gave a basic understanding of linear algebra with matrices used in JavaScript. How does it help us in machine learning? You can take the example of [linear regression](/linear-regression-gradient-descent-javascript/). Matrix operations can be used to make linear regression simpler to execute and computational efficient. But also other machine learning algorithms in the future. For instance, when having three (trained) **competing hypotheses** functions for a linear regression, it becomes simple with matrices to calculate their results.
 
 ```javascript
 // Predicting Housing Prices with 3 competing Hypotheses
@@ -235,7 +235,7 @@ const competingResults = math.multiply(houseSizeMatrix, hypothesesMatrix);
 // ]
 ```
 
-You can put these computations in matrices now, rather than executing every function on its own. A loop becomes one matrix operation. On a higher level you can say that a [unvectorized implementation becomes a vectorized implementation](/linear-regression-gradient-descent-vectorization-javascript/). Thus it becomes computational efficient when performing machine learning algorithms and simpler as well. Furthermore, these matrix operations are used in a [normal equation](/multivariate-linear-regression-normal-equation-javascript) by default which is used as an alternative to gradient descent.
+You can put these computations in matrices now, rather than executing every function on its own. A loop becomes one matrix operation. On a higher level you can say that a [unvectorized implementation becomes a vectorized implementation](/linear-regression-gradient-descent-vectorization-javascript/). Thus it becomes computational efficient when performing machine learning algorithms and simpler as well. Furthermore, these matrix operations are used in a [normal equation](/multivariate-linear-regression-normal-equation-javascript/) by default which is used as an alternative to gradient descent.
 
 # Octave / Matlab alike operations in JavaScript
 
@@ -245,7 +245,7 @@ At some point, using math.js the proposed way doesn't scale anymore. You will do
 theta - ALPHA / m * ((X * theta - y)' * X)'
 ```
 
-Yes, it is taken from a [multivariate linear regression with gradient descent](/multivariate-linear-regression-gradient-descent-javascript). It can be easily expressed in mathematical programming languages such as Matlab or Octave. In math.js it wouldn't scale when using the standard methods.
+Yes, it is taken from a [multivariate linear regression with gradient descent](/multivariate-linear-regression-gradient-descent-javascript/). It can be easily expressed in mathematical programming languages such as Matlab or Octave. In math.js it wouldn't scale when using the standard methods.
 
 ```javascript
 // Octave:

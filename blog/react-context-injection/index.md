@@ -124,7 +124,7 @@ export { About };
 
 By seeing all three components -- the parent App component and its child components Portfolio and About --, it becomes easier to define the problem space: We want to reuse the EventList components on multiple pages, but each EventList should know about its specific context where it's rendered.
 
-The solution by just [passing props](/react-pass-props-to-component) seems straightforward for most React developers:
+The solution by just [passing props](/react-pass-props-to-component/) seems straightforward for most React developers:
 
 ```javascript{13}
 const About = () => {
@@ -184,9 +184,9 @@ const EventList = ({ whereAmI }) => {
 };
 ```
 
-In this example of the an [list component](/react-list-component), we are rendering two hardcoded items. Whether we render this component in the Portfolio or About page does not change the data at the moment.
+In this example of the an [list component](/react-list-component/), we are rendering two hardcoded items. Whether we render this component in the Portfolio or About page does not change the data at the moment.
 
-However, now by having the page specific information (`whereAmI`) at our disposal, we could [fetch these items from a remote API](/react-hooks-fetch-data) based on this knowledge. For instance, the request for the data fetching could change the API endpoint conditionally:
+However, now by having the page specific information (`whereAmI`) at our disposal, we could [fetch these items from a remote API](/react-hooks-fetch-data/) based on this knowledge. For instance, the request for the data fetching could change the API endpoint conditionally:
 
 ```javascript
 const url = `api.mydomain.com/events/${whereAmI}`;
@@ -206,7 +206,7 @@ Instead of using props, an alternative solution to this would be **acting upon t
 
 <Divider />
 
-For the following, you can find a working demo over [here](https://github.com/rwieruch/react-router-shared-components). By using [React Context](/react-context) and its [useContext Hook](/react-usecontext-hook), we can pass page specific information to all nested components without the pain of props drilling. Let's see how this looks like for our use case. First, we initialize a new context:
+For the following, you can find a working demo over [here](https://github.com/rwieruch/react-router-shared-components). By using [React Context](/react-context/) and its [useContext Hook](/react-usecontext-hook/), we can pass page specific information to all nested components without the pain of props drilling. Let's see how this looks like for our use case. First, we initialize a new context:
 
 ```javascript
 import React from 'react';
@@ -246,9 +246,9 @@ const App = () => {
 };
 ```
 
-Usually when using React Context, in most cases you will only use one Provider component at the very top-level of your React component hierarchy. In addition, the value of the context will mostly change over time (e.g. via [React State](/react-state)). However, in this case it's quite the opposite: We are using a Provider component at two distinct locations with a static value. This way, each underlying component tree receives its page specific information (here `value`).
+Usually when using React Context, in most cases you will only use one Provider component at the very top-level of your React component hierarchy. In addition, the value of the context will mostly change over time (e.g. via [React State](/react-state/)). However, in this case it's quite the opposite: We are using a Provider component at two distinct locations with a static value. This way, each underlying component tree receives its page specific information (here `value`).
 
-Now in our EventList component -- or next to it in a new *context.js* file (see [how to create a scaling React folder structure](/react-folder-structure)) -- we can create a new context consumer hook which consumes this new Context and selects the respective page specific information from a dictionary:
+Now in our EventList component -- or next to it in a new *context.js* file (see [how to create a scaling React folder structure](/react-folder-structure/)) -- we can create a new context consumer hook which consumes this new Context and selects the respective page specific information from a dictionary:
 
 ```javascript
 const DICTIONARY = {
@@ -381,7 +381,7 @@ const EventItem = () => {
 };
 ```
 
-As you can see, the context aware information doesn't need to be just [JavaScript primitives](/javascript-variable), but can also be functions which are dynamically executed with a flexible input.
+As you can see, the context aware information doesn't need to be just [JavaScript primitives](/javascript-variable/), but can also be functions which are dynamically executed with a flexible input.
 
 In conclusion, this method of context injection by using a provider component for sibling components helped us to distinguish page specific tree hierarchies from one another while avoiding props drilling. Each shared UI component can act based on its page its rendered on. This way, we were able to execute different API requests, include page specific component behavior -- which isn't the same for every page --, and change styling as well.
 

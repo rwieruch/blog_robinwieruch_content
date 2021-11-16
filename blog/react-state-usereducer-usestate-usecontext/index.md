@@ -20,7 +20,7 @@ If you haven't used state management excessively in [React Function Components](
 
 # React useState: simple State
 
-We start with a list of items -- in our scenario a list of todo items -- which are rendered in our function component with a [JavaScript Map Method for Arrays](/javascript-map-array/). Each todo item rendered as list item receives a [key attribute](/react-list-key) to notify React about its place in the [rendered list](/react-list-component):
+We start with a list of items -- in our scenario a list of todo items -- which are rendered in our function component with a [JavaScript Map Method for Arrays](/javascript-map-array/). Each todo item rendered as list item receives a [key attribute](/react-list-key/) to notify React about its place in the [rendered list](/react-list-component/):
 
 ```javascript
 import React from 'react';
@@ -159,7 +159,7 @@ const App = () => {
 };
 ```
 
-The submit handler doesn't add the new todo item yet, but it makes the input field's value empty again after submitting the new todo item. Also it prevents the [default behavior of the browser, because otherwise the browser would perform a refresh after the submit button has been clicked](/react-preventdefault).
+The submit handler doesn't add the new todo item yet, but it makes the input field's value empty again after submitting the new todo item. Also it prevents the [default behavior of the browser, because otherwise the browser would perform a refresh after the submit button has been clicked](/react-preventdefault/).
 
 In order to add the todo item to our list of todo items, we need to make the todo items managed as state within the component as well. We can use again the useState hook:
 
@@ -396,7 +396,7 @@ That's it. The new todo items are immediately set as state for the list of todo 
 
 ### Exercises:
 
-* Read more about [React's useState Hook](/react-usestate-hook)
+* Read more about [React's useState Hook](/react-usestate-hook/)
 
 # React useReducer: complex State
 
@@ -705,7 +705,7 @@ You have seen how useState and useReducer can be used for simple and complex sta
 
 ### Exercises:
 
-* Read more about [React's useReducer Hook](/react-usereducer-hook)
+* Read more about [React's useReducer Hook](/react-usereducer-hook/)
 
 # React useContext: global State
 
@@ -968,8 +968,8 @@ The application works again, but we are able to dispatch changes for our todo li
 
 ### Exercises:
 
-* Read more about [React's useContext Hook](/react-usecontext-hook)
-* Read more about [implementing Redux with React Hooks](/redux-with-react-hooks)
+* Read more about [React's useContext Hook](/react-usecontext-hook/)
+* Read more about [implementing Redux with React Hooks](/redux-with-react-hooks/)
 
 <Divider />
 

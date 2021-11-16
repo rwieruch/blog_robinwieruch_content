@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-[React Testing Library (RTL)](https://github.com/testing-library/react-testing-library) by Kent C. Dodds got released as alternative to Airbnb's [Enzyme](/react-testing-jest-enzyme). While Enzyme gives React developers utilities to test internals of React components, React Testing Library takes a step back and questions us "how to test React components to get full confidence in our React components": Rather than testing a component's implementation details, React Testing Library puts the developer in the shoes of an end user of an React application.
+[React Testing Library (RTL)](https://github.com/testing-library/react-testing-library) by Kent C. Dodds got released as alternative to Airbnb's [Enzyme](/react-testing-jest-enzyme/). While Enzyme gives React developers utilities to test internals of React components, React Testing Library takes a step back and questions us "how to test React components to get full confidence in our React components": Rather than testing a component's implementation details, React Testing Library puts the developer in the shoes of an end user of an React application.
 
 In this **React Testing Library tutorial**, we will go through all the steps necessary to unit test and integration test your React components with confidence.
 
@@ -46,7 +46,7 @@ describe('true is truthy and false is falsy', () => {
 
 If you put this test suite and the test case with its assertions in a *test.js* file, Jest will automatically pick it up for you when running `npm test`. When we run the test command, Jest's test runner matches all files with a *test.js* suffix by default. You could configure this matching pattern and others things in a custom Jest configuration file.
 
-If you are using create-react-app, Jest (and React Testing Library) comes by default with the installation. If you are using a [custom React setup](/minimal-react-webpack-babel-setup/), you need to [install and set up Jest](/react-testing-jest) (and React Testing Library) yourself.
+If you are using create-react-app, Jest (and React Testing Library) comes by default with the installation. If you are using a [custom React setup](/minimal-react-webpack-babel-setup/), you need to [install and set up Jest](/react-testing-jest/) (and React Testing Library) yourself.
 
 Once you run your tests via Jest's test runner with `npm test` (or whatever script you are using in your *package.json*), you will see the following output for the two previously defined tests:
 
@@ -103,7 +103,7 @@ React Testing Library, in contrast to Jest, is one of the testing libraries to t
 
 # React Testing Library: Rendering a Component
 
-If you are using create-react-app, React Testing Library will be there by default. If you are using a custom React setup (e.g. React with Webpack) or another React framework, you need to install it yourself. In this section, you will learn how to render a React component in test with React Testing Library. We will use the following App [function component](/react-function-component) from a *src/App.js* file:
+If you are using create-react-app, React Testing Library will be there by default. If you are using a custom React setup (e.g. React with Webpack) or another React framework, you need to install it yourself. In this section, you will learn how to render a React component in test with React Testing Library. We will use the following App [function component](/react-function-component/) from a *src/App.js* file:
 
 ```javascript
 import React from 'react';
@@ -161,7 +161,7 @@ After running your test on the command line, you should see the HTML output of y
 </body>
 ```
 
-The great thing about it, React Testing Library doesn't care much about the actual components. Let's take the following React components which utilize different React features ([useState](/react-usestate-hook), [event handler](/react-event-handler), [props](/react-pass-props-to-component)) and concepts ([controlled component](/react-controlled-components)):
+The great thing about it, React Testing Library doesn't care much about the actual components. Let's take the following React components which utilize different React features ([useState](/react-usestate-hook/), [event handler](/react-event-handler/), [props](/react-pass-props-to-component/)) and concepts ([controlled component](/react-controlled-components/)):
 
 ```javascript
 import React from 'react';
@@ -466,7 +466,7 @@ So every time you are asserting that an element isn't there, use queryBy. Otherw
 
 ## When to use findBy?
 
-The *findBy* search variant is used for asynchronous elements which will be there eventually. For a suitable scenario, let's extend our React components with the following feature (which is independent from the search input field): After its initial render, the App component fetches a user from a simulated API. The API returns a JavaScript promise which immediately resolves with a user object, and the component stores the user from the promise in the component's state. The component updates and re-renders; and afterward the [conditional rendering](/conditional-rendering-react) should render "Signed in as" after the component update:
+The *findBy* search variant is used for asynchronous elements which will be there eventually. For a suitable scenario, let's extend our React components with the following feature (which is independent from the search input field): After its initial render, the App component fetches a user from a simulated API. The API returns a JavaScript promise which immediately resolves with a user object, and the component stores the user from the promise in the component's state. The component updates and re-renders; and afterward the [conditional rendering](/conditional-rendering-react/) should render "Signed in as" after the component update:
 
 ```javascript{1-3,7,9-16,24}
 function getUser() {
@@ -552,7 +552,7 @@ For any element that isn't there yet but will be there eventually, use findBy ov
 
 ## What about multiple elements?
 
-You have learned about the three search variants getBy, queryBy and findBy; which all can be associated with the search types (e.g. Text, Role, PlaceholderText, DisplayValue). If all of these search functions return only one element, how to assert if there are multiple elements (e.g. [a list in a React component](/react-list-component)). All search variants can be extended with the *All* word:
+You have learned about the three search variants getBy, queryBy and findBy; which all can be associated with the search types (e.g. Text, Role, PlaceholderText, DisplayValue). If all of these search functions return only one element, how to assert if there are multiple elements (e.g. [a list in a React component](/react-list-component/)). All search variants can be extended with the *All* word:
 
 * getAllBy
 * queryAllBy

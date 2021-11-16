@@ -124,5 +124,5 @@ export default Navigation;
 
 In case of the navigation style, you can retrieve it with `styles.navigation` too. However, for the other styles with dashes you need to retrieve them with strings from the object.
 
-Once you start your application, everything should work as expected. You can find the final application in this [GitHub repository](https://github.com/the-road-to-learn-react/create-react-app-with-css-modules). CSS modules are only one way of styling your applications. There are plenty of other ways to do it. In React, two other common ways of styling applications are [styled-components](https://github.com/the-road-to-learn-react/react-styled-components-example) and [Sass](/create-react-app-with-sass-support).
+Once you start your application, everything should work as expected. You can find the final application in this [GitHub repository](https://github.com/the-road-to-learn-react/create-react-app-with-css-modules). CSS modules are only one way of styling your applications. There are plenty of other ways to do it. In React, two other common ways of styling applications are [styled-components](https://github.com/the-road-to-learn-react/react-styled-components-example) and [Sass](/create-react-app-with-sass-support/).
 

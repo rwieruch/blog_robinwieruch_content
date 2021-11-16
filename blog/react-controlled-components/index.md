@@ -36,7 +36,7 @@ It's an uncontrolled input field, because once you start the application, you ca
 
 # Uncontrolled vs. Controlled Component
 
-Let's see another case where it isn't clear whether we are dealing with an uncontrolled or controlled component. The next example adds [state management](/react-state-usereducer-usestate-usecontext) with [React Hooks](/react-hooks/) to our function component:
+Let's see another case where it isn't clear whether we are dealing with an uncontrolled or controlled component. The next example adds [state management](/react-state-usereducer-usestate-usecontext/) with [React Hooks](/react-hooks/) to our function component:
 
 ```javascript{1,4,6,11,12,15,16,17}
 import React, { useState } from 'react';

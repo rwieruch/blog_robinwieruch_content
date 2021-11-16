@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-In this tutorial, you will learn **how to use Web Components, alias Custom Elements, in React**. If you want to get started to build your own Web Components before, check out this tutorial: [Web Components Tutorial](/web-components-tutorial). Otherwise, we will install an external Web Component in this tutorial to use it in React.
+In this tutorial, you will learn **how to use Web Components, alias Custom Elements, in React**. If you want to get started to build your own Web Components before, check out this tutorial: [Web Components Tutorial](/web-components-tutorial/). Otherwise, we will install an external Web Component in this tutorial to use it in React.
 
 You will learn how to pass props as attributes/properties to your Custom Element and how to add event listeners for your Custom Element's events in a React component. In the first step, you will pass props manually, however, afterward I will show you how to use a custom [React Hook](/react-hooks/) to automate this process. The custom React Hook is a library to bridge Web Components to React effortlessly.
 
@@ -127,7 +127,7 @@ We are creating a reference for our Custom Element -- which is passed as ref att
 
 *Note: If you would have a built-in DOM event (e.g. `click` or `change` event) in your Web Component, you could also register to this event. However, this Web Component already dispatches a custom event which matches the naming convention of React components.*
 
-An improvement would be to extract the event listener [callback function](/javascript-callback-function) in order to remove the listener when the component unmounts.
+An improvement would be to extract the event listener [callback function](/javascript-callback-function/) in order to remove the listener when the component unmounts.
 
 ```javascript{9,13,15}
 import React from 'react';

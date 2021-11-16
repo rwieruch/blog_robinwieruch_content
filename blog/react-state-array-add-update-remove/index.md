@@ -12,19 +12,19 @@ author: ""
 
 <Sponsorship />
 
-After learning [how to pass props in React](/react-pass-props-to-component/), the next thing you will learn is often [state in React](/react-state). Managing JavaScript primitives such as strings, booleans, and integers in React State are the basics for state management in React. But what about more complex data structures such as JavaScript arrays? There are many questions popping up for React beginners on how to manage arrays in React state. Often the answer is to grab a [fundamental JavaScript function](/javascript-fundamentals-react-requirements/) that does the job for you. It's not always about using React for the task at hand.
+After learning [how to pass props in React](/react-pass-props-to-component/), the next thing you will learn is often [state in React](/react-state/). Managing JavaScript primitives such as strings, booleans, and integers in React State are the basics for state management in React. But what about more complex data structures such as JavaScript arrays? There are many questions popping up for React beginners on how to manage arrays in React state. Often the answer is to grab a [fundamental JavaScript function](/javascript-fundamentals-react-requirements/) that does the job for you. It's not always about using React for the task at hand.
 
 This tutorial walks you through the most common scenarios for managing arrays in React state. For each I want to show you a array example in React state, such as how to push an item to an array or how to update an item in an array, when React state is used to store it.
 
 The following tutorial shows you array manipulation in React with class components. If you are interested in seeing this with function components and React Hooks, check out the following guides:
 
-* [Add an Item to a List in React](/react-add-item-to-list)
-* [Update an Item in a List in React](/react-update-item-in-list)
-* [Remove an Item from a List in React](/react-remove-item-from-list)
+* [Add an Item to a List in React](/react-add-item-to-list/)
+* [Update an Item in a List in React](/react-update-item-in-list/)
+* [Remove an Item from a List in React](/react-remove-item-from-list/)
 
 # Arrays in React State
 
-Before we are going to manipulate a JavaScript array in React state, let's recap state in React shortly. State in React can be initialized in the [constructor of a React component](/react-state-without-constructor) and afterward used by accessing it via the React component's class instance with the `this` object.
+Before we are going to manipulate a JavaScript array in React state, let's recap state in React shortly. State in React can be initialized in the [constructor of a React component](/react-state-without-constructor/) and afterward used by accessing it via the React component's class instance with the `this` object.
 
 ```javascript
 import React, { Component } from 'react';

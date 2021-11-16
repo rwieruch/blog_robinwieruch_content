@@ -14,7 +14,7 @@ author: ""
 
 The groupBy function is one of the functions why people use [Lodash](https://lodash.com/) in their JavaScript code base. Here I want to give you a brief example on how to implement groupBy in vanilla JavaScript without Lodash by just using JavaScript's reduce method.
 
-Let's say we have the following [array of objects](/javascript-variable) and we want to group them by property (here color) to get the following output:
+Let's say we have the following [array of objects](/javascript-variable/) and we want to group them by property (here color) to get the following output:
 
 ```javascript
 const users = [
@@ -46,7 +46,7 @@ const usersByColor = users.reduce((acc, value) => {
 }, {});
 ```
 
-We start with an empty object as our accumulator (here `acc`) for this reduce's [callback function](/javascript-callback-function). For every iteration of the function, we return the changed (here still unchanged) accumulator. Let's implement groupBy:
+We start with an empty object as our accumulator (here `acc`) for this reduce's [callback function](/javascript-callback-function/). For every iteration of the function, we return the changed (here still unchanged) accumulator. Let's implement groupBy:
 
 ```javascript{2-4,6}
 const usersByColor = users.reduce((acc, value) => {

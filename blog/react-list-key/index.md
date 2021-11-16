@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-Everyone dealing with React knows about this warning: **Warning: Each child in a list should have a unique "key" prop.** It shows up in your development tools of your browser and it's one of the warnings you encounter very early in your React career. The following [list component](/react-list-component) results in this warning:
+Everyone dealing with React knows about this warning: **Warning: Each child in a list should have a unique "key" prop.** It shows up in your development tools of your browser and it's one of the warnings you encounter very early in your React career. The following [list component](/react-list-component/) results in this warning:
 
 ```javascript
 const list = ['Learn React', 'Learn GraphQL'];

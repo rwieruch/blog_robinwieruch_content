@@ -79,4 +79,4 @@ const Box = ({ status, children }) => {
 }
 ```
 
-And could also be used for optional classNames in [Styled Components](/styled-components).
+And could also be used for optional classNames in [Styled Components](/styled-components/).

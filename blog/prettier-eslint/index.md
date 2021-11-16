@@ -30,7 +30,7 @@ npm install -g prettier eslint
 
 I like to install them globally, because I use them in every of my projects. This way, I don't need to worry about installing them for each project. However, if you are working on a project as a team, it makes sense to install both packages to your project as well.
 
-*Note: If you install ESLint globally once, you need to run `eslint --init` on the command line for your project. It gives you an installation prompt on the command line to step through a dynamic ESLint configuration on a per project basis. Additionally, it comes with a local installation of ESLint for your project. If you want to learn more about ESLint and its configuration, scan through this [ESLint tutorial without worrying about the part about Webpack](/webpack-eslint).*
+*Note: If you install ESLint globally once, you need to run `eslint --init` on the command line for your project. It gives you an installation prompt on the command line to step through a dynamic ESLint configuration on a per project basis. Additionally, it comes with a local installation of ESLint for your project. If you want to learn more about ESLint and its configuration, scan through this [ESLint tutorial without worrying about the part about Webpack](/webpack-eslint/).*
 
 Second, install the Prettier and ESLint extension/plugin for your editor/IDE. For instance, in VSCode you can find [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extensions on their marketplace. I guess it's quite similar for your IDE/editor of choice.
 

@@ -145,7 +145,7 @@ function ComponentWithRefInstanceVariable() {
 }
 ```
 
-In this example, we initialize the ref's current property with true, because we assume rightfully that the component starts with its first render when it gets initialized for the first time. However, then we make use of [React's useEffect Hook](/react-useeffect-hook) -- which runs without a dependency array as second argument for the first and every additional render -- to update the ref's current property after the first render of the component. Setting the ref's current property to false doesn't trigger a re-render though.
+In this example, we initialize the ref's current property with true, because we assume rightfully that the component starts with its first render when it gets initialized for the first time. However, then we make use of [React's useEffect Hook](/react-useeffect-hook/) -- which runs without a dependency array as second argument for the first and every additional render -- to update the ref's current property after the first render of the component. Setting the ref's current property to false doesn't trigger a re-render though.
 
 Now we gain the ability to create a useEffect Hook which only runs its logic for every component update, but not for the initial render. It's certainly a feature which every React developer needs at some point but which isn't provided by React's useEffect Hook:
 
@@ -321,7 +321,7 @@ function ComponentWithRefRead() {
 
 A callback ref is nothing else than a function which can be used for the HTML element's ref attribute in JSX. This function has access to the DOM node and is triggered whenever it is used on a HTML element's ref attribute. Essentially it's doing the same as our side-effect from before, but this time the callback ref itself notifies us that it has been attached to the HTML element.
 
-Before when you used the useRef + useEffect combination, you were able to run the your side-effect with the help of the useEffect's hook dependency array for certain times. You can achieve the same with the callback ref by enhancing it with [React's useCallback Hook](/react-usecallback-hook) to make it only run for the first render of the component:
+Before when you used the useRef + useEffect combination, you were able to run the your side-effect with the help of the useEffect's hook dependency array for certain times. You can achieve the same with the callback ref by enhancing it with [React's useCallback Hook](/react-usecallback-hook/) to make it only run for the first render of the component:
 
 ```javascript{8,14}
 function ComponentWithRefRead() {
@@ -350,7 +350,7 @@ function ComponentWithRefRead() {
 }
 ```
 
-You could also be more specific here with the dependency array of the useCallback hook. For example, execute the [callback function](/javascript-callback-function) of the callback ref only if state (here `text`) has changed and, of course, for the first render of the component:
+You could also be more specific here with the dependency array of the useCallback hook. For example, execute the [callback function](/javascript-callback-function/) of the callback ref only if state (here `text`) has changed and, of course, for the first render of the component:
 
 ```javascript{14}
 function ComponentWithRefRead() {
@@ -416,7 +416,7 @@ function ComponentWithRefReadWrite() {
 }
 ```
 
-This can be done for any attribute on this referenced DOM node. It's important to note that usually React shouldn't be used this way, because of its declarative nature. Instead you would use [React's useState Hook](/react-usestate-hook) to set a boolean whether you want to color the text red or blue. However, sometimes it can be quite helpful for performance reasons to manipulate the DOM directly while preventing a re-render.
+This can be done for any attribute on this referenced DOM node. It's important to note that usually React shouldn't be used this way, because of its declarative nature. Instead you would use [React's useState Hook](/react-usestate-hook/) to set a boolean whether you want to color the text red or blue. However, sometimes it can be quite helpful for performance reasons to manipulate the DOM directly while preventing a re-render.
 
 Just for the sake of learning about it, we could also manage state this way in a React component:
 
@@ -446,9 +446,9 @@ function ComponentWithImperativeRefState() {
 }
 ```
 
-It's not recommended to go down this rabbit hole though... Essentially it should only show you how it's possible to manipulate any elements in React with React's ref attribute with write operations. However, [why do we have React then and don't use vanilla JavaScript anymore](/why-frameworks-matter)? Therefore, React's ref is mostly used for read operations.
+It's not recommended to go down this rabbit hole though... Essentially it should only show you how it's possible to manipulate any elements in React with React's ref attribute with write operations. However, [why do we have React then and don't use vanilla JavaScript anymore](/why-frameworks-matter/)? Therefore, React's ref is mostly used for read operations.
 
 <Divider />
 
-This introduction should have shown you how to use React's ref for references to DOM nodes and instance variables by using React's useRef Hooks or callback refs. For the sake of completeness, I want to mention React's `createRef()` top-level API too, which is the [equivalent of useRef() for React class components](/react-hooks-migration). There are also other refs called **string refs** which are deprecated in React.
+This introduction should have shown you how to use React's ref for references to DOM nodes and instance variables by using React's useRef Hooks or callback refs. For the sake of completeness, I want to mention React's `createRef()` top-level API too, which is the [equivalent of useRef() for React class components](/react-hooks-migration/). There are also other refs called **string refs** which are deprecated in React.
 

@@ -111,7 +111,7 @@ app.use((error, req, res, next) => {
 ...
 ```
 
-Express handles any route with four arguments as error handling middleware, so it's important to list all four arguments for the error handling [callback function](/javascript-callback-function) here. It's also important to list this middleware after your REST API routes, because only this way all the errors happening in your REST API endpoints can be delegated to this error handling middleware.
+Express handles any route with four arguments as error handling middleware, so it's important to list all four arguments for the error handling [callback function](/javascript-callback-function/) here. It's also important to list this middleware after your REST API routes, because only this way all the errors happening in your REST API endpoints can be delegated to this error handling middleware.
 
 Let's get back to creating a message in *src/routes/message.js*. If you try the cURL request, you will not see the error handling happening if you don't catch any error there. In Express, errors have to be explicitly send via the `next` function to the middleware. Fortunately we [don't need to use a try/catch block](/javascript-async-await-without-try-catch) but just use the promise's catch method instead:
 
@@ -202,7 +202,7 @@ router.post('/', async (req, res, next) => {
 });
 ```
 
-Optionally you could extract this as a [reusable custom error](/javascript-custom-error) which could be located in a *src/utils/errors.js* file. This new error class extends the commonly used JavaScript `Error` class. The only feature we add here is the 400 HTTP status code:
+Optionally you could extract this as a [reusable custom error](/javascript-custom-error/) which could be located in a *src/utils/errors.js* file. This new error class extends the commonly used JavaScript `Error` class. The only feature we add here is the 400 HTTP status code:
 
 ```javascript
 export class BadRequestError extends Error {

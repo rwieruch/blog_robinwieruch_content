@@ -46,7 +46,7 @@ Once you start your application on the command line with `npm start`, you should
 Example app listening on port 3000!
 ```
 
-Your Express server is up and running. Everything that should happen after your Express application has started goes into the [callback function](/javascript-callback-function). The method itself takes another parameter as first parameter which is the [port](https://en.wikipedia.org/wiki/Port_(computer_networking)) of the running application. That's why after starting it, the application is available via `http://localhost:3000` in the browser, although nothing should be available at this URL yet when you visit it in your browser.
+Your Express server is up and running. Everything that should happen after your Express application has started goes into the [callback function](/javascript-callback-function/). The method itself takes another parameter as first parameter which is the [port](https://en.wikipedia.org/wiki/Port_(computer_networking)) of the running application. That's why after starting it, the application is available via `http://localhost:3000` in the browser, although nothing should be available at this URL yet when you visit it in your browser.
 
 ## Routes in Express.js
 

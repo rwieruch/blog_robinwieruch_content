@@ -34,7 +34,7 @@ export default App;
 
 For our App component, we import all the functions from our previously implemented fake API. The `getUser` function isn't needed, hence we don't have to import it.
 
-Next, we are going to fetch the mock data from the fake API. Therefore we are using [React's useEffect Hook](/react-useeffect-hook) and store the mock data with [React's useState Hook](/react-usestate-hook) in the component's state:
+Next, we are going to fetch the mock data from the fake API. Therefore we are using [React's useEffect Hook](/react-useeffect-hook) and store the mock data with [React's useState Hook](/react-usestate-hook/) in the component's state:
 
 ```javascript{6,8-15}
 import React from 'react';
@@ -59,7 +59,7 @@ const App = () => {
 export default App;
 ```
 
-If there is no mock data when the component renders for the first time, we don't render anything by returning null (see [conditional rendering](/conditional-rendering-react)). If the data arrives eventually, we [render it as a list](/react-list-component):
+If there is no mock data when the component renders for the first time, we don't render anything by returning null (see [conditional rendering](/conditional-rendering-react/)). If the data arrives eventually, we [render it as a list](/react-list-component/):
 
 ```javascript{1-2,7-9,11-25}
 const getDeveloperText = (isDeveloper) =>
@@ -90,7 +90,7 @@ const App = () => {
 };
 ```
 
-Optionally we could also add error handling for the fetching of the mock data. However, in this tutorial we won't implement any real error handling (or loading indicators). Please check my [how to fetch data with React tutorial](/react-hooks-fetch-data) if you are interested in this topic.
+Optionally we could also add error handling for the fetching of the mock data. However, in this tutorial we won't implement any real error handling (or loading indicators). Please check my [how to fetch data with React tutorial](/react-hooks-fetch-data/) if you are interested in this topic.
 
 ```javascript{6,9-11}
 const App = () => {
@@ -151,7 +151,7 @@ const App = () => {
 };
 ```
 
-Second, the implementation details for the two [event handlers](/react-event-handler) which update the form state:
+Second, the implementation details for the two [event handlers](/react-event-handler/) which update the form state:
 
 ```javascript{8-9,11-13,15-17}
 const App = () => {
@@ -182,7 +182,7 @@ const App = () => {
 };
 ```
 
-Third, the handler for the actual creation when the form gets submitted; which [prevents the default to avoid a browser refresh](/react-preventdefault). Again, there could be handling for error state and loading state too, but we cover this in another tutorial.
+Third, the handler for the actual creation when the form gets submitted; which [prevents the default to avoid a browser refresh](/react-preventdefault/). Again, there could be handling for error state and loading state too, but we cover this in another tutorial.
 
 ```javascript{4-12}
 const App = () => {
@@ -230,7 +230,7 @@ const App = () => {
 };
 ```
 
-We have to use [React's useCallback Hook](/react-usecallback-hook) here, because it memoizes the function for us which mean that it doesn't change and therefore React's useEffect Hook isn't called in an endless loop. Next, we can reuse this extracted function to refetch the mocked data after creating new data:
+We have to use [React's useCallback Hook](/react-usecallback-hook/) here, because it memoizes the function for us which mean that it doesn't change and therefore React's useEffect Hook isn't called in an endless loop. Next, we can reuse this extracted function to refetch the mocked data after creating new data:
 
 ```javascript{17-19,28}
 const App = () => {

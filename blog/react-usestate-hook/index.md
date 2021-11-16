@@ -57,7 +57,7 @@ That's everything you need to know to get started with simple state management i
 
 # Complex State in React
 
-So far, the example has only shown useState with a JavaScript primitive. That's where useState shines. It can be used for integers, booleans, strings and also arrays. However, once you plan to manage more complex state with objects or more complex arrays, you should check out [React's useReducer hook](/react-usereducer-hook). There are various scenarios where useReducer outperforms useState:
+So far, the example has only shown useState with a JavaScript primitive. That's where useState shines. It can be used for integers, booleans, strings and also arrays. However, once you plan to manage more complex state with objects or more complex arrays, you should check out [React's useReducer hook](/react-usereducer-hook/). There are various scenarios where useReducer outperforms useState:
 
 * complex state containers
 * complex state transitions

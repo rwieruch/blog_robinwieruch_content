@@ -14,7 +14,7 @@ author: ""
 
 A brief tutorial on how to **generate an image (JPG or PNG) from a React component**. Use case: Sometimes when you have a React project, you want to give users the ability to download an area of your application as image. For example, when you display charts based on data, a user should be able to export the chart as image. In this React tutorial, I want to show you how it works.
 
-First, you have to declare a certain area in your application that should be downloadable as image by using a [React ref](/react-ref):
+First, you have to declare a certain area in your application that should be downloadable as image by using a [React ref](/react-ref/):
 
 ```javascript{2,7}
 const App = () => {
@@ -29,7 +29,7 @@ const App = () => {
 };
 ```
 
-Second, create a button with an [event handler](/react-event-handler) where you will implement the logic to download the part of the component as image:
+Second, create a button with an [event handler](/react-event-handler/) where you will implement the logic to download the part of the component as image:
 
 ```javascript{4-6,10-12}
 const App = () => {
@@ -98,7 +98,7 @@ const App = () => {
 };
 ```
 
-That's it. If you want to download the image as JPG and not PNG, just exchange jpg with png wherever it is used. If you want to go a bit further and download a PDF instead of an image, then head over to this tutorial: [How to create a PDF from a React component](/react-component-to-pdf).
+That's it. If you want to download the image as JPG and not PNG, just exchange jpg with png wherever it is used. If you want to go a bit further and download a PDF instead of an image, then head over to this tutorial: [How to create a PDF from a React component](/react-component-to-pdf/).
 
 
 

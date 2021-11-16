@@ -67,7 +67,7 @@ const App = () => {
 };
 ```
 
-The onChange [callback function](/javascript-callback-function) gives you access to the action which triggered the tree change and to the actual tree state of your table. By having access to this information, you can trigger further table or non-table events (e.g. side-effect such as server-side lazy fetching) based on it.
+The onChange [callback function](/javascript-callback-function/) gives you access to the action which triggered the tree change and to the actual tree state of your table. By having access to this information, you can trigger further table or non-table events (e.g. side-effect such as server-side lazy fetching) based on it.
 
 Last, it's worth to note that the tree object that you have passed to the table is packed with the **tree state** -- which gives you the ability to access it any time -- and all the functions to **expand and collapse rows programmatically**.
 

@@ -14,7 +14,7 @@ author: ""
 
 React has been around for a while. Since then a well-rounded yet overwhelming  ecosystem evolved around the component driven library. Developers coming from other programming languages or frameworks often have a hard time figuring out all the building blocks for building web applications with React. Coming from a framework like Angular, you are used to have all the necessary features at your disposal. However, React at its core isn't opinionated about its complementary libraries. The decision whether this is an advantage or disadvantage is up to you. When [I switched from Angular to React](/reasons-why-i-moved-from-angular-to-react/), I definitely experienced it as one of React's advantages.
 
-React only enables you to build component driven user interfaces with [function components](/react-function-component) and [props](/react-pass-props-to-component). It comes with a couple of built-in solutions though, for instance, [React Hooks](/react-hooks) for local state and side-effects. But after all you are only dealing with components here.
+React only enables you to build component driven user interfaces with [function components](/react-function-component/) and [props](/react-pass-props-to-component/). It comes with a couple of built-in solutions though, for instance, [React Hooks](/react-hooks/) for local state and side-effects. But after all you are only dealing with components here.
 
 The following article will give you an opinionated approach to select from complementary libraries to build a well-rounded React application. It's up to you to exchange them with your choices.
 
@@ -41,13 +41,13 @@ If you are tempted to choose a custom boilerplate project, try to narrow down yo
 
 # React State Management
 
-React comes with built-in hooks to manage local state: [useState](/react-usestate-hook), [useReducer](/react-usereducer-hook), [useContext](/react-usecontext-hook). All of them can be used for [sophisticated local state management](/react-state-usereducer-usestate-usecontext) in React. It goes even so far that you can [mimic Redux](/redux-with-react-hooks), a popular state management library for React, with it.
+React comes with built-in hooks to manage local state: [useState](/react-usestate-hook), [useReducer](/react-usereducer-hook/), [useContext](/react-usecontext-hook/). All of them can be used for [sophisticated local state management](/react-state-usereducer-usestate-usecontext/) in React. It goes even so far that you can [mimic Redux](/redux-with-react-hooks/), a popular state management library for React, with it.
 
-All of React's built-in hooks are great for local state management. When it comes to state management of remote data, I would recommend to use [Apollo Client](/graphql-apollo-client-tutorial), if the remote data comes with a GraphQL endpoint. Alternatives for Apollo Client are [urql](https://github.com/FormidableLabs/urql) and [Relay](https://relay.dev/).
+All of React's built-in hooks are great for local state management. When it comes to state management of remote data, I would recommend to use [Apollo Client](/graphql-apollo-client-tutorial/), if the remote data comes with a GraphQL endpoint. Alternatives for Apollo Client are [urql](https://github.com/FormidableLabs/urql) and [Relay](https://relay.dev/).
 
 If the remote data doesn't come from a GraphQL endpoint, try to manage it with React's Hooks. If it doesn't work out, a solution like [Redux](/react-redux-tutorial) or [MobX](https://mobx.js.org)/[Mobx State tree](https://mobx-state-tree.js.org) may help. Otherwise check out whether [React Query](https://github.com/tannerlinsley/react-query) is something for you.
 
-If you want to go into more detail, head over to my [comprehensive state management in React tutorial](/react-state).
+If you want to go into more detail, head over to my [comprehensive state management in React tutorial](/react-state/).
 
 **Recommendations:**
 
@@ -67,7 +67,7 @@ Before you introduce a heavy router in your application, when you are just about
 
 # Styling Libraries in React
 
-There are many opinions about styling in React out there. If you want to have a more comprehensive guide about styling in React, check out this guide: [React CSS Styling](/react-css-styling).
+There are many opinions about styling in React out there. If you want to have a more comprehensive guide about styling in React, check out this guide: [React CSS Styling](/react-css-styling/).
 
 But let's get started with a brief overview. As a React beginner, it is just fine to start with inline style and bare bones CSS:
 
@@ -82,7 +82,7 @@ const Headline = ({ title }) =>
 
 Whereas inline style can be used to add style dynamically and programmatically with JavaScript in React, an external CSS file can have all the remaining style for your React application. Once your application grows, there are many other styling options though.
 
-First, I would recommend you to have a look into CSS Modules as one of many CSS-in-CSS solutions. CSS Modules are [supported by create-react-app](/create-react-app-css-modules) and give you a way to encapsulate your CSS into modules. This way, it doesn't leak accidentally into the styling of others React components. Whereas some parts of your application can still share style, other parts don't have to get access to it. In React, CSS Modules are most often co-located CSS files to your React component files.
+First, I would recommend you to have a look into CSS Modules as one of many CSS-in-CSS solutions. CSS Modules are [supported by create-react-app](/create-react-app-css-modules/) and give you a way to encapsulate your CSS into modules. This way, it doesn't leak accidentally into the styling of others React components. Whereas some parts of your application can still share style, other parts don't have to get access to it. In React, CSS Modules are most often co-located CSS files to your React component files.
 
 ```javascript
 import styles from './style.css';
@@ -93,7 +93,7 @@ const Headline = ({ title }) =>
   </h1>
 ```
 
-Second, I want to recommend you so called styled components as one of many CSS-in-JS solutions for React. This approach is brought to you by a library called [styled-components](/react-styled-components) which co-locates styling with JavaScript next to your React components:
+Second, I want to recommend you so called styled components as one of many CSS-in-JS solutions for React. This approach is brought to you by a library called [styled-components](/react-styled-components/) which co-locates styling with JavaScript next to your React components:
 
 ```javascript
 import styled from 'styled-components';
@@ -171,7 +171,7 @@ The most popular library for forms in React is [Formik](https://github.com/jared
 
 # Data Fetching Library in React
 
-Pretty soon you will have to make a request to a remote [API](/what-is-an-api-javascript/) for [fetching data in React](/react-hooks-fetch-data). Modern browsers come with the [native fetch API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API) to perform asynchronous data requests:
+Pretty soon you will have to make a request to a remote [API](/what-is-an-api-javascript/) for [fetching data in React](/react-hooks-fetch-data/). Modern browsers come with the [native fetch API](https://developer.mozilla.org/en/docs/Web/API/Fetch_API) to perform asynchronous data requests:
 
 ```javascript
 function App() {
@@ -235,7 +235,7 @@ The first approach is to follow a style guide that is embraced by the community.
 
 The second approach is to use a linter such as ESLint. Whereas a style guide gives you only a recommendation, a linter enforces this recommendation in your application. For instance, you can make it a requirement to follow the popular Airbnb styleguide and your IDE/editor will point you to every mistake.
 
-The third and most popular approach is using [Prettier](https://github.com/prettier/prettier). It is an opinionated code formatter. You can [integrate it in your editor or IDE](/how-to-use-prettier-vscode) that it formats your code every time you save a file. Perhaps it doesn't match always your taste, but at least you never need to worry again about code formatting in your own or a team code base. Prettier doesn't replace ESLint though, but it [integrates nicely](/prettier-eslint) with it.
+The third and most popular approach is using [Prettier](https://github.com/prettier/prettier). It is an opinionated code formatter. You can [integrate it in your editor or IDE](/how-to-use-prettier-vscode/) that it formats your code every time you save a file. Perhaps it doesn't match always your taste, but at least you never need to worry again about code formatting in your own or a team code base. Prettier doesn't replace ESLint though, but it [integrates nicely](/prettier-eslint/) with it.
 
 **Recommendations:**
 
@@ -267,13 +267,13 @@ You can deploy and host a React application like any other web application. If y
 
 # Testing in React
 
-If you want to get a deep dive about testing in React, read this: [How to test components in React](/react-testing-tutorial). Here comes the gist: The backbone of testing a React application is [Jest](https://github.com/facebook/jest). It gives you test runner, assertion library and spying/mocking/stubbing functionalities. Everything that's needed from a comprehensive test framework.
+If you want to get a deep dive about testing in React, read this: [How to test components in React](/react-testing-tutorial/). Here comes the gist: The backbone of testing a React application is [Jest](https://github.com/facebook/jest). It gives you test runner, assertion library and spying/mocking/stubbing functionalities. Everything that's needed from a comprehensive test framework.
 
-At the minimum, you can render React components in your Jest tests with [react-test-renderer](https://reactjs.org/docs/test-renderer.html). This is already sufficient to perform so called [Snapshot Tests with Jest](/react-testing-jest). A snapshot test works the following way: Once you run your tests, a snapshot of your rendered DOM elements of the React component is created. When you run your tests again at some point in time, another snapshot is created which is used as diff for the previous snapshot. If the diff is not identical, Jest will complain and you either have to accept the snapshot or change the implementation of your component.
+At the minimum, you can render React components in your Jest tests with [react-test-renderer](https://reactjs.org/docs/test-renderer.html). This is already sufficient to perform so called [Snapshot Tests with Jest](/react-testing-jest/). A snapshot test works the following way: Once you run your tests, a snapshot of your rendered DOM elements of the React component is created. When you run your tests again at some point in time, another snapshot is created which is used as diff for the previous snapshot. If the diff is not identical, Jest will complain and you either have to accept the snapshot or change the implementation of your component.
 
-Eventually you will find yourself using [Enzyme](/react-testing-jest-enzyme) or [React Testing Library](/react-testing-library) -- both used within the Jest testing environment too -- for a more elaborate testing feature set. Both libraries make it possible to render your components and to simulate events on HTML elements. Afterward, Jest is used for the assertions on the DOM nodes.
+Eventually you will find yourself using [Enzyme](/react-testing-jest-enzyme/) or [React Testing Library](/react-testing-library/) -- both used within the Jest testing environment too -- for a more elaborate testing feature set. Both libraries make it possible to render your components and to simulate events on HTML elements. Afterward, Jest is used for the assertions on the DOM nodes.
 
-If you are looking for a testing tool for React end-to-end (E2E) tests, [Cypress](/react-testing-cypress) is the most popular choice.
+If you are looking for a testing tool for React end-to-end (E2E) tests, [Cypress](/react-testing-cypress/) is the most popular choice.
 
 **Recommendations:**
 
@@ -283,7 +283,7 @@ If you are looking for a testing tool for React end-to-end (E2E) tests, [Cypress
 
 # Utility Libraries for React
 
-JavaScript gives you plenty of built-in functionalities to deal with arrays, objects, numbers, objects and strings. One of the most used JavaScript built-in functionalities in React is the [built-in map() Array](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/map). Why? Because you always have to render a list of items in a component. Since JSX is a mixture of HTML and JavaScript, you can use JavaScript to map over an array and return JSX. It makes it simple to create [list components](/react-list-component) with React:
+JavaScript gives you plenty of built-in functionalities to deal with arrays, objects, numbers, objects and strings. One of the most used JavaScript built-in functionalities in React is the [built-in map() Array](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/map). Why? Because you always have to render a list of items in a component. Since JSX is a mixture of HTML and JavaScript, you can use JavaScript to map over an array and return JSX. It makes it simple to create [list components](/react-list-component/) with React:
 
 ```javascript
 const List = ({ list }) =>
@@ -305,7 +305,7 @@ Vanilla JavaScript gives you plenty of built-in tools to handle with data struct
 
 # React Internationalization
 
-When it comes to [internationalization i18n for your React application](/react-internationalization), you need to think not only about translations, but also about pluralizations, formattings for dates and currencies, and a handful of other things. These are the most popular libraries for dealing with it:
+When it comes to [internationalization i18n for your React application](/react-internationalization/), you need to think not only about translations, but also about pluralizations, formattings for dates and currencies, and a handful of other things. These are the most popular libraries for dealing with it:
 
 * [react-i18next](https://github.com/i18next/react-i18next)
 * [react-intl](https://github.com/formatjs/react-intl)

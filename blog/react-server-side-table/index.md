@@ -18,7 +18,7 @@ In this tutorial, I want to show you how to use [React Table Library](https://re
 npm install @table-library/react-table-library styled-components
 ```
 
-We will use the feature rich [Hacker News API](https://hn.algolia.com/api) for fetching server-side data, but also for performing server-side operations like **paging, searching/filtering, and sorting**. Let's start by [fetching some initial data](/react-hooks-fetch-data) in our React component. We will be using [axios to fetch the server-side data](/react-axios), but feel free to use something else. If you want to use axios as well, do not forget to install it on the command line.
+We will use the feature rich [Hacker News API](https://hn.algolia.com/api) for fetching server-side data, but also for performing server-side operations like **paging, searching/filtering, and sorting**. Let's start by [fetching some initial data](/react-hooks-fetch-data/) in our React component. We will be using [axios to fetch the server-side data](/react-axios/), but feel free to use something else. If you want to use axios as well, do not forget to install it on the command line.
 
 ```javascript
 import * as React from 'react';
@@ -106,11 +106,11 @@ const App = () => {
 };
 ```
 
-If you haven't worked with React Table Library before, you could start over here ([How to create a React Table Component](/react-table-component)) to get to know it. That's it for the **initial fetching of the server-side data**. In this case, we are fetching data based on one fixed search term (`query`). In the following we will replace this with a server-side search.
+If you haven't worked with React Table Library before, you could start over here ([How to create a React Table Component](/react-table-component/)) to get to know it. That's it for the **initial fetching of the server-side data**. In this case, we are fetching data based on one fixed search term (`query`). In the following we will replace this with a server-side search.
 
 # Server-Side Search
 
-If you want to see how search works with React Table Library, do not hesitate to go first through the client-side [React Table with Search](/react-table-search) tutorial. In this guide though, we want to advance the functionality with **server-side search**.
+If you want to see how search works with React Table Library, do not hesitate to go first through the client-side [React Table with Search](/react-table-search/) tutorial. In this guide though, we want to advance the functionality with **server-side search**.
 
 First, add an HTML input field and a search state which can be changed by typing into this input field:
 
@@ -178,7 +178,7 @@ const App = () => {
 };
 ```
 
-What's missing is that we can be notified on the changing search state -- so that we can perform another server-side search request. We could do this in the [event handler](/react-event-handler) for the search feature or in another [useEffect hook](/react-useeffect-hook), however, React Table Library gives us a neat way of merging an outside state (here `search`) with the table state in one of its hooks:
+What's missing is that we can be notified on the changing search state -- so that we can perform another server-side search request. We could do this in the [event handler](/react-event-handler/) for the search feature or in another [useEffect hook](/react-useeffect-hook/), however, React Table Library gives us a neat way of merging an outside state (here `search`) with the table state in one of its hooks:
 
 ```javascript{9}
 import {
@@ -376,7 +376,7 @@ Both server-side operations have been merged, because we can use both states, wh
 
 # Server-Side Pagination
 
-If you want to learn about client-side pagination first, head over to this tutorial: [React Table with Pagination](/react-table-pagination). Anyway, now we are going to implement **server-side pagination**. First of all, we would need to adjust the data fetching based on a new page parameter. We will start with the first page (here indexed by `0`) by default:
+If you want to learn about client-side pagination first, head over to this tutorial: [React Table with Pagination](/react-table-pagination/). Anyway, now we are going to implement **server-side pagination**. First of all, we would need to adjust the data fetching based on a new page parameter. We will start with the first page (here indexed by `0`) by default:
 
 ```javascript{4,10,14,24,32}
 const INITIAL_PARAMS = {

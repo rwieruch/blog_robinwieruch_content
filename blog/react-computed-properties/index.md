@@ -16,7 +16,7 @@ Today I came across a question in my Newsletter regarding computed properties in
 
 # Computed Properties in React
 
-Before we dive into computed properties in React, I want to show you the problem in React code which came up in the question of my Newsletter. In this minimal React application, we use a React [function component](/react-function-component) as a specialized [React list component](/react-list-component) with [React's useState Hook](/react-usestate-hook) to manage a stateful list:
+Before we dive into computed properties in React, I want to show you the problem in React code which came up in the question of my Newsletter. In this minimal React application, we use a React [function component](/react-function-component/) as a specialized [React list component](/react-list-component) with [React's useState Hook](/react-usestate-hook/) to manage a stateful list:
 
 ```javascript
 import React from 'react';
@@ -46,7 +46,7 @@ function App() {
 export default App;
 ```
 
-The feature of this list component is that it allows us to sort properties in the list. Imagine that in a larger list component there could be multiple sortable properties. In this case, we are just using two buttons though with [event handlers](/react-event-handler) for the sorting mechanism via Lodash's sort function of these two properties:
+The feature of this list component is that it allows us to sort properties in the list. Imagine that in a larger list component there could be multiple sortable properties. In this case, we are just using two buttons though with [event handlers](/react-event-handler/) for the sorting mechanism via Lodash's sort function of these two properties:
 
 ```javascript{2,11-14,16-19,25-30}
 import React from 'react';
@@ -378,7 +378,7 @@ function App() {
 export default App;
 ```
 
-Again, we are just deriving values from the raw state. Now, React performance enthusiast may go up on the fence because the sorted list is calculated on every render of the component. If it really becomes the case that computations in a React's component function's body has some kind of performance impact, you can use [React's useMemo Hook](/react-usememo-hook):
+Again, we are just deriving values from the raw state. Now, React performance enthusiast may go up on the fence because the sorted list is calculated on every render of the component. If it really becomes the case that computations in a React's component function's body has some kind of performance impact, you can use [React's useMemo Hook](/react-usememo-hook/):
 
 ```javascript{3-9}
 ...

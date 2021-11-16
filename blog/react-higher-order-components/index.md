@@ -565,7 +565,7 @@ function TodoList({ todos }) {
 }
 ```
 
-If you are curious about how recompose makes stateless components stateful, you can checkout this article: [React State without a Class](/react-state-without-constructor).
+If you are curious about how recompose makes stateless components stateful, you can checkout this article: [React State without a Class](/react-state-without-constructor/).
 
 <Divider />
 

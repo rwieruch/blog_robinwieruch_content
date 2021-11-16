@@ -12,13 +12,13 @@ author: ""
 
 <Sponsorship />
 
-Docker Compose helps you to run multi-container applications. In this tutorial, we will expand a Docker project which has only a Dockerfile with Docker Compose. Before you continue, make sure that you have [set up Docker properly](/docker-macos). If you haven't installed the docker-compose dependency, you can do it with Homebrew on MacOS with the following instruction on the command line:
+Docker Compose helps you to run multi-container applications. In this tutorial, we will expand a Docker project which has only a Dockerfile with Docker Compose. Before you continue, make sure that you have [set up Docker properly](/docker-macos/). If you haven't installed the docker-compose dependency, you can do it with Homebrew on MacOS with the following instruction on the command line:
 
 ```text
 brew install docker-compose
 ```
 
-We will use the following Dockerfile [from a Node.js with Docker project](/docker-node-js-development) as base. But feel free to use a Dockerfile from another project (e.g. [React with create-react-app](/docker-create-react-app-development) or [custom React with Webpack](/docker-react-development)). Our Dockerfile should look like the following:
+We will use the following Dockerfile [from a Node.js with Docker project](/docker-node-js-development/) as base. But feel free to use a Dockerfile from another project (e.g. [React with create-react-app](/docker-create-react-app-development/) or [custom React with Webpack](/docker-react-development/)). Our Dockerfile should look like the following:
 
 ```text
 FROM node:10
@@ -90,7 +90,7 @@ services:
     command: npm test
 ```
 
-Note: If you haven't setup any test script in your Node.js project yet, or any tests at all, you may want to follow one of these Node.js testing tutorials: [Mocha, Chai, and Sinon](/node-js-testing-mocha-chai) or [Jest](/node-js-jest). Otherwise you may want to use any other script that you have at your hands for the second service in the Docker Compose file.
+Note: If you haven't setup any test script in your Node.js project yet, or any tests at all, you may want to follow one of these Node.js testing tutorials: [Mocha, Chai, and Sinon](/node-js-testing-mocha-chai/) or [Jest](/node-js-jest/). Otherwise you may want to use any other script that you have at your hands for the second service in the Docker Compose file.
 
 We used the CI=true flag to run all our tests only once, because some test runners (e.g. Jest) would run the tests in watch mode and thus would never exit the process. Finally, you can start this service as a Docker container. It's only there for testing purposes; which is why it's clearly separated from the `dev` service which starts your application for development purposes. We are using the `--rm` flag to remove the container automatically after this service terminates.
 
@@ -122,7 +122,7 @@ services:
       - './:/usr/src/app'
 ```
 
-Now, everything that happens in the Docker container (`./usr/src/app`) is written to the Docker host (`./`) and vice versa. The relative path for the Docker container should match the `WORKDIR` from the Dockerfile. Personally I had to use this technique for simulating [visual regression testing in React](/visual-regression-testing-react-storybook) in a Docker container while being able to write the result back into my source code.
+Now, everything that happens in the Docker container (`./usr/src/app`) is written to the Docker host (`./`) and vice versa. The relative path for the Docker container should match the `WORKDIR` from the Dockerfile. Personally I had to use this technique for simulating [visual regression testing in React](/visual-regression-testing-react-storybook/) in a Docker container while being able to write the result back into my source code.
 
 <Divider />
 

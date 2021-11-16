@@ -12,13 +12,13 @@ author: ""
 
 <Sponsorship />
 
-I've always been fascinated by APIs. In fact APIs, distributed systems, and web services are [the reason why I learned to code](/what-is-an-api-javascript). When I started my first job as a junior frontend developer, it wasn't foreign to me to interact with a backend API. I was always fond of decoupled client-server architectures. When I started to be self-employed in 2017 and started to work as a consultant for clients, I got confronted with microservice architectures more often. This brought the whole decoupling of services on a next level for me.
+I've always been fascinated by APIs. In fact APIs, distributed systems, and web services are [the reason why I learned to code](/what-is-an-api-javascript/). When I started my first job as a junior frontend developer, it wasn't foreign to me to interact with a backend API. I was always fond of decoupled client-server architectures. When I started to be self-employed in 2017 and started to work as a consultant for clients, I got confronted with microservice architectures more often. This brought the whole decoupling of services on a next level for me.
 
 While I was working with clients on *their* projects, I extended my online portfolio with websites and side-projects too. One of these side-projects turned out to be a [platform for selling self-published ebooks as courses](https://courses.robinwieruch.de/), which I had started at the same time as getting self-employed. It goes [beyond just the selling](https://twitter.com/rwieruch/status/1243209627707346944), because it also offers features like coupon codes and partner programs.
 
 So what does my web application have to do with microservices? Since I was always drawn towards decoupling my APIs, I went down this road as a solo developer too. As it turns out, it was too much for one single person. Who would have thought this ;-) Hence the clickbaity title why I stopped using Microservices, which doesn't imply that companies with multiple teams should stop using them.
 
-*Disclaimer: I do not claim to be a microservice expert here. I am just experimenting. As a solo developer on my side-projects, I didn't push the microservice scenario too far, which means I didn't go beyond 5 microservices before I gave up on this approach and I didn't use K8S or any other of these more sophisticated tech stacks. I [host all my projects](/deploy-applications-digital-ocean), whether they are websites, web applications or APIs, on DigitalOcean.*
+*Disclaimer: I do not claim to be a microservice expert here. I am just experimenting. As a solo developer on my side-projects, I didn't push the microservice scenario too far, which means I didn't go beyond 5 microservices before I gave up on this approach and I didn't use K8S or any other of these more sophisticated tech stacks. I [host all my projects](/deploy-applications-digital-ocean/), whether they are websites, web applications or APIs, on DigitalOcean.*
 
 Let's start with the good parts and end with the bad parts.
 

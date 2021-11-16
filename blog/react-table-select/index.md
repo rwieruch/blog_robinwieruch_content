@@ -65,7 +65,7 @@ const App = () => {
 };
 ```
 
-The onChange [callback function](/javascript-callback-function) gives you access to the action which triggered the selection change and to the actual selection state of your table. By having access to this information, you can trigger further table or non-table events (e.g. side-effect such as data fetching) based on it.
+The onChange [callback function](/javascript-callback-function/) gives you access to the action which triggered the selection change and to the actual selection state of your table. By having access to this information, you can trigger further table or non-table events (e.g. side-effect such as data fetching) based on it.
 
 Last, it's worth to note that the select object that you have passed to the table is packed with the **selection state** -- which gives you the ability to access it any time -- and all the functions to **select rows programmatically**. We will see this later in detail when using custom select components in this React table.
 

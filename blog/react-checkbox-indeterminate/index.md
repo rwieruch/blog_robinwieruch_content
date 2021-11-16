@@ -111,7 +111,7 @@ const Checkbox = ({ label, value, onChange }) => {
 
 We have the same behavior as before, but enabled us to have more than two states for our checkbox.
 
-Next comes the indeterminate state of a checkbox. Unfortunately it cannot be assigned via HTML and we need to use an imperative DOM manipulation here. Fortunately React has the concept of [refs](/react-ref) which gives React developers access to DOM elements:
+Next comes the indeterminate state of a checkbox. Unfortunately it cannot be assigned via HTML and we need to use an imperative DOM manipulation here. Fortunately React has the concept of [refs](/react-ref/) which gives React developers access to DOM elements:
 
 ```javascript{2,7}
 const Checkbox = ({ label, value, onChange }) => {
@@ -154,7 +154,7 @@ const Checkbox = ({ label, value, onChange }) => {
 };
 ```
 
-[React's useEffect Hook](/react-useeffect-hook) executes its passed side-effect function every time a variable in the dependency array (here: `value`) changes. Then in the side-effect function we evaluate the value: if it is checked, we set the checkbox's internal HTML state programmatically to checked; and vice versa for the unchecked state.
+[React's useEffect Hook](/react-useeffect-hook/) executes its passed side-effect function every time a variable in the dependency array (here: `value`) changes. Then in the side-effect function we evaluate the value: if it is checked, we set the checkbox's internal HTML state programmatically to checked; and vice versa for the unchecked state.
 
 Finally, we can assign the indeterminate state this way too:
 

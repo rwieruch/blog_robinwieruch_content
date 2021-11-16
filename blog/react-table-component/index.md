@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) for **creating a table component in React**. After this tutorial, there will be many other examples which you can continue to build, such as searching, sorting, [selecting](/react-table-select), or pagination features for your React table by using the library's documentation. But let's start with the basics.
+In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) for **creating a table component in React**. After this tutorial, there will be many other examples which you can continue to build, such as searching, sorting, [selecting](/react-table-select/), or pagination features for your React table by using the library's documentation. But let's start with the basics.
 
 Let's begin by installing React Table Library via your command line:
 
@@ -63,11 +63,11 @@ const App = () => {
 };
 ```
 
-The Table component accepts a data object as [prop](/react-pass-props-to-component) with a `nodes` property. These nodes are the items in our lists, however, the table keeps it more generic to the naming of `nodes`, because the table can not only display list structures but also [tree structures](/react-table-tree).
+The Table component accepts a data object as [prop](/react-pass-props-to-component/) with a `nodes` property. These nodes are the items in our lists, however, the table keeps it more generic to the naming of `nodes`, because the table can not only display list structures but also [tree structures](/react-table-tree/).
 
-Moreover, the Table component uses a [function as a children](/react-render-props) which gives us access to our list within the table as `tableList`. Internally the Table component applies all sorts of modifications onto our list -- e.g. sorting, pagination and so on, if these plugins are enabled -- and thus the `tableList` (and not `data` or `list`) should be used to render the items within the table.
+Moreover, the Table component uses a [function as a children](/react-render-props/) which gives us access to our list within the table as `tableList`. Internally the Table component applies all sorts of modifications onto our list -- e.g. sorting, pagination and so on, if these plugins are enabled -- and thus the `tableList` (and not `data` or `list`) should be used to render the items within the table.
 
-React Table Library uses [composition over configuration](/react-component-composition). Therefore, you get all the necessary building blocks as components from the library itself. Let's begin with the header of our table:
+React Table Library uses [composition over configuration](/react-component-composition/). Therefore, you get all the necessary building blocks as components from the library itself. Let's begin with the header of our table:
 
 ```javascript{4-6,17-24}
 import * as React from 'react';
@@ -102,7 +102,7 @@ const App = () => {
 
 By using these components, you can create a table as a composition from components whereas each component has its own responsibility. For example, instead of having only one Table component which accepts one large configuration object, we have composable components -- such as Header, HeaderRow, and HeaderCell, which can receive dedicated props.
 
-Next, let's display our items like we are used to when [rendering lists in React](/react-list-component) by rendering Row components with a [key](/react-list-key) for each item within a Body component:
+Next, let's display our items like we are used to when [rendering lists in React](/react-list-component/) by rendering Row components with a [key](/react-list-key/) for each item within a Body component:
 
 ```javascript{7-9,20,25-43,44}
 import * as React from 'react';

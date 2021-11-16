@@ -199,7 +199,7 @@ One could say that before single-page application we have worked with multi-page
 ### Exercises:
 
 * Learn [how to use React](https://www.roadtoreact.com/) for single-page application development.
-* Learn [how to set up a React with Webpack application](/minimal-react-webpack-babel-setup) from scratch.
+* Learn [how to set up a React with Webpack application](/minimal-react-webpack-babel-setup/) from scratch.
 
 # Full-Stack Applications
 
@@ -243,13 +243,13 @@ A REST API connects client and server applications without them needing to be im
 
 ![](./images/13.png)
 
-A modern alternative to REST is [GraphQL](/why-graphql-advantages-disadvantages-alternatives) for APIs between clients and servers. GraphQL isn't bound to a data format either, and in contrast to REST not bound to HTTP, but most often you will see HTTP and JSON used here as well.
+A modern alternative to REST is [GraphQL](/why-graphql-advantages-disadvantages-alternatives/) for APIs between clients and servers. GraphQL isn't bound to a data format either, and in contrast to REST not bound to HTTP, but most often you will see HTTP and JSON used here as well.
 
 With the technology discussed up to this point, full-stack applications decouple client and server applications. Both communicate via a well-chosen API (e.g. REST or GraphQL). While the client application renders everything necessary for the web application in the browser, the server application handles requests from the client for read and write operations.
 
 ### Exercises:
 
-* Learn [how to create a REST API with Node.js](/node-express-server-rest-api).
+* Learn [how to create a REST API with Node.js](/node-express-server-rest-api/).
 * Read more about [why you would want to use GraphQL instead of REST](/why-graphql-advantages-disadvantages-alternatives).
 * Learn [how to use GraphQL](https://www.roadtographql.com/) for full-stack JavaScript applications.
 
@@ -279,7 +279,7 @@ In a microservice architecture, each backend application can be created with a d
 
 ### Exercises:
 
-* Read [why I stopped using Microservices as a solo developer](/microservices-tradeoffs).
+* Read [why I stopped using Microservices as a solo developer](/microservices-tradeoffs/).
 
 ## Backend-As-A-Service (Optional)
 

@@ -38,7 +38,7 @@ const App = () => {
 };
 ```
 
-In your browser, this radio button can already change its checked state. However, this is just the radio button's internal HTML state which isn't controlled by React yet. Let's change this by transforming this radio button from being [uncontrolled to controlled](/react-controlled-components):
+In your browser, this radio button can already change its checked state. However, this is just the radio button's internal HTML state which isn't controlled by React yet. Let's change this by transforming this radio button from being [uncontrolled to controlled](/react-controlled-components/):
 
 ```javascript{2,4-6,11}
 const App = () => {
@@ -59,7 +59,7 @@ const App = () => {
 };
 ```
 
-By using [React's useState Hook](/react-usestate-hook) and an [event handler](/react-event-handler), we can keep track of the radio button's value via [React's state](/react-state). Next we may want to create a Radio Button component which can be used more than once throughout a React project. Therefore, we will extract it as a new [function component](/react-function-component) and [pass the necessary props](/react-pass-props-to-component) to it:
+By using [React's useState Hook](/react-usestate-hook/) and an [event handler](/react-event-handler/), we can keep track of the radio button's value via [React's state](/react-state/). Next we may want to create a Radio Button component which can be used more than once throughout a React project. Therefore, we will extract it as a new [function component](/react-function-component/) and [pass the necessary props](/react-pass-props-to-component/) to it:
 
 ```javascript{10-14,19-26}
 const App = () => {
@@ -90,7 +90,7 @@ const RadioButton = ({ label, value, onChange }) => {
 };
 ```
 
-Our Radio Button component is a [reusable component](/react-reusable-components) now. For example, if you would give your input field some [CSS style in React](/react-css-styling), every Radio Button component which is used in your React project would use the same style.
+Our Radio Button component is a [reusable component](/react-reusable-components/) now. For example, if you would give your input field some [CSS style in React](/react-css-styling/), every Radio Button component which is used in your React project would use the same style.
 
 If you would want to create a radio button group now, you could just use multiple Radio Button components side by side and maybe style them with some border and some alignment, so that a user perceives them as a group of radio buttons:
 

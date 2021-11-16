@@ -12,11 +12,11 @@ author: ""
 
 <Sponsorship />
 
-**This tutorial is outdated. Please read over here everything you need to know about [React Ref](/react-ref).**
+**This tutorial is outdated. Please read over here everything you need to know about [React Ref](/react-ref/).**
 
 In the past there has been a lot of confusion around the `ref` attribute in React. The attribute makes it possible to reference a DOM node in order to access it and to interact with it. This article should give some clarification around the `ref` attribute in React. It shows you **how** you can use it, **when** you should use it and **where** it can be used.
 
-On a side note: Don't mistake the `ref` attribute with the `this.refs` object. The latter was used in React in the past. There you would have used a string over a [callback function](/javascript-callback-function) to reference a DOM node. It was deprecated in favor of the `ref` attribute.
+On a side note: Don't mistake the `ref` attribute with the `this.refs` object. The latter was used in React in the past. There you would have used a string over a [callback function](/javascript-callback-function/) to reference a DOM node. It was deprecated in favor of the `ref` attribute.
 
 # How does React's Ref attribute work?
 

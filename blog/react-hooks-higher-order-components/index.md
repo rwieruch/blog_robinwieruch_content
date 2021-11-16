@@ -12,13 +12,13 @@ author: ""
 
 <Sponsorship />
 
-In a modern React world, everyone uses [function components](/react-function-component) with [React Hooks](/react-hooks). However, the concept of [higher-order components (HOC)](/react-higher-order-components) is still applicable in a modern React world, because they can be used for class components and function components. Therefore they are the perfect bridge for using reusable abstractions among [legacy and modern React components](/react-component-types).
+In a modern React world, everyone uses [function components](/react-function-component/) with [React Hooks](/react-hooks/). However, the concept of [higher-order components (HOC)](/react-higher-order-components/) is still applicable in a modern React world, because they can be used for class components and function components. Therefore they are the perfect bridge for using reusable abstractions among [legacy and modern React components](/react-component-types/).
 
 I am still an advocate for higher-order components these days because their composable nature of enhancing components fascinates me. However, there are problems with HOCs which shouldn't be denied and which are entirely solved by React Hooks. This is why I want to point out these problems, so that developers can make an informed decision whether they want to use an HOC over an Hook for certain scenarios or whether they just want to go all-in with React Hooks after all.
 
 # HOCs vs Hooks: Prop Confusion
 
-Let's take the following higher-order component (HOC) which is used for a [conditional rendering](/conditional-rendering-react). If there is an error, it renders an error message. If there is no error, it renders the *given component*:
+Let's take the following higher-order component (HOC) which is used for a [conditional rendering](/conditional-rendering-react/). If there is an error, it renders an error message. If there is no error, it renders the *given component*:
 
 ```javascript
 import * as React from 'react';
@@ -34,9 +34,9 @@ const withError = (Component) => (props) => {
 export default withError;
 ```
 
-Note how the HOC [passes all the props](/react-pass-props-to-component) to the given component if there is no error. Everything should be working fine this way, however, there *may* be too many props passed to the next component which isn't necessarily concerned about all of them.
+Note how the HOC [passes all the props](/react-pass-props-to-component/) to the given component if there is no error. Everything should be working fine this way, however, there *may* be too many props passed to the next component which isn't necessarily concerned about all of them.
 
-For example, it could be that the next component doesn't care at all about the error, thus it would be a better practice to remove the error with a [rest operator](/javascript-destructuring-rest-parameters) from the props before forwarding the props to the next component:
+For example, it could be that the next component doesn't care at all about the error, thus it would be a better practice to remove the error with a [rest operator](/javascript-destructuring-rest-parameters/) from the props before forwarding the props to the next component:
 
 ```javascript{3,4,8}
 import * as React from 'react';
@@ -52,7 +52,7 @@ const withError = (Component) => ({ error, ...rest }) => {
 export default withError;
 ```
 
-This version should work as well, at least if the given component doesn't need the error prop. However, these both versions of a HOC already show the surfacing problem of prop confusion when using HOCs. Most often props are just passed through HOCs by using the [spread operator](/javascript-spread-operator) and only partly used in the HOC itself. Often it isn't clear from the start whether the given component needs all the props provided to the HOC (first version) or is just fine with only a part of the props (second version).
+This version should work as well, at least if the given component doesn't need the error prop. However, these both versions of a HOC already show the surfacing problem of prop confusion when using HOCs. Most often props are just passed through HOCs by using the [spread operator](/javascript-spread-operator/) and only partly used in the HOC itself. Often it isn't clear from the start whether the given component needs all the props provided to the HOC (first version) or is just fine with only a part of the props (second version).
 
 That's the first caveat of using a HOC; which gets quickly unpredictable when using multiple HOCs which are composed onto each other, because then one has not only to consider what props are needed for the given component, but also what props are needed for the other HOCs in the composition. For example, let's say we have another HOC for rendering a conditional loading indicator:
 
@@ -272,9 +272,9 @@ const App = () => {
 };
 ```
 
-Do you see the flexibility we gain here? We only return early with an loading indicator if the user is still loading, however, if the user is already there and only the user profile is pending, we are only partially rendering a loading indicator where the data is missing (here also due to the power of [component composition](/react-component-composition)). We could do the same for the error, however, because we gained all this power over how to deal with the outcome of the requests, we can render the same error message for both errors. If we later decide we want to deal with both errors differently, we can do this in this one component and not in our abstraction (whether it's HOC or Hook).
+Do you see the flexibility we gain here? We only return early with an loading indicator if the user is still loading, however, if the user is already there and only the user profile is pending, we are only partially rendering a loading indicator where the data is missing (here also due to the power of [component composition](/react-component-composition/)). We could do the same for the error, however, because we gained all this power over how to deal with the outcome of the requests, we can render the same error message for both errors. If we later decide we want to deal with both errors differently, we can do this in this one component and not in our abstraction (whether it's HOC or Hook).
 
-After all, and that's why we come to this conclusion in the first place, we avoided the naming collision by renaming the variables which comes as output from the React Hooks within the [object destructuring](/javascript-destructuring-object). When using HOCs, we need to be aware of HOCs maybe using the same names for props internally. It's often obvious when using the same HOC twice, but what happens if you are using two different HOCs which -- just by accident -- use the same naming for a prop? They would override each others data and leave you baffled why your receiving component doesn't get the correct props.
+After all, and that's why we come to this conclusion in the first place, we avoided the naming collision by renaming the variables which comes as output from the React Hooks within the [object destructuring](/javascript-destructuring-object/). When using HOCs, we need to be aware of HOCs maybe using the same names for props internally. It's often obvious when using the same HOC twice, but what happens if you are using two different HOCs which -- just by accident -- use the same naming for a prop? They would override each others data and leave you baffled why your receiving component doesn't get the correct props.
 
 # HOCs vs Hooks: Dependencies
 
@@ -426,7 +426,7 @@ const App = () => {
 };
 ```
 
-Because React Hooks can be used directly in a function component, they can build up onto each other and it's straightforward to pass data from one hook to another hook if they depend on each other. There is also no real blackbox again, because we can clearly see which information needs to be passed to these [custom hooks](/react-custom-hooks) and which information comes out from them. When using React Hooks that depend on each other, the dependencies are more explicit compared to using HOCs.
+Because React Hooks can be used directly in a function component, they can build up onto each other and it's straightforward to pass data from one hook to another hook if they depend on each other. There is also no real blackbox again, because we can clearly see which information needs to be passed to these [custom hooks](/react-custom-hooks/) and which information comes out from them. When using React Hooks that depend on each other, the dependencies are more explicit compared to using HOCs.
 
 <Divider />
 

@@ -35,7 +35,7 @@ const initialTodos = [
 ];
 ```
 
-Second, we have our [reducer function](/javascript-reducer), which enables us to transition from one state to another state by using actions:
+Second, we have our [reducer function](/javascript-reducer/), which enables us to transition from one state to another state by using actions:
 
 ```javascript
 const todoReducer = (state, action) => {
@@ -62,7 +62,7 @@ const todoReducer = (state, action) => {
 };
 ```
 
-And last but not least, we have our React component which uses [React's useReducer Hook](/react-usereducer-hook) from the previous React Hooks tutorial:
+And last but not least, we have our React component which uses [React's useReducer Hook](/react-usereducer-hook/) from the previous React Hooks tutorial:
 
 ```javascript
 const App = () => {
@@ -123,7 +123,7 @@ const App = () => {
 };
 ```
 
-What we have right now could be pretty straightforward if React's useReducer Hook would support middleware usage natively. But it doesn't, so we need to come up with a [custom hook](/react-custom-hooks):
+What we have right now could be pretty straightforward if React's useReducer Hook would support middleware usage natively. But it doesn't, so we need to come up with a [custom hook](/react-custom-hooks/):
 
 ```javascript{1-11,14}
 const useReducerWithMiddleware = (
@@ -149,7 +149,7 @@ const App = () => {
 };
 ```
 
-With the middleware function at our hands in the custom hook, we can enhance the useReducer's dispatch function with a [higher-order function](/javascript-higher-order-function):
+With the middleware function at our hands in the custom hook, we can enhance the useReducer's dispatch function with a [higher-order function](/javascript-higher-order-function/):
 
 ```javascript{8-11,13}
 const useReducerWithMiddleware = (
@@ -272,7 +272,7 @@ const useReducerWithMiddleware = (
 };
 ```
 
-However, this doesn't work, because dispatch updates the state asynchronously. So instead, we can wait for any state change in a [useEffect hook](/react-useeffect-hook):
+However, this doesn't work, because dispatch updates the state asynchronously. So instead, we can wait for any state change in a [useEffect hook](/react-useeffect-hook/):
 
 ```javascript{15-17}
 const useReducerWithMiddleware = (
@@ -297,7 +297,7 @@ const useReducerWithMiddleware = (
 };
 ```
 
-For the afterward functions, we don't have the action at our disposal anymore. We can change this by using a [ref instance variable](/react-ref) -- which will be written before we dispatch the action and which can then be read after we dispatched the action:
+For the afterward functions, we don't have the action at our disposal anymore. We can change this by using a [ref instance variable](/react-ref/) -- which will be written before we dispatch the action and which can then be read after we dispatched the action:
 
 ```javascript{9,14,20,22,24}
 const useReducerWithMiddleware = (

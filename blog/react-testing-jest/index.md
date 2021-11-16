@@ -108,7 +108,7 @@ The React application is doing two things:
 
 * First, it renders a Counter component which [receives props](/react-pass-props-to-component/) to render a counter property. The counter property is managed as state up in the App component with a [useState React Hook](/react-usestate-hook/). In addition, the counter state can be updated with two buttons by incrementing and decrementing the state.
 
-* Second, the App component [fetches data](/react-fetching-data) from a [third-party API](/what-is-an-api-javascript/) when it's rendered for the first time. Here we are using [React's useReducer Hook](/react-usereducer-hook/) to manage the data state -- which is either the actual data or an error. If there is an error, we render an error message. If there is data, we render the data as a [list of items in our React component](/react-list-components/).
+* Second, the App component [fetches data](/react-fetching-data/) from a [third-party API](/what-is-an-api-javascript/) when it's rendered for the first time. Here we are using [React's useReducer Hook](/react-usereducer-hook/) to manage the data state -- which is either the actual data or an error. If there is an error, we render an error message. If there is data, we render the data as a [list of items in our React component](/react-list-components/).
 
 Note that we already export our two components and the reducer function from the file to make them testable in our test file(s) later on. This way, every component and the reducer can be tested in isolation -- which makes especially sense for the reducer function to test the state transitions from one to another state. That's what you would call a real unit test: The function is tested with an input and the test asserts an expected output.
 

@@ -14,7 +14,7 @@ author: ""
 
 <LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "React Context", url: "/react-context/" }]} />
 
-React's [Function Components](/react-function-component) come with [React Hooks](/react-hooks) these days. Not only can React Hooks be used for [State in React](/react-state) (e.g. [useState](/react-usestate-hook) and [useReducer](/react-usereducer-hook)) but also for **consuming React's Context**.
+React's [Function Components](/react-function-component/) come with [React Hooks](/react-hooks/) these days. Not only can React Hooks be used for [State in React](/react-state/) (e.g. [useState](/react-usestate-hook/) and [useReducer](/react-usereducer-hook/)) but also for **consuming React's Context**.
 
 This tutorial shows you how to use **React's useContext Hook**. Before, make sure to read my [React Context](/react-context) tutorial which offers answers to the following questions:
 
@@ -25,7 +25,7 @@ This tutorial shows you how to use **React's useContext Hook**. Before, make sur
 
 # React's useContext Hook
 
-In the following example, we have a bookstore where we want to show the user a [list](/react-list-component) of books whereas each book has a title and a price tag. Depending on where the user comes from, we want to show the price in the desired currency. Let's say our *src/App.js* looks the following way:
+In the following example, we have a bookstore where we want to show the user a [list](/react-list-component/) of books whereas each book has a title and a price tag. Depending on where the user comes from, we want to show the price in the desired currency. Let's say our *src/App.js* looks the following way:
 
 ```javascript
 import React from 'react';
@@ -102,7 +102,7 @@ const App = () => {
 
 The Context object which we have created before exposes a Provider component -- which is most often used somewhere at the top-level (e.g. App component) of your React application to **provide its context to all child components** (who are interested in it) below.
 
-This means that we are not passing the value via [props](/react-pass-props-to-component). Instead we **pass the value via context**.
+This means that we are not passing the value via [props](/react-pass-props-to-component/). Instead we **pass the value via context**.
 
 In addition, the Context object exposes a Consumer component -- which can be used in all child components (somewhere below the Provider component) which need to access the context:
 
@@ -122,7 +122,7 @@ const Book = ({ item }) => {
 
 That's the most basic approach of using React's Context API with a single top-level Provider component and one Consumer component in a React child component without Hooks. There can be more than one child component using the Consumer component though.
 
-Now comes the important act where we migrate to **React's useContext Hook**. As you can see, the Consumer component coming from React's Context is by default a [render prop component](/react-render-props). In a world where we can use React Hooks, a render prop component isn't always the best choice.
+Now comes the important act where we migrate to **React's useContext Hook**. As you can see, the Consumer component coming from React's Context is by default a [render prop component](/react-render-props/). In a world where we can use React Hooks, a render prop component isn't always the best choice.
 
 Let's see the previous example with React's useContext Hook instead:
 
@@ -167,7 +167,7 @@ const App = () => {
 };
 ```
 
-By clicking one of the buttons, the [inline event handlers](/react-event-handler) will change the stateful value. Because there is a re-rendering happening after the state change, the modified value gets passed via the Provider component to all child components which display it as dynamic value.
+By clicking one of the buttons, the [inline event handlers](/react-event-handler/) will change the stateful value. Because there is a re-rendering happening after the state change, the modified value gets passed via the Provider component to all child components which display it as dynamic value.
 
 We have switched the context from unstateful to stateful. What's missing to make the example feature complete is the converted amount, because only changing the symbol isn't enough.
 
@@ -256,7 +256,7 @@ const App = () => {
 };
 ```
 
-Third, we will extract these buttons as [reusable components](/react-reusable-components) -- which also cleans up the App component:
+Third, we will extract these buttons as [reusable components](/react-reusable-components/) -- which also cleans up the App component:
 
 ```javascript{6,13-19,21-27}
 const App = () => {
@@ -377,7 +377,7 @@ const Book = ({ item }) => {
 };
 ```
 
-Optionally, I expose a [HOC](/react-hooks-higher-order-components), if I have to use context in third-parties like [Styled Components](/styled-components):
+Optionally, I expose a [HOC](/react-hooks-higher-order-components/), if I have to use context in third-parties like [Styled Components](/styled-components/):
 
 ```javascript{7-11,22}
 import React from 'react';

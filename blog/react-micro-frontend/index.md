@@ -160,7 +160,7 @@ module.exports = ({ env, addon }) => {
 };
 ```
 
-*Note: The environment config depends on the other `env` flag that is passed in to evaluate between development or production build. The `getAddons` function is optional, if you have Webpack addons in place. Check again [how to set up a build process and addons with Webpack](/webpack-advanced-setup-tutorial).*
+*Note: The environment config depends on the other `env` flag that is passed in to evaluate between development or production build. The `getAddons` function is optional, if you have Webpack addons in place. Check again [how to set up a build process and addons with Webpack](/webpack-advanced-setup-tutorial/).*
 
 Now we change this implementation to the following:
 

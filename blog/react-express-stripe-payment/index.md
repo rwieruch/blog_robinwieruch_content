@@ -160,7 +160,7 @@ export default Checkout;
 
 The `Checkout` component uses the `StripeCheckout` that comes from the library you've installed before. This component receives your personal props, such as `name`, `amount` and `description`, but also needs a `currency` and your `stripeKey` which is the publishable API key from the Stripe dashboard.
 
-The most important prop is the `token` handler. There you can pass your [callback function](/javascript-callback-function) that will be triggered when the user submits the credit card information. The component library already creates the `token` for you in this callback function. Hence you can send all the necessary information to your backend. Because a promise is returned in axios, you can branch your success and error functions with then and catch.
+The most important prop is the `token` handler. There you can pass your [callback function](/javascript-callback-function/) that will be triggered when the user submits the credit card information. The component library already creates the `token` for you in this callback function. Hence you can send all the necessary information to your backend. Because a promise is returned in axios, you can branch your success and error functions with then and catch.
 
 The `Checkout` component uses constants from two files that you have already created. The last step for the frontend is to define these constants.
 

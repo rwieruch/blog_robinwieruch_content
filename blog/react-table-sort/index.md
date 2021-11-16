@@ -148,7 +148,7 @@ const App = () => {
 };
 ```
 
-The onChange [callback function](/javascript-callback-function) gives you access to the action which triggered the sort change and to the actual sort state of your table. By having access to this information, you can trigger further table or non-table events (e.g. side-effect such as server-side sort) based on it.
+The onChange [callback function](/javascript-callback-function/) gives you access to the action which triggered the sort change and to the actual sort state of your table. By having access to this information, you can trigger further table or non-table events (e.g. side-effect such as server-side sort) based on it.
 
 Last, it's worth to note that the sort object that you have passed to the table is packed with the **sorting state** -- which gives you the ability to access it any time -- and all the functions to **sort columns programmatically**. We will see this later in detail when using custom sort components in this React table.
 

@@ -228,4 +228,4 @@ You can find an example of the [linear regression with gradient descent in JavaS
 
 <Divider />
 
-In conclusion, I hope the walkthrough in JavaScript was useful for you to understand linear regression and gradient descent. If you are sharing the article, it would make me aware of people actually wanting to read more about those topics, so I can write more about them in the future. The next article in this series shows a [vectorized implementation of gradient descent in JavaScript](/linear-regression-gradient-descent-vectorization-javascript). I learn the topic myself, so please leave a comment if there is any mistake.
+In conclusion, I hope the walkthrough in JavaScript was useful for you to understand linear regression and gradient descent. If you are sharing the article, it would make me aware of people actually wanting to read more about those topics, so I can write more about them in the future. The next article in this series shows a [vectorized implementation of gradient descent in JavaScript](/linear-regression-gradient-descent-vectorization-javascript/). I learn the topic myself, so please leave a comment if there is any mistake.

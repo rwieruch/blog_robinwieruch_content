@@ -12,15 +12,15 @@ author: ""
 
 <Sponsorship />
 
-The following React tutorial builds up on [Paginated List in React - Build a powerful Component (Part I)](/react-paginated-list). The series of tutorials goes beyond the basic React components that you encounter in other React tutorials.
+The following React tutorial builds up on [Paginated List in React - Build a powerful Component (Part I)](/react-paginated-list/). The series of tutorials goes beyond the basic React components that you encounter in other React tutorials.
 
 This part of the series will show you how to build an infinite scroll in React. So far, your List component is able to opt-in two functionalities: showing a loading indicator and fetching more list items by using a More button. While the More button fetches manually more items, the infinite scroll should fetch more items once the user scrolled to the end of the list.
 
 In this part of the series, both functionalities, the manual and automatic retrieval, should be opt-in exclusively. In the third part of the series you will learn how to combine both enhancements in one advanced List component with error and fallback handling.
 
-* [Paginated List in React - Build a powerful Component (Part I)](/react-paginated-list)
+* [Paginated List in React - Build a powerful Component (Part I)](/react-paginated-list/)
 * **Infinite Scroll in React - Build a powerful Component (Part II)**
-* [Advanced List in React - Build a powerful Component (Part III)](/react-advanced-list-component)
+* [Advanced List in React - Build a powerful Component (Part III)](/react-advanced-list-component/)
 
 # Infinite Scroll in React
 
@@ -191,4 +191,4 @@ Now the loading state prevents too many requests. Only when there is no pending 
 
 The upcoming and last part of this series will show you how to combine both functionalities, the paginated list and the infinite scroll, to make it a great user experience. A little hint: one of the two can be used as fallback when there was an erroneous request. Other platforms, such as Twitter and Pocket, are using this approach for an improved UX.
 
-You can continue with the third part of the React tutorial series: [Advanced List in React - Build a powerful Component (Part III)](/react-advanced-list-component).
+You can continue with the third part of the React tutorial series: [Advanced List in React - Build a powerful Component (Part III)](/react-advanced-list-component/).

@@ -99,7 +99,7 @@ store.subscribe(() => {
 });
 ```
 
-That's Redux in a nutshell with all its fragments: Action, Reducer, Store. There is no React and no View yet. The View could be considered as the `console.log`. If you didn't learn Redux yet, feel free to check out this long read [React + Redux tutorial](/react-redux-tutorial) which teaches Redux before it integrates into React.
+That's Redux in a nutshell with all its fragments: Action, Reducer, Store. There is no React and no View yet. The View could be considered as the `console.log`. If you didn't learn Redux yet, feel free to check out this long read [React + Redux tutorial](/react-redux-tutorial/) which teaches Redux before it integrates into React.
 
 Redux's Actions, Reducers, Store have all their mandatory place in the Redux toolchain. If there needs to be syntax sugar on top, one can add Action Creators and Selectors. All you need to get started is the [redux](https://github.com/reduxjs/redux) library to create the Redux Store. Everything else is just JavaScript. Also there is nothing to see about a library like React yet. It's clearly separated with its own library -- [react-redux](https://github.com/reduxjs/react-redux) -- and ecosystem.
 

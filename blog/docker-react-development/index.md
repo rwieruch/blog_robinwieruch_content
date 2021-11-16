@@ -14,9 +14,9 @@ author: ""
 
 <LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "How to install Docker on MacOS", url: "/docker-macos" }]} />
 
-Just recently I had to use Docker for my React web application development. Here I want to give you a brief walkthrough on how to achieve it. First of all, we need a React application. Either create a React app yourself, or follow this [minimal React with Webpack setup guide](/minimal-react-webpack-babel-setup). The React + Webpack application can be found [on GitHub](https://github.com/rwieruch/minimal-react-webpack-babel-setup) too.
+Just recently I had to use Docker for my React web application development. Here I want to give you a brief walkthrough on how to achieve it. First of all, we need a React application. Either create a React app yourself, or follow this [minimal React with Webpack setup guide](/minimal-react-webpack-babel-setup/). The React + Webpack application can be found [on GitHub](https://github.com/rwieruch/minimal-react-webpack-babel-setup) too.
 
-*Note: If you are using create-react-app and not a custom React setup (e.g. React with Webpack), check out this [Docker with create-react-app](/docker-create-react-app-development) tutorial instead.*
+*Note: If you are using create-react-app and not a custom React setup (e.g. React with Webpack), check out this [Docker with create-react-app](/docker-create-react-app-development/) tutorial instead.*
 
 After you have set up your React project, visit it on `http://localhost:8080` to see the rendered React app. Everything should work as expected.
 
@@ -59,7 +59,7 @@ EXPOSE 8080
 CMD [ "npm", "start" ]
 ```
 
-Everything in this Dockerfile is read by the Docker interpreter line by line. In the end, it's the blueprint to create a your custom Docker Image suited for your application. The foundational image (here `FROM`) we are using here makes sure that all Node/npm commands are available in the Dockerfile. Otherwise, if using a non related Node image, we would need to install Node in the Dockerfile ourselves before we could use the [Node specific commands](/npm-crash-course).
+Everything in this Dockerfile is read by the Docker interpreter line by line. In the end, it's the blueprint to create a your custom Docker Image suited for your application. The foundational image (here `FROM`) we are using here makes sure that all Node/npm commands are available in the Dockerfile. Otherwise, if using a non related Node image, we would need to install Node in the Dockerfile ourselves before we could use the [Node specific commands](/npm-crash-course/).
 
 Optionally create a *.dockerignore* file to exclude folders and files from the Docker process. For example, the *node_modules* don't need to be included for the Docker image, because they will be installed in the process with `npm install` (see Dockerfile). Therefore, the content of the *.dockerignore* file could be:
 
@@ -73,7 +73,7 @@ Next, create an account on the [official Docker Hub](https://hub.docker.com/). A
 docker build -t <username>/my-custom-react-app .
 ```
 
-If the output after this command says *"Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?"*, you need to make sure that [everything Docker related is set up and running](/docker-macos) properly. Even if it's running properly when printing all Docker engines with `docker-machine ls`, you may need to set the environment variables for the Docker engine again.
+If the output after this command says *"Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?"*, you need to make sure that [everything Docker related is set up and running](/docker-macos/) properly. Even if it's running properly when printing all Docker engines with `docker-machine ls`, you may need to set the environment variables for the Docker engine again.
 
 If the build for the Docker image runs successfully, you should be able to list your images with the following command:
 

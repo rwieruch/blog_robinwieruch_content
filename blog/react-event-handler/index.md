@@ -104,7 +104,7 @@ function App() {
 }
 ```
 
-After all, the event handler for the onClick event should implement some business logic. In this example, React's [useState](/react-usestate-hook) [Hook](/react-hooks) is used to update some state via a onClick button event:
+After all, the event handler for the onClick event should implement some business logic. In this example, React's [useState](/react-usestate-hook/) [Hook](/react-hooks/) is used to update some state via a onClick button event:
 
 ```javascript{4,7,12,15}
 import React from 'react';
@@ -150,7 +150,7 @@ function App() {
 }
 ```
 
-Previously we haven't used the event, because in our button example we didn't need it. In the input field example we needed it though. Last but not least, don't forget to pass the value to the input element to make it a [controlled component](/react-controlled-components):
+Previously we haven't used the event, because in our button example we didn't need it. In the input field example we needed it though. Last but not least, don't forget to pass the value to the input element to make it a [controlled component](/react-controlled-components/):
 
 ```javascript{12}
 import React from 'react';
@@ -253,7 +253,7 @@ function App() {
 }
 ```
 
-This way, it's also possible to pass event and parameter side-by-side. Even though it's not needed in this example, you will surely experience one or the other case in the future where you will need the event (e.g. [preventDefault for React Forms](/react-preventdefault)):
+This way, it's also possible to pass event and parameter side-by-side. Even though it's not needed in this example, you will surely experience one or the other case in the future where you will need the event (e.g. [preventDefault for React Forms](/react-preventdefault/)):
 
 ```javascript{6-8,14-19}
 import React from 'react';
@@ -284,7 +284,7 @@ So whenever you need to **pass event and parameter**, for instance when you need
 
 # Callback Event Handler in React
 
-Last but not least, there are **callback event handlers** or **callback handlers** in short. They are used when a child component needs to communicate to a parent component. Since [React props](/react-pass-props-to-component) are only passed down the component tree, a callback handler, which is a function at its core, is used to communicate upward:
+Last but not least, there are **callback event handlers** or **callback handlers** in short. They are used when a child component needs to communicate to a parent component. Since [React props](/react-pass-props-to-component/) are only passed down the component tree, a callback handler, which is a function at its core, is used to communicate upward:
 
 ```javascript
 import React from 'react';
@@ -318,4 +318,4 @@ A callback handler is defined somewhere (1), used somewhere else (2), but calls 
 
 <Divider />
 
-You have learned about React's event handler, inline event handler, and callback event handler and how to use them in buttons for their onClick events and in input fields for their onChange events. Also there are other event handlers, for instance the onSubmit for a form element [where the event is actually needed to prevent the native browser behavior](/react-preventdefault). Anyway, all of these event handlers have their specific purpose. Your goal should be to keep the your code readable and maintainable, so get you and your team on the same page for a code style in React here. You can find a playground for [React event handlers on GitHub](https://github.com/the-road-to-learn-react/react-event-handlers).
+You have learned about React's event handler, inline event handler, and callback event handler and how to use them in buttons for their onClick events and in input fields for their onChange events. Also there are other event handlers, for instance the onSubmit for a form element [where the event is actually needed to prevent the native browser behavior](/react-preventdefault/). Anyway, all of these event handlers have their specific purpose. Your goal should be to keep the your code readable and maintainable, so get you and your team on the same page for a code style in React here. You can find a playground for [React event handlers on GitHub](https://github.com/the-road-to-learn-react/react-event-handlers).

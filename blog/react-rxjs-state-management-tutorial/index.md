@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-Recently a [client of mine](/work-with-me) inspired me to learn [RxJS](https://www.learnrxjs.io) for State Management in React. When I did a code audit for their application, they wanted to get my opinion about how to proceed with it after [only using React's local state](/learn-react-before-using-redux). They reached a point where it wasn't feasible to only rely on [React's state management](/react-state). The initial discussion was about [Redux or MobX](/redux-mobx/) for a more sophisticated state management. They had built a prototype for each of these technologies. However, they had also a prototype for a React application with RxJS. That's where the discussion got interesting.
+Recently a [client of mine](/work-with-me/) inspired me to learn [RxJS](https://www.learnrxjs.io) for State Management in React. When I did a code audit for their application, they wanted to get my opinion about how to proceed with it after [only using React's local state](/learn-react-before-using-redux/). They reached a point where it wasn't feasible to only rely on [React's state management](/react-state/). The initial discussion was about [Redux or MobX](/redux-mobx/) for a more sophisticated state management. They had built a prototype for each of these technologies. However, they had also a prototype for a React application with RxJS. That's where the discussion got interesting.
 
 **The application was a marketplace for cryptocurrencies which had lots of real-time widgets. The challenges:**
 

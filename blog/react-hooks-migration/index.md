@@ -12,9 +12,9 @@ author: ""
 
 <Sponsorship />
 
-React Hooks were introduced to React to make state and side-effects available in React Function Components. Before it was only possible to have these in React Class Components; but since [React's way of implementing Components has changed over the years](/react-component-types), we have the class component's features available with React Hooks in React Function Components now.
+React Hooks were introduced to React to make state and side-effects available in React Function Components. Before it was only possible to have these in React Class Components; but since [React's way of implementing Components has changed over the years](/react-component-types/), we have the class component's features available with React Hooks in React Function Components now.
 
-This tutorial shows a migration path on how to write React Class Components as React Function Components with [React Hooks](/react-hooks). Therefore we will go into examples on how to convert both state management and side-effects that are used in a Class Component to be used in a Function Component.
+This tutorial shows a migration path on how to write React Class Components as React Function Components with [React Hooks](/react-hooks/). Therefore we will go into examples on how to convert both state management and side-effects that are used in a Class Component to be used in a Function Component.
 
 It isn't my intention to encourage developers to rewrite all their React Class Components to React Function Components with Hooks. Rather the tutorial should show you how to implement a Class Component as Function Component with the same features. From there, you can decide yourself to write all future components as Function Components with Hooks.
 

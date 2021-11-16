@@ -412,6 +412,6 @@ The decision of whether to use useState or useReducer isn't always black and whi
 * G) need for an easier time testing it
 * H) need for a more predictable and maintainable state architecture
 
-*Note: Check out when to use [useReducer or Redux](/redux-vs-usereducer) if you are interested in a comparison.*
+*Note: Check out when to use [useReducer or Redux](/redux-vs-usereducer)/ if you are interested in a comparison.*
 
-If you want to go through a more comprehensive example where useState and useReducer are used together, check out this extensive walkthrough for [modern state management in React](/react-state-usereducer-usestate-usecontext/). It almost mimics Redux by using [React's useContext Hook](/react-usecontext-hook) for "global" state management where it's possible to pass down the dispatch function once.
+If you want to go through a more comprehensive example where useState and useReducer are used together, check out this extensive walkthrough for [modern state management in React](/react-state-usereducer-usestate-usecontext/). It almost mimics Redux by using [React's useContext Hook](/react-usecontext-hook/) for "global" state management where it's possible to pass down the dispatch function once.

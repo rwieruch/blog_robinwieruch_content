@@ -519,7 +519,7 @@ After all, the port of a server application may be not the best example for sens
 ### Exercises:
 
 * Confirm your [changes from the last section](https://github.com/the-road-to-deno/deno-example/compare/typescript...env?expand=1).
-* Read more [about environment variables in Deno](/deno-environment-variables).
+* Read more [about environment variables in Deno](/deno-environment-variables/).
 * Ask yourself: What would you like to use Deno for?
 * Optional: Read more about [some of Deno's utilities](https://deno.land/manual/tools).
 

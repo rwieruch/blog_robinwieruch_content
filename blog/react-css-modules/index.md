@@ -29,7 +29,7 @@ CSS Modules are one of the most popular ways for styling React components. Wheth
 
 Since we are building up on top of a custom React + Webpack application, it needs some set up from our side before we can start using CSS Modules in React. I want to thank [Arpit Batra for showing use how it works](https://github.com/rwieruch/advanced-react-webpack-babel-setup/pull/9).
 
-*Note: If you are using create-react-app, just follow this [Create React App with CSS Modules tutorial](/create-react-app-css-modules). It comes with CSS Modules out of the box. If you are using your custom React + Webpack setup, maybe from a previous tutorial of mine, keep reading for setting up CSS Modules in your custom React project.*
+*Note: If you are using create-react-app, just follow this [Create React App with CSS Modules tutorial](/create-react-app-css-modules/). It comes with CSS Modules out of the box. If you are using your custom React + Webpack setup, maybe from a previous tutorial of mine, keep reading for setting up CSS Modules in your custom React project.*
 
 First, we need some more loaders for Webpack. These loaders enable Webpack to bundle CSS files as well:
 

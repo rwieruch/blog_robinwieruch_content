@@ -73,7 +73,7 @@ function Basket({ items, onClick }) {
 export default App;
 ```
 
-This small React application just renders a [list component](/react-list-component) with a [stateful list](/react-usestate-hook). A button for each item of the list helps us via a button and its [callback handler](/react-list-component) to like or unlike a list item. In the next steps we will style the button and the list the different CSS styling approaches. We will use a popular [folder structure for the React project](/react-folder-structure) whenever we have a CSS style file.
+This small React application just renders a [list component](/react-list-component/) with a [stateful list](/react-usestate-hook/). A button for each item of the list helps us via a button and its [callback handler](/react-list-component/) to like or unlike a list item. In the next steps we will style the button and the list the different CSS styling approaches. We will use a popular [folder structure for the React project](/react-folder-structure/) whenever we have a CSS style file.
 
 # Table of Contents
 
@@ -176,7 +176,7 @@ There are a few drawbacks of this CSS usage in React. First of all, it's just va
 
 # CSS-in-CSS: Sass in React
 
-If you are using [create-react-app, you can use Sass](/create-react-app-with-sass-support) after installing it. In contrast, if you are using a [custom React with Webpack](/minimal-react-webpack-babel-setup) setup, you need to configure Webpack for it.
+If you are using [create-react-app, you can use Sass](/create-react-app-with-sass-support/) after installing it. In contrast, if you are using a [custom React with Webpack](/minimal-react-webpack-babel-setup/) setup, you need to configure Webpack for it.
 
 Sass (Syntactically Awesome Style Sheets) is a CSS extension that gives you more powerful CSS. For example, you can define reusable CSS variables and you are able to nest your CSS. We will make use of the latter for the button's hover effect:
 
@@ -215,7 +215,7 @@ There is still another drawback of using CSS -- even with Sass -- in React this 
 
 # CSS-in-CSS: CSS Modules in React
 
-If you are using [create-react-app, you can use CSS Modules](/create-react-app-css-modules) right away. However, if you are using a [custom React with Webpack](/minimal-react-webpack-babel-setup) setup, you need to configure Webpack for it.
+If you are using [create-react-app, you can use CSS Modules](/create-react-app-css-modules/) right away. However, if you are using a [custom React with Webpack](/minimal-react-webpack-babel-setup/) setup, you need to configure Webpack for it.
 
 CSS Modules can be used with vanilla CSS but also with CSS extensions like Sass. Let's see how a CSS module can be defined in a *style.module.css* (vanilla CSS) or *style.module.scss* file (Sass):
 

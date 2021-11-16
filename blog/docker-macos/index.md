@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-Just recently I had to install Docker on my MacOS machine. Here I want to give you a brief walkthrough on how to achieve it. First of all, we need Homebrew to install all the necessary Docker dependencies. If there isn't a Homebrew installation on your Mac, follow [this guide for a developer setup](/developer-setup).
+Just recently I had to install Docker on my MacOS machine. Here I want to give you a brief walkthrough on how to achieve it. First of all, we need Homebrew to install all the necessary Docker dependencies. If there isn't a Homebrew installation on your Mac, follow [this guide for a developer setup](/developer-setup/).
 
 Install the docker dependency with Homebrew after making sure that all Homebrew dependencies are on the latest version:
 

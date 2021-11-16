@@ -45,7 +45,7 @@ export default {
 };
 ```
 
-If we would use a [GraphQL resolver middleware](/graphql-resolver-middleware) -- which is optional --, it can be simplified to the following:
+If we would use a [GraphQL resolver middleware](/graphql-resolver-middleware/) -- which is optional --, it can be simplified to the following:
 
 ```javascript{3-5,17}
 export default {
@@ -91,7 +91,7 @@ describe('createFreeCourse', () => {
 });
 ```
 
-If you need to mock the database request with Jest, check out this tutorial about [Jest mocking](/firebase-test). Once you mocked your database API, you *could* add more assertions to your test case:
+If you need to mock the database request with Jest, check out this tutorial about [Jest mocking](/firebase-test/). Once you mocked your database API, you *could* add more assertions to your test case:
 
 ```javascript{17,19-29}
 import resolvers from './';

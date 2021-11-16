@@ -44,7 +44,7 @@ You should master the core principles of JavaScript. Whether you take the bottom
 
 * Functions are first-class citizens in JavaScript
 * bind(), apply(), and call()
-* Scopes and [Closures](/javascript-closure)
+* Scopes and [Closures](/javascript-closure/)
 * this
 * Objects (e.g. `Object.keys(myObj).map(key => myMap[key])`)
 * Arrays (e.g. `[1, 2].reduce((sum, summand) => sum + summand, 0)`)

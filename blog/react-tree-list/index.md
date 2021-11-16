@@ -47,7 +47,7 @@ const data = [
 ];
 ```
 
-In a [list component](/react-list-component), we would display each item as a row with its properties `name`, `size`, and `dateModified` as cells. If we would transform the list to a table component, it would have a column for each property.
+In a [list component](/react-list-component/), we would display each item as a row with its properties `name`, `size`, and `dateModified` as cells. If we would transform the list to a table component, it would have a column for each property.
 
 In order to keep the following examples more lightweight, I will omit the `size` and `dateModified` properties, because they don't directly impact the implementation details of the tree table.
 
@@ -366,7 +366,7 @@ There are a few more things to note here:
 
 First, all nodes with an empty `nodes` property could have potential content. At the moment, every time a user expands a tree node there would be a request which returns an empty list of nodes. We experimented with a `hasNodes` boolean flag per node which would prevent the data fetching on the client-side if there is no content. Eventually we removed it though, because it made keeping server-side data and client-side state in sync more complex when multiple users interacted (e.g. user A creates a file in an empty folder, user B does not load content because their property still says no content) with the application.
 
-Second, even though we created an API which makes it possible to request structured tree data in smaller chunks, we need to handle lots of this data as [state](/react-state) on the client-side. We need to handle the merging of multiple results into one state object, but also need to take care of keeping this state in sync with the remote data for multi-user collaboration.
+Second, even though we created an API which makes it possible to request structured tree data in smaller chunks, we need to handle lots of this data as [state](/react-state/) on the client-side. We need to handle the merging of multiple results into one state object, but also need to take care of keeping this state in sync with the remote data for multi-user collaboration.
 
 # React Tree Table: Sync
 

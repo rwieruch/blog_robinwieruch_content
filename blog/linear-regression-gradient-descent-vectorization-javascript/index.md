@@ -372,4 +372,4 @@ Either way, by iterating over your defined number of iterations for letting grad
 
 <Divider />
 
-Hopefully the article was helpful for you to make the leap from a unvectorized to a vectorized implementation of gradient descent in JavaScript for a regression problem. I am grateful for any give feedback, so please comment below. If you want to take it one step further, you can try out to make the leap [from a univariate to a multivariate training set](/multivariate-linear-regression-gradient-descent-javascript) in the next article.
+Hopefully the article was helpful for you to make the leap from a unvectorized to a vectorized implementation of gradient descent in JavaScript for a regression problem. I am grateful for any give feedback, so please comment below. If you want to take it one step further, you can try out to make the leap [from a univariate to a multivariate training set](/multivariate-linear-regression-gradient-descent-javascript/) in the next article.

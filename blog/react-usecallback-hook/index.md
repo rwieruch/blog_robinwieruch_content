@@ -12,15 +12,15 @@ author: ""
 
 <Sponsorship />
 
-React's useCallback Hook can be used to **optimize the rendering behavior** of your [React function components](/react-function-component). We will go through an example component to illustrate the problem first, and then solve it with **React's useCallback Hook**.
+React's useCallback Hook can be used to **optimize the rendering behavior** of your [React function components](/react-function-component/). We will go through an example component to illustrate the problem first, and then solve it with **React's useCallback Hook**.
 
 Keep in mind that most of the performance optimizations in React are premature. React is fast by default, so *every* performance optimization is opt-in in case something starts to feel slow.
 
-*Note: Don't mistake React's useCallback Hook with [React's useMemo Hook](/react-usememo-hook). While useCallback is used to memoize functions, useMemo is used to memoize values.*
+*Note: Don't mistake React's useCallback Hook with [React's useMemo Hook](/react-usememo-hook/). While useCallback is used to memoize functions, useMemo is used to memoize values.*
 
-*Note: Don't mistake React's useCallback Hook with [React's memo API](/react-memo). While useCallback is used to memoize functions, React memo is used to wrap React components to prevent re-renderings.*
+*Note: Don't mistake React's useCallback Hook with [React's memo API](/react-memo/). While useCallback is used to memoize functions, React memo is used to wrap React components to prevent re-renderings.*
 
-Let's take the following example of a React application which [renders a list of user items](/react-list-component) and allows us to [add](/react-add-item-to-list) and [remove](/react-remove-item-from-list) items with [callback handlers](/react-event-handler). We are using [React's useState Hook](/react-usestate-hook) to make the list stateful:
+Let's take the following example of a React application which [renders a list of user items](/react-list-component/) and allows us to [add](/react-add-item-to-list/) and [remove](/react-remove-item-from-list/) items with [callback handlers](/react-event-handler/). We are using [React's useState Hook](/react-usestate-hook/) to make the list stateful:
 
 ```javascript
 import React from 'react';
@@ -82,7 +82,7 @@ const ListItem = ({ item, onRemove }) => {
 export default App;
 ```
 
-Using what we learned about [React memo](/react-memo) (if you don't know React memo, read the guide first and then come back), which has similar components to our example, we want to prevent every component from re-rendering when a user types into the input field.
+Using what we learned about [React memo](/react-memo/) (if you don't know React memo, read the guide first and then come back), which has similar components to our example, we want to prevent every component from re-rendering when a user types into the input field.
 
 ```javascript{2,8,19}
 const App = () => {
@@ -153,11 +153,11 @@ Render: ListItem
 Render: ListItem
 ```
 
-Let's have a look at the [props](/react-pass-props-to-component) that are passed to the List component. 
+Let's have a look at the [props](/react-pass-props-to-component/) that are passed to the List component.
 
 ```javascript
 const App = () => {
-  // How we're rendering the List in the App component 
+  // How we're rendering the List in the App component
   return (
     //...
     <List list={users} onRemove={handleRemove} />
@@ -167,7 +167,7 @@ const App = () => {
 
 As long as no item is added or removed from the `list` prop, it should stay intact even if the App component re-renders after a user types something into the input field. So the culprit is the `onRemove` callback handler.
 
-Whenever the App component re-renders after someone types into the input field, the `handleRemove` handler function in the App gets re-defined. 
+Whenever the App component re-renders after someone types into the input field, the `handleRemove` handler function in the App gets re-defined.
 
 By passing this **new** callback handler as a prop to the List component, it notices **a prop changed compared to the previous render**. That's why the re-render for the List and ListItem components kicks in.
 
@@ -186,11 +186,11 @@ const App = () => {
 };
 ```
 
-If the `users` state changes by adding or removing an item from the list, the handler function gets re-defined and the child components should re-render. 
+If the `users` state changes by adding or removing an item from the list, the handler function gets re-defined and the child components should re-render.
 
 However, if someone only types into the input field, the function doesn't get re-defined and stays intact. Therefore, the child components don't receive changed props and won't re-render for this case.
 
-You might be wondering why you wouldn't use React's useCallback Hook on all your functions or why React's useCallback Hook isn't the default for all functions in the first place. 
+You might be wondering why you wouldn't use React's useCallback Hook on all your functions or why React's useCallback Hook isn't the default for all functions in the first place.
 
 Internally, React's useCallback Hook has to compare the dependencies from the dependency array for every re-render to decide whether it should re-define the function. Often the computation for this comparison can be more expensive than just re-defining the function.
 

@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-Eventually everyone came across the case that JavaScript's replace function, which is available on a [JavaScript string primitive](/javascript-variable), does only replace one occurrence of the matched term.
+Eventually everyone came across the case that JavaScript's replace function, which is available on a [JavaScript string primitive](/javascript-variable/), does only replace one occurrence of the matched term.
 
 ```javascript
 const text = 'Hello World';

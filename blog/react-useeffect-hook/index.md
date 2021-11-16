@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-In this tutorial you will learn everything about React's useEffect Hook. Let's say we have these two components whereas the parent component manages state with [React's useState Hook](/react-usestate-hook) and its child component consumes the state and modifies the state with a [callback event handler](/react-event-handler):
+In this tutorial you will learn everything about React's useEffect Hook. Let's say we have these two components whereas the parent component manages state with [React's useState Hook](/react-usestate-hook/) and its child component consumes the state and modifies the state with a [callback event handler](/react-event-handler/):
 
 ```javascript
 import * as React from 'react';
@@ -42,7 +42,7 @@ const Toggler = ({ toggle, onToggle }) => {
 export default App;
 ```
 
-Based on the stateful boolean flag coming from the parent component, the child component [renders "Hello React" conditionally](/conditional-rendering-react). Now let's dive into React's useEffect Hook. Essentially useEffect runs a side-effect function whenever you want to run it. It can run only when the component mounts, when the component renders, or only when the component re-renders, and so on. We will go through various useEffect examples to demonstrate its usage.
+Based on the stateful boolean flag coming from the parent component, the child component [renders "Hello React" conditionally](/conditional-rendering-react/). Now let's dive into React's useEffect Hook. Essentially useEffect runs a side-effect function whenever you want to run it. It can run only when the component mounts, when the component renders, or only when the component re-renders, and so on. We will go through various useEffect examples to demonstrate its usage.
 
 # React useEffect Hook: Always
 
@@ -172,11 +172,11 @@ const Toggler = ({ toggle, onToggle }) => {
 
 However, in this case you could leave out the second argument -- the dependency array -- of useEffect entirely, because only these two variables trigger an update of this compinent, so by not having a second argument the side-effect would run on every re-render anyway.
 
-There are various use cases for having React's useEffect run on an updated variable. For example, after updating the state, one might want to have a [callback function based on this state change](/react-usestate-callback).
+There are various use cases for having React's useEffect run on an updated variable. For example, after updating the state, one might want to have a [callback function based on this state change](/react-usestate-callback/).
 
 # React useEffect Hook: Only on Update
 
-If you have been attentive the previous section, you know that React's useEffect Hook with an array of dependencies run for the first render of the component too. What if you would want to **run this effect only on the update**? We can achieve this by using [React's useRef Hook for an instance variable](/react-ref):
+If you have been attentive the previous section, you know that React's useEffect Hook with an array of dependencies run for the first render of the component too. What if you would want to **run this effect only on the update**? We can achieve this by using [React's useRef Hook for an instance variable](/react-ref/):
 
 ```javascript{2,5-9}
 const Toggler = ({ toggle, onToggle }) => {
@@ -202,7 +202,7 @@ const Toggler = ({ toggle, onToggle }) => {
 };
 ```
 
-When the side-effect function runs for the first time on mount, it only flips the instance variable and doesn't run the implementation details (here `console.log`) of the side-effect. Only for the next time the side-effect runs (on the first re-render / update of the component), the real implementation logic runs. If you want to have a custom hook for this purpose, check out this guide: [custom hook for React useEffect only on update](/react-useeffect-only-on-update).
+When the side-effect function runs for the first time on mount, it only flips the instance variable and doesn't run the implementation details (here `console.log`) of the side-effect. Only for the next time the side-effect runs (on the first re-render / update of the component), the real implementation logic runs. If you want to have a custom hook for this purpose, check out this guide: [custom hook for React useEffect only on update](/react-useeffect-only-on-update/).
 
 # React useEffect Hook: Only Once
 
@@ -236,7 +236,7 @@ const Toggler = ({ toggle, onToggle }) => {
 };
 ```
 
-Same as before, we implement this with a instance variable from React's useRef Hook to track non stateful information. Once our condition is met, for example here that the boolean flag is set to false, we remember that we have called the effect's function and don't call it ever again. If you want to have a custom hook for this purpose, check out this guide: [custom hook for React useEffect only on update](/react-useeffect-only-once).
+Same as before, we implement this with a instance variable from React's useRef Hook to track non stateful information. Once our condition is met, for example here that the boolean flag is set to false, we remember that we have called the effect's function and don't call it ever again. If you want to have a custom hook for this purpose, check out this guide: [custom hook for React useEffect only on update](/react-useeffect-only-once/).
 
 # React useEffect Hook: Cleanup
 
@@ -262,7 +262,7 @@ export default App;
 
 When the component renders for the first time, it sets up an interval with React's useEffect Hook which ticks every 1 second. Once the interval ticks, the state of the timer gets incremented by one. The state change initiates a re-render of the component. Since the timer state has changed, without the cleanup function the useEffect function would run again and set up *another* interval. This wouldn't be the desired behavior, because we only need one interval after all. That's why the useEffect function clears the interval before the component updates and then the component sets up a new interval. Essentially the interval is only running for one second before it gets cleaned up in this example.
 
-If you are interested in setting up a stopwatch example from scratch with React's useEffect Hook, check out this [React Hooks tutorial](/react-hooks).
+If you are interested in setting up a stopwatch example from scratch with React's useEffect Hook, check out this [React Hooks tutorial](/react-hooks/).
 
 # React useEffect Hook: Unmount
 
@@ -295,5 +295,5 @@ Now we are using useState hook's ability to use a function instead of a value to
 
 If you want to dive deeper into React's useEffect Hook and its usages, check out these guides:
 
-* [React useEffect to Fetch Data](/react-hooks-fetch-data)
-* [React useEffect Best Practices](/react-useeffect-best-practices)
+* [React useEffect to Fetch Data](/react-hooks-fetch-data/)
+* [React useEffect Best Practices](/react-useeffect-best-practices/)

@@ -23,8 +23,8 @@ The series uses several basic and advanced features of React. During the series 
 If you are not familiar with these features of React, I can recommend to read the open source book [the Road to learn React](/the-road-to-learn-react/) where you will learn about the fundamentals of React. All the knowledge acquired in the book will be used as common ground for the next three parts of this series.
 
 * **Paginated List in React - Build a powerful Component (Part I)**
-* [Infinite Scroll in React - Build a powerful Component (Part II)](/react-infinite-scroll)
-* [Advanced List in React - Build a powerful Component (Part III)](/react-advanced-list-component)
+* [Infinite Scroll in React - Build a powerful Component (Part II)](/react-infinite-scroll/)
+* [Advanced List in React - Build a powerful Component (Part III)](/react-advanced-list-component/)
 
 # The initial React Hacker News Setup
 
@@ -188,7 +188,7 @@ The initial state of the App component, initialized in the constructor, shows th
 
 **What's a paginated list?** Essentially it means that you don't get the whole search result returned as list, but a subset of this list. The list on the Hacker News platform might be too big to return it in one single request, that's why applications use pagination in the first place. But that's not everything. It is not only the subset list of the whole list, but a complex object. Next to the subset list you have a page property in the paginated list object. It is the pointer for the subset list in the whole list. By using the page as pointer, you can decide which subset list of the whole list you want to retrieve from the Hacker News API.
 
-Let's get back to the application. The functionalities of the application basically showcase the unidirectional data flow of a React application. A user makes a search request by [using a form](/react-ref-attribute-dom-node/"), the state (list, page) gets stored asynchronously in the App component and shows up in the next render cycle of the App component. The List components, that uses a [conditional rendering](/conditional-rendering-react/), shows up.
+Let's get back to the application. The functionalities of the application basically showcase the unidirectional data flow of a React application. A user makes a search request by [using a form](/react-ref-attribute-dom-node/), the state (list, page) gets stored asynchronously in the App component and shows up in the next render cycle of the App component. The List components, that uses a [conditional rendering](/conditional-rendering-react/), shows up.
 
 Apart from the unidirectional data flow, the application uses JavaScript ES6 features, such as arrow functions and spread operators, along the way to store efficiently the local state. In addition, the native fetch API of the browser is used. You could easily substitute it with another building block to complement React. [That's what makes React so powerful](/reasons-why-i-moved-from-angular-to-react/) in the first place.
 
@@ -537,5 +537,5 @@ By using higher order components, you can opt-in and opt-out functionalities on 
 
 Your App component already renders a powerful React List component by now. While the List component only deals with the responsibility to render a list of items, the HOCs opt-in additional functionalities.
 
-You can continue with the second part of the React tutorial series: [Infinite Scroll in React - Build a powerful Component (Part II)](/react-infinite-scroll).
+You can continue with the second part of the React tutorial series: [Infinite Scroll in React - Build a powerful Component (Part II)](/react-infinite-scroll/).
 

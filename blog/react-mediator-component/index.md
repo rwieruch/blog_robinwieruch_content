@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-When I work with clients on their React applications, I often encounter convoluted React components. Such overly complex components happen, because they have too many responsibilities -- whereas one responsibility translates to one feature and one feature translates to multiple [React Hooks](/react-hooks) and [event handlers](/react-event-handler). Thus, when having more than one responsibility, the component becomes convoluted with too many hooks and handlers.
+When I work with clients on their React applications, I often encounter convoluted React components. Such overly complex components happen, because they have too many responsibilities -- whereas one responsibility translates to one feature and one feature translates to multiple [React Hooks](/react-hooks/) and [event handlers](/react-event-handler/). Thus, when having more than one responsibility, the component becomes convoluted with too many hooks and handlers.
 
 Let's take for example the following React component:
 
@@ -78,16 +78,16 @@ const Users = () => {
 
 How many responsibilities/features do you count? The Users component takes care of 4 things:
 
-* [fetching users](/react-hooks-fetch-data)
-* [conditional rendering](/conditional-rendering-react) of loading and error states
-* setting up Search component and wiring it to the [lifted state](/react-lift-state)
+* [fetching users](/react-hooks-fetch-data/)
+* [conditional rendering](/conditional-rendering-react/) of loading and error states
+* setting up Search component and wiring it to the [lifted state](/react-lift-state/)
 * setting up Table component and using the lifted state
 
 Everything that ends up between the component definition and the final return statement -- e.g. handlers and hooks -- convolutes the component and makes it more complex. This is just a minimal example to illustrate the issue, however, I have encountered components with more than 1000 lines of code. It's a nightmare for every developer who has to step through these components.
 
-So how do we fix this issue? I call it extracting functionality with so called **mediator components**. Taking the previous example, one could say that the Users component is tightly coupled to a specific domain (e.g. user domain) whereas the Search and Table components are reusable components which are most likely used by other [domain components](/react-folder-structure) too.
+So how do we fix this issue? I call it extracting functionality with so called **mediator components**. Taking the previous example, one could say that the Users component is tightly coupled to a specific domain (e.g. user domain) whereas the Search and Table components are reusable components which are most likely used by other [domain components](/react-folder-structure/) too.
 
-Now, a mediator component would fit between the domain-driven and [reusable components](/react-reusable-components). For example, a domain specific table component would be the best approach to simplify the previous component:
+Now, a mediator component would fit between the domain-driven and [reusable components](/react-reusable-components/). For example, a domain specific table component would be the best approach to simplify the previous component:
 
 ```javascript
 import * as React from 'react';

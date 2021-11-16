@@ -28,7 +28,7 @@ Second, set the *Content Type* to application/json. And third, create a *Secret*
 
 # GitHub Webhook with Node.js
 
-If you don't have an up and running Node.js application for this code snippet, check out this minimal [Node.js tutorial](/minimal-node-js-babel-setup), to get you started. In the end, everything you need for your Node.js application's Webhook is the following implementation:
+If you don't have an up and running Node.js application for this code snippet, check out this minimal [Node.js tutorial](/minimal-node-js-babel-setup/), to get you started. In the end, everything you need for your Node.js application's Webhook is the following implementation:
 
 ```javascript
 import http from 'http';

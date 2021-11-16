@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-Can you use conditional [React Hooks](/react-hooks) in React components? Technically: No. However, if you know about how React Hooks work internally, you can make conditional hooks work for you. Let's take the following example where we start without any conditional hook:
+Can you use conditional [React Hooks](/react-hooks/) in React components? Technically: No. However, if you know about how React Hooks work internally, you can make conditional hooks work for you. Let's take the following example where we start without any conditional hook:
 
 ```javascript
 import React from 'react';
@@ -73,7 +73,7 @@ const Item = ({ item }) => {
 export default App;
 ```
 
-In this example, we are [conditionally rendering](/react-conditional-rendering) a [list component](/react-list-component). When the components get rendered for the first time, only the button to "fetch" the data is rendered. Once a user clicks this button, the state with the list gets set, everything re-renders again, and the List and Item components show up.
+In this example, we are [conditionally rendering](/react-conditional-rendering/) a [list component](/react-list-component). When the components get rendered for the first time, only the button to "fetch" the data is rendered. Once a user clicks this button, the state with the list gets set, everything re-renders again, and the List and Item components show up.
 
 <ReadMore label="How to fetch data in React" link="/react-hooks-fetch-data" />
 
@@ -111,7 +111,7 @@ const App = () => {
 };
 ```
 
-The return values from the conditional [useState hook](/react-usestate-hook) are passed to the child components:
+The return values from the conditional [useState hook](/react-usestate-hook/) are passed to the child components:
 
 ```javascript{1,8-9}
 const List = ({ list, selectedId, setSelectedId }) => {
@@ -130,7 +130,7 @@ const List = ({ list, selectedId, setSelectedId }) => {
 };
 ```
 
-There they will be eventually used by the [reusable Item component](/react-reusable-components) to style the selected item and to display a button for each item to select it:
+There they will be eventually used by the [reusable Item component](/react-reusable-components/) to style the selected item and to display a button for each item to select it:
 
 ```javascript{1,2-4,6-8,11,14-16}
 const Item = ({ item, selectedId, onSelectedId }) => {
@@ -158,7 +158,7 @@ const Item = ({ item, selectedId, onSelectedId }) => {
 
 If you start the React application again and click the button to fetch the data, the application will break with the error: **Uncaught Error: Rendered more hooks than during the previous render.** You may will see this warning too: **Warning: React has detected a change in the order of Hooks called by App. This will lead to bugs and errors if not fixed.**
 
-Why does this not work? Let me explain: For every React Hook in a [React function component](/react-function-component), the component allocates the hook internally in an array. If the hook is sometimes there and sometimes not there, the component cannot find the allocated hook at the same place anymore. This breaks the whole internal implementation and that's why conditional hooks, hooks in loops, and hooks with changed order are technically not allowed.
+Why does this not work? Let me explain: For every React Hook in a [React function component](/react-function-component/), the component allocates the hook internally in an array. If the hook is sometimes there and sometimes not there, the component cannot find the allocated hook at the same place anymore. This breaks the whole internal implementation and that's why conditional hooks, hooks in loops, and hooks with changed order are technically not allowed.
 
 However, let's see how we can get around this disadvantage:
 
@@ -209,4 +209,4 @@ By bringing the hook down to the child component where the hook is not condition
 
 *It's worth to note that this error can be solved by using React's useEffect Hook as well.*
 
-In conclusion, most often when rendering hooks conditionally, in a loop, or in a changed order, move the hook one level down to the child component where it has its fixed place and is computed with the component without any condition. In this example it worked for a [state hook](/react-usereducer-vs-usestate), but the same applies for other hooks like [React's useEffect Hook](/react-useeffect-hook).
+In conclusion, most often when rendering hooks conditionally, in a loop, or in a changed order, move the hook one level down to the child component where it has its fixed place and is computed with the component without any condition. In this example it worked for a [state hook](/react-usereducer-vs-usestate/), but the same applies for other hooks like [React's useEffect Hook](/react-useeffect-hook/).

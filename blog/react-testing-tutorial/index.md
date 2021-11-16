@@ -31,10 +31,10 @@ There are various testing libraries for your React components. If you entering t
 However, if you really want to test React components the idiomatic way, you will not get around Jest. Jest was released by Facebook to test React components and brings the combined power of Mocha, Chai, Sinon and more. It is a test runner, assertion library, and offers spies, stubs and mocks as well. **Jest can be combined with Enzyme or React Testing Library to test your React components** in an even more powerful way. The following tutorials give you a great introduction to testing React components:
 
 * Jest + React Testing Library
-  * [How to test React components with React Testing Library](/react-testing-library)
+  * [How to test React components with React Testing Library](/react-testing-library/)
 * Jest + Enzyme:
-  * [How to test React components with Jest](/react-testing-jest)
-  * [How to test React components with Jest & Enzyme](/react-testing-jest-enzyme)
+  * [How to test React components with Jest](/react-testing-jest/)
+  * [How to test React components with Jest & Enzyme](/react-testing-jest-enzyme/)
 
 As you can see, there are various ways to test React components:
 
@@ -43,11 +43,11 @@ As you can see, there are various ways to test React components:
 
 **My prefered way: Jest + React Testing library.**
 
-In addition, you may want to end-to-end test your React applications as well. I have found Cypress the best option to conduct these kinds of tests: [How to test React components E2E with Cypress](/react-testing-cypress). If you want to dive into visual regression testing, you can use React Storybook: [Visual Regression Tests and React Storybook](/visual-regression-testing-react-storybook).
+In addition, you may want to end-to-end test your React applications as well. I have found Cypress the best option to conduct these kinds of tests: [How to test React components E2E with Cypress](/react-testing-cypress/). If you want to dive into visual regression testing, you can use React Storybook: [Visual Regression Tests and React Storybook](/visual-regression-testing-react-storybook/).
 
 Last but not least, to get the most out of your tests in an automated environment, you may want to use continuous integration (CI) to run your tests before deploying your JavaScript application. A CI offers you additional powerful features, knowing every time whether your build or tests fails, but also report the test coverage of your entire application:
 
-* [How to set up Continuous Integration for JavaScript](/javascript-continuous-integration)
-* [How to set up JavaScript Test Coverage](/javascript-test-coverage)
+* [How to set up Continuous Integration for JavaScript](/javascript-continuous-integration/)
+* [How to set up JavaScript Test Coverage](/javascript-test-coverage/)
 
 If you went through all the mentioned tutorials, you should have a good grasp of testing React components. I would say that testing React components with Mocha/Chai is rather optional, because Jest is the better alternative for it. Also visual regression testing may not be relevant for everyone. My recommended test stack would be Jest + Enzyme/React Testing Library for unit/integration tests and Cypress for end-to-end tests. Then add testing coverage to the mix and connect your application to your favorite CI to run your tests in the cloud as well.

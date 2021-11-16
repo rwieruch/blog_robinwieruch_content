@@ -202,7 +202,7 @@ app.delete('/users/:userId', (req, res) => {
 ...
 ```
 
-In order to delete or update a user resource, you would need to know the exact user. That's where unique identifiers are used. In our Express routes, we can assign unique identifiers with parameters in the URI. Then the [callback function](/javascript-callback-function) holds the URI's parameter in the request object's properties. Try again a cURL operation  on `/users/1`, `/users/2` or another identifier with a DELETE or UPDATE HTTP method and verify that the identifier shows up in the command line as output.
+In order to delete or update a user resource, you would need to know the exact user. That's where unique identifiers are used. In our Express routes, we can assign unique identifiers with parameters in the URI. Then the [callback function](/javascript-callback-function/) holds the URI's parameter in the request object's properties. Try again a cURL operation  on `/users/1`, `/users/2` or another identifier with a DELETE or UPDATE HTTP method and verify that the identifier shows up in the command line as output.
 
 ### Exercises:
 
@@ -215,7 +215,7 @@ In order to delete or update a user resource, you would need to know the exact u
 
 You may be still wondering: *What value brings the combination of URIs and HTTP methods* -- which make up the majority of the REST philosophy -- *to my application?*
 
-Let's imagine we wouldn't just return a result, as we do at the moment, but would act properly on the received operation instead. For instance, the Express server could be connected to a database that stores user entities in a user table. Now, when consuming the REST API as a client (e.g. cURL, browser, or also a [React.js application](/react-fetching-data)), you could retrieve all users from the database with a HTTP GET method on the `/users` URI or, on the same resource, create a new user with a HTTP POST method.
+Let's imagine we wouldn't just return a result, as we do at the moment, but would act properly on the received operation instead. For instance, the Express server could be connected to a database that stores user entities in a user table. Now, when consuming the REST API as a client (e.g. cURL, browser, or also a [React.js application](/react-fetching-data/)), you could retrieve all users from the database with a HTTP GET method on the `/users` URI or, on the same resource, create a new user with a HTTP POST method.
 
 ```text
 // making sense of the naming
@@ -366,7 +366,7 @@ app.post('/messages', (req, res) => {
 ...
 ```
 
-We generate a unique identifier for the message with the new library, use it as property in a message object with a [shorthand object property initialization](/javascript-object-property-shorthand), assign the message by identifier in the messages object -- which is our pseudo database --, and return the new message after it has been created.
+We generate a unique identifier for the message with the new library, use it as property in a message object with a [shorthand object property initialization](/javascript-object-property-shorthand/), assign the message by identifier in the messages object -- which is our pseudo database --, and return the new message after it has been created.
 
 However, something is missing for the message. In order to create a message, a client has to provide the `text` string for the message. Fortunately a HTTP POST method makes it possible to send data as payload in a body. That's why we can use the incoming request (`req`) to extract a payload from it:
 
@@ -495,7 +495,7 @@ app.delete('/messages/:messageId', (req, res) => {
 ...
 ```
 
-Here we used a [dynamic object property](/javascript-object-property-dynamic) to exclude the message we want to delete from the [rest](/javascript-destructuring-rest-parameters) of the messages object. You can try to verify the functionality with the following cURL command:
+Here we used a [dynamic object property](/javascript-object-property-dynamic/) to exclude the message we want to delete from the [rest](/javascript-destructuring-rest-parameters) of the messages object. You can try to verify the functionality with the following cURL command:
 
 ```javascript
 curl -X DELETE http://localhost:3000/messages/1

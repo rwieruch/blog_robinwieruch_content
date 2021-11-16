@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-There are three different ways to declare a variable in JavaScript: const, let and var. Historically, var has been the only way of [declaring a JavaScript variable](/javascript-variable):
+There are three different ways to declare a variable in JavaScript: const, let and var. Historically, var has been the only way of [declaring a JavaScript variable](/javascript-variable/):
 
 ```javascript
 var name = 'Robin Wieruch';
@@ -158,7 +158,7 @@ lastName = 'Huppertz';
 // doesn't work
 ```
 
-Some people may get to the immediate conclusion that a JavaScript variable declared with const must be [immutable](/javascript-immutable) (unchangeable) then, because it cannot be mutated (changed). However, it's important to know that if const is used for a JavaScript object or array, its internal properties **can** still be re-assigned:
+Some people may get to the immediate conclusion that a JavaScript variable declared with const must be [immutable](/javascript-immutable/) (unchangeable) then, because it cannot be mutated (changed). However, it's important to know that if const is used for a JavaScript object or array, its internal properties **can** still be re-assigned:
 
 ```javascript
 const person = {
@@ -291,8 +291,8 @@ So we can see how there are clear lines between using const vs let in JavaScript
 
 ### Exercises:
 
-* Head over to [CodeSandbox](https://codesandbox.io/s/github/the-road-to-javascript/const-let-var-difference) to experiment with const and let declared variables
-* Read more about [how to name constants in JavaScript](/javascript-naming-conventions)
+* Head over to [CodeSandbox](https://codesandbox.io/s/github/the-road-to-javascript/const-let-var-difference/) to experiment with const and let declared variables
+* Read more about [how to name constants in JavaScript](/javascript-naming-conventions/)
 
 <Divider />
 

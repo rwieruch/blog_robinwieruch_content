@@ -12,12 +12,12 @@ author: ""
 
 <Sponsorship />
 
-The last two parts of the tutorial series in React introduced two functionalities, [a paginated list](/react-paginated-list) and an [infinite scroll](/react-infinite-scroll), by using higher order components. However, these functionalities were used exclusively. In one scenario you used a paginated list, where you manually fetched the data, then again in another scenario you used an infinite scroll, where the data was fetched automatically for you.
+The last two parts of the tutorial series in React introduced two functionalities, [a paginated list](/react-paginated-list/) and an [infinite scroll](/react-infinite-scroll/), by using higher order components. However, these functionalities were used exclusively. In one scenario you used a paginated list, where you manually fetched the data, then again in another scenario you used an infinite scroll, where the data was fetched automatically for you.
 
 Now you could use both features exclusively. But what about using them in combination to give your user an improved user experience? You could use the infinite scroll as default behavior for your list. Your users will thank you, because they don't have to fetch more list items by using the More button. Then, when your request runs into an error, you could use the More button as fallback. The user can manually try again to fetch data. That's a great user experience and done already by applications like Twitter and Pocket.
 
-* [Paginated List in React - Build a powerful Component (Part I)](/react-paginated-list)
-* [Infinite Scroll in React - Build a powerful Component (Part II)](/react-infinite-scroll)
+* [Paginated List in React - Build a powerful Component (Part I)](/react-paginated-list/)
+* [Infinite Scroll in React - Build a powerful Component (Part II)](/react-infinite-scroll/)
 * **Advanced List in React - Build a powerful Component (Part III)**
 
 # Catching the Error in Local State

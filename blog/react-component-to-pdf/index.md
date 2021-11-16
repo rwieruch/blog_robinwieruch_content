@@ -14,7 +14,7 @@ author: ""
 
 A brief tutorial on how to **generate a PDF from a React component**. Use case: Sometimes when you have a React project, you want to give users the ability to download an area of your application as PDF. For example, when you display charts based on data, a user should be able to export the chart as PDF. In this React tutorial, I want to show you how it works.
 
-First, you have to declare a certain area in your application that should be downloadable as PDF by using a [React ref](/react-ref):
+First, you have to declare a certain area in your application that should be downloadable as PDF by using a [React ref](/react-ref/):
 
 ```javascript{2,7}
 const App = () => {
@@ -29,7 +29,7 @@ const App = () => {
 };
 ```
 
-Second, create a button with an [event handler](/react-event-handler) where you will implement the logic to download the part of the component as PDF:
+Second, create a button with an [event handler](/react-event-handler/) where you will implement the logic to download the part of the component as PDF:
 
 ```javascript{4-6,10-12}
 const App = () => {
@@ -95,7 +95,7 @@ const App = () => {
 };
 ```
 
-That's it. The code makes sure that the aspect ratio is preserved and that the image fits the width of the PDF. If you want to go a bit further and download an image instead of a PDF, then head over to this tutorial: [How to create an image from a React component](/react-component-to-image).
+That's it. The code makes sure that the aspect ratio is preserved and that the image fits the width of the PDF. If you want to go a bit further and download an image instead of a PDF, then head over to this tutorial: [How to create an image from a React component](/react-component-to-image/).
 
 
 

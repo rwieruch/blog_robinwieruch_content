@@ -47,7 +47,7 @@ While building this application with me in the following sections, I recommend t
 
 # Apollo Server Setup with Express
 
-There are two ways to start out with this application. You can follow my guidance in [this minimal Node.js setup guide step by step](/minimal-node-js-babel-setup) or you can find a starter project in this [GitHub repository](https://github.com/rwieruch/node-babel-server) and follow its installation instructions.
+There are two ways to start out with this application. You can follow my guidance in [this minimal Node.js setup guide step by step](/minimal-node-js-babel-setup/) or you can find a starter project in this [GitHub repository](https://github.com/rwieruch/node-babel-server) and follow its installation instructions.
 
 Apollo Server can be used with several popular libraries for Node.js like Express, Koa, Hapi. It is kept library agnostic, so it's possible to connect it with many different third-party libraries in client and server applications. In this application, you will use [Express](https://expressjs.com/), because it is the most popular and common middleware library for Node.js.
 
@@ -2407,7 +2407,7 @@ The next section will teach you about authorization in GraphQL on the server-sid
 
 In the last section, you set up GraphQL mutations to enable authentication with the server. You can register a new user with bcrypt hashed passwords and you can login with your user's credentials. Both GraphQL mutations related to authentication return a token (JWT) that secures non-sensitive user information with a secret.
 
-The token, whether its obtained on registration or login, is returned to the client application after a successful GraphQL `signIn` or `signUp` mutation. The client application must store the token somewhere like [the browser's session storage](/local-storage-react). Every time a request is made to the GraphQL server, the token has to be attached to the HTTP header of the HTTP request. The GraphQL server can then validate the HTTP header, verify its authenticity, and perform a request like a GraphQL operation. If the token is invalid, the GraphQL server must return an error for the GraphQL client. If the client still has a token locally stored, it should remove the token and redirect the user to the login page.
+The token, whether its obtained on registration or login, is returned to the client application after a successful GraphQL `signIn` or `signUp` mutation. The client application must store the token somewhere like [the browser's session storage](/local-storage-react/). Every time a request is made to the GraphQL server, the token has to be attached to the HTTP header of the HTTP request. The GraphQL server can then validate the HTTP header, verify its authenticity, and perform a request like a GraphQL operation. If the token is invalid, the GraphQL server must return an error for the GraphQL client. If the client still has a token locally stored, it should remove the token and redirect the user to the login page.
 
 Now we just need to perform the server part of the equation. Let's do it in the *src/index.js* file by adding a global authorization that verifies the incoming token before the request hits the GraphQL resolvers.
 

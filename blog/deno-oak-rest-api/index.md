@@ -202,7 +202,7 @@ router.delete('/users/:userId', (ctx) => {
 ...
 ```
 
-In order to delete or update a user resource, you would need to know the exact user. That's where unique identifiers are used. In our Oak routes, we can assign unique identifiers with parameters in the URI. Then the [callback function](/javascript-callback-function) holds the URI's parameter in the context object's properties.
+In order to delete or update a user resource, you would need to know the exact user. That's where unique identifiers are used. In our Oak routes, we can assign unique identifiers with parameters in the URI. Then the [callback function](/javascript-callback-function/) holds the URI's parameter in the context object's properties.
 
 Optionally, Oak offers a utility function called [getQuery](https://github.com/oakserver/oak#getqueryctx-options) which allows us to retrieve all parameter from the URI:
 
@@ -241,7 +241,7 @@ Try again a cURL operation  on `/users/1`, `/users/2` or another identifier with
 
 You may be still wondering: *What value brings the combination of URIs and HTTP methods* -- which make up the majority of the REST philosophy -- *to my application?*
 
-Let's imagine we wouldn't just return a result, as we do at the moment, but would act properly on the received operation instead. For instance, the Oak server could be connected to a database that stores user entities in a user table. Now, when consuming the REST API as a client (e.g. cURL, browser, or also a [React.js application](/react-fetching-data)), you could retrieve all users from the database with a HTTP GET method on the `/users` URI or, on the same resource, create a new user with a HTTP POST method.
+Let's imagine we wouldn't just return a result, as we do at the moment, but would act properly on the received operation instead. For instance, the Oak server could be connected to a database that stores user entities in a user table. Now, when consuming the REST API as a client (e.g. cURL, browser, or also a [React.js application](/react-fetching-data/)), you could retrieve all users from the database with a HTTP GET method on the `/users` URI or, on the same resource, create a new user with a HTTP POST method.
 
 ```text
 // making sense of the naming
@@ -431,7 +431,7 @@ router.post('/messages', (ctx) => {
 ...
 ```
 
-We generate a unique identifier for the message with the new library, use it as property in a message object with a [shorthand object property initialization](/javascript-object-property-shorthand), assign the message by identifier in the messages object -- which is our pseudo database --, and return the new message after it has been created.
+We generate a unique identifier for the message with the new library, use it as property in a message object with a [shorthand object property initialization](/javascript-object-property-shorthand/), assign the message by identifier in the messages object -- which is our pseudo database --, and return the new message after it has been created.
 
 However, something is missing for the message. In order to create a message, a client has to provide the `text` string for the message. Fortunately a HTTP POST method makes it possible to send data as payload in a body. That's why we can use the incoming request to extract a payload from it:
 

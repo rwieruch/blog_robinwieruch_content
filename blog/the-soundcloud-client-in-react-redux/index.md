@@ -34,10 +34,10 @@ In the future I am going to write some [smaller tutorials](#extensions) based on
 
 A list of extensions which can be applied on top of the SoundCloud Client with React + Redux tutorial afterwards.
 
-* [React ESLint: Code Style like Airbnb in React](/the-soundcloud-client-in-react-redux-eslint)
-* [Flow: Type Checking with Flow in React + Redux](/the-soundcloud-client-in-react-redux-flow)
-* [Redux Ducks: Restructure your Redux App with Ducks](/the-soundcloud-client-in-react-redux-ducks)
-* [Redux Normalizr: Improve your State Management](/the-soundcloud-client-in-react-redux-normalizr)
+* [React ESLint: Code Style like Airbnb in React](/the-soundcloud-client-in-react-redux-eslint/)
+* [Flow: Type Checking with Flow in React + Redux](/the-soundcloud-client-in-react-redux-flow/)
+* [Redux Ducks: Restructure your Redux App with Ducks](/the-soundcloud-client-in-react-redux-ducks/)
+* [Redux Normalizr: Improve your State Management](/the-soundcloud-client-in-react-redux-normalizr/)
 * [Redux Observable RxJS: Going Epic with Reactive Programming](/redux-observable-rxjs/)
 * [MobX React: Simplified State Management in React](/mobx-react/)
 
@@ -2009,12 +2009,12 @@ Let’s start our app again. We login, we see our tracks as a list, we are able 
 
 Add one of the following tutorials on top of your current SoundCloud project:
 
-* [React ESLint: Code Style like Airbnb in React](/the-soundcloud-client-in-react-redux-eslint)
-* [Flow: Type Checking with Flow in React + Redux](/the-soundcloud-client-in-react-redux-flow)
-* [Redux Ducks: Restructure your Redux App with Ducks](/the-soundcloud-client-in-react-redux-ducks)
-* [Redux Normalizr: Improve your State Management](/the-soundcloud-client-in-react-redux-normalizr)
-* [Redux Observable RxJS: Going Epic with Reactive Programming](/redux-observable-rxjs)
-* [MobX React: Simplified State Management in React](/mobx-react)
+* [React ESLint: Code Style like Airbnb in React](/the-soundcloud-client-in-react-redux-eslint/)
+* [Flow: Type Checking with Flow in React + Redux](/the-soundcloud-client-in-react-redux-flow/)
+* [Redux Ducks: Restructure your Redux App with Ducks](/the-soundcloud-client-in-react-redux-ducks/)
+* [Redux Normalizr: Improve your State Management](/the-soundcloud-client-in-react-redux-normalizr/)
+* [Redux Observable RxJS: Going Epic with Reactive Programming](/redux-observable-rxjs/)
+* [MobX React: Simplified State Management in React](/mobx-react/)
 
 # Troubleshoot
 

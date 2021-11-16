@@ -107,7 +107,7 @@ In this example, we are defining the regular font style for Open Sans in a @font
 
 # Define Font in CSS-in-JS
 
-As alternative, in the next example, we will be using [CSS-in-JS](/react-css-styling) to define the font drectly in JavaScript. As sources, we are using the loaded font files with the relevant extensions for modern browsers:
+As alternative, in the next example, we will be using [CSS-in-JS](/react-css-styling/) to define the font drectly in JavaScript. As sources, we are using the loaded font files with the relevant extensions for modern browsers:
 
 ```javascript
 import OpenSansRegularWoffTwo from './assets/fonts/OpenSans-Regular.woff2';

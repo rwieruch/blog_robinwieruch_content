@@ -60,13 +60,13 @@ If you are entering an established team, they will already have their workflow a
 
 **Do we do code reviews?** If not working alone, yes. If you have any power to establish proper code reviews for your team, please do it. It will help the whole team to understand each others code, to find bugs, and to discuss cause and effect when introducing something new in the code base.
 
-**Do we do feature branches?** If not working alone, yes. Having everyone pushing on master/develop branches will automatically lead to conflicts. If the team does not know about feature branches, I point them to this [step-by-step tutorial](/git-team-workflow).
+**Do we do feature branches?** If not working alone, yes. Having everyone pushing on master/develop branches will automatically lead to conflicts. If the team does not know about feature branches, I point them to this [step-by-step tutorial](/git-team-workflow/).
 
 ![feature branches](./images/featurebranches.png)
 
 <Divider />
 
-Because you are a freelance React developer, companies want to hire you most likely for their frontend application of their [web application](/web-applications). However, this does not mean that everything you will code for this client is a 100% React.
+Because you are a freelance React developer, companies want to hire you most likely for their frontend application of their [web application](/web-applications/). However, this does not mean that everything you will code for this client is a 100% React.
 
 You have to see yourself more as a T-shaped developer, because usually you are working with a team in a vertical stack which encapsulates design, frontend, backend, database, and business. While the database is most often out of your scope, you will likely interact with designers from UI/UX, backend engineers for the API requirements, and other business/tech stakeholders such as POs/PMs/CTOs/CEOs.
 
@@ -116,7 +116,7 @@ As mentioned, it's always good to be a T-shaped frontend developer, because you 
 
 **Do you have already plans of which libraries you want to use?** Whether this question comes up depends on whether the project will have a fresh start by having you as a frontend freelancer or whether the project is already in progress by having an in-house team working on it. In general, this question helps to narrow down the scope of the project.
 
-In addition, most companies approaching me for an MVP already ask about what to use for their project in their initial email, so this gives you an opportunity to show that you know the [React library ecosystem](/react-libraries). In contrast, if a team is already working on the project, this question helps you to get to know the tech stack.
+In addition, most companies approaching me for an MVP already ask about what to use for their project in their initial email, so this gives you an opportunity to show that you know the [React library ecosystem](/react-libraries/). In contrast, if a team is already working on the project, this question helps you to get to know the tech stack.
 
 **How much customization is needed?** This is one of the most important questions for me, because whenever a client asks for the estimate of a fresh project, I always ask them whether they want to use off the shelf things (e.g. UI library) or build their own (e.g. custom UI components). Spoiler: Most companies do not want to spend their budget for custom UI components -- because this is often a monthly project in itself -- however, I had a case where this was indeed a requirement.
 

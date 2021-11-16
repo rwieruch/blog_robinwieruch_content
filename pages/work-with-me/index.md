@@ -70,4 +70,4 @@ I always found it meaningful to give something back to less blessed people. When
 
 <Divider />
 
-It is an exciting time for me right now. At the moment, I am working with companies in Berlin remotely migrating their tech stack to web technologies. So if your company is keen to work with me on such things, or mentioned opportunities from the list, reach out to me. Otherwise, [there are a couple of ways to simply support me](/about). Looking forward to [hearing](mailto:hello@rwieruch.com) from you :-)
+It is an exciting time for me right now. At the moment, I am working with companies in Berlin remotely migrating their tech stack to web technologies. So if your company is keen to work with me on such things, or mentioned opportunities from the list, reach out to me. Otherwise, [there are a couple of ways to simply support me](/about/). Looking forward to [hearing](mailto:hello@rwieruch.com) from you :-)

@@ -246,7 +246,7 @@ Now you are ready to give `npm run build` a shot. Afterward, you should find a n
 
 ### Exercises:
 
-* Read more about [Code Splitting in Webpack](/webpack-code-splitting-library)
+* Read more about [Code Splitting in Webpack](/webpack-code-splitting-library/)
 
 <Divider />
 

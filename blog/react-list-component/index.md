@@ -257,7 +257,7 @@ const List = () => {
 export default List;
 ```
 
-Let's dive into the different examples to update our list items with [React Hooks](/react-hooks). All the following patterns are the foundation for sophisticated [state management in React](/react-state).
+Let's dive into the different examples to update our list items with [React Hooks](/react-hooks/). All the following patterns are the foundation for sophisticated [state management in React](/react-state/).
 
 ## React List: Add Item
 
@@ -309,7 +309,7 @@ const ListWithAddItem = () => {
 export default ListWithAddItem;
 ```
 
-By using the submit button to initiate the creation of the item, the handler makes sure to add the item to the stateful list. Also the [native browser behavior is prevented](/react-preventdefault) by using the click event; otherwise the browser would refresh after the submit event.
+By using the submit button to initiate the creation of the item, the handler makes sure to add the item to the stateful list. Also the [native browser behavior is prevented](/react-preventdefault/) by using the click event; otherwise the browser would refresh after the submit event.
 
 ## React List: Update Item
 

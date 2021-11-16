@@ -12,15 +12,15 @@ author: ""
 
 <Sponsorship />
 
-React's memo API can be used to **optimize the rendering behavior** of your [React function components](/react-function-component). We will go through an example component to illustrate the problem first, and then solve it with **React's memo API**.
+React's memo API can be used to **optimize the rendering behavior** of your [React function components](/react-function-component/). We will go through an example component to illustrate the problem first, and then solve it with **React's memo API**.
 
 Keep in mind that most of the performance optimizations in React are premature. React is fast by default, so *every* performance optimization is opt-in in case something starts to feel slow.
 
-*Note: If your React component is still rendering with React memo, check out this guide about [React's useCallback Hook](/react-usecallback-hook). Often a re-rendering is associated with a callback handler which changes for every render.*
+*Note: If your React component is still rendering with React memo, check out this guide about [React's useCallback Hook](/react-usecallback-hook/). Often a re-rendering is associated with a callback handler which changes for every render.*
 
-*Note: Don't mistake React's memo API with [React's useMemo Hook](/react-usememo-hook). While React memo is used to wrap React components to prevent re-renderings, useMemo is used to memoize values.*
+*Note: Don't mistake React's memo API with [React's useMemo Hook](/react-usememo-hook/). While React memo is used to wrap React components to prevent re-renderings, useMemo is used to memoize values.*
 
-Let's take the following example of a React application which [renders a list of user items](/react-list-component) and allows us to [add users](/react-add-item-to-list) to the list. We are using [React's useState Hook](/react-usestate-hook) to make this list stateful:
+Let's take the following example of a React application which [renders a list of user items](/react-list-component/) and allows us to [add users](/react-add-item-to-list/) to the list. We are using [React's useState Hook](/react-usestate-hook/) to make this list stateful:
 
 ```javascript
 import React from 'react';
@@ -182,7 +182,7 @@ Render: ListItem
 
 Only the new item renders. All the previous items in the list remain the same and thus don't re-render. Now only the components which are affected from the state changes rerender.
 
-You might be wondering why you wouldn't use React memo on all your components or why React memo isn't the default for all React components in the first place. 
+You might be wondering why you wouldn't use React memo on all your components or why React memo isn't the default for all React components in the first place.
 
 Internally React's memo function has to compare the previous props with the new props to decide whether it should re-render the component. Often the computation for this comparison can be more expensive than just re-rendering the component.
 

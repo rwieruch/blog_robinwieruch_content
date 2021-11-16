@@ -16,7 +16,7 @@ author: ""
 
 There are several React Hooks that make state management in React Components possible. Whereas the last tutorial has shown you how to use these hooks -- useState, useReducer, and useContext -- for modern state management in React, this tutorial pushes it to the next level by implementing one global state container with useReducer and useContext.
 
-There are two caveats with useReducer why it cannot be used as **one global state** container: First, every reducer function operates on one independent state. There is not one state container. And second, every dispatch function operates only on one reducer function. There is no global dispatch function which pushes actions through every reducer. If you are interested about the details, read more about it here: [useReducer vs Redux](/redux-vs-usereducer). Keep also in mind that Redux comes with much more than the global state container like the Redux Dev Tools.
+There are two caveats with useReducer why it cannot be used as **one global state** container: First, every reducer function operates on one independent state. There is not one state container. And second, every dispatch function operates only on one reducer function. There is no global dispatch function which pushes actions through every reducer. If you are interested about the details, read more about it here: [useReducer vs Redux](/redux-vs-usereducer/). Keep also in mind that Redux comes with much more than the global state container like the Redux Dev Tools.
 
 # Global Dispatch with React Hooks
 

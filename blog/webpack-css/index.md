@@ -60,7 +60,7 @@ That's it. From here you can use CSS in your JavaScript project which is powered
 
 # CSS with Webpack in Production
 
-If you happen to have a [Webpack configuration for development and production](/webpack-advanced-setup-tutorial), you will need a different configuration for production when using CSS.
+If you happen to have a [Webpack configuration for development and production](/webpack-advanced-setup-tutorial/), you will need a different configuration for production when using CSS.
 
 First, install the MiniCssExtractPlugin for Webpack to your dev dependencies:
 

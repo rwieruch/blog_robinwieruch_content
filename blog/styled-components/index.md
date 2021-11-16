@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-When working with multiple developers on one React application, it's always good to align the team on a common set of best practices. This holds also true for [styling React components](/react-css-styling). Over the past years, I was fortunate to work with many React freelance developers on different applications where we had to **align the best practices throughout the project**. While there were certainly applications styled with CSS-in-CSS (e.g. CSS Modules) or Utility-first CSS (e.g. Tailwind), the chance of working with Styled Components (CSS-in-JS) was pretty high, because it's one of the most popular styling approaches.
+When working with multiple developers on one React application, it's always good to align the team on a common set of best practices. This holds also true for [styling React components](/react-css-styling/). Over the past years, I was fortunate to work with many React freelance developers on different applications where we had to **align the best practices throughout the project**. While there were certainly applications styled with CSS-in-CSS (e.g. CSS Modules) or Utility-first CSS (e.g. Tailwind), the chance of working with Styled Components (CSS-in-JS) was pretty high, because it's one of the most popular styling approaches.
 
 In this guide, I want to give you an overview of the best practices, we tried to establish as a team when working with Styled Components and which I tried to refine from project to project. As you will see, sometimes there is no right way to do it, because it depends more on the mindset your team aligns on. However, these tips and tricks should help you using Styled Components by example in a consistent way.
 
@@ -56,7 +56,7 @@ const Headline = styled.h1`
 `;
 ```
 
-Once a component file grows in size, me and the team always aligned on co-locating the styles in another file next to the actual component's file. This is always a great opportunity to take your [React project's folder structure](/react-folder-structure) to a next level. You will often see some kind of variation of the following component folder:
+Once a component file grows in size, me and the team always aligned on co-locating the styles in another file next to the actual component's file. This is always a great opportunity to take your [React project's folder structure](/react-folder-structure/) to a next level. You will often see some kind of variation of the following component folder:
 
 ```text
 - Section/
@@ -110,7 +110,7 @@ const Content = ({ title, children }) => {
 };
 ```
 
-What's important here is that styled components from a co-located file get usually exported with a [named export](/javascript-import-export), so that they can be imported with a named import. However, even though styled components should be simply seen as React components, it's not always easy to spot a styled component in a growing React component's JSX.
+What's important here is that styled components from a co-located file get usually exported with a [named export](/javascript-import-export/), so that they can be imported with a named import. However, even though styled components should be simply seen as React components, it's not always easy to spot a styled component in a growing React component's JSX.
 
 In contrast, importing an entire file's content as an object is often more beneficial:
 
@@ -146,7 +146,7 @@ const Content = ({ title, children }) => {
 
 Importing your styled components this way comes with three benefits: First, your import statement is simple, short and always stays the same. Second, to expose a new styled component from your co-located styles file, one only needs a named export from this file. And third, when aligning the team on a common naming structure for the imported style object, spotting styled components in your React component's JSX becomes straightforward.
 
-In conclusion, when importing styled components with named imports, often the project will end up with multiple naming conventions for these components (usually named StyledHeadline or Headline) which are not always aligned to each other. If you team aligns on one [naming convention](/javascript-naming-conventions) from the start, it's easier to avoid these bad practices when importing a file's entire content rather than importing every component one by one.
+In conclusion, when importing styled components with named imports, often the project will end up with multiple naming conventions for these components (usually named StyledHeadline or Headline) which are not always aligned to each other. If you team aligns on one [naming convention](/javascript-naming-conventions/) from the start, it's easier to avoid these bad practices when importing a file's entire content rather than importing every component one by one.
 
 # Single/Multiple Styled Components
 
@@ -214,7 +214,7 @@ As mentioned, this is a spectrum and you will see many versions in between. Here
 
 # Props or Class for Styled Components
 
-Earlier I mentioned that developers are leaning more towards using JavaScript than CSS. You can often see this for using a [React prop](/react-pass-props-to-component) or a CSS class for a styled component too. Let's take the following example where we could either use a prop or a class.
+Earlier I mentioned that developers are leaning more towards using JavaScript than CSS. You can often see this for using a [React prop](/react-pass-props-to-component/) or a CSS class for a styled component too. Let's take the following example where we could either use a prop or a class.
 
 We will start this off with the CSS class:
 
@@ -304,7 +304,7 @@ The last example clearly shows how a team of developers could distinguish when t
 
 # Styled Components Props Best Practices
 
-There are a few best practices I see when using props for dynamic style in Styled Components. First, keeping the parameter name either short or destructuring it right away. Here the same rules as for [function components in React](/react-function-component) apply, because props are almost never used directly, instead we want to use their content:
+There are a few best practices I see when using props for dynamic style in Styled Components. First, keeping the parameter name either short or destructuring it right away. Here the same rules as for [function components in React](/react-function-component/) apply, because props are almost never used directly, instead we want to use their content:
 
 ```javascript{2,6}
 const Headline = styled.h1`

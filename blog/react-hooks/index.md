@@ -18,7 +18,7 @@ In this walkthrough, I want to explain the motivation for React Hooks, what will
 
 # Why React Hooks?
 
-React Hooks were invented by the React team to introduce state management and side-effects in [function components](/react-function-component). It's their way of making it more effortless to use only React function components without the need to refactor a React function component to a React class component for using lifecycle methods, in order to use have side-effects, or local state. React Hooks enable us to write React applications with only function components. Thus, there is no need to use class components anymore.
+React Hooks were invented by the React team to introduce state management and side-effects in [function components](/react-function-component/). It's their way of making it more effortless to use only React function components without the need to refactor a React function component to a React class component for using lifecycle methods, in order to use have side-effects, or local state. React Hooks enable us to write React applications with only function components. Thus, there is no need to use class components anymore.
 
 **Unnecessary Component Refactorings:** Function components with React Hooks prevent unnecessary component refactorings. Previously, only React class components were used for local state management and lifecycle methods. The latter have been essential for introducing side-effects, such as listeners or data fetching, in React class components. The following shows a React class component with state management:
 
@@ -75,7 +75,7 @@ function Counter() {
 export default Counter;
 ```
 
-**Side-effect Logic:** In React class components, side-effects were mostly introduced in lifecycle methods (e.g. componentDidMount, componentDidUpdate, componentWillUnmount). A side-effect could be [fetching data in React](/react-fetching-data) or [interacting with the Browser API](/react-intersection-observer-api). Usually these side-effects came with a setup and clean up phase. For instance, if you would miss to remove your listener, you could run into [React performance issues](/react-warning-cant-call-setstate-on-an-unmounted-component).
+**Side-effect Logic:** In React class components, side-effects were mostly introduced in lifecycle methods (e.g. componentDidMount, componentDidUpdate, componentWillUnmount). A side-effect could be [fetching data in React](/react-fetching-data) or [interacting with the Browser API](/react-intersection-observer-api/). Usually these side-effects came with a setup and clean up phase. For instance, if you would miss to remove your listener, you could run into [React performance issues](/react-warning-cant-call-setstate-on-an-unmounted-component/).
 
 ```javascript
 import React from 'react';
@@ -115,7 +115,7 @@ function MyComponent() {
 
 Now, if you would introduce more than one of these side-effects in a React class component's lifecycle methods, all side-effects would be grouped by lifecycle method but not by side-effect. That's what React Hooks are going to change by encapsulating a side-effect in one hook whereas every hook has its own side-effect with a setup and clean up phase. You will see later in a tutorial how this works for real by adding and removing listeners in a React Hook.
 
-**React's Abstraction Hell:** Abstraction and thus reusability were introduced with [Higher-Order Components](/react-higher-order-components) and [Render Prop Components](/react-render-props) in React. There is also [React's Context with its Provider and Consumer Components](/react-context) that introduce another level of abstraction. All of these advanced patterns in React are using so called wrapping components. The implementation of the following components shouldn't be foreign to developers who are creating larger React applications:
+**React's Abstraction Hell:** Abstraction and thus reusability were introduced with [Higher-Order Components](/react-higher-order-components/) and [Render Prop Components](/react-render-props/) in React. There is also [React's Context with its Provider and Consumer Components](/react-context/) that introduce another level of abstraction. All of these advanced patterns in React are using so called wrapping components. The implementation of the following components shouldn't be foreign to developers who are creating larger React applications:
 
 ```javascript
 import React from 'react';
@@ -164,7 +164,7 @@ export default App;
 
 That's what React Hooks are bringing on the table. All side-effects are sitting directly in the component without introducing other components as container for business logic. The container disappears and the logic just sits in React Hooks that are only functions. Even [Andrew Clark left a deprecation statement in favor of React Hooks in his popular Higher-Order Component library](https://github.com/acdlite/recompose/commit/7867de653abbb57a49934e52622a60b433bda918).
 
-**JavaScript Class Confusion:** JavaScript mixes two worlds pretty well: Object-oriented programming (OOP) and functional programming (FP). React introduces many developers to both worlds. On the one side, React (and [Redux](/redux-javascript)) introduced people to functional programming (FP) with function compositions, general programming concepts with functions (e.g. higher-order functions, JavaScript built-in methods like map, reduce, filter) and other terms such as immutability and side-effects. React itself didn't really introduce these things, because they are features of the language or the programming paradigm itself, but they are heavily used in React whereas [every React developer becomes automatically a better JavaScript developer](/javascript-fundamentals-react-requirements).
+**JavaScript Class Confusion:** JavaScript mixes two worlds pretty well: Object-oriented programming (OOP) and functional programming (FP). React introduces many developers to both worlds. On the one side, React (and [Redux](/redux-javascript/)) introduced people to functional programming (FP) with function compositions, general programming concepts with functions (e.g. higher-order functions, JavaScript built-in methods like map, reduce, filter) and other terms such as immutability and side-effects. React itself didn't really introduce these things, because they are features of the language or the programming paradigm itself, but they are heavily used in React whereas [every React developer becomes automatically a better JavaScript developer](/javascript-fundamentals-react-requirements/).
 
 On the other side, React uses JavaScript classes as one way to define React components. A class is only the declaration whereas the actual usage of the component is the instantiation of it. It creates a class instance whereas the `this` object of the class instance is used to interact with class methods (e.g. setState, forceUpdate, other custom class methods). However, classes come with a steeper learning curve for JavaScript/React beginners who are not coming from an OOP background. That's why class bindings, the `this` object and inheritance ([which should be avoided anyway](https://reactjs.org/docs/composition-vs-inheritance.html)) can be confusing.
 
@@ -218,8 +218,8 @@ Now, many people argue React shouldn't take JavaScript classes away because peop
 
 ### Exercises:
 
-* Read more about [React Function Components](/react-function-component).
-* Read more about [Composition in React](/react-component-composition).
+* Read more about [React Function Components](/react-function-component/).
+* Read more about [Composition in React](/react-component-composition/).
 
 # What's different with React Hooks?
 
@@ -248,7 +248,7 @@ In the following, I want to dive into a few popular React Hooks by example to ge
 
 ### Exercises:
 
-* Read more about [React Class to Function Component with Hooks Migration](/react-hooks-migration).
+* Read more about [React Class to Function Component with Hooks Migration](/react-hooks-migration/).
 
 # React useState Hook
 
@@ -374,10 +374,10 @@ The useState hook gives you everything you need to manage state in a function co
 
 ### Exercises:
 
-* Read more about [React's useState Hook](/react-usestate-hook).
-* Read more about [how to add an item to a list in React](/react-add-item-to-list).
-* Read more about [how to remove an item from a list in React](/react-remove-item-from-list).
-* Read more about [how to update an item in a list in React](/react-update-item-in-list).
+* Read more about [React's useState Hook](/react-usestate-hook/).
+* Read more about [how to add an item to a list in React](/react-add-item-to-list/).
+* Read more about [how to remove an item from a list in React](/react-remove-item-from-list/).
+* Read more about [how to update an item in a list in React](/react-update-item-in-list/).
 
 # React useEffect Hook
 
@@ -409,7 +409,7 @@ function App() {
 export default App;
 ```
 
-There is no stopwatch yet. But at least there are is a [conditional rendering](/conditional-rendering-react) to show either a "Start" or "Stop" button. The state for the boolean flag is managed by the useState hook. Let's introduce our side-effect with useEffect that registers an interval. The function used for the interval emits a console logging every second to your developer tools of your browser:
+There is no stopwatch yet. But at least there are is a [conditional rendering](/conditional-rendering-react/) to show either a "Start" or "Stop" button. The state for the boolean flag is managed by the useState hook. Let's introduce our side-effect with useEffect that registers an interval. The function used for the interval emits a console logging every second to your developer tools of your browser:
 
 ```javascript{6,7,8}
 import React from 'react';
@@ -703,7 +703,7 @@ That's it. The useEffect hook is used for side-effects in React function compone
 
 ### Exercises:
 
-* Read more about [React's useEffect Hook](/react-useeffect-hook).
+* Read more about [React's useEffect Hook](/react-useeffect-hook/).
 
 # React Custom Hooks
 
@@ -809,18 +809,18 @@ React Hooks being reusable is the best thing about them, because there is the po
 
 ### Exercises:
 
-* Read more about [React State with Hooks](/react-state-usereducer-usestate-usecontext).
-* Read more about [How to fetch data with React Hooks](/react-hooks-fetch-data).
+* Read more about [React State with Hooks](/react-state-usereducer-usestate-usecontext/).
+* Read more about [How to fetch data with React Hooks](/react-hooks-fetch-data/).
 
 <Divider />
 
 If you want to dive deeper into the state and effect hooks, check out my other React Hook tutorials:
 
-* [How to useState Hook?](/react-usestate-hook)
-* [How to useReducer Hook?](/react-usereducer-hook)
-* [How to useEffect Hook?](/react-usecontext-hook)
-* [How to useCallback Hook?](/react-usecallback-hook)
-* [How to useMemo Hook?](/react-usememo-hook)
-* [How to useRef Hook?](/react-ref)
+* [How to useState Hook?](/react-usestate-hook/)
+* [How to useReducer Hook?](/react-usereducer-hook/)
+* [How to useEffect Hook?](/react-usecontext-hook/)
+* [How to useCallback Hook?](/react-usecallback-hook/)
+* [How to useMemo Hook?](/react-usememo-hook/)
+* [How to useRef Hook?](/react-ref/)
 
 Check out the official [FAQ](https://reactjs.org/docs/hooks-faq.html) and [Rules](https://reactjs.org/docs/hooks-rules.html) for hooks in React's documentation to learn more about their fine-grained behaviour. In addition, you can checkout [all officially available React Hooks](https://reactjs.org/docs/hooks-reference.html) too.

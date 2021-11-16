@@ -12,11 +12,11 @@ author: ""
 
 <Sponsorship />
 
-In this React component tutorial by example, we will create a React Slider Component with [React Hooks](/react-hooks) and a [Function Component](/react-function-component). You can see the final output of this implementation in this [CodeSandbox](https://codesandbox.io/s/github/the-road-to-learn-react/react-slider/tree/master/?fontsize=14) or in this [GitHub repository](https://github.com/the-road-to-learn-react/react-slider). If you want to implement it step by step, just follow the tutorial.
+In this React component tutorial by example, we will create a React Slider Component with [React Hooks](/react-hooks/) and a [Function Component](/react-function-component/). You can see the final output of this implementation in this [CodeSandbox](https://codesandbox.io/s/github/the-road-to-learn-react/react-slider/tree/master/?fontsize=14) or in this [GitHub repository](https://github.com/the-road-to-learn-react/react-slider). If you want to implement it step by step, just follow the tutorial.
 
 # React Slider by Example
 
-Let's start right away by giving our React Slider its style. This way, we can see our component right away in the browser. We will use [Styled Components](/react-styled-components) to style our Slider, but feel free to use something else like CSS Modules.
+Let's start right away by giving our React Slider its style. This way, we can see our component right away in the browser. We will use [Styled Components](/react-styled-components/) to style our Slider, but feel free to use something else like CSS Modules.
 
 ```javascript
 import React from 'react';
@@ -225,12 +225,12 @@ The React slider example should work now. We have used direct DOM manipulation t
 
 ### Exercise:
 
-* Try the example with [React's useState Hook](/react-usestate-hook) instead of the `thumbRef.current.style.left` assignment
+* Try the example with [React's useState Hook](/react-usestate-hook/) instead of the `thumbRef.current.style.left` assignment
 * Try the example with a vertical instead of the horizontal slider example
 
 # React Slider: Component
 
-In the end, we would like to have a real React Slider Component with a slim API to the outside. At the moment, we cannot [pass any props](/react-pass-props-to-component) to the Slider Component and we don't get any current values from it with callback functions. Let's change this.
+In the end, we would like to have a real React Slider Component with a slim API to the outside. At the moment, we cannot [pass any props](/react-pass-props-to-component/) to the Slider Component and we don't get any current values from it with callback functions. Let's change this.
 
 First, we will pass some initial values to our Slider Component. Let's say we want to have an initial position for the thumb and a max value for the range. We could pass and use them the following way for the initial render:
 

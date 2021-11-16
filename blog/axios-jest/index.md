@@ -145,7 +145,7 @@ That's it for creating a Jest mock for Axios by going through one example. You c
 
 * If you want to mock a post instead of a get request for Axios, just apply the `mockImplementationOnce()` for `axios.post` instead of `axios.get`.
 * If you want to have a proper network error, for instance a status code 404, then you have to create a [custom JavaScript error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) for it.
-* Last but not least, head over to this tutorial if you want to see [how data fetching with Axios can be tested in React with Jest and Enzyme](/react-testing-jest-enzyme).
+* Last but not least, head over to this tutorial if you want to see [how data fetching with Axios can be tested in React with Jest and Enzyme](/react-testing-jest-enzyme/).
 
 
 

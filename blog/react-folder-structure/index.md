@@ -18,7 +18,7 @@ How to structure large React apps into folders and files is a highly opinionated
 
 # Single React file
 
-The first step follows the rule: One file to rule them all. Most React projects start with a *src/* folder and one *src/App.js* file with an App component. At least that's what you get when you are using [create-react-app](/react-js-macos-setup). This App [function component](/react-function-component/) just renders something:
+The first step follows the rule: One file to rule them all. Most React projects start with a *src/* folder and one *src/App.js* file with an App component. At least that's what you get when you are using [create-react-app](/react-js-macos-setup/). This App [function component](/react-function-component/) just renders something:
 
 ```javascript
 import React from 'react';
@@ -36,7 +36,7 @@ const App = () => {
 export default App;
 ```
 
-Eventually this component adds more features, it naturally grows in size, and needs to extract parts of it as standalone React components. Here we are extracting a [React list component](/react-list-component) with another child component from the App component:
+Eventually this component adds more features, it naturally grows in size, and needs to extract parts of it as standalone React components. Here we are extracting a [React list component](/react-list-component/) with another child component from the App component:
 
 ```javascript
 import React from 'react';
@@ -88,7 +88,7 @@ The second step follows the rule: Multiple files to rule them all. Take for inst
 --- List.js
 ```
 
-While the *src/List.js* file would have the implementation details of the List and ListItem components, it would only [export](/javascript-import-export) the List component from the file as public API to this file:
+While the *src/List.js* file would have the implementation details of the List and ListItem components, it would only [export](/javascript-import-export/) the List component from the file as public API to this file:
 
 ```javascript{18}
 const List = ({ list }) => (
@@ -111,7 +111,7 @@ const ListItem = ({ item }) => (
 export default List;
 ```
 
-Then the *src/App.js* file can [import](/javascript-import-export) the List component and use it:
+Then the *src/App.js* file can [import](/javascript-import-export/) the List component and use it:
 
 ```javascript{3,20}
 import React from 'react';
@@ -145,11 +145,11 @@ If you would take this one step further, you could also extract the ListItem com
 --- ListItem.js
 ```
 
-However, as said before, this may take it too far, because so far the ListItem component is tightly coupled to the List component. Hence it would be okay to leave it in the *src/List.js* file. I follow the rule of thumb that whenever a React component becomes a [reusable React component](/react-reusable-components), I split it out as a standalone file, like we did with the List component, to make it accessible for other React components.
+However, as said before, this may take it too far, because so far the ListItem component is tightly coupled to the List component. Hence it would be okay to leave it in the *src/List.js* file. I follow the rule of thumb that whenever a React component becomes a [reusable React component](/react-reusable-components/), I split it out as a standalone file, like we did with the List component, to make it accessible for other React components.
 
 # From React files to React folders
 
-From here it becomes more interesting and more opinionated. Every React component grows in complexity eventually. Not only because more logic is added (e.g. more JSX with [conditional rendering](/conditional-rendering-react) or [React Hooks](/react-hooks)), but also because there are more technical concerns like styling and tests. A naive approach would be to add more files next to each React component. For example, let's say every React component has a test and a style file:
+From here it becomes more interesting and more opinionated. Every React component grows in complexity eventually. Not only because more logic is added (e.g. more JSX with [conditional rendering](/conditional-rendering-react/) or [React Hooks](/react-hooks/)), but also because there are more technical concerns like styling and tests. A naive approach would be to add more files next to each React component. For example, let's say every React component has a test and a style file:
 
 ```text{3-4,6-7}
 - src/
@@ -175,7 +175,7 @@ One can already see that this doesn't scale well, because with every additional 
 ----- style.css
 ```
 
-The naming of these files is up to you. For example, *index.js* may become *component.js* or *test.js* may become *spec.js*. Moreover, if you are not using CSS but something like [Styled Components](/react-styled-components), your file extension may change from *style.css* to *style.js* too. Once you get used to your naming convention, you can just search for "List index" or "App test" in your IDE for opening each file. If you collapse all component folders, you have a very concise and clear folder structure:
+The naming of these files is up to you. For example, *index.js* may become *component.js* or *test.js* may become *spec.js*. Moreover, if you are not using CSS but something like [Styled Components](/react-styled-components/), your file extension may change from *style.css* to *style.js* too. Once you get used to your naming convention, you can just search for "List index" or "App test" in your IDE for opening each file. If you collapse all component folders, you have a very concise and clear folder structure:
 
 ```text
 - src/
@@ -274,7 +274,7 @@ We group our previous React components into a new *components/* folder. This giv
 
 This doesn't mean that all hooks should end up in this folder though. React Hooks which are still only used by one component should remain in the component's file or maybe in a separate *hooks.js* file in the component's folder. Only hooks that can be consumed by all React components end up in the *hooks/* folder.
 
-The same strategy may apply if you are using [React Context](/react-context) in your project which needs to be accessed globally by all your other files:
+The same strategy may apply if you are using [React Context](/react-context/) in your project which needs to be accessed globally by all your other files:
 
 ```text{16-18}
 - src/
@@ -369,7 +369,7 @@ import * as dateService from '../../services/format/date';
 const month = dateService.formatMonth(new Date());
 ```
 
-It may become difficult to import things with relative paths now. Therefore I always would opt-in [Babel's Module Resolver](/babel-module-resolver) for aliases. Afterward, your import may look like the following:
+It may become difficult to import things with relative paths now. Therefore I always would opt-in [Babel's Module Resolver](/babel-module-resolver/) for aliases. Afterward, your import may look like the following:
 
 ```javascript{1}
 import * as dateService from '@format/date';
@@ -461,7 +461,7 @@ If a PaymentForm needs access to a Button or Input, it imports it from the reusa
 --------- test.js
 ```
 
-Whether there should be an intermediate *services/* folder in each domain folder is up to you. You could also leave out the folder and put the *ErrorTracking/* folder directly into *Error/*. However, this may be confusing, because ErrorTracking should be marked somehow as a service and not as a React component. As alternative you could also use a [kebab-case naming convention, which is better than PascalCase anyway](/javascript-naming-conventions), by going with *error-tracking/* instead of *ErrorTracking/*.
+Whether there should be an intermediate *services/* folder in each domain folder is up to you. You could also leave out the folder and put the *ErrorTracking/* folder directly into *Error/*. However, this may be confusing, because ErrorTracking should be marked somehow as a service and not as a React component. As alternative you could also use a [kebab-case naming convention, which is better than PascalCase anyway](/javascript-naming-conventions/), by going with *error-tracking/* instead of *ErrorTracking/*.
 
 There is lots of room for your personal touch here. After all, this step is just about bringing the domains together which allows teams in your company to work on specific domains without having to touch files across the project.
 

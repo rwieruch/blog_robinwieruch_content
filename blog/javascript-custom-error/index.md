@@ -87,7 +87,7 @@ async function findUserById(id) {
 };
 ```
 
-This may be alright for most cases, but in certain scenarios, [like having this happen for a REST API](/node-express-error-handling), I may want to customize the error with an HTTP status code for my server middleware. Then again, I create a custom error class for it, extend from the native error, and pass in all the properties from the third party error plus my other information:
+This may be alright for most cases, but in certain scenarios, [like having this happen for a REST API](/node-express-error-handling/), I may want to customize the error with an HTTP status code for my server middleware. Then again, I create a custom error class for it, extend from the native error, and pass in all the properties from the third party error plus my other information:
 
 ```javascript{1-8,14}
 export class BadRequestError extends Error {

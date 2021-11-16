@@ -84,7 +84,7 @@ If it doesn't show up in Visual Studio Code, you may have to restart the applica
 
 <Divider />
 
-That's everything you need for a React development setup in Windows. I hope you have everything to get started in React on your PC. Let me know what other tools you are using on Windows in the comments below. Otherwise, if you are curios about the tools that I am using on my machine, head over to [my personal development setup guide](/developer-setup).
+That's everything you need for a React development setup in Windows. I hope you have everything to get started in React on your PC. Let me know what other tools you are using on Windows in the comments below. Otherwise, if you are curios about the tools that I am using on my machine, head over to [my personal development setup guide](/developer-setup/).
 
 <LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "/how-to-use-prettier-vscode" }]} />
 

@@ -39,7 +39,7 @@ const App = () => {
 };
 ```
 
-In your browser, this checkbox can already change its checked state by showing either a check mark or nothing. However, this is just the checkbox's internal HTML state which isn't controlled by React yet. Let's change this by transforming this checkbox from being [uncontrolled to controlled](/react-controlled-components):
+In your browser, this checkbox can already change its checked state by showing either a check mark or nothing. However, this is just the checkbox's internal HTML state which isn't controlled by React yet. Let's change this by transforming this checkbox from being [uncontrolled to controlled](/react-controlled-components/):
 
 ```javascript{2,4-6,13-14,19}
 const App = () => {
@@ -66,7 +66,7 @@ const App = () => {
 };
 ```
 
-By using [React's useState Hook](/react-usestate-hook) and an [event handler](/react-event-handler), we can keep track of the checkbox's value via [React's state](/react-state). Next we may want to create a Checkbox component which can be used more than once throughout a React project. Therefore, we will extract it as a new [function component](/react-function-component) and [pass the necessary props](/react-pass-props-to-component) to it:
+By using [React's useState Hook](/react-usestate-hook/) and an [event handler](/react-event-handler/), we can keep track of the checkbox's value via [React's state](/react-state/). Next we may want to create a Checkbox component which can be used more than once throughout a React project. Therefore, we will extract it as a new [function component](/react-function-component/) and [pass the necessary props](/react-pass-props-to-component/) to it:
 
 ```javascript{10-14,21-28}
 const App = () => {
@@ -99,7 +99,7 @@ const Checkbox = ({ label, value, onChange }) => {
 };
 ```
 
-Our Checkbox component is a [reusable component](/react-reusable-components) now. For example, if you would give your input element some [CSS style in React](/react-css-styling), every Checkbox component which is used in your React project would use the same style.
+Our Checkbox component is a [reusable component](/react-reusable-components/) now. For example, if you would give your input element some [CSS style in React](/react-css-styling/), every Checkbox component which is used in your React project would use the same style.
 
 If you would want to create a checkbox group now, you could just use multiple Checkbox components side by side and maybe style them with some border and some alignment, so that a user perceives them as a group of checkboxes:
 

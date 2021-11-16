@@ -223,13 +223,13 @@ const Headline = () => {
 export default App;
 ```
 
-By providing an event handler to the input field, we are able to do something with a [callback function](/javascript-callback-function) when the input field changes its value. As argument of the callback function we receive a [synthetic React event](https://reactjs.org/docs/events.html) which holds the current value of the input field. This value is ultimately used to set the new state for the Function Component with an inline arrow function. We will see later how to extract this function from there.
+By providing an event handler to the input field, we are able to do something with a [callback function](/javascript-callback-function/) when the input field changes its value. As argument of the callback function we receive a [synthetic React event](https://reactjs.org/docs/events.html) which holds the current value of the input field. This value is ultimately used to set the new state for the Function Component with an inline arrow function. We will see later how to extract this function from there.
 
 *Note: The input field receives the value of the component state too, because you want to control the state (value) of the input field and don't let the native HTML element's internal state take over. Doing it this way, the component has become a [controlled component](/react-controlled-components/).*
 
 As you have seen, React Hooks enable us to use state in React (Arrow) Function Components. Whereas you would have used a setState method to write state in a Class Component, you can use the useState hook to write state in a Function Component.
 
-*Note: If you want to use [React's Context](/react-context/) in Function Components, check out [React's Context Hook called useContext](/react-usecontext-hook) for reading from React's Context in a component.*
+*Note: If you want to use [React's Context](/react-context/) in Function Components, check out [React's Context Hook called useContext](/react-usecontext-hook/) for reading from React's Context in a component.*
 
 # React Function Component: Event Handler
 
@@ -1100,4 +1100,4 @@ If you are interested in moving from Class Components to Function Components, ch
 
 <Divider />
 
-The article has shown you almost everything you need to know to get started with React Function Components. If you want to dig deeper into testing React Components for instance, check out this in-depth guide: [Testing React Components](/react-testing-tutorial). Anyway, I hope there have been a couple of best practices for using Functional Components in React as well. Let me know if anything is missing!
+The article has shown you almost everything you need to know to get started with React Function Components. If you want to dig deeper into testing React Components for instance, check out this in-depth guide: [Testing React Components](/react-testing-tutorial/). Anyway, I hope there have been a couple of best practices for using Functional Components in React as well. Let me know if anything is missing!

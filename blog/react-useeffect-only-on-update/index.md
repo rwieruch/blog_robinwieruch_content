@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-If you are wondering how to run React's useEffect Hook **only on update**, you may be surprised that you need [React's useRef Hook as helper to create an instance variable](/react-ref) for tracking the component's lifecycle. The following code shows you how to achieve it:
+If you are wondering how to run React's useEffect Hook **only on update**, you may be surprised that you need [React's useRef Hook as helper to create an instance variable](/react-ref/) for tracking the component's lifecycle. The following code shows you how to achieve it:
 
 ```javascript{10,12-18}
 import * as React from 'react';

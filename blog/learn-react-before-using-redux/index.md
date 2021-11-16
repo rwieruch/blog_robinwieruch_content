@@ -23,7 +23,7 @@ Often people learn React and Redux altogether. But it has drawbacks:
   * thus people will manage (and clutter) **all** of their state in a state container provided by Redux
   * thus people never use the local state management
 
-Because of these drawbacks, you will often get the advice to learn React first and opt-in Redux to your tech stack in a later point in time. But only opt-in Redux if you run into issues scaling your state management. These scaling issues [only apply for larger applications](/react-global-state-without-redux). Often you will [not need a state management library](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367) such as Redux on top. The book [The Road to learn React](/the-road-to-learn-react/) demonstrates how an application can be build in plain React without external dependencies like Redux.
+Because of these drawbacks, you will often get the advice to learn React first and opt-in Redux to your tech stack in a later point in time. But only opt-in Redux if you run into issues scaling your state management. These scaling issues [only apply for larger applications](/react-global-state-without-redux/). Often you will [not need a state management library](https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367) such as Redux on top. The book [The Road to learn React](/the-road-to-learn-react/) demonstrates how an application can be build in plain React without external dependencies like Redux.
 
 However, now you decided to jump on the Redux train. So here comes my list of what you should know about React before using Redux.
 
@@ -98,7 +98,7 @@ This way you can ensure to update your state depending on correct state and prop
 this.setState((prevState, props) => ({ counter: prevState.counter + props.addition }));
 ```
 
-Another benefit is that you can test the state updating in isolation when using a function. Simply extract the [callback function](/javascript-callback-function) that is used in `this.setState(fn)` to be standalone and export it to make it testable. It should be a pure function where you can test simply the output depending on the input.
+Another benefit is that you can test the state updating in isolation when using a function. Simply extract the [callback function](/javascript-callback-function/) that is used in `this.setState(fn)` to be standalone and export it to make it testable. It should be a pure function where you can test simply the output depending on the input.
 
 # React's State and Props
 

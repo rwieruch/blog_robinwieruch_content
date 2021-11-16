@@ -14,7 +14,7 @@ author: ""
 
 After all my teachings about React, be it online for a larger audience or on-site for companies transitioning to web development and React, I always come to the conclusion that React is all about JavaScript. Newcomers to React but also myself see it as an [advantage](https://www.quora.com/Why-choose-React/answer/Robin-Wieruch), because you carry your JavaScript knowledge for a longer time around compared to your React skills.
 
-During my workshops, the larger part of the material is about JavaScript and not React. Most of it boils down to JavaScript ES6 and beyond -- features and syntax -- but also ternary operators, shorthand versions in the language, the `this` object, JavaScript built-in functions ([map](/javascript-map-array/), reduce, filter) or more general concepts such as [composability](/react-component-composition/), [reusability](/react-reusable-components/), immutability, [closures](/javascript-closure), truth tables, or higher-order functions. These are the fundamentals, which you don't need necessarily to master before starting with React, but which will definitely come up while learning or practicing it.
+During my workshops, the larger part of the material is about JavaScript and not React. Most of it boils down to JavaScript ES6 and beyond -- features and syntax -- but also ternary operators, shorthand versions in the language, the `this` object, JavaScript built-in functions ([map](/javascript-map-array/), reduce, filter) or more general concepts such as [composability](/react-component-composition/), [reusability](/react-reusable-components/), immutability, [closures](/javascript-closure/), truth tables, or higher-order functions. These are the fundamentals, which you don't need necessarily to master before starting with React, but which will definitely come up while learning or practicing it.
 
 The following walkthrough is my attempt giving you an almost extensive yet concise list about all the different JavaScript functionalities that complement your React knowledge. If you have any other things which are not in the list, just leave a comment for this article and I will keep it up to date.
 
@@ -381,7 +381,7 @@ const App = () => {
 export default App;
 ```
 
-Usually the next question then is: [How to render a list of items?](/react-list-component) That's one of the best parts about explaining React in my opinion. There is no React specific API such as a custom attribute on a HTML tag which enables you to render multiple items in React. You can use plain JavaScript for iterating over the list of items and returning HTML for each item.
+Usually the next question then is: [How to render a list of items?](/react-list-component/) That's one of the best parts about explaining React in my opinion. There is no React specific API such as a custom attribute on a HTML tag which enables you to render multiple items in React. You can use plain JavaScript for iterating over the list of items and returning HTML for each item.
 
 ```javascript{4,5,6,7,10,11,12,13,14}
 import React from 'react';

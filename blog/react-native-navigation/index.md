@@ -146,7 +146,7 @@ const App = () => {
 export default App;
 ```
 
-All navigations techniques (e.g. Stack Navigation) in React Navigation need to have the NavigationContainer component as wrapping component. I called this stack `RootStack`, because it's the first level in our **navigation hierarchy**. We will see later **how to nest other navigations** into this. Each RootStack's Screen component takes a `name` and a `component` as [React prop](/react-pass-props-to-component), in our case these are the Landing and Home screens and their respective names.
+All navigations techniques (e.g. Stack Navigation) in React Navigation need to have the NavigationContainer component as wrapping component. I called this stack `RootStack`, because it's the first level in our **navigation hierarchy**. We will see later **how to nest other navigations** into this. Each RootStack's Screen component takes a `name` and a `component` as [React prop](/react-pass-props-to-component/), in our case these are the Landing and Home screens and their respective names.
 
 Once you restart your app, you should see the rendered Landing screen. The first screen (here `LandingScreen`) in the Stack Navigation gets rendered. If you swap both screens order, you should see the Home screen rendered first. You could also set a `initialRouteName="Home"` prop in the RootStack's Navigator component to force one of the screens -- in this case the Home screen -- to be the initially displayed screen. Anyway, next we will learn how to navigate from one page to another.
 
@@ -154,7 +154,7 @@ Once you restart your app, you should see the rendered Landing screen. The first
 
 * Read more about [Stack Navigation with React Navigation](https://reactnavigation.org/docs/hello-react-navigation).
 * Read more about [customizing the Stack Navigation's header bar](https://reactnavigation.org/docs/headers).
-* If you are confused by the folder structure, I follow these [React project structure guidelines](/react-folder-structure). If you don't like them, you can organize the code as you wish too.
+* If you are confused by the folder structure, I follow these [React project structure guidelines](/react-folder-structure/). If you don't like them, you can organize the code as you wish too.
 
 # Navigating with React Navigation
 
@@ -298,7 +298,7 @@ const SignInScreen = ({ onSignIn }) => {
 export default SignInScreen;
 ```
 
-The implementation detail is not in the SignIn screen component, but is passed as [callback handler](/react-event-handler) (here `onSignIn`) from the App component. The App component implements this handler -- which simply toggles a boolean flag from `false` to `true` with [React's useState Hook](/react-usestate-hook):
+The implementation detail is not in the SignIn screen component, but is passed as [callback handler](/react-event-handler/) (here `onSignIn`) from the App component. The App component implements this handler -- which simply toggles a boolean flag from `false` to `true` with [React's useState Hook](/react-usestate-hook/):
 
 ```javascript{4,6-10}
 ...
@@ -326,7 +326,7 @@ const App = () => {
 ...
 ```
 
-In order to pass this new handler to the SignIn screen, we need to adjust how the SignIn screen component is passed to the Stack Navigation. We are using [React's render prop pattern](/react-render-props) in order to pass more information to our SignIn screen component:
+In order to pass this new handler to the SignIn screen, we need to adjust how the SignIn screen component is passed to the Stack Navigation. We are using [React's render prop pattern](/react-render-props/) in order to pass more information to our SignIn screen component:
 
 ```javascript{16-20}
 ...
@@ -362,7 +362,7 @@ Now we have our lever to pseudo authenticate a user in our React Native app. If 
 
 ![](./images/5.png)
 
-What's missing is giving the user access to the protected area. Therefore, we will implement a so called switch navigation with React Navigation by just using a [conditional rendering in React](/conditional-rendering-react):
+What's missing is giving the user access to the protected area. Therefore, we will implement a so called switch navigation with React Navigation by just using a [conditional rendering in React](/conditional-rendering-react/):
 
 ```javascript{15,17,29}
 ...

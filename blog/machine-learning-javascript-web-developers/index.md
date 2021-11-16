@@ -159,7 +159,7 @@ Along the way, I did all the weekly assignments and solved them in Octave. In ad
 * [Multivariate Linear Regression, Gradient Descent in JavaScript](/multivariate-linear-regression-gradient-descent-javascript/)
 * [Linear Regression with Normal Equation in JavaScript](/multivariate-linear-regression-normal-equation-javascript/)
 * [Logistic Regression with Gradient Descent in JavaScript](/logistic-regression-gradient-descent-classification-javascript/)
-* [Neural Networks in JavaScript with deeplearn.js](/neural-networks-deeplearnjs-javascript)
+* [Neural Networks in JavaScript with deeplearn.js](/neural-networks-deeplearnjs-javascript/)
 
 It's not comprehensive yet, for instance a neural network implementation with vanilla JavaScript is missing, but I hope to complete all the bare bones algorithms in JavaScript at some point. The neural network implementation is done with a recently released library called deeplearn.js by Google which got rebranded to Tensorflow.js. I was pretty excited to use it for the first time, and it was my personal reward, after doing the course for 5 weeks, to use a library instead of implementing neural networks in JavaScript from scratch. Have a look at the [neural network in action to improve web accessibility](https://github.com/javascript-machine-learning/color-accessibility-neural-network-deeplearnjs). Another one [is learning digets using the MNIST databse and visualizes its outcome](https://github.com/javascript-machine-learning/mnist-neural-network-deeplearnjs). Maybe you see it as opportunity as well to contribute to the GitHub organization. Next on the agenda are K-Means, Support Vector Machines (SVM) and principal component analysis (PCA) from scratch in JavaScript!
 

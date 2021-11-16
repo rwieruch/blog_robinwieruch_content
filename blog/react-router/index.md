@@ -31,11 +31,11 @@ ReactDOM.render(
 );
 ```
 
-From here, we will continue our implementation in the *App.js* file. Feel free to extract components when needed into their own folders and files by coming up with a project structure yourself or by following [this guide about a common React project structure](/react-folder-structure).
+From here, we will continue our implementation in the *App.js* file. Feel free to extract components when needed into their own folders and files by coming up with a project structure yourself or by following [this guide about a common React project structure](/react-folder-structure/).
 
 # React Router: Matching Routes
 
-First, we will implement the navigation in our App component by using React Router's Link component. I don't recommend to use inline style like I do, so feel free to choose an appropriate [styling strategy and styling approach for your React project](/react-css-styling):
+First, we will implement the navigation in our App component by using React Router's Link component. I don't recommend to use inline style like I do, so feel free to choose an appropriate [styling strategy and styling approach for your React project](/react-css-styling/):
 
 ```javascript{1,8,13-25}
 import { Link } from 'react-router-dom';
@@ -100,7 +100,7 @@ const Navigation = () => {
 };
 ```
 
-You can see the direct match between Link and Route component by checking their respective `to` and `path` attributes. Each Route component renders a React element when the route matches. Since we are rendering a React element here, we could pass [React props](/react-pass-props-to-component) as well. What's missing is the declaration of the corresponding [function components](/react-function-component):
+You can see the direct match between Link and Route component by checking their respective `to` and `path` attributes. Each Route component renders a React element when the route matches. Since we are rendering a React element here, we could pass [React props](/react-pass-props-to-component/) as well. What's missing is the declaration of the corresponding [function components](/react-function-component/):
 
 ```javascript
 const Home = () => {
@@ -124,7 +124,7 @@ When going back to the browser, you should be able to navigate from page to page
 
 # Layout Routes, Index Routes, No Match Routes
 
-Next you see how the new Home and Users component share the same layout. As React developers, intuitively we would extract a new component with the stylings from the Home and Users component to avoid duplication. In this new component, we would use React's children prop to [compose components](/react-component-composition) into each other. As first step, extract the styling into its own component:
+Next you see how the new Home and Users component share the same layout. As React developers, intuitively we would extract a new component with the stylings from the Home and Users component to avoid duplication. In this new component, we would use React's children prop to [compose components](/react-component-composition/) into each other. As first step, extract the styling into its own component:
 
 ```javascript{3,5,11,13,17-19}
 const Home = () => {
@@ -308,7 +308,7 @@ So far, while using the Routes component as container for a collection of Route 
 
 # React Router: Dynamic and Nested Routes
 
-Next we are going to decorate the Users component with implementation details. First, we will initialize a list of items (here: `users`) in our App component. The list is just sample data, but it could be [fetched in React](/react-hooks-fetch-data) from a remote API too. Second, we will pass the users to the Users component as props:
+Next we are going to decorate the Users component with implementation details. First, we will initialize a list of items (here: `users`) in our App component. The list is just sample data, but it could be [fetched in React](/react-hooks-fetch-data/) from a remote API too. Second, we will pass the users to the Users component as props:
 
 ```javascript{2-5,12}
 const App = () => {
@@ -330,7 +330,7 @@ const App = () => {
 };
 ```
 
-The Users component becomes a [list component in React](/react-list-component), because it iterates over each user and returns JSX for it. In this case, it's a bit more than a mere list, because we add a React Router's Link component to the mix. The relative path in the Link component hints to a respective dynamic (here: `/${user.id}`) yet nested (here: `/${user.id}` nested in `/users`) route:
+The Users component becomes a [list component in React](/react-list-component/), because it iterates over each user and returns JSX for it. In this case, it's a bit more than a mere list, because we add a React Router's Link component to the mix. The relative path in the Link component hints to a respective dynamic (here: `/${user.id}`) yet nested (here: `/${user.id}` nested in `/users`) route:
 
 ```javascript{1,6-14}
 const Users = ({ users }) => {
@@ -423,7 +423,7 @@ We have also seen how we can create dynamic routes by using the colon in a Route
 
 So far, we have only used declarative navigation when using the Link or NavLink component. However, on certain occasions you want to be able to navigate a user programmatically via JavaScript. We will showcase this scenario by implementing a feature where it's possible to delete a user in the User component. After the deletion, the user should be navigated away from the User component to the Users component (from `/users/:userId` to `/users`).
 
-We will start this implementation by creating a stateful `users` value with [React's useState Hook](/react-usestate-hook) followed by implementing a event handler which deletes a user from the `users` by using an identifier:
+We will start this implementation by creating a stateful `users` value with [React's useState Hook](/react-usestate-hook/) followed by implementing a event handler which deletes a user from the `users` by using an identifier:
 
 ```javascript{1,5-8,10-12,22}
 import * as React from 'react';
@@ -457,7 +457,7 @@ const App = () => {
 };
 ```
 
-After we have passed the [event handler as callback handler](/react-event-handler) to the User component, we can use it there as inline handler to remove the specific user by identifier:
+After we have passed the [event handler as callback handler](/react-event-handler/) to the User component, we can use it there as inline handler to remove the specific user by identifier:
 
 ```javascript{1,8-10}
 const User = ({ onRemoveUser }) => {
@@ -504,7 +504,7 @@ const App = () => {
 };
 ```
 
-In this case, the delete operation happens synchronously, because the users are just a stateful value on the client-side. However, if the user would be an entity in a database, you would have to make an asynchronous request to delete it. Once this operation (read: promise) resolves, the user gets navigated away to the `/users` route. You can try this scenario yourself by setting up a [fake API in React](/react-mock-data) without using an actual server.
+In this case, the delete operation happens synchronously, because the users are just a stateful value on the client-side. However, if the user would be an entity in a database, you would have to make an asynchronous request to delete it. Once this operation (read: promise) resolves, the user gets navigated away to the `/users` route. You can try this scenario yourself by setting up a [fake API in React](/react-mock-data/) without using an actual server.
 
 # React Router: Search Params
 
@@ -564,8 +564,8 @@ const Users = ({ users }) => {
 };
 ```
 
-First, we are using React Router's useSearchParams Hook to read the current search params from the URL (see `get()` method on `searchParams`), but also to write search params to the URL (see `setSearchParams()` function). While we use the former to get the search param by key (here: `'name'`) to [control](/react-controlled-components) (read: display it in) the input field, we are using the latter to set the search param by key in the URL whenever a user types into the input field. At its core, React Router's useSearchParams Hook is the same as React's useState Hook with the difference that this state is a URL state and not a local state in React. Last but not least, we are using the search param to filter the actual list of `users` to finish this feature.
+First, we are using React Router's useSearchParams Hook to read the current search params from the URL (see `get()` method on `searchParams`), but also to write search params to the URL (see `setSearchParams()` function). While we use the former to get the search param by key (here: `'name'`) to [control](/react-controlled-components/) (read: display it in) the input field, we are using the latter to set the search param by key in the URL whenever a user types into the input field. At its core, React Router's useSearchParams Hook is the same as React's useState Hook with the difference that this state is a URL state and not a local state in React. Last but not least, we are using the search param to filter the actual list of `users` to finish this feature.
 
 <Divider />
 
-React Router is one of the most used [third-party libraries for React](/react-libraries). Its core feature is mapping Link components to Route components which enables developers implementing [client-side routing without making requests to a web server](/web-applications). However, going beyond this core feature, it's a full-blown routing library which enables declarative nested routing, dynamic routing, navigation, active links yet also programmatic navigation and searching via the URL.
+React Router is one of the most used [third-party libraries for React](/react-libraries/). Its core feature is mapping Link components to Route components which enables developers implementing [client-side routing without making requests to a web server](/web-applications/). However, going beyond this core feature, it's a full-blown routing library which enables declarative nested routing, dynamic routing, navigation, active links yet also programmatic navigation and searching via the URL.

@@ -69,7 +69,7 @@ i18n
 export default i18n;
 ```
 
-The default i18n backend expects all translation files to be served from a web server. If you are using create-react-app, your *public/* folder will be sufficient. If you are using a custom [Webpack with React](/minimal-react-webpack-babel-setup) setup, you need to set up this *public/* folder yourself.
+The default i18n backend expects all translation files to be served from a web server. If you are using create-react-app, your *public/* folder will be sufficient. If you are using a custom [Webpack with React](/minimal-react-webpack-babel-setup/) setup, you need to set up this *public/* folder yourself.
 
 The default folder structure for the translation files looks like the following:
 
@@ -171,7 +171,7 @@ const App = () => {
 export default App;
 ```
 
-The [React Hook](/react-hooks) gives us a function called `t` for translation the texts in our React components. Whereas its first mandatory parameter is the translation key (see *public/locales/en/translation.json*), the second optional parameter is the so called *working text*. Whenever there is no translation, it defaults to the working text or to the translation key, if there is no working text in the first place.
+The [React Hook](/react-hooks/) gives us a function called `t` for translation the texts in our React components. Whereas its first mandatory parameter is the translation key (see *public/locales/en/translation.json*), the second optional parameter is the so called *working text*. Whenever there is no translation, it defaults to the working text or to the translation key, if there is no working text in the first place.
 
 # React with react-i18next: Multiple Files (Namespaces)
 
@@ -412,7 +412,7 @@ i18n
 export default i18n;
 ```
 
-And second, create a custom backend, which could be a [common Express server](/node-js-express-tutorial), which receives the missing translation keys:
+And second, create a custom backend, which could be a [common Express server](/node-js-express-tutorial/), which receives the missing translation keys:
 
 ```javascript
 import express from 'express';

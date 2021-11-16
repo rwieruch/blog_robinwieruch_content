@@ -78,7 +78,7 @@ When I revamped my website, I decided to use [Digital Ocean](https://m.do.co/c/f
 * easily scaleable cloud computing
 * full control on the command line
 * powerful monitoring
-* [hosting of multiple projects and websites](/deploy-applications-digital-ocean)
+* [hosting of multiple projects and websites](/deploy-applications-digital-ocean/)
 * lots of tutorials to get started
 * fair pricing
 

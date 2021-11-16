@@ -27,7 +27,7 @@ In this tutorial, I want to show you how to use [React Table Library](https://re
 
 React Table Library does not come with a native search feature, however, since you have access to the data from the outside, you can manipulate it before passing it to the table. Let's see how this works.
 
-First, create a new [React useState Hook](/react-usestate-hook) -- which holds the state of the search -- and a new [event handler](/react-event-handler) -- which acts as a callback function for the user interaction later on:
+First, create a new [React useState Hook](/react-usestate-hook/) -- which holds the state of the search -- and a new [event handler](/react-event-handler/) -- which acts as a callback function for the user interaction later on:
 
 ```javascript{2,4-6}
 const App = () => {
@@ -105,4 +105,4 @@ const data = {
 
 You have seen that React Table does not offer a native plugin for a search feature. However, since you can just pass a searched list from the outside to the table and search it from the outside as well, you have all the options at your hands.
 
-Last but not least, if you want to see how a **table filter** works instead, head over to my [React Table with Filter](/react-table-filter) tutorial.
+Last but not least, if you want to see how a **table filter** works instead, head over to my [React Table with Filter](/react-table-filter/) tutorial.

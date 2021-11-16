@@ -12,11 +12,11 @@ author: ""
 
 <Sponsorship />
 
-It doesn't happen often, but sometimes you have to update [state](/react-state) from [props](/react-pass-props-to-component) in React. In this brief walkthrough, I want to show you a use case where you would want to derive state from props and how to do it for the initial props and updated props. Keep in mind that this concept should only be used rarely though, because often there is no need to initialize state from props. You can find this project we are going to build on [GitHub](https://github.com/the-road-to-learn-react/react-derive-state-props).
+It doesn't happen often, but sometimes you have to update [state](/react-state/) from [props](/react-pass-props-to-component/) in React. In this brief walkthrough, I want to show you a use case where you would want to derive state from props and how to do it for the initial props and updated props. Keep in mind that this concept should only be used rarely though, because often there is no need to initialize state from props. You can find this project we are going to build on [GitHub](https://github.com/the-road-to-learn-react/react-derive-state-props).
 
 # How to derive initial state from props in React
 
-Occasionally there are use cases where you want to set state from props in a [React function component](/react-function-component): For example, the following use case shows a scenario where a parent component provides a list of users as props to a child component which renders these users as a [list](/react-list-component):
+Occasionally there are use cases where you want to set state from props in a [React function component](/react-function-component/): For example, the following use case shows a scenario where a parent component provides a list of users as props to a child component which renders these users as a [list](/react-list-component/):
 
 ```javascript
 import React from 'react';
@@ -65,7 +65,7 @@ function Item({ item }) {
 export default App;
 ```
 
-Now, instead of having these users directly at our disposal in the state, we are simulating an API request to get these users with a delay from a JavaScript promise. Before the promise resolves in [React's useEffect Hook](/react-useeffect-hook), we have an empty list of users in our initial state:
+Now, instead of having these users directly at our disposal in the state, we are simulating an API request to get these users with a delay from a JavaScript promise. Before the promise resolves in [React's useEffect Hook](/react-useeffect-hook/), we have an empty list of users in our initial state:
 
 ```javascript{14-18,21,23-31}
 import React from 'react';
@@ -143,13 +143,13 @@ function Item({ item }) {
 }
 ```
 
-Now we initialize React's state from props; and whenever someone types something into the input field, this state gets updated to reflect the new value in the component (see [controlled component in React](/react-controlled-components)) without caring about new props , if the component re-renders, at all, because the initial state is only initialized once.
+Now we initialize React's state from props; and whenever someone types something into the input field, this state gets updated to reflect the new value in the component (see [controlled component in React](/react-controlled-components/)) without caring about new props , if the component re-renders, at all, because the initial state is only initialized once.
 
 # How to update state from props in React
 
 The first example has shown you how to set initial state from props. The next example shows you how to update state from props whenever the incoming props are changing. Similar to the previous scenario, don't expect this use case coming up too often in your React application. However, for some use cases it's good to know about it.
 
-We will continue with the previous application. Imagine that each rendered user from our list renders a button with an [inline event handler](/react-event-handler) to update the user's name property with callback handler somewhere up in our App component:
+We will continue with the previous application. Imagine that each rendered user from our list renders a button with an [inline event handler](/react-event-handler/) to update the user's name property with callback handler somewhere up in our App component:
 
 ```javascript{1,5,11,23-25}
 function List({ list, onUpdateName }) {
