@@ -379,6 +379,6 @@ Obviously, there are more Git commands (git bisect, git reflog, ...) that you co
 
 <LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to establish a Git Team Workflow", url: "/git-team-workflow/" }]} />
 
-<ReadMore label="The minimal Node.js with Babel Setup" link="/minimal-node-js-babel-setup" />
+<ReadMore label="The minimal Node.js with Babel Setup" link="/minimal-node-js-babel-setup/" />
 
-<ReadMore label="The minimal React + Webpack 5 + Babel Setup" link="/minimal-react-webpack-babel-setup" />
+<ReadMore label="The minimal React + Webpack 5 + Babel Setup" link="/minimal-react-webpack-babel-setup/" />

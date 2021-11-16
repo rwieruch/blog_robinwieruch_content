@@ -118,8 +118,8 @@ docker-compose build <service_id>
 docker-compose run --rm <service_id>
 ```
 
-<ReadMore label="How to Docker with Node.js" link="/docker-node-js-development" />
+<ReadMore label="How to Docker with Node.js" link="/docker-node-js-development/" />
 
-<ReadMore label="How to Docker with React" link="/docker-react-development" />
+<ReadMore label="How to Docker with React" link="/docker-react-development/" />
 
-<ReadMore label="How to Docker with create-react-app-development" link="/docker-create-react-app-development" />
+<ReadMore label="How to Docker with create-react-app-development" link="/docker-create-react-app-development/" />

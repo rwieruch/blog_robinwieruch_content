@@ -696,6 +696,6 @@ describe('App Component', () => {
 
 When you render the App component for the first time, the `asyncCounters` in your local state should be `null`. But when the promise resolves eventually, the state should be equal to the specified result of the promise. Now you can run your tests again and verify that it goes through successfully. Congratulations, you tested asynchronous behavior in your React component. Keep in mind that Sinon itself is not strictly bound to React (same as Mocha and Chai). You only use it to spy functions, to apply stubs on them or to create more sophisticated mocks.
 
-<ReadMore label="How to test React components with Jest" link="/react-testing-jest" />
+<ReadMore label="How to test React components with Jest" link="/react-testing-jest/" />
 
-<ReadMore label="How to end-to-end test React components with Cypress" link="/react-testing-cypress" />
+<ReadMore label="How to end-to-end test React components with Cypress" link="/react-testing-cypress/" />

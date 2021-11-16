@@ -14,7 +14,7 @@ author: ""
 
 <ReactGraphQLBook />
 
-<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "A minimal Apollo Client in React Application", url: "/react-apollo-client-example" }, { prefix: "Part 2:", label: "Mocking a GraphQL Server for Apollo Client", url: "/graphql-server-mock-apollo-client" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "A minimal Apollo Client in React Application", url: "/react-apollo-client-example/" }, { prefix: "Part 2:", label: "Mocking a GraphQL Server for Apollo Client", url: "/graphql-server-mock-apollo-client/" }]} />
 
 In a previous application, you have learned how to mock a GraphQL server in different ways when having Apollo Client as GraphQL client in your React application. The following application shows you how you can take this knowledge to the next level for writing tests for your Apollo Client queries and mutations. So far, the Apollo Client instance can be mocked, but one unsolved question keeps popping up: How to test Apollo Client in a React application?
 
@@ -564,5 +564,6 @@ All the previous techniques, stubbing the GraphQL API and mocking the Query/Muta
 
 After all, keep in mind that the testing setup and how you use the tools at your hand (Jest, Enzyme, Sinon) is up to you. It doesn't have to be a Apollo specific testing library. In the previous sections, you have learned how you can test your GraphQL queries and mutations in React when having a mocked Apollo Client. Everything you need is a test runner (Jest or Mocha), an assertion library (Jest or Chai), and a library to spy/stub/mock functions (Sinon). Afterward, you can test whether your spied/stubbed methods of the mocked Apollo Client are called. Furthermore, the client-side resolvers return mock data which can be used for testing the rendered output when using the query or mutation results in your component. In conclusion, if you follow these straight forward test patterns, you don't need to reinvent the wheel every time you test Apollo Client with its Mutation and Query components in React.
 
-<ReadMore label="A apollo-link-state Tutorial for Local State in React" link="/react-apollo-link-state-tutorial" />
-<ReadMore label="How to build a GraphQL client library for React" link="/react-graphql-client-library" />
+<ReadMore label="A apollo-link-state Tutorial for Local State in React" link="/react-apollo-link-state-tutorial/" />
+
+<ReadMore label="How to build a GraphQL client library for React" link="/react-graphql-client-library/" />

@@ -14,7 +14,7 @@ author: ""
 
 <ReactGraphQLBook />
 
-<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "A minimal Apollo Client in React Application", url: "/react-apollo-client-example" }, { prefix: "Part 2:", label: "A apollo-link-state Tutorial for Local State Management", url: "/react-apollo-link-state-tutorial/" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "A minimal Apollo Client in React Application", url: "/react-apollo-client-example/" }, { prefix: "Part 2:", label: "A apollo-link-state Tutorial for Local State Management", url: "/react-apollo-link-state-tutorial/" }]} />
 
 In a previous application, you have used Apollo Link State to substitute React's local state management with it. Even though it wasn't necessary, because it is most often sufficient to manage local state with React only, it has shown you how it can be achieved with local queries and local mutations when using Apollo Link State. However, it needs to be clear that this only happens when you have the following three requirements for your application:
 
@@ -279,5 +279,6 @@ The last paragraphs tried to give you advice on how to use React and Redux toget
 
 The last sections have shown you how to set up and use Apollo Client with Redux in a React application. The example application was only one approach of doing it. Furthermore, another section gave you advice on how to fit Redux and Apollo Client together in larger applications. Since there is not much experience in this area yet, everyone is waiting for people gathering more experience about this topic. Another neat way to set up Redux when having Apollo Client is using the [apollo-redux-cache](https://github.com/rportugal/apollo-cache-redux) ([example](https://github.com/rwieruch/react-apollo-client-apollo-cache-redux-example)) package instead of the apollo-cache-inmemory package to create Apollo Client's Cache. When using the Redux Cache instead, you get all the functionality around Redux and associated packages, such as [redux-persist](https://github.com/rt2zz/redux-persist), for free. However, it must be a conscious decision to exchange the Apollo Client Cache for it.
 
-<ReadMore label="Mocking a GraphQL Server for Apollo Client" link="/graphql-server-mock-apollo-client" />
-<ReadMore label="How to build a GraphQL client library for React" link="/react-graphql-client-library" />
+<ReadMore label="Mocking a GraphQL Server for Apollo Client" link="/graphql-server-mock-apollo-client/" />
+
+<ReadMore label="How to build a GraphQL client library for React" link="/react-graphql-client-library/" />

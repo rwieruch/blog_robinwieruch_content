@@ -12,9 +12,9 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 4 in 'Webpack with Style'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 3:", label: "How to use Webpack with SASS", url: "/webpack-sass" }, { prefix: "Part 4:", label: "How to use Webpack with PostCSS", url: "/webpack-postcss" }]} />
+<LinkCollection label="This tutorial is part 2 of 4 in 'Webpack with Style'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 3:", label: "How to use Webpack with SASS", url: "/webpack-sass/" }, { prefix: "Part 4:", label: "How to use Webpack with PostCSS", url: "/webpack-postcss/" }]} />
 
-<LinkCollection label="This tutorial is part 2 of 3 in 'Webpack with Font'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 3:", label: "How to use Webpack with Fonts", url: "/webpack-font" }]} />
+<LinkCollection label="This tutorial is part 2 of 3 in 'Webpack with Font'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 3:", label: "How to use Webpack with Fonts", url: "/webpack-font/" }]} />
 
 If you happen to have a custom Webpack setup, you may be wondering how to set up CSS with Webpack. This short tutorial walks you through the process. First of all, you need to install a CSS loader and a style loader to your dev dependencies:
 
@@ -97,6 +97,6 @@ module.exports = {
 
 That's it. Once you build your project with Webpack, you will see the style files showing up in your *dist/* folder.
 
-<LinkCollection label="This tutorial is part 2 of 4 in 'Webpack with Style'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 3:", label: "How to use Webpack with SASS", url: "/webpack-sass" }, { prefix: "Part 4:", label: "How to use Webpack with PostCSS", url: "/webpack-postcss" }]} />
+<LinkCollection label="This tutorial is part 2 of 4 in 'Webpack with Style'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 3:", label: "How to use Webpack with SASS", url: "/webpack-sass/" }, { prefix: "Part 4:", label: "How to use Webpack with PostCSS", url: "/webpack-postcss/" }]} />
 
-<LinkCollection label="This tutorial is part 2 of 3 in 'Webpack with Font'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 3:", label: "How to use Webpack with Fonts", url: "/webpack-font" }]} />
+<LinkCollection label="This tutorial is part 2 of 3 in 'Webpack with Font'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 3:", label: "How to use Webpack with Fonts", url: "/webpack-font/" }]} />

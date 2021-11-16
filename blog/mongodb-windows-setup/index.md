@@ -55,4 +55,4 @@ mongod
 
 Now mongo daemon will be running in the background and can be used by your applications. I recommed using the latest version of libraries and software whenever possible to avoid compatibility issues with client-side applications.
 
-<ReadMore label="MongoDB with Mongoose in Express Tutorial" link="/mongodb-express-setup-tutorial" />
+<ReadMore label="MongoDB with Mongoose in Express Tutorial" link="/mongodb-express-setup-tutorial/" />

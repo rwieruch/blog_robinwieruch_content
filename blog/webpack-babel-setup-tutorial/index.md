@@ -107,9 +107,9 @@ Babel enables you to use future JavaScript features in your browser, because it 
 
 <LinkCollection label="This tutorial is part 1 of 2 in 'Webpack with ESLint'-series." links={[{ prefix: "Part 2:", label: "How to use ESLint in Webpack", url: "/webpack-eslint/" }]} />
 
-<LinkCollection label="This tutorial is part 1 of 4 in 'Webpack with Style'-series." links={[{ prefix: "Part 2:", label: "How to use CSS with Webpack", url: "/webpack-css/" }, { prefix: "Part 3:", label: "How to use Webpack with SASS", url: "/webpack-sass" }, { prefix: "Part 4:", label: "How to use Webpack with PostCSS", url: "/webpack-postcss" }]} />
+<LinkCollection label="This tutorial is part 1 of 4 in 'Webpack with Style'-series." links={[{ prefix: "Part 2:", label: "How to use CSS with Webpack", url: "/webpack-css/" }, { prefix: "Part 3:", label: "How to use Webpack with SASS", url: "/webpack-sass/" }, { prefix: "Part 4:", label: "How to use Webpack with PostCSS", url: "/webpack-postcss/" }]} />
 
-<LinkCollection label="This tutorial is part 1 of 3 in 'Webpack with Font'-series." links={[{ prefix: "Part 2:", label: "How to use CSS with Webpack", url: "/webpack-css/" }, { prefix: "Part 3:", label: "How to use Webpack with Fonts", url: "/webpack-font" }]} />
+<LinkCollection label="This tutorial is part 1 of 3 in 'Webpack with Font'-series." links={[{ prefix: "Part 2:", label: "How to use CSS with Webpack", url: "/webpack-css/" }, { prefix: "Part 3:", label: "How to use Webpack with Fonts", url: "/webpack-font/" }]} />
 
 <LinkCollection label="This tutorial is part 1 of 2 in 'Webpack with Images'-series." links={[{ prefix: "Part 2:", label: "How to use Images with Webpack", url: "/webpack-images/" }]} />
 

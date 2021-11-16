@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup" }, { prefix: "Part 2:", label: "How to setup Express.js in Node.js", url: "/node-js-express-tutorial" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup/" }, { prefix: "Part 2:", label: "How to setup Express.js in Node.js", url: "/node-js-express-tutorial/" }]} />
 
 An Express application is most often used as a backend application in a client-server architecture whereas the client could be written in React.js or another popular frontend solution and the server could be written in Express. Both entities result in a client-server architecture (frontend and backend relationship) whereas the backend would be needed for (A) business logic that shouldn't be exposed as source code to the frontend application -- otherwise it would be accessible in the browser -- or for (B) establishing connections to third-party data sources (e.g. database(s)).
 

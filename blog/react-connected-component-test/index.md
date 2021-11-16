@@ -16,11 +16,11 @@ author: ""
 
 React components connected to Redux can turn out pretty complex. Thus most people think that testing these complex components can turn out very complex as well. But it shouldn't be complex at all, if you take full control of the Redux store in your integration/unit test for the React component.
 
-<ReadMore label="React Redux Tutorial for Beginners" link="/react-redux-tutorial" />
+<ReadMore label="React Redux Tutorial for Beginners" link="/react-redux-tutorial/" />
 
 I will use only Jest in this brief testing tutorial for React Redux components. However, it's up to you to extend your testing setup with React Testing Library or Enzyme for rendering and simulating events. Jest gives you just the barebones to perform this task.
 
-<ReadMore label="How to test React components with Jest" link="/react-testing-jest" />
+<ReadMore label="How to test React components with Jest" link="/react-testing-jest/" />
 
 Let's say we have a connected React component that receives state from the Redux store. We call this state -- coming in as [props to our component](/react-pass-props-to-component/) -- `myState`. Our component has also a button element which dispatches an action to our Redux store. We call this action `myAction(payload)` whereas ``payload` can be any parameters passed to that action. In conclusion, our React component is connected both ways to the Redux store: it receives state (e.g. via mapStateToProps) and dispatches an action (e.g. via mapDispatchToProps).
 

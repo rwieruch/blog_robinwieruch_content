@@ -20,7 +20,7 @@ author: ""
     {
       prefix: "Part 1:",
       label: "Getting Started with GitHub's GraphQL API",
-      url: "/getting-started-github-graphql-api"
+      url: "/getting-started-github-graphql-api/"
     },
     {
       prefix: "Part 3:",
@@ -539,7 +539,7 @@ Interacting with GitHub's GraphQL API via GraphiQL or GitHub's GraphQL Explorer 
     {
       prefix: "Part 1:",
       label: "Getting Started with GitHub's GraphQL API",
-      url: "/getting-started-github-graphql-api"
+      url: "/getting-started-github-graphql-api/"
     },
     {
       prefix: "Part 3:",

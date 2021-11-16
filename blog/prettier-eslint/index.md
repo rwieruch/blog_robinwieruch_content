@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "How to use Prettier in VS Code", url: "/how-to-use-prettier-vscode" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "How to use Prettier in VS Code", url: "/how-to-use-prettier-vscode/" }]} />
 
 The default setup for my JavaScript projects: Prettier + ESLint. Whereas Prettier is used to autoformat my code to enforce an opinionated code format, ESLint makes sure to keep my code style in a good shape. In this brief setup guide, I want to show you how to combine Prettier with ESLint without wasting any tear. If you haven't set up Prettier yet, follow the previous tutorial to get it running in VSCode. It shouldn't be much different for other IDEs/editors, because only the extension for Prettier in the IDE/editor changes. The Prettier configuration file itself and the "format on save"-feature should be pretty similar in most environments.
 
@@ -89,4 +89,4 @@ Afterward, integrate it in your *.eslintrc.json* file:
 
 That's it. Both configuration files for Prettier and ESLint can be adjusted to your needs. If you need to add rules, you can do it with both files. If you need to disable a rule coming from the Airbnb style guide, you can do it in the ESLint configuration.
 
-<ReadMore label="How to use ESLint in Webpack" link="/webpack-eslint" />
+<ReadMore label="How to use ESLint in Webpack" link="/webpack-eslint/" />

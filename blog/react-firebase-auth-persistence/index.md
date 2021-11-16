@@ -14,7 +14,7 @@ author: ""
 
 <ReactFirebaseBook />
 
-<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "A Firebase in React Tutorial for Beginners", url: "/complete-firebase-authentication-react-tutorial" }, { prefix: "Part 2:", label: "React Firebase Authorization with Roles", url: "/react-firebase-authorization-roles-permissions" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "A Firebase in React Tutorial for Beginners", url: "/complete-firebase-authentication-react-tutorial/" }, { prefix: "Part 2:", label: "React Firebase Authorization with Roles", url: "/react-firebase-authorization-roles-permissions/" }]} />
 
 Previously, we implemented authentication for this Firebase in React application. Along the way, we added authorization with roles. You may have experienced a flicker every time you reload/refresh your browser, because the application doesn't know from the start if a user is authenticated or not since the authenticated user is null. It will happen until Firebase figures out there is an authenticated user and calls the function in the listener of the authentication higher-order component:
 

@@ -18,7 +18,7 @@ author: ""
     {
       prefix: "Part 1:",
       label: "How to create a React Checkbox",
-      url: "/react-checkbox",
+      url: "/react-checkbox/",
     },
   ]}
 />

@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 3 of 4 in 'Webpack with Style'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 2:", label: "How to use Webpack with CSS", url: "/webpack-css" }, { prefix: "Part 4:", label: "How to use Webpack with PostCSS", url: "/webpack-postcss" }]} />
+<LinkCollection label="This tutorial is part 3 of 4 in 'Webpack with Style'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 2:", label: "How to use Webpack with CSS", url: "/webpack-css/" }, { prefix: "Part 4:", label: "How to use Webpack with PostCSS", url: "/webpack-postcss/" }]} />
 
 If you happen to have a custom Webpack setup, you may be wondering how to set up SASS with Webpack. This short tutorial walks you through the process. First of all, you need to install a SASS loader and a SASS to your dev dependencies:
 
@@ -60,4 +60,4 @@ import './style.scss';
 
 That's it. From here you can use SASS in your JavaScript project which is powered by Webpack.
 
-<LinkCollection label="This tutorial is part 3 of 4 in 'Webpack with Style'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 2:", label: "How to use Webpack with CSS", url: "/webpack-css" }, { prefix: "Part 4:", label: "How to use Webpack with PostCSS", url: "/webpack-postcss" }]} />
+<LinkCollection label="This tutorial is part 3 of 4 in 'Webpack with Style'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 2:", label: "How to use Webpack with CSS", url: "/webpack-css/" }, { prefix: "Part 4:", label: "How to use Webpack with PostCSS", url: "/webpack-postcss/" }]} />

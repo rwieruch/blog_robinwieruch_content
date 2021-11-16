@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "What is a reducer in JavaScript?", url: "/javascript-reducer" }, { prefix: "Part 2:", label: "How to useReducer in React", url: "/react-usereducer-hook" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in this series." links={[{ prefix: "Part 1:", label: "What is a reducer in JavaScript?", url: "/javascript-reducer/" }, { prefix: "Part 2:", label: "How to useReducer in React", url: "/react-usereducer-hook/" }]} />
 
 In this React Hooks tutorial, I want to show you how to use a middleware for React's useReducer Hook. This middleware would run either before or after the state transition of the reducer and enables you to opt-in features.
 

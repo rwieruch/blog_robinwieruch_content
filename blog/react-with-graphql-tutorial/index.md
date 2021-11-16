@@ -20,7 +20,7 @@ author: ""
     {
       prefix: "Part 1:",
       label: "Getting Started with GitHub's GraphQL API",
-      url: "/getting-started-github-graphql-api"
+      url: "/getting-started-github-graphql-api/"
     },
     {
       prefix: "Part 2:",
@@ -1473,7 +1473,7 @@ I've shown how to implement a React application with GraphQL and HTTP requests w
     {
       prefix: "Part 1:",
       label: "Getting Started with GitHub's GraphQL API",
-      url: "/getting-started-github-graphql-api"
+      url: "/getting-started-github-graphql-api/"
     },
     {
       prefix: "Part 2:",

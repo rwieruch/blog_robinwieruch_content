@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 1 of 2 in the 'Backend Setup'-series." links={[{ prefix: "Part 2:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in the 'Backend Setup'-series." links={[{ prefix: "Part 2:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup/" }]} />
 
 <LinkCollection label="This tutorial is part 1 of 3 in the 'Frontend Setup'-series." links={[{ prefix: "Part 2:", label: "How to set up Webpack 5", url: "/webpack-setup-tutorial/" }, { prefix: "Part 3:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }]} />
 
@@ -85,6 +85,6 @@ On the command line, run the script again, but this time with a `npm start`. Eve
 
 Congratulations, you have set up your first JavaScript project with Node and npm. From here it's up to you to advance it as backend application, frontend application or anything else. If you are into open source, you can also open source this project as library (node package). Therefore, follow the backend application series to find out how to open source it.
 
-<LinkCollection label="This tutorial is part 1 of 2 in the 'Backend Setup'-series." links={[{ prefix: "Part 2:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in the 'Backend Setup'-series." links={[{ prefix: "Part 2:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup/" }]} />
 
 <LinkCollection label="This tutorial is part 1 of 3 in the 'Frontend Setup'-series." links={[{ prefix: "Part 2:", label: "How to set up Webpack 5", url: "/webpack-setup-tutorial/" }, { prefix: "Part 3:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }]} />

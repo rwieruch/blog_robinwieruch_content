@@ -256,13 +256,13 @@ Congratulations, you have created your [first function component](/react-functio
 
 <LinkCollection label="This tutorial is part 1 of 3 in the series." links={[{ prefix: "Part 2:", label: "How to use ESLint in Webpack", url: "/webpack-eslint/" }, { prefix: "Part 3:", label: "How to use ESLint in React", url: "/react-eslint-webpack-babel/" }]} />
 
-<ReadMore label="How to use Prettier in VS Code" link="/how-to-use-prettier-vscode" />
+<ReadMore label="How to use Prettier in VS Code" link="/how-to-use-prettier-vscode/" />
 
-<ReadMore label="How to use CSS Modules in React?" link="/react-css-modules" />
+<ReadMore label="How to use CSS Modules in React?" link="/react-css-modules/" />
 
-<ReadMore label="How to use SVG Icons as React Components?" link="/react-svg-icon-components" />
+<ReadMore label="How to use SVG Icons as React Components?" link="/react-svg-icon-components/" />
 
-<ReadMore label="How to use Fonts in React?" link="/webpack-font" />
+<ReadMore label="How to use Fonts in React?" link="/webpack-font/" />
 
-<ReadMore label="How to use Images in React?" link="/webpack-images" />
+<ReadMore label="How to use Images in React?" link="/webpack-images/" />
 

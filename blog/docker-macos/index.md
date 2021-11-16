@@ -102,10 +102,10 @@ This message shows that your installation appears to be working correctly.
 
 The first time running this command should take some time, because the pre-defined Docker image is pulled from a remote server. Every additional time you run this command, it should print its output almost in an instant, because the Docker image is already there and the build for the Docker container from the Docker image doesn't take long for this example. Congratulations, Docker is running on your Mac machine now.
 
-<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "How to Docker with Node.js", url: "/docker-node-js-development" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "How to Docker with Node.js", url: "/docker-node-js-development/" }]} />
 
-<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "How to Docker with React", url: "/docker-react-development" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "How to Docker with React", url: "/docker-react-development/" }]} />
 
-<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "How to Docker with create-react-app", url: "/docker-create-react-app-development" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "How to Docker with create-react-app", url: "/docker-create-react-app-development/" }]} />
 
-<ReadMore label="Docker Cheatsheet" link="/docker-cheatsheet" />
+<ReadMore label="Docker Cheatsheet" link="/docker-cheatsheet/" />

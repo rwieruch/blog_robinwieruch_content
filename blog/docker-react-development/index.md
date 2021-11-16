@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "How to install Docker on MacOS", url: "/docker-macos" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "How to install Docker on MacOS", url: "/docker-macos/" }]} />
 
 Just recently I had to use Docker for my React web application development. Here I want to give you a brief walkthrough on how to achieve it. First of all, we need a React application. Either create a React app yourself, or follow this [minimal React with Webpack setup guide](/minimal-react-webpack-babel-setup/). The React + Webpack application can be found [on GitHub](https://github.com/rwieruch/minimal-react-webpack-babel-setup) too.
 
@@ -111,6 +111,6 @@ docker-machine ip default
 
 Finally you should be able to visit `http://192.168.99.100:4680`. Beware that your IP address and port may vary. Congratulations, you have shipped your first React web app in a Docker container.
 
-<ReadMore label="Docker Cheatsheet" link="/docker-cheatsheet" />
+<ReadMore label="Docker Cheatsheet" link="/docker-cheatsheet/" />
 
-<ReadMore label="Docker Compose" link="/docker-compose" />
+<ReadMore label="Docker Compose" link="/docker-compose/" />

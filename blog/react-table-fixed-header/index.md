@@ -18,7 +18,7 @@ author: ""
     {
       prefix: "Part 1:",
       label: "How to create a React Table Component",
-      url: "/react-table-component",
+      url: "/react-table-component/",
     },
   ]}
 />

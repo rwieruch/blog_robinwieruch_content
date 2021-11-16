@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 3 of 3 in 'Webpack with Font'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 2:", label: "How to use Webpack with CSS", url: "/webpack-css" }]} />
+<LinkCollection label="This tutorial is part 3 of 3 in 'Webpack with Font'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 2:", label: "How to use Webpack with CSS", url: "/webpack-css/" }]} />
 
 In this tutorial, you will learn how to set up a local font with Webpack. We will use Open Sans, but you can decide to use any other web font as well. If you have your font files already at your disposal, don't bother about downloading them again. For our case, we will download the font to our local setup from [Google Webfonts](https://google-webfonts-helper.herokuapp.com). Therefore, follow the next steps to download your desired font files:
 
@@ -209,4 +209,4 @@ export default App;
 
 Hopefully this tutorial has helped you to set up local fonts with Webpack in your JavaScript application. In the comments below, let me know about your techniques to include fonts and define font faces.
 
-<ReadMore label="How to use SASS with Webpack" link="/webpack-sass" />
+<ReadMore label="How to use SASS with Webpack" link="/webpack-sass/" />

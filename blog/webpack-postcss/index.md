@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 4 of 4 in 'Webpack with Style'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 2:", label: "How to use Webpack with CSS", url: "/webpack-css" }, { prefix: "Part 3:", label: "How to use Webpack with SASS", url: "/webpack-sass" }]} />
+<LinkCollection label="This tutorial is part 4 of 4 in 'Webpack with Style'-series." links={[{ prefix: "Part 1:", label: "How to set up Webpack 5 with Babel", url: "/webpack-babel-setup-tutorial/" }, { prefix: "Part 2:", label: "How to use Webpack with CSS", url: "/webpack-css/" }, { prefix: "Part 3:", label: "How to use Webpack with SASS", url: "/webpack-sass/" }]} />
 
 If you happen to have a custom Webpack setup, you may be wondering how to set up PostCSS with Webpack. This short tutorial walks you through the process. First of all, you need to install the PostCSS loader and a sensible PostCSS configuration to your dev dependencies:
 
@@ -77,4 +77,4 @@ Now, if you are using CSS like the following, it will be automatically prefixed 
 
 This is only one default coming with the PostCSS presets. You can explore more of them on their website or explore more [PostCSS plugins](https://postcss.org/).
 
-<ReadMore label="How to use Fonts with Webpack" link="/webpack-font" />
+<ReadMore label="How to use Fonts with Webpack" link="/webpack-font/" />

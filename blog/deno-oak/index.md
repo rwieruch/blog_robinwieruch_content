@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 3 in this series." links={[{ prefix: "Part 1:", label: "How to get started with Deno", url: "/deno-tutorial" }, { prefix: "Part 2:", label: "Getting started with Oak in Deno", url: "/deno-oak" }, { prefix: "Part 3:", label: "How to create a REST API with Oak in Deno", url: "/deno-oak-rest-api" }]} />
+<LinkCollection label="This tutorial is part 2 of 3 in this series." links={[{ prefix: "Part 1:", label: "How to get started with Deno", url: "/deno-tutorial/" }, { prefix: "Part 2:", label: "Getting started with Oak in Deno", url: "/deno-oak/" }, { prefix: "Part 3:", label: "How to create a REST API with Oak in Deno", url: "/deno-oak-rest-api/" }]} />
 
 
 Oak, the successor of [Koa](https://github.com/koajs/koa) (which is the spiritual successor of [Express](/node-js-express-tutorial/) in Node.js), is the most popular choice when it comes to building web applications with Deno. However, when saying web applications with Deno, it's often not for anything visible in the browser (excluding server-side rendering of a frontend application). Instead, Oak, a web application framework for Deno, enables you to build server applications in Deno. As a backend application, it is the glue between your frontend application and a potential database or other data sources (e.g. REST APIs, GraphQL APIs). Just to give you an idea, the following is a list of tech stacks to build client-server architectures:
@@ -291,4 +291,4 @@ Essentially every Oak application is a just a series of routing and middleware f
 * Ask yourself: How do frontend and backend application communicate with each other?
 * Explore alternatives for Oak.
 
-<LinkCollection label="This tutorial is part 2 of 3 in this series." links={[{ prefix: "Part 1:", label: "How to get started with Deno", url: "/deno-tutorial" }, { prefix: "Part 2:", label: "Getting started with Oak in Deno", url: "/deno-oak" }, { prefix: "Part 3:", label: "How to create a REST API with Oak in Deno", url: "/deno-oak-rest-api" }]} />
+<LinkCollection label="This tutorial is part 2 of 3 in this series." links={[{ prefix: "Part 1:", label: "How to get started with Deno", url: "/deno-tutorial/" }, { prefix: "Part 2:", label: "Getting started with Oak in Deno", url: "/deno-oak/" }, { prefix: "Part 3:", label: "How to create a REST API with Oak in Deno", url: "/deno-oak-rest-api/" }]} />

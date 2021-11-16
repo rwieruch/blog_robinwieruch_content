@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "How to install Docker on MacOS", url: "/docker-macos" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "How to install Docker on MacOS", url: "/docker-macos/" }]} />
 
 Just recently I had to use Docker for my Node.js web application development. Here I want to give you a brief walkthrough on how to achieve it. First of all, we need a Node.js application. Either take your own Node.js application, or take this [minimal Node.js application](https://github.com/rwieruch/minimal-node-application) or this [minimal Node.js with Express application](https://github.com/rwieruch/node-express-server). In this Docker tutorial, we will use the latter to visit our output in a browser later.
 
@@ -108,6 +108,6 @@ docker-machine ip default
 
 Finally you should be able to visit `http://192.168.99.100:4680`. Beware that your IP address and port may vary. Congratulations, you have shipped your first Node.js web app in a Docker container.
 
-<ReadMore label="Docker Cheatsheet" link="/docker-cheatsheet" />
+<ReadMore label="Docker Cheatsheet" link="/docker-cheatsheet/" />
 
-<ReadMore label="Docker Compose" link="/docker-compose" />
+<ReadMore label="Docker Compose" link="/docker-compose/" />

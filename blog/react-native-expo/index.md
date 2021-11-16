@@ -76,4 +76,4 @@ Last but not least, create a new *src/* folder with a *src/App.js* file. Move yo
 
 If you have any other Expo configurations that you want to share with others, please write a comment below. After all, I hope you are ready to start coding with your React Native application by using Expo.
 
-<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "React Native Navigation Tutorial", url: "/react-native-navigation" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "React Native Navigation Tutorial", url: "/react-native-navigation/" }]} />

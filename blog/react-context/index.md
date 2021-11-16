@@ -202,4 +202,4 @@ When should you use React Context? Generally speaking there are two use cases wh
 
 A running application which uses React's Context can be found in this [GitHub repository](https://github.com/the-road-to-learn-react/react-context-example). After all, React Context is a great way to pass props to deeply nested React components, because it doesn't bother the components in between.
 
-<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "React's useContext Hook", url: "/react-usecontext-hook" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "React's useContext Hook", url: "/react-usecontext-hook/" }]} />

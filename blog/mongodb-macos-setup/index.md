@@ -59,4 +59,4 @@ MongoDB shell version v4.2.6
 
 The command line results will show the version you have installed on your local machine. I recommend using the latest version of libraries and software whenever possible to avoid compatibility issues with client-side applications.
 
-<ReadMore label="MongoDB with Mongoose in Express Tutorial" link="/mongodb-express-setup-tutorial" />
+<ReadMore label="MongoDB with Mongoose in Express Tutorial" link="/mongodb-express-setup-tutorial/" />

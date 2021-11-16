@@ -14,7 +14,7 @@ author: ""
 
 Against the common opinion that one should charge for value as a freelance developer, over the last years I've made the experience that I like to charge for time. Here comes why I charge my rate based on time and not on value as a freelance React developer ...
 
-<ReadMore label="How to charge per hour as a Freelance Developer" link="/freelance-developer-hourly-rate" />
+<ReadMore label="How to charge per hour as a Freelance Developer" link="/freelance-developer-hourly-rate/" />
 
 * **Scope Creep:** All of my past clients -- who hired me as a React freelance developer -- were able to define a plausible scope of the project. However, whenever a project goes on for long enough, say more than one month, every time the scope is only the [80 of Pareto's 80/20 principle](https://en.wikipedia.org/wiki/Pareto_principle). Over time, there will be additional project requirements which lead to more work for the hired freelance developer. At this point, either the freelancer re-negotiates the contract or has to keep their mouth shut and go for it. Both options are either stress or cost intensive for the freelancer and can be avoided when charging for your time instead.
 

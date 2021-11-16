@@ -14,7 +14,7 @@ author: ""
 
 <ReactFirebaseBook />
 
-<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "A Firebase in React Tutorial for Beginners", url: "/complete-firebase-authentication-react-tutorial" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "A Firebase in React Tutorial for Beginners", url: "/complete-firebase-authentication-react-tutorial/" }]} />
 
 So far, you've used broad authorization rules that check user authentication, where the dedicated authorization higher-order component redirects them to the login page if the user is not authenticated. In this section, you will apply a more specific authorization mechanism. It works with roles (e.g. Admin, Author) assigned to a user, but also with permissions (e.g. user is allowed to write an article). Again, if the user doesn't fit a role for the authorization condition in your authorization higher-order component, the user will be redirected. Let's revisit the *src/components/Session/withAuthorization.js* higher-order component we have implemented thus far:
 

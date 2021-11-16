@@ -970,4 +970,4 @@ There's a big difference between this lightweight GraphQL client and a sophistic
 
 This implementation of a GraphQL client in React should have illustrated that it's not as complicated as it seems. Hopefully this will eventually inspire you to contribute to the GraphQL and React ecosystem with your own libraries. Perhaps you'll create more sophisticated GraphQL client libraries on top of the previous ideas.  You can find the previous GraphQL client as [library and repository on GitHub](https://github.com/rwieruch/react-graphql-client-library). Check it out to find your own solutions and open source them on npm as library. I am looking forward to seeing what you come up with, so please contact me when you'd like to discuss contributing to the ecosystem.
 
-<ReadMore label="A minimal Apollo Client in React Example" link="/react-apollo-client-example" />
+<ReadMore label="A minimal Apollo Client in React Example" link="/react-apollo-client-example/" />

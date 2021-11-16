@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "How to use Expo with React Native", url: "/react-native-expo" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "How to use Expo with React Native", url: "/react-native-expo/" }]} />
 
 Here you will learn about the fundamentals of [React Navigation](https://reactnavigation.org/) and how to use it to navigate through a full blown React Native app. If you are curious what you are going to build, check out this [demo](https://twitter.com/rwieruch/status/1303372960074432513). We will not be using [React Native Navigation](https://github.com/wix/react-native-navigation) here, because React Navigation is the officially baked library by React Native itself.
 

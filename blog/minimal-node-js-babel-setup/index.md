@@ -164,7 +164,7 @@ That's a basic understanding of Node.js environment variables. They should be us
 
 This guide has shown you how to create a Node.js project from scratch, and how you can introduce upcoming JavaScript features in your Node.js environment using Babel. You have seen how npm scripts are used to start, test, and deploy applications, and how environment variables secure sensitive data like private API keys and user credentials. The finished product is a node package that can be open sourced on npm, another rewarding aspect of working with the Node.js ecosystem.
 
-<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "How to setup Express.js in Node.js", url: "/node-js-express-tutorial" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "How to setup Express.js in Node.js", url: "/node-js-express-tutorial/" }]} />
 
 <LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "GraphQL Server Tutorial with Apollo Server and Express", url: "/graphql-apollo-server-tutorial/" }]} />
 

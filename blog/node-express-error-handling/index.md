@@ -18,7 +18,7 @@ author: ""
     {
       prefix: "Part 1:",
       label: "Creating a REST API with Express.js and MongoDB",
-      url: "/mongodb-express-node-rest-api"
+      url: "/mongodb-express-node-rest-api/"
     },
   ]}
 />
@@ -29,7 +29,7 @@ author: ""
     {
       prefix: "Part 1:",
       label: "Creating a REST API with Express.js and PostgreSQL",
-      url: "/postgresql-express-node-rest-api"
+      url: "/postgresql-express-node-rest-api/"
     },
   ]}
 />

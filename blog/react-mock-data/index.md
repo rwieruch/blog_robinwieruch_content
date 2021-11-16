@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "JavaScript Fake API with Mock Data", url: "/javascript-fake-api" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "JavaScript Fake API with Mock Data", url: "/javascript-fake-api/" }]} />
 
 In this tutorial we will implement use JavaScript fake API with mock data from a pseudo backend to create our frontend application with React. Often this helps whenever there is no backend yet and you need to implement your React frontend against some kind of realistic data. You can find the finished project on [GitHub](https://github.com/the-road-to-learn-react/react-mock-data).
 

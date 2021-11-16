@@ -142,7 +142,7 @@ React's useContext Hook takes the Context as parameter to retrieve the `value` f
 
 In our example, the App and Book components sit in the same file. This means that the context has to be imported only once and therefore putting it in a separate file isn't warranted. However, in a small application like this context isn't needed in the first place.
 
-<ReadMore label="React Folder Structure" link="/react-folder-structure" />
+<ReadMore label="React Folder Structure" link="/react-folder-structure/" />
 
 # Stateful Context in React with useContext
 
@@ -324,7 +324,7 @@ const Book = ({ item }) => {
 
 That's it. We have migrated the context from unstateful to stateful and did a few refactorings along the way. You can imagine how a user in a larger application is able to change their currency and all prices across the whole website will be affected by it. That's the power of React Context.
 
-<ReadMore label="Global State in React with Context" link="/react-state-usereducer-usestate-usecontext" />
+<ReadMore label="Global State in React with Context" link="/react-state-usereducer-usestate-usecontext/" />
 
 # Best Practices for Context and useContext
 
@@ -554,4 +554,4 @@ const Book = ({ item }) => {
 
 That's it! We encapsulated the state and state update logic into our custom Provider component and custom context hook. Whoever is using this new API gets access to the state and a function to update it throughout the whole component tree in their React application.
 
-<ReadMore label="React Context Injection" link="/react-context-injection" />
+<ReadMore label="React Context Injection" link="/react-context-injection/" />

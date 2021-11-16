@@ -297,4 +297,4 @@ doDeleteUser('1');
 
 We have implemented the entire fake API for a RESTful resource (here user resource). It includes all CRUD operations, has a fake delay and returns an asynchronous result. For the write operations, the API only returns an acknowledgment (boolean), however, you could also decide to return an identifier (e.g. identifier of the removed item) or an item (e.g. the created/updated item).
 
-<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to mock data in React with a fake API", url: "/react-mock-data" }]} />
+<LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to mock data in React with a fake API", url: "/react-mock-data/" }]} />

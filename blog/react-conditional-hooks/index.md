@@ -75,7 +75,7 @@ export default App;
 
 In this example, we are [conditionally rendering](/react-conditional-rendering/) a [list component](/react-list-component). When the components get rendered for the first time, only the button to "fetch" the data is rendered. Once a user clicks this button, the state with the list gets set, everything re-renders again, and the List and Item components show up.
 
-<ReadMore label="How to fetch data in React" link="/react-hooks-fetch-data" />
+<ReadMore label="How to fetch data in React" link="/react-hooks-fetch-data/" />
 
 Everything works as expected. Now, we want to introduce the following **conditional hook**. It's conditionally set after the if statement, because then it can pick up the first item of the fetched list as initial state. Otherwise the list would be empty.
 
@@ -154,7 +154,7 @@ const Item = ({ item, selectedId, onSelectedId }) => {
 };
 ```
 
-<ReadMore label="How to style React components" link="/react-css-styling" />
+<ReadMore label="How to style React components" link="/react-css-styling/" />
 
 If you start the React application again and click the button to fetch the data, the application will break with the error: **Uncaught Error: Rendered more hooks than during the previous render.** You may will see this warning too: **Warning: React has detected a change in the order of Hooks called by App. This will lead to bugs and errors if not fixed.**
 

@@ -20,7 +20,7 @@ author: ""
     {
       prefix: "Part 1:",
       label: "Getting Started with GitHub's GraphQL API",
-      url: "/getting-started-github-graphql-api"
+      url: "/getting-started-github-graphql-api/"
     },
     {
       prefix: "Part 2:",
@@ -344,7 +344,7 @@ You have seen how Apollo Client can be used standalone in a Node.js project. Bef
     {
       prefix: "Part 1:",
       label: "Getting Started with GitHub's GraphQL API",
-      url: "/getting-started-github-graphql-api"
+      url: "/getting-started-github-graphql-api/"
     },
     {
       prefix: "Part 2:",

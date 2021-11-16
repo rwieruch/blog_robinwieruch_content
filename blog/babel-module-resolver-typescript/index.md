@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "How to set up Babel Module Resolver", url: "/babel-module-resolver" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in the series." links={[{ prefix: "Part 1:", label: "How to set up Babel Module Resolver", url: "/babel-module-resolver/" }]} />
 
 Here you will learn how to use TypeScript with Babel Module Resolver for aliases that are defined in your .babelrc file:
 

@@ -205,7 +205,7 @@ Basically that's it for connecting MongoDB to Express routes with Mongoose. All 
     {
       prefix: "Part 2:",
       label: "How to handle errors in Express",
-      url: "/node-express-error-handling"
+      url: "/node-express-error-handling/"
     },
   ]}
 />

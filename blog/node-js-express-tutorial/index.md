@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup" }]} />
+<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup/" }]} />
 
 Express.js is the most popular choice when it comes to building web applications with Node.js. However, when saying web applications with Node.js, it's often not for anything visible in the browser (excluding server-side rendering of a frontend application). Instead, Express.js, a web application framework for Node.js, enables you to build server applications in Node.js. As a backend application, it is the glue between your frontend application and a potential database or other data sources (e.g. REST APIs, GraphQL APIs). Just to give you an idea, the following is a list of tech stacks to build client-server architectures:
 
@@ -152,4 +152,4 @@ Instead of exposing the port that is used in the source code, you have stored it
   * Exclude the *.env* file from Git with a *.gitignore* file.
 * Explore alternatives for Express.
 
-<LinkCollection label="This tutorial is part 2 of 3 in this series." links={[{ prefix: "Part 1:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup" }, { prefix: "Part 3:", label: "How to create a REST API with Express.js in Node.js", url: "/node-express-server-rest-api" }]} />
+<LinkCollection label="This tutorial is part 2 of 3 in this series." links={[{ prefix: "Part 1:", label: "The minimal Node.js with Babel Setup", url: "/minimal-node-js-babel-setup/" }, { prefix: "Part 3:", label: "How to create a REST API with Express.js in Node.js", url: "/node-express-server-rest-api/" }]} />
