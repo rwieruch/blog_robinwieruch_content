@@ -127,9 +127,9 @@ module.exports = {
   },
 
   // analytics defined in .env file
-  analytics: {
-    enabled: true,
-  },
+  // analytics: {
+  //   enabled: true,
+  // },
 
   // goodie shown below each blog post
   goodie: {
@@ -523,11 +523,5 @@ module.exports = {
     twitter: 'rwieruch',
     github: 'rwieruch',
     facebook: 'rwieruch',
-  },
-  disqus: {
-    enabled: true,
-    shortname: 'rwieruch',
-    prefix: '',
-    suffix: '',
   },
 };
