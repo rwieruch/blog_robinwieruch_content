@@ -127,9 +127,9 @@ module.exports = {
   },
 
   // analytics defined in .env file
-  // analytics: {
-  //   enabled: true,
-  // },
+  analytics: {
+    enabled: false,
+  },
 
   // goodie shown below each blog post
   goodie: {
