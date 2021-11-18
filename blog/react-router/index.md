@@ -421,7 +421,7 @@ We have also seen how we can create dynamic routes by using the colon in a Route
 
 # Relative Links in React Router
 
-The newest version of React Router comes with so called **Relative Links**. We will examine this concept by looking at the Users component and its `/users/${user.id}` path which is used for the Link component. In previous versions of React Router, it was neccessary to specifiy the *whole path*. However, in this version you can just use the *nested path*:
+The newest version of React Router comes with so called **Relative Links**. We will examine this concept by looking at the Users component and its absolute `/users/${user.id}` path which is used for the Link component. In previous versions of React Router, it was necessary to specify the *entire path*. However, in this version you can just use the *nested path* as relative path:
 
 ```javascript{9}
 const Users = ({ users }) => {
@@ -443,7 +443,7 @@ const Users = ({ users }) => {
 };
 ```
 
-Since the Users component is used for the `/users` route, the Link knows its current location and does not need to create the whole top-level part of the path. Instead it knows about `/users` and just appends the `:userId` to it.
+Since the Users component is used for the `/users` route, the Link in the Users component knows its current location and does not need to create the whole top-level part of the absolute path. Instead it knows about `/users` and just appends the `:userId` as relative path to it.
 
 # Declarative and Programmatic Navigation
 
