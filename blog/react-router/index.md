@@ -419,6 +419,32 @@ We have seen once again how to create nested routes by nesting one Route compone
 
 We have also seen how we can create dynamic routes by using the colon in a Route's `path` prop (e.g. `:userId`). Essentially the `:userId` acts as asterisk for any identifier. In our case, we use a Link component to navigate the user to a `/users/:userId` route where `:userId` stands for the actual user's identifier. In the end, we can always get the dynamic paths (called parameters or params) from the URL by using React Router's `useParams` Hook.
 
+# Relative Links in React Router
+
+The newest version of React Router comes with so called **Relative Links**. We will examine this concept by looking at the Users component and its `/users/${user.id}` path which is used for the Link component. In previous versions of React Router, it was neccessary to specifiy the *whole path*. However, in this version you can just use the *nested path*:
+
+```javascript{9}
+const Users = ({ users }) => {
+  return (
+    <>
+      <h2>Users</h2>
+
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            <Link to={user.id}>
+              {user.fullName}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+};
+```
+
+Since the Users component is used for the `/users` route, the Link knows its current location and does not need to create the whole top-level part of the path. Instead it knows about `/users` and just appends the `:userId` to it.
+
 # Declarative and Programmatic Navigation
 
 So far, we have only used declarative navigation when using the Link or NavLink component. However, on certain occasions you want to be able to navigate a user programmatically via JavaScript. We will showcase this scenario by implementing a feature where it's possible to delete a user in the User component. After the deletion, the user should be navigated away from the User component to the Users component (from `/users/:userId` to `/users`).
@@ -553,7 +579,7 @@ const Users = ({ users }) => {
           )
           .map((user) => (
             <li key={user.id}>
-              <Link to={`/users/${user.id}`}>{user.fullName}</Link>
+              <Link to={user.id}>{user.fullName}</Link>
             </li>
           ))}
       </ul>
@@ -565,6 +591,8 @@ const Users = ({ users }) => {
 ```
 
 First, we are using React Router's useSearchParams Hook to read the current search params from the URL (see `get()` method on `searchParams`), but also to write search params to the URL (see `setSearchParams()` function). While we use the former to get the search param by key (here: `'name'`) to [control](/react-controlled-components/) (read: display it in) the input field, we are using the latter to set the search param by key in the URL whenever a user types into the input field. At its core, React Router's useSearchParams Hook is the same as React's useState Hook with the difference that this state is a URL state and not a local state in React. Last but not least, we are using the search param to filter the actual list of `users` to finish this feature.
+
+After all, having search params in your URL gives you the benefit of sharing more specific URLs with others. If you are on an ecommerce website where you have an active search for black shoes, you may want to share the whole URL (e.g. `myecommerce.com/shoes?color=black`) instead of only the path (e.g. `myecommerce.com/shoes`). The former gives the person who opens your URL the filtered list as starting point.
 
 <Divider />
 

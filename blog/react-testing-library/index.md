@@ -1,5 +1,5 @@
 ---
-title: "How to use React Testing Library Tutorial"
+title: "React Testing Library Tutorial"
 description: "Learn how to use React Testing Library in this tutorial. You will learn how to test your React components step by step with unit and integration tests ..."
 date: "2020-06-01T09:52:46+02:00"
 categories: ["React"]
