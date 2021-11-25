@@ -2,7 +2,7 @@
 title: "React Router 6 Tutorial"
 description: "React Router 6 tutorial: setup, hooks, nested routes, dynamic routes, programmatic navigation, active links, layout routes, index routes and more. A step by step React tutorial for beginners ..."
 date: "2021-11-09T07:52:46+02:00"
-categories: ["React"]
+categories: ["React", "React Router"]
 keywords: ["react router tutorial", "react router 6"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
@@ -283,7 +283,7 @@ const App = () => {
 };
 ```
 
-You can think of an Index Route as a default route when the parent route matches, but none of its child routes. Next, in case a user navigates to a non-matching route (e.g. `/about`), we will add a so called **No Match Route** which equals to a 404 page of a website:
+You can think of an Index Route as a default route when the parent route matches, but none of its child routes. Next, in case a user navigates to a non-matching route (e.g. `/about`), we will add a so called **No Match Route** (also called **Not Found Route**) which equals to a 404 page of a website:
 
 ```javascript{8,14-16}
 const App = () => {
@@ -352,7 +352,7 @@ const Users = ({ users }) => {
 };
 ```
 
-By having this new dynamic yet nested path, we need to create a matching nested route for it in the App component. First, since it is a so called **Nested Route** (or child route) of the `/users` route, we can nest it in this respective parent Route component. In addition, since it is a so called **Dynamic Route**, it uses a dynamic path defined as `:userId` whereas a user's identifier matches dynamically (e.g. user with `id` of `'1'` would be matched to `/users/1`):
+By having this new dynamic yet nested route, we need to create a matching nested Route component for it in the App component. First, since it is a so called **Nested Route** (or child route) of the `/users` route, we can nest it in this respective parent Route component. In addition, since it is a so called **Dynamic Route**, it uses a dynamic route defined as `:userId` whereas a user's identifier matches dynamically (e.g. user with `id` of `'1'` would be matched to `/users/1`):
 
 ```javascript{12-14}
 const App = () => {
@@ -392,7 +392,7 @@ const Users = ({ users }) => {
 };
 ```
 
-Next, we are going to declare the missing User component which gets nested via the Outlet in the Users component whenever a user's identifier matches in the URL. Hence we can also use React Router's `useParams` Hook to get the respective `userId` (which equals `:userId` in `path`) from the URL:
+Next, we are going to declare the missing User component which gets nested via the Outlet in the Users component whenever a user's identifier matches in the URL. Therefore we can use React Router's `useParams` Hook to get the respective `userId` (which equals `:userId`) from the URL:
 
 ```javascript{3,8-18}
 import {
@@ -416,6 +416,8 @@ const User = () => {
 ```
 
 We have seen once again how to create nested routes by nesting one Route component (or multiple Route components) in another Route component. While the former are the nested child routes, the latter is the parent route which renders the enclosing component that has to make use of the Outlet component to render the actual matched child route.
+
+<ReadMore label="Nested Routes in Detail" link="/react-router-nested-routes/" />
 
 We have also seen how we can create dynamic routes by using the colon in a Route's `path` prop (e.g. `:userId`). Essentially the `:userId` acts as asterisk for any identifier. In our case, we use a Link component to navigate the user to a `/users/:userId` route where `:userId` stands for the actual user's identifier. In the end, we can always get the dynamic paths (called parameters or params) from the URL by using React Router's `useParams` Hook.
 

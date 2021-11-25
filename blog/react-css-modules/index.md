@@ -1,5 +1,5 @@
 ---
-title: "How to use CSS Modules in React?"
+title: "How to use CSS Modules in React"
 description: "How to set up CSS Modules in React with Webpack or Create React App. Everything you need to know to get started with CSS Modules in React ..."
 date: "2019-10-19T13:50:46+02:00"
 categories: ["React"]
