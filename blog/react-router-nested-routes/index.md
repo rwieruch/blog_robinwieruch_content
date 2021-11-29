@@ -1,7 +1,7 @@
 ---
 title: "Nested Routes with React Router 6"
 description: "How to: Nested Routes in React Router 6. A step by step example on Nested Routes with React Router, but also ..."
-date: "2021-11-23T07:52:46+02:00"
+date: "2021-11-29T07:52:46+02:00"
 categories: ["React", "React Router"]
 keywords: ["react router nested routes", "react router 6"]
 hashtags: ["#ReactJs"]
