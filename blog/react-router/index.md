@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-A React tutorial which teaches you how to use **React Router 6**. In order to get you started, create a new React project (e.g. [create-react-app](https://github.com/facebook/create-react-app)). Afterward, [install React Router](https://reactrouter.com/docs/en/v6/getting-started/installation#basic-installation) by following the official instructions from their documentation.
+A React tutorial which teaches you how to use **React Router 6**. The code for this React Router tutorial can be found over [here](https://github.com/the-road-to-learn-react/react-router-6-examples). In order to get you started, create a new React project (e.g. [create-react-app](https://github.com/facebook/create-react-app)). Afterward, [install React Router](https://reactrouter.com/docs/en/v6/getting-started/installation#basic-installation) by following the official instructions from their documentation.
 
 The first implementation detail will be telling our React application that we want to use React Router. Hence, import the Router component in your React project's top-level file (e.g. *index.js*) where React hooks into HTML by using the ReactDOM API:
 
@@ -507,7 +507,7 @@ const User = ({ onRemoveUser }) => {
 
 Once a user got deleted, we can make use of React Router's useNavigate Hook which allows us to navigate a user programmatically to another route (here: `/users`):
 
-```javascript{8,18}
+```javascript{4,8,18}
 import * as React from 'react';
 import {
   ...
@@ -593,6 +593,8 @@ const Users = ({ users }) => {
 ```
 
 First, we are using React Router's useSearchParams Hook to read the current search params from the URL (see `get()` method on `searchParams`), but also to write search params to the URL (see `setSearchParams()` function). While we use the former to get the search param by key (here: `'name'`) to [control](/react-controlled-components/) (read: display it in) the input field, we are using the latter to set the search param by key in the URL whenever a user types into the input field. At its core, React Router's useSearchParams Hook is the same as React's useState Hook with the difference that this state is a URL state and not a local state in React. Last but not least, we are using the search param to filter the actual list of `users` to finish this feature.
+
+<ReadMore label="React Router Search Params" link="/react-router-search-params/" />
 
 After all, having search params in your URL gives you the benefit of sharing more specific URLs with others. If you are on an ecommerce website where you have an active search for black shoes, you may want to share the whole URL (e.g. `myecommerce.com/shoes?color=black`) instead of only the path (e.g. `myecommerce.com/shoes`). The former gives the person who opens your URL the filtered list as starting point.
 

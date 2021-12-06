@@ -1,6 +1,6 @@
 ---
 title: "Nested Routes with React Router 6"
-description: "How to: Nested Routes in React Router 6. A step by step example on Nested Routes with React Router, but also ..."
+description: "How to: Nested Routes in React Router 6. A step by step example on Nested Routes with React Router ..."
 date: "2021-11-29T07:52:46+02:00"
 categories: ["React", "React Router"]
 keywords: ["react router nested routes", "react router 6"]
@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-A React tutorial which teaches you how to use **Nested Routes with React Router 6**. In order to get you started, create a new React project (e.g. [create-react-app](https://github.com/facebook/create-react-app)). Afterward, [install React Router](https://reactrouter.com/docs/en/v6/getting-started/installation#basic-installation) and read the following React Router tutorial to get yourself aligned to what follows next:
+A React tutorial which teaches you how to use **Nested Routes with React Router 6**. The code for this React Router tutorial can be found over [here](https://github.com/the-road-to-learn-react/react-router-6-examples). In order to get you started, create a new React project (e.g. [create-react-app](https://github.com/facebook/create-react-app)). Afterward, [install React Router](https://reactrouter.com/docs/en/v6/getting-started/installation#basic-installation) and read the following React Router tutorial to get yourself aligned to what follows next.
 
 <ReadMore label="React Router 6 Introduction" link="/react-router/" />
 
