@@ -1,5 +1,5 @@
 ---
-title: "Search Params with React Router 6"
+title: "React Router 6: Search Params"
 description: "How to: Search Params in React Router 6. A step by step example on Search Params with React Router ..."
 date: "2021-12-05T07:52:46+02:00"
 categories: ["React", "React Router"]
