@@ -686,7 +686,7 @@ describe('App', () => {
 
     expect(screen.queryByText(/Searches for JavaScript/)).toBeNull();
 
-    await userEvent.type(screen.getByRole('textbox'), 'JavaScript');
+    userEvent.type(screen.getByRole('textbox'), 'JavaScript');
 
     expect(
       screen.getByText(/Searches for JavaScript/)
@@ -752,7 +752,7 @@ describe('Search', () => {
       </Search>
     );
 
-    await userEvent.type(screen.getByRole('textbox'), 'JavaScript');
+    userEvent.type(screen.getByRole('textbox'), 'JavaScript');
 
     expect(onChange).toHaveBeenCalledTimes(10);
   });
@@ -834,7 +834,7 @@ describe('App', () => {
 
     render(<App />);
 
-    await userEvent.click(screen.getByRole('button'));
+    userEvent.click(screen.getByRole('button'));
 
     const items = await screen.findAllByRole('listitem');
 
@@ -869,7 +869,7 @@ describe('App', () => {
 
     render(<App />);
 
-    await userEvent.click(screen.getByRole('button'));
+    userEvent.click(screen.getByRole('button'));
 
     const message = await screen.findByText(/Something went wrong/);
 
@@ -903,7 +903,7 @@ describe('App', () => {
 
     render(<App />);
 
-    await userEvent.click(screen.getByRole('button'));
+    userEvent.click(screen.getByRole('button'));
 
     await act(() => promise);
 
