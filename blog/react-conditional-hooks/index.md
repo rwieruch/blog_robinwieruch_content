@@ -2,7 +2,7 @@
 title: "Conditional Hooks in React"
 description: "Is it possible to use conditional React Hooks in React components? Technically no. However, in this example I want to show you how to use a Hook ..."
 date: "2021-07-18T03:55:46+02:00"
-categories: ["React"]
+categories: ["React", "React Hooks"]
 keywords: ["react conditional hooks", "react conditional hook"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

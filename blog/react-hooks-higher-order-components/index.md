@@ -2,7 +2,7 @@
 title: "Why React Hooks over HOCs"
 description: "There are advantages of using React Hooks over Higher-Order Components (HOC) which I want to show you by example ..."
 date: "2020-10-01T03:52:46+02:00"
-categories: ["React"]
+categories: ["React", "React Hooks"]
 keywords: ["react hooks higher order components", "hooks higher order components", "react hooks hocs", "react hooks hoc"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
