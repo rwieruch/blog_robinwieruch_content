@@ -2,7 +2,7 @@
 title: "React Router 6 Tutorial"
 description: "React Router 6 tutorial: setup, hooks, nested routes, dynamic routes, programmatic navigation, active links, layout routes, index routes and more. A step by step React tutorial for beginners ..."
 date: "2021-11-09T07:52:46+02:00"
-categories: ["React", "React Router"]
+categories: ["React", "React Router 6"]
 keywords: ["react router tutorial", "react router 6"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

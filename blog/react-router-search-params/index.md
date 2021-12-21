@@ -2,7 +2,7 @@
 title: "React Router 6: Search Params"
 description: "How to: Search Params in React Router 6. A step by step example on Search Params with React Router ..."
 date: "2021-12-05T07:52:46+02:00"
-categories: ["React", "React Router"]
+categories: ["React", "React Router 6"]
 keywords: ["react router search params", "react router 6"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
