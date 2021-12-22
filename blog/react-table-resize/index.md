@@ -60,43 +60,4 @@ You can also change the highlight color of the resize area and expand the resize
 </HeaderCell>
 ```
 
-Be careful if you table or your table rows have any additional padding due to CSS (e.g. padding, margin, border), then you need to define an offset which mitigates this padding:
-
-```javascript{1,4-9,13}
-import { useTheme } from '@table-library/react-table-library/theme';
-
-const App = () => {
-  const theme = useTheme({
-    BaseRow: `
-      padding-left: 32px;
-      padding-right: 16px;
-    `,
-  });
-
-  const data = { nodes };
-
-  const resize = { offset: 48 };
-
-  return (
-    <Table data={data} theme={theme}>
-      {(tableList) => (
-        <>
-          <Header>
-            <HeaderRow>
-              <HeaderCell resize={resize}>Task</HeaderCell>
-              <HeaderCell resize={resize}>Deadline</HeaderCell>
-              <HeaderCell resize={resize}>Type</HeaderCell>
-              <HeaderCell resize={resize}>Complete</HeaderCell>
-              <HeaderCell resize={resize}>Tasks</HeaderCell>
-            </HeaderRow>
-          </Header>
-
-          ...
-        </>
-      )}
-    </Table>
-  );
-};
-```
-
 That's it. With React Table Library, you are now able to create resizable tables in React.
