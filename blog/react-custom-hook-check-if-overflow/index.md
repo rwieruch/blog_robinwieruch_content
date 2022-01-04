@@ -40,7 +40,7 @@ export const useIsOverflow = (ref, callback) => {
 };
 ```
 
-If you want to detect a vertical overflow instead, you can exchange the `hasOverflow` assignment to the following:
+If you want to detect a horizontal overflow instead, you can exchange the `hasOverflow` assignment to the following:
 
 ```javascript
 const hasOverflow = current.scrollWidth > current.clientWidth;
