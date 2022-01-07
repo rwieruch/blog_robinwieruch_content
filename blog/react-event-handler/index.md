@@ -1,6 +1,6 @@
 ---
-title: "React Event Handlers: onClick, onChange ..."
-description: "Learn about React's event handlers and how to use them for onClick (button) and onChange (events) ..."
+title: "React Event Handler: onClick, onChange ..."
+description: "Learn about various event handler in React and how to use them for onClick (button), onChange ..."
 date: "2020-01-15T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react event handler"]
