@@ -2,7 +2,7 @@
 title: "React Router: Redirect with Higher-Order Component"
 description: "A reusable higher-order component to redirect with React Router ..."
 date: "2021-10-06T07:52:46+02:00"
-categories: ["React", "React Router"]
+categories: ["React", "React Router", "React Higher Order Components"]
 keywords: ["react redirect higher-order component", "react redirect component"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

@@ -2,7 +2,7 @@
 title: "React Higher Order Components"
 description: "A comprehensive yet easy to understand introduction to higher-order components in React. Higher order components, known as HOCs, are often a difficult to understand pattern in React.js. The article gives you a gentle introduction, how to use HOCs in an elegant way, how to abstract reusable logic and how to use recompose ..."
 date: "2017-04-04T13:50:46+02:00"
-categories: ["React"]
+categories: ["React", "React Higher Order Components"]
 keywords: ["react higher order components"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
