@@ -2,7 +2,7 @@
 title: "How to SASS with Webpack 5 - Setup Tutorial"
 description: "Learn how to use SASS in a Webpack powered JavaScript application ..."
 date: "2020-10-30T11:55:46+02:00"
-categories: ["Tooling", "Webpack", "Babel"]
+categories: ["Webpack", "Babel"]
 keywords: ["webpack sass"]
 hashtags: ["#Webpack"]
 banner: "./images/banner.jpg"

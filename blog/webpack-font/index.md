@@ -2,7 +2,7 @@
 title: "How to use Fonts with Webpack 5 - Setup Tutorial"
 description: "The tutorial walks you through a Webpack with Fonts setup to load a font as local asset to your JavaScript applications ..."
 date: "2020-10-30T13:55:46+02:00"
-categories: ["Tooling", "Webpack", "Babel"]
+categories: ["Webpack", "Babel"]
 keywords: ["webpack font", "webpack fonts"]
 hashtags: ["#Webpack"]
 banner: "./images/banner.jpg"

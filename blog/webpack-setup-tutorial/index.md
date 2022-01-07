@@ -2,7 +2,7 @@
 title: "How to Webpack 5 - Setup Tutorial"
 description: "A Webpack 5 tutorial that walks you through your first JavaScript application setup with Webpack. Bonus: You will add Babel to enable advanced JavaScript features ..."
 date: "2020-10-30T10:55:46+02:00"
-categories: ["JavaScript", "Tooling", "Webpack"]
+categories: ["JavaScript", "Webpack"]
 keywords: ["webpack setup", "webpack tutorial", "webpack babel"]
 hashtags: ["#JavaScript", "#Webpack"]
 banner: "./images/banner.jpg"

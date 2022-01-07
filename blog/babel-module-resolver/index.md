@@ -2,7 +2,7 @@
 title: "How to use Babel Module Resolver"
 description: "By Example: You will learn how to use Babel Module Resolver for your JavaScript application to convert absolute/relative paths to aliases. We will also cover ESLint ..."
 date: "2019-09-01T13:56:46+02:00"
-categories: ["Web Development", "Tooling", "ESLint", "Babel"]
+categories: ["Web Development", "ESLint", "Babel"]
 keywords: ["babel module resolver", "babel module resolver eslint"]
 hashtags: ["#Git"]
 banner: "./images/banner.jpg"

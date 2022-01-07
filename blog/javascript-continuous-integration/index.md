@@ -2,7 +2,7 @@
 title: "How to set up Continuous Integration for JavaScript"
 description: "Learn how to set up Continuous Integration for your JavaScript project. In this tutorial, we will use Travis CI as example for covering the build and tests on your JavaScript application ..."
 date: "2019-07-19T13:56:46+02:00"
-categories: ["JavaScript", "Tooling"]
+categories: ["JavaScript"]
 keywords: ["javascript continuous integration"]
 hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"

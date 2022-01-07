@@ -2,7 +2,7 @@
 title: "How to Advanced Webpack 5 - Setup Tutorial"
 description: "A step by step tutorial on how to set up an advanced Webpack 5 application. It comes with Babel 7, development and production build, automations, and source maps ..."
 date: "2020-10-30T14:55:46+02:00"
-categories: ["JavaScript", "Tooling", "Webpack", "Babel"]
+categories: ["JavaScript", "Webpack", "Babel"]
 keywords: ["webpack advanced", "webpack 4 tutorial"]
 hashtags: ["#Webpack"]
 banner: "./images/banner.jpg"

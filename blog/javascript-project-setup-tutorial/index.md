@@ -2,7 +2,7 @@
 title: "How to JavaScript - Setup Tutorial"
 description: "A JavaScript tutorial that walks you through your first JavaScript project's setup. Afterward, you can decide whether you want to continue with it as backend or frontend application ..."
 date: "2020-10-29T10:55:46+02:00"
-categories: ["JavaScript", "Tooling"]
+categories: ["JavaScript"]
 keywords: ["javascript setup", "javascript project setup", "javascript tutorial"]
 hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"

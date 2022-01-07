@@ -2,7 +2,7 @@
 title: "Getting started with React and Parcel"
 description: "This guide helps you to setup React with Parcel from 0 to 1. Learn how to use Parcel in React.js with zero-configuration. Setup your own boilerplate application ..."
 date: "2018-02-10T13:50:46+02:00"
-categories: ["React", "Tooling"]
+categories: ["React"]
 keywords: ["react parcel"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

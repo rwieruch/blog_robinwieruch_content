@@ -2,7 +2,7 @@
 title: "How to set up JavaScript Test Coverage"
 description: "Learn how to set up test coverage with Coveralls for your JavaScript project. In this tutorial, we will use Travis CI to set up testing coverage with Coveralls.io ..."
 date: "2019-07-20T13:56:46+02:00"
-categories: ["React", "JavaScript", "Tooling", "Webpack", "Babel"]
+categories: ["React", "JavaScript", "Webpack", "Babel"]
 keywords: ["javascript test coverage", "javascript test coverage jest"]
 hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"

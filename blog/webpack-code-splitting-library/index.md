@@ -2,7 +2,7 @@
 title: "Webpack Code Splitting for your Library"
 description: "A walkthrough on how to use code splitting for your library to reduce your bundle size by giving multiple entry points to your JavaScript library ..."
 date: "2019-11-24T07:52:46+02:00"
-categories: ["Node", "Tooling", "JavaScript"]
+categories: ["Node", "JavaScript"]
 keywords: ["webpack code splitting library"]
 hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"

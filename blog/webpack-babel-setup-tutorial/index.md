@@ -2,7 +2,7 @@
 title: "How to Webpack 5 with Babel - Setup Tutorial"
 description: "A step by step tutorial on how to integrate Babel into Webpack to access powerful JavaScript features (ES6, ES7, ES8, ES9) from the future ..."
 date: "2020-10-30T11:55:46+02:00"
-categories: ["JavaScript", "Tooling", "Webpack", "Babel"]
+categories: ["JavaScript", "Webpack", "Babel"]
 keywords: ["webpack babel"]
 hashtags: ["#Webpack"]
 banner: "./images/banner.jpg"

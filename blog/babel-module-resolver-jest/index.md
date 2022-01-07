@@ -2,7 +2,7 @@
 title: "Babel Module Resolver with Jest"
 description: "How to use Jest with Babel Module Resolver for aliases that are defined in your .babelrc file ..."
 date: "2020-02-01T13:56:46+02:00"
-categories: ["Tooling"]
+categories: ["Babel"]
 keywords: ["babel module resolver jest"]
 hashtags: ["#JavaScript"]
 banner: "./images/banner.jpg"

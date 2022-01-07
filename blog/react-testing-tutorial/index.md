@@ -2,7 +2,7 @@
 title: "How to test React Components"
 description: "Learn how to test React components by setting up unit, integration and end-to-end tests for React with Jest, Enzyme and other testing libraries ..."
 date: "2019-07-27T13:50:46+02:00"
-categories: ["React", "Tooling"]
+categories: ["React"]
 keywords: ["react testing tutorial", "react testing frameworks", "react testing library", "react testing best practices", "react testing components"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

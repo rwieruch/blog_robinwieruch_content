@@ -2,7 +2,7 @@
 title: "How to React with Webpack 5  - Setup Tutorial"
 description: "A React with Webpack 5 and Babel tutorial for beginners where you will learn step by step how to set up a React project with Webpack from scratch ..."
 date: "2020-10-30T15:55:46+02:00"
-categories: ["React", "JavaScript", "Tooling", "Webpack", "Babel"]
+categories: ["React", "JavaScript", "Webpack", "Babel"]
 keywords: ["react webpack", "react webpack babel", "react babel", "react webpack tutorial", "react webpack example", "react webpack boilerplate"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

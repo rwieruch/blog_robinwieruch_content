@@ -2,7 +2,7 @@
 title: "End to End Testing React with Cypress"
 description: "Learn how to run end to end tests for React with Cypress. E2E tests will give you more confidence in your overall React application ..."
 date: "2019-07-18T13:56:46+02:00"
-categories: ["React", "Tooling", "Webpack", "Babel"]
+categories: ["React", "Webpack", "Babel"]
 keywords: ["react testing cypress", "react end to end testing", "react cypress"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

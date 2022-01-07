@@ -1,8 +1,8 @@
 ---
-title: "How to React Router with Webpack 5 - Setup Tutorial"
+title: "How to React Router with Webpack 6"
 description: "Learn how to use React Router in a Webpack powered JavaScript application ..."
 date: "2020-10-30T11:55:46+02:00"
-categories: ["React", "Tooling", "Webpack", "Babel"]
+categories: ["React", "Webpack", "React Router"]
 keywords: ["webpack react router"]
 hashtags: ["#Webpack"]
 banner: "./images/banner.jpg"
