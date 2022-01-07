@@ -1,8 +1,8 @@
 ---
-title: "React Redirect Higher-Order Component"
-description: "A reusable higher-order component to redirect a user from a blank page with no data ..."
+title: "React Router: Redirect with Higher-Order Component"
+description: "A reusable higher-order component to redirect with React Router ..."
 date: "2021-10-06T07:52:46+02:00"
-categories: ["React"]
+categories: ["React", "React Router"]
 keywords: ["react redirect higher-order component", "react redirect component"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
@@ -12,14 +12,14 @@ author: ""
 
 <Sponsorship />
 
-When using React Router in React, one can use the Redirect component to navigate a user away from a page in case of a certain condition. For example, the following example does not [render a list](/react-list-component/) if there is no data, but redirects a user to the home page instead:
+When using React Router in React, one can use the Navigate component to navigate a user away from a page in case of a certain condition. For example, the following example does not [render a list](/react-list-component/) if there is no data, but redirects a user to the home page instead:
 
 ```javascript
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 const List = ({ data }) => {
   if (!data.length) {
-    return <Redirect to='/home' />;
+    return <Navigate replace to='/home' />;
   }
 
   return (
@@ -37,7 +37,7 @@ export default List;
 In this case the redirect is well placed. However, if there is much logic happening *before* of the conditional, e.g. by using [React Hooks](/react-hooks/) (because they cannot be after a conditional rendering except with this [little trick](/react-conditional-hooks/)), then the logic has to execute even though there may be a redirect.
 
 ```javascript{4-7}
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 const List = ({ data }) => {
   // lots of hooks here
@@ -46,7 +46,7 @@ const List = ({ data }) => {
   // and all the hooks logic may not be used after all
 
   if (!data.length) {
-    return <Redirect to='/home' />;
+    return <Navigate replace to='/home' />;
   }
 
   return (
@@ -87,13 +87,13 @@ export default withRedirect({
 The HOC implementation could look like the following then:
 
 ```javascript
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 const withRedirectIfBlank = (config) => (Component) => (props) => {
   const { redirectCondition, redirectTo } = config;
 
   if (redirectCondition(props)) {
-    return <Redirect to={redirectTo} />;
+    return <Navigate replace to={redirectTo} />;
   }
 
   return <Component {...props} />;
