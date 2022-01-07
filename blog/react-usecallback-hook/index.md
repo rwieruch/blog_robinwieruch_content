@@ -2,7 +2,7 @@
 title: "How to useCallback in React"
 description: "A tutorial about React's useCallback hook by example for performance optimizations in React function components ..."
 date: "2020-07-06T09:52:46+02:00"
-categories: ["React"]
+categories: ["React", "React Hooks"]
 keywords: ["react usecallback"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

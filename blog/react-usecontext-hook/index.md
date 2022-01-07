@@ -2,7 +2,7 @@
 title: "How to useContext in React"
 description: "A tutorial about React's useContext hook by example for React's Context. The useReducer helps you to access React's Context in any function component below your Context Provider ..."
 date: "2021-06-27T13:50:46+02:00"
-categories: ["React"]
+categories: ["React", "React Hooks"]
 keywords: ["react usecontext"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

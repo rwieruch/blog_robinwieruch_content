@@ -2,7 +2,7 @@
 title: "How to useMemo in React"
 description: "A tutorial about React's useMemo hook by example for performance optimizations in React function components ..."
 date: "2020-07-13T10:52:46+02:00"
-categories: ["React"]
+categories: ["React", "React Hooks"]
 keywords: ["react usememo"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

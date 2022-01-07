@@ -2,7 +2,7 @@
 title: "How to useEffect in React"
 description: "A tutorial about React's useEffect hook by example for side-effects and lifecycle management in React function components ..."
 date: "2020-11-24T03:52:46+02:00"
-categories: ["React"]
+categories: ["React", "React Hooks"]
 keywords: ["react useEffect"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
