@@ -2,7 +2,7 @@
 title: "How to create a React Radio Button"
 description: "How to use a radio button in React by example and how to create a React Radio Component ..."
 date: "2021-10-08T13:57:46+02:00"
-categories: ["React"]
+categories: ["React", "React Component"]
 keywords: ["react radio", "react radio button", "react radio button component"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

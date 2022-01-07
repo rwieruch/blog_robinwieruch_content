@@ -2,7 +2,7 @@
 title: "How to create a React Checkbox"
 description: "How to use a checkbox in React by example, how to create a React Checkbox component, and how to change its value with the onChange event handler ..."
 date: "2021-05-15T13:56:46+02:00"
-categories: ["React"]
+categories: ["React", "React Component"]
 keywords: ["react checkbox", "react checkbox component"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

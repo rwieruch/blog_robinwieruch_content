@@ -2,7 +2,7 @@
 title: "How to create a React Dropdown"
 description: "How create a React Dropdown component by example. The HTML select element displays a menu ..."
 date: "2021-10-08T13:56:46+02:00"
-categories: ["React"]
+categories: ["React", "React Component"]
 keywords: ["react dropdown", "react dropdown component", "react dropdown menu", "react dropdown select"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

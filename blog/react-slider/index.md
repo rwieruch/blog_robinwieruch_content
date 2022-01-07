@@ -2,7 +2,7 @@
 title: "How to React Slider"
 description: "In this React component tutorial, we will build a React Slider Component with a Range that can be used horizontally as example, but can be extended to be used vertically too ..."
 date: "2019-12-02T07:52:46+02:00"
-categories: ["React"]
+categories: ["React", "React Component"]
 keywords: ["react slider", "react slider component", "react slider example", "react slider range", "react range"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
