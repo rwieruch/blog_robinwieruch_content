@@ -80,7 +80,7 @@ Where your state is managed is a crucial difference between Redux and useReducer
                       +----------------+
 ```
 
-However, even though we are able to lift all the useReducer state up to our most top-level component -- almost making Redux obsolete because it can be seen as global state container -- it still isn't *one global* state container. There are two ingredients missing from Redux to make it *one* and *global*.
+However, even though we are able to lift all the useReducer state up to our most top-level component -- almost making Redux obsolete because it can be seen as global state container -- it still isn't *one global* state container. There are two ingredients missing to make it *one* and *global* as in Redux.
 
 * **One:** First, there is no native feature (yet) which [combines all reducers to one ultimate reducer](https://redux.js.org/api/combinereducers). Redux is offering this feature, but in plain React we would have to implement it ourselves. Only if we were able to combine all state containers from all useReducer hooks, we could speak of *one* state container.
 
