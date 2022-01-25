@@ -1,6 +1,6 @@
 ---
 title: "React Component Composition"
-description: "A guide that explains React Component Composition step by step. Learn the React Composition Pattern by example which helps you to render components within each other ..."
+description: "React Component Composition step by step explained with examples. Learn the React Composition Pattern by example which helps you to render components within each other ..."
 date: "2019-01-30T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react component composition", "react component composition example", "react dynamic component composition", "react component composition pattern"]
@@ -14,7 +14,7 @@ author: ""
 
 There are various advanced concepts and patterns in React to master on becoming a React developer. In this tutorial, I want to go through React's Component Composition step by step by evolving one example around this React pattern. You can find more about the topic in the [official React documentation](https://reactjs.org/docs/composition-vs-inheritance.html) as well.
 
-# What's Composition in Code?
+# Composition in JavaScript
 
 Let's take one step backwards before tackling composition in React. What's composition in general? It's the ingredients and the arrangement of these ingredients to create something bigger out of it. It's the samples in a piece of music that make up a track. It's the fruits that are used for the perfect smoothie. It's the choreography of dancers in a musical. And it's the internals of a function in programming that need to be arranged in a way to get the desired output:
 
@@ -136,7 +136,7 @@ export default App;
 
 Since we encapsulated everything in one React component, it's difficult to tear everything apart to serve another purpose than capturing the name of a user. How do we get back what we had with the HTML form? After all, we don't want to have one specialized form, but a more general applicable form that can be reused for different scenarios.
 
-# Entering React Component Composition?
+# React Component Composition
 
 There is one property ([React prop](/react-pass-props-to-component/)) that helps us out with this dilemma for our React component: **the React children prop**. It's one special prop provided by React to render something within a component whereas the component isn't aware ahead of time what it will be. A basic example may be the following:
 
