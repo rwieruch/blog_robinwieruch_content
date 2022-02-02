@@ -145,7 +145,7 @@ const select = useRowSelect(
 );
 ```
 
-If you want to have a seamless **transition from single select to multi select**, you can enable the carry-forward feature. By doing this, when a user performs a single select followed by a multi select, the multi select will include the previous single select in its final selection state:
+If you don't want to have the seamless **transition from single select to multi select**, you can disable the carry-forward feature. By doing this, when a user performs a single select followed by a multi select, the multi select will exclude the previous single select in its final selection state:
 
 ```javascript{7}
 const select = useRowSelect(
@@ -154,7 +154,7 @@ const select = useRowSelect(
     onChange: onSelectChange,
   },
   {
-    isCarryForward: true,
+    isCarryForward: false,
   }
 );
 ```

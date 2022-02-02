@@ -21,7 +21,7 @@ Currently, I am a self-employed developer helping companies in creating their MV
 
 I try my best to have a positive impact on the world. 99% of my code is open source for everyone on [GitHub](https://github.com/rwieruch). Every time I build a product/service for myself, I immediately think about how to open source it for others. Even though I open source my work and offer lots of learning material for free, not everyone is able to make use of it. Many people have no access to it because they didn't had the chance to learn the English language in the first place. That's why I try here and there to volunteer or to [donate money to good causes](/giving-back-by-learning-react/). I have the strong believe that the major issue of diversity in our industry is due to inaccessible education for people outside of the western world. Apart from the language barrier, most educational content is too expensive. Whereas a programming course for $99 might be affordable in the US, it's out of reach for any eager programmer in South East Asia. I know that many programmers producing educational courses need to make a living, I am sitting in one boat with them, but [there are options to make educational content affordable for others around the world](https://github.com/rwieruch/purchasing-power-parity) too. After all, I hope that I can give something back by believing in these values and my mission to make education more accessible to everyone.
 
-# Passions beyond Software Development
+# Passions beyond Web Development
 
 Even though I do a lot of programming in my professional and spare time, there are other things I treasure too. I am an [avid reader](https://www.goodreads.com/author/show/16218990.Robin_Wieruch), but I’m always struggling to memorize my learnings. I guess, that's why I started to write down my notes of books I enjoyed to read. But it's difficult to keep up with all the books. Nowadays I often encourage people to read more, because it's such a fulfilling and meaningful activity. Some of my favorite pieces:
 
@@ -34,6 +34,47 @@ Even though I do a lot of programming in my professional and spare time, there a
 In another life, I wanted to [do music](https://soundcloud.com/schlenkermitturnbeutel). But I avoided the stage at nightclubs when I got the first requests in my inbox. I preferred the anonymous internet over any stage. That's why I never revealed my identity back in the days and maybe that's why I never tried public speaking for conferences. Eventually, I decided to code and started to enjoy it too. Still, music is one reason why I am staying partly in Berlin. Nowhere else, I believe, will you find such a great selection of electronic music.
 
 The most important part in my life is my girlfriend Liesa. Without her I wouldn't be able to sustain my every day doings. My life would be too chaotic. Every other week she is not at home, my working schedule shifts dramatically. She keeps my life in balance and is helpful in every part of it. You could argue that because of her I manage to stay sane. Alongside, she encourages me for workouts, eating healthy food and is always helpful when it comes to marketing for my professional stuff. Feel free to reach out to her for various topics around [content marketing](https://www.iamliesa.com/). She already works with a couple of great companies.
+
+## Watching
+
+TV shows ordered by personal taste that I'd recommend to my family and friends:
+
+Favorites
+
+* Chernobyl
+* Dark
+* Arcane
+* Black Mirror
+* Death Note (Anime)
+* Attack on Titan (Anime)
+* Dragonball Z (Anime)
+* Naruto (Anime)
+* Peaky Blinders
+* Mr. Robot
+* Silicon Valley
+
+Noteworthy:
+
+* When They See Us
+* Game of Thrones
+* The Newsroom
+* Dexter
+* Breaking Bad
+* Suits (up to prison arc)
+* Homeland
+* Stranger Things
+* The Umbrella Academy
+* Sons of Anarchy
+* The Last Dance
+* Making a Murderer
+* Billions
+* Ozark
+* The Expanse
+* The Morning Show
+* The Leftovers (Season 2-3)
+* Bleach (Anime)
+* Neon Genesis Evangelion (Anime)
+* One Piece (Anime)
 
 # You like my content? Here are a couple of ways to support it.
 
@@ -96,13 +137,18 @@ Every developer needs an IDE or editor/terminal combination. I like to have mult
 
 I have a couple of technical gadgets I heavily rely on:
 
-* MacBook Pro 2015
+* MacBook Pro 2021
+  * 14-inch
+  * Apple M1 Pro mit 10‑Core CPU, 16‑Core GPU und 16‑Core Neural Engine
+  * 32 GB RAM
+  * 512 GB SSD
+  * QWERTY = Englisch (International)
+* Backup MacBook Pro 2015
   * 13-inch
   * 2,7 GHz Intel Core i5
-  * 16 GB
-  * 256 GB
-  * QWERTY
-* Backup MacBook Pro 2015
+  * 16 GB RAM
+  * 256 GB SSD
+  * QWERTY = Englisch (International)
 * [Laptop Stand](https://amzn.to/2SOhYGn) (the best thing to work in co-working spaces when not having an external display)
 * [Trackpad](https://amzn.to/2RwCPwg) and [Keyboard](https://amzn.to/2SPqZ1K)
 * [Headphones](https://amzn.to/2SPghIE)
@@ -160,7 +206,7 @@ Next to Leanpub, I used [educative.io](https://www.educative.io/collection/57407
 
 ### TransferWise and PayPal
 
-Whenever I need to pay people abroad where I cannot use the usual bank transfer, I use [TransferWise](https://transferwise.com/u/robinw212) or PayPal.
+Whenever I need to pay people abroad where I cannot use the usual bank transfer, I use [TransferWise](https://wise.com/invite/u/robinw212) or PayPal.
 
 <Divider />
 
