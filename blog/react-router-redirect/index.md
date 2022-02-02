@@ -1,7 +1,7 @@
 ---
 title: "React Router 6: Redirect"
 description: "How to: Redirect in React Router 6 by using the delcarative Navigate component or the programmatic useNavigate Hook ..."
-date: "2022-01-06T07:52:46+02:00"
+date: "2022-02-01T07:52:46+02:00"
 categories: ["React", "React Router 6"]
 keywords: ["react router redirect", "react router 6"]
 hashtags: ["#ReactJs"]
