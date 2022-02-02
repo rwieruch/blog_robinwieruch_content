@@ -18,7 +18,6 @@ module.exports = {
     enabled: true,
     exclude: [
       '/legal',
-      '/categories/recent',
       '/categories/recent/**',
       '/categories/react/**',
       '/categories/javascript/**',
