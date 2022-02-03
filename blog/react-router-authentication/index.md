@@ -405,7 +405,7 @@ We handled the [redirect programmatically via React Router's useNavigate Hook](/
 
 # Protected Routes in React Router
 
-Let's make use of [protected routes](/react-router-protected-routes/) (also called private routes). Therefore, we will create a new component. In the case of protecting against unauthorized users (here: unauthenticated users), the component will check whether the authentication token is present. If it is present, the component will render its children. However, if it is absent, the user gets a conditional redirect with React Router's declarative Navigate component to the login page (here: Home page):
+Let's make use of protected routes (also called private routes). Therefore, we will create a new component. In the case of protecting against unauthorized users (here: unauthenticated users), the component will check whether the authentication token is present. If it is present, the component will render its children. However, if it is absent, the user gets a conditional redirect with React Router's declarative Navigate component to the login page (here: Home page):
 
 ```javascript{5,9-17}
 import {
@@ -457,6 +457,8 @@ const App = () => {
 ```
 
 Now, when users click the button to log out, they get an implicit redirect via the new protected route, because the token is not present anymore. Furthermore, if a user is not authenticated, it's not possible for this user to visit a protected route (here: Dashboard page).
+
+<ReadMore label="React Router 6 Private Routes" link="/react-router-private-routes/" />
 
 Be aware: Anyway, even though the route is protected and not accessible by unauthorized users anymore, a malicious user could still modify the client-side code in the browser (e.g. removing the condition to redirect from the ProtectedRoute). Therefore, all sensitive API calls that happen on protected pages (e.g. Dashboard page) need to be secured from the server-side too.
 
