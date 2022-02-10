@@ -92,7 +92,7 @@ Both routes share one specific domain (here: user) and maybe shouldn't show up t
 
 Descendant Routes are routes that are not defined in the top-level collection of Route components, but somewhere down the component tree. We will explore this concept by adapting the App component from before to the following version:
 
-```javascript{12}
+```javascript{20}
 const App = () => {
   const users = [
     { id: '1', firstName: 'Robin', lastName: 'Wieruch' },
