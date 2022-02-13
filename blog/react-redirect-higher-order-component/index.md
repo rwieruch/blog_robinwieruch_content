@@ -64,7 +64,7 @@ export default List;
 Therefore, you can use a [higher-order component](/react-higher-order-components/) (HOC) for the redirect, because when wrapping the component into a HOC, the logic of the HOC would occur before the hooks from the wrapped component:
 
 ```javascript{1,15-18}
-import { withRedirect } from './withRedirect'
+import { withRedirectIfBlank } from './withRedirect'
 
 const List = ({ data }) => {
   // lots of hooks here
@@ -78,7 +78,7 @@ const List = ({ data }) => {
   );
 };
 
-export default withRedirect({
+export default withRedirectIfBlank({
   redirectCondition: (props) => !props.data.length,
   redirectTo: '/home',
 })(List);
