@@ -125,7 +125,7 @@ module.exports = {
   },
   plugins: [new HtmlWebpackPlugin()],
   devServer: {
-    contentBase: path.resolve(__dirname, './dist'),
+    static: path.resolve(__dirname, './dist'),
   },
 };
 ```
@@ -422,7 +422,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    contentBase: path.resolve(__dirname, '..', './dist'),
+    static: path.resolve(__dirname, '..', './dist'),
   },
 };
 ```

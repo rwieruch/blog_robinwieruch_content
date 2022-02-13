@@ -18,32 +18,33 @@ So far, you should have a working JavaScript with Webpack application. In this t
 
 # ESLint
 
-[ESLint](http://eslint.org/) in JavaScript helps you to set up rules and to enforce code style across your code base. Let’s get started by installing the [eslint](https://github.com/eslint/eslint) library (node package). You can install it in your project with `npm install eslint` from your project's root directory.
+[ESLint](http://eslint.org/) in JavaScript helps you to set up rules and to enforce code style across your code base. Let's get started by installing the [eslint](https://github.com/eslint/eslint) library (node package). You can install it in your project from your project's root directory on the command line:
 
-You may also want to install the ESLint extension/plugin for your editor/IDE. For instance, in VSCode you can find the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extension on their marketplace. I guess it's quite similar for your IDE/editor of choice. Afterward, you should see all the ESLint errors in your editor's/IDE's output.
+```javascript
+npm install --save-dev eslint
+```
+
+You may also want to install the ESLint extension/plugin for your editor/IDE. For instance, in VSCode you can find the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extension on their marketplace. Afterward, you should see all the ESLint errors in your editor's/IDE's output.
 
 # ESLint + Webpack + Babel
 
-Since the project uses Webpack, you have to tell Webpack that you want to use eslint in your build process. Therefore you can install [eslint-loader](https://github.com/MoOx/eslint-loader) on the command line to your project's dependencies from your project's root folder:
+Since the project uses Webpack, you have to tell Webpack that you want to use eslint in your build process. Therefore you can install [eslint-webpack-plugin](https://github.com/webpack-contrib/eslint-webpack-plugin) on the command line to your project's dependencies from your project's root folder:
 
 ```javascript
-npm install --save-dev eslint-loader
+npm install --save-dev eslint-webpack-plugin
 ```
 
-Next, you can use the Webpack Loader for ESLint in your Webpack *webpack.config.js* file:
+Next, you can use the new Webpack plugin for ESLint in your Webpack *webpack.config.js* file:
 
-```javascript{7}
+```javascript{2,6}
 ...
-module: {
-  rules: [
-    {
-      test: /\.(js)$/,
-      exclude: /node_modules/,
-      use: ["babel-loader", "eslint-loader"]
-    }
-  ]
-},
-...
+const ESLintPlugin = require('eslint-webpack-plugin');
+
+module.exports = {
+  ...
+  plugins: [new ESLintPlugin()],
+  ...
+};
 ```
 
 Now, all source code that goes through Weback will be checked by ESLint automatically. Once you start your application, it will output an error though: "No ESLint configuration found". You need this file to define your ESLint configuration. Create it in your project's root directory on the command line:
@@ -63,25 +64,25 @@ Then, create an empty ESLint rule set in this new *.eslintrc* file:
 Later on you can specify rules in this file. But first, let's try to start your app again. You might run (again) into Parsing errors such as "The keyword 'import' is reserved" or "The keyword 'export' is reserved". The error happens, because ESLint does not know about Babel enabled JavaScript features yet. For instance, the `import` or `export` statements are JavaScript ES6 features. Therefore, you have to use [babel-eslint](https://github.com/babel/babel-eslint) node package to lint source code that is valid Babel interpreted JavaScript. From your project's root directory type:
 
 ```javascript
-npm install --save-dev babel-eslint
+npm install --save-dev @babel/eslint-parser
 ```
 
-Then, in your *.eslintrc* configuration file, add babel-eslint as parser:
+Then, in your *.eslintrc* configuration file, add @babel/eslint-parser as parser:
 
 ```javascript{2}
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "rules": {}
 }
 ```
 
 *Note: If the previous error regarding Babel enabled JavaScript features still shows up in your IDE/editor -- because you may have installed an ESLint plugin/extension, restart your IDE/editor and check whether the error still shows up. It shouldn't.*
 
-You should be able to start your application without any ESLint errors now. There are no errors displayed, because you didn’t specify any rules yet.
+You should be able to start your application without any ESLint errors now. There are no errors displayed, because you didn't specify any rules yet.
 
 # ESLint Rules
 
-ESLint rules apply for a lot of different code style use cases. Check out the [list of available ESLint rules](http://eslint.org/docs/rules/) yourself. For the sake of learning about ESLint rules, let’s add our first rule in the *.eslintrc* configuration file for ESLint:
+ESLint rules apply for a lot of different code style use cases. Check out the [list of available ESLint rules](http://eslint.org/docs/rules/) yourself. For the sake of learning about ESLint rules, let's add our first rule in the *.eslintrc* configuration file for ESLint:
 
 ```javascript{4}
 {
@@ -93,7 +94,7 @@ ESLint rules apply for a lot of different code style use cases. Check out the [l
 }
 ```
 
-The rule checks the length of characters in a line of code. If the length is more than 70 characters, you will get a warning once you start your application with `npm start` or in your IDE/editor in case a plugin or extension for ESLint. Try to call up this warning by writing a line of code longer than 70 characters. ESLint should tell you something like: "Line 5 exceeds the maximum line length of 70". You can adjust the rule to allow some more characters:
+The rule checks the length of characters in a line of code. If the length is more than 70 characters, you will get a warning once you start your application with `npm start` or in your IDE/editor in case a plugin or extension for ESLint. Try to call up this warning by writing a line of code longer than 70 characters. ESLint should tell you something like: "This line has a length of <XX>. Maximum allowed is 70". You can adjust the rule to allow some more characters:
 
 ```javascript{4}
 {
@@ -124,7 +125,7 @@ Afterward, you can introduce it in your *.eslintrc* configuration file for ESLin
 
 ```javascript{3}
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "extends": ["airbnb"],
   "rules": {
     "max-len": [1, 70, 2, { "ignoreComments": true }]
@@ -136,7 +137,7 @@ Afterward, you can introduce it in your *.eslintrc* configuration file for ESLin
 
 ```javascript{3}
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "extends": ["airbnb"]
 }
 ```
@@ -150,13 +151,13 @@ After starting your application on the command line again or checking the output
 
 # How to disable ESLint Rules
 
-Sometimes you might see a lot of ESLint rule violations on your command line or in your IDE/editor. Often it is up to you to fix them to follow the common best practices. However, whenever you are unsure about the ESLint warning, search it in your favorite search engine and evaluate whether you want to have this ESLint rule or not. You can either fix the warning in the mentioned source code file or remove/disable the rule altogether, if you think you don’t need it.
+Sometimes you might see a lot of ESLint rule violations on your command line or in your IDE/editor. Often it is up to you to fix them to follow the common best practices. However, whenever you are unsure about the ESLint warning, search it in your favorite search engine and evaluate whether you want to have this ESLint rule or not. You can either fix the warning in the mentioned source code file or remove/disable the rule altogether, if you think you don't need it.
 
 In case you want to *remove* a ESLint rule globally, just remove it from your *.eslintrc* file in case you specified it yourself and it doesn't come from any popular style guide (e.g. Airbnb). If the latter is the case, you can only *disable* the rule. For instance, the no-unused-vars ESLint rule from Airbnb's ESLint configuration could be disable the following way:
 
 ```javascript{4,5,6}
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "extends": ["airbnb"],
   "rules": {
     "no-unused-vars": 0

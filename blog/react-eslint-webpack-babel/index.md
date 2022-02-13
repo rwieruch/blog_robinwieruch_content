@@ -18,20 +18,24 @@ In this tutorial I want to walk you through setting up ESLint for React. You sho
 
 # Webpack and Babel for React ESLint
 
-First, you need to make sure that your *.babelrc* (or *package.json*) supports JSX and the ESLint loader from the previous tutorials. It's important that ESLint is used within your Webpack build to enforce your code style for every of your npm scripts which run Webpack. Also Webpack needs to know about React (JSX) at all.
+First, you need to make sure that your *.babelrc* (or *package.json* if that's the place where you have your Babel configuration) supports JSX and the Webpack plugin for ESLint from the previous tutorials got installed as well. It's important that ESLint is used within your Webpack build to enforce your code style for every of your npm scripts which run Webpack. Also Webpack needs to know about React (JSX) at all.
 
-```javascript{5,7}
+```javascript{2,7,13}
 ...
-module: {
+const ESLintPlugin = require('eslint-webpack-plugin');
+
+module.exports = {
   rules: [
     {
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-      use: ["babel-loader", "eslint-loader"]
+      use: ["babel-loader"]
     }
   ]
-},
-...
+  ...
+  plugins: [new ESLintPlugin()],
+  ...
+};
 ```
 
 That's everything you need to introduce your first ESLint rules for React.
@@ -48,7 +52,7 @@ Afterward, you can introduce it in your *.eslintrc* configuration file for ESLin
 
 ```javascript{3}
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "extends": ["airbnb"]
 }
 ```
