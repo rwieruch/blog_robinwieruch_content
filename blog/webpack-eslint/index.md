@@ -94,7 +94,7 @@ ESLint rules apply for a lot of different code style use cases. Check out the [l
 }
 ```
 
-The rule checks the length of characters in a line of code. If the length is more than 70 characters, you will get a warning once you start your application with `npm start` or in your IDE/editor in case a plugin or extension for ESLint. Try to call up this warning by writing a line of code longer than 70 characters. ESLint should tell you something like: "This line has a length of <XX>. Maximum allowed is 70". You can adjust the rule to allow some more characters:
+The rule checks the length of characters in a line of code. If the length is more than 70 characters, you will get a warning once you start your application with `npm start` or in your IDE/editor in case a plugin or extension for ESLint. Try to call up this warning by writing a line of code longer than 70 characters. ESLint should tell you something like: "This line has a length of `<XX>`. Maximum allowed is 70". You can adjust the rule to allow some more characters:
 
 ```javascript{4}
 {
