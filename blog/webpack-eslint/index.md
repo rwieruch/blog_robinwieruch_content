@@ -26,6 +26,8 @@ npm install --save-dev eslint
 
 You may also want to install the ESLint extension/plugin for your editor/IDE. For instance, in VSCode you can find the [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) extension on their marketplace. Afterward, you should see all the ESLint errors in your editor's/IDE's output.
 
+<ReadMore label="How use ESLint in VSCode" link="/vscode-eslint/" />
+
 # ESLint + Webpack + Babel
 
 Since the project uses Webpack, you have to tell Webpack that you want to use eslint in your build process. Therefore you can install [eslint-webpack-plugin](https://github.com/webpack-contrib/eslint-webpack-plugin) on the command line to your project's dependencies from your project's root folder:
@@ -188,10 +190,8 @@ The tutorial has shown you how to install ESLint on a per project basis with `np
 
 Still, once your JavaScript project is set up, you need to run `eslint --init` in the root directory of your project on the command line which will install a local copy of ESLint for your project again. Also you will see a command line prompt that you can step through to set up your ESLint configuration dynamically. In the end, that's my recommended way of setting up ESLint for your JavaScript project.
 
-### Exercises:
+<LinkCollection label="This tutorial is part 1 of 3 in the series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "/how-to-use-prettier-vscode/" }, { prefix: "Part 3:", label: "How to use Prettier with ESLint", url: "/prettier-eslint/" }]} />
 
-* Set up a new JavaScript project and run `eslint --init` yourself
-
-<LinkCollection label="This tutorial is part 1 of 3 in the series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "/how-to-use-prettier-vscode/" }, { prefix: "Part 3:", label: "How to make Prettier work with ESLint", url: "/prettier-eslint/" }]} />
+<LinkCollection label="This tutorial is part 1 of 3 in the series." links={[{ prefix: "Part 2:", label: "How to set up React with Webpack and Babel", url: "/minimal-react-webpack-babel-setup/" }, { prefix: "Part 3:", label: "How to use ESLint in React", url: "/react-eslint-webpack-babel/" }]} />
 
 <ReadMore label="How to set up an advanced Webpack application" link="/webpack-advanced-setup-tutorial/" />

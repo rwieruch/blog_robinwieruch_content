@@ -63,4 +63,4 @@ That's it. After running your npm start script which uses Webpack, you should se
 
 Airbnb's ESLint config is only one of many popular pre-configured sets of ESLint rules. If you just want to double down on React, you may want to check out the [ESLint plugin for React](https://github.com/yannickcr/eslint-plugin-react). It comes with lots of recommendations from the React community. However, if you need a full-blown ESLint solution for React in addition to JavaScript, you are good to go with Airbnb's code style recommendations.
 
-<LinkCollection label="This tutorial is part 1 of 3 in the series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "/how-to-use-prettier-vscode/" }, { prefix: "Part 3:", label: "How to make Prettier work with ESLint", url: "/prettier-eslint/" }]} />
+<LinkCollection label="This tutorial is part 1 of 3 in the series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "/how-to-use-prettier-vscode/" }, { prefix: "Part 3:", label: "How to use Prettier with ESLint", url: "/prettier-eslint/" }]} />
