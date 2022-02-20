@@ -1,7 +1,7 @@
 ---
 title: "Setup PostgreSQL with Sequelize in Express"
 description: "A tutorial on how to setup PostgreSQL for Express.js in a Node.js application. It comes with the database installation and how to connect it to Express with Sequelize as ORM. You can choose to use another ORM, if you want to ..."
-date: "2020-04-28T07:50:46+02:00"
+date: "2022-02-19T07:50:46+02:00"
 categories: ["Node"]
 keywords: ["postgresql express", "postgres express", "postgres sequelize", "postgresql sequelize", "node postgresql", "node postgres"]
 hashtags: ["#NodeJs"]
@@ -68,7 +68,7 @@ Before diving into the code for your application, it's always a good idea to map
 The User and Message entities have fields that define both their identity within the construct and their relationships to each other. Let's get back to our Express application. Usually, there is a folder in your Node.js application called *src/models/* that contains files for each model in your database (e.g. *src/models/user.js* and *src/models/message.js*). Each model is implemented as a schema that defines the fields and relationships. There is often also a file (e.g. *src/models/index.js*) that combines all models and exports all them as database interface to the Express application. We can start with the two models in the *src/models/[modelname].js* files, which could be expressed like the following without covering all the fields from the UML diagram for the sake of keeping it simple. First, the user model in the *src/models/user.js* file:
 
 ```javascript
-const user = (sequelize, DataTypes) => {
+const getUserModel = (sequelize, { DataTypes }) => {
   const User = sequelize.define('user', {
     username: {
       type: DataTypes.STRING,
@@ -83,7 +83,7 @@ const user = (sequelize, DataTypes) => {
   return User;
 };
 
-export default user;
+export default getUserModel;
 ```
 
 As you can see, the user has a username field which is represented as string type. In addition, we added some more validation for our user entity. First, we don't want to have duplicated usernames in our database, hence we add the unique attribute to the field. And second, we want to make the username string required, so that there is no user without a username. Each user will automatically come with a `createdAt` and a `updatedAt` field.
@@ -91,7 +91,7 @@ As you can see, the user has a username field which is represented as string typ
 Next, we may want to associate the user with messages. Since a user can have many messages, we use a 1 to N association:
 
 ```javascript{13-15}
-const user = (sequelize, DataTypes) => {
+const getUserModel = (sequelize, { DataTypes }) => {
   const User = sequelize.define('user', {
     username: {
       type: DataTypes.STRING,
@@ -103,20 +103,20 @@ const user = (sequelize, DataTypes) => {
     },
   });
 
-  User.associate = models => {
-    User.hasMany(models.Message);
+  User.associate = (models) => {
+    User.hasMany(models.Message, { onDelete: 'CASCADE' });
   };
 
   return User;
 };
 
-export default user;
+export default getUserModel;
 ```
 
 We can also implement additional methods on our model. Let's assume our user entity ends up with an email field in the future. Then we could add a method that finds a user by their an abstract "login" term, which is the username or email in the end, in the database. That's helpful when users are able to login to your application via username *or* email adress. You can implement it as method for your model. After, this method would be available next to all the other build-in methods that come from your chosen ORM:
 
 ```javascript{17-29}
-const user = (sequelize, DataTypes) => {
+const getUserModel = (sequelize, { DataTypes }) => {
   const User = sequelize.define('user', {
     username: {
       type: DataTypes.STRING,
@@ -128,11 +128,11 @@ const user = (sequelize, DataTypes) => {
     },
   });
 
-  User.associate = models => {
+  User.associate = (models) => {
     User.hasMany(models.Message);
   };
 
-  User.findByLogin = async login => {
+  User.findByLogin = async (login) => {
     let user = await User.findOne({
       where: { username: login },
     });
@@ -149,13 +149,13 @@ const user = (sequelize, DataTypes) => {
   return User;
 };
 
-export default user;
+export default getUserModel;
 ```
 
 The message model looks quite similar, even though we don't add any custom methods to it and the fields are pretty straightforward with only a text field and another message to user association:
 
 ```javascript
-const message = (sequelize, DataTypes) => {
+const getMessageModel = (sequelize, { DataTypes }) => {
   const Message = sequelize.define('message', {
     text: {
       type: DataTypes.STRING,
@@ -163,23 +163,23 @@ const message = (sequelize, DataTypes) => {
       validate: {
         notEmpty: true,
       },
-    }
+    },
   });
 
-  Message.associate = models => {
+  Message.associate = (models) => {
     Message.belongsTo(models.User);
   };
 
   return Message;
 };
 
-export default message;
+export default getMessageModel;
 ```
 
 Now, in case a user is deleted, we may want to perform a so called cascade delete for all messages in relation to the user. That's why you can extend schemas with a CASCADE flag. In this case, we add the flag to our user schema to remove all messages of this user on its deletion:
 
 ```javascript{14}
-const user = (sequelize, DataTypes) => {
+const getUserModel = (sequelize, { DataTypes }) => {
   const User = sequelize.define('user', {
     username: {
       type: DataTypes.STRING,
@@ -191,11 +191,11 @@ const user = (sequelize, DataTypes) => {
     },
   });
 
-  User.associate = models => {
+  User.associate = (models) => {
     User.hasMany(models.Message, { onDelete: 'CASCADE' });
   };
 
-  User.findByLogin = async login => {
+  User.findByLogin = async (login) => {
     let user = await User.findOne({
       where: { username: login },
     });
@@ -212,13 +212,16 @@ const user = (sequelize, DataTypes) => {
   return User;
 };
 
-export default user;
+export default getUserModel;
 ```
 
 Sequelize is used to define the model with its content (composed of `DataTypes` and optional configuration). Furthermore, additional methods can be added to shape the database interface and the associate property is used to create relations between models. An user can have multiple messages, but a Message belongs to only one user. You can dive deeper into these concepts in the [Sequelize documentation](http://docs.sequelizejs.com/). Next, in your *src/models/index.js* file, import and combine those models and resolve their associations using the Sequelize API:
 
 ```javascript
 import Sequelize from 'sequelize';
+
+import getUserModel from './user';
+import getMessageModel from './message';
 
 const sequelize = new Sequelize(
   process.env.DATABASE,
@@ -230,11 +233,11 @@ const sequelize = new Sequelize(
 );
 
 const models = {
-  User: sequelize.import('./user'),
-  Message: sequelize.import('./message'),
+  User: getUserModel(sequelize, Sequelize),
+  Message: getMessageModel(sequelize, Sequelize),
 };
 
-Object.keys(models).forEach(key => {
+Object.keys(models).forEach((key) => {
   if ('associate' in models[key]) {
     models[key].associate(models);
   }
@@ -269,7 +272,7 @@ const app = express();
 
 sequelize.sync().then(() => {
   app.listen(process.env.PORT, () => {
-    console.log(`Example app listening on port ${process.env.PORT}!`),
+    console.log(`Example app listening on port ${process.env.PORT}!`);
   });
 });
 ```

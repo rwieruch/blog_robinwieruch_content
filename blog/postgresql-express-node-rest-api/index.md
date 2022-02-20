@@ -1,7 +1,7 @@
 ---
 title: "Creating a REST API with Express.js and PostgreSQL"
 description: "A Node.js with Express and PostgreSQL tutorial to learn step by step how to create a REST API for CRUD operations which can be consumed by a client application ..."
-date: "2020-04-28T07:50:46+02:00"
+date: "2022-02-19T08:50:46+02:00"
 categories: ["Node"]
 keywords: ["express postgresql rest api", "express postgresql rest", "express postgresql crud"]
 hashtags: ["#NodeJs"]
@@ -45,9 +45,10 @@ This section focuses first on connecting PostgreSQL to Express for our REST API.
 In our *src/index.js* where we set up and start the Express application with the PostgreSQL database, we already have a Express middleware in place which passes the models as context to all of our Express routes. Previously, these models have been sample data. Now we are using the Sequelize models that connect us to the PostgreSQL database. Since the folder/file data structure is the same as before, nothing changes for passing the models as context to the Express routes.
 
 ```javascript
+import express from 'express';
 ...
 
-import models from './models';
+import models, { sequelize } from './models';
 
 const app = express();
 
@@ -66,10 +67,11 @@ app.use((req, res, next) => {
 
 However, the me user (authenticated user) can be retrieved from the seeded data from the database. There is no `users` array available anymore as sample data on the models object, because the models are our interface to the PostgreSQL database now.
 
-```javascript{9,12}
+```javascript{10,13}
+import express from 'express';
 ...
 
-import models from './models';
+import models, { sequelize } from './models';
 
 const app = express();
 
@@ -90,7 +92,7 @@ Even though we don't know the authenticated user yet, because we are not passing
 
 Let's dive into our Express routes now. We have routes for the session, the user, and the message entity. The session entity comes first. Again, instead of using the sample data which was available previously on the models, we can use the models' interface -- powered by Sequelize -- to interact with the database now. In the *src/routes/session.js* change the following lines of code:
 
-```javascript{5,6,7,8,9,10}
+```javascript{5-10}
 import { Router } from 'express';
 
 const router = Router();
@@ -111,7 +113,7 @@ Since we passed the models conveniently via the context object to every Express 
 
 Let's tackle the user routes in the *src/routes/user.js* file which offer RESTful API endpoints for fetching users or a single user by id. Both API requests should lead into read operations for the PostgreSQL database:
 
-```javascript{5,6,7,8,10,11,12,13,14,15}
+```javascript{5-8,10-15}
 import { Router } from 'express';
 
 const router = Router();
@@ -135,7 +137,7 @@ The first API endpoint that fetches a list of users doesn't get any input parame
 
 Last but not least, the message routes in the *src/routes/message.js* file. Apart from reading messages and a single message by identifier, we also have API endpoints for creating a message and deleting a message. Both operations should lead to write operations for the PostgreSQL database:
 
-```javascript{5,6,7,8,10,11,12,13,14,15,17,18,19,20,21,22,23,24,26,27,28,29,30,31,32}
+```javascript{5-8,10-15,17-24,26-32}
 import { Router } from 'express';
 
 const router = Router();

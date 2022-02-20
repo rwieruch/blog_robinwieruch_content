@@ -25,7 +25,7 @@ You will also need a **MacOS specific environment** in which Docker can be used,
 
 ```text
 brew install docker-machine
-brew cask install virtualbox
+brew install --cask virtualbox
 ```
 
 Note: If the last install fails, check your MacOS' System Preference and verify if *System software from developer "Oracle America, inc" was blocked from loading.* shows up. If you see it, hit the "Allow"-button and install it again.

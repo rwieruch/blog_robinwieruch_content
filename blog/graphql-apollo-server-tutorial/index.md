@@ -1693,7 +1693,7 @@ You should be able to start your application again. Try out different GraphQL qu
 Since you have introduced a database now, GraphQL Playground is not the only manual testing tool anymore. Whereas GraphQL Playground can be used to test your GraphQL API, you may want to use the `psql` command line interface to query your database manually. For instance, you may want to check user message records in the database or whether a message exists there after it has been created with a GraphQL mutation. First, connect to your database on the command line:
 
 ```javascript
-psql mydatabasename
+psql mydatabase
 ```
 
 And second, try the following SQL statements. It's the perfect opportunity to learn more about SQL itself:

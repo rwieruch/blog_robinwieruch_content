@@ -68,27 +68,27 @@ The terminal will confirm these operations with *"server started"* and *"server 
 Next, let's go through the steps of setting up a database that can be used for one of your applications. Make sure the Postgre server is started first, then type these commands in the command line to create and remove a database:
 
 ```javascript
-createdb mydatabasename
-dropdb mydatabasename
+createdb mydatabase
+dropdb mydatabase
 ```
 
 You can also connect to databases to execute SQL statements. Either use the `psql` command, or specify a database such as the default postgres database to connect:
 
 ```javascript
-psql mydatabasename
+psql mydatabase
 ```
 
 The command leads you to the psql shell, which you can exit by typing CTRL + d. In the psql shell, you can create and drop databases as well:
 
 ```javascript
-CREATE DATABASE mydatabasename;
-DROP DATABASE mydatabasename;
+CREATE DATABASE mydatabase;
+DROP DATABASE mydatabase;
 ```
 
 To list all your databases, you can type `\list`. Your will see any new databases listed, as well as two default databases that come with postgreSQL called `template0` and `template1`. The templates should remain in your database list even if you aren't using them, as they may be useful later.
 
 * \list - List all of your actual databases.
-* \c mydatabasename - Connect to another database.
+* \c mydatabase - Connect to another database.
 * \d - List the relations of your currently connected database.
 * \d mytablename - Shows information for a specific table.
 

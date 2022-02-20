@@ -129,10 +129,6 @@ These are the benefits I see in using Digital Ocean.
 
 In order to use my own domain for my E-Mails, but also to keep my E-Mails private, secure and ad-free, I use [Fastmail](https://www.fastmail.com/?STKI=15690994).
 
-### Editor and Terminal
-
-Every developer needs an IDE or editor/terminal combination. I like to have multiple tools, by having each tool for a specific purpose, but combining them to one great developer experience. That's why I am using VS Code and iTerm. If you want to know how to set it up, you can find more about it over here: [a developer's setup](/developer-setup/).
-
 ### Technical Gear
 
 I have a couple of technical gadgets I heavily rely on:
@@ -155,14 +151,18 @@ I have a couple of technical gadgets I heavily rely on:
 * [Display](https://amzn.to/2RChPEq)
 * [Microphone](https://amzn.to/2RAEu4g)
 
+### Mac Setup
+
+* [Mac Setup for Web Development](/mac-setup-web-development/)
+
 ### Apps
 
 * [Twitter](https://itunes.apple.com/us/app/twitter/id333903271?mt=8)
 * [Pocket](https://itunes.apple.com/us/app/pocket-save-read-grow/id309601447?mt=8)
 * [Clear](https://itunes.apple.com/us/app/clear-todos/id493136154?mt=8)
 * [GoodReads](https://itunes.apple.com/us/app/goodreads-book-reviews/id355833469?mt=8)
-* [Podcast](https://itunes.apple.com/us/app/apple-podcasts/id525463029?mt=8)
-* [1Password](https://itunes.apple.com/us/app/1password-password-manager/id568903335?mt=8)
+* [Podcast](https://apps.apple.com/us/app/spotify-new-music-and-podcasts/id324684580)
+* [Bitwarden](https://apps.apple.com/us/app/bitwarden-password-manager/id1137397744)
 * [Buffer](https://itunes.apple.com/us/app/buffer-social-media-manager/id490474324?mt=8)
 * [Reddit](https://itunes.apple.com/us/app/reddit-trending-news/id1064216828?mt=8)
 * [Signal](https://itunes.apple.com/us/app/signal-private-messenger/id874139669?mt=8)
@@ -194,7 +194,7 @@ If you are looking for top quality people to help you with your online business,
 ### Email Marketing
 
 Another email marketing tool I rely heavily on is [Convertkit](https://app.convertkit.com/referrals/l/530f9272-ddb5-413e-9f71-16cd35ef5515
-). After developers sign up on my course platform, they receive a sequence of emails about all my courses. Without Convertkit I wouldn't be able to give these developers a showreel of my courses.
+). After developers sign up on my course platform, they receive a sequence of emails about all my courses. Without Convertkit, I wouldn't be able to give these developers a showreel of my courses.
 
 ### Leanpub
 
@@ -204,9 +204,9 @@ Leanpub has helped me to self-publish [my first ebook](https://leanpub.com/the-r
 
 Next to Leanpub, I used [educative.io](https://www.educative.io/collection/5740745361195008/5676830073815040) to release a course. The platform is pretty new on the market. The creators of educative are helpful, supportive and very kind. I enjoyed the collaboration with them. The platform itself offers all the tools you need to setup your course.
 
-### TransferWise and PayPal
+### Wise (TransferWise) and PayPal
 
-Whenever I need to pay people abroad where I cannot use the usual bank transfer, I use [TransferWise](https://wise.com/invite/u/robinw212) or PayPal.
+Whenever I need to pay people abroad where I cannot use the usual bank transfer, I use [Wise](https://wise.com/invite/u/robinw212) or PayPal.
 
 <Divider />
 
