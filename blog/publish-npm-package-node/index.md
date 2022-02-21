@@ -1,5 +1,5 @@
 ---
-title: "How to publish a npm package?"
+title: "How to publish a npm Package"
 description: "A tutorial on how to publish a npm package to the npm registry with Node, Babel and Webpack for getting started as an open source contributor ..."
 date: "2019-05-12T07:52:46+02:00"
 categories: ["Node", "JavaScript"]
