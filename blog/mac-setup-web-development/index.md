@@ -83,6 +83,9 @@ This year (2022) I bought the new **MacBook Pro** after having used the MacBook 
 Override more system preferences from the terminal ...
 
 ```text
+# take screenshots as jpg (usually smaller size) and not png
+defaults write com.apple.screencapture type jpg
+
 # show Library folder
 chflags nohidden ~/Library
 
