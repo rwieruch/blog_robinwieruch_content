@@ -192,6 +192,8 @@ brew install \
 * [Maccy](https://maccy.app/) (clipboard manager)
   * enable "Launch at Login"
 
+# Built-in MacOS Applications
+
 * iMessage
   * sync iCloud for iMessages just for the sake of syncing, then disable iCloud again
   * sync contacts on iCloud
@@ -294,7 +296,7 @@ If the theme and font changes do not apply, reload your zsh configuration (*.zsh
 
 **ZSH Configuration File (*.zshrc*):**
 
-```text
+```markdown
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -347,7 +349,7 @@ The look and feel we want to achieve from our IDE:
 
 ![](./images/ide.png)
 
-Extensions:
+**Extensions:**
 
 * [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) (Theme)
 * [Auto Hide](https://marketplace.visualstudio.com/items?itemName=sirmspencer.vscode-autohide) (Hides Sidebar)
@@ -367,13 +369,13 @@ Extensions:
 * [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
 * [Color Picker](https://marketplace.visualstudio.com/items?itemName=anseki.vscode-color)
 
-Manual:
+**Manual:**
 
 * move Search feature from Activity Bar to Panel
 
-JSON Settings:
+**JSON Settings:**
 
-```text
+```json
 {
   "breadcrumbs.enabled": false,
   "files.trimTrailingWhitespace": true,
@@ -420,11 +422,11 @@ JSON Settings:
 
 Not used for web development anymore. Primarily used for writing this blog.
 
-General:
+**General:**
 
 * use License
 
-Extensions:
+**Extensions:**
 
 * [Agila Theme](https://packagecontrol.io/packages/Agila%20Theme) (Theme)
 * [Predawn](https://packagecontrol.io/packages/Predawn) (Theme)
@@ -433,7 +435,7 @@ Extensions:
 
 JSON Settings:
 
-```text
+```json
 {
   "caret_style": "solid",
   "folder_exclude_patterns":
