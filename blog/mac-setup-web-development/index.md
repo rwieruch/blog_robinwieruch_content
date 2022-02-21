@@ -20,7 +20,7 @@ This year (2022) I bought the new **MacBook Pro** after having used the MacBook 
 * Apple M1 Pro mit 10‑Core CPU, 16‑Core GPU und 16‑Core Neural Engine
 * 32 GB RAM
 * 512 GB SSD
-* QWERTY = Englisch (International)
+* QWERTY = English (International)
 * macOS Monterey
 
 # System Preferences
@@ -296,7 +296,7 @@ If the theme and font changes do not apply, reload your zsh configuration (*.zsh
 
 **ZSH Configuration File (*.zshrc*):**
 
-```python
+```markdown
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
