@@ -296,7 +296,7 @@ If the theme and font changes do not apply, reload your zsh configuration (*.zsh
 
 **ZSH Configuration File (*.zshrc*):**
 
-```markdown
+```python
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -486,8 +486,8 @@ JSON Settings:
 From terminal, set global name and email:
 
 ```text
-git config --global user.name “Your Name“
-git config --global email “you@your-domain.com“
+git config --global user.name "Your Name"
+git config --global email "you@your-domain.com"
 ```
 
 Improved `git log`:
