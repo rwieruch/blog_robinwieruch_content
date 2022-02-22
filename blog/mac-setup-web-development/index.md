@@ -242,8 +242,7 @@ The look and feel we want to achieve from our terminal:
     * Transparency: 30
     * Style: Full Screen
     * Screen: Main Screen
-  * Open new split pane with current directory
-    * https://apple.stackexchange.com/a/337386
+  * [Open new split pane with current directory](https://apple.stackexchange.com/a/337386)
   * [Natural Text Editing](https://apple.stackexchange.com/a/293988)
 * Bring it to fullscreen Command + Enters
 
@@ -356,6 +355,7 @@ The look and feel we want to achieve from our IDE:
 
 * [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) (Theme)
 * [Auto Hide](https://marketplace.visualstudio.com/items?itemName=sirmspencer.vscode-autohide) (Hides Sidebar)
+* [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) (Shared Config)
 * [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) ([Code Style](/vscode-eslint/))
 * [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) ([Code Format](/how-to-use-prettier-vscode/))
   * Prettier: [Formatting Toggle](https://marketplace.visualstudio.com/items?itemName=tombonnike.vscode-status-bar-format-toggle) (Toggle Prettier)
