@@ -189,6 +189,7 @@ class App extends Component {
   };
 
   render() {
+    const greeting = 'Welcome to React';
     return (
       <div>
         {this.state.isShow ? <Greeting greeting={greeting} /> : null}
