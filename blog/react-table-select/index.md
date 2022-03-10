@@ -128,7 +128,7 @@ import {
   useRowSelect,
   HeaderCellSelect,
   CellSelect,
-  SELECT_TYPES,
+  SelectTypes,
 } from '@table-library/react-table-library/select';
 
 ...
@@ -139,8 +139,8 @@ const select = useRowSelect(
     onChange: onSelectChange,
   },
   {
-    rowSelect: SELECT_TYPES.MultiSelect,
-    buttonSelect: SELECT_TYPES.SingleSelect,
+    rowSelect: SelectTypes.MultiSelect,
+    buttonSelect: SelectTypes.SingleSelect,
   }
 );
 ```
@@ -166,7 +166,7 @@ import {
   useRowSelect,
   HeaderCellSelect,
   CellSelect,
-  SELECT_CLICK_TYPES,
+  SelectClickTypes,
 } from '@table-library/react-table-library/select';
 
 ...
@@ -177,7 +177,7 @@ const select = useRowSelect(
     onChange: onSelectChange,
   },
   {
-    clickType: SELECT_CLICK_TYPES.ButtonClick,
+    clickType: SelectClickTypes.ButtonClick,
   }
 );
 ```
@@ -205,7 +205,7 @@ Finally, with React Table Library it's possible to exchange the select component
 First, import the custom component from your third-party library:
 
 ```javascript
-import MaterialCheckbox from '@material-ui/core/Checkbox';
+import MaterialCheckbox from '@mui/material/Checkbox';
 ```
 
 Second, use the third-party checkbox for the table header:
@@ -220,7 +220,7 @@ const App = () => {
         <>
           <Header>
             <HeaderRow>
-              <HeaderCell shrink>
+              <HeaderCell stiff>
                 <MaterialCheckbox
                   size="small"
                   checked={select.state.all}
@@ -262,7 +262,7 @@ const App = () => {
           <Body>
             {tableList.map((item) => (
               <Row key={item.id} item={item}>
-                <Cell shrink>
+                <Cell stiff>
                   <MaterialCheckbox
                     size="small"
                     checked={select.state.ids.includes(

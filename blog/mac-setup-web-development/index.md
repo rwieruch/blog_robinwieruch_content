@@ -61,6 +61,7 @@ This year (2022) I bought the new **MacBook Pro** after having used the MacBook 
   * Hide all Tags
   * Show all Filename Extensions
   * Remove Items from Bin after 30 Days
+  * View -> Show Preview (e.g. image files)
 * Sharing
   * "Change computer name"
     * Also terminal:
@@ -85,6 +86,9 @@ Override more system preferences from the terminal ...
 ```text
 # take screenshots as jpg (usually smaller size) and not png
 defaults write com.apple.screencapture type jpg
+
+# do not open previous previewed files (e.g. PDFs) when opening a new one
+defaults write com.apple.Preview ApplePersistenceIgnoreState YES
 
 # show Library folder
 chflags nohidden ~/Library
@@ -208,6 +212,8 @@ brew install \
   * show most recent message at top
 * Notes
   * New notes start with: Body
+* Quick Time Player
+  * save to Desktop
 
 # Terminal Applications
 
@@ -398,7 +404,7 @@ The look and feel we want to achieve from our IDE:
   "editor.renderWhitespace": "none",
   "editor.scrollBeyondLastLine": true,
   "editor.minimap.enabled": false,
-  "editor.formatOnSave": true,
+  "editor.find.seedSearchStringFromSelection": "never",
   // syntax highlighting
   "files.associations": {
     ".env*": "makefile"
@@ -407,9 +413,11 @@ The look and feel we want to achieve from our IDE:
   "prettier.singleQuote": true,
   "prettier.printWidth": 70,
   "[javascript]": {
+    "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
+    "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // eslint
@@ -417,8 +425,13 @@ The look and feel we want to achieve from our IDE:
     "source.fixAll.eslint": true
   },
   "eslint.validate": ["javascript"],
-  "javascript.updateImportsOnFileMove.enabled": "never"
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  // auto generated
+  "explorer.confirmDragAndDrop": false,
+  "js/ts.implicitProjectConfig.checkJs": true
 }
+
 ```
 
 # Sublime

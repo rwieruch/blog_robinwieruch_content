@@ -1,5 +1,5 @@
 ---
-title: "React Redux Tutorial for Beginners [2019]"
+title: "React Redux Tutorial for Beginners"
 description: "A complete React Redux tutorial for beginners: Learn how to build React Redux applications from scratch by following this step by step implementation of an example application ..."
 date: "2018-12-13T13:50:46+02:00"
 categories: ["Starter", "React", "Redux"]

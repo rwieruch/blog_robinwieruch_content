@@ -42,9 +42,9 @@ In contrast, a double click on a row can be achieved this way:
   key={item.id}
   item={item}
   onDoubleClick={(node, event) =>
-    console.log('Click Row', node, event)
+    console.log('Double Click Row', node, event)
   }
 >
 ```
 
-Keep in mind that enabling a double click on a row will lead to a slight delay in the single click, because the table waits for a certain time until it confirms a click as a single click, because a double click could still happen.
+Keep in mind that enabling a double click on a row will lead to a slight delay in the row select (if used), because the table waits for a certain time until it confirms a click as a single click, because a double click could still happen.

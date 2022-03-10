@@ -17,7 +17,7 @@ In this tutorial, I want to show you how to use [React Table Library](https://re
 Let's begin by installing React Table Library via your command line:
 
 ```javascript
-npm install @table-library/react-table-library styled-components
+npm install @table-library/react-table-library @emotion/react
 ```
 
 The task is to present the following list of items in a React table component:
@@ -63,7 +63,7 @@ const App = () => {
 };
 ```
 
-The Table component accepts a data object as [prop](/react-pass-props-to-component/) with a `nodes` property. These nodes are the items in our lists, however, the table keeps it more generic to the naming of `nodes`, because the table can not only display list structures but also [tree structures](/react-table-tree/).
+The Table component accepts a data object as [prop](/react-pass-props-to-component/) with a `nodes` property. These nodes are the items in our lists, however, the table keeps it more generic to the naming of `nodes`, because the table can not only display list structures but also [tree structures](/react-tree-table/).
 
 Moreover, the Table component uses a [function as a children](/react-render-props/) which gives us access to our list within the table as `tableList`. Internally the Table component applies all sorts of modifications onto our list -- e.g. sorting, pagination and so on, if these plugins are enabled -- and thus the `tableList` (and not `data` or `list`) should be used to render the items within the table.
 

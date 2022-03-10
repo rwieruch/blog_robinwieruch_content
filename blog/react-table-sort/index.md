@@ -49,7 +49,7 @@ const App = () => {
 
 Third, convert your header columns to sortable header columns:
 
-```javascript{3,15-29}
+```javascript{3,15-26}
 import {
   useSort,
   HeaderCellSort ,
@@ -76,9 +76,6 @@ const App = () => {
               <HeaderCellSort sortKey="COMPLETE">
                 Complete
               </HeaderCellSort>
-              <HeaderCellSort sortKey="TASKS">
-                Tasks
-              </HeaderCellSort>
             </HeaderRow>
           </Header>
 
@@ -94,7 +91,7 @@ const App = () => {
 
 And fourth, create respective sort functions for each sort key:
 
-```javascript{5-19}
+```javascript{5-14}
 const App = () => {
   const data = { nodes };
 
@@ -108,11 +105,6 @@ const App = () => {
         array.sort((a, b) => a.type.localeCompare(b.type)),
       COMPLETE: (array) =>
         array.sort((a, b) => a.isComplete - b.isComplete),
-      TASKS: (array) =>
-        array.sort(
-          (a, b) =>
-            (a.nodes || []).length - (b.nodes || []).length
-        ),
     },
   });
 
@@ -128,7 +120,7 @@ That's it. With just a few lines you have a working table sort. We can sort by s
 
 What may be missing is a notifier as developer to **get the current sort** from the table. Let's see how this works with the useSort hook:
 
-```javascript{5-7,13-15}
+```javascript{5-7,12-14}
 const App = () => {
   const data = { nodes };
 
@@ -181,9 +173,9 @@ const App = () => {
 Another example would be exchanging the sort icon with a **custom sort icon** from a third-party library (e.g. Material UI):
 
 ```javascript{1-3,13-22}
-import UnfoldMoreOutlinedIcon from '@material-ui/icons/UnfoldMoreOutlined';
-import KeyboardArrowUpOutlinedIcon from '@material-ui/icons/KeyboardArrowUpOutlined';
-import KeyboardArrowDownOutlinedIcon from '@material-ui/icons/KeyboardArrowDownOutlined';
+import UnfoldMoreOutlinedIcon from '@mui/icons-material/UnfoldMoreOutlined';
+import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
+import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 
 const App = () => {
   ...
@@ -196,10 +188,10 @@ const App = () => {
     {
       sortIcon: {
         margin: '0px',
-        iconDefault: <UnfoldMoreOutlinedIcon fontSize="small" />,
-        iconUp: <KeyboardArrowUpOutlinedIcon fontSize="small" />,
+        iconDefault: <UnfoldMoreOutlinedIcon />,
+        iconUp: <KeyboardArrowUpOutlinedIcon />,
         iconDown: (
-          <KeyboardArrowDownOutlinedIcon fontSize="small" />
+          <KeyboardArrowDownOutlinedIcon />
         ),
       },
       sortFns: ...
@@ -219,10 +211,10 @@ Finally, with React Table Library it's possible to exchange the sort components 
 First, import the custom component (and custom icons) from your third-party library:
 
 ```javascript
-import Button from '@material-ui/core/Button';
-import UnfoldMoreOutlinedIcon from '@material-ui/icons/UnfoldMoreOutlined';
-import KeyboardArrowUpOutlinedIcon from '@material-ui/icons/KeyboardArrowUpOutlined';
-import KeyboardArrowDownOutlinedIcon from '@material-ui/icons/KeyboardArrowDownOutlined';
+import MaterialButton from '@mui/material/Button';
+import UnfoldMoreOutlinedIcon from '@mui/icons-material/UnfoldMoreOutlined';
+import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
+import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 ```
 
 Second, use the third-party button for the table header:
@@ -250,7 +242,7 @@ const App = () => {
           <Header>
             <HeaderRow>
               <HeaderCell>
-                <Button
+                <MaterialButton
                   fullWidth
                   style={{ justifyContent: 'flex-start' }}
                   endIcon={getIcon('TASK')}
@@ -261,7 +253,7 @@ const App = () => {
                   }
                 >
                   Task
-                </Button>
+                </MaterialButton>
               </HeaderCell>
 
               ...

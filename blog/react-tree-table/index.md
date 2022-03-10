@@ -119,7 +119,7 @@ By using this new composable table component, we enabled our users to get a visu
 import {
   useTree,
   CellTree,
-  TREE_EXPAND_CLICK_TYPES,
+  TreeExpandClickTypes,
 } from '@table-library/react-table-library/tree';
 
 ...
@@ -130,7 +130,7 @@ const tree = useTree(
     onChange: onTreeChange,
   },
   {
-    clickType: TREE_EXPAND_CLICK_TYPES.ButtonClick,
+    clickType: TreeExpandClickTypes.ButtonClick,
   }
 );
 ```
@@ -153,9 +153,9 @@ Finally, with React Table Library it's possible to exchange the tree icon with a
 First, import the custom icons from your third-party library:
 
 ```javascript
-import FolderIcon from '@material-ui/icons/Folder';
-import FolderOpenIcon from '@material-ui/icons/FolderOpen';
-import InsertDriveFileOutlinedIcon from '@material-ui/icons/InsertDriveFileOutlined';
+import FolderIcon from '@mui/icons-material/Folder';
+import FolderOpenIcon from '@mui/icons-material/FolderOpen';
+import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutlined';
 ```
 
 And second, use the third-party icons for the tree rows:
@@ -170,10 +170,10 @@ const tree = useTree(
     treeIcon: {
       margin: '4px',
       iconDefault: (
-        <InsertDriveFileOutlinedIcon fontSize="small" />
+        <InsertDriveFileOutlinedIcon />
       ),
-      iconRight: <FolderIcon fontSize="small" />,
-      iconDown: <FolderOpenIcon fontSize="small" />,
+      iconRight: <FolderIcon />,
+      iconDown: <FolderOpenIcon />,
     },
   }
 );

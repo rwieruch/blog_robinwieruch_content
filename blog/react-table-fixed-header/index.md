@@ -25,42 +25,29 @@ author: ""
 
 In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with a **fixed header**. In the previous example, you have already installed React Table Library to create a table component. Now, we will enable users to have their **header sticky** to the top.
 
-```javascript{12,32}
+```javascript{2,7-11,14-18,19,22}
+...
+import { useTheme } from '@table-library/react-table-library/theme';
+
 const App = () => {
   const data = { nodes };
 
-  return (
-    <Table data={data}>
-      {(tableList) => (
-        <>
-          <Header>
-            ...
-          </Header>
+  const theme = useTheme({
+    Table: `
+      height: 100%;
+    `,
+  });
 
-          <div style={{ maxHeight: '150px', overflow: 'auto' }}>
-            <Body>
-              {tableList.map((item) => (
-                <Row key={item.id} item={item}>
-                  <Cell>{item.name}</Cell>
-                  <Cell>
-                    {item.deadline.toLocaleDateString(
-                      'en-US',
-                      {
-                        year: 'numeric',
-                        month: '2-digit',
-                        day: '2-digit',
-                      }
-                    )}
-                  </Cell>
-                  <Cell>{item.type}</Cell>
-                  <Cell>{item.isComplete.toString()}</Cell>
-                </Row>
-              ))}
-            </Body>
-          </div>
-        </>
-      )}
-    </Table>
+  return (
+    <div
+      style={{
+        height: '150px',
+      }}
+    >
+      <Table data={data} theme={theme}>
+        ...
+      </Table>
+    </div>
   );
 };
 ```
