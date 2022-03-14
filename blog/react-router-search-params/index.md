@@ -1,9 +1,9 @@
 ---
 title: "React Router 6: Search Params"
-description: "How to: Search Params in React Router 6. A step by step example on Search Params with React Router ..."
+description: "How to: Search Params in React Router 6. A example on Search Params (also called Query Params) with React Router ..."
 date: "2021-12-05T07:52:46+02:00"
 categories: ["React", "React Router 6"]
-keywords: ["react router search params", "react router 6"]
+keywords: ["react router search params", "react router query params" "react router params",, "react router 6"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
@@ -12,11 +12,11 @@ author: ""
 
 <Sponsorship />
 
-A React tutorial which teaches you how to use **Search Params with React Router 6**. The code for this React Router v6 tutorial can be found over [here](https://github.com/the-road-to-learn-react/react-router-6-examples). In order to get you started, create a new React project (e.g. [create-react-app](https://github.com/facebook/create-react-app)). Afterward, [install React Router](https://reactrouter.com/docs/en/v6/getting-started/installation#basic-installation) and read the following React Router tutorial to get yourself aligned to what follows next.
+A React Router tutorial which teaches you how to use **Search Params with React Router 6**. The code for this React Router v6 tutorial can be found over [here](https://github.com/the-road-to-learn-react/react-router-6-examples). In order to get you started, create a new React project (e.g. [create-react-app](https://github.com/facebook/create-react-app)). Afterward, [install React Router](https://reactrouter.com/docs/en/v6/getting-started/installation#basic-installation) and read the following React Router tutorial to get yourself aligned to what follows next.
 
 <ReadMore label="React Router 6 Introduction" link="/react-router/" />
 
-Search Params are a powerful feature, because they enable you to capture state in a URL. By having state in a URL, you can share it with other people. For example, if an application shows a catalog of products, a developer will enable a user to search it. In React this would translate into a list of items (here: products) and a HTML input field for filtering them.
+Search Params (also called **Query Params**) are a powerful feature, because they enable you to capture state in a URL. By having state in a URL, you can share it with other people. For example, if an application shows a catalog of products, a developer will enable a user to search it. In React this would translate into a list of items (here: products) and a HTML input field for filtering them.
 
 Now there is a high chance that React developers will manage this search state with React's useState Hook. Which is fine for this one user, but bad for collaborating with other users.
 
@@ -342,7 +342,7 @@ ReactDOM.render(
 );
 ```
 
-However, use-query-params didn't adapt properly to React Router 6 yet. Hence you may see the following error popping up: *"A `<Route>` is only ever to be used as the child of `<Routes>` element, never rendered directly. Please wrap your `<Route>` in a `<Routes>`."*. Therefore adjust your code on the root level:
+However, use-query-params didn't adapt properly to React Router 6 yet. Hence you may see the following error popping up: *"A `<Route>` is only ever to be used as the child of `<Routes>` element, never rendered directly. Please wrap your `<Route>` in a `<Routes>`."*. Therefore adjust your code on the root level by using React Router's useNavigate and useLocation Hooks:
 
 ```javascript{5-6,12-28,32}
 import React from 'react';
@@ -384,7 +384,7 @@ ReactDOM.render(
 );
 ```
 
-Now you are good to go to use use-query-params for powerful URL state management in React. All you have to do is using the new `useQueryParams` hook instead of our custom hook from before. Also notice that compared to our custom hook, you need to "transform" a string search param too:
+Now you are good to go to use use-query-params for powerful URL state management in React. All you have to do is using the new `useQueryParams` hook instead of our custom hook from before to get the query params. Also notice that compared to our custom hook, you need to "transform" a string search param too:
 
 ```javascript{2-7,14-17}
 import * as React from 'react';
@@ -459,7 +459,7 @@ const Bookshelf = () => {
 };
 ```
 
-That's it. Besides the two data type conversions that we used here, there are also conversions for numbers, arrays, objects and others. For example, if you would want to have a [selectable table in React](/react-table-select/), you may want to have each selected row in a table represented as identifier in an array (in use-query-params' it's the `ArrayParam` conversion) mapped to an actual URL. Then you could share this URL with another user which would start off with the selected rows.
+That's it. Besides the two data type conversions that we used here, there are also conversions for numbers, arrays, objects and others. For example, if you would want to have a [selectable table in React](/react-table-select/), you may want to have each selected row in a table represented as identifier in an array (in use-query-params' it's the `ArrayParam` conversion) mapped to an actual URL. Then you could share this URL with another user which would start off with the selected rows by reading the params from the URL.
 
 <Divider />
 

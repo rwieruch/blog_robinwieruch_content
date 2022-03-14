@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-A React tutorial which teaches you how to use **Descendant Routes with React Router 6**. The code for this React Router v6 tutorial can be found over [here](https://github.com/the-road-to-learn-react/react-router-6-examples).
+A React Router tutorial which teaches you how to use **Descendant Routes with React Router 6**. The code for this React Router v6 tutorial can be found over [here](https://github.com/the-road-to-learn-react/react-router-6-examples).
 
 <LinkCollection label="This tutorial is part 3 of 3 in the series." links={[{ prefix: "Part 1:", label: "React Router", url: "/react-router/" }, { prefix: "Part 2:", label: "Nested Routes with React Router", url: "/react-router-nested-routes/" }]} />
 

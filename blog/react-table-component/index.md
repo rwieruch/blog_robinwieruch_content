@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) for **creating a table component in React**. After this tutorial, there will be many other examples which you can continue to build, such as searching, sorting, [selecting](/react-table-select/), or pagination features for your React table by using the library's documentation. But let's start with the basics.
+In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) for **creating a table component in React**. After this tutorial, there will be many other examples which you can continue to build, such as [searching](/react-table-search/), [filtering](/react-table-filter/), [sorting](/react-table-sort/), [selecting](/react-table-select/), nesting [tree tables](/react-tree-table/), or [pagination](/react-table-pagination/) features for your React table by using the library's documentation. But let's start with the basics.
 
 Let's begin by installing React Table Library via your command line:
 

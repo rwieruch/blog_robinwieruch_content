@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-A React tutorial which teaches you how to use **Authentication in React Router 6**. The code for this React Router v6 tutorial can be found over [here](https://github.com/the-road-to-learn-react/react-router-6-examples). In order to get you started, create a new React project (e.g. [create-react-app](https://github.com/facebook/create-react-app)). Afterward, [install React Router](https://reactrouter.com/docs/en/v6/getting-started/installation#basic-installation) and read the following React Router tutorial to get yourself aligned to what follows next.
+A React Router tutorial which teaches you how to use **Authentication in React Router 6**. The code for this React Router v6 tutorial can be found over [here](https://github.com/the-road-to-learn-react/react-router-6-examples). In order to get you started, create a new React project (e.g. [create-react-app](https://github.com/facebook/create-react-app)). Afterward, [install React Router](https://reactrouter.com/docs/en/v6/getting-started/installation#basic-installation) and read the following React Router tutorial to get yourself aligned to what follows next.
 
 <ReadMore label="React Router 6 Introduction" link="/react-router/" />
 
@@ -466,7 +466,7 @@ Be aware: Anyway, even though the route is protected and not accessible by unaut
 
 In modern applications, you will get a redirect to your previously visited page after a log in. In other words: If you open an application at a protected route, but you are not logged in, you get a redirect to the Login page. After the login, you will get a redirect to the desired protected route.
 
-In order to implement such smart redirect, we have to "remember" the location from where the redirect happened to the Login page. The best place to add these implementation details would be the ProtectedRoute component. There we can use React Router's useLocation Hook to grab the current location before redirecting the user. With the redirect, we send also the state of the current page to the redirected page:
+In order to implement such smart redirect, we have to "remember" the location from where the redirect happened to the Login page. The best place to add these implementation details would be the ProtectedRoute component. There we can use **React Router's useLocation Hook** to grab the current location before redirecting the user. With the redirect, we send also the state of the current page to the redirected page:
 
 ```javascript{7,14,17}
 import {
