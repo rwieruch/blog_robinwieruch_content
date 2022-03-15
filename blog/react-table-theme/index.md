@@ -95,3 +95,35 @@ const THEME = {
 ```
 
 The following components are available as keys for styling: Table, HeaderRow, Row, HeaderCell, Cell, BaseRow, BaseCell. In the end, this should give you all the entry points to style all the different components for your table. If you have feedback, please open up an issue on the [GitHub repository](https://github.com/table-library/react-table-library). If you want to see more themes, check out the library's [documentation](https://react-table-library.com).
+
+<LinkCollection
+  label="This tutorial is part 2 of 3 in this series."
+  links={[
+    {
+      prefix: "Part 1:",
+      label: "How to create a React Table Component",
+      url: "/react-table-component/",
+    },
+    {
+      prefix: "Part 3:",
+      label: "How to: React Table with fixed Header",
+      url: "/react-table-fixed-header/",
+    },
+  ]}
+/>
+
+<LinkCollection
+  label="This tutorial is part 2 of 3 in this series."
+  links={[
+    {
+      prefix: "Part 1:",
+      label: "How to create a React Table Component",
+      url: "/react-table-component/",
+    },
+    {
+      prefix: "Part 3:",
+      label: "How to: React Table with fixed Column",
+      url: "/react-table-fixed-column/",
+    },
+  ]}
+/>

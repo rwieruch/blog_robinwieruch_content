@@ -71,6 +71,7 @@ This year (2022) I bought the new **MacBook Pro** after having used the MacBook 
   * "Make sure all file sharing is disabled"
 * Security and Privacy
   * Turn on FileVault
+  * Add Browser to "Screen Recording"
 * Storage
   * Remove Garage Band & Sound Library
   * Remove iMovie

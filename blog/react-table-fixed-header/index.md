@@ -13,17 +13,22 @@ author: ""
 <Sponsorship />
 
 <LinkCollection
-  label="This tutorial is part 2 of 2 in this series."
+  label="This tutorial is part 3 of 3 in this series."
   links={[
     {
       prefix: "Part 1:",
       label: "How to create a React Table Component",
       url: "/react-table-component/",
     },
+    {
+      prefix: "Part 2:",
+      label: "How to: React Table with Theme",
+      url: "/react-table-theme/",
+    },
   ]}
 />
 
-In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with a **fixed header**. In the previous example, you have already installed React Table Library to create a table component. Now, we will enable users to have their **header sticky** to the top.
+In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with a **fixed header**. In the previous example, you have already installed React Table Library to create a table component and gave it a theme. Now, we will enable users to have their **header sticky** to the top:
 
 ```javascript{2,7-11,14-18,19,22}
 ...
@@ -52,4 +57,4 @@ const App = () => {
 };
 ```
 
-As you can, everything that's need for a fixed table header is a container component around our body component. With this, the rows of the table will scroll in a vertical direction while the header stays sticky at the top of the table.
+As you can, everything that's needed for a fixed table header is a container component around the table component. With this, the rows of the table will scroll in a vertical direction while the header stays sticky at the top of the table.

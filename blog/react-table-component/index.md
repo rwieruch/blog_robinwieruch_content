@@ -155,8 +155,16 @@ const App = () => {
 };
 ```
 
-Since you have full control over what to render in the Cell components, you can format the data as you need to. A boolean can be translated into a string and a date can be formatted to a readable version. There are no special props for the Cell components to get the rendering done.
+Since you have full control over what to render in the Cell components, you can format the data as you need to. A boolean can be translated into a string and a date can be formatted to a readable version. There are no special props for the Cell components to get the rendering done. Using [React Table Library](https://react-table-library.com) makes it straightforward to render table components in React. Head over to the library's documentation to find out more about it and its features.
 
-<Divider />
-
-Using [React Table Library](https://react-table-library.com) makes it straightforward to render table components in React. Head over to the library's documentation to find out more about it and its features.
+- [React Table with Theme](/react-table-theme/)
+- [React Table with Resize](/react-table-resize/)
+- [React Table with Sort](/react-table-sort/)
+- [React Table with Search](/react-table-search/)
+- [React Table with Filter](/react-table-filter/)
+- [React Table with Select](/react-table-select/)
+- [React Table with Tree](/react-tree-table/)
+- [React Table with Fixed Header](/react-table-fixed-header/)
+- [React Table with Fixed Column](/react-table-fixed-column/)
+- [React Table with Pagination](/react-table-pagination/)
+- [React Table with Server-Side Operations](/react-server-side-table/)
