@@ -248,6 +248,8 @@ The look and feel we want to achieve from our terminal:
     * Transparency: 30
     * Style: Full Screen
     * Screen: Main Screen
+  * Profiles -> Advanced
+    * Semantic History -> Open with editor ... -> VS Code
   * [Open new split pane with current directory](https://apple.stackexchange.com/a/337386)
   * [Natural Text Editing](https://apple.stackexchange.com/a/293988)
 * Bring it to fullscreen Command + Enters
@@ -299,6 +301,7 @@ If the theme and font changes do not apply, reload your zsh configuration (*.zsh
 
 **Oh My Zsh Plugins**
 
+* [zsh-completions](https://github.com/zsh-users/zsh-completions)
 * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
@@ -315,6 +318,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-completions
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -343,6 +347,9 @@ alias gitc="git commit"
 
 # type sublime . to open current folder in Sublime Text
 alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl --new-window $@"
+
+# load zsh-completions
+autoload -U compinit && compinit
 
 # use nvm
 source /opt/homebrew/opt/nvm/nvm.sh
