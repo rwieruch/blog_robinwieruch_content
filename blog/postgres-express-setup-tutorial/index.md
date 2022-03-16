@@ -13,7 +13,7 @@ author: ""
 <Sponsorship />
 
 <LinkCollection
-  label="This tutorial is part 4 of 4 in this series."
+  label="This tutorial is part 4 of 5 in this series."
   links={[
     {
       prefix: "Part 1:",
@@ -29,6 +29,16 @@ author: ""
       prefix: "Part 3:",
       label: "How to create a REST API with Express.js in Node.js",
       url: "/node-express-server-rest-api/"
+    },
+    {
+      prefix: "Part 4:",
+      label: "Setup PostgreSQL with Sequelize in Express (Current Tutorial)",
+      url: "/postgres-express-setup-tutorial/"
+    }
+    {
+      prefix: "Part 5",
+      label: "Creating a REST API with Express.js and PostgreSQL",
+      url: "/postgresql-express-node-rest-api/"
     }
   ]}
 />
