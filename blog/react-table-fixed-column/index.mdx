@@ -65,7 +65,7 @@ const App = () => {
 };
 ```
 
-We fixed to columns to the left side. You can fix columns the same way to the right side as well. What's missing is giving the Cell components a `pin` prop to signalize them to stick to the side:
+We fixed the columns to the left side. You can fix columns the same way to the right side as well. What's missing is giving the Cell components a `pinLeft` (or `pinRight`) prop to signalize them to stick to the side:
 
 ```javascript{5,10-11,20-21}
 const App = () => {
@@ -77,8 +77,8 @@ const App = () => {
         <>
           <Header>
             <HeaderRow>
-              <HeaderCell pin>Task</HeaderCell>
-              <HeaderCell pin>Deadline</HeaderCell>
+              <HeaderCell pinLeft>Task</HeaderCell>
+              <HeaderCell pinLeft>Deadline</HeaderCell>
               <HeaderCell>Type</HeaderCell>
               <HeaderCell>Complete</HeaderCell>
             </HeaderRow>
@@ -87,8 +87,8 @@ const App = () => {
           <Body>
             {tableList.map((item) => (
               <Row key={item.id} item={item}>
-                <Cell pin>{item.name}</Cell>
-                <Cell pin>
+                <Cell pinLeft>{item.name}</Cell>
+                <Cell pinLeft>
                   {item.deadline.toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: '2-digit',
