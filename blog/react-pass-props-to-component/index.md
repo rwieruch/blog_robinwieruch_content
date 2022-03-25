@@ -1017,7 +1017,9 @@ const User = ({ user, onUpdateName }) => {
 }
 ```
 
-That's a common pattern in React. If the state needs to change when the incoming props change, it gets a bit more complicated. If you want to read more about the solution, check out: [How to update state from props in React](/react-derive-state-props/).
+That's a common pattern in React. If the state needs to change when the incoming props change, it gets a bit more complicated. If you want to read more about the solution, check out the following guide.
+
+<ReadMore label="How to update state from props in React" link="/react-derive-state-props/" />
 
 # React Props Pitfalls
 
