@@ -332,7 +332,7 @@ CSS classes are usually defined in kebab-case. In case of the button style, you 
 
 In conclusion, CSS Modules with an extension like Sass are the status quo in modern React if you want to use CSS-in-CSS as styling strategy. If you want to use CSS-in-JS instead, you would choose something like Styled Components.
 
-# CSS-in-JS: Styled Components
+# CSS-in-JS: Styled Components in React
 
 There is CSS setup needed for styled components, because everything comes with JavaScript. Essentially as the strategy CSS-in-JS already says, we will not need any CSS file, because all CSS is defined in JavaScript. Before you can use Styled Components you need to install them on the command line:
 
@@ -419,7 +419,7 @@ function Basket({ items, onClick }) {
 
 With a CSS-in-JS approach like Styled Components you still need to write CSS, but you write it in JavaScript. In addition, a library like Styled Components already solves many problems that we had to solve with CSS Modules (scoping) and Sass (CSS features) previously.
 
-# Utility-First-CSS: Tailwind CSS
+# Utility-First-CSS: Tailwind CSS in React
 
 Last but not least, next to the CSS-in-CSS and CSS-in-JS strategies, there exists Utility-First-CSS. One of the approaches for Utility-First-CSS is Tailwind CSS. Let's see how this looks like after you have set it up. Note that Tailwind CSS needs some proper setup (in React) before you can use it. Check out the official [Tailwind CSS](https://tailwindcss.com/) website for instructions. Afterward, you can import Tailwind CSS for your React components:
 
@@ -485,7 +485,7 @@ The list item element just receives CSS values for its flexbox styling and a ver
 
 Tailwind CSS is great for solo developers or teams who are willing to learn Tailwind CSS' classes for the sake of a faster development process, because they don't need to define the CSS themselves anymore.
 
-# Inline CSS
+# Inline CSS in React
 
 Inline CSS (also called inline style) is a little bonus on top, because it shouldn't replace any of the other shown CSS approaches. However, sometimes it's useful to know about it for rapid prototyping or for more dynamic CSS driven by JavaScript. For example, every HTML element comes with a style attribute. You can use the style attribute in React's JSX to pass a style object to it:
 

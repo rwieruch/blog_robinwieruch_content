@@ -420,11 +420,20 @@ The look and feel we want to achieve from our IDE:
   // prettier
   "prettier.singleQuote": true,
   "prettier.printWidth": 70,
+  "editor.formatOnSave": false,
   "[javascript]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -439,7 +448,6 @@ The look and feel we want to achieve from our IDE:
   "explorer.confirmDragAndDrop": false,
   "js/ts.implicitProjectConfig.checkJs": true
 }
-
 ```
 
 # Sublime

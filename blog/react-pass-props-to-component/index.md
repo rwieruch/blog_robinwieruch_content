@@ -1,647 +1,806 @@
 ---
-title: "How to pass props to components in React"
-description: "Everything you need to know about props in React. How to pass props to components, how to set default props, how to differentiate between props and state, and how to pass components or functions as props, ..."
-date: "2018-07-29T13:50:46+02:00"
+title: "How to use Props in React"
+description: "Everything you need to know about props in React. How to pass props to components, how to set default props, how to know the difference between props and state, and how to pass components or functions as props, ..."
+date: "2022-03-25T13:50:46+02:00"
 categories: ["React"]
-keywords: ["react pass props to component", "react props vs state", "react props explained", "react props example", "react props best practices"]
+keywords: ["react props", react pass props to component", "react props vs state", "react props explained", "react props example", "react props best practices"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""
 ---
 
+import PropsStateToggle from './components/PropsStateToggle.js';
+import PropsStateText from './components/PropsStateText.js';
+import PropsCounter from './components/PropsCounter.js';
+import PropsRenderProps from './components/PropsRenderProps.js';
+
 <Sponsorship />
 
-Everyone who is new to React is confused by these so called props, because they are never mentioned in any other web framework, and rarely explained on their own. They are one of the early things you will learn in React after initially grasping React's JSX syntax. Basically props are used to pass data from component to component. In this guide, I want to explain React props in greater detail. First, it explains the *"What are props in React?" question*, followed by different props examples to see how they can be used in React.
+Everyone who is new to React is confused by **React props**, because they are never mentioned in any other framework, and rarely explained on their own. They are one of the early things you will learn in React after grasping React's JSX syntax. Essentially **React component props** are used to pass data from component to component. In this tutorial, I want to explain **props in React** in greater detail by going step by step through React props examples.
 
 # Table of Contents
 
 <TableOfContents {...props} />
 
-# What are Props in React?
+# React Component Props by Example
 
-Normally you start out with React's JSX syntax for rendering something to the browser when learning about React. Basically JSX mixes HTML with JavaScript to get the best of both worlds.
-
-```javascript{5,6,7,8,9,10,11}
-import React, { Component } from 'react';
-
-class App extends Component {
-  render() {
-    const greeting = 'Welcome to React';
-
-    return (
-      <div>
-        <h1>{greeting}</h1>
-      </div>
-    );
-  }
-}
-
-export default App;
-```
-
-Pretty soon you will split out your first React component.
-
-```javascript{7,13,14,15,16,17,18,19}
-import React, { Component } from 'react';
-
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Greeting />
-      </div>
-    );
-  }
-}
-
-class Greeting extends Component {
-  render() {
-    const greeting = 'Welcome to React';
-
-    return <h1>{greeting}</h1>;
-  }
-}
-
-export default App;
-```
-
-A common question followed by this act: **how to pass the data as params (parameters) from one React component to another component?** That's because you don't want to have a component rendering static data, but pass dynamic data to your component instead. That's where React's props come into play. You can pass data in React by defining custom HTML attributes to which you assign your data with JSX syntax. So don't forget the curly braces.
-
-```javascript{9,15,16,17,18,19}
-import React, { Component } from 'react';
-
-class App extends Component {
-  render() {
-    const greeting = 'Welcome to React';
-
-    return (
-      <div>
-        <Greeting greeting={greeting} />
-      </div>
-    );
-  }
-}
-
-class Greeting extends Component {
-  render() {
-    return <h1>{this.props.greeting}</h1>;
-  }
-}
-
-export default App;
-```
-
-As you can see, the props are received in React's class component via the `this` instance of the class. A common question which comes up then: [Why aren't the props received in the render methods signature?](https://github.com/facebook/react/issues/1387) It would be similar to functional stateless components then. As for now, the team behind React considered it, but didn't change the API for React class components yet. Maybe it will be changed at some point.
-
-<ReadMore label="React class components and functional stateless components" link="/javascript-fundamentals-react-requirements/" />
-
-In a functional stateless component, the props are received in the function signature as arguments:
-
-```javascript{15}
-import React, { Component } from 'react';
-
-class App extends Component {
-  render() {
-    const greeting = 'Welcome to React';
-
-    return (
-      <div>
-        <Greeting greeting={greeting} />
-      </div>
-    );
-  }
-}
-
-const Greeting = props => <h1>{props.greeting}</h1>;
-
-export default App;
-```
-
-Since you will find always the props in the function signature, which most of the time is only the container object of your data, but not the data to be used, you can [destructure](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) the props early in the function signature. One would call it React props destructuring:
+Normally you start out with React's JSX syntax for rendering something to the browser when learning about React. Basically JSX mixes HTML with JavaScript to get the best of both worlds:
 
 ```javascript
-const Greeting = ({ greeting }) => <h1>{greeting}</h1>;
-```
+import * as React from 'react';
 
-As you have seen, props enable you to pass variables from one to another component down the component tree. In the previous example, it was only a string variable. But props can be anything from integers over objects to arrays. Even React components, but you will learn about this later. You can also define the props inline. In case of strings, you can pass props inside double quotes (or single quotes) too.
-
-```javascript{7}
-import React, { Component } from 'react';
-
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Greeting greeting="Welcome to React" />
-      </div>
-    );
-  }
-}
-
-const Greeting = ({ greeting }) => <h1>{greeting}</h1>;
-
-export default App;
-```
-
-But you can also pass other data structures with inline props. In case of objects, it can be confusing for React beginners, because you have two curly braces: one for the JSX and one for the object. That's especially confusing when passing a style object to a style attribute in React the first time.
-
-```javascript{7,13}
-import React, { Component } from 'react';
-
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Greeting greeting={{ text: 'Welcome to React' }} />
-      </div>
-    );
-  }
-}
-
-const Greeting = ({ greeting }) => <h1>{greeting.text}</h1>;
-
-export default App;
-```
-
-Note: It is important to note that is could lead to performance issues, because every time the component renders a new object is created again. But it can be a premature optimization as well when learning only about React.
-
-Basically that's how props are passed to React components. As you may have noticed, props are only passed from top to bottom in React's component tree. There is no way to pass props up to a parent component. We will revisit this issue later in this article. In addition, it's important to know that React's props are read only. There is **no way in React to set props** (even though it was possible in the past). After all, props are only used to pass data from one component to another component React, but only from parent to child components down the component tree.
-
-# React Props vs. State
-
-Passing only props from component to component doesn't make the component interactive, because nothing is there to change the props. Props are read-only. That's the time when [React State](/react-state/) comes into play which can be changed. The state is co-located to a React component.
-
-```javascript{4,5,6,7,8,9,10,12,13,14,21,23-25}
-import React, { Component } from 'react';
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isShow: true,
-    };
-  }
-
-  toggleShow = () => {
-    this.setState(state => ({ isShow: !state.isShow }));
-  };
-
-  render() {
-    const greeting = 'Welcome to React';
-
-    return (
-      <div>
-        {this.state.isShow ? <Greeting greeting={greeting} /> : null}
-
-        <button onClick={this.toggleShow} type="button">
-          Toggle Show
-        </button>
-      </div>
-    );
-  }
-}
-
-const Greeting = ({ greeting }) => <h1>{greeting}</h1>;
-
-export default App;
-```
-
-In this case, the code uses a ternary operator to either show the greeting or not. You can read up [this tutorial about all the conditional renderings in React](/conditional-rendering-react/). The state makes the React components interactive. You can **read and write state**, whereas **props are read-only**. Once the state changes, the component renders again. In addition, state can be passed as props to child components too.
-
-```javascript{21,31,32}
-import React, { Component } from 'react';
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isShow: true,
-    };
-  }
-
-  toggleShow = () => {
-    this.setState(state => ({ isShow: !state.isShow }));
-  };
-
-  render() {
-    const greeting = 'Welcome to React';
-
-    return (
-      <div>
-        <Greeting greeting={greeting} isShow={this.state.isShow} />
-
-        <button onClick={this.toggleShow} type="button">
-          Toggle Show
-        </button>
-      </div>
-    );
-  }
-}
-
-const Greeting = ({ greeting, isShow }) =>
-  isShow ? <h1>{greeting}</h1> : null;
-
-export default App;
-```
-
-The child component doesn't know whether the incoming props are state or props from the parent component. The component just consumes the data as props. And the child component re-renders too once the incoming props changed.
-
-In conclusion, every time the props or state change, the rendering mechanism of the affected component is triggered. That's how the whole component tree becomes interactive, because after all, state is passed as props to other components, and once the state in a component changes, which may be passed as props to the child components, all affected components render again.
-
-# How to pass Props from child to parent Component?
-
-This a common question for React beginners and the answer for it is brief: there is **no way to pass props from a child to a parent component**. Let's revisit the previous example, but this time with an additional Button component for the toggle mechanism.
-
-```javascript{9,11,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37}
-import React, { Component } from 'react';
-
-class App extends Component {
-  render() {
-    const greeting = 'Welcome to React';
-
-    return (
-      <div>
-        {isShow ? <Greeting greeting={greeting} /> : null}
-
-        <Button />
-      </div>
-    );
-  }
-}
-
-class Button extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isShow: true,
-    };
-  }
-
-  toggleShow = () => {
-    this.setState(state => ({ isShow: !state.isShow }));
-  };
-
-  render() {
-    return (
-      <button onClick={this.toggleShow} type="button">
-        Toggle Show
-      </button>
-    );
-  }
-}
-
-const Greeting = ({ greeting }) => <h1>{greeting}</h1>;
-
-export default App;
-```
-
-So far, the Button component manages its own co-located state. Since the Button component manages the `isShow` property, there is no way to pass it up as props to the App component. The App component needs the `isShow` property though for the conditional rendering of the Greeting component. At the moment, the application wouldn't work this way. That's the point when you have to **lift state** up for making it accessible for other components (in this case the App component itself) as state (or as passed props for other components).
-
-```javascript{4,5,6,7,8,9,10,11,12,13,14,21,23,29,30,31,32,33}
-import React, { Component } from 'react';
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isShow: true,
-    };
-  }
-
-  toggleShow = () => {
-    this.setState(state => ({ isShow: !state.isShow }));
-  };
-
-  render() {
-    const greeting = 'Welcome to React';
-
-    return (
-      <div>
-        {this.state.isShow ? <Greeting greeting={greeting} /> : null}
-
-        <Button onClick={this.toggleShow} />
-      </div>
-    );
-  }
-}
-
-const Button = ({ onClick }) => (
-  <button onClick={onClick} type="button">
-    Toggle Show
-  </button>
-);
-
-const Greeting = ({ greeting }) => <h1>{greeting}</h1>;
-
-export default App;
-```
-
-The important ingredient is that the App component **passes down a function in the props** to the Button component now. The function is used for the click handler in the Button component. However, the Button doesn't know the business logic of the function, only that it has to trigger the function when the button gets clicked. Above in the App component, the state is changed when the passed function is called, and thus all affected components, which use the changed state or consume it as props, render again. Now you can even pass the state as props to the Greeting component.
-
-```javascript{21,35,36}
-import React, { Component } from 'react';
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isShow: true,
-    };
-  }
-
-  toggleShow = () => {
-    this.setState(state => ({ isShow: !state.isShow }));
-  };
-
-  render() {
-    const greeting = 'Welcome to React';
-
-    return (
-      <div>
-        <Greeting greeting={greeting} isShow={this.state.isShow} />
-
-        <Button onClick={this.toggleShow} />
-      </div>
-    );
-  }
-}
-
-const Button = ({ onClick }) => (
-  <button onClick={onClick} type="button">
-    Toggle Show
-  </button>
-);
-
-const Greeting = ({ greeting, isShow }) =>
-  isShow ? <h1>{greeting}</h1> : null;
-
-export default App;
-```
-
-As said, there is no way passing props from a child to a parent component. But **you can always pass functions from parent to child components**, whereas the child components make use of these functions and the functions may change the state in a parent component above. Once the state has changed, the state is passed down as props again. All affected components will render again. For instance, the same pattern applies for having page components in your React application. Once you want to pass data from page to another in React, you can lift the state up to the component (usually App component) which has all page components as its child components. Then the data is managed as state in the top level component but still can be distributed to all child components.
-
-# Props can be state, props, or derived properties
-
-Regardless of passing props or state to a component, the component just receives the data as props. It doesn't differentiate between props or state. Everything incoming is props, everything managed by the component itself is state. However, there is one other thing apart from props and state which is sometimes mentioned: **derived props** (**derived properties**). Basically it is the same as props, but only a variation of the props before they are passed to the next component.
-
-```javascript{5,6,7,8,12,20,24,25}
-import React, { Component } from 'react';
-
-class App extends Component {
-  render() {
-    const greeting = {
-      subject: 'React',
-      description: 'Your component library for ...',
-    };
-
-    return (
-      <div>
-        <Greeting greeting={greeting} />
-      </div>
-    );
-  }
-}
-
-const Greeting = ({ greeting }) =>
-  <div>
-    <Title title={`Welcome to ${greeting.subject}`} />
-    <Description description={greeting.description} />
-  </div>
-
-const Title = ({ title }) =>
-  <h1>{title}</h1>;
-
-const Description = ({ description }) =>
-  <p>{description}</p>;
-
-export default App;
-```
-
-In this scenario, the title in the Title component is a derived property from props plus a string interpolation in the Greeting component. This is the most basic example for it, but you can imagine how state or any other business logic could be used to change the passed props on the way down the component tree. Later you will learn about derived state too.
-
-# React Props and Code Style
-
-Passing lots of props down to a component can have a terrible effect on the code style:
-
-```javascript{13}
-import React, { Component } from 'react';
-import logo from './logo.svg'
-
-class App extends Component {
-  render() {
-    const greeting = {
-      subject: 'React',
-      description: 'Your component library for ...',
-    };
-
-    return (
-      <div>
-        <Greeting subject={greeting.subject} description={greeting.description} logo={logo} />
-      </div>
-    );
-  }
-}
-
-const Greeting = ({ subject, description, logo }) =>
-  ...
-```
-
-So how to overcome this bad code style which is hard to read and maintain? One way would be passing the props with multiple indented lines to a component. The destructuring could follow the same rules:
-
-```javascript{14,15,16,24,25,26}
-import React, { Component } from 'react';
-import logo from './logo.svg'
-
-class App extends Component {
-  render() {
-    const greeting = {
-      subject: 'React',
-      description: 'Your component library for ...',
-    };
-
-    return (
-      <div>
-        <Greeting
-          subject={greeting.subject}
-          description={greeting.description}
-          logo={logo}
-        />
-      </div>
-    );
-  }
-}
-
-const Greeting = ({
-  subject,
-  description,
-  logo,
-}) =>
-  ...
-```
-
-You can do all of this code formatting on your own or use a code formatter instead. [Prettier](https://github.com/prettier/prettier) is the most popular choice when it comes to opinionated code formatters. If you are interested in using Prettier, here you can read up on how to set it up on [Windows](/react-js-windows-setup/) or [MacOS](/react-js-macos-setup/) in Visual Studio Code.
-
-# React ...props syntax
-
-Another strategy for passing all props to a child component is the [JavaScript spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax). JavaScript's spread operator in React is a useful power feature and you can read people referring to it as the **React ...props syntax** even though it is not really a React feature but just a thing coming from JavaScript.
-
-```javascript{10}
-class App extends Component {
-  render() {
-    const greeting = {
-      subject: 'React',
-      description: 'Your component library for ...',
-    };
-
-    return (
-      <div>
-        <Greeting {...greeting} />
-      </div>
-    );
-  }
-}
-
-const Greeting = ({ subject, description }) => (
-  <div>
-    <Title title={`Welcome to ${subject}`} />
-    <Description description={description} />
-  </div>
-);
-
-const Title = ({ title }) => <h1>{title}</h1>;
-
-const Description = ({ description }) => <p>{description}</p>;
-```
-
-The props spreading can be used to spread a whole object with key value pairs down to a child component. It has the same effect as passing each value of the object by its own to the component as before. The child component gets the props the same way as before too. Another thing which builds up on top of the **prop spread** is the **prop spread with rest**.
-
-```javascript{16,18,19}
-class App extends Component {
-  render() {
-    const greeting = {
-      subject: 'React',
-      description: 'Your component library for ...',
-    };
-
-    return (
-      <div>
-        <Greeting {...greeting} />
-      </div>
-    );
-  }
-}
-
-const Greeting = ({ subject, ...other }) => (
-  <div>
-    <Title title={`Welcome to ${subject}`} />
-    <Description {...other} />
-  </div>
-);
-
-const Title = ({ title }) => <h1>{title}</h1>;
-
-const Description = ({ description }) => <p>{description}</p>;
-```
-
-As you can see, in the Greeting component the props are destructured but with a **rest assignment** which is called `other` in this case. So you have the `subject` prop but also the `other` prop which is essentially just an object with all the remaining properties (in this case only the `description`). Now you can spread the rest of the props to the Description component, because all the relevant props for the other components (here the Title component) were separated from it.
-
-# React props with default value
-
-In some cases you may want to pass default values as props. Historically the best approach to it was using JavaScript's logical OR operator.
-
-```javascript{2}
-const Greeting = ({ subject, description }) => {
-  subject = subject || 'Earth';
+const App = () => {
+  const greeting = 'Welcome to React';
 
   return (
     <div>
-      <Title title={`Welcome to ${subject}`} />
+      <h1>{greeting}</h1>
+    </div>
+  );
+}
+
+export default App;
+```
+
+A bit later you will split out your first React [function component](/react-function-component/):
+
+```javascript{6,11-15}
+import * as React from 'react';
+
+const App = () => {
+  return (
+    <div>
+      <Welcome />
+    </div>
+  );
+};
+
+const Welcome = () => {
+  const greeting = 'Welcome to React';
+
+  return <h1>{greeting}</h1>;
+};
+
+export default App;
+```
+
+A common question followed by this refactoring: **how to pass the data from one React component to another component?** After all, the new component should render a dynamic `greeting`, not the static `greeting` that is defined within the new component. It should behave like a function which I can pass parameters after all.
+
+Entering React props -- where you can pass data from one component to another in React -- by defining custom HTML attributes to which you assign your data with JSX's syntax:
+
+```javascript{4,8,13,14}
+import * as React from 'react';
+
+const App = () => {
+  const greeting = 'Welcome to React';
+
+  return (
+    <div>
+      <Welcome text={greeting} />
+    </div>
+  );
+};
+
+const Welcome = (props) => {
+  return <h1>{props.text}</h1>;
+};
+
+export default App;
+```
+
+Since you will always find the props as first argument in the function signature of a function component, which is just the JavaScript object holding all data passed from component to component, you can [destructure](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) the props early. One would call it **React Props Destructuring**:
+
+```javascript{13}
+import * as React from 'react';
+
+const App = () => {
+  const greeting = 'Welcome to React';
+
+  return (
+    <div>
+      <Welcome text={greeting} />
+    </div>
+  );
+};
+
+const Welcome = ({ text }) => {
+  return <h1>{text}</h1>;
+};
+
+export default App;
+```
+
+As you have seen, props enable you to pass values from one component to another component down the component tree. In the previous example, it was only a string variable. But props can be any JavaScript data type from integers over objects to arrays. Via props you can even pass React components as well, which you will learn about later.
+
+For what it's worth, you can also define the props inline without declaring a variable before:
+
+```javascript{6}
+import * as React from 'react';
+
+const App = () => {
+  return (
+    <div>
+      <Welcome text={"Welcome to React"} />
+    </div>
+  );
+};
+
+const Welcome = ({ text }) => {
+  return <h1>{text}</h1>;
+};
+
+export default App;
+```
+
+In the case of a JavaScript string, you can pass it as props inside double quotes (or single quotes) too:
+
+```javascript{6}
+import * as React from 'react';
+
+const App = () => {
+  return (
+    <div>
+      <Welcome text="Welcome to React" />
+    </div>
+  );
+};
+
+const Welcome = ({ text }) => {
+  return <h1>{text}</h1>;
+};
+
+export default App;
+```
+
+But you can also pass other JavaScript data structures with these kind of **inline props**. In case of JavaScript objects, it can be confusing for React beginners, because you have two curly braces: one for the JSX and one for the JavaScript object notation:
+
+```javascript{6,12}
+import * as React from 'react';
+
+const App = () => {
+  return (
+    <div>
+      <Welcome text={{ greeting: 'Welcome to React' }} />
+    </div>
+  );
+};
+
+const Welcome = ({ text }) => {
+  return <h1>{text.greeting}</h1>;
+};
+
+export default App;
+```
+
+When declaring the data as a proper JavaScript object, it gets more readable:
+
+```javascript{4,8}
+import * as React from 'react';
+
+const App = () => {
+  const greetingObject = { greeting: 'Welcome to React' };
+
+  return (
+    <div>
+      <Welcome text={greetingObject} />
+    </div>
+  );
+};
+
+const Welcome = ({ text }) => {
+  return <h1>{text.greeting}</h1>;
+};
+
+export default App;
+```
+
+Most React beginners notice this when passing a style object to a style attribute to a native HTML element in React for the first time:
+
+```javascript{12}
+import * as React from 'react';
+
+const App = () => {
+  return (
+    <div>
+      <Welcome text={{ greeting: 'Welcome to React' }} />
+    </div>
+  );
+};
+
+const Welcome = ({ text }) => {
+  return <h1 style={{ color: 'red' }}>{text.greeting}</h1>;
+};
+
+export default App;
+```
+
+Basically that's how props are passed from component to component in React. As you may have noticed, props are only passed from top to bottom in React application's component hierarchy. There is no way to pass props up to a parent component from a child component. We will revisit this caveat later in this tutorial.
+
+It's also important to note that React's props are read only (immutable). As a developer, you should never mutate props but only read them in your components. You can derive new values from them though (see computed properties later). After all, props are only used to pass data from a parent to a child component React. Essentially props are just the vehicle to transport data down the component tree.
+
+# React Props vs. State
+
+Passing props from component to component in React doesn't make components interactive, because props are read-only and therefore immutable. If you want interactive React components, you have to introduce stateful values by using [React State](/react-state/). Usually state is co-located to a React component by using [React's useState Hook](/react-usestate-hook/):
+
+```javascript{6,8-10,14-16,18}
+import * as React from 'react';
+
+const App = () => {
+  const greeting = 'Welcome to React';
+
+  const [isShow, setShow] = React.useState(true);
+
+  const handleToggle = () => {
+    setShow(!isShow);
+  };
+
+  return (
+    <div>
+      <button onClick={handleToggle} type="button">
+        Toggle
+      </button>
+
+      {isShow ? <Welcome text={greeting} /> : null}
+    </div>
+  );
+};
+
+const Welcome = ({ text }) => {
+  return <h1>{text}</h1>;
+};
+
+export default App;
+```
+
+<Box attached>
+  <PropsStateToggle />
+</Box>
+
+In the last example, the App component uses a stateful value called `isShow` and a state updater function to update this state in an event handler. Depending on the boolean state of `isShow`, the parent component either renders its child component or not by using a [conditional rendering](/conditional-rendering-react/).
+
+The example shows **how state is different from props**: While props are just a vehicle to pass information down the component tree, state can be changed over time to create interactive user interfaces. The next example shows how state *can* become props when it is passed to a child component. Event though the state becomes props in the child component, it can still get modified in the parent component as state via the state updater function. Once modified, the state is passed down as "modified" props:
+
+```javascript{4,11-13,21}
+import * as React from 'react';
+
+const App = () => {
+  const [greeting, setGreeting] = React.useState('Welcome to React');
+  const [isShow, setShow] = React.useState(true);
+
+  const handleToggle = () => {
+    setShow(!isShow);
+  };
+
+  const handleChange = (event) => {
+    setGreeting(event.target.value);
+  };
+
+  return (
+    <div>
+      <button onClick={handleToggle} type="button">
+        Toggle
+      </button>
+
+      <input type="text" value={greeting} onChange={handleChange} />
+
+      {isShow ? <Welcome text={greeting} /> : null}
+    </div>
+  );
+};
+
+const Welcome = ({ text }) => {
+  return <h1>{text}</h1>;
+};
+
+export default App;
+```
+
+<Box attached>
+  <PropsStateText />
+</Box>
+
+In other words one could say that the value (state) in the vehicle (props) has changed. The child component doesn't care whether the value inside the props are stateful values -- it just sees them as props which come from the parent component. Since every state change in a component (here the parent component) causes a re-render of this and all child components, the child component just receives the updated props in the end.
+
+In conclusion, every time the state changes, the rendering mechanism of the affected component and all its child components get triggered. That's how the whole component tree becomes interactive, because after all, stateful values (state) are passed as props to child components, and once the state in a component changes, which may be passed as props to the child components, all re-rendering child components use the new props.
+
+# How to pass Props from child to parent Component
+
+When props can only be passed from parent to child components, how can a child component communicate with its parent component? This a common question for React beginners once they learned about props in React and the answer for it is brief: there is **no way to pass props from a child to a parent component**.
+
+Let's revisit the previous example, but this time with a new [reusable component](/react-reusable-components/) called Button for the previously implemented display/hide toggle feature:
+
+```javascript{12,21-33}
+import * as React from 'react';
+
+const App = () => {
+  const [greeting, setGreeting] = React.useState('Welcome to React');
+
+  const handleChange = (event) => {
+    setGreeting(event.target.value);
+  };
+
+  return (
+    <div>
+      <Button label="Toggle" />
+
+      <input type="text" value={greeting} onChange={handleChange} />
+
+      {isShow ? <Welcome text={greeting} /> : null}
+    </div>
+  );
+};
+
+const Button = ({ label }) => {
+  const [isShow, setShow] = React.useState(true);
+
+  const handleToggle = () => {
+    setShow(!isShow);
+  };
+
+  return (
+    <button onClick={handleToggle} type="button">
+      {label}
+    </button>
+  );
+};
+
+const Welcome = ({ text }) => {
+  return <h1>{text}</h1>;
+};
+
+export default App;
+```
+
+So far, the new Button component manages its own co-located state. Since the Button component manages the `isShow` stateful value, there is no way to pass it up as props to the parent component where it is needed for the conditional rendering of the Welcome component. Because we do not have access to the `isShow` value in the App component, the application breaks. To fix this, let's enter how to **lift state in React**:
+
+```javascript{5,11-13,17,26,28}
+import * as React from 'react';
+
+const App = () => {
+  const [greeting, setGreeting] = React.useState('Welcome to React');
+  const [isShow, setShow] = React.useState(true);
+
+  const handleChange = (event) => {
+    setGreeting(event.target.value);
+  };
+
+  const handleToggle = () => {
+    setShow(!isShow);
+  };
+
+  return (
+    <div>
+      <Button label="Toggle" onClick={handleToggle} />
+
+      <input type="text" value={greeting} onChange={handleChange} />
+
+      {isShow ? <Welcome text={greeting} /> : null}
+    </div>
+  );
+};
+
+const Button = ({ label, onClick }) => {
+  return (
+    <button onClick={onClick} type="button">
+      {label}
+    </button>
+  );
+};
+
+const Welcome = ({ text }) => {
+  return <h1>{text}</h1>;
+};
+
+export default App;
+```
+
+The application works again. The important ingredient: the App component **passes down a function in the props** to the Button component. The function, named callback handler in React (because it is passed from component to component via props and calls back to the origin component), is used for the click handler in the Button component.
+
+<ReadMore label="Learn about handlers, callback handlers, and inline handlers in React" link="/react-event-handler/" />
+
+The Button doesn't know the business logic of the function though, only that it has to trigger the function when the button gets clicked. Above in the App component, the state is changed when the passed function is called, and therefore the parent component and all its child components re-render.
+
+<ReadMore label="Learn more about Lifting State in React" link="/react-lift-state/" />
+
+As said, there is no way passing props from a child to a parent component. But **you can always pass functions from parent to child components**, whereas the child components make use of these functions and the functions may change the state in a parent component above. Once the state has changed, the state is passed down as props again. All affected components will render again.
+
+# React Props are just the Communication Channel
+
+A component receiving props does not know where and how the information originates -- it just sees a JavaScript object called props in React.
+
+* Where: The props can originate in the parent component or somewhere above the component hierarchy.
+* How: The information can be stateful or something else.
+
+For example, props can be passed not only from a parent to a child component, but also from ancestor components to descendant components:
+
+```javascript
+import * as React from 'react';
+
+const App = () => {
+  const greeting = {
+    title: 'React',
+    description: 'Your component library for ...',
+  };
+
+  return (
+    <div>
+      <Welcome text={greeting} />
+    </div>
+  );
+};
+
+const Welcome = ({ text }) => {
+  return (
+    <div>
+      <Headline title={`Welcome to ${text.title}`} />
+      <Description paragraph={text.description} />
+    </div>
+  );
+};
+
+const Headline = ({ title }) => <h1>{title}</h1>;
+const Description = ({ paragraph }) => <p>{paragraph}</p>;
+
+export default App;
+```
+
+Both, the Headline and the Description components do not know whether the information originates in the Welcome or App component. The same applies if `greeting` would become a stateful value in the App component by using React's useState Hook. Then the stateful `greeting` would become just `text` -- a property in the Welcome component's props -- which passes it down to its child components.
+
+Last but not least, have a closer look at the Welcome component from the last example. It passes a title prop to the Headline component, but doesn't use just the `text.title` but creates a new string from it. Without modifying the props, the component uses the `title` property to derive a new value from it. This principle is called [computed properties in React](/react-computed-properties/).
+
+# React Props Destructuring
+
+Previously you have briefly learned about props destructuring in React and have used it throughout all the previous props examples. Let's quickly recap it here. Props in React is essentially all data that is passed from a parent to a child component. In a child component, props can be accessed in the function signature as parameter:
+
+```javascript
+import * as React from 'react';
+
+const App = () => {
+  return (
+    <div>
+      <Welcome text="Welcome to React" />
+    </div>
+  );
+};
+
+const Welcome = (props) => {
+  return <h1>{props.text}</h1>;
+};
+```
+
+If we understand props as vehicle to communicate from parent to child component, we often don't want to use the vehicle directly, but rather only want to use what's in there. Hence we can destructure the incoming argument:
+
+```javascript{12-13}
+import * as React from 'react';
+
+const App = () => {
+  return (
+    <div>
+      <Welcome text="Welcome to React" />
+    </div>
+  );
+};
+
+const Welcome = (props) => {
+  const { text } = props;
+  return <h1>{text}</h1>;
+};
+```
+
+Because we can destructure a JavaScript object in a function signature too, we can leave out the intermediate variable assignment:
+
+```javascript{11}
+import * as React from 'react';
+
+const App = () => {
+  return (
+    <div>
+      <Welcome text="Welcome to React" />
+    </div>
+  );
+};
+
+const Welcome = ({ text }) => {
+  return <h1>{text}</h1>;
+};
+```
+
+If multiple props are passed to a child component, we can destructure all of them:
+
+```javascript{6,11-12}
+import * as React from 'react';
+
+const App = () => {
+  return (
+    <div>
+      <Welcome text="Welcome to React" myColor="red" />
+    </div>
+  );
+};
+
+const Welcome = ({ text, myColor }) => {
+  return <h1 style={{ color: myColor }}>{text}</h1>;
+};
+```
+
+However, there are occasions where we actually *keep* props as the object. So let's discuss them in the next sections.
+
+# React Spread Props
+
+A strategy for passing all properties of an object to a child component is using the [JavaScript spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax). JavaScript's spread operator in React is a useful power feature and you can read people referring to it as the **React ...props syntax** even though it is not really a React feature but just a thing coming from JavaScript.
+
+```javascript{11,16}
+import * as React from 'react';
+
+const App = () => {
+  const greeting = {
+    title: 'React',
+    description: 'Your component library for ...',
+  };
+
+  return (
+    <div>
+      <Welcome {...greeting} />
+    </div>
+  );
+};
+
+const Welcome = ({ title, description }) => {
+  return (
+    <div>
+      <Headline title={`Welcome to ${title}`} />
+      <Description paragraph={description} />
+    </div>
+  );
+};
+
+const Headline = ({ title }) => <h1>{title}</h1>;
+const Description = ({ paragraph }) => <p>{paragraph}</p>;
+
+export default App;
+```
+
+The props spreading can be used to spread a whole object with key value pairs down to a child component. It has the same effect as passing each property of the object property by property to the component. For example, sometimes you have a component in between which does not care about the props and just passes them along to the next component:
+
+```javascript
+import * as React from 'react';
+
+const App = () => {
+  const title = 'React';
+  const description = 'Your component library for ...';
+
+  return (
+    <div>
+      <Welcome title={title} description={description} />
+    </div>
+  );
+};
+
+const Welcome = (props) => {
+  return (
+    <div style={{
+      border: '1px solid black',
+      height: '200px',
+      width: '400px',
+    }}>
+      <Message {...props} />
+    </div>
+  );
+};
+
+const Message = ({ title, description }) => {
+  return (
+    <>
+      <h1>{title}</h1>
+      <p>{description}</p>
+    </>
+  );
+}
+
+export default App;
+```
+
+Be aware that the spreaded attribute/value pairs can be overridden as well:
+
+```javascript{4}
+const Welcome = (props) => {
+  return (
+    <div>
+      <Message {...props} title="JavaScript" />
+    </div>
+  );
+};
+
+// Message prints title "JavaScript"
+```
+
+If the props spreading comes last, all the previous attributes get overridden if they are present in the props:
+
+```javascript{4}
+const Welcome = (props) => {
+  return (
+    <div>
+      <Message title="JavaScript" {...props} />
+    </div>
+  );
+};
+
+// Message prints title "React"
+```
+
+After all, the spread operator can always be used to assign each key/value pair of an JavaScript object conveniently to a attribute/value pair of the HTML element.
+
+# React Rest Props
+
+The [JavaScript rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) can be applied for React props too. Let's walk through an example for the rest props. First, we define a button with an inline handler which increases the state of a number. The button got already extracted as a reusable component:
+
+```javascript
+import * as React from 'react';
+
+const App = () => {
+  const [count, setCount] = React.useState(0);
+
+  return (
+    <div>
+      <Button label={count} onClick={() => setCount(count + 1)} />
+    </div>
+  );
+};
+
+const Button = ({ label, onClick }) => (
+  <button onClick={onClick}>{label}</button>
+);
+
+export default App;
+```
+
+<Box attached center>
+  <PropsCounter />
+</Box>
+
+A HTML button can receive lots of attributes. For example, it's not far fetched that a button is disabled for certain scenarios. So let's provide the Button component with this new prop:
+
+```javascript{10,17-18}
+import * as React from 'react';
+
+const App = () => {
+  const [count, setCount] = React.useState(0);
+
+  return (
+    <div>
+      <Button
+        label={count}
+        disabled={true}
+        onClick={() => setCount(count + 1)}
+      />
+    </div>
+  );
+};
+
+const Button = ({ label, disabled, onClick }) => (
+  <button disabled={disabled} onClick={onClick}>
+    {label}
+  </button>
+);
+
+export default App;
+```
+
+Over time, there will be more and more props that we want to pass to the button and therefore the Button component's function signature will grow in size. We could continue doing it this way, being explicit about every prop the Button component receives. However, could also use JavaScript's rest parameter which collects all the remaining properties from an object which didn't get destructured:
+
+```javascript{1-2}
+const Button = ({ label, onClick, ...others }) => (
+  <button disabled={others.disabled} onClick={onClick}>
+    {label}
+  </button>
+);
+```
+
+Making this even more convenient for the implementation of the Button component, we can use JavaScript's spread operator for spreading the rest props to the button HTML element. This way, anytime we pass a new prop to the Button component and don't destructure it explicitly, it gets automatically assigned to the button HTML element:
+
+```javascript{1-2}
+const Button = ({ label, onClick, ...others }) => (
+  <button onClick={onClick} {...others}>
+    {label}
+  </button>
+);
+```
+
+Little unrelated gotcha at the end of this section: the next example shows how passing a boolean as an inline value of `true` can be written as a shorthand, because the attribute gets evaluated to true in the child component this way:
+
+```javascript{8}
+const App = () => {
+  const [count, setCount] = React.useState(0);
+
+  return (
+    <div>
+      <Button
+        label={count}
+        disabled
+        onClick={() => setCount(count + 1)}
+      />
+    </div>
+  );
+};
+```
+
+In conclusion, props spreading and rest props can help tremendously to keep the implementation details in a readable size.
+
+# React props with Default Value
+
+In some cases, you may want to pass default values as props. Historically the best approach to it was using JavaScript's logical OR operator.
+
+```javascript{2}
+const Welcome = ({ title, description }) => {
+  title = title || 'Earth';
+
+  return (
+    <div>
+      <Title title={`Welcome to ${title}`} />
       <Description description={description} />
     </div>
   );
 };
 ```
 
-You can also inline it as prop:
+Which you could also inline as prop:
 
 ```javascript{3}
-const Greeting = ({ subject, description }) => (
+const Welcome = ({ title, description }) => (
   <div>
-    <Title title={`Welcome to ${subject || 'Earth'}`} />
+    <Title title={`Welcome to ${title || 'Earth'}`} />
     <Description description={description} />
   </div>
 );
 ```
 
-However, with JavaScript language additions there are other features you can use for it. For instance [JavaScript's default parameter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters) for the default value of the prop:
+However, with modern JavaScript you can use the default value for the prop when using destructuring:
 
 ```javascript{1}
-const Greeting = ({ subject = 'Earth', description }) => (
+const Welcome = ({ title = 'Earth', description }) => (
   <div>
-    <Title title={`Welcome to ${subject}`} />
+    <Title title={`Welcome to ${title}`} />
     <Description description={description} />
   </div>
 );
 ```
 
-The latter is the most popular choice when using only JavaScript for the default value. However, in case you are using [React's PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html), it's is also possible to pass **default prop values** the React way:
-
-```javascript{8,9,10}
-const Greeting = ({ subject, description }) => (
-  <div>
-    <Title title={`Welcome to ${subject}`} />
-    <Description description={description} />
-  </div>
-);
-
-Greeting.defaultProps = {
-  subject: 'Earth',
-};
-```
-
-After all, my recommendation would be using JavaScript's default parameter, because everyone outside of the React world understands it as well. Moreover, often you will not have React's PropTypes in your project for making use of the PropTypes default in the first place.
+That's it for defaulting to a fallback prop in React which is yet another tool in your toolchain to write effective and efficient React.
 
 # React's children prop
 
-The children prop in React can be used for composing React components into each other. Rather than using inheritance (due to the nature of React's class components), React [embraces composition over inheritance](https://reactjs.org/docs/composition-vs-inheritance.html). That's why you can just put any string, element(s) or React component(s) in between of the opening and closing component tags.
+The children prop in React can be used for composing React components into each other. Because of this feature, you can put JavaScript primitives or JSX between the opening and closing element's tags:
 
-```javascript{11,17,19}
-class App extends Component {
-  ...
+```javascript{9,15,16}
+import * as React from 'react';
 
-  render() {
-    const greeting = 'Welcome to React';
+const App = () => {
+  const [count, setCount] = React.useState(0);
 
-    return (
-      <div>
-        <Greeting greeting={greeting} isShow={this.state.isShow} />
-
-        <Button onClick={this.toggleShow}>Toggle Show</Button>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Button onClick={() => setCount(count + 1)}>
+        {count}
+      </Button>
+    </div>
+  );
+};
 
 const Button = ({ onClick, children }) => (
-  <button onClick={onClick} type="button">
-    {children}
-  </button>
+  <button onClick={onClick}>{children}</button>
 );
+
+export default App;
 ```
 
-In this case, only a string is put in between of the component tags. Then in the child component, you can make use of everything which is in between of the tags (string, element(s), component(s)), by using **React's children prop**. For instance, you can just render the content of the children prop like it is done in this example. In the following sections, you will see how the children prop can be used as a function too.
+In this case, only a string is put in between of the element's tags. Then in the child component, you can make use of everything which is in between of the tags by using **React's children prop**. For instance, you can just render the content of the children prop like it is done in this example. In the following sections, you will see how the children prop can be used as a function too.
 
-# How to pass Components as Props?
+# How to pass Components as Props
 
-Before you have learned about React's children prop to pass a component as prop to another component.
+Before you have learned about React's children prop which allows you also to pass HTML/React element(s) to components as props:
 
-```javascript
+```javascript{3,7,9}
 const User = ({ user }) => (
   <Profile user={user}>
     <AvatarRound user={user} />
@@ -662,9 +821,9 @@ const AvatarRound = ({ user }) => (
 );
 ```
 
-However, what if you want to **pass more than one component and place them at different positions**? Then again you don't need to use the children prop and instead you just use regular props:
+However, what if you want to pass more than one React element and place them at different positions? Then again you don't need to use the children prop, because you have only one of them, and instead you just use regular props:
 
-```javascript
+```javascript{4-5,9,11,14}
 const User = ({ user }) => (
   <Profile
     user={user}
@@ -710,161 +869,155 @@ Many people refer to this as **slot pattern** in React. You can find a working m
 
 The concept of **children as a function** or **child as a function**, also called **render prop**, is one of the advanced patterns in React (next to [higher-order components](/react-higher-order-components/)). The components which implement this pattern can be called **render prop components.**
 
-The following implementations can be difficult to follow when not having used render props in React before. Please read up this article [as introduction to render props in React](/react-render-props/) first.
+<ReadMore label="Learn Render Prop Components from 0 to 1" link="/react-render-props/" />
 
-First, let's start with the render prop. Basically it is a function passed as prop (usually called render, but the name can be anything). The function receives arguments (in this case the amount), but also renders JSX (in this case the components for the currency conversion).
+First, let's start with the render prop. Basically it is a function passed as prop. The function receives parameters (in this case the amount), but also renders JSX (in this case the components for the currency conversion).
 
-```javascript{4,7,40}
+```javascript{6,9,13,29}
+import * as React from 'react';
+
 const App = () => (
   <div>
     <h1>US Dollar to Euro:</h1>
-    <Amount render={amount => <Euro amount={amount} />} />
+    <Amount toCurrency={(amount) => <Euro amount={amount} />} />
 
     <h1>US Dollar to Pound:</h1>
-    <Amount render={amount => <Pound amount={amount} />} />
+    <Amount toCurrency={(amount) => <Pound amount={amount} />} />
   </div>
 );
 
-class Amount extends Component {
-  constructor(props) {
-    super(props);
+const Amount = ({ toCurrency }) => {
+  const [amount, setAmount] = React.useState(0);
 
-    this.state = {
-      amount: 0,
-    };
-  }
+  const handleIncrement = () => setAmount(amount + 1);
+  const handleDecrement = () => setAmount(amount - 1);
 
-  onIncrement = () => {
-    this.setState(state => ({ amount: state.amount + 1 }));
-  };
+  return (
+    <div>
+      <button type="button" onClick={handleIncrement}>
+        +
+      </button>
+      <button type="button" onClick={handleDecrement}>
+        -
+      </button>
 
-  onDecrement = () => {
-    this.setState(state => ({ amount: state.amount - 1 }));
-  };
-
-  render() {
-    return (
-      <div>
-        <button type="button" onClick={this.onIncrement}>
-          +
-        </button>
-        <button type="button" onClick={this.onDecrement}>
-          -
-        </button>
-
-        <p>US Dollar: {this.state.amount}</p>
-
-        {this.props.render(this.state.amount)}
-      </div>
-    );
-  }
-}
+      <p>US Dollar: {amount}</p>
+      {toCurrency(amount)}
+    </div>
+  );
+};
 
 const Euro = ({ amount }) => <p>Euro: {amount * 0.86}</p>;
 
 const Pound = ({ amount }) => <p>Pound: {amount * 0.76}</p>;
+
+export default App;
 ```
 
-Second, refactor the whole thing from having a render prop to having the children as a function:
+<Box attached>
+  <PropsRenderProps />
+</Box>
 
-```javascript{4,7,40}
+Second, refactor the whole thing from having arbitrary render prop to having a more specific children as a function:
+
+```javascript{6,9,13,29}
+import * as React from 'react';
+
 const App = () => (
   <div>
     <h1>US Dollar to Euro:</h1>
-    <Amount>{amount => <Euro amount={amount} />}</Amount>
+    <Amount>{(amount) => <Euro amount={amount} />}</Amount>
 
     <h1>US Dollar to Pound:</h1>
-    <Amount>{amount => <Pound amount={amount} />}</Amount>
+    <Amount>{(amount) => <Pound amount={amount} />}</Amount>
   </div>
 );
 
-class Amount extends Component {
-  constructor(props) {
-    super(props);
+const Amount = ({ children }) => {
+  const [amount, setAmount] = React.useState(0);
 
-    this.state = {
-      amount: 0,
-    };
-  }
+  const handleIncrement = () => setAmount(amount + 1);
+  const handleDecrement = () => setAmount(amount - 1);
 
-  onIncrement = () => {
-    this.setState(state => ({ amount: state.amount + 1 }));
-  };
+  return (
+    <div>
+      <button type="button" onClick={handleIncrement}>
+        +
+      </button>
+      <button type="button" onClick={handleDecrement}>
+        -
+      </button>
 
-  onDecrement = () => {
-    this.setState(state => ({ amount: state.amount - 1 }));
-  };
-
-  render() {
-    return (
-      <div>
-        <button type="button" onClick={this.onIncrement}>
-          +
-        </button>
-        <button type="button" onClick={this.onDecrement}>
-          -
-        </button>
-
-        <p>US Dollar: {this.state.amount}</p>
-
-        {this.props.children(this.state.amount)}
-      </div>
-    );
-  }
-}
+      <p>US Dollar: {amount}</p>
+      {children(amount)}
+    </div>
+  );
+};
 
 const Euro = ({ amount }) => <p>Euro: {amount * 0.86}</p>;
 
 const Pound = ({ amount }) => <p>Pound: {amount * 0.76}</p>;
+
+export default App;
 ```
 
-That's essentially everything to distinguish between a render prop or a children as a function in a render prop component. The former is passed as a normal prop and the latter is passed as a children prop. You have seen before that functions can be passed as callback handlers (e.g. button click) to React components, but this time the function is passed to actually render something whereas the responsibility for *what to render* was partially moved outside of the render prop component but the props are provided by the render prop component itself.
+That's essentially everything to distinguish between a render prop or a more specific children as a function (which at its core is a render prop too). The former is passed as a arbitrary prop and the latter is passed as a children prop. You have seen before that functions can be passed as callback handlers (e.g. button click) to React components, but this time the function is passed to actually render something whereas the responsibility for *what to render* is partially moved outside of the render prop component while the props are provided by the render prop component itself.
 
 You can find a working minimal project on [GitHub](https://github.com/the-road-to-learn-react/react-children-as-a-function-example). And again, if you had any problems following the last examples, check the referenced article, because this guide doesn't go into detail for render prop components in React.
 
-# React's Context API
+# React's Context API for Prop Drilling
 
-At some point, you are passing a lot of props down your component tree. Depending on the depth of the component tree, it can happen that many props are passed from a top level component to all the leaf components. Every component in between has to pass the props even though it may not be interested in the props. The problem is called **prop drilling** in React. There are a couple of solutions to overcome this "problem". You have already learned about one solution: passing components as props by using the slot pattern. Then you don't have to pass a prop through all components, but rather distribute the props at a top level to all slotted components.
+At some point, you are passing a lot of props down your component tree. Depending on the depth of the component tree, it can happen that many props are passed from a top level component to all the leaf components. Every component in between has to pass the props even though it may not be interested in the props. The problem is called **prop drilling** in React. There are a couple of solutions to overcome this "problem" (see component composition or slot pattern).
 
-Another solution is **React's Context API** which can be used to pass props implicitly down to component tree. Every component which is interested in the props passed by React's Context API can consume them. All the other components don't need to consume them and thus they will never know about the props. Moreover, the components between the top level and the leaf components don't need to know about the props as well. Checkout [React's Context API](/react-context/) if you are interested in using it.
+Another solution is React's Context API which can be used to pass props implicitly down to component tree. Every component which is interested in the props passed by React's Context API can consume them. All the other components don't need to consume them and thus they will never know about the props. Moreover, the components between the top level and the leaf components don't need to know about the props as well.
 
-# How to set props to state?
+<LinkCollection
+  label="A React Context tutorial series."
+  links={[
+    {
+      prefix: "Part 1:",
+      label: "Learn about React's Context API",
+      url: "/react-context/"
+    },
+    {
+      prefix: "Part 2:",
+      label: "Learn about React's useContext Hook",
+      url: "/react-usecontext-hook/"
+    },
+    {
+      prefix: "Part 3:",
+      label: "Combine useContext with useSatet/useReducer",
+      url: "/react-state-usereducer-usestate-usecontext/"
+    },
+  ]}
+/>
 
-Previously you have got to know more about props and state in React. Sometimes there is one question which comes up for React beginners, but also for experienced React developers when implementing React components: **How to set props to state?** In case of the initial state, it is totally fine to derive it from the props. You can do it in the constructor of a class component:
+# How to set Props to State
 
-```javascript{6}
-class Profile extends Component {
-  constructor(props) {
-    super(props);
+Previously you have got to know more about props and state in React. Sometimes there is one question which comes up for React beginners, but also for experienced React developers when implementing React components: **How to set props to state?** In case of the initial state, it is totally fine to derive it from the props. You can just use the incoming prop as initial state for a hook like React's useState Hook:
 
-    this.state = {
-      value: props.initialValue,
-    };
+```javascript{3}
+const User = ({ user, onUpdateName }) => {
+  // derive initial state from props
+  const [name, setName] = React.useState(user.name);
+
+  function handleNameChange(event) {
+    setName(event.target.value);
   }
 
-  onChange = event => {
-    this.setState({ value: event.target.value });
-  }
-
-  render() {
-    return (
-      <label>
-        Name:
-
-        <input
-          value={this.state.value}
-          onChange={this.onChange}
-          type="text"
-        />
-      </label>
-    );
-  }
+  return (
+    <li>
+      {user.name}
+      <input type="text" value={name} onChange={handleNameChange} />
+      <button type="button" onClick={() => onUpdateName(user, name)}>
+        Update
+      </button>
+    </li>
+  );
 }
 ```
 
-That's a common pattern in React. But what about incoming props which are changing and should be set to the state then? You can do it by using the [getDerivedStateFromProps(props, state) lifecycle method](https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops). It is invoked before the render lifecycle method for the mounting and update lifecycles of the component. By using this lifecycle method, it is possible to set the state of the component based on changing props.
-
-However, the `getDerivedStateFromProps()` lifecycle method exists only for rare use cases. Usually one should think twice about the implementation logic of the component(s) before using this lifecycle method. This article doesn't go into detail about this topic, because there already exists an excellent article about it: [You Probably Don't Need Derived State](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html). You should definitely check it out in case you are running into an edge case where derived state is applicable. Usually there is a way around this lifecycle method and the article explains these scenarios in great detail.
+That's a common pattern in React. If the state needs to change when the incoming props change, it gets a bit more complicated. If you want to read more about the solution, check out: [How to update state from props in React](/react-derive-state-props/).
 
 # React Props Pitfalls
 
@@ -957,10 +1110,9 @@ In the end, that's the workaround to pass props (e.g. key) which are internally 
 
 ## Pass props to Styled Components
 
-Did you hear about [styled components](https://github.com/styled-components/styled-components)? They can be used for styling your components in React. Rather than thinking about cascading style sheets as for HTML styles, you only style your components. So the style becomes more co-located to your components. In fact, in the case of styled components, the style becomes a React component:
+Did you hear about [styled components](/react-styled-components/)? They can be used for [styling your components](/react-css-styling/) in React. Rather than thinking about cascading style sheets as for HTML styles, you only style your components. So the style becomes more co-located to your components. In fact, in the case of styled components, the style becomes a React component:
 
 ```javascript
-import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Input = styled.input`
@@ -972,36 +1124,27 @@ const Input = styled.input`
   border-radius: 3px;
 `;
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const App = () => {
+  const [value, setValue] = React.useState('');
 
-    this.state = {
-      value: '',
-    };
+  const onChange = (event) => {
+    setValue(event.target.value);
   }
 
-  onChange = event => {
-    this.setState({ value: event.target.value });
-  }
-
-  render() {
-    return (
-      <div>
-        <Input
-          value={this.state.value}
-          onChange={this.onChange}
-        />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Input
+        value={value}
+        onChange={onChange}
+      />
+    </div>
+  );
 }
 ```
 
 The input element which is used to implement the Input styled component gets the `value` and `onChange` as props automatically. But what if you want to get props in a styled component to do something with them? Then you can add a string interpolation in the template literal and get the props in the inlined function's signature:
 
-```javascript{10,22}
-import React, { Component } from 'react';
+```javascript{9,24}
 import styled from 'styled-components';
 
 const Input = styled.input`
@@ -1013,125 +1156,27 @@ const Input = styled.input`
   border-radius: ${props => props.hasRadius ? '3px' : '0px'};
 `;
 
-class App extends Component {
-  ...
+const App = () => {
+  const [value, setValue] = React.useState('');
 
-  render() {
-    return (
-      <div>
-        <Input
-          value={this.state.value}
-          onChange={this.onChange}
-          hasRadius={true}
-        />
-      </div>
-    );
+  const onChange = (event) => {
+    setValue(event.target.value);
   }
+
+  return (
+    <div>
+      <Input
+        value={value}
+        onChange={onChange}
+        hasRadius={true}
+      />
+    </div>
+  );
 }
 ```
 
 Basically that's how you pass props to styled components and how you get props in a styled component. If you haven't used styled components yet, you should give them a shot for styling your React components without thinking about CSS files.
 
-## Pass props with React Router
-
-React Router is another [essential React library](/react-libraries/) which is often used to complement React applications. Mapping URL routes to React components usually looks similar to this:
-
-```javascript
-const App = ({ user }) =>
-  <Router>
-    <Route exact path='/' component={Home} />
-    <Route path='/articles' component={Article} />
-    <Route path='/about' component={About} />
-  </Router>
-```
-
-But how would you pass props to the child component in React Router? You can use the render prop instead of the component prop for passing props to the child component.
-
-```javascript{5,9,13}
-const App = ({ user }) =>
-  <Router>
-    <Route
-      exact path='/'
-      render={() => <Home user={user} />}
-    />
-    <Route
-      path='/articles'
-      render={() => <Article user={user} />}
-    />
-    <Route
-      path='/about'
-      render={() => <About user={user} />}
-    />
-  </Router>
-```
-
-Whereas the component prop would re-render the component every time when using an inline function, the render prop doesn't perform the remounting. So you can be sure that the components are kept mounted and yet you can pass props to them. In addition, you receive the React Router props in the render prop function, in case you want to do something with them, too:
-
-```javascript{5,9,13}
-const App = ({ user }) =>
-  <Router>
-    <Route
-      exact path='/'
-      render={props => <Home user={user} />}
-    />
-    <Route
-      path='/articles'
-      render={props => <Article user={user} />}
-    />
-    <Route
-      path='/about'
-      render={props => <About user={user} />}
-    />
-  </Router>
-```
-
-The route props include match, location, and history which are used to get the current route state from React Router within your component. So regardless of the component prop or render prop, for both you would receive the match, location, and history props in the Home, Article and About components:
-
-```javascript{8,9,10,11}
-const App = () =>
-  <Router>
-    <Route exact path='/' component={Home} />
-    <Route path='/articles' component={Article} />
-    <Route path='/about' component={About} />
-  </Router>
-
-const Home = (props) =>
-  console.log(props.history) ||
-  console.log(props.match) ||
-  console.log(props.location) ||
-  <h1>My Home Page</h1>
-
-...
-```
-
-Often when working with React Router you are confronted with one of the following errors:
-
-* props.location undefined
-* props.history undefined
-* props.match undefined
-
-As mentioned, you only have access to these props when using the component in the Route component from React Router. Every other component doesn't have the React Router props, unless you pass them further down the component tree to these components. Another way of making the React Router props available in your component is using the `withRouter()` higher-order component from React Router.
-
-```javascript{9,14,15}
-const App = () =>
-  <Router>
-    <Route exact path='/' component={Home} />
-    <Route path='/articles' component={Article} />
-    <Route path='/about' component={About} />
-  </Router>
-
-const Home = () =>
-  <TitleWithRouter />
-
-const Title = (props) =>
-  console.log(props) || <h1>My Home Page</h1>;
-
-// without withRouter the props in the Title component would be an empty object
-const TitleWithRouter = withRouter(Title);
-```
-
-Basically these are the most common pitfalls when using React Router. You should definitely try React Router once you have learned the fundamentals of React.
-
 <Divider />
 
-I guess the article almost covered everything about (passing) props in React. In the end, props aren't difficult. They are read-only and enable you to pass data down the component tree. Everything else which makes React interactive is mostly state. Or, as you have read, changing props which are triggering a re-render for the components as well. So I hope this article gave you a good overview about all the different usages of props in React.
+I guess the article almost covered everything about passing props to React components. In the end, props aren't so difficult. They are read-only and enable you to pass data down the component tree. Everything else which makes React interactive is mostly state. So I hope this tutorial gave you a good overview about all the different usages of props in React.
