@@ -1,9 +1,9 @@
 ---
-title: "React Custom Hook: Check if Overflow"
-description: "A custom React hook by example that checks if an element's content has overflow (scroll) ..."
+title: "React Hook: Check if Overflow"
+description: "A React hook by example that checks if an element's content has overflow (scroll) ..."
 date: "2021-12-21T07:52:46+02:00"
 categories: ["React", "React Hooks"]
-keywords: ["react custom hook", "react custom hook example", "check if overflow"]
+keywords: ["react hook", "react hook example", "check if overflow"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""

@@ -534,6 +534,12 @@ Now use:
 git lg
 ```
 
+Set the default branch to main instead of master:
+
+```text
+git config --global init.defaultBranch main
+```
+
 Print global git configuration:
 
 ```text

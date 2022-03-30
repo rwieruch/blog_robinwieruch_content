@@ -332,8 +332,8 @@ If your React application is dealing with lots of dates and timezones, you shoul
 
 [Electron](https://www.electronjs.org/) is the go to framework for cross-platform desktop applications. However, there exist alternatives such as:
 
+* [Tauri](https://github.com/tauri-apps/tauri) (fairly new)
 * [NW.js](https://nwjs.io/)
-* [Tauri](https://github.com/tauri-apps/tauri)
 * [Neutralino.js](https://github.com/neutralinojs/neutralinojs)
 
 # Mobile Development with React
