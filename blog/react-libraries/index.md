@@ -63,7 +63,9 @@ If you find yourself using React's Context too often for shared/global state, yo
 
 <ReadMore label="Learn Redux" link="/react-redux-tutorial/" />
 
-If you happen to use Redux, you should definetley check out [Redux Toolkit](https://redux-toolkit.js.org/) as well. It improves the developer experience of using Redux tremendously. As alternatives, if you like the general idea of a global store but do not like how Redux approaches it, check out other popular local state management solutions such as [Zustand](https://github.com/pmndrs/zustand), [Jotai](https://github.com/pmndrs/jotai), [XState](https://github.com/statelyai/xstate), or [Recoil](https://github.com/facebookexperimental/Recoil).
+If you happen to use Redux, you should definitely check out [Redux Toolkit](https://redux-toolkit.js.org/) as well. It improves the developer experience of using Redux tremendously by being a great API on top of Redux's core.
+
+As alternatives, if you like the general idea of a global store but do not like how Redux approaches it, check out other popular local state management solutions such as [Zustand](https://github.com/pmndrs/zustand), [Jotai](https://github.com/pmndrs/jotai), [XState](https://github.com/statelyai/xstate), or [Recoil](https://github.com/facebookexperimental/Recoil).
 
 **Recommendations:**
 
@@ -173,7 +175,7 @@ Whether you choose CSS-in-CSS, CSS-in-JS, or functional CSS is up to you. All st
 * CSS-in-JS with Styled Components (most popular)
   * alternatives: Emotion or Stitches
 * Functional CSS with Tailwind CSS
-* optiona: clsx for conditional CSS classes
+* optional: clsx for conditional CSS classes
 
 # React UI Libraries
 
@@ -222,7 +224,7 @@ The most popular library for forms in React is [React Hook Form](https://react-h
 
 * React Hook Form
   * with either yup or zod integration for validation
-* If UI library, check whether built-in form supports all your requirements
+* If you use a UI library, check whether built-in form supports all your requirements
 
 # React Type Checking
 
@@ -241,7 +243,25 @@ List.propTypes = {
 };
 ```
 
-However, PropTypes are not included in the React core library anymore. Over the last years, PropTypes got less popular in favor of TypeScript. If you truly want to embrace types in React, [TypeScript](https://www.typescriptlang.org/) is the way to go these days.
+However, PropTypes are not included in the React core library anymore. Over the last years, PropTypes got less popular in favor of TypeScript:
+
+```javascript
+type Item = {
+  id: string;
+  title: string;
+};
+
+type ListProps = {
+  list: Item[];
+};
+
+const List: React.FC<ListProps> = ({ list }) =>
+  <div>
+    {list.map(item => <div key={item.id}>{item.title}</div>)}
+  </div>
+```
+
+If you truly want to embrace types in React, [TypeScript](https://www.typescriptlang.org/) is the way to go these days.
 
 **Recommendations:**
 
@@ -326,7 +346,11 @@ Like in any other web application, the most common payment providers are Stripe 
 
 # Time in React
 
-If your React application is dealing with lots of dates and timezones, you should introduce a library which manages these things for you. Even though the most popular library is [moment.js](https://momentjs.com/), you should consider using more lightweight alternatives such as [date-fns](https://github.com/date-fns/date-fns) and [Day.js](https://github.com/iamkun/dayjs).
+JavaScript itself got pretty awesome dealing with dates and times over the recent years. So there is no real need to use a library for dealing with them. However, if your React application deals heavily with dates, times, and timezones, you could introduce a library which manages these things for you. These are your options:
+
+* [date-fns](https://github.com/date-fns/date-fns)
+* [Day.js](https://github.com/iamkun/dayjs)
+* [Luxon](https://github.com/moment/luxon/)
 
 # React Desktop Applications
 
@@ -352,7 +376,7 @@ It's possible to dive into virtual reality or augmented reality with React. To b
 
 # Design Prototyping for React
 
-If you are coming from a UI/UX background, you may want to use a tool for fast prototyping for new React components, layouts, or UI/UX concepts. I used [Sketch](https://www.sketch.com) in the past, but switched to [Figma](https://www.figma.com/). Even though I like both, I don't regret using Figma now. For rough yet lightweight sketches, I like to use [Excalidraw](https://excalidraw.com/).
+If you are coming from a UI/UX background, you may want to use a tool for fast prototyping for new React components, layouts, or UI/UX concepts. I used [Sketch](https://www.sketch.com) in the past, but switched to [Figma](https://www.figma.com/). Even though I like both, I don't regret using Figma now. [Zeplin](https://zeplin.io/) is another alternative. For rough yet lightweight sketches, I like to use [Excalidraw](https://excalidraw.com/). If you are looking for interactive UI/UX designs, check out [InVision](https://www.invisionapp.com/).
 
 # React Component Documenation
 
