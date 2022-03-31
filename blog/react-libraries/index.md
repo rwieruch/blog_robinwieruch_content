@@ -267,7 +267,7 @@ In a React application, you may want to introduce authentication with functional
 
 <ReadMore label="How to prepare for authentication with React Router" link="/react-router-authentication/" />
 
-The best learning experience would be implementing a backend application with authentication (e.g. [GraphQL backend](/graphql-apollo-server-tutorial/)) yourself. However, if you do not want to roll your own backend, you can choose from many authentication/backend-as-a-service solutions:
+The best learning experience would be implementing a backend application with authentication (e.g. [GraphQL backend](/graphql-apollo-server-tutorial/)) yourself. However, since authentication comes with lots of security risks and nitty gritty details not everyone knows about, I advice to use one of many authentication/backend-as-a-service solutions that are out there:
 
 * [Firebase](/complete-firebase-authentication-react-tutorial/)
 * [Auth0](https://auth0.com/)
@@ -275,8 +275,8 @@ The best learning experience would be implementing a backend application with au
 
 **Recommendations:**
 
-* DIY: Custom Backend
-* BaaS: Firebase
+* choose an authentication service or BaaS (e.g. Firebase)
+* optional learning experience: Custom Backend
 
 # React Hosting
 
