@@ -133,7 +133,7 @@ const Headline = ({ title }) =>
 Once your application grows, there are many other styling options though. First, I would recommend you to have a look into CSS Modules as one of many *CSS-in-CSS* solutions. CSS Modules are supported by CRA and give you a way to encapsulate your CSS into component scoped modules. This way, it doesn't leak accidentally into the styling of others React components. Whereas some parts of your application can still share style, other parts don't have to get access to it. In React, CSS Modules are most often co-located CSS files to your React component files:
 
 ```javascript{1,4}
-import styles from './style.css';
+import styles from './style.module.css';
 
 const Headline = ({ title }) =>
   <h1 className={styles.headline}>
