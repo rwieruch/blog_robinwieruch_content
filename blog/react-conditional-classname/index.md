@@ -1,6 +1,6 @@
 ---
 title: "Conditional ClassName in React"
-description: "How to use conditional classnames in React with JSX and the HTML class attribute ..."
+description: "How to use conditional classnames in React with JSX and the HTML class attribute (clsx) ..."
 date: "2021-08-08T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react"]
@@ -38,10 +38,10 @@ const Box = ({ status, children }) => {
 }
 ```
 
-Fortunately, there is one neat helper library for **conditional classnames in React**: [classnames](https://github.com/JedWatson/classnames):
+Fortunately, there is one neat helper library for **conditional classnames in React**: [clsx](https://github.com/lukeed/clsx):
 
-```javascript
-import cs from 'classnames';
+```javascript{1,4-8}
+import cs from 'clsx';
 
 const Box = ({ status, children }) => {
   const classNames = cs('box', {
@@ -60,8 +60,9 @@ const Box = ({ status, children }) => {
 
 It works perfectly with CSS modules too:
 
-```javascript
-import cs from 'classnames';
+```javascript{3,7-9}
+import cs from 'clsx';
+
 import styles from './style.css';
 
 const Box = ({ status, children }) => {
