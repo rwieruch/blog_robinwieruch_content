@@ -3,7 +3,7 @@ title: "React Hook: Detect Scroll Direction"
 description: "A React hook by example that checks the scroll direction -- in a vertical direction, but potentially also in a horizontal direction ..."
 date: "2022-03-29T07:52:46+02:00"
 categories: ["React", "React Hooks"]
-keywords: ["react hook", "react hook example", "scroll direction"]
+keywords: ["react custom hook", "react hook example", "scroll direction"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-A neat custom [React Hook](/react-hooks) that I used in some of my [React freelance projects](/freelance-react-developer) which detects the scroll direction of a user:
+A neat [custom](/react-custom-hook/) [React Hook](/react-hooks) that I used in some of my [React freelance projects](/freelance-react-developer) which detects the scroll direction of a user:
 
 ```javascript
 import * as React from 'react';
