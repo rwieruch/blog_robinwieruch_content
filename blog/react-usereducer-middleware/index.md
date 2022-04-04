@@ -123,7 +123,7 @@ const App = () => {
 };
 ```
 
-What we have right now could be pretty straightforward if React's useReducer Hook would support middleware usage natively. But it doesn't, so we need to come up with a [custom hook](/react-custom-hooks/):
+What we have right now could be pretty straightforward if React's useReducer Hook would support middleware usage natively. But it doesn't, so we need to come up with a [custom hook](/react-custom-hook/):
 
 ```javascript{1-11,14}
 const useReducerWithMiddleware = (

@@ -426,7 +426,7 @@ const App = () => {
 };
 ```
 
-Because React Hooks can be used directly in a function component, they can build up onto each other and it's straightforward to pass data from one hook to another hook if they depend on each other. There is also no real blackbox again, because we can clearly see which information needs to be passed to these [custom hooks](/react-custom-hooks/) and which information comes out from them. When using React Hooks that depend on each other, the dependencies are more explicit compared to using HOCs.
+Because React Hooks can be used directly in a function component, they can build up onto each other and it's straightforward to pass data from one hook to another hook if they depend on each other. There is also no real blackbox again, because we can clearly see which information needs to be passed to these [custom hooks](/react-custom-hook/) and which information comes out from them. When using React Hooks that depend on each other, the dependencies are more explicit compared to using HOCs.
 
 <Divider />
 

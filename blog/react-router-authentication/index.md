@@ -294,7 +294,7 @@ const Dashboard = () => {
 };
 ```
 
-To follow useContext best practices again, we can create a [custom hook](/react-custom-hooks/) with a self-descriptive name:
+To follow useContext best practices again, we can create a [custom hook](/react-custom-hook/) with a self-descriptive name:
 
 ```javascript
 const useAuth = () => {

@@ -3,7 +3,7 @@ title: "React Hook: Check if Overflow"
 description: "A React hook by example that checks if an element's content has overflow (scroll) ..."
 date: "2021-12-21T07:52:46+02:00"
 categories: ["React", "React Hooks"]
-keywords: ["react hook", "react hook example", "check if overflow"]
+keywords: ["react custom hook", "react hook example", "check if overflow"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-A neat custom [React Hook](/react-hooks) that I used in some of my [React freelance projects](/freelance-react-developer) which checks if an element's content has overflow (here: vertical overflow):
+A neat [custom](/react-custom-hook/) [React Hook](/react-hooks) that I used in some of my [React freelance projects](/freelance-react-developer) which checks if an element's content has overflow (here: vertical overflow):
 
 ```javascript
 import * as React from 'react';
