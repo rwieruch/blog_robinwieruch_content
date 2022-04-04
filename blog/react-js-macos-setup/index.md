@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-In this article, you will find a concise step by step guide on how to install React on MacOS. It follows the philosophy of having one IDE to manage most of your web development tasks. That's how you can focus on your task at hand as a developer. However, if you like to compose your development environment with lightweight tools rather than with an full-blown IDE, checkout [my personal recommendations for such a setup](/developer-setup/). Nevertheless, if you just want to find a way for getting started with React on Mac OS quickly, follow the guide below.
+In this article, you will find a concise step by step guide on how to install React on MacOS. It follows the philosophy of having one IDE to manage most of your web development tasks. That's how you can focus on your task at hand as a developer. However, if you like to compose your development environment with lightweight tools rather than with an full-blown IDE, checkout [my personal recommendations for such a setup](/mac-setup-web-development/). Nevertheless, if you just want to find a way for getting started with React on Mac OS quickly, follow the guide below.
 
 # Node.js and NPM on MacOS
 

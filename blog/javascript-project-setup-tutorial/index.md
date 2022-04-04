@@ -18,6 +18,8 @@ author: ""
 
 In this tutorial, I want to show you how to set up a JavaScript project from scratch. Afterward, you can continue by advancing the project to a frontend (e.g. React.js) or backend (e.g. Node.js with Express) application. In case you decide to go with the frontend application, you will set it up the modern way by not linking JavaScript files in HTML files, but by using a project bundler that will automate this process for you. It's one of the most popular ways to start with a JavaScript project nowadays.
 
+<ReadMore label="Mac Setup for Web Development" link="/mac-setup-web-development/" />
+
 Let's start with our JavaScript application. For any new JavaScript project, there has to be a folder to allocate the project's configuration but most importantly all of its source code. This folder usually sits in another folder where all your other JavaScript projects can be found. That's at least how I do it for my projects. In order to get started with your new project, create its project folder on the command line or via your favorite folder/file explorer (e.g. MacOS finder, Windows explorer, editor/IDE side bar) and navigate into it. In this tutorial, we will do it on the command line:
 
 ```javascript
