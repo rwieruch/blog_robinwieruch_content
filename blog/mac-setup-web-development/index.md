@@ -324,6 +324,9 @@ plugins=(
   zsh-syntax-highlighting
 )
 
+# get machine's ip address
+alias ip="ipconfig getifaddr en0"
+
 # edit global zsh configuration
 alias zshconfig="vim ~/.zshrc"
 # reload zsh configuration
