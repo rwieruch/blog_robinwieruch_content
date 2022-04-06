@@ -10,11 +10,11 @@ contribute: ""
 author: ""
 ---
 
-<Sponsorship />
-
 import ToggleBase from './components/ToggleBase.js';
 import ToggleTrueFalse from './components/ToggleTrueFalse.js';
 import ToggleExtended from './components/ToggleExtended.js';
+
+<Sponsorship />
 
 React introduced [Hooks](/react-hooks/) quite a while ago. With their release, Hooks gave [function components](/react-function-components/) the ability to use state and side-effects with built-in Hooks such as [React's useState Hook](/react-usestate-hook) and [React's useEffect Hook](/react-useeffect-hook/).
 
