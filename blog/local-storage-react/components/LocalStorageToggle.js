@@ -2,7 +2,7 @@ import * as React from 'react';
 
 const App = () => {
   const [isOpen, setOpen] = React.useState(
-    JSON.parse(localStorage.getItem('is-open')) || false
+    JSON.parse(localStorage && localStorage.getItem('is-open') ? localStorage.getItem('is-open') : false)
   );
 
   const handleToggle = () => {
