@@ -17,7 +17,7 @@ React uses synthetic events to handle events from button, input and form element
 ```javascript{24}
 import React from 'react';
 
-const initialList = [
+const INITIAL_LIST = [
   'Learn React',
   'Learn Firebase',
   'Learn GraphQL',
@@ -25,13 +25,13 @@ const initialList = [
 
 const ListWithAddItem = () => {
   const [value, setValue] = React.useState('');
-  const [list, setList] = React.useState(initialList);
+  const [list, setList] = React.useState(INITIAL_LIST);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setValue(event.target.value);
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     if (value) {
       setList(list.concat(value));
     }

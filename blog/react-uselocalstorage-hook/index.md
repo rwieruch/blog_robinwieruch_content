@@ -45,4 +45,4 @@ const App = () => {
 export default App;
 ```
 
-The hook is only there as a learning experience though. If you rely on the local storage for your React application in production, you should check out more widely used hooks (and therefore robust) hooks which are maintained as an open source library. For example, for the local storage I personally always fall back to this [local storage hook](https://www.npmjs.com/package/use-local-storage-state).
+The local storage hook is only there as a learning experience though. If you rely on the local storage for your React application in production, you should check out more widely used hooks (and therefore robust) hooks which are maintained as an open source library. For example, for the local storage I personally always fall back to this [local storage hook](https://www.npmjs.com/package/use-local-storage-state).

@@ -1,5 +1,5 @@
 ---
-title: "How to React Router with Webpack 6"
+title: "How to React Router with Webpack 5"
 description: "Learn how to use React Router in a Webpack powered JavaScript application ..."
 date: "2020-10-30T11:55:46+02:00"
 categories: ["React", "Webpack", "React Router"]

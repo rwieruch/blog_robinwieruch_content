@@ -15,6 +15,8 @@ author: ""
 A short React tutorial by example for beginners about creating a dropdown in React. First of all, a dropdown is just an HTML select element which can be rendered in React's JSX:
 
 ```javascript
+import * as React from 'react';
+
 const App = () => {
   return (
     <div>
@@ -26,11 +28,15 @@ const App = () => {
     </div>
   );
 };
+
+export default App;
 ```
 
 What may be missing is an associated label to signal the user what value is changed with this dropdown:
 
-```javascript{4-5,11}
+```javascript{6-7,13}
+import * as React from 'react';
+
 const App = () => {
   return (
     <div>
@@ -45,11 +51,15 @@ const App = () => {
     </div>
   );
 };
+
+export default App;
 ```
 
 In your browser, this dropdown can already change its select state by showing every of its values individually. However, this is just the select's internal HTML state which isn't controlled by React yet. Let's change this by transforming this select from being [uncontrolled to controlled](/react-controlled-components/):
 
-```javascript{2,4-6,12,19}
+```javascript{4,6-8,14,21}
+import * as React from 'react';
+
 const App = () => {
   const [value, setValue] = React.useState('fruit');
 
@@ -72,11 +82,15 @@ const App = () => {
     </div>
   );
 };
+
+export default App;
 ```
 
 By using [React's useState Hook](/react-usestate-hook/) and an [event handler](/react-event-handler/), we can keep track of the select's value via [React's state](/react-state/). We can refine this component by rendering the options more dynamically:
 
-```javascript{2-6,19-21}
+```javascript{4-8,21-23}
+import * as React from 'react';
+
 const App = () => {
   const options = [
     { label: 'Fruit', value: 'fruit' },
@@ -105,11 +119,15 @@ const App = () => {
     </div>
   );
 };
+
+export default App;
 ```
 
 A great analogy for this refactoring of the component is the list component in React](/react-list-component/). Next we may want to create a Dropdown component which can be used more than once throughout a React project. Therefore, we will extract it as a new [function component](/react-function-component/) and [pass the necessary props](/react-pass-props-to-component/) to it:
 
-```javascript{16-21,28-39}
+```javascript{18-23,30-41}
+import * as React from 'react';
+
 const App = () => {
   const options = [
     { label: 'Fruit', value: 'fruit' },
@@ -149,6 +167,8 @@ const Dropdown = ({ label, value, options, onChange }) => {
     </label>
   );
 };
+
+export default App;
 ```
 
 Our Dropdown component is a [reusable component](/react-reusable-components/) now. For example, if you would give your select element some [CSS style in React](/react-css-styling/), every Dropdown component which is used in your React project would use the same style.
@@ -156,6 +176,8 @@ Our Dropdown component is a [reusable component](/react-reusable-components/) no
 If you would want to create a dropdown group now, you could just use multiple Dropdown components side by side and maybe style them with some border and some alignment, so that a user perceives them as a group of dropdowns:
 
 ```javascript
+import * as React from 'react';
+
 const App = () => {
   const [food, setFood] = React.useState('fruit');
   const [drink, setDrink] = React.useState('water');
@@ -197,6 +219,8 @@ const App = () => {
     </div>
   );
 };
+
+export default App;
 ```
 
 That's is it for creating a Dropdown component in React. If you are a beginner in React, I hope this tutorial helped you to understand some concepts and patterns!

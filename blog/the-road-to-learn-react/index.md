@@ -1,5 +1,5 @@
 ---
-title: "The Road to React [Book 2020]"
+title: "The Road to React [Book 2022]"
 description: "The Road to React book is your way to learn React.js by building a real world application. It's a huge tutorial where you will learn all the fundamentals in plain React before you dive into more advanced topics in React with Redux. Along the way, you will learn everything about JavaScript ES6 ..."
 date: "2020-02-29T13:50:46+02:00"
 categories: ["React"]

@@ -633,7 +633,7 @@ After all, the spread operator can always be used to assign each key/value pair 
 
 # React Rest Props
 
-The [JavaScript rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) can be applied for React props too. Let's walk through an example for the rest props. First, we define a button with an inline handler which increases the state of a number. The button got already extracted as a reusable component:
+The [JavaScript rest destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) can be applied for React props too. Let's walk through an example for the rest props. First, we define a button with an inline handler which increases the state of a number. The button got already extracted as a reusable component:
 
 ```javascript
 import * as React from 'react';
@@ -687,7 +687,7 @@ const Button = ({ label, disabled, onClick }) => (
 export default App;
 ```
 
-Over time, there will be more and more props that we want to pass to the button and therefore the Button component's function signature will grow in size. We could continue doing it this way, being explicit about every prop the Button component receives. However, could also use JavaScript's rest parameter which collects all the remaining properties from an object which didn't get destructured:
+Over time, there will be more and more props that we want to pass to the button and therefore the Button component's function signature will grow in size. We could continue doing it this way, being explicit about every prop the Button component receives. However, could also use JavaScript's rest destructuring which collects all the remaining properties from an object which didn't get destructured:
 
 ```javascript{1-2}
 const Button = ({ label, onClick, ...others }) => (

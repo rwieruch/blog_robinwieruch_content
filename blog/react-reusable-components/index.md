@@ -1,9 +1,9 @@
 ---
 title: "Reusable Components in React"
-description: "A brief walkthrough that explains reusable components in React by example. You will refactor a specific to a more generic component by offering a clean API for this component for the outside world ..."
+description: "A tutorial about reusable components in React by example. By extracting a component from another one in React, you may create a reusable component ..."
 date: "2019-05-26T07:52:46+02:00"
 categories: ["React"]
-keywords: ["react reusable components", "react reusable component"]
+keywords: ["react reusable component"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
@@ -14,7 +14,7 @@ author: ""
 
 Basically a React application is just a bunch of components in a component tree. There is one root component which kicks of the rendering for all the other components below. Commonly these components are [function components](/react-function-component/) in modern React applications. But they can be [class components](/react-component-types/) as well. However, not all of these components are only used once in your component hierarchy. What about reusing components because they serve a more common purpose? In this tutorial, we will step through the process of making a component reusable for our React application.
 
-# How to make a React component reusable?
+# Making a React component reusable
 
 Generally speaking we make a component more reusable by turning it from specific to more generic. That can be achieved by offering an [API](/what-is-an-api-javascript/) for the component. In React, a component's API is its [props](/react-pass-props-to-component/). Let's experience this by refactoring a component from being very specific to being more generic. Usually when we start off with our React application, we don't have any components except for our root component commonly called App:
 
