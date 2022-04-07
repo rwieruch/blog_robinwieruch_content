@@ -310,7 +310,7 @@ At the minimum, you can render React components in your Jest tests with [react-t
 
 Eventually you will find yourself using the popular [React Testing Library (RTL)](/react-testing-library/) -- which is used within the Jest testing environment -- for a more elaborate testing library for React. RTL makes it possible to render your components and to simulate events on HTML elements. Afterward, Jest is used for the assertions on the DOM nodes.
 
-If you are looking for a testing tool for React end-to-end (E2E) tests, [Cypress](/react-testing-cypress/) is the most popular choice.
+If you are looking for a testing tool for React end-to-end (E2E) tests, [Cypress](/react-testing-cypress/) is the most popular choice. Though another one gaining popularity is [Playwright](https://playwright.dev/).
 
 **Recommendations:**
 
