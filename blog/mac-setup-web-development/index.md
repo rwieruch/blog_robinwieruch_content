@@ -143,6 +143,8 @@ brew install --cask \
   discord \
   signal \
   vlc \
+  calibre \
+  figma \
   maccy
 ```
 
@@ -154,8 +156,10 @@ brew install \
   exa \
   git \
   nvm \
+  pnpm \
   graphicsmagick \
-  cmatrix
+  cmatrix \
+  vips
 ```
 
 # GUI Applications
@@ -197,6 +201,8 @@ brew install \
 * [Signal](https://signal.org/en/) (messenger)
 * [VLC](https://www.videolan.org/vlc/) (video player)
   * use as default for video files
+* [Calibre](https://calibre-ebook.com/) (epub/ebook editor)
+* [Figma](https://www.figma.com/) (design)
 * [Maccy](https://maccy.app/) (clipboard manager)
   * enable "Launch at Login"
 
@@ -225,8 +231,10 @@ brew install \
   * `exa -l` (include additional information)
 * [git](https://git-scm.com/) (version control)
 * [nvm](https://github.com/nvm-sh/nvm) (node version manager)
+* [pnpm](https://pnpm.io/) (node package manager)
 * [graphicsmagick](http://www.graphicsmagick.org/) ([screenshot/visual regression testing](https://loki.js.org/))
 * [cmatrix](https://github.com/abishekvashok/cmatrix) (terminal screensaver)
+* vips ([support for old Gatsby.js version on M1](https://github.com/lovell/sharp/issues/2460#issuecomment-751491241))
 
 # iTerm2
 
