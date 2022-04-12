@@ -1,6 +1,6 @@
 ---
 title: "How to setup React.js on MacOS"
-description: "A concise step by step guide on how to setup React.js on MacOS. In a few steps, you will install Visual Studio Code, Node.js, NPM, Git, Prettier and create-react-app for building React applications with Mac OS ..."
+description: "A step by step guide on how to setup React.js on MacOS. You will install Visual Studio Code, Node.js, NPM, Git, Prettier and create-react-app for building React applications with Mac OS ..."
 date: "2018-02-20T13:50:46+02:00"
 categories: ["React", "VS Code", "Web Development"]
 keywords: ["react macos setup", "react mac os", "how to install react", "install react"]
@@ -12,7 +12,9 @@ author: ""
 
 <Sponsorship />
 
-In this article, you will find a concise step by step guide on how to install React on MacOS. It follows the philosophy of having one IDE to manage most of your web development tasks. That's how you can focus on your task at hand as a developer. However, if you like to compose your development environment with lightweight tools rather than with an full-blown IDE, checkout [my personal recommendations for such a setup](/mac-setup-web-development/). Nevertheless, if you just want to find a way for getting started with React on Mac OS quickly, follow the guide below.
+In this article, you will find a step by step guide on how to install React on MacOS. It follows the philosophy of having one IDE to manage most of your web development tasks. That's how you can focus on your task at hand as a developer. However, if you like to compose your development environment with lightweight tools rather than with an full-blown IDE, checkout [my personal MacOS web development setup](/mac-setup-web-development/). Nevertheless, if you just want to find a way for getting started with React on Mac OS quickly, follow the instructions below.
+
+*Note: Everything below (Node/NPM via NVM, VS Code, Git) can be installed via Homebrew too. Homebrew is a package manager for MacOS applications that is widely used by developers. If you want to get started in a more professional way, check out Homebrew, install it, and try to install all applications below with it. You will find more about it in my personal MacOS web development setup from above.*
 
 # Node.js and NPM on MacOS
 
@@ -20,17 +22,17 @@ Since you are going to use JavaScript for your React development on MacOS, there
 
 In order to install and manage Node.js on your MacOS machine, you can install it from their official website. However, I encourage you to checkout [nvm](https://github.com/creationix/nvm). It's a node version manager that allows you to manage multiple node versions, to upgrade and downgrade node versions and to be flexible in choosing a node version for your project at hand. You can find the installation instructions in the GitHub repository. Installing node will install npm (node package manager) as well. The node package manager is used to install libraries/frameworks (node packages), such as React, on the command line to your project.
 
-# Visual Studio Code for React on MacOS
+# Visual Studio Code on MacOS
 
 There are plenty of editors and IDEs out there to develop web applications. Depending on your personal, project or company requirements, you can choose from a range of lightweight editors to full-blown IDEs. Visual Studio Code is a solution in between. Many developers, operating on MacOS but also Windows, enjoy using it. That's why my recommendation would be Visual Studio Code to start developing React applications on MacOS. The installation on a MacOS machine is simple: Navigate to the official [Visual Studio Code](https://code.visualstudio.com/) website and download the recent version of VS Code. Afterward, install it and check if everything is working when you open it. That's it for the installation of an editor/IDE on your machine.
 
 If you want to use another editor/IDE, it is up to you. But keep in mind that a couple of the following steps are building up on top of Visual Studio Code. However, it should be possible to substitute these steps for your own editor/IDE.
 
-# Node and NPM for React
+# Node and NPM in VS Code's Integrated Terminal
 
 If you are just getting started with web development, you should create a dedicated folder on your machine to manage all your web development projects. It's up to you to divide the folder into subfolders. For instance, there could be a folder for React applications and another one for plain Node.js applications. Once you have your folder for your projects, open this folder in Visual Studio Code.
 
-In Visual Studio Code you should be able to open a tab which is called "Terminal" at the bottom. That's your integrated command line in Visual Studio Code to install node packages with NPM or to start/test your project. It's up to you to use the integrated terminal or another command line interface (e.g. the built-in command line or something like [iterm2](https://www.iterm2.com/)) for your MacOS machine.
+In Visual Studio Code you should be able to open a tab which is called "Terminal" at the bottom. That's your integrated command line in Visual Studio Code to install node packages with NPM or to start/test your project. It's up to you to use the integrated terminal or a standalone command line interface (e.g. the built-in command line or something like [iterm2](https://www.iterm2.com/)) for your MacOS machine.
 
 Now, you should check whether the Node.js installation for MacOS was successful. On the command line, type the following commands. They should output the versions for Node.js and NPM.
 
@@ -64,7 +66,7 @@ The command line should give you an output where you can find the application in
 
 If you just want to learn React now, you could start to read [The Road to learn React](/the-road-to-learn-react/). It's a pragmatic book which guides you step by step through building a React application from scratch. Along the way, you will transition from JavaScript ES5 to JavaScript ES6 and you will lots of exercises to improve your React skills.
 
-# Git for Visual Studio Code and MacOS
+# Optional: Git for Visual Studio Code and MacOS
 
 At some point, you might want to share your projects on GitHub or collaborate with other people via the git version control. If you want to use GitHub as your platform of choice, you should create an account via [their official website](https://github.com/). GitHub is a social platform where you can follow other people ([you could have your first social interaction with me](https://github.com/rwieruch)), like (star) their projects or collaborate on open source projects with other people.
 
@@ -78,7 +80,7 @@ If it doesn't show up in Visual Studio Code, you may have to restart the applica
 
 <Divider />
 
-That's everything you need for a React development setup in MacOS. I hope you have everything to get started in React on your machine. Let me know what other tools you are using on MacOS in the comments below. Otherwise, if you are curios about the tools that I am using on my machine, head over to [my personal development setup guide](/developer-setup/).
+That's everything you need for a React development setup in MacOS. I hope you have everything to get started in React on your machine. Let me know what other tools you are using on MacOS in the comments below. Otherwise, if you are curios about the tools that I am using on my machine, head over to [my personal development setup guide](/mac-setup-web-development/).
 
 <LinkCollection label="This tutorial is part 1 of 2 in this series." links={[{ prefix: "Part 2:", label: "How to use Prettier in VS Code", url: "/how-to-use-prettier-vscode/" }]} />
 
