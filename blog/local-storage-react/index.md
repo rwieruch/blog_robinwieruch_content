@@ -157,7 +157,11 @@ const App = () => {
 export default App;
 ```
 
-Now, whenever `isOpen` gets changed, the hook for the side-effect will run and to its thing (here: saving it to the local storage). Last but not least, you can extract the functionality as reusable [custom React hook](/react-custom-hook/) which synchronizes the local storage to React's state:
+Now, whenever `isOpen` gets changed, the hook for the side-effect will run and to its thing (here: saving it to the local storage).
+
+# React Local Storage Hook
+
+Last but not least, you can extract the functionality as reusable [custom React hook](/react-custom-hook/) which synchronizes the local storage to React's state:
 
 ```javascript{3-13,16}
 import * as React from 'react';

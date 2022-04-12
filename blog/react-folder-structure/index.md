@@ -587,7 +587,17 @@ A Next.js project starts with a *pages/* folder. A common question here: Where t
 --- components/
 ```
 
-Usually the source folder gets created next to the pages folder. From there, you can follow the previously discussed folder/file structure within the *src/* folder.
+Usually the source folder gets created next to the pages folder. From there, you can follow the previously discussed folder/file structure within the *src/* folder. I heard about an escape hatch in Next.js where you can put the *pages/* folder in the *src/* folder too:
+
+```text{3}
+- api/
+- src/
+--- pages/
+--- feature/
+--- components/
+```
+
+However, in this case it's not allowed to have a *pages/* folder anymore.
 
 <Divider />
 
