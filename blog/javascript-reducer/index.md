@@ -1,5 +1,5 @@
 ---
-title: "What is a Reducer in JavaScript/React/Redux"
+title: "JavaScript Reducer (origin React/Redux)"
 description: "A tutorial about the reducer pattern in JavaScript for beginners  ..to manage state transition with functions ..."
 date: "2019-04-19T07:52:46+02:00"
 categories: ["JavaScript"]
