@@ -158,6 +158,7 @@ brew install \
   nvm \
   pnpm \
   graphicsmagick \
+  commitzen \
   cmatrix \
   vips
 ```
@@ -233,6 +234,7 @@ brew install \
 * [nvm](https://github.com/nvm-sh/nvm) (node version manager)
 * [pnpm](https://pnpm.io/) (node package manager)
 * [graphicsmagick](http://www.graphicsmagick.org/) ([screenshot/visual regression testing](https://loki.js.org/))
+* [commitzen](https://commitizen-tools.github.io/commitizen/)
 * [cmatrix](https://github.com/abishekvashok/cmatrix) (terminal screensaver)
 * vips ([support for old Gatsby.js version on M1](https://github.com/lovell/sharp/issues/2460#issuecomment-751491241))
 
@@ -355,7 +357,7 @@ alias gits="git status"
 alias gitd="git diff"
 alias gitl="git lg"
 alias gita="git add ."
-alias gitc="git commit"
+alias gitc="cz commit"
 
 # type sublime . to open current folder in Sublime Text
 alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl --new-window $@"

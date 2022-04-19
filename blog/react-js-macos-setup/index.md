@@ -1,7 +1,7 @@
 ---
 title: "How to setup React.js on MacOS"
 description: "A step by step guide on how to setup React.js on MacOS. You will install Visual Studio Code, Node.js, NPM, Git, Prettier and create-react-app for building React applications with Mac OS ..."
-date: "2018-02-20T13:50:46+02:00"
+date: "2022-04-01T13:50:46+02:00"
 categories: ["React", "VS Code", "Web Development"]
 keywords: ["react macos setup", "react mac os", "how to install react", "install react"]
 hashtags: ["#ReactJs"]

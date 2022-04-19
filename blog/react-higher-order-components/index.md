@@ -1,9 +1,9 @@
 ---
-title: "React Higher Order Components"
-description: "A comprehensive yet easy to understand introduction to higher-order components in React. Higher order components, known as HOCs, are often a difficult to understand pattern in React.js. The article gives you a gentle introduction, how to use HOCs in an elegant way, how to abstract reusable logic and how to use recompose ..."
-date: "2017-04-04T13:50:46+02:00"
+title: "React Higher-Order Components (HOCs)"
+description: "A comprehensive tutorial about Higher-Order Components in React. Higher-Order Components, known as HOCs, are often a difficult to understand pattern in React.js. The article gives you a gentle introduction, how to use HOCs in an elegant way, how to abstract reusable logic and how to use recompose ..."
+date: "2022-04-19T07:50:46+02:00"
 categories: ["React", "React Higher Order Components"]
-keywords: ["react higher order components"]
+keywords: ["react higher-order components"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
@@ -12,563 +12,425 @@ author: ""
 
 <Sponsorship />
 
-Another fitting headline for the article could be: learn Higher Order Components with Conditional Rendering in React.
+**Higher-Order Components** in React, also known as **HOCs**, are an advanced component pattern in React (next to [Render Props Components](/react-render-props/)). Higher-Order Components can be used for multiple use cases. I want to pick out one use case, the [conditional rendering](/conditional-rendering-react/) with Higher-Order Components, to give you two outcomes from this article as a learner.
 
-Higher order components, or known under the abbreviation HOCs, are often a difficult to grasp pattern in React (next to the [render props pattern](/react-render-props/)). These components can be used for multiple use cases. I want to pick out one use case, the [conditional rendering](/conditional-rendering-react/) with higher-order components, to give you two outcomes from this article as a reader.
+* First, it should teach you about React's Higher-Order Components with the use case of conditional rendering. Keep in mind, that altering the look of a component with a Higher-Order Component, specifically in the context of conditional rendering, is only one of several use cases to use HOCs. For instance, you could use them to opt-in local state or to alter props as well.
 
-First, it should teach you about React's higher-order components with the use case of conditional rendering. Keep in mind, that altering the look of a component with a higher-order component, specifically in the context of conditional rendering, is only one of several use cases to use HOCs. For instance, you could use them to opt-in local state or to alter props as well.
+* Second, even though you might already know HOCs, the article goes a bit further by composing Higher-Order Components in React and by applying functional programming principles. You will get to know how to use Higher-Order Components in an elegant way.
 
-Second, even though you might already know HOCs, the article goes a bit further by composing higher-order components in React with the library recompose and by applying functional programming principles. You will get to know how to use higher-order components in an elegant way.
+In order to learn about React Higher-Order Components, the article focuses on the use case of conditional rendering. A conditional rendering in React can be applied in multiple ways. You can use if-else statements, the ternary operator, or the logical && operator. You can read more about the different ways in another article about [conditional renderings in React](/conditional-rendering-react/).
 
-In order to teach React higher-order components, the article focuses on the use case of conditional rendering. A conditional rendering in React can be applied in multiple ways. You can use if-else statements, the ternary operator or the logical && operator. You can read more about the different ways in another article about [conditional renderings in React](/conditional-rendering-react/). If you are not familiar with conditional rendering in React, you could read the article first.
+# React Hooks vs Higher-Order Components
 
-# A Growing React Component
+I have written over here [why React Hooks are superior to Higher-Order Components](/react-hooks-higher-order-components/). However, even in modern React I am an advocate of Higher-Order Components in React. While most developers say that React Hooks moved React more towards the direction of functional programming, I say it's quite the opposite. Higher-Order Components enable us to apply functional programming principles on components by embracing composition. React Hooks, in contrast, transformed pure (in the sense of functional programming) function components to stateful/side-effect burdened beasts.
 
-We will start with a problem in React where higher-order components could be used as solution. Let's assume our application has a `TodoList` component.
+Anyway, both have their right to exist. While React Hooks are the status quo for flavoring function components with implementation details (e.g. [state](/react-usereducer-vs-usestate/), [side-effects](/react-useeffect-hook/)) *from within*, React Higher-Order Components flavor function (and class components) from the outside. HOCs are the perfect shield to protect a component before the actual component executes its implementation details (e.g. React Hooks) within. We will see in the following a specific use case where this holds true.
 
-```javascript
-function App(props) {
-  return (
-    <TodoList todos={props.todos} />
-  );
-}
+# Higher-Order Components: Use Case
 
-function TodoList({ todos }) {
-  return (
-    <div>
-      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
-    </div>
-  );
-}
-```
-
-In a real world application that's not sufficient most of the time. You have to bother with *so much more*. Usually you would put the *so much more* related things outside of your `TodoList` in the parent component. But to keep the example and learning experience concise, I will place every *so much more* edge case in the `TodoList` component.
-
-What are these edge cases I am speaking about?
-
-First, what happens when your `todos` are null? You would apply a conditional rendering to opt-out earlier from your rendering.
-
-```javascript{2,3,4}
-function TodoList({ todos }) {
-  if (!todos) {
-    return null;
-  }
-
-  return (
-    <div>
-      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
-    </div>
-  );
-}
-```
-
-Second, what happens when your todos are not null but empty? You would show a message in a conditional rendering to give your application user an improved user experience (UX).
-
-```javascript{6,7,8,9,10,11,12}
-function TodoList({ todos }) {
-  if (!todos) {
-    return null;
-  }
-
-  if (!todos.length) {
-    return (
-      <div>
-        <p>You have no Todos.</p>
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
-    </div>
-  );
-}
-```
-
-Third, since the todos arrive asynchronously from your backend, you want to show a loading indicator in case the todos are still in a pending request. You would get one more property, such as 'isLoadingTodos', to know about the loading state.
-
-```javascript{1,2,3,4,5,6,7,8}
-function TodoList({ todos, isLoadingTodos }) {
-  if (isLoadingTodos) {
-    return (
-      <div>
-        <p>Loading todos ...</p>
-      </div>
-    );
-  }
-
-  if (!todos) {
-    return null;
-  }
-
-  if (!todos.length) {
-    return (
-      <div>
-        <p>You have no Todos.</p>
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
-    </div>
-  );
-}
-```
-
-Okay. I don't want to make this more complex as it is. But you get the idea that a lot of edge cases for conditional renderings can add up in a simple component. Higher order components can solves this issue. They can be used to shield away these edge cases as reusable functionalities. Thus the `TodoList` has not to worry about it anymore. Let's enter the concept of React's higher-order components to deal with it.
-
-# Entering React's Higher Order Components
-
-Higher order components usually take a component and optional arguments as input and return an **enhanced component** of the **input component**. In our example, the goal would be to shield away specifically all the conditional rendering edge cases from the `TodoList` component.
-
-Let's remove the first case from the `TodoList` where the `todos` are null.
-
-```javascript{10}
-function TodoList({ todos, isLoadingTodos }) {
-  if (isLoadingTodos) {
-    return (
-      <div>
-        <p>Loading todos ...</p>
-      </div>
-    );
-  }
-
-  // Removed conditional rendering with null check
-
-  if (!todos.length) {
-    return (
-      <div>
-        <p>You have no Todos.</p>
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
-    </div>
-  );
-}
-```
-
-Now let's implement our first higher-order component in React to take ownership of this functionality. Higher order components can come with the naming prefix `with`, but it is not mandatory. In the end, it makes it easier to distinguish a React component from a React higher-order component.
+We will start with a problem where Higher-Order Components in React can be used as a solution. Let's have a list component as [function component](/react-function-component/) in React which is just there to render a list of items. The [list component](/react-list-component/) receives its data from the App component:
 
 ```javascript
-function withTodosNull(Component) {
-  return function (props) {
-    ...
-  }
-}
-```
+import * as React from 'react';
 
-Now, let's slow down and let me explain what's happening in `withTodosNull`.
+const TODOS = [
+  { id: '1', task: 'Do this', completed: true },
+  { id: '2', task: 'Do that', completed: false },
+];
 
-Basically the `withTodosNull` function is a higher order function. It takes an input and returns another function. Since we use it in the context of React, we can call it a higher-order component. Because it takes a `Component` as input and returns another `Component`. We don't return another `Component` yet, but we will do later on. In this case it will return a functional stateless component, but it could return a ES6 class component as well. Depending on your use case you can use different component types. Yet a functional stateless component is sufficient for the sake of conditional rendering. When you would need access to `this.state` or React lifecycle methods, you could return an ES6 class component.
+const App = () => {
+  return <TodoList data={TODOS} />;
+};
 
-As mentioned, the **enhanced component** doesn't render anything. Let's add the rendered output of the enhanced component.
-
-```javascript{3,4,5}
-function withTodosNull(Component) {
-  return function (props) {
-    return !props.todos
-      ? null
-      : <Component { ...props } />
-  }
-}
-```
-
-First, there is a conditional rendering with the ternary operator. The higher-order component decides whether it shows nothing or the input component based on the condition. If the todos are null, it shows nothing. If the todos are not null, it shows the input component.
-
-Second, all the props are passed - further down the component tree - to the input component. For instance, if you would use the `withTodosNull` HOC to enhance the `TodoList`, the latter would get all the props passed through the HOC as input with the [JavaScript spread operator](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Spread_operator).
-
-All the function and return statements make it hard to work with higher-order components. You can use [JavaScript ES6 arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) to make it concise again.
-
-```javascript{3,4,5}
-const withTodosNull = (Component) => (props) =>
-  !props.todos
-    ? null
-    : <Component { ...props } />
-```
-
-As a side note, to avoid confusion: In a JavaScript ES6 arrow function you can omit the curly braces. You transform the block body to a concise body. In a concise body you can omit the return statement because it will implicitly return.
-
-Finally the first higher-order component is finished. Let's use it:
-
-```javascript{8,12}
-const withTodosNull = (Component) => (props) =>
-  ...
-
-function TodoList({ todos }) {
-  ...
-}
-
-const TodoListWithNull = withTodosNull(TodoList);
-
-function App(props) {
+const TodoList = ({ data }) => {
   return (
-    <TodoListWithNull todos={props.todos} />
+    <ul>
+      {data.map((item) => (
+        <TodoItem key={item.id} item={item} />
+      ))}
+    </ul>
   );
-}
-```
+};
 
-That's it. As you can see, you can use it whenever you need it. Higher order components are reusable.
-
-But there are more conditional renderings in the `TodoList` component. Let's quickly implement two more higher-order components that take ownership of the loading indicator and an empty list.
-
-```javascript
-const withTodosEmpty = (Component) => (props) =>
-  !props.todos.length
-    ? <div><p>You have no Todos.</p></div>
-    : <Component { ...props } />
-
-const withLoadingIndicator = (Component) => (props) =>
-  props.isLoadingTodos
-    ? <div><p>Loading todos ...</p></div>
-    : <Component { ...props } />
-```
-
-There is only one nitpick. The `withLoadingIndicator` passes all the props to the input component. Even though the input component is not interested in the `isLoadingTodos`. You can use the [JavaScript ES6 rest destructuring](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to split up the props.
-
-```javascript{1,2,4}
-const withLoadingIndicator = (Component) => ({ isLoadingTodos, ...others }) =>
-  isLoadingTodos
-    ? <div><p>Loading todos ...</p></div>
-    : <Component { ...others } />
-```
-
-Now the `isLoadingTodos` is split out from the props and only used in the HOC. All the `others` props are passed to the input component.
-
-Last but not least, let's use all HOCs for our `TodoList` component.
-
-```javascript{14,15,16,20,21,22,23}
-const withTodosNull = (Component) => (props) =>
-  ...
-
-const withTodosEmpty = (Component) => (props) =>
-  ...
-
-const withLoadingIndicator = (Component) => ({ isLoadingTodos, ...others }) =>
-  ...
-
-function TodoList({ todos }) {
-  ...
-}
-
-const TodoListOne = withTodosEmpty(TodoList);
-const TodoListTwo = withTodosNull(TodoListOne);
-const TodoListThree = withLoadingIndicator(TodoListTwo);
-
-function App(props) {
+const TodoItem = ({ item }) => {
   return (
-    <TodoListThree
-      todos={props.todos}
-      isLoadingTodos={props.isLoadingTodos}
-    />
+    <li>
+      {item.task} {item.completed.toString()}
+    </li>
   );
-}
+};
+
+export default App;
 ```
 
-The order to apply the higher-order components should be the same as in the previous `TodoList` with all implemented conditional renderings. Otherwise, like in the basic `TodoList` component that had all the conditional renderings, you would run into bugs because of an `length` check on an null `todos` object.
+In a real world application this [data would be fetched](/react-hooks-fetch-data/) from a remote API though. The following function [mocks this data API](/react-mock-data/) for keeping the example at stake lightweight. However, just think of `fetchData()` as a blackbox function which returns data eventually:
 
-Let's see what is left in the `TodoList` component:
+```javascript{6-8,11}
+const TODOS = [
+  { id: '1', task: 'Do this', completed: true },
+  { id: '2', task: 'Do that', completed: false },
+];
 
-```javascript{10}
-function TodoList({ todos, isLoadingTodos }) {
+const fetchData = () => {
+  return { data: TODOS };
+};
+
+const App = () => {
+  const { data } = fetchData();
+
+  return <TodoList data={data} />;
+};
+```
+
+The application renders the list with its items. But most often that's not sufficient, because you have to bother with all the edge cases. What are these edge cases I am speaking about?
+
+First, what happens if your data is `null` before it got fetched asynchronsouly from the API? You would apply a conditional rendering to opt-out earlier from your rendering:
+
+```javascript{2,8}
+const fetchData = () => {
+  return { data: null };
+};
+
+const App = () => {
+  const { data } = fetchData();
+
+  if (!data) return <div>No data loaded yet.</div>;
+
+  return <TodoList data={data} />;
+};
+```
+
+Second, what happens if your data is not `null` but empty? You would show a message in a conditional rendering to give your user feedback for an improved user experience (UX):
+
+```javascript{2,9}
+const fetchData = () => {
+  return { data: [] };
+};
+
+const App = () => {
+  const { data } = fetchData();
+
+  if (!data) return <div>No data loaded yet.</div>;
+  if (!data.length) return <div>Data is empty.</div>;
+
+  return <TodoList data={data} />;
+};
+```
+
+Third, since the data arrives asynchronously from your backend, you want to show a loading indicator in case the data is pending in a request. Therefore you would get one more property, such as 'isLoading', to know about the loading state:
+
+```javascript{2,6,8}
+const fetchData = () => {
+  return { data: null, isLoading: true };
+};
+
+const App = () => {
+  const { data, isLoading } = fetchData();
+
+  if (isLoading) return <div>Loading data.</div>;
+  if (!data) return <div>No data loaded yet.</div>;
+  if (!data.length) return <div>Data is empty.</div>;
+
+  return <TodoList data={data} />;
+};
+```
+
+Okay, I don't want to make this example more complex (e.g. adding another error state), but you get the gist that a lot of edge cases can add up in a single component for just this one use case.
+
+While this is only adding up vertically for one component to cover every single edge case, imagine the identical opt-out conditional rendering for other components which perform this data fetching. Entering Higher-Order Components, because they can be used to shield away these edge cases as reusable features.
+
+# React's Higher Order Components
+
+Higher-Order Components (HOC) stem from the concept of Higher-Order Functions (HOF) which is called this way whenever it takes a function as argument or returns a function with its return statement. The latter is illustrated in the next example as shorthand version using a arrow function expression in JavaScript:
+
+```javascript
+const multiply = (multiplier) => (multiplicand) =>
+  multiplicand * multiplier;
+
+const product = multiply(3)(4);
+
+console.log(product);
+// 12
+```
+
+While it's totally fine to go with the none HOF version by just taking both arguments in just one function:
+
+```javascript{1,4}
+const multiply = (multiplier, multiplicand) =>
+  multiplicand * multiplier;
+
+const product = multiply(3, 4);
+
+console.log(product);
+// 12
+```
+
+One can see how using HOFs with function composition can lead to functional programming in JavaScript:
+
+```javascript
+const multiply = (multiplier) => (multiplicand) =>
+  multiplicand * multiplier;
+
+const subtract = (minuend) => (subtrahend) =>
+  subtrahend - minuend;
+
+const result = compose(
+  subtraction(2),
+  multiply(4),
+)(3);
+
+console.log(result);
+// 10
+```
+
+Without going into further detail about HOFs in JavaScript here, let's walk through this whole concept when speaking about HOCs in React. There we will walk through normal functions, functions that take other functions (function components) as arguments, and functions that are composed into each other as you have seen in the last code snippet.
+
+Higher-Order Components take any [React component](/react-component-types/) as *input* component and return an *enhanced version* of it as *output* component. In our example, the goal would be to shield away specifically all the conditional rendering edge cases right in between of parent component (App) and child component (TodoList), because none of them want to be bothered by them.
+
+```javascript
+Component => EnhancedComponent
+```
+
+A blueprint for a Higher-Order Component that is just taking a component as input and returning the *same* (read: none enhanced) component as *output* looks always as follows in actual code:
+
+```javascript
+const withHigherOrderComponent = (Component) => (props) =>
+  <Component {...props} />;
+```
+
+When creating a Higher-Order Component, you will always start out with this version of it. A Higher-Order Component comes always with the prefix `with` (same as a React Hook comes always with the prefix `use`). Now you could call this blueprint of a HOC on any component without changing anything business related in the application:
+
+```javascript{1-2,11,14,24}
+const withHigherOrderComponent = (Component) => (props) =>
+  <Component {...props} />;
+
+const App = () => {
+  const { data, isLoading } = fetchData();
+
+  if (isLoading) return <div>Loading data.</div>;
+  if (!data) return <div>No data loaded yet.</div>;
+  if (!data.length) return <div>Data is empty.</div>;
+
+  return <TodoList data={data} />;
+};
+
+const BaseTodoList = ({ data }) => {
   return (
-    <div>
-      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
-    </div>
+    <ul>
+      {data.map((item) => (
+        <TodoItem key={item.id} item={item} />
+      ))}
+    </ul>
   );
-}
+};
+
+const TodoList = withHigherOrderComponent(BaseTodoList);
 ```
 
-Isn't that great? We shielded away all the conditional renderings and the `TodoList` component only bothers to render `todos`. Now you know how to use higher-order components. As I said, the article taught HOCs leveraging conditional rendering. But you can use them for various use cases.
-
-But it is kinda tedious to wrap all the components by hand into each other.
+Understanding the last code snippet is the most important piece in this tutorial. The Higher-Order Component that we have created (here: `withHigherOrderComponent`) takes a component as argument. In our case, we have used the renamed `BaseTodoList` as input component and return a new enhanced `TodoList` component from it. What we get back is essentially a wrapped function component:
 
 ```javascript
-const TodoListOne = withTodosEmpty(TodoList);
-const TodoListTwo = withTodosNull(TodoListOne);
-const TodoListThree = withLoadingIndicator(TodoListTwo);
+// what we get back when we are calling the HOC
+(props) =>
+  <Component {...props} />;
 ```
 
-You could refactor it to:
+Basically it's just another function component which passes through all of the [React props](/react-pass-props-to-component/) without touching them. At its core, nothing happens here, the original component just gets wrapped in another (arrow) function component which does not add any more business logic to it.
 
-```javascript
-const TodoListWithConditionalRendering = withLoadingIndicator(withTodosNull(withTodosEmpty(TodoList)));
+So the returned component is not enhanced at all. But this is about to change. Let's make this Higher-Order Component useful by adding all the conditional renderings as enhancement:
+
+```javascript{1-7,12,25}
+const withConditionalFeedback = (Component) => (props) => {
+  if (props.isLoading) return <div>Loading data.</div>;
+  if (!props.data) return <div>No data loaded yet.</div>;
+  if (!props.data.length) return <div>Data is empty.</div>;
+
+  return <Component {...props} />;
+};
+
+const App = () => {
+  const { data, isLoading } = fetchData();
+
+  return <TodoList data={data} isLoading={isLoading} />;
+};
+
+const BaseTodoList = ({ data }) => {
+  return (
+    <ul>
+      {data.map((item) => (
+        <TodoItem key={item.id} item={item} />
+      ))}
+    </ul>
+  );
+};
+
+const TodoList = withConditionalFeedback(BaseTodoList);
 ```
 
-Still, it is not readable. React embraces functional programming, so why are we not using these principles?
+The last refactoring moved all implementation logic of the conditional rendering from the App component into the Higher-Order Component. It's the perfect place, because this way the App component nor its child component are bothered with this detail.
 
-# Entering Recompose in React
+You can imagine how this is might not be the perfect fit for React Hooks. First, usually a React Hook does not return conditional JSX. And secondly, a React Hook is not guarding a component from the outside but rather adds implementation details in the inside.
 
-The little higher-order component library [recompose](https://github.com/acdlite/recompose) has a lot built-in higher-order components that you can re-use. You should definitely check them out after you have read this article. However, it comes with a neat functionality called `compose` that allows you to return one function composed out of multiple functions. These multiple functions could be all of our conditional rendering HOCs. And that's how you use it:
+That's everything you need to know about the fundamentals of HOCs. You can start using them or take it even further by adding configuration or composition to your Higher-Order Components.
+
+# Configuration of Higher-Order Components
+
+If a Higher-Order Component only takes a Component but nothing else as argument, everything that's related to the implementation details is decided by the Higher-Order Component itself. However, since we have functions in JavaScript, we can pass more information as arguments from the outside to gain more control as user of this Higher-Order Component.
 
 ```javascript
-import { compose } from 'recompose';
+const withHigherOrderComponent = (Component, configuration) =>
+  (props) => <Component {...props} />;
+```
+
+Only Higher-Order Components that need this kind of extra configuration from the outside should add it though. Keeping it friendlier for the functional programming paradigm (see composition of HOCs later), we opt-in the configuration via a separate function preemptively:
+
+```javascript
+const withHigherOrderComponent = (configuration) => (Component) =>
+  (props) => <Component {...props} />;
+```
+
+This way, configuring a Higher-Order Component is essentially just the addition of another wrapping function around it. But why bother about it in the first place? Let's get back to our previous use case of rendering conditional feedback to our users. At the moment, the feedback is pretty generic (e.g. "Data is empty."). By configuring the HOC from the outside, we can decide which feedback to show to our users:
+
+```javascript{1,6-7,14-16}
+const withConditionalFeedback = (dataEmptyFeedback) => (Component)
+  => (props) => {
+    if (props.isLoading) return <div>Loading data.</div>;
+    if (!props.data) return <div>No data loaded yet.</div>;
+
+    if (!props.data.length)
+      return <div>{dataEmptyFeedback || 'Data is empty.'}</div>;
+
+    return <Component {...props} />;
+  };
 
 ...
 
-const withConditionalRenderings = compose(
-  withLoadingIndicator,
-  withTodosNull,
-  withTodosEmpty
+const TodoList = withConditionalFeedback('Todos are empty.')(
+  BaseTodoList
 );
 ```
 
-Now you can use the function to pass in your input component that needs to become an enhanced component with all the conditional renderings.
+See how we are still using a generic fallback in case `dataEmptyFeedback` is not provided from the outside. Let's continue by serving the other optional feedback messages too:
 
-```javascript
-const TodoListWithConditionalRendering = withConditionalRenderings(TodoList);
-```
+```javascript{2,6,9,12,19-23}
+const withConditionalFeedback =
+  ({ loadingFeedback, noDataFeedback, dataEmptyFeedback }) =>
+  (Component) =>
+  (props) => {
+    if (props.isLoading)
+      return <div>{loadingFeedback || 'Loading data.'}</div>;
 
-That's convenient, isn't it? You can use `compose` to pass your input component through all higher-order component functions. The input components gets an enhanced version of the component in each function.
+    if (!props.data)
+      return <div>{noDataFeedback || 'No data loaded yet.'}</div>;
 
-```javascript{1,16,17,18,19,20,22,26}
-import { compose } from 'recompose';
+    if (!props.data.length)
+      return <div>{dataEmptyFeedback || 'Data is empty.'}</div>;
 
-const withTodosNull = (Component) => (props) =>
-  ...
-
-const withTodosEmpty = (Component) => (props) =>
-  ...
-
-const withLoadingIndicator = (Component) => ({ isLoadingTodos, ...others }) =>
-  ...
-
-function TodoList({ todos }) {
-  ...
-}
-
-const withConditionalRenderings = compose(
-  withLoadingIndicator,
-  withTodosNull,
-  withTodosEmpty
-);
-
-const TodoListWithConditionalRendering = withConditionalRenderings(TodoList);
-
-function App(props) {
-  return (
-    <TodoListWithConditionalRendering
-      todos={props.todos}
-      isLoadingTodos={props.isLoadingTodos}
-    />
-  );
-}
-```
-
-After all, higher-order components themselves are reusable. By composing these components into each other, you get a lot of permutations of component enhancements.
-
-# Reusability with abstracted Higher Order Components
-
-The higher-order components of the last section were pretty specific. Each of them had a specific use case matching the requirements of the `TodoList` component. You wouldn't be able to use them in another context, to be more specific, in another component with a different props structure. Thinking about the long term investment in an application, you could abstract these higher-order components to make them reusable by other components too.
-
-As I mentioned, higher-order components take an input component and an optional payload. These optional payloads are often used for configuration.
-
-Let's give the `withTodosNull` an optional payload. The payload is a function that returns true or false to decide the conditional rendering.
-
-```javascript{1,2}
-const withTodosNull = (Component, conditionalRenderingFn) => (props) =>
-  conditionalRenderingFn(props)
-    ? null
-    : <Component { ...props } />
-```
-
-The name of the higher-order component is misleading now. The HOC is not aware anymore of the props data structure nor is it aware of the `todos` at all. You could name it `withCondition`, because it takes a function that returns true or false.
-
-```javascript{1}
-const withCondition = (Component, conditionalRenderingFn) => (props) =>
-  conditionalRenderingFn(props)
-    ? null
-    : <Component { ...props } />
-```
-
-Now you could use the higher-order component but with a function that determines the conditional rendering.
-
-```javascript{6,8}
-const withCondition = (Component, conditionalRenderingFn) => (props) =>
-  conditionalRenderingFn(props)
-    ? null
-    : <Component { ...props } />
-
-const conditionFn = (props) => !props.todos;
-
-const TodoListWithCondition = withCondition(TodoList, conditionFn);
-```
-
-The `withCondition` HOC enables you to re-use it everywhere for a conditional rendering that returns the input component or nothing. It is independent of the input component, independent of the condition and independent of the props structure.
-
-Now let's use the `withCondition` in our composition of HOCs.
-
-```javascript{5}
-import { compose } from 'recompose';
-
-const withConditionalRenderings = compose(
-    withLoadingIndicator,
-    withCondition,
-    withTodosEmpty
-);
-
-const TodoListWithConditionalRendering = withConditionalRenderings(TodoList);
-```
-
-That's not going to work. The function signature of `withCondition` has two arguments: the input component and the optional payload that is the conditional function. But composing works by passing only one value from function to function.
-
-Here is the catch in functional programming. You will often pass only one argument, that's why currying exists. However, you don't need to bother with a curry function now. So instead of using two arguments in the `withCondition` higher-order component, you can use another higher order function.
-
-```javascript{1}
-const withCondition = (conditionalRenderingFn) => (Component) => (props) =>
-    conditionalRenderingFn(props)
-        ? null
-        : <Component { ...props } />
-```
-
-Now, the first time you invoke `withCondition` you have to pass the condition function. It returns your higher-order component. The HOC can then be used in the composition of recompose.
-
-```javascript{7}
-import { compose } from 'recompose';
+    return <Component {...props} />;
+  };
 
 ...
 
-const conditionFn = (props) => !props.todos;
-
-const withConditionalRenderings = compose(
-    withLoadingIndicator,
-    withCondition(conditionFn),
-    withTodosEmpty
-);
-
-const TodoListWithConditionalRendering = withConditionalRenderings(TodoList);
+const TodoList = withConditionalFeedback({
+  loadingFeedback: 'Loading Todos.',
+  noDataFeedback: 'No Todos loaded yet.',
+  dataEmptyFeedback: 'Todos are empty.',
+})(BaseTodoList);
 ```
 
-That's a powerful abstraction, isn't it? You can use the first higher order function to pass the optional payload and return the higher-order component that is used in the composition.
+In order to keep all of them opt-in, we are passing one configuration object instead of multiple arguments. This way we don't have to deal with passing `null` as argument if we want to opt-in the second argument but not the first one.
 
-# Maybe and Either Higher Order Components
+After all, whenever you want to be able to configure a Higher-Order Component from the outside, wrap the HOC in another function and provide one argument as configuration object to it. Then you have to call the Higher-Order Component from the outside twice. The first time for configuring it and the second time to enhance the actual component with the implementation details.
 
-You can use the naming conventions and principles of functional programming (FP) to name your abstracted higher-order components properly. Developers who are familiar with FP will know the use case of the HOC by seeing its name.
+# Composition of Higher-Order Components
 
-Let's take the `withCondition` higher-order component.
-
-```javascript{1}
-const withCondition = (conditionalRenderingFn) => (Component) => (props) =>
-  conditionalRenderingFn(props)
-    ? null
-    : <Component { ...props } />
-```
-
-The component returns nothing or the input component. Such a type, nothing or value, is called Maybe (or Option) in functional programming. After knowing this, you could call the higher-order component `withMaybe`. Even though the HOC is not an explicit type, it would use the naming convention of FP to make it simple to understand.
-
-```javascript{1}
-const withMaybe = (conditionalRenderingFn) => (Component) => (props) =>
-  conditionalRenderingFn(props)
-    ? null
-    : <Component { ...props } />
-```
-
-What about the other two HOCs? They are not abstracted yet. They are different from the `withMaybe` higher-order component, because they return *either* the input component or another element. The Either type in FP defines these two differing values. In addition, similar to the `withMaybe`, the `withEither` could take as additional payload a component that should be shown if the condition doesn't match.
-
-```javascript{1,3}
-const withEither = (conditionalRenderingFn, EitherComponent) => (Component) => (props) =>
-  conditionalRenderingFn(props)
-    ? <EitherComponent />
-    : <Component { ...props } />
-```
-
-Now you can use it in the application by passing the conditional function and the `EitherComponent`.
-
-```javascript{3,4,5,6,8,9,10,11,13,14,15,18,20}
-import { compose } from 'recompose';
-
-...
-
-const EmptyMessage = () =>
-  <div>
-    <p>You have no Todos.</p>
-  </div>
-
-const LoadingIndicator = () =>
-  <div>
-    <p>Loading todos ...</p>
-  </div>
-
-const isLoadingConditionFn = (props) => props.isLoadingTodos;
-const nullConditionFn = (props) => !props.todos;
-const isEmptyConditionFn = (props) => !props.todos.length
-
-const withConditionalRenderings = compose(
-  withEither(isLoadingConditionFn, LoadingIndicator),
-  withMaybe(nullConditionFn),
-  withEither(isEmptyConditionFn, EmptyMessage)
-);
-
-const TodoListWithConditionalRendering = withConditionalRenderings(TodoList);
-```
-
-Now every higher-order component receives a payload apart from the input component. The payload is used in another higher order function, to keep the higher-order component composeable with `compose`.
-
-Last but least, let's see everything in context to each other.
+What's great about Higher-Order Components is that they are just functions which allow you to split functionality into multiple functions. Take our previous Higher-Order Component (without configuration yet) as example by splitting it up into multiple Higher-Order Components:
 
 ```javascript
-import { compose } from 'recompose';
+const withLoadingFeedback = (Component) => (props) => {
+  if (props.isLoading) return <div>Loading data.</div>;
+  return <Component {...props} />;
+};
 
-const withMaybe = (conditionalRenderingFn) => (Component) => (props) =>
-  conditionalRenderingFn(props)
-    ? null
-    : <Component { ...props } />
+const withNoDataFeedback = (Component) => (props) => {
+  if (!props.data) return <div>No data loaded yet.</div>;
+  return <Component {...props} />;
+};
 
-const withEither = (conditionalRenderingFn, EitherComponent) => (Component) => (props) =>
-  conditionalRenderingFn(props)
-    ? <EitherComponent />
-    : <Component { ...props } />
-
-const EmptyMessage = () =>
-  <div>
-    <p>You have no Todos.</p>
-  </div>
-
-const LoadingIndicator = () =>
-  <div>
-    <p>Loading todos ...</p>
-  </div>
-
-const isLoadingConditionFn = (props) => props.isLoadingTodos;
-const nullConditionFn = (props) => !props.todos;
-const isEmptyConditionFn = (props) => !props.todos.length
-
-const withConditionalRenderings = compose(
-  withEither(isLoadingConditionFn, LoadingIndicator),
-  withMaybe(nullConditionFn),
-  withEither(isEmptyConditionFn, EmptyMessage)
-);
-
-const TodoListWithConditionalRendering = withConditionalRenderings(TodoList);
-
-function App(props) {
-  return (
-    <TodoListWithConditionalRendering
-      todos={props.todos}
-      isLoadingTodos={props.isLoadingTodos}
-    />
-  );
-}
-
-function TodoList({ todos }) {
-  return (
-    <div>
-      {todos.map(todo => <TodoItem key={todo.id} todo={todo} />)}
-    </div>
-  );
-}
+const withDataEmptyFeedback = (Component) => (props) => {
+  if (!props.data.length) return <div>Data is empty.</div>;
+  return <Component {...props} />;
+};
 ```
 
-If you are curious about how recompose makes stateless components stateful, you can checkout this article: [React State without a Class](/react-state-without-constructor/).
+Next you can apply each Higher-Order Component individually:
+
+```javascript
+const TodoList = withLoadingFeedback(
+  withNoDataFeedback(
+    withDataEmptyFeedback(BaseTodoList)
+  )
+);
+```
+
+There are two important caveats when applying multiple HOCs onto one component:
+
+* First, order matters. If the priority of one (e.g. `withLoadingFeedback`) is higher than the other (e.g. `withNoDataFeedback`), it should be the outer most called HOC, because you want to render the loading indicator (if `isLoading` is `true`) rather than the "No data loaded yet."-feedback.
+* And second, HOCs *can* depend on each other (which makes them often a pitfall). For example, the `withDataEmptyFeedback` relies on its `withNoDataFeedback` sibling for the `!data` null check. If the latter wouldn't be there, there would be a null pointer exception for the `!props.data.length` empty check. The `withLoadingFeedback` HOC is independent though.
+
+These are some of the commonly known pitfalls, which I describe in my [React Hooks vs Higher-Order Components](/react-hooks-higher-order-components/) article, when using (multiple) HOCs.
+
+Anyway, calling function within function seems verbose. Since we have functions though, we can make use of functional programming principles here by composing the functions onto each other in a more readable way:
+
+```javascript{1-5,7-11}
+const compose = (...fns) =>
+  fns.reduceRight((prevFn, nextFn) =>
+    (...args) => nextFn(prevFn(...args)),
+    value => value
+  );
+
+const TodoList = compose(
+  withLoadingFeedback,
+  withNoDataFeedback,
+  withDataEmptyFeedback
+)(BaseTodoList);
+```
+
+Essentially the `compose()` function takes all the passed arguments (must be functions) as an array of functions and applies them from right to left onto the argument of the returned function. It's worth to note that the `compose()` function comes as function with many utility libraries (e.g. Lodash) too. However, the shown implementation suffices for this use case.
+
+Last but not least, we want to bring back the configuration of out Higher-Order Components from before. First, adapt the atomic Higher-Order Components to use a configuration again, but this time just a string rather than an object, because we want to only configure it with a feedback message (which is not optional this time):
+
+```javascript{1-2,6-7,11-12}
+const withLoadingFeedback = (feedback) => (Component) => (props) => {
+  if (props.isLoading) return <div>{feedback}</div>;
+  return <Component {...props} />;
+};
+
+const withNoDataFeedback = (feedback) => (Component) => (props) => {
+  if (!props.data) return <div>{feedback}</div>;
+  return <Component {...props} />;
+};
+
+const withDataEmptyFeedback = (feedback) => (Component) => (props) => {
+  if (!props.data.length) return <div>{feedback}</div>;
+  return <Component {...props} />;
+};
+```
+
+And second, provide this none optional configuration when calling the higher-order functions:
+
+```javascript{2-4}
+const TodoList = compose(
+  withLoadingFeedback('Loading Todos.'),
+  withNoDataFeedback('No Todos loaded yet.'),
+  withDataEmptyFeedback('Todos are empty.')
+)(BaseTodoList);
+```
+
+You can see how the composition of functions in addition to using an extra wrapping function for the configuration enables us as developers to follow functional programming principles here. If one of the higher-order components wouldn't take a configuration, it could still be used in this composition (just by not calling it like the other ones that take a configuration).
 
 <Divider />
 
-I hope the article helped you to learn higher-order components in the context of conditional rendering. In addition, I hope that it gave you inspiration on how you can use abstraction and functional programming with higher-order components.
+Hopefully this tutorial has helped you to learn the advanced concept of Higher-Order Components in React while making a clear stance of when to use it over React Hooks. We have seen the use case for HOCs in the context of conditional rendering, however, there are many more (e.g. props/state altering, `connect` from react-redux which connects a component to the global store).
 
-<ReadMore label="How to build a GraphQL client library for React" link="/react-graphql-client-library/" />
+Last but not least, I hope the guide gave you inspiration on how you can apply functional programming paradigms in React with Higher-Order Components by using higher-order functions for opt-in configurations, by keeping functions pure, and by composing functions onto each other.
