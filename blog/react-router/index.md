@@ -451,6 +451,8 @@ Since the Users component is used for the `/users` route, the Link in the Users 
 
 So far, we have only used declarative navigation when using the Link or NavLink component. However, on certain occasions you want to be able to navigate a user programmatically via JavaScript. We will showcase this scenario by implementing a feature where it's possible to delete a user in the User component. After the deletion, the user should be navigated away from the User component to the Users component (from `/users/:userId` to `/users`).
 
+<ReadMore label="Lazy Loading with React Router" link="/react-router-lazy-loading/" />
+
 We will start this implementation by creating a stateful `users` value with [React's useState Hook](/react-usestate-hook/) followed by implementing a event handler which deletes a user from the `users` by using an identifier:
 
 ```javascript{1,5-8,10-12,22}
