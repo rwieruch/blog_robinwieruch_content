@@ -49,6 +49,21 @@ If you just want to understand how tools like create-react-app work under the ho
   * fallback Gatsby for static site generation
 * optional learning experience: create a React project from scratch
 
+# Package Manager for React
+
+The default and most widely used package manager in the JavaScript ecosystem (and therefore React) is [npm](https://www.npmjs.com/) (which comes with a Node.js installation). When installing dependencies (read: libraries) in a React application, you will usually use it. However, the last years [yarn](https://yarnpkg.com/) has been a successful alternative. Personally I have never really used yarn except for a few projects. Last but not least, [pnpm](https://pnpm.io/) is the newest kid on the block which comes with a great performance boost.
+
+<ReadMore label="Installing a Package Manager with Homebrew" link="/mac-setup-web-development/" />
+
+If you happen to create multiple React applications which depend on each other or which shared a common set of custom UI components, you may want to check out the concept of a [monorepo](https://en.wikipedia.org/wiki/Monorepo). All previously mentioned package managers allow you to create monorepos by using their in-house workspaces feature, however, I had the best developer experience using pnpm. In combination with build pipeline tools such as [Turborepo](https://turborepo.org/) the performance boost is just overwhelming.
+
+**Recommendations:**
+
+* choose one package manager and stick to it
+  * default and most widely used -> npm
+  * pnpm -> the new cool kid
+* if monorepo, use pnpm with Turborepo
+
 # React State Management
 
 React comes with two built-in hooks to manage local state: [useState](/react-usestate-hook) and [useReducer](/react-usereducer-hook/). If state needs to be managed globally, one can opt-in [React's built-in useContext Hook](/react-usecontext-hook/) to tunnel props from top-level components to components below them without using [props](/react-pass-props-to-component/) and therefore avoiding the problem of props drilling.
@@ -99,12 +114,17 @@ If you are using a React framework like Next.js or Gatsby.js, routing is already
 
 <ReadMore label="Learn to use React Router" link="/react-router/" />
 
+If you are using client-side routing in React with React Router, it's not much work introducing code splitting on a route level. If you happen to introduce this kind of optimization, you could substitute `React.lazy()` with [@loadable/component](https://github.com/gregberge/loadable-components) which gives you a better UX and more options.
+
+<ReadMore label="Learn Lazy Loading with React Router" link="/react-router-lazy-loading/" />
+
 Before you introduce a router in your React project, when you are just about to learn React, you can give [React's conditional rendering](/conditional-rendering-react/) a shot first. It is not a replacement for routing, but in small applications, it is often used to exchange components that way.
 
 **Recommendations:**
 
 * React Router
   * optional learning experience: learn to use React Router
+  * optional optimization: code splitting with React.lazy or a substitute library
 
 # CSS Styling in React
 
