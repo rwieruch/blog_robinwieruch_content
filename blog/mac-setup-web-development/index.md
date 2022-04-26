@@ -532,7 +532,7 @@ From terminal, set global name and email:
 
 ```text
 git config --global user.name "Your Name"
-git config --global email "you@your-domain.com"
+git config --global user.email "you@your-domain.com"
 ```
 
 Improved `git log`:
