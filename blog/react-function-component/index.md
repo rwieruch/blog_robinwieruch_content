@@ -191,7 +191,7 @@ const Headline = () => {
 export default App;
 ```
 
-The useState hook takes an initial state as parameter and returns an array which holds the current state as first item and a function to change the state as second item. We are using [JavaScript array destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to access both items with a shorthand expression. In addition, the destructuring let's us name the variables ourselves.
+The useState hook takes an initial state as parameter and returns an array which holds the current state as first item and a function to change the state as second item. We are using [JavaScript array destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to access both items with a shorthand expression. In addition, the destructuring lets us name the variables ourselves.
 
 Let's add an input field to change the state with the `setGreeting()` function:
 
@@ -237,7 +237,7 @@ In the previous example you have used an *onChange* event handler for the input 
 
 *Note: The onChange event handler is only one of the handlers for HTML form elements. For instance, a button would offer an onClick event handler to react on click events.*
 
-So far, we have used an arrow function to inline the event handler for out input field. What about extracting it as standalone function inside the component? It would become a named function then:
+So far, we have used an arrow function to inline the event handler for our input field. What about extracting it as standalone function inside the component? It would become a named function then:
 
 ```javascript{12,18}
 import React, { useState } from 'react';
