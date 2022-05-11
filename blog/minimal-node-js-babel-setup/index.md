@@ -133,6 +133,13 @@ console.log(process.env.MY_SECRET);
 
 Start the npm script again, and you should see the environmental variable in the command line. Now you are able to store sensitive data separate from the source code.
 
+If you come upon an error, make sure to read the cause. Usually, you would be able to fix the issue. One common error is:
+`SyntaxError: Cannot use import statement outside a module`.
+If you come upon this error, add:   
+`"type": "module",`
+,into your package.json file.
+
+
 Now, consider the following code for your *src/index.js* file, where a function is imported from another file from this project.
 
 ```javascript
