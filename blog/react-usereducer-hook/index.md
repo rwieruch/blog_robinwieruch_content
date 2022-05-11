@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-<LinkCollection label="This tutorial is part 2 of 2 in this series." links={[{ prefix: "Part 1:", label: "What is a reducer in JavaScript?", url: "/javascript-reducer/" }]} />
+<LinkCollection label="This tutorial is part 2 of 3 in this series." links={[{ prefix: "Part 1:", label: "What is a reducer in JavaScript?", url: "/javascript-reducer/" }, { prefix: "Part 3:", label: "React useReducer with Middleware", url: "/react-usereducer-middleware/" }]} />
 
 Since [React Hooks](/react-hooks/) have been released, [function components](/react-function-component/) can use state and side-effects. There are two hooks that are used for modern state management in React: useState and useReducer. This tutorial goes step-by-step through a useReducer example in React for getting you started with this React Hook for state management.
 
