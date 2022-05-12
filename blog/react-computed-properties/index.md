@@ -398,4 +398,4 @@ Now you should see the function being called every time you sort or you add an i
 
 <Divider />
 
-The whole point about computed properties in React is about deriving values from state (or props). Think about every new state you introduce in your React components as raw state without modifications. If you want to introduce a modification of this state (e.g. a list modifies to sorted list), reach for another explicit raw state instead of storing the derived state in your state. You can find this [exmaple for computed properties on GitHub](https://github.com/the-road-to-learn-react/react-computed-properties).
+The whole point about computed properties in React is about deriving values from state (or props). Think about every new state you introduce in your React components as raw state without modifications. If you want to introduce a modification of this state (e.g. a list modifies to sorted list), reach for another explicit raw state instead of storing the derived state in your state. You can find this [example for computed properties on GitHub](https://github.com/the-road-to-learn-react/react-computed-properties).
