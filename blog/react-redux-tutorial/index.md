@@ -370,7 +370,7 @@ cd react-redux-tutorial
 npm start
 ```
 
-In your browser, it should show the defaults that come with create-create-app. Before you familiarize yourself too much with the folder structure, you will adapt it to your own needs first. Navigate into the *src/* folder on the command line and delete the boilerplate files that are not needed for our application.
+In your browser, it should show the defaults that come with create-react-app. Before you familiarize yourself too much with the folder structure, you will adapt it to your own needs first. Navigate into the *src/* folder on the command line and delete the boilerplate files that are not needed for our application.
 
 ```javascript
 cd src
