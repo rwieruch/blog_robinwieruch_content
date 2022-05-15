@@ -377,7 +377,7 @@ That's if for the implicit programmatic data fetching with the effect hook. You 
 
 # Loading Indicator with React Hooks
 
-Let's introduce a loading indicator to the data fetching. It's just another state that is manage by a state hook. The loading flag is used to render a loading indicator in the App component.
+Let's introduce a loading indicator to the data fetching. It's just another state that is managed by a state hook. The loading flag is used to render a loading indicator in the App component.
 
 ```javascript{10,14,19,41,42,43,51}
 import React, { Fragment, useState, useEffect } from 'react';
