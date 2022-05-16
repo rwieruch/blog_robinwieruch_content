@@ -1,7 +1,7 @@
 ---
 title: 'React "as" Prop'
 description: 'Using the "as" prop in React, also called "component" or "variant" prop, enables React developers to combine semantics with aesthetics in a flexible way ...'
-date: "2022-05-10T11:52:46+02:00"
+date: "2022-05-10T10:52:46+02:00"
 categories: ["React"]
 keywords: ["react as prop"]
 hashtags: ["#ReactJs"]
