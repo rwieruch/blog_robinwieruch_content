@@ -59,19 +59,12 @@ module.exports = {
   title: 'RWieruch',
   // can be specified in frontmatter
   description:
-    'Software Engineer for React.js, Node.js, GraphQL and JavaScript. Based in Berlin, German/English speaking. Consulting/Freelancing for Web Development project: Code Audits/Reviews, Workshops, Training, Implementation ...',
+    'Freelance Developer for React.js and JavaScript. Based in Berlin, German/English speaking. Consulting/Freelancing for Web Development project: Code Audits/Reviews, Workshops, Training, Implementation ...',
 
   // can be specified in frontmatter
   author: 'Robin Wieruch',
   // can be specified in frontmatter
-  keywords: [
-    'freelancer',
-    'developer',
-    'web development',
-    'reactjs',
-    'nodejs',
-    'graphql',
-  ],
+  keywords: ['freelance', 'react', 'developer'],
 
   monetization: '$ilp.uphold.com/xBpREnjPwD4j',
 
