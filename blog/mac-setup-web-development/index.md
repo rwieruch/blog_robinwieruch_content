@@ -145,6 +145,7 @@ brew install --cask \
   vlc \
   calibre \
   figma \
+  imageoptim \
   maccy
 ```
 
@@ -204,6 +205,7 @@ brew install \
   * use as default for video files
 * [Calibre](https://calibre-ebook.com/) (epub/ebook editor)
 * [Figma](https://www.figma.com/) (design)
+* [ImageOptim](https://imageoptim.com/mac) (performance)
 * [Maccy](https://maccy.app/) (clipboard manager)
   * enable "Launch at Login"
 
