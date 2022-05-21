@@ -14,7 +14,7 @@ author: ""
 
 The article is a short **how to add Sass support to your create-react-app application**. It shows you how to setup Sass, but also how to use it in your components. You will learn how to style a specific component with it and how to define global style, such as variables for your color schema, that can be used throughout your application.
 
-After you have setup your application with [create-react-app](https://github.com/facebook/create-react-app) (e.g. `create-react-app my-app`), you can install the Sass support with `npm install node-sass --save` for create-react-app. You don't need to change any other configuration.
+After you have setup your application with [create-react-app](https://github.com/facebook/create-react-app) (e.g. `create-react-app my-app`), you can install the Sass support with `npm install sass --save-dev` for create-react-app. You don't need to change any other configuration.
 
 Now, let's try out how Sass in React works. Let's say our App component already uses a Navigation component to display links the following way:
 
