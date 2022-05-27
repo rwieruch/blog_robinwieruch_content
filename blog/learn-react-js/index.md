@@ -77,7 +77,7 @@ It doesn't only apply to React, but to all the other libraries and frameworks yo
 
 # Learn React.js Step by Step
 
-After we got clarity about learning *only* React and React's prerequisites, let's see how to learn React from zero from there. I strongly believe the best start is going through the official [React documentation](https://reactjs.org/docs). The documentation keeps up with the recent changes, is not biased, teaches you everything the React way, and is put together by the React core team and the React community in your interest.
+After we got clarity about learning *only* React and React's prerequisites, let's see how to learn React from zero from there. I strongly believe the best start is going through the official [React documentation](https://reactjs.org/docs/getting-started). The documentation keeps up with the recent changes, is not biased, teaches you everything the React way, and is put together by the React core team and the React community in your interest.
 
 ## Learn with React Docs
 
