@@ -412,6 +412,7 @@ The look and feel we want to achieve from our IDE:
   "breadcrumbs.enabled": false,
   "files.trimTrailingWhitespace": true,
   "explorer.confirmDelete": false,
+  "explorer.compactFolders": false,
   "workbench.colorTheme": "Night Owl",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
@@ -435,7 +436,7 @@ The look and feel we want to achieve from our IDE:
   // prettier
   "prettier.singleQuote": true,
   "prettier.printWidth": 70,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "[javascript]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -457,11 +458,14 @@ The look and feel we want to achieve from our IDE:
     "source.fixAll.eslint": true
   },
   "eslint.validate": ["javascript"],
+  "javascript.validate.enable": false,
   "javascript.updateImportsOnFileMove.enabled": "never",
   "typescript.updateImportsOnFileMove.enabled": "never",
   // auto generated
   "explorer.confirmDragAndDrop": false,
-  "js/ts.implicitProjectConfig.checkJs": true
+  "js/ts.implicitProjectConfig.checkJs": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true
 }
 ```
 
