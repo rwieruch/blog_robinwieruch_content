@@ -143,7 +143,7 @@ While explaining other parts later, we will focus on the following content of th
 
 The monorepo comes with one "built-in" application called *docs* in *apps* for the documentation. Later we will integrate actual applications (see **Workspaces in Monorepos**) next to the documentation.
 
-In addition, there are four *packages* -- whereas two packages are shared UI components (here: *bigstair-core* and *bigstair-map*) and two packages are shared configurations (here: *eslint-config-bigstair* and *eslint-config-bigstair*).
+In addition, there are four *packages* -- whereas two packages are shared UI components (here: *bigstair-core* and *bigstair-map*) and two packages are shared configurations (here: *eslint-config-bigstair* and *ts-config-bigstair*).
 
 We are dealing with a fake company called *bigstair* here which becomes important later (see **Versioning with Monorepos**). For now, just think away the bigstair naming which may make it more approachable. Furthermore, we will not put much focus on the ESLint and TypeScript configurations. You can check out later how they are reused in *packages* and *apps*, but what's important to us are the actual applications and the actual shared packages:
 
