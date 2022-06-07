@@ -379,7 +379,7 @@ Another prerequisite before we can version a package: We need to change one of o
 
 * Second, if the changelog file is okay, run `yarn changeset-apply` which applies the changelog and the version to the actual package. You can check again with `git status` and `git diff` if everything looks as desired.
 
-* Third, if everything looks okay, go ahead and release the updated packages to npm with `yarn release`. After the release, veryfy on npm that your new version got published there.
+* Third, if everything looks okay, go ahead and release the updated packages to npm with `yarn release`. After the release, verify on npm that your new version got published there.
 
 Essentially that's everything to versioning your packages on your local machine. The next section takes it one step further by using continuous integration for the versioning (2) and publishing (3) steps.
 
@@ -387,7 +387,7 @@ Essentially that's everything to versioning your packages on your local machine.
 
 The complexity of the Continuous Integration (CI) of a monorepo depends on how many repositories get managed on a version control platform like [GitHub](https://github.com/rwieruch). In our case, all *packages* are in the same repository (here they are part of the monorepo itself). Hence we only need to care about CI for this one repository, because in this section it's all about the release of the *packages*.
 
-The example monorepo already uses GitHub Actions for the CI. Open the *.github/workflows.release.yml* file which presents the following content for the GutHub Action:
+The example monorepo already uses GitHub Actions for the CI. Open the *.github/workflows.release.yml* file which presents the following content for the GitHub Action:
 
 ```javascript
 name: Release
