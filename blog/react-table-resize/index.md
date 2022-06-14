@@ -23,9 +23,9 @@ author: ""
   ]}
 />
 
-In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with its **resize** feature. In the previous example, you have already installed React Table Library to create a table component. Now, we will enable users to **resize columns** in the table.
+In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with its **resize** feature. In the previous example, you installed React Table Library to create a table component. Now, we will enable users to **resize columns** in the table by clicking on a vertical bar in the header of the column, and dragging left or right.
 
-Everything that's needed is setting the resize property on each table's column:
+All you need to do is set the resize property on each column of table:
 
 ```javascript{3-7}
 <Header>
@@ -39,15 +39,15 @@ Everything that's needed is setting the resize property on each table's column:
 </Header>
 ```
 
-That's the most straightforward way to enable resizable columns for your table. However, if you want to have more options for configuration, you can pass an object instead of a boolean.
+This is the easiest way to enable resizable columns for your table. However, if you want to configure more options then you can pass an object instead of a boolean (remember, setting a property in a React component without giving it a value defaults to a boolean true).
 
-For example, you can define a min width for each table column if you don't agree with the default.
+For example, you can specify a minimum width for each table column if you are not happy with the default.
 
 ```javascript
 <HeaderCell resize={{ minWidth: 50 }}>Task</HeaderCell>
 ```
 
-You can also change the highlight color of the resize area and expand the resize area's size:
+You can also change the highlight color of the resize vertical bar or increase its width:
 
 ```javascript
 <HeaderCell
@@ -60,4 +60,4 @@ You can also change the highlight color of the resize area and expand the resize
 </HeaderCell>
 ```
 
-That's it. With React Table Library, you are now able to create resizable tables in React.
+That's it. With React Table Library, you can now create resizable tables in React.
