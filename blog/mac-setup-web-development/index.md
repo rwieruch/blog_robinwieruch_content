@@ -417,6 +417,7 @@ The look and feel we want to achieve from our IDE:
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
   "workbench.statusBar.visible": true,
+  "workbench.editor.enablePreview": false,
   "workbench.activityBar.visible": false,
   "workbench.editor.restoreViewState": true,
   "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
@@ -467,6 +468,7 @@ The look and feel we want to achieve from our IDE:
   "editor.formatOnPaste": true,
   "editor.formatOnType": true
 }
+
 ```
 
 # Sublime
