@@ -15,13 +15,13 @@ import WebApplicationsList from './components/WebApplicationsList.js';
 
 <Sponsorship />
 
-Let's start with a story: When people outside of my professional bubble ask me about what I am doing, I say *"I build websites."*. If they are curious, I add that these websites are more complex. If they continue to ask, I try to elaborate with examples: Facebook, Spotify, Twitter. It's not that I work for these companies, but I hope it gives a good impression about "what kind of websites I build". However, most often it doesn't get beyond "I build websites" and I am fine with it.
+Let's start with a story: when people outside of my professional bubble ask me about what I am doing, I say *"I build websites"*. If they are curious, I add that these websites are rather complex. If they keep on asking, I try to elaborate with some examples: Facebook, Spotify, Twitter. It's not that I work for these companies, but I hope that it gives them a good impression of "what kind of websites I build". However, most often the conversation doesn't go beyond "I build websites" and I am fine with that.
 
-A website doesn't equal a website these days. A website ranges from a marketing website for a product to a full-blown social media platform. As someone new to web development, it's not easy to grasp the landscape: What starts out as a traditional website with HTML and CSS, which is returned from a web server, turns into a way more difficult full-stack application with sophisticated client-server communication and state management.
+One website isn't equal to another website these days. Websites range from a marketing website for a product to a full-blown social media platform. As someone new to web development, it's not easy for you to grasp the whole landscape: what starts out as a traditional simple website with HTML and CSS, returned from a web server, turns into a far more complex full-stack application with sophisticated client-server communication and state management.
 
-If you are already into learning HTML, CSS, and JavaScript, without knowing about the fundamentals of websites and web applications, this comprehensive guide is for you.
+If you are already learning HTML, CSS, and JavaScript, and you don't know about the fundamentals of websites and web applications, then this comprehensive guide is for you.
 
-In this walkthrough, I want to show you the evolution of web development from website to web application where we clarify terms like:
+In this walkthrough, I want to show you the evolution of web development from a simple website to a complex web application where we clarify terminology such as:
 
 * client/server
 * frontend/backend
@@ -31,13 +31,13 @@ In this walkthrough, I want to show you the evolution of web development from we
 * web server/application server
 * server-side rendering vs client-side rendering
 * server-side routing vs client-side routing
-* single-page applications vs multi-page applications
+* single-page application vs multi-page application
 * code splitting, lazy loading, tree shaking, ...
-* full-stack applications
+* full-stack application
 * static site generation
 * BaaS, PaaS, IaaS, ...
 
-Depending on your current level as a web developer, I encourage you to pause anytime while reading this guide, because it's pretty extensive and especially to the end can become pretty overwhelming for beginners. But let's get started ...
+Depending on your current level as a web developer, I encourage you to take a break at any time while reading this guide, because it's pretty extensive and can be a little overwhelming for beginners, especially towards the end. Let's get started ...
 
 # Table of Contents
 
