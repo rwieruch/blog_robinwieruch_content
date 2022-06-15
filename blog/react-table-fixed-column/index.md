@@ -28,7 +28,7 @@ author: ""
   ]}
 />
 
-In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with a **fixed column**. In the previous example, you have already installed React Table Library to create a table component and gave it a theme. Now, we will enable users to have their **column sticky** to the side:
+In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with a **fixed column**. In the previous example, you installed React Table Library to create a Table component and gave it a theme. Now, you will enable your users to make a **column sticky** to the side:
 
 ```javascript{9-14,16-21}
 ...
@@ -65,7 +65,7 @@ const App = () => {
 };
 ```
 
-We fixed the columns to the left side. You can fix columns the same way to the right side as well. What's missing is giving the Cell components a `pinLeft` (or `pinRight`) prop to signalize them to stick to the side:
+The columns are fixed to the left side. You can fix columns in the same way to the right side as well. What is now needed is to give the Cell components a `pinLeft` (or `pinRight`) prop to indicate that they can be stuck to the side:
 
 ```javascript{5,10-11,20-21}
 const App = () => {
@@ -107,4 +107,4 @@ const App = () => {
 };
 ```
 
-With everything in place, the none fixed columns of the table will scroll in a vertical direction while the column stays sticky at the side of the table.
+With everything now in place, the non-fixed columns of the table will scroll vertically while the fixed columns remain sticky at the side of the table.
