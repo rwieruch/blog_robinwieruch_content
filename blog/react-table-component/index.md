@@ -1,5 +1,5 @@
 ---
-title: "Part 1 &ndash; How to create a React Table Component"
+title: "How to create a React Table Component"
 description: "A step by step tutorial on how to create a React table component with React Table Library ..."
 date: "2021-05-17T13:56:46+02:00"
 categories: ["React", "React Table Library"]
@@ -65,7 +65,7 @@ const App = () => {
 
 The Table component accepts a data object as a [prop](/react-pass-props-to-component/) with a `nodes` property. These nodes are the items in our list, however, the table keeps the naming of `nodes` more generic, because the Table component has the ability not only to display list structures but also [tree structures](/react-tree-table/).
 
-Moreover, the Table component uses a [function as a child](/react-render-props/) giving access to the list within the table as `tableList`. Internally, the Table component applies many different modifications to the list &ndash; e.g. sorting, pagination, if these plugins are enabled &ndash; and so the `tableList` (and not `data` or `list`) should be used to render the items within the table.
+Moreover, the Table component uses a [function as a child](/react-render-props/) giving access to the list within the table as `tableList`. Internally, the Table component applies many different modifications to the list -- e.g. sorting, pagination, if these plugins are enabled -- and so the `tableList` (and not `data` or `list`) should be used to render the items within the table.
 
 React Table Library uses [composition over configuration](/react-component-composition/). Therefore, you get all the necessary building blocks as components from the library itself. Let's begin with the header of our table:
 
@@ -157,14 +157,14 @@ const App = () => {
 
 As you have full control over what to render in the Cell components, you can format the data as you need to. A boolean can be translated into a string and a date can be formatted to a readable version. There are no special props for the Cell components to do rendering. Using [React Table Library](https://react-table-library.com) makes it easy to render Table components in React. Go to the library's documentation to find out more about its features.
 
-- [Part 2 &ndash; React Table with Theme](/react-table-theme/)
-- [Part 3 &ndash; React Table with Resize](/react-table-resize/)
-- [Part 4 &ndash; React Table with Sort](/react-table-sort/)
-- [Part 5 &ndash; React Table with Search](/react-table-search/)
-- [Part 6 &ndash; React Table with Filter](/react-table-filter/)
-- [Part 7 &ndash; React Table with Select](/react-table-select/)
-- [Part 8 &ndash; React Table with Tree](/react-tree-table/)
-- [Part 9 &ndash; React Table with Fixed Header](/react-table-fixed-header/)
-- [Part 10 &ndash; React Table with Fixed Column](/react-table-fixed-column/)
-- [Part 11 &ndash; React Table with Pagination](/react-table-pagination/)
-- [Part 12 &ndash; React Table with Server-Side Operations](/react-server-side-table/)
+- [React Table with Theme](/react-table-theme/)
+- [React Table with Resize](/react-table-resize/)
+- [React Table with Sort](/react-table-sort/)
+- [React Table with Search](/react-table-search/)
+- [React Table with Filter](/react-table-filter/)
+- [React Table with Select](/react-table-select/)
+- [React Table with Tree](/react-tree-table/)
+- [React Table with Fixed Header](/react-table-fixed-header/)
+- [React Table with Fixed Column](/react-table-fixed-column/)
+- [React Table with Pagination](/react-table-pagination/)
+- [React Table with Server-Side Operations](/react-server-side-table/)
