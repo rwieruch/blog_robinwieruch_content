@@ -23,7 +23,7 @@ author: ""
   ]}
 />
 
-In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with **double click** on a row. In the previous example, you have already installed React Table Library to create a table component. By example, a row single click is enabled the following way:
+In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with **double click** on a row. In the previous example, you installed React Table Library to create a table component. A single click on a row is enabled in the following way:
 
 ```javascript{4-6}
 <Row
@@ -35,7 +35,7 @@ In this tutorial, I want to show you how to use [React Table Library](https://re
 >
 ```
 
-In contrast, a double click on a row can be achieved this way:
+By contrast, a double click on a row can be achieved in this way:
 
 ```javascript{4-6}
 <Row
@@ -47,4 +47,4 @@ In contrast, a double click on a row can be achieved this way:
 >
 ```
 
-Keep in mind that enabling a double click on a row will lead to a slight delay in the row select (if used), because the table waits for a certain time until it confirms a click as a single click, because a double click could still happen.
+Keep in mind that enabling double click on a row leads to a slight delay in selecting the row (if used), because the table waits for a while before it confirms the click as a single click, thus making sure that the click was not part of a double click.
