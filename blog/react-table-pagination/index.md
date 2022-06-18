@@ -23,7 +23,7 @@ author: ""
   ]}
 />
 
-In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with its **usePagination** plugin to implement pagination. In the previous example, you installed React Table Library to create a Table component. Now, you will enable your users to **paginate pages** in a table.
+In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with its **usePagination** plugin to implement pagination. In the previous example, you installed React Table Library to create a table component. Now, you will enable your users to **paginate pages** in a table.
 
 First, import the usePagination hook:
 
