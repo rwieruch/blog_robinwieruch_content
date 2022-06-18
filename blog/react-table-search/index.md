@@ -23,9 +23,9 @@ author: ""
   ]}
 />
 
-In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with a **search** feature. In the previous example, you have already installed React Table Library to create a table component. Now, we will enable users to **search data** in the table.
+In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with a **search** feature. In the previous example, you installed React Table Library to create a Table component. Now, we will enable users to **search data** in the table.
 
-React Table Library does not come with a native search feature, however, since you have access to the data from the outside, you can manipulate it before passing it to the table. Let's see how this works.
+React Table Library does not come with a native search feature, however, as you have access to the data from the outside, you can manipulate it before passing it to the table. Let's see how this works.
 
 First, create a new [React useState Hook](/react-usestate-hook/) -- which holds the state of the search -- and a new [event handler](/react-event-handler/) -- which acts as a callback function for the user interaction later on:
 
@@ -41,7 +41,7 @@ const App = () => {
 };
 ```
 
-Next, to the Table component, or somewhere entirely else if you want, add an HTML input field for setting the search state:
+Next, add a HTML input field to the Table component, or somewhere entirely else if you want, to set the search state:
 
 ```javascript{6-9}
 const App = () => {
@@ -62,7 +62,7 @@ const App = () => {
 };
 ```
 
-The search state is working. Finally search the list of items (here: nodes) before it reaches the Table component:
+The search state is working. Finally, search the list of items (here: nodes) before it reaches the Table component:
 
 ```javascript{8-12}
 const App = () => {
@@ -73,7 +73,7 @@ const App = () => {
   };
 
   const data = {
-    nodes: nodes.filter((item) =>
+    nodes: list.filter((item) =>
       item.name.includes(search)
     ),
   };
@@ -93,16 +93,16 @@ const App = () => {
 };
 ```
 
-That's it. If you want your table to search case insensitive, you have to adapt the filter function:
+That's it. If you want the search to be case insensitive, then you have to change the filter function to:
 
 ```javascript{3}
 const data = {
-  nodes: nodes.filter((item) =>
+  nodes: list.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   ),
 };
 ```
 
-You have seen that React Table does not offer a native plugin for a search feature. However, since you can just pass a searched list from the outside to the table and search it from the outside as well, you have all the options at your hands.
+You have seen that React Table Library does not offer a native plugin for a search feature. However, as you can simply pass a searched list from the outside to the table, after searching it outside the Table component, you have all the options you need to hand.
 
-Last but not least, if you want to see how a **table filter** works instead, head over to my [React Table with Filter](/react-table-filter/) tutorial.
+If you want to see how a **table filter** works as well, head over to my [React Table with Filter](/react-table-filter/) tutorial.
