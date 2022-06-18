@@ -23,9 +23,9 @@ author: ""
   ]}
 />
 
-In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with a **filter** feature. In the previous example, you have already installed React Table Library to create a table component. Now, we will enable users to **filter data** in the table.
+In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with a **filter** feature. In the previous example, you installed React Table Library to create a Table component. Now, we will enable users to **filter data** in the table.
 
-React Table Library does not come with a native filter feature, however, since you have access to the data from the outside, you can manipulate it before passing it to the table. Let's see how this works.
+React Table Library does not come with a native filter feature, however, as you have access to the data from the outside, you can manipulate it before passing it to the table. Let's see how this works.
 
 First, create a new [React useState Hook](/react-usestate-hook/) -- which holds the state of the filter -- and a new [event handler](/react-event-handler/) -- which acts as a callback function for the user interaction later on:
 
@@ -43,7 +43,7 @@ const App = () => {
 };
 ```
 
-Next, to the Table component, or somewhere entirely else if you want, add a HTML checkbox group for setting the filter state:
+Next, add a HTML checkbox group to the Table component, or somewhere entirely else if you want, to set the filter state:
 
 ```javascript{6-28}
 const App = () => {
@@ -83,7 +83,7 @@ const App = () => {
 };
 ```
 
-The filter state is working. Finally filter the list of items (here: nodes) before it reaches the Table component:
+The filter state is working. Finally, filter the list of items (here: nodes) before it reaches the Table component:
 
 ```javascript{10-16}
 const App = () => {
@@ -115,8 +115,8 @@ const App = () => {
 };
 ```
 
-We have used a checkbox in this tuorial, however, the same way it's possible to use a filter dropdown or any other React component to trigger the feature.
+We have used a checkbox in this tuorial, however, you can use a filter dropdown or any other React component to trigger the feature in the same way.
 
-You have seen that React Table does not offer a native plugin for a filter feature. However, since you can just pass a filtered list from the outside to the table and filter it from the outside as well, you have all the options at your hands.
+You have seen that React Table Library does not offer a native plugin for a filter feature. However, as you can simply pass a filtered list from the outside to the table after filtering it outside the Table component, you have all the options you need to hand.
 
-If you want to see how a **table search** works instead, head over to my [React Table with Filter](/react-table-search/) tutorial.
+If you want to see how a **table search** works as well, head over to my [React Table with Filter](/react-table-search/) tutorial.
