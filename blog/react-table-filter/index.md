@@ -23,7 +23,7 @@ author: ""
   ]}
 />
 
-In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with a **filter** feature. In the previous example, you installed React Table Library to create a Table component. Now, we will enable users to **filter data** in the table.
+In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with a **filter** feature. In the previous example, you installed React Table Library to create a table component. Now, we will enable users to **filter data** in the table.
 
 React Table Library does not come with a native filter feature, however, as you have access to the data from the outside, you can manipulate it before passing it to the table. Let's see how this works.
 
