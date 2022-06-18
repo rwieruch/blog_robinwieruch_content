@@ -15,13 +15,13 @@ import WebApplicationsList from './components/WebApplicationsList.js';
 
 <Sponsorship />
 
-Let's start with a story: When people outside of my professional bubble ask me about what I am doing, I say *"I build websites."*. If they are curious, I add that these websites are more complex. If they continue to ask, I try to elaborate with examples: Facebook, Spotify, Twitter. It's not that I work for these companies, but I hope it gives a good impression about "what kind of websites I build". However, most often it doesn't get beyond "I build websites" and I am fine with it.
+Let's start with a story: when people outside of my professional bubble ask me about what I am doing, I say *"I build websites"*. If they are curious, I add that these websites are rather complex. If they keep on asking, I try to elaborate with some examples: Facebook, Spotify, Twitter. It's not that I work for these companies, but I hope that it gives them a good impression of "what kind of websites I build". However, most often the conversation doesn't go beyond "I build websites" and I am fine with that.
 
-A website doesn't equal a website these days. A website ranges from a marketing website for a product to a full-blown social media platform. As someone new to web development, it's not easy to grasp the landscape: What starts out as a traditional website with HTML and CSS, which is returned from a web server, turns into a way more difficult full-stack application with sophisticated client-server communication and state management.
+One website isn't equal to another website these days. Websites range from a marketing website for a product to a full-blown social media platform. As someone new to web development, it's not easy for you to grasp the whole landscape: what starts out as a traditional simple website with HTML and CSS, returned from a web server, turns into a far more complex full-stack application with sophisticated client-server communication and state management.
 
-If you are already into learning HTML, CSS, and JavaScript, without knowing about the fundamentals of websites and web applications, this comprehensive guide is for you.
+If you are already learning HTML, CSS, and JavaScript, and you don't know about the fundamentals of websites and web applications, then this comprehensive guide is for you.
 
-In this walkthrough, I want to show you the evolution of web development from website to web application where we clarify terms like:
+In this walkthrough, I want to show you the evolution of web development from a simple website to a complex web application where we clarify terminology such as:
 
 * client/server
 * frontend/backend
@@ -31,13 +31,13 @@ In this walkthrough, I want to show you the evolution of web development from we
 * web server/application server
 * server-side rendering vs client-side rendering
 * server-side routing vs client-side routing
-* single-page applications vs multi-page applications
+* single-page application vs multi-page application
 * code splitting, lazy loading, tree shaking, ...
-* full-stack applications
+* full-stack application
 * static site generation
 * BaaS, PaaS, IaaS, ...
 
-Depending on your current level as a web developer, I encourage you to pause anytime while reading this guide, because it's pretty extensive and especially to the end can become pretty overwhelming for beginners. But let's get started ...
+Depending on your current level as a web developer, I encourage you to take a break at any time while reading this guide, because it's pretty extensive and can be a little overwhelming for beginners, especially towards the end. Let's get started ...
 
 # Table of Contents
 
@@ -45,19 +45,19 @@ Depending on your current level as a web developer, I encourage you to pause any
 
 # A traditional Website
 
-If you are learning about web development, you will most likely start with a traditional website that's built with HTML and CSS. A website which isn't styled (CSS) and doesn't have any logic (JavaScript) comes with just HTML.
+If you are learning about web development, you will most likely start with a traditional website built with HTML and CSS. A website which isn't styled (CSS) and doesn't have any logic (JavaScript) is just HTML.
 
 ![](./images/1.png)
 
-If you navigate to a specific [URL](https://en.wikipedia.org/wiki/URL) in your browser (e.g. Firefox) on your laptop or smartphone, a request is made to the web server which is in charge for this URL. If the web server is able to match the request to a website, it serves the HTML file for the website back to your browser.
+If you navigate to a specific [URL](https://en.wikipedia.org/wiki/URL) in your browser (e.g. Firefox) on your laptop or smartphone, a request is made to the web server responsible for that URL. If the web server is able to match the request to a website then it serves the HTML file for that website to your browser.
 
-For transferring a website to a browser, [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) is used as the communication protocol for requests and responses between client and web server. This is why there is a "http" in front of every URL.
+To transfer a website to a browser, [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) is used as the communication protocol for requests and responses between the client and the web server. This is why there is "http" in front of every URL.
 
-The communication between client and server is asynchronous, which means that your website isn't displayed immediately. It takes time to send a request from client to web server and vice versa a response from web server to client.
+The communication between the client and the server is synchronous, which means that the client sends a request to the server and waits for a response from the server. Your website isn't displayed immediately because it takes time to send the request from a client to the web server and to receive a response back from the web server.
 
 ![](./images/2.png)
 
-A HTTP request comes with four essential HTTP methods that I want to tackle here: GET, POST, PUT, DELETE. While a HTTP GET method is used to read a resource, the remaining methods are used to write resources -- where a resource can be anything from HTML to JSON. All four methods can be abstracted to the infamous [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations: Create, Read, Update, Delete.
+A HTTP request comes with four essential HTTP methods: GET, POST, PUT, and DELETE. The HTTP GET method is used to read a resource, whereas the remaining methods are used to write resources -- where a resource can be anything from HTML to JSON. All four methods can be abstracted to the infamous [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations: Create, Read, Update, and Delete.
 
 ```text
 Create  -> HTTP POST
@@ -68,39 +68,39 @@ Delete  -> HTTP DELETE
 
 In our example of a website, which is served from a web server to a client by visiting a URL in a browser, the browser executes a HTTP GET method to read a HTML file from the web server.
 
-## What's the difference between Client vs Server?
+## What's the difference between Client and a Server?
 
-A Client is an entity that **consumes** a Server. It either reads resources from a server or writes resources to a server. For a traditional website, the client is your browser. If you navigate to a specific URL in your browser, your browser communicates with a server to request resources (e.g. HTML) to display a website for you. Looking beyond traditional websites, a client doesn't need to be a browser (e.g. [cURL](https://en.wikipedia.org/wiki/CURL)).
+A Client is an entity that **consumes** a Server. It either reads resources from a server or writes resources to a server. For a traditional website, the client is your browser. If you navigate to a specific URL in your browser, your browser communicates with a server to request resources (e.g. HTML) to display a website. However, a client doesn't need to be a browser (e.g. [cURL](https://en.wikipedia.org/wiki/CURL)).
 
-A Server is an entity that **serves** a Client. In a traditional sense of a website, a server reacts on a client's requests; and either replies with resources (e.g. HTML, CSS, JavaScript) from HTTP GET requests or acknowledges manipulations from HTTP POST, PUT, DELETE requests. Popular web servers, which are a specific kind of server, are [NGINX](https://en.wikipedia.org/wiki/Nginx) or [Apache](https://en.wikipedia.org/wiki/Apache_HTTP_Server).
+A Server is an entity that **serves** a Client. In the traditional sense of a website, a server reacts to a client's requests and either replies with resources (e.g. HTML, CSS, JavaScript) from HTTP GET requests or acknowledges manipulations from HTTP POST, PUT, DELETE requests. Popular web servers, which are a specific kind of server, are [NGINX](https://en.wikipedia.org/wiki/Nginx) or [Apache](https://en.wikipedia.org/wiki/Apache_HTTP_Server).
 
 ![](./images/3.png)
 
-One can say that there is no client without a server and no server without a client. They work together, even though they don't need to be in the same location. For example, while your browser on your machine is at your local location (e.g. Berlin/Germany), the web server which serves a website sits at a remote location (e.g. Frankfurt/Germany). A server -- which is just another computer -- usually sits somewhere else than your local machine. For the sake of developing a server, you may have the server on your local machine too (see [localhost](https://en.wikipedia.org/wiki/Localhost)).
+It can be said that there is no client without a server and there is no server without a client. They work together, even though they don't need to be in the same place. For example, the browser on your machine is at your local location (e.g. Berlin in Germany) and the web server which serves a website to you is operating at a remote location (e.g. Frankfurt in Germany). A server -- which is just another computer -- is usually located somewhere else than your local machine. For the sake of developing a web application or website, you may have a server running on your local machine too (see [localhost](https://en.wikipedia.org/wiki/Localhost)).
 
 ![](./images/4.png)
 
-Since a client doesn't necessarily need to be a browser on your local machine, it could be somewhere remote as well. But more about this later.
+As a client doesn't necessarily need to be a browser on your local machine, it could be somewhere remote as well. But more about this later.
 
-## What's the difference between Web Server and Application Server?
+## What's the difference between a Web Server and an Application Server?
 
-A **Web Server** serves resources (e.g. HTML, CSS, JavaScript) which are formats that can be transferred via HTTP. When a client requests resources from a web server, the web server fulfils the request by sending the resources back to the client. The resources are just files on this server. If HTML is sent to a client, the client (here browser) interprets the HTML to render it.
+A **Web Server** serves resources (e.g. HTML, CSS, and JavaScript) which are formats that can be transferred via HTTP. When a client requests resources from a web server, the web server fulfils the request by sending the resources back to the client. Normally, these resources are just files on the server. If HTML is sent to a client, then the client (in this case, the browser) interprets the HTML to render it.
 
-In contrast, an **Application Server** serves resources beyond HTML, CSS, JavaScript. For example, [JSON](https://en.wikipedia.org/wiki/JSON) can be sent if a client requests data in a data friendly format. In addition, an application server isn't bound to a protocol as well. Whereas a web server is mainly used with the HTTP protocol, an application server can use other protocols (e.g. [WebSockets](https://en.wikipedia.org/wiki/WebSocket) for real-time communication) too. The most important fact is that an application server can have [implementation details](https://en.wikipedia.org/wiki/Business_logic) on its server-side in a specific programming language (e.g. [JavaScript with Node.js](https://nodejs.org/en/), PHP, Java, Ruby, C#, Go, Rust, Python).
+In contrast, an **Application Server** serves resources beyond HTML, CSS, and JavaScript. For example, [JSON](https://en.wikipedia.org/wiki/JSON) can be sent if a client requests data in a data friendly format. In addition, an application server isn't bound to a protocol. Whereas a web server is mainly used with the HTTP protocol, an application server can use other protocols (e.g. [WebSockets](https://en.wikipedia.org/wiki/WebSocket) for real-time communication). The most important fact is that an application server can have [implementation details](https://en.wikipedia.org/wiki/Business_logic) on its server-side in a specific programming language (e.g. [JavaScript with Node.js](https://nodejs.org/en/), PHP, Java, Ruby, C#, Go, Rust, and Python).
 
-Both web server and application server can be classified as servers. So usually you will hear people talk about servers, when they mean one of these two. However, people will also say server to the physical computer, which runs somewhere remote, which employs the web server or application server.
+Both web servers and application servers can be classified as servers. So you will often hear people talk about servers when they mean one of these two. However, people often say server to mean a physical computer, which runs somewhere remote on which a web server or application server is running.
 
-There are two more terms which may come up: deploying and hosting. Let me keep it short on these terms: While **deploying** describes the act of taking a website live on a server, **hosting** describes the continuous act of serving the website from this server. That's why when developing a website on your computer, you have to open it up with the URL localhost, which just means that you are the local host of this website.
+There are two more terms which you may meet: deploying and hosting. I will be brief about these terms: **deploying** describes the act of taking a website live on a server, **hosting** describes the continuous act of serving the website from this server. So, when developing a website on your own computer, you have to open it with a localhost URL, which just means that you are the local host of this website.
 
-## What's happens when I change the path of an URL?
+## What happens when I change the path of an URL?
 
-What happens if a user visits a website by URL and navigates at this domain (e.g. mywebsite.com) from path (e.g. /about) to path (/home)? In a traditional website, for every distinct URL a new request is made from a client to a web server.
+What happens when I visit a website at a URL and navigate around this domain (e.g. mywebsite.com) from a path (e.g. /about) to another path (/home)? For a traditional website, a new request is made by a client to a web server for every distinct URL.
 
 ![](./images/5.png)
 
-For every URL, a distinct HTTP GET method is sent to the dedicated web server to fulfil the request. When a user accesses a website on its `/about` **path** (also called **page** or **route**) in a browser, for example `http://www.mywebsite.com/about`, the web server sends all the information about this URL back to the browser. This act is called **server-side routing**, because the server decides which resource is sent to a client on each URL. You will learn about client-side routing later.
+For every URL, a distinct HTTP GET method is sent to the dedicated web server to fulfil the request. When a user accesses a website on its `/about` **path** (also called **page** or **route**) in a browser, for example `http://www.mywebsite.com/about`, the web server sends all the information about this URL back to the browser. This process is called **server-side routing**, because the server decides which resource is sent to the client on each URL. You will learn about client-side routing later.
 
-## What's happens when my website is more than HTML?
+## What happens when my website is more than HTML?
 
 A modern website consists of HTML (structure), CSS (style), and JavaScript (logic). Without CSS a website wouldn't be shiny and without JavaScript a website wouldn't have dynamic interactions. Usually when CSS and JavaScript files are used, they are linked in a HTML file:
 
