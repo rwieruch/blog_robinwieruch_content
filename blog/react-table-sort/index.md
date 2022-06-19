@@ -23,7 +23,7 @@ author: ""
   ]}
 />
 
-In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with its **useSort** plugin to implement user sorting. In the previous example, you installed React Table Library to create a Table component. Now, you will enable your users to **sort columns** in the table by clicking on a column's header.
+In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with its **useSort** plugin to implement user sorting. In the previous example, you installed React Table Library to create a table component. Now, you will enable your users to **sort columns** in the table by clicking on a column's header.
 
 First, import the useSort hook:
 
@@ -35,7 +35,7 @@ Second, initialize the hook with the table's data and pass it as a plugin prop t
 
 ```javascript{4,7}
 const App = () => {
-  const data = { nodes };
+  const data = { nodes: list };
 
   const sort = useSort(data);
 
@@ -93,7 +93,7 @@ And fourth, create sort functions for each sort key:
 
 ```javascript{5-14}
 const App = () => {
-  const data = { nodes };
+  const data = { nodes: list };
 
   const sort = useSort(data, null, {
     sortFns: {
@@ -122,7 +122,7 @@ Let's now create a notifier to **get the current sort** from the table. Let's se
 
 ```javascript{5-7,12-14}
 const App = () => {
-  const data = { nodes };
+  const data = { nodes: list };
 
   const sort = useSort(data,
     {
