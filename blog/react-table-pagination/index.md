@@ -23,7 +23,7 @@ author: ""
   ]}
 />
 
-In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with its **usePagination** plugin for a pagination feature. In the previous example, you have already installed React Table Library to create a table component. Now, we will enable users to **paginated pages** in the table
+In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with its **usePagination** plugin to implement pagination. In the previous example, you installed React Table Library to create a table component. Now, you will enable your users to **paginate pages** in a table.
 
 First, import the usePagination hook:
 
@@ -31,7 +31,7 @@ First, import the usePagination hook:
 import { usePagination } from '@table-library/react-table-library/pagination';
 ```
 
-Second, initialize it with the table's data, plus an initial page and page size, and pass it as plugin prop to the Table component:
+Second, initialize it with the table's data, plus an initial page number and page size, and pass it as a plugin prop to the Table component:
 
 ```javascript{4-9,12}
 const App = () => {
@@ -52,7 +52,7 @@ const App = () => {
 };
 ```
 
-And third, create your pagination component (or inline HTML elements as in this example) and interact with the pagination feature programmatically by reading from its pagination state and writing pagination state by using its functions:
+And third, create your Pagination component (or inline HTML elements as in this example) and interact with the pagination feature programmatically by reading from its pagination state and writing to its pagination state with its functions:
 
 ```javascript{12,17-42}
 const App = () => {
@@ -102,7 +102,7 @@ const App = () => {
 };
 ```
 
-That's it. With just a few lines you have a working table pagination. What may be missing is a notifier as developer to **get pages** from the table. Let's see how this works with the usePagination hook:
+That's it. With just a few lines, you have pagination working in the table. Let's now create a notifier to **get pages** from the table. Let's see how this works with the usePagination hook:
 
 ```javascript{9,12-14}
 const App = () => {
@@ -124,9 +124,9 @@ const App = () => {
 };
 ```
 
-The onChange [callback function](/javascript-callback-function/) gives you access to the action which triggered the pagination change and to the actual pagination state with its pages of your table. By having access to this information, you can trigger further table or non-table events (e.g. side-effect such as server-side pagination) based on it.
+The onChange [callback function](/javascript-callback-function/) gives you access to the action which triggered the pagination change and to the current pagination state of your table (in this example, its page number and page size). With access to this information, you can trigger further table or non-table events (e.g. a side effect such as server-side pagination) based on it.
 
-Last, it's worth to note that the pagination object that you have passed to the table is packed with the **pagination state** -- which gives you the ability to access it any time -- and all the functions to **paginate the table programmatically**.
+In addition, it is worth noting that the pagination object that you passed to the table is packed with the **pagination state** -- which gives you the ability to access it at any time -- and to all the functions to **paginate the table programmatically**.
 
-You have only seen one possible version of pagination for the table. Since you have full access to pagination state and functions, you can do your own version of it as well. Find more pagination examples in the [documentation](https://react-table-library.com).
+You have only seen one possible version of pagination for the table. As you have full access to the pagination state and its functions, you can create your own version of it as well. Find more pagination examples in the [documentation](https://react-table-library.com).
 
