@@ -96,7 +96,7 @@ const App = () => {
   };
 
   const data = {
-    nodes: nodes.filter(
+    nodes: list.filter(
       (item) =>
         (filters.includes('SETUP') && item.type === 'SETUP') ||
         (filters.includes('LEARN') && item.type === 'LEARN')
