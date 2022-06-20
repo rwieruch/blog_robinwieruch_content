@@ -35,7 +35,7 @@ And second, initialize it with the table's data and pass it as a plugin prop to 
 
 ```javascript{4,7}
 const App = () => {
-  const data = { nodes };
+  const data = { nodes: list };
 
   const select = useRowSelect(data);
 
@@ -51,7 +51,7 @@ That's it. With just a few lines you have table selection working. Let's now cre
 
 ```javascript{4-6,8-10}
 const App = () => {
-  const data = { nodes };
+  const data = { nodes: list };
 
   const select = useRowSelect(data, {
     onChange: onSelectChange,
