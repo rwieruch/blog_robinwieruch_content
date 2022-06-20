@@ -23,7 +23,7 @@ author: ""
   ]}
 />
 
-In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with its **useRowSelect** plugin for a select feature. In the previous example, you have already installed React Table Library to create a table component. Now, we will enable users to **select a row** in the table by either clicking the row or clicking a checkbox.
+In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with its **useRowSelect** plugin to implement a select feature. In the previous example, you installed React Table Library to create a table component. Now, we will enable users to **select a row** in the table by either clicking the row or clicking a checkbox.
 
 First, import the useRowSelect hook:
 
@@ -31,7 +31,7 @@ First, import the useRowSelect hook:
 import { useRowSelect } from '@table-library/react-table-library/select';
 ```
 
-And second, initialize it with the table's data and pass it as plugin prop to the Table component:
+And second, initialize it with the table's data and pass it as a plugin prop to the Table component:
 
 ```javascript{4,7}
 const App = () => {
@@ -47,7 +47,7 @@ const App = () => {
 };
 ```
 
-That's it. With just a few lines you have a working table selection. What may be missing is a notifier as developer to **get selected rows** from the table. Let's see how this works with the useRowSelect hook:
+That's it. With just a few lines you have table selection working. Let's now create a notifier to **get selected rows** from the table. Let's see how this works with the useRowSelect hook:
 
 ```javascript{4-6,8-10}
 const App = () => {
@@ -65,13 +65,13 @@ const App = () => {
 };
 ```
 
-The onChange [callback function](/javascript-callback-function/) gives you access to the action which triggered the selection change and to the actual selection state of your table. By having access to this information, you can trigger further table or non-table events (e.g. side-effect such as data fetching) based on it.
+The onChange [callback function](/javascript-callback-function/) gives you access to the action which triggered the selection change and to the current selection state of your table. With access to this information, you can trigger further table or non-table events (e.g. a side-effect such as data fetching) based on it.
 
-Last, it's worth to note that the select object that you have passed to the table is packed with the **selection state** -- which gives you the ability to access it any time -- and all the functions to **select rows programmatically**. We will see this later in detail when using custom select components in this React table.
+In addition, it is worth noting that the select object that you have passed to the table is packed with the **selection state** -- which gives you the ability to access it any time -- and all the functions to **select rows programmatically**. We will see this later in detail when using custom select components in this React table.
 
 <Divider />
 
-Anyway, a row select in a table often comes with lots of more requirements: For example, at the moment the row select event is triggered with a row click. What about a row select by checkbox instead? Let's import the built-in table components from React Table Library:
+A row select in a table often has many more requirements: for example, at the moment the row select event is triggered by clicking on a row. What about selecting a row by clicking a checkbox instead? Let's import the built-in table components from React Table Library:
 
 ```javascript{3-4}
 import {
@@ -115,13 +115,13 @@ const App = () => {
 };
 ```
 
-By using these new composable table components, we enabled several table select features:
+By using these new composable table components, we enable several table select features:
 
-First, the top-level checkbox in the header of our table enables users to **select all rows by checkbox**; and vice versa, it allows a user to unselect all rows too. In addition, the checkbox shows with an **indeterminate** state in case only some rows are selected.
+First, the top-level checkbox in the header of our table enables a user to **select all rows by checkbox**, and it also allows a user to unselect all the rows. In addition, the checkbox is displayed with an **indeterminate** state when only some rows are selected.
 
-Second, each table row has a checkbox for selecting itself. You may notice that the row select and the checkbox select behave a bit different by default: Whereas the row select acts as **single select**, the checkbox acts as **multi select**.
+Second, each table row has a checkbox for selecting itself. You may notice that the row select and the checkbox select behave a little different by default: whereas the row select acts as a **single select**, the checkbox acts as **multi select**.
 
-In other words: If a user clicks on a row, it **selects only one row**. If a user clicks on multiple checkboxes, it keeps the selection state over multiple rows. If you would want to change the default single/multi select behavior, you could use the useRowSelect options. This way, you can inverse the behavior (example below), or **enforce only single or multiselect**:
+In other words, if a user clicks on a row, it **selects only one row**. If a user clicks on multiple checkboxes, it keeps the selection state over multiple rows. If you want to change the default single/multi select behavior, then you could use the useRowSelect options. In this way, you can inverse the behavior (example below), or **enforce only single or multi select**:
 
 ```javascript{5,15-18}
 import {
@@ -159,7 +159,7 @@ const select = useRowSelect(
 );
 ```
 
-By using the selection options, we can enforce a **row select only by checkbox** and not row click too:
+By using the selection options, we can enforce a **row select only by checkbox** and not by row click too:
 
 ```javascript{5,16}
 import {
@@ -182,7 +182,7 @@ const select = useRowSelect(
 );
 ```
 
-Last but not least, sometimes a user wants to have an **initial select state**. This can be achieved with the useRowSelect hook too, by passing in a **default selection state**:
+Sometimes a user wants to have an **initial select state**. This can be achieved with the useRowSelect hook too, by passing in a **default selection state**:
 
 ```javascript{3,9}
 // default single select
@@ -200,7 +200,7 @@ const select = useRowSelect(data, {
 
 <Divider />
 
-Finally, with React Table Library it's possible to exchange the select components entirely with custom components. In the case of our table selection plugin, we may want to exchange the checkbox components with our own HTML checkboxes or with checkboxes from a third-party library. In the following, you will get an example of how to use Material UI components in React Table Library.
+Finally, with React Table Library it's possible to replace the select components entirely with custom components. In the case of the table selection plugin, you may want to replace the checkbox components with your own HTML checkboxes or with checkboxes from a third-party library. The following example shows how to use Material UI components with React Table Library.
 
 First, import the custom component from your third-party library:
 
@@ -245,7 +245,7 @@ const App = () => {
 };
 ```
 
-Note how the select object from the useRowSelect hook gives you everything thats needed to create your custom component. This way, you can customize the select component for each table row too:
+Note how the select object from the useRowSelect hook gives you everything that is needed to create your custom component. In this way, you can customize the select component for each table row too:
 
 ```javascript{15-25}
 const App = () => {
@@ -285,8 +285,8 @@ const App = () => {
 };
 ```
 
-By having the select state and all the select functions at your disposal, you can read and write from and to the select state from anywhere.
+With the select state and all of the select functions at your disposal, you can read from and write to the select state from anywhere.
 
 <Divider />
 
-That's everything you need to know about React Table Library's select plugin. If you have feedback, please open up an issue on the [GitHub repository](https://github.com/table-library/react-table-library). If you want to read more about the table library, check out its [documentation](https://react-table-library.com).
+That's everything you need to know about React Table Library's select plugin. If you have feedback, please open up an issue on the [GitHub repository](https://github.com/table-library/react-table-library). If you want to read more about the React Table Library, check out its [documentation](https://react-table-library.com).
