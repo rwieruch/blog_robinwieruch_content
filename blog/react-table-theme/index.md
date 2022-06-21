@@ -23,7 +23,7 @@ author: ""
   ]}
 />
 
-In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with its **useTheme** plugin for theming your table with a custom style. In the previous example, you have already installed React Table Library to create a table component.
+In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with its **useTheme** plugin to theme your table with a custom style. In the previous example, you installed React Table Library to create a table component.
 
 First, import the useTheme hook:
 
@@ -37,7 +37,7 @@ And second, create a theme with it and pass it as plugin prop to the Table compo
 const THEME = {};
 
 const App = () => {
-  const data = { nodes };
+  const data = { nodes: list };
 
   const theme = useTheme(THEME);
 
@@ -49,7 +49,7 @@ const App = () => {
 };
 ```
 
-That's it. With just a few lines you created a custom theme for your table. However, the theme is empty, so let's see how we can adjust the table's style with it:
+That's it. With just a few lines, you created a custom theme for your table. However, the theme is empty, so let's see how you can style the table with it:
 
 ```javascript
 const THEME = {
@@ -72,7 +72,7 @@ const THEME = {
 };
 ```
 
-Essentially the theme is a dictionary where you can style the different components of a table. In the last example, we styled the header rows and the row components. Since both components share some of the same style, you could extract this style to a common denominator too:
+Essentially, the theme is a dictionary where you can style the different components of a table. In the example above, we styled the header rows and the row components. As both components share some of the same style, you could extract this style to a common denominator too:
 
 ```javascript{2-4}
 const THEME = {
@@ -94,7 +94,7 @@ const THEME = {
 };
 ```
 
-The following components are available as keys for styling: Table, HeaderRow, Row, HeaderCell, Cell, BaseRow, BaseCell. In the end, this should give you all the entry points to style all the different components for your table. If you have feedback, please open up an issue on the [GitHub repository](https://github.com/table-library/react-table-library). If you want to see more themes, check out the library's [documentation](https://react-table-library.com).
+The following components are available as keys for styling: Table, HeaderRow, Row, HeaderCell, Cell, BaseRow, and BaseCell. This should give you all the entry points you need to style all of the components of your table. If you have feedback, please open up an issue on the [GitHub repository](https://github.com/table-library/react-table-library). If you want to see more themes, check out the library's [documentation](https://react-table-library.com).
 
 <LinkCollection
   label="This tutorial is part 2 of 3 in this series."
