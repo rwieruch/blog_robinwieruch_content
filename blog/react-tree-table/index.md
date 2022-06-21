@@ -23,7 +23,7 @@ author: ""
   ]}
 />
 
-In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) for creating a **Tree Table** or **Tree List**. In the previous example, you have already installed React Table Library to create a table component. Now, we will enable users to expand and collapse rows in a **React Tree View**.
+In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) to create a **Tree Table** or **Tree List**. In the previous example, you installed React Table Library to create a table component. Now, we will enable users to expand and collapse rows in a **React Tree View**.
 
 First, import the useTree hook:
 
@@ -35,7 +35,7 @@ And second, initialize it with the table's data and pass it as plugin prop to th
 
 ```javascript{4,7}
 const App = () => {
-  const data = { nodes };
+  const data = { nodes: list };
 
   const tree = useTree(data);
 
@@ -47,13 +47,78 @@ const App = () => {
 };
 ```
 
-That's it. With just a few lines you have a working tree table view. Since the nodes that we have passed as data object to the tree have nested `nodes` (see previous tutorial), the tree plugin for the table will just pick these up as child rows.
+That's it. With just a few lines you have a working tree table view. As the nodes that we passed as a data object to the tree do not have nested `nodes` (see the previous tutorial), we need to use a different data object this time. The data object below has nested `nodes` and the tree plugin for the table simply picks these up as child rows.
 
-What may be missing is a notifier as developer to **expanded and collapsed rows** from the table. Let's see how this works with the useTree hook:
+```javascript
+const list = [
+  {
+    id: "1",
+    name: "VSCode",
+    deadline: new Date(2020, 1, 17),
+    type: "SETUP",
+    isComplete: true,
+  },
+  {
+    id: "2",
+    name: "JavaScript",
+    deadline: new Date(2020, 2, 28),
+    type: "LEARN",
+    isComplete: true,
+    nodes: [
+      {
+        id: "2.1",
+        name: "Data Types",
+        deadline: new Date(2020, 2, 28),
+        type: "LEARN",
+        isComplete: true,
+      },
+      {
+        id: "2.2",
+        name: "Objects",
+        deadline: new Date(2020, 2, 28),
+        type: "LEARN",
+        isComplete: true,
+      },
+      {
+        id: "2.3",
+        name: "Code Style",
+        deadline: new Date(2020, 2, 28),
+        type: "LEARN",
+        isComplete: true,
+      },
+    ],
+  },
+  {
+    id: "3",
+    name: "React",
+    deadline: new Date(2020, 3, 8),
+    type: "LEARN",
+    isComplete: false,
+    nodes: [
+      {
+        id: "3.1",
+        name: "Components",
+        deadline: new Date(2020, 3, 8),
+        type: "LEARN",
+        isComplete: true,
+      },
+      {
+        id: "3.2",
+        name: "JSX",
+        deadline: new Date(2020, 3, 8),
+        type: "LEARN",
+        isComplete: true,
+      },
+    ],
+  },
+];
+```
+
+Let's now create a notifier to **expand and collapse rows** of the table. Let's see how this works with the useTree hook:
 
 ```javascript{4-6,8-10}
 const App = () => {
-  const data = { nodes };
+  const data = { nodes: list };
 
   const tree = useTree(data, {
     onChange: onTreeChange,
@@ -67,13 +132,13 @@ const App = () => {
 };
 ```
 
-The onChange [callback function](/javascript-callback-function/) gives you access to the action which triggered the tree change and to the actual tree state of your table. By having access to this information, you can trigger further table or non-table events (e.g. side-effect such as server-side lazy fetching) based on it.
+The onChange [callback function](/javascript-callback-function/) gives you access to the action which triggered the tree change and to the current tree state of your table. With access to this information, you can trigger further table or non-table events (e.g. a side-effect such as server-side lazy fetching) based on it.
 
-Last, it's worth to note that the tree object that you have passed to the table is packed with the **tree state** -- which gives you the ability to access it any time -- and all the functions to **expand and collapse rows programmatically**.
+In addition, it is worth noting that the tree object that you passed to the table is packed with the **tree state** -- which gives you the ability to access it any time -- and all the functions to **expand and collapse rows programmatically**.
 
 <Divider />
 
-Anyway, a tree view in a table often comes with lots of more requirements: For example, at the moment the tree expand/collapse event is triggered with a row click. What about the same behavior on a button instead? Let's import the built-in table component from React Table Library:
+A tree view in a table often has many more requirements: for example, at the moment the tree expand/collapse event is triggered by clicking on a row. What about expanding/collapsing a tree by clicking on a button instead? Let's import a built-in table component from React Table Library:
 
 ```javascript{3}
 import {
@@ -82,7 +147,7 @@ import {
 } from '@table-library/react-table-library/tree';
 ```
 
-And use these new tree component in the table composition:
+And use this new tree component in the table composition:
 
 ```javascript{15-17}
 const App = () => {
@@ -113,7 +178,7 @@ const App = () => {
 };
 ```
 
-By using this new composable table component, we enabled our users to get a visual feedback of expandable/collapsable branches in our tree table. By using the tree options, we can enforce a **tree expand/collapse only by button** and not row click too:
+By using this new composable table component, we enable our users to get visual feedback of the expandable/collapsable branches of the tree table. By using the tree options, we can enforce a **tree expand/collapse only by button** and not by row click too:
 
 ```javascript{4,14-16}
 import {
@@ -135,7 +200,7 @@ const tree = useTree(
 );
 ```
 
-Last but not least, sometimes a user wants to have an **initial tree state**. This can be achieved with the useTree hook too, by passing in a **default tree state**:
+Sometimes a user wants to have an **initial tree state**. This can be achieved with the useTree hook too, by passing in a **default tree state**:
 
 ```javascript{2-4}
 const tree = useTree(data, {
@@ -148,7 +213,7 @@ const tree = useTree(data, {
 
 <Divider />
 
-Finally, with React Table Library it's possible to exchange the tree icon with a custom tree icon. In the following, you will get an example of how to use Material UI icons as components in React Table Library.
+Finally, with React Table Library it's possible to replace the tree icon with a custom tree icon. The following example shows how to use Material UI components in React Table Library.
 
 First, import the custom icons from your third-party library:
 
@@ -179,4 +244,4 @@ const tree = useTree(
 );
 ```
 
-That's everything you need to know about React Table Library's tree view plugin. If you have feedback, please open up an issue on the [GitHub repository](https://github.com/table-library/react-table-library). If you want to read more about the table library, check out its [documentation](https://react-table-library.com).
+That's everything you need to know about React Table Library's tree view plugin. If you have feedback, please open up an issue on the [GitHub repository](https://github.com/table-library/react-table-library). If you want to read more about the React Table Library, check out its [documentation](https://react-table-library.com).
