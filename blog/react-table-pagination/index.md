@@ -35,7 +35,7 @@ Second, initialize it with the table's data, plus an initial page number and pag
 
 ```javascript{4-9,12}
 const App = () => {
-  const data = { nodes };
+  const data = { nodes: list };
 
   const pagination = usePagination(data, {
     state: {
@@ -56,7 +56,7 @@ And third, create your Pagination component (or inline HTML elements as in this 
 
 ```javascript{12,17-42}
 const App = () => {
-  const data = { nodes };
+  const data = { nodes: list };
 
   const pagination = usePagination(data, {
     state: {
@@ -106,7 +106,7 @@ That's it. With just a few lines, you have pagination working in the table. Let'
 
 ```javascript{9,12-14}
 const App = () => {
-  const data = { nodes };
+  const data = { nodes: list };
 
   const pagination = usePagination(data, {
     state: {
