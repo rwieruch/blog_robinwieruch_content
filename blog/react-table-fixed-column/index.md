@@ -28,14 +28,14 @@ author: ""
   ]}
 />
 
-In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with a **fixed column**. In the previous example, you installed React Table Library to create a Table component and gave it a theme. Now, you will enable your users to make a **column sticky** to the side:
+In this tutorial, I want to show you how to use [React Table Library](https://react-table-library.com) with a **fixed column**. In the previous example, you installed React Table Library to create a table component and gave it a theme. Now, you will enable your users to make a **column sticky** to the side:
 
 ```javascript{9-14,16-21}
 ...
 import { useTheme } from '@table-library/react-table-library/theme';
 
 const App = () => {
-  const data = { nodes };
+  const data = { nodes: list };
 
   const theme = useTheme({
     BaseCell: `
