@@ -24,7 +24,7 @@ We will use the feature rich [Hacker News API](https://hn.algolia.com/api) for f
 import * as React from 'react';
 import axios from 'axios';
 
-const BASE_URL = 'http://hn.algolia.com/api/v1/search?';
+const BASE_URL = 'http://hn.algolia.com/api/v1/search';
 
 const App = () => {
   const [data, setData] = React.useState({ nodes: [] });
@@ -81,7 +81,7 @@ const App = () => {
 
           <Body>
             {tableList.map((item) => (
-              <Row key={item.id} item={item}>
+              <Row key={item.objectID} item={item}>
                 <Cell>
                   <a href={item.url}>{item.title}</a>
                 </Cell>
@@ -302,9 +302,9 @@ const App = () => {
 };
 ```
 
-For the initial request, incorporate the new filter property by passing it as params and by conditionally concatenating it to the requested URL:
+For the initial request, incorporate the new filter property by passing it as params and by conditionally concatenating it to the requested URL (note that in this example, the variable url must be declared with let and not const as previously):
 
-```javascript{7-9,19}
+```javascript{5-9,19}
 const App = () => {
   const [data, setData] = React.useState({ nodes: [] });
 
