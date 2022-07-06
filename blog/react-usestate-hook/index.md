@@ -12,11 +12,11 @@ author: ""
 
 <Sponsorship />
 
-Since [React Hooks](/react-hooks/) have been released, [function components](/react-function-component/) can use state and side-effects. There are two hooks that are used for modern state management in React: useState and useReducer. This tutorial goes step by step through a useState example in React for getting you started with this React Hook for state management.
+Since [React Hooks](/react-hooks/) have been released, [function components](/react-function-component/) can use state and side effects. There are two hooks that are used for modern state management in React: useState and useReducer. This tutorial goes step by step through a useState example in React to get you started with this React Hook for state management.
 
 # Simple State in React
 
-In the past, state couldn't be used in function components. Hence they called them functional stateless components. However, with the release of React Hooks, state can be deployed in this kind of components too and thus they got rebranded by the React community to function components. A straightforward example on how to use state in a function component with the useState hook is demonstrated in the following example:
+In the past, state couldn't be used in function components. Hence they called them functional stateless components. However, with the release of React Hooks, state can be used in this kind of component too, and so they were rebranded by the React community to function components. A straightforward example on how to use state in a function component with the useState hook is demonstrated in the following example:
 
 ```javascript
 const App = () => {
@@ -47,17 +47,17 @@ const App = () => {
 };
 ```
 
-The useState function takes as argument a value for the initial state. In this case, the count starts out with 0. In addition, the hook returns an array of two values: `count` and `setCount`. It's up to you to name the two values, because they are [destructured from the returned array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) where renaming is allowed.
+The useState function takes as argument a value for the initial state. In this case, the count starts at 0. In addition, the hook returns an array of two values: `count` and `setCount`. It's up to you to name the two values, because they are [destructured from the returned array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) where renaming is allowed.
 
-The first value, in this case `count`, represents the current state. The second value, in this case `setCount`, is a function to update the state with anything that's passed to this function when calling it. This function is also called state update function. Every time this function is called, React re-renders the component to render the recent state.
+The first value, in this case `count`, represents the current state. The second value, in this case `setCount`, is a function to update the state with anything that's passed to this function when calling it. This function is also called the state update function. Every time this function is called, React re-renders the component to render the new state.
 
 You can also read this [article, if you want to know how state management has changed from class components to function components](/react-hooks-migration/) in case you are dealing with class components as well.
 
-That's everything you need to know to get started with simple state management in React. If you are interested about React's useState caveats for growing React applications, continue to read.
+That's everything you need to know to get started with simple state management in React. If you are interested about React's useState caveats for growing React applications, then continue to read.
 
 # Complex State in React
 
-So far, the example has only shown useState with a JavaScript primitive. That's where useState shines. It can be used for integers, booleans, strings and also arrays. However, once you plan to manage more complex state with objects or more complex arrays, you should check out [React's useReducer hook](/react-usereducer-hook/). There are various scenarios where useReducer outperforms useState:
+So far, the example has only shown useState with a JavaScript primitive. That's where useState shines. It can be used for integers, booleans, strings, and also arrays. However, once you plan to manage more complex state with objects or more complex arrays, you should check out [React's useReducer hook](/react-usereducer-hook/). There are various scenarios where useReducer outperforms useState:
 
 * complex state containers
 * complex state transitions
@@ -133,8 +133,8 @@ const App = () => {
 export default App;
 ```
 
-The function offers you the state at the time of executing the function. This way, you never operate on any stale state. Therefore a good rule of thumb may be: Always use a function in useState's update function if your state update depends on your previous state.
+The function offers you the state at the time of executing the function. This way, you never operate on any stale state. Therefore, a good rule of thumb may be: always use a function in useState's update function if your state update depends on your previous state.
 
 <Divider />
 
-React's useState is the go-to hook to manage state. It can be used [with useReducer and useContext](/react-state-usereducer-usestate-usecontext/) for modern state management in React. [Compared to useReducer, it is the more lightweight approach to manage state.](/react-usereducer-vs-usestate/).
+React's useState is the go-to hook to manage state. It can be used [with useReducer and useContext](/react-state-usereducer-usestate-usecontext/) for modern state management in React. [Compared to useReducer, it is the more lightweight approach to manage state.](/react-usereducer-vs-usestate/)
