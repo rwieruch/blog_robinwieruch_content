@@ -228,7 +228,7 @@ ReactDOM.render(
 module.hot.accept();
 ```
 
-Next, create a this new file in your *src/* folder:
+Next, create this new file in your *src/* folder:
 
 ```javascript
 cd src/
