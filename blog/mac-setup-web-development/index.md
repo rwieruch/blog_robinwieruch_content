@@ -250,6 +250,7 @@ The look and feel we want to achieve from our terminal:
 * Preferences ->
   * General -> Window
     * unselect "Native full screen windows"
+    * select "close windows when closing an app"
   * Appearance ->
     * Windows
       * select "Hide scrollbars"

@@ -255,7 +255,7 @@ const Text = ({ className, children }) => {
 
 const App = () => {
   // return (
-  //   <div>
+  //   <div className="container">
   //     <Text className="danger">Hello React</Text>
   //     <Text className="info">You rock, React!</Text>
   //   </div>
