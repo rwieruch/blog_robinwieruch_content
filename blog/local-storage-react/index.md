@@ -157,7 +157,7 @@ const App = () => {
 export default App;
 ```
 
-Now, whenever `isOpen` gets changed, the hook for the side-effect will run and to its thing (here: saving it to the local storage).
+Now, whenever `isOpen` gets changed, the hook for the side-effect will run and do its thing (here: saving it to the local storage).
 
 # React Local Storage Hook
 
@@ -220,7 +220,7 @@ As you can see, the [session storage](https://developer.mozilla.org/en-US/docs/W
 
 # How to Cache Data in React
 
-Let's take the local storage usage in React one step further by using it as cache for remote data which persists over browser sessions. Therefore, in the next example, you will fetch data from an remote [API](/what-is-an-api-javascript/) and store it in your React component's state.
+Let's take the local storage usage in React one step further by using it as cache for remote data which persists over browser sessions. Therefore, in the next example, you will fetch data from a remote [API](/what-is-an-api-javascript/) and store it in your React component's state.
 
 <ReadMore label="How to fetch data in React" link="/react-hooks-fetch-data/" />
 
