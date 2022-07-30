@@ -177,7 +177,7 @@ Now try the functionality in the browser. First, make an initial search to trigg
 
 # Configure Higher Order Components
 
-There is one last optimization left. Unfortunately, both HOCs that provide the infinite scroll and paginated list behavior are dependent on each other. Both use props that are not really used in the higher order component itself. These props are unnecessary dependencies. For instance, the infinite scroll should not know about the `isError` property. It would be better to make the components unaware of the condition of these properties. These conditions could be extracted as configurations for the higher order components. Once again, if you are not sure about configuration in a higher order component, then you can read [a gentle introduction to higher order components article](/react-higher-order-components/).
+There is one last optimization left. Unfortunately, both HOCs that provide the infinite scroll and paginated list behavior are dependent on each other. Both use props that are not really used in the higher order component itself. These props are unnecessary dependencies. For instance, the infinite scroll should not know about the `isError` property. It would be better to make the components unaware of the condition of these properties. These conditions could be extracted as configurations for the higher order components. Once again, if you are not sure about configuration in a higher order component, then you can read [the gentle introduction to higher order components article](/react-higher-order-components/).
 
 Let's extract the conditions as a configuration for each higher order component. First, give your higher order components a `conditionFn` function as configuration.
 
