@@ -170,7 +170,7 @@ The term Web 2.0 and its popularity waned around 2010 as the features of Web 2.0
 
 The rise of [single-page applications (SPAs)](https://en.wikipedia.org/wiki/Single-page_application) after 2010 made JavaScript popular. But I am getting ahead of myself. Prior to this era, websites were mainly made with HTML plus CSS and only a sprinkle of JavaScript. The little JavaScript was used for animations or DOM manipulations (e.g. removing, adding, modifying of HTML elements), but not much beyond this. And [jQuery](https://en.wikipedia.org/wiki/JQuery) was one of the most popular libraries to perform such tasks.
 
-But who would have thought that entire applications could be build with JavaScript? A few of the earlier libraries/frameworks to write single-page applications in JavaScript were Knockout.js, Ember.js, and Angular.js; while React.js and Vue.js were released later. Most of them are still very active to this day in modern web applications.
+But who would have thought that entire applications could be built with JavaScript? A few of the earlier libraries/frameworks to write single-page applications in JavaScript were Knockout.js, Ember.js, and Angular.js; while React.js and Vue.js were released later. Most of them are still very active to this day in modern web applications.
 
 Prior to single-page applications, a browser would request the HTML file and all linked files from a web server for a website. If a user happens to navigate from page (e.g. /home) to page (e.g. /about) within the same domain (e.g. mywebsite.com), there would be *a new request to the web server for every navigation*.
 
@@ -209,7 +209,7 @@ ReactDOM.render(
 );
 ```
 
-In this little React application, only a variable called `title` is displayed in a HTML `div` element. However, everything between the HTML `div` element can be replaced with an entire HTML structure built with React components and its templating syntax JSX.
+In this little React application, only a variable called `title` is displayed in an HTML `div` element. However, everything between the HTML `div` element can be replaced with an entire HTML structure built with React components and its templating syntax JSX.
 
 ```javascript
 import * as React from 'react';
@@ -486,8 +486,8 @@ When using the popular Next.js framework, which sits on top of React, you are st
 
 This is different from client-side rendering, because there React only takes over on the client-side, and only starts to request the data to fill in the gaps once it got initially rendered with no data on the client. With SSR React, you can interpolate the data in React already on the server, but also can choose to fetch the data on the client when the application got rendered. Both options, client-side rendering and server-side rendering can be mixed up.
 
-* Advantage: Client receives HTML already populated with data (improvements for UX and SEO)
-* Disadvantage: Client may has to wait longer, because the populated HTML gets created on the fly on the server (HTTP caching minimizes the problem).
+* Advantage: Client receives HTML already populated with data (improvements for UX and SEO).
+* Disadvantage: Client may have to wait longer, because the populated HTML gets created on the fly on the server (HTTP caching minimizes the problem).
 
 ### Exercises:
 
