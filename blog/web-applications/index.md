@@ -168,7 +168,7 @@ The term Web 2.0 and its popularity waned around 2010 as the features of Web 2.0
 
 # Single-Page Applications
 
-The rise of [single-page applications (SPAs)](https://en.wikipedia.org/wiki/Single-page_application) after 2010 made JavaScript popular. But I am getting ahead of myself. Prior to this era, website were mainly made with HTML plus CSS and only a sprinkle of JavaScript. The little JavaScript was used for animations or DOM manipulations (e.g. removing, adding, modifying of HTML elements), but not much beyond this. And [jQuery](https://en.wikipedia.org/wiki/JQuery) was one of the most popular libraries to perform such tasks.
+The rise of [single-page applications (SPAs)](https://en.wikipedia.org/wiki/Single-page_application) after 2010 made JavaScript popular. But I am getting ahead of myself. Prior to this era, websites were mainly made with HTML plus CSS and only a sprinkle of JavaScript. The little JavaScript was used for animations or DOM manipulations (e.g. removing, adding, modifying of HTML elements), but not much beyond this. And [jQuery](https://en.wikipedia.org/wiki/JQuery) was one of the most popular libraries to perform such tasks.
 
 But who would have thought that entire applications could be build with JavaScript? A few of the earlier libraries/frameworks to write single-page applications in JavaScript were Knockout.js, Ember.js, and Angular.js; while React.js and Vue.js were released later. Most of them are still very active to this day in modern web applications.
 
