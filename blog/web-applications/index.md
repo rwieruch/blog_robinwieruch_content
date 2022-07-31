@@ -511,7 +511,7 @@ In contrast to server-side rendering React, the static files are not created on 
 
 <Divider />
 
-If anything is missing in this marathon from website to web application, please let me know. I hope you enjoyed reading it! If you think it would be a good idea to add more content to this blog post and release it as 101 web development, let me know and sign up for my Newsletter to hear more about it :-)
+If anything is missing in this marathon from website to web application, please let me know. I hope you enjoyed reading it! If you think it would be a good idea to add more content to this blog post and release it as 101 web development, let me know and [sign up for my Newsletter](https://www.getrevue.co/profile/rwieruch) to hear more about it :-).
 
 
 
