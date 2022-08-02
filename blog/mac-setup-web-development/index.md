@@ -467,9 +467,9 @@ The look and feel we want to achieve from our IDE:
   "explorer.confirmDragAndDrop": false,
   "js/ts.implicitProjectConfig.checkJs": true,
   "editor.formatOnPaste": true,
-  "editor.formatOnType": true
+  "editor.formatOnType": true,
+  "extensions.ignoreRecommendations": true
 }
-
 ```
 
 # Sublime
