@@ -21,7 +21,7 @@ A brief summary of how to use React's useRef Hook for using a ref with TypeScrip
 ```javascript
 import * as React from 'react';
 
-function App() {
+const App = () => {
   const ref = React.useRef();
 
   React.useEffect(() => {
@@ -31,7 +31,7 @@ function App() {
   }, []);
 
   return <input ref={ref} />;
-}
+};
 
 export default App;
 ```
@@ -41,7 +41,7 @@ When using this [function component](/react-function-component/) with its useRef
 ```javascript{4}
 import * as React from 'react';
 
-function App() {
+const App = () => {
   const ref = React.useRef<HTMLInputElement>(null);
 
   React.useEffect(() => {
@@ -51,7 +51,7 @@ function App() {
   }, []);
 
   return <input ref={ref} />;
-}
+};
 
 export default App;
 ```
@@ -61,7 +61,7 @@ Essentially that's already it if you want to use an immutable ref for the HTML e
 ```javascript{6,9,14,24}
 import * as React from 'react';
 
-function App() {
+const App = () => {
   const [count, setCount] = React.useState<number>(0);
 
   const ref = React.useRef<number>(0);
@@ -85,7 +85,7 @@ function App() {
       <div>Buttons {ref.current} times clicked</div>
     </>
   );
-}
+};
 
 export default App;
 ```
@@ -105,7 +105,7 @@ interface CounterTracker {
   decrement: number;
 }
 
-function App() {
+const App = () => {
   const [count, setCount] = React.useState<number>(0);
 
   const ref = React.useRef<CounterTracker>({
@@ -138,7 +138,7 @@ function App() {
       <div>Decrement clicked: {ref.current.decrement}</div>
     </>
   );
-}
+};
 
 export default App;
 ```
@@ -152,7 +152,7 @@ If you happen to start with an instance variable that's not initialized in React
 ```javascript{7}
 import * as React from 'react';
 
-function App() {
+const App = () => {
   const [seconds, setSeconds] = React.useState<number>(0);
   const [toggle, setToggle] = React.useState<boolean>(false);
 
@@ -188,7 +188,7 @@ function App() {
       <button onClick={resetStopwatch}>Reset</button>
     </>
   );
-}
+};
 
 export default App;
 ```
