@@ -24,9 +24,9 @@ We will see how a small application can be built in vanilla JavaScript and React
 
 # Solving a problem in vanilla JavaScript
 
-Let's build together an application in vanilla JavaScript. The problem: Search stories from [Hacker News](https://hn.algolia.com/api) and show the result in a list in your browser. The application only needs an input field for the search request and a list to show the result. If a new search request is made, the list has to be updated in the browser.
+Let's build an application in vanilla JavaScript together. The problem: search stories from [Hacker News](https://hn.algolia.com/api) and show the result in a list in your browser. The application only needs an input field for the search request and a list to show the result. If a new search request is made, the list should be updated in the browser.
 
-In a folder of your choice, create a *index.html* file. Let's write a couple of lines of HTML in this file. First, there has to be HTML boilerplate to render the content to the browser.
+Create an *index.html* file in a folder. Let's write a couple of lines of HTML in this file. First, there has to be some HTML boilerplate to render the content to the browser.
 
 ```html
 <!DOCTYPE html>
@@ -40,7 +40,7 @@ In a folder of your choice, create a *index.html* file. Let's write a couple of 
 </html>
 ```
 
-The important part is the imported *index.js* file. That's the file where the vanilla JavaScript code will end up. You can create it next to your *index.html* file. But before you start to write JavaScript, let's add some more HTML. The application should show an input field and a button to request data based on a search query from the input field.
+The important part is the imported *index.js* file. That's the file where the vanilla JavaScript code will be. Create this file in the same folder as your *index.html* file. But before you start to write JavaScript, let's add some more HTML. The application should show an input field and a button to request data based on a search query from the input field.
 
 ```html{7,8,9,10,11}
 <!DOCTYPE html>
@@ -59,17 +59,17 @@ The important part is the imported *index.js* file. That's the file where the va
 </html>
 ```
 
-You might have noticed that there is no container to show the requested content yet. In a perfect world, there would be some kind of element which has multiple elements itself to show the requested stories from Hacker News. Since this content is unknown before the request happens, it's a better approach to render it dynamically after the request is made. You will do this in JavaScript by using the DOM API for HTML manipulations in the next part.
+You might have noticed that there is no container to show the requested content yet. In a perfect world, there would be some kind of element, which has multiple elements itself, to show the requested stories from Hacker News. As this content is unknown before the request happens, it's a better approach to render it dynamically after the request is made. You will do this in JavaScript by using the DOM API for HTML manipulations in the next part.
 
-The HTML element with the id `app` can be used to hook JavaScript into the DOM later on. In addition, the button element can be used to assign a click event listener. That's the perfect place to start the JavaScript code. Let's start with the *index.js* file.
+The HTML element with the id `app` can be used to hook JavaScript into the DOM later on. In addition, the button element can have a click event listener assigned to it. That's the perfect place to start writing the JavaScript code. Let's start with the *index.js* file.
 
 ```javascript
 function addButtonEvent() {
   document.getElementById('searchButton')
     .addEventListener('click', function () {
-      // (4) remove old list if there is already a list
+      // (4) remove old list if there already is a list
 
-      // (1) get value from input field
+      // (1) get value from the input field
       // (2) search list from API with value
 
       // (3) append list to DOM
@@ -81,7 +81,7 @@ addButtonEvent();
 
 That's basically everything needed for the application. Once the *index.js* file runs, there will be an event listener added to the button element with the id `searchButton`. You can find the button element in your *index.html* file.
 
-The last line is important because someone has to call the function in the first place. The function itself is only the declaration but not the execution of it. All the following implementations will be just a couple of more functions which are executed once someone clicks the button.
+The last line is important because something has to call the function in the first place. The function itself is only the definition, and not the execution of it. The function is executed by the function call on the last line. The following implementation will be just a few more functions which are executed once a user clicks the button.
 
 The comments in the code show you the business logic which will be implemented step by step. Let's try to keep the code concise here. You can extract the function which is called on a button click event.
 
@@ -96,7 +96,7 @@ function onSearch() {
 };
 ```
 
-Now let's implement the business logic once the button is clicked. There are three things which need to happen. First, you need to retrieve the value from the HTML input field which is used for the search request. Second, you have to make the asynchronous search request. And third, you need to append the result from the search request to the DOM.
+Now let's implement the business logic once the button is clicked. There are three things which need to happen. First, you need to retrieve the value from the HTML input field which is used for the search request. Second, you have to make an asynchronous search request. And third, you need to append the result from the search request to the DOM.
 
 ```javascript{7,8}
 function addButtonEvent() {
@@ -110,7 +110,7 @@ function onSearch() {
 };
 ```
 
-There are three functions now which you will implement in the following steps. First, let's retrieve the value from the input element with the id `searchInput`.
+There are three functions which you will now implement in the following steps. First, let's retrieve the value from the input element with the id `searchInput`.
 
 ```javascript{6,7,8}
 function onSearch() {
@@ -123,7 +123,7 @@ function getValueFromElementById(id) {
 };
 ```
 
-If you type something in the rendered HTML input field in your browser, it should be picked up once you click the button. Now this value should be used in the `doSearch()` function which you will implement in the second part. The function returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and thus the `then()` method can be used to append the result (list) in the third step.
+If you type something in the rendered HTML input field in your browser, it should be retrieved once you click the button. Now this value should be used in the `doSearch()` function which you will implement in the next part. The function returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and thus the `then()` method can be used to append the result (list) in the third step.
 
 ```javascript{1,3,4,5,6,7,8,9,10,11}
 var BASE_URL = 'https://hn.algolia.com/api/v1/';
@@ -145,7 +145,7 @@ function onSearch() {
 };
 ```
 
-The function uses the [native fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) which returns a promise. For the sake of simplification, I kept out the error handling in this scenario which could be implemented in a `catch()` block. The request is made to the Hacker News API and the value from the input field is inserted by using string concatenation. Afterward, the response is transformed and only the `hits` (list) are returned from the result. The third step is to append the list to the DOM.
+The function uses the [native fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) which returns a promise. For the sake of simplicity, I left out the error handling in this scenario. This could be implemented in a `catch()` block. The request is made to the Hacker News API and the value from the input field is inserted by using string concatenation. Afterward, the response is transformed and only the `hits` (list) are returned from the result. The third step is to append the list to the DOM.
 
 ```javascript{6,7,8,9,10,11,12}
 function onSearch() {
@@ -162,7 +162,7 @@ function appendList(list) {
 };
 ```
 
-First, you create a new HTML element and second you give the element an id attribute to check. This id can be used later on to check whether there is already a list in the DOM once a second request is made. Third, you append the new element to your DOM by using the HTML element with the id `app` which you can find in the *index.html* file. What's missing is appending the list of items.
+First, you create a new HTML element, and then you give the element an `id` attribute to check. This `id` can be used later on to check whether there is already a list in the DOM once a second request is made. Third, you can append the new element to your DOM by using the HTML element with the id `app`, which you can find in the *index.html* file. You now have to append the list of items.
 
 ```javascript{11,12,13,14,15}
 function onSearch() {
@@ -183,7 +183,7 @@ function appendList(list) {
 };
 ```
 
-For each item in the list, you create a new HTML element, append text to the element and append the element to the list HTML element. You can extract the function to make it concise again. Therefore you have to use a higher order function to pass the list element to the function.
+For each item in the list, you create a new HTML element, append text to the element, and append the element to the list HTML element. You can extract the function to make it concise again. Therefore, you have to use a higher order function to pass the list element to the function.
 
 ```javascript{11,14,15,16,17,18,19,20}
 function onSearch() {
@@ -208,9 +208,9 @@ function appendItem(listNode) {
 };
 ```
 
-That's it for the implementation of the three steps. First, retrieve the value from the input field, Second, perform an asynchronous request with the value to retrieve the list from a result from the Hacker News API. And third, append the list and item elements to your DOM.
+That's it for the implementation of the three steps. First, retrieve the value from the input field. Second, perform an asynchronous request with the value to retrieve the list from the result from the Hacker News API. And third, append the list and item elements to your DOM.
 
-Last but not least, there is one crucial part missing. You shouldn't forget to remove the list from the DOM when requesting a new list from the API. Otherwise, the new result from the search request will just be appended to your previous result in the DOM.
+Finally, there is one crucial part missing. You should not forget to remove the list from the DOM when requesting a new list from the API. Otherwise, the new result from the search request will just be appended to your previous result in the DOM.
 
 ```javascript{2,8,9,10,11,12,13,14}
 function onSearch() {
@@ -229,15 +229,15 @@ function removeList() {
 }
 ```
 
-You can see that it was quite some work to solve the defined problem from the article. There needs to be someone in charge of the DOM. The DOM update happens in a very naive way here, because it just removes a previous result if there is already one and appends the new result to the DOM again. Everything works just fine to solve the defined problem, but the code gets complex once you add functionality or extend the features of the application.
+You can see that there was quite a lot of work to do to solve the defined problem from the article. There needs to be something in charge of the DOM. The DOM update is performed in a very naive way here, because the update just removes the previous result, if there is one, and appends the new result to the DOM. Everything works just fine to solve the defined problem, but the code gets complex once you add functionality or extend the features of the application.
 
-If you haven't npm installed, install it first via [node](https://nodejs.org/en/). Finally, you can test your two files as application in your local browser by using a HTTP server on the command line with npm in the directory where you have created your index.html and index.js files:
+If you haven't already installed npm, install it first from [node](https://nodejs.org/en/). Finally, you can test your two files as an application in your local browser by using a HTTP server on the command line with npm in the directory where you have created your *index.html* and *index.js* files:
 
 ```javascript
 npx http-server
 ```
 
-The output should give you a URL where you can find your application in the browser.
+The output from this command should give you a URL where you can find your application in the browser.
 
 # Solving the same problem in React
 
