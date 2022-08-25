@@ -282,7 +282,7 @@ const LoginForm = () => {
 export { LoginForm };
 ```
 
-The strategy unifies all the form state into one object and all event handlers into one handler. By leveraging each form field's identifier, we can use it in the unified handler to update the state by ysing the identifier as dynamic key.
+The strategy unifies all the form state into one object and all event handlers into one handler. By leveraging each form field's identifier, we can use it in the unified handler to update the state by using the identifier as dynamic key.
 
 This scales a controlled form in React well, because state, handler, and form field are not in a 1:1:1 relationship anymore. In contrast, each handler can reuse the state and handler.
 
