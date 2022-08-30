@@ -14,11 +14,11 @@ author: ""
 
 Generics in TypeScript are not easy to understand when just starting out with TS. Personally I had my struggles with them in the beginning, however, once you get how they are used, they make you a more complete TypeScript developer.
 
-In this TypeScript tutorial, you will learn **how to use generics in TypeScript**. We will start with defining a JavaScript arrow expression (also called arrow function) which takes an object (here: `animal`) and returns its `age` property:
+In this TypeScript tutorial, you will learn **how to use generics in TypeScript**. We will start with defining a JavaScript arrow expression (also called arrow function) which takes an object (here: `dog`) and returns its `age` property:
 
 ```javascript
-const getAge = (animal) => {
-  return animal.age;
+const getAge = (dog) => {
+  return dog.age;
 };
 ```
 
@@ -37,16 +37,16 @@ console.log(getAge(trixi));
 Now if we'd want to define this code in TypeScript, it would change the following way:
 
 ```typescript{1-4,6,10}
-type Animal = {
+type Dog = {
   name: string;
   age: number;
 };
 
-const getAge = (animal: Animal) => {
-  return animal.age;
+const getAge = (dog: Dog) => {
+  return dog.age;
 };
 
-const trixi: Animal = {
+const trixi: Dog = {
   name: 'Trixi',
   age: 7,
 };
@@ -55,7 +55,7 @@ console.log(getAge(trixi));
 // 7
 ```
 
-However, the function is *specific* to one TypeScript type (here: `Animal`) now. If we would be using a value of a different type as argument (e.g. `Person`), there would be a TypeScript error, because both types differ in their structure:
+However, the function is *specific* to one TypeScript type (here: `Dog`) now. If we would be using a value of a different type as argument (e.g. `Person`), there would be a TypeScript error, because both types differ in their structure:
 
 ```typescript
 type Person = {
@@ -71,22 +71,22 @@ const robin: Person = {
 };
 
 console.log(getAge(robin));
-// Argument of type 'Person' is not assignable to parameter of type 'Animal'.
-//   Property 'name' is missing in type 'Person' but required in type 'Animal'.
+// Argument of type 'Person' is not assignable to parameter of type 'Dog'.
+//   Property 'name' is missing in type 'Person' but required in type 'Dog'.
 ```
 
-The arrow function expects an argument of type Animal, as it's defined in the function signature, but in the previous example it received an argument of type Person which has different properties (even though both share the `age` property):
+The arrow function expects an argument of type Dog, as it's defined in the function signature, but in the previous example it received an argument of type Person which has different properties (even though both share the `age` property):
 
 ```typescript
-const getAge = (animal: Animal) => {
-  return animal.age;
+const getAge = (dog: Dog) => {
+  return dog.age;
 };
 ```
 
 In addition to giving the parameter a more abstract yet [descriptive name](/javascript-naming-conventions/), one solution would be using a **TypeScript union type**:
 
 ```typescript{1-2}
-const getAge = (mammal: Animal | Person) => {
+const getAge = (mammal: Dog | Person) => {
   return mammal.age;
 };
 ```
@@ -97,15 +97,15 @@ Let's enter TypeScript generics ...
 
 # Generics in TypeScript
 
-Once a project grows horizontally in size (e.g. more domains in a project), an abstract function like `getAge` may receive more than two types (here: `Animal` and `Person`) as arguments. In conclusion one would have to scale the union type horizontally too, which is tiresome (but still working) and error prone.
+Once a project grows horizontally in size (e.g. more domains in a project), an abstract function like `getAge` may receive more than two types (here: `Dog` and `Person`) as arguments. In conclusion one would have to scale the union type horizontally too, which is tiresome (but still working) and error prone.
 
 ```typescript
-type Mammal = Dog | Cat | Horse | Person;
+type Mammal = Person | Dog | Cat | Horse;
 ```
 
-In the orthogonal direction, once a project grows vertically in size, functions that are getting more reusable and therefore abstract (like `getAge`) should rather deal with generic types instead of domain specific types (e.g. `Animal`, `Person`).
+In the orthogonal direction, once a project grows vertically in size, functions that are getting more reusable and therefore abstract (like `getAge`) should rather deal with generic types instead of domain specific types (e.g. `Dog`, `Person`).
 
-Popular Use Case: Most often you will see this in third-party libraries which do not know about the domain of your project (e.g. animal, person), but need to anticipate any type which fulfils certain requirements (e.g. required `age` property). Here third-party libraries cannot use union types anymore as an escape hatch, because they are not in the hands of the developer anymore who is working on the actual project.
+Popular Use Case: Most often you will see this in third-party libraries which do not know about the domain of your project (e.g. dog, person), but need to anticipate any type which fulfils certain requirements (e.g. required `age` property). Here third-party libraries cannot use union types anymore as an escape hatch, because they are not in the hands of the developer anymore who is working on the actual project.
 
 In conclusion, if the `getAge` function should handle any entity with an `age` property, it must be generic (read: abstract). Therefore we need to use some kind of placeholder for using a **generic type** which is most often implemented as T:
 
@@ -114,8 +114,8 @@ type Mammal = {
   age: number;
 };
 
-const getAge = <T extends Mammal>(animal: T) => {
-  return animal.age;
+const getAge = <T extends Mammal>(mammal: T) => {
+  return mammal.age;
 };
 ```
 
@@ -144,8 +144,8 @@ type Mammal = {
   age: number;
 };
 
-const getAge = <T extends Mammal>(animal: T) => {
-  return animal.age;
+const getAge = <T extends Mammal>(mammal: T) => {
+  return mammal.age;
 };
 
 type Person = {
