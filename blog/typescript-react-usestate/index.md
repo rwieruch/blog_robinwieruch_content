@@ -2,7 +2,7 @@
 title: "TypeScript: React useState Hook"
 description: "How to use React's useState Hook with TypeScript by automatically inferring the type or by manually using type assertion ..."
 date: "2022-08-02T08:52:46+02:00"
-categories: ["React", "TypeScript"]
+categories: ["React", "React Hooks", "TypeScript"]
 keywords: ["typescript react usestate"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
