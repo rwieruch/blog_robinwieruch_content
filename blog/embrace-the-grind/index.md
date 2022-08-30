@@ -1,10 +1,10 @@
 ---
 title: "Embrace the Grind"
-description: "What are React Elements, Components, and Instances? A step by step explanation for a better ..."
+description: "Embrace the grind is about the intersection of entrepeneurship and gaming ..."
 date: "2022-06-22T07:52:46+02:00"
 categories: ["Growth"]
-keywords: ["react element component"]
-hashtags: ["#ReactJs"]
+keywords: ["entrepeneurship grind"]
+hashtags: ["#Entrepeneurship"]
 banner: "./images/banner.jpg"
 contribute: ""
 author: ""
