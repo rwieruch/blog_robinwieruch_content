@@ -14,8 +14,6 @@ author: ""
 
 This year (2022) I bought the new **MacBook Pro** after having used the MacBook Pro 2015 for the last years. This first month has been super exciting and I am up running working efficiently on my personal and professional web development projects as a **freelance JavaScript developer**. Here I want to share with you my **Mac setup for web development** that I have used which got inspired by [Swyx's Mac Setup](https://www.swyx.io/new-mac-setup-2021).
 
-<ReadMore label="Inspired by Swyx's Mac Setup" link="/docker-compose/" />
-
 # MacBook Pro Specification
 
 * 14-inch
