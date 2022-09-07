@@ -53,7 +53,7 @@ const NoMatch = () => {
 export default App;
 ```
 
-In this [function component](/react-function-component/) we have matching Link and Route components from React Router for the `home/` and `about/` routes. Furthermore, we have a so called No Match Route loaded with the NoMatch component which acts as fallback route. From here, we will explore the concept of Lazy Loading.
+In this [function component](/react-function-component/) we have matching Link and Route components from React Router for the `home/` and `about/` routes. Furthermore, we have a so-called No Match Route loaded with the NoMatch component which acts as fallback route. From here, we will explore the concept of Lazy Loading.
 
 # Lazy Loading in React Router
 

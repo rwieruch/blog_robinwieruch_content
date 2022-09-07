@@ -26,7 +26,7 @@ Before we can continue with Docker, we need to change one line in our *package.j
 "start": "webpack  --host 0.0.0.0 --config ./webpack.config.js --mode development",
 ```
 
-Now, we will ship this React application in a **Docker container** by using **Docker image**. First of all, create a so called **Dockerfile**:
+Now, we will ship this React application in a **Docker container** by using **Docker image**. First of all, create a so-called **Dockerfile**:
 
 ```text
 touch Dockerfile

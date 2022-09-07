@@ -580,7 +580,7 @@ It's the first time you break the rules of being entirely RESTful, because you o
 
 # Modular Models in Oak as Data Sources
 
-At the moment, all of our implementation sits in the *src/server.ts* file. However, at some point you may want to modularize your implementation details and put them into dedicated files and folders whereas the *src/server.ts* file should only care about putting everything together and starting the application. Before we dive into modularizing the routing, let's see how we can modularize our sample data in so called models first. From your root folder type the following commands to create a folder/file structure for the models.
+At the moment, all of our implementation sits in the *src/server.ts* file. However, at some point you may want to modularize your implementation details and put them into dedicated files and folders whereas the *src/server.ts* file should only care about putting everything together and starting the application. Before we dive into modularizing the routing, let's see how we can modularize our sample data in so-called models first. From your root folder type the following commands to create a folder/file structure for the models.
 
 ```text
 cd src

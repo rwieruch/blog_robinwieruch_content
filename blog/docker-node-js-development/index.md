@@ -23,7 +23,7 @@ npm install
 npm start
 ```
 
-After you have cloned and installed the Node.js project, visit it on `http://localhost:3000` to see the printed *"Hello World"*. Everything should work as expected. Now, we will ship this Node application in a **Docker container** by using **Docker image**. First of all, create a so called **Dockerfile**:
+After you have cloned and installed the Node.js project, visit it on `http://localhost:3000` to see the printed *"Hello World"*. Everything should work as expected. Now, we will ship this Node application in a **Docker container** by using **Docker image**. First of all, create a so-called **Dockerfile**:
 
 ```text
 touch Dockerfile

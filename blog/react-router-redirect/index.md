@@ -42,7 +42,7 @@ const App = () => {
 };
 ```
 
-In this [function component](/react-function-component/) we have matching Link and Route components from React Router for the `home/` and `about/` routes. Furthermore, we have a so called Index Route loaded with the Home component and a so called No Match Route loaded with the NoMatch component. Both act as fallback routes. From here, we will explore **how to navigate in React Router**.
+In this [function component](/react-function-component/) we have matching Link and Route components from React Router for the `home/` and `about/` routes. Furthermore, we have a so-called Index Route loaded with the Home component and a so-called No Match Route loaded with the NoMatch component. Both act as fallback routes. From here, we will explore **how to navigate in React Router**.
 
 # Redirect with Navigate Component
 

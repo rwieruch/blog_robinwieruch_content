@@ -32,7 +32,7 @@ Enzyme introduces adapters to play well with different React versions. That's wh
 npm install --save-dev enzyme-adapter-react-16
 ```
 
-In this React testing tutorial, we are using React 16. That's why the Enzyme adapter for React 16 gets installed here. So make sure to check the React version in your application for installing the appropriate adapter. In the next step, we want to set up Enzyme with its adapter in our Jest testing environment. Therefore, Jest offers a so called setup file to make this happen. First, create this Jest setup file on the command line:
+In this React testing tutorial, we are using React 16. That's why the Enzyme adapter for React 16 gets installed here. So make sure to check the React version in your application for installing the appropriate adapter. In the next step, we want to set up Enzyme with its adapter in our Jest testing environment. Therefore, Jest offers a so-called setup file to make this happen. First, create this Jest setup file on the command line:
 
 ```javascript
 touch jest.setup.js

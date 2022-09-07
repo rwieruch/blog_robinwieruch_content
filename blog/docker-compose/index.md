@@ -52,7 +52,7 @@ services:
     command: npm start
 ```
 
-In a Docker Compose file you can define so called **services**. Our first service will only start the application and expose it to a new port by re-mapping the origin port. Run the next commands on the command line to build the Docker service with the base image from the Dockerfile and to run the service eventually.
+In a Docker Compose file you can define so-called **services**. Our first service will only start the application and expose it to a new port by re-mapping the origin port. Run the next commands on the command line to build the Docker service with the base image from the Dockerfile and to run the service eventually.
 
 ```text
 docker-compose build dev

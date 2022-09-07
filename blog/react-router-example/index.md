@@ -14,7 +14,7 @@ author: ""
 
 A quick React Router 6 example which should get you up and running. The code for this React Router v6 tutorial can be found over [here](https://github.com/the-road-to-learn-react/react-router-6-examples). In order to get you started, create a new React project (e.g. [create-react-app](https://github.com/facebook/create-react-app)). Afterward, [install React Router](https://reactrouter.com/docs/en/v6/getting-started/installation#basic-installation) and read the following React Router tutorial to get yourself aligned to what follows next.
 
-The example features the matching between Routes and Links, a so called Layout Route for encapsulating components within the same layout (see Layout component), a so called Index Route loaded with the Home component and a so called No Match Route loaded with a React element. Both act as fallback routes if there is no path specific (Index Route) or if the path cannot be matched to a Route (No Match Route). In addition, the example features Active Links too:
+The example features the matching between Routes and Links, a so-called Layout Route for encapsulating components within the same layout (see Layout component), a so-called Index Route loaded with the Home component and a so-called No Match Route loaded with a React element. Both act as fallback routes if there is no path specific (Index Route) or if the path cannot be matched to a Route (No Match Route). In addition, the example features Active Links too:
 
 ```javascript
 import * as React from 'react';

@@ -46,7 +46,7 @@ const App = () => {
 };
 ```
 
-In this [function component](/react-function-component/) we have matching Link and Route components from React Router for the `home/` and `user/` routes. Furthermore, we have a so called Index Route loaded with the Home component and a so called No Match Route loaded with the NoMatch component. Both act as fallback routes. From here, we will explore the concept of Nested Route.
+In this [function component](/react-function-component/) we have matching Link and Route components from React Router for the `home/` and `user/` routes. Furthermore, we have a so-called Index Route loaded with the Home component and a so-called No Match Route loaded with the NoMatch component. Both act as fallback routes. From here, we will explore the concept of Nested Route.
 
 # Nested Routes in React Router
 
@@ -86,7 +86,7 @@ const User = () => {
 };
 ```
 
-At this time, when we attempt to click one of these links in our React application, we would get stranded at our No Match Route. This tells us that we didn't map these routes (here: `/user/profile` and `/user/account`) to any actual Route components yet. Therefore, we will add these two new routes as so called Nested Routes to our `/user` route:
+At this time, when we attempt to click one of these links in our React application, we would get stranded at our No Match Route. This tells us that we didn't map these routes (here: `/user/profile` and `/user/account`) to any actual Route components yet. Therefore, we will add these two new routes as so-called Nested Routes to our `/user` route:
 
 ```javascript{14-17}
 const App = () => {
@@ -230,7 +230,7 @@ const Users = ({ users }) => {
 };
 ```
 
-By having this new dynamic yet nested route, we need to create a matching nested Route component for it in the App component. First, since it is a so called **Nested Route** (or child route) of the `/users` route, we can nest it in this respective parent Route component. In addition, since it is a so called **Dynamic Route**, it uses a dynamic route defined as `:userId` whereas a user's identifier matches dynamically (e.g. user with `id` of `'1'` would be matched to `/users/1`):
+By having this new dynamic yet nested route, we need to create a matching nested Route component for it in the App component. First, since it is a so-called **Nested Route** (or child route) of the `/users` route, we can nest it in this respective parent Route component. In addition, since it is a so-called **Dynamic Route**, it uses a dynamic route defined as `:userId` whereas a user's identifier matches dynamically (e.g. user with `id` of `'1'` would be matched to `/users/1`):
 
 ```javascript{16-18}
 const App = () => {

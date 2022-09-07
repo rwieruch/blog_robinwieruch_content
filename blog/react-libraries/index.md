@@ -163,7 +163,7 @@ const Headline = ({ title }) =>
   </h1>
 ```
 
-Second, I want to recommend you so called styled components as one of many *CSS-in-JS* solutions for React. This approach is brought to you by a library called [styled-components](/react-styled-components/) (or alternatives such as [emotion](https://emotion.sh/) or [stitches](https://stitches.dev/)) which co-locates styling with JavaScript next to your React components in your component's JavaScript file or a co-located file:
+Second, I want to recommend you so-called styled components as one of many *CSS-in-JS* solutions for React. This approach is brought to you by a library called [styled-components](/react-styled-components/) (or alternatives such as [emotion](https://emotion.sh/) or [stitches](https://stitches.dev/)) which co-locates styling with JavaScript next to your React components in your component's JavaScript file or a co-located file:
 
 ```javascript
 import styled from 'styled-components';
@@ -327,7 +327,7 @@ You can deploy and host a React application like any other web application. If y
 
 If you want to get a deep dive about testing in React, read this: [How to test components in React](/react-testing-tutorial/). Here comes the gist: The backbone of testing a React application is [Jest](https://github.com/facebook/jest). It gives you test runner, assertion library and spying/mocking/stubbing functionalities. Everything that's needed from a comprehensive test framework.
 
-At the minimum, you can render React components in your Jest tests with [react-test-renderer](https://reactjs.org/docs/test-renderer.html). This is already sufficient to perform so called [Snapshot Tests with Jest](/react-testing-jest/). A snapshot test works the following way: Once you run your tests, a snapshot of your rendered DOM elements of the React component is created. When you run your tests again at some point in time, another snapshot is created which is used as diff for the previous snapshot. If the diff is not identical, Jest will complain and you either have to accept the snapshot or change the implementation of your component.
+At the minimum, you can render React components in your Jest tests with [react-test-renderer](https://reactjs.org/docs/test-renderer.html). This is already sufficient to perform so-called [Snapshot Tests with Jest](/react-testing-jest/). A snapshot test works the following way: Once you run your tests, a snapshot of your rendered DOM elements of the React component is created. When you run your tests again at some point in time, another snapshot is created which is used as diff for the previous snapshot. If the diff is not identical, Jest will complain and you either have to accept the snapshot or change the implementation of your component.
 
 Eventually you will find yourself using the popular [React Testing Library (RTL)](/react-testing-library/) -- which is used within the Jest testing environment -- for a more elaborate testing library for React. RTL makes it possible to render your components and to simulate events on HTML elements. Afterward, Jest is used for the assertions on the DOM nodes.
 

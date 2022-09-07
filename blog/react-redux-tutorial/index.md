@@ -1361,7 +1361,7 @@ const App = () =>
 export default App;
 ```
 
-But who passes the props to the Stories component then? It's the first component that needs to know about the list of stories from the Redux store, because it has to display it. The solution is to upgrade the Stories component to a so called connected component that has access to Redux state and actions by using the two arguments `mapStateToProps` and `mapDispatchToProps` in a higher-order component called `connect` from react-redux. So, instead of only exporting the plain Stories component in the *src/components/Stories.js* file:
+But who passes the props to the Stories component then? It's the first component that needs to know about the list of stories from the Redux store, because it has to display it. The solution is to upgrade the Stories component to a so-called connected component that has access to Redux state and actions by using the two arguments `mapStateToProps` and `mapDispatchToProps` in a higher-order component called `connect` from react-redux. So, instead of only exporting the plain Stories component in the *src/components/Stories.js* file:
 
 ```javascript
 ...
@@ -1469,7 +1469,7 @@ Implementing applications with sample data can be dull. It is way more exciting 
 npm install --save redux-saga
 ```
 
-First, you can introduce a root saga in your *src/sagas/index.js* file. You can see it similar to the previously implemented combined root reducer, because the Redux store expects one root saga for its creation. Basically the root saga watches all (hence the `all` function) saga activated actions by using so called effects (such as the `takeEvery()` effect).
+First, you can introduce a root saga in your *src/sagas/index.js* file. You can see it similar to the previously implemented combined root reducer, because the Redux store expects one root saga for its creation. Basically the root saga watches all (hence the `all` function) saga activated actions by using so-called effects (such as the `takeEvery()` effect).
 
 ```javascript
 import { takeEvery, all } from 'redux-saga/effects';

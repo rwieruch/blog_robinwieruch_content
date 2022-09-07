@@ -73,7 +73,7 @@ The shown example is only a simplified version of a larger application. But the 
 
 # Global States with Pages in React
 
-At some point, you will use something like React Router to distribute your application on multiple pages (URLs) with so called Page components (e.g. AccountPage, ProfilePage). It doesn't need to be called Page component, but I have seen it in various React applications used this way. The [complete Firebase in React authentication tutorial](/complete-firebase-authentication-react-tutorial/) showcases such an application with React Router and multiple Page components.
+At some point, you will use something like React Router to distribute your application on multiple pages (URLs) with so-called Page components (e.g. AccountPage, ProfilePage). It doesn't need to be called Page component, but I have seen it in various React applications used this way. The [complete Firebase in React authentication tutorial](/complete-firebase-authentication-react-tutorial/) showcases such an application with React Router and multiple Page components.
 
 When using this architecture for your application with routing, you will still have a top level component (e.g. App component) but also Page components which are consolidated within this App component.
 

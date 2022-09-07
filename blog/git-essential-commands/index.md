@@ -208,7 +208,7 @@ Now you can start to adjust the code, `git add .` and `git commit` them, and pus
 git push origin <branch>
 ```
 
-That's how you can work on so called feature branches for your project. Other developers can collaborate on these branches and eventually the branches are merged in a Pull Request to the master branch.
+That's how you can work on so-called feature branches for your project. Other developers can collaborate on these branches and eventually the branches are merged in a Pull Request to the master branch.
 
 # Merge a Pull Request
 
