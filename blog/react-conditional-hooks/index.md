@@ -207,6 +207,6 @@ const List = ({ list }) => {
 
 By bringing the hook down to the child component where the hook is not conditionally rendered, we don't get this error anymore. The conditional rendering of the List component happens in the App component, but the hook takes places somewhere else now. Now only if there is a fetched list, the hook for the selected state gets initialized in the List component at the same time as the component itself.
 
-*It's worth to note that this error can be solved by using React's useEffect Hook as well.*
+*It's worth noting that this error can be solved by using React's useEffect Hook as well.*
 
 In conclusion, most often when rendering hooks conditionally, in a loop, or in a changed order, move the hook one level down to the child component where it has its fixed place and is computed with the component without any condition. In this example it worked for a [state hook](/react-usereducer-vs-usestate/), but the same applies for other hooks like [React's useEffect Hook](/react-useeffect-hook/).

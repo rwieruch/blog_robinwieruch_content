@@ -238,13 +238,14 @@ If you really want to build charts from the ground up yourself, there is no way 
 
 # Form Libraries in React
 
-The most popular library for forms in React is [React Hook Form](https://react-hook-form.com/). It comes with everything needed from validation (most popular integrations are [yup](https://github.com/jquense/yup) and [zod](https://github.com/colinhacks/zod)) over submission to form state management. An alternative, which has been more popular in the past, is [Formik](https://github.com/jaredpalmer/). Both are valid solutions for your React application. Yet another alternative in this space would be [React Final Form](https://final-form.org/react). After all, if you are already using a React UI library, you could also check out their built-in form solution.
+The most popular library for [forms in React](/react-form/) is [React Hook Form](https://react-hook-form.com/). It comes with everything needed from validation (most popular integrations are [yup](https://github.com/jquense/yup) and [zod](https://github.com/colinhacks/zod)) over submission to form state management. An alternative, which has been more popular in the past, is [Formik](https://github.com/jaredpalmer/). Both are valid solutions for your React application. Yet another alternative in this space would be [React Final Form](https://final-form.org/react). After all, if you are already using a React UI library, you could also check out their built-in form solution.
 
 **Recommendations:**
 
 * React Hook Form
   * with either yup or zod integration for validation
 * If you use a UI library, check whether built-in form supports all your requirements
+  * React Hook Form comes with a clean API for a UI library integration
 
 # React Type Checking
 

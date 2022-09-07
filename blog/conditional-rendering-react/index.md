@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-Conditional rendering in React isn't difficult. In JSX - the syntax extension used for React - you can use plain JavaScript which includes if else statements, ternary operators, switch case statements, and much more. In a conditional render, a React component decides based on one or several conditions which DOM elements it will return. For instance, based on some logic it can either return a list of items or a text that says "Sorry, the list is empty". When a component has a conditional rendering, the appearance of the rendered component differs based on the condition. The article aims to be an exhaustive list of options for conditional renderings in React and best practices for these patterns.
+Conditional rendering in React isn't difficult. In JSX - the syntax extension used for React - you can use plain JavaScript which includes if else statements, ternary operators, switch case statements, and much more. In a conditional render, a React component decides based on one or several conditions which DOM elements it will return. For instance, based on some logic it can either return a list of items or a text that says "Sorry, the list is empty". When a component has a conditional rendering, the appearance of the rendered component differs based on the condition. This article aims to be an exhaustive list of options for conditional renderings in React and best practices for these patterns.
 
 # Table of Contents
 
@@ -60,7 +60,7 @@ function Item({ item }) {
 }
 ```
 
-Try it yourself by setting `users` to null oder undefined. If the information from the props is null or undefined, the React component returns null in the conditional rendering. There, a React component that returns null instead of JSX will render nothing.
+Try it yourself by setting `users` to null or to undefined. If the information from the props is null or undefined, the React component returns null in the conditional rendering. There, a React component that returns null instead of JSX will render nothing.
 
 In this example, we have done the conditional rendering based on props, but the conditional rendering could be based on [state](/react-state/) and [hooks](/react-hooks/) too. Notice, how we didn't use the if statement inside the JSX yet but only outside before the return statement.
 
@@ -386,7 +386,7 @@ function Message({ isExtrovert, isVegetarian }) {
 }
 ```
 
-The last example is a bit over the top though and I wouldn't advice to use it. However, enums are one of my favorite React patterns when it comes to conditional rendering.
+The last example is a bit over the top though and I wouldn't advice using it. However, enums are one of my favorite React patterns when it comes to conditional rendering.
 
 # Nested Conditional Rendering in React
 
@@ -411,7 +411,7 @@ function List({ list }) {
 }
 ```
 
-It works, however I would recommend to avoid nested conditional renders, because they are verbose which makes it less readable. Instead try the following solutions:
+It works; however I would recommend avoiding nested conditional renders because they are verbose which makes it less readable. Instead try the following solutions:
 
 * The guard pattern with only if statements before the main return statement.
 * Splitting the component into multiple components whereas each component takes care of its own non nested conditional rendering.

@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-React Context is a powerful feature. If your React application grows in size beyond a small application, there is nothing wrong in giving it a try. Many third-party libraries like Redux are using it under the hood anyway, so why not learning about it.
+React Context is a powerful feature. If your React application grows in size beyond a small application, there is nothing wrong with giving it a try. Many third-party libraries like Redux are using it under the hood anyway, so why not learn about it.
 
 Especially if your component hierarchy grows in vertical size, it becomes tedious [passing props several React components down](/react-pass-props-to-component/) -- from a parent component to a deeply nested child component. Most often all the React components in between are not interested in these props and just pass the props to the next child component until it reaches the desired child component.
 

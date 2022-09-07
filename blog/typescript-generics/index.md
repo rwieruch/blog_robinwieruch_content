@@ -107,6 +107,8 @@ In the orthogonal direction, once a project grows vertically in size, functions 
 
 Popular Use Case: Most often you will see this in third-party libraries which do not know about the domain of your project (e.g. dog, person), but need to anticipate any type which fulfils certain requirements (e.g. required `age` property). Here third-party libraries cannot use union types anymore as an escape hatch, because they are not in the hands of the developer anymore who is working on the actual project.
 
+<ReadMore label="Type Guards in TypeScript" link="/typescript-type-guard/" />
+
 In conclusion, if the `getAge` function should handle any entity with an `age` property, it must be generic (read: abstract). Therefore we need to use some kind of placeholder for using a **generic type** which is most often implemented as T:
 
 ```typescript
