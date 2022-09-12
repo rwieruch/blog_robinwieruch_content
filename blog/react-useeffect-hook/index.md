@@ -170,7 +170,7 @@ const Toggler = ({ toggle, onToggle }) => {
 };
 ```
 
-However, in this case you could leave out the second argument -- the dependency array -- of useEffect entirely, because only these two variables trigger an update of this compinent, so by not having a second argument the side-effect would run on every re-render anyway.
+However, in this case you could leave out the second argument -- the dependency array -- of useEffect entirely, because only these two variables trigger an update of this component, so by not having a second argument the side-effect would run on every re-render anyway.
 
 There are various use cases for having React's useEffect run on an updated variable. For example, after updating the state, one might want to have a [callback function based on this state change](/react-usestate-callback/).
 
