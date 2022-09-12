@@ -818,7 +818,7 @@ If you want to dive deeper into the state and effect hooks, check out my other R
 
 * [How to useState Hook?](/react-usestate-hook/)
 * [How to useReducer Hook?](/react-usereducer-hook/)
-* [How to useEffect Hook?](/react-usecontext-hook/)
+* [How to useEffect Hook?](/react-useeffect-hook/)
 * [How to useCallback Hook?](/react-usecallback-hook/)
 * [How to useMemo Hook?](/react-usememo-hook/)
 * [How to useRef Hook?](/react-ref/)
