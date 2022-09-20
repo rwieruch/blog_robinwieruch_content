@@ -426,13 +426,13 @@ const LoginForm = ({ onLogin }) => {
   const dirtyFields = getDirtyFields(form);
 
   const hasChanges = Object.values(dirtyFields).every(
-    (isDirty) => !isDirty
+    (isDirty) => isDirty
   );
 
   return (
     <form onSubmit={handleSubmit}>
       ...
-      <button disabled={hasChanges} type="submit">
+      <button disabled={!hasChanges} type="submit">
         Submit
       </button>
     </form>
