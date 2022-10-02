@@ -204,15 +204,19 @@ As a beginner, it is a great and recommended learning experience to build reusab
 However, at some point you want to use a UI library which gives you access to lots of pre-built components which share the same design system. All of the following UI libraries come with essential components like Buttons, Dropdowns, Dialogs and Lists:
 
 * [Material UI (MUI)](https://material-ui.com/) (most popular)
-* [Mantine](https://mantine.dev/) (most recommended)
+* [Mantine UI](https://mantine.dev/) (most recommended)
 * [Chakra UI](https://chakra-ui.com/) (most recommended)
 * [Ant Design](https://ant.design/)
-* [Radix](https://www.radix-ui.com/)
-* [Primer](https://primer.style/react/)
-* [NextUI](https://nextui.org/)
-* [Tailwind UI](https://www.tailwindui.com/) (not free)
 * [Semantic UI](/react-semantic-ui-tutorial)
 * [React Bootstrap](https://react-bootstrap.github.io/)
+* [Reactstrap](https://reactstrap.github.io/)
+* [Radix](https://www.radix-ui.com/)
+* [NextUI](https://nextui.org/)
+* [Primer](https://primer.style/react/)
+* Tailwind
+  * [Headless UI](https://headlessui.com/)
+  * [Daisy UI](https://daisyui.com/)
+  * [Tailwind UI](https://www.tailwindui.com/) (not free)
 
 Even though all of these UI libraries come with lots in-house components, they cannot make each component as powerful as libraries which focus only on one UI component. For example, [react-table-library](https://react-table-library.com/) allows you to create powerful table components in React while also offering you themes (e.g. Material UI) for blending nicely into popular UI component libraries.
 
@@ -238,12 +242,12 @@ If you really want to build charts from the ground up yourself, there is no way 
 
 # Form Libraries in React
 
-The most popular library for [forms in React](/react-form/) is [React Hook Form](https://react-hook-form.com/). It comes with everything needed from validation (most popular integrations are [yup](https://github.com/jquense/yup) and [zod](https://github.com/colinhacks/zod)) over submission to form state management. An alternative, which has been more popular in the past, is [Formik](https://github.com/jaredpalmer/). Both are valid solutions for your React application. Yet another alternative in this space would be [React Final Form](https://final-form.org/react). After all, if you are already using a React UI library, you could also check out their built-in form solution.
+The most popular library for [forms in React](/react-form/) is [React Hook Form](https://react-hook-form.com/). It comes with everything needed from validation (most popular integrations are [zod](https://github.com/colinhacks/zod) and [yup](https://github.com/jquense/yup)) over submission to form state management. As alternative there are [Formik](https://github.com/jaredpalmer/)and [React Final Form](https://final-form.org/react). If you are already using a React UI library, you could also check out their built-in form solution.
 
 **Recommendations:**
 
 * React Hook Form
-  * with either yup or zod integration for validation
+  * with either zod or yup integration for validation
 * If you use a UI library, check whether built-in form supports all your requirements
   * React Hook Form comes with a clean API for a UI library integration
 
