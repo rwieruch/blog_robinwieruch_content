@@ -1,7 +1,7 @@
 ---
 title: "Vitest with React Testing Library"
 description: "Learn how to use React Testing Library with Vitest in Vite. React Testing Library is a popular testing library for writing tests in React applications ..."
-date: "2022-09-30T09:52:46+02:00"
+date: "2022-10-03T09:52:46+02:00"
 categories: ["React"]
 keywords: ["vitest react testing library", "vite react testing library"]
 hashtags: ["#ReactJs"]
@@ -85,10 +85,9 @@ npm install @testing-library/react @testing-library/jest-dom --save-dev
 Fourth, add a test setup file in *tests/setup.js* and give it the following implementation:
 
 ```javascript
-import { afterEach } from 'vitest';
+import { expect, afterEach } from 'vitest';
 import { cleanup } from '@testing-library/react';
 import matchers from '@testing-library/jest-dom/matchers';
-import { expect } from 'vitest';
 
 // extends Vitest's expect method with methods from react-testing-library
 expect.extend(matchers);
@@ -99,9 +98,9 @@ afterEach(() => {
 });
 ```
 
-And last, include this new test setup file in Vite's configuration file:
+And last, include this new test setup file in Vite's configuration file. In addition, make all imports from Vitest global, so that you don't need to perform these imports (e.g. `expect`) in each file manually anymore:
 
-```javascript{9}
+```javascript{8,10}
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -109,6 +108,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   test: {
+    globals: true,
     environment: 'jsdom',
     setupFiles: './tests/setup.js',
   },
@@ -117,13 +117,16 @@ export default defineConfig({
 
 That's it. You can render React components in Vitest now:
 
-```javascript{2,4-10}
-import { describe, it, expect } from 'vitest';
-import { render } from '@testing-library/react';
+```javascript{1,3,5-13}
+import { render, screen } from '@testing-library/react';
+
+import App from './App';
 
 describe('App', () => {
   it('renders headline', () => {
     render(<App title="React" />);
+
+    screen.debug();
 
     // check if App components renders headline
   });
