@@ -311,7 +311,7 @@ One could say that before we had single-page applications, we have been working 
 
 # Code Splitting
 
-We have learned that SPAs get shipped in one small HTML file and one JS file as default. The JavaScript file starts small, but it grows in size when your application gets larger, because more JavaScript is packaged in one *bundle.js* file. This impacts the user experience of SPAs, because the initial load time to transfer the JavaScript file from web server to browser increases eventually. When all files are loaded, a user can navigate from page to page without interruptions (good). However, in contrast the the initial load time decreases the user experience when the page is requested in the browser (bad).
+We have learned that SPAs get shipped in one small HTML file and one JS file as default. The JavaScript file starts small, but it grows in size when your application gets larger, because more JavaScript is packaged in one *bundle.js* file. This impacts the user experience of SPAs, because the initial load time to transfer the JavaScript file from web server to browser increases eventually. When all files are loaded, a user can navigate from page to page without interruptions (good). However, in contrast the initial load time decreases the user experience when the page is requested in the browser (bad).
 
 ![](./images/code-splitting-large.png)
 
