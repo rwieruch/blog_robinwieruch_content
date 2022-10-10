@@ -16,7 +16,7 @@ How to learn React is high on the agenda for plenty of JavaScript developers thi
 
 # Learn React [Quickly || Fast || Easy]
 
-There is no shortcut to meaningful learning. You have to be patient. That applies for developers too. Personally, that's why I like being a developer;  there will be always something new to learn. If you stay curious, you will not be disappointed as a developer. Learning is always a challenge and opportunity[to hone your skills as long as the challenge and your skill are in balance](/lessons-learned-deep-work-flow/). That's why it takes time to learn React.
+There is no shortcut to meaningful learning. You have to be patient. That applies for developers too. Personally, that's why I like being a developer;  there will be always something new to learn. If you stay curious, you will not be disappointed as a developer. Learning is always a challenge and opportunity [to hone your skills as long as the challenge and your skill are in balance](/lessons-learned-deep-work-flow/). That's why it takes time to learn React.
 
 Luckily, React does not have a steep learning curve when following one simple rule: Learn React, **only React step-by-step**, and don't let yourself be distracted by other tech on the journey. JavaScript and React are evolving constantly as both innovate and want to stay relevant in the future; learn and keep up with them first before learning anything else. I have heard success stories from developers who went from not knowing React to getting offered a React job at a company in a few days to a few months. While on the job they got the chance to learn more about all the other fancy technologies that come along with React.
 
@@ -81,7 +81,7 @@ I strongly believe the best start is going through the official [React documenta
 
 ## Learn with React Docs
 
-Being referred to the documentation of a library as a beginner in web development can be intimidating. But I strongly believe it's the best way to learn something new. On your cpath to becoming a developer you will often need to use the official documentation, so why not get used to it now? It comes with these benefits:
+Being referred to the documentation of a library as a beginner in web development can be intimidating. But I strongly believe it's the best way to learn something new. On your path to becoming a developer you will often need to use the official documentation, so why not get used to it now? It comes with these benefits:
 
 * includes beginner tutorial
 * no commercial interest
