@@ -385,6 +385,11 @@ JavaScript itself got pretty awesome dealing with dates and times over the recen
 * [NW.js](https://nwjs.io/)
 * [Neutralino.js](https://github.com/neutralinojs/neutralinojs)
 
+# File Upload in React
+
+* [react-dropzone](https://react-dropzone.js.org/)
+* [filepond](https://pqina.nl/filepond/)
+
 # Mobile Development with React
 
 I guess the go-to solution for bringing React from the web to mobile is still [React Native](https://facebook.github.io/react-native/). If you want to help a framework for creating React Native applications, check out [Expo](/react-native-expo/).

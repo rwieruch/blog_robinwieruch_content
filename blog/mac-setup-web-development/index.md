@@ -146,7 +146,8 @@ brew install --cask \
   calibre \
   figma \
   imageoptim \
-  maccy
+  maccy \
+  zoom
 ```
 
 Install terminal applications (read more about these in Terminal Applications):
