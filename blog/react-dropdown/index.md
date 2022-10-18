@@ -37,7 +37,7 @@ const App = () => {
 export default App;
 ```
 
-Since a dropdown comes with a menu which gets visible upon clicking the dropdown (and invisible once it gets closed), we will render this dropdown menu as a list of buttons. Respectively to the open state -- which we have defined earlier -- the dropdown menu is either displayed or not:
+Since a dropdown comes with a menu which gets visible upon clicking the dropdown (and invisible once it gets closed), we will render this dropdown menu as a list of buttons. Respectively to the open state, the dropdown menu is either displayed or not by using a [conditional rendering](/conditional-rendering-react/):
 
 ```javascript{3,15-24}
 import * as React from 'react';
