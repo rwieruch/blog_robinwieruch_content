@@ -127,3 +127,5 @@ export default App;
 ```
 
 By giving the input the value from React's state, it doesn't use anymore its internal state, but the state you provided from React. Now the initial state should be seen for the input field and for the output paragraph once you start the application. Also when you type something in the input field, both input field and output paragraph are synchronized by React's state. The input field has become a controlled element and the App component a controlled component. You are in charge what is displayed in your UI. You can see different input elements implemented as controlled components in this [GitHub repository](https://github.com/the-road-to-learn-react/react-controlled-components-examples).
+
+<ReadMore label="Creating a controlled/uncontrolled Dropdown component in React" link="/react-dropdown/" />
