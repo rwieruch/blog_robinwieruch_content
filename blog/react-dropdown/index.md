@@ -217,7 +217,7 @@ However, there is still logic (e.g. open state) of the dropdown component sittin
 
 Therefore, the next step shows how to elegantly move all repetitive implementation details into the dropdown component by using React's cloneElement API:
 
-```javascript{3,7,13,22,23,25-27,31-33,38-43}
+```javascript{3,7,12,21,22,24-26,30-32,37-42}
 const App = () => {
   const handleMenuOne = () => {
     console.log('clicked one');
@@ -229,7 +229,6 @@ const App = () => {
 
   return (
     <Dropdown
-      open={open}
       trigger={<button>Dropdown</button>}
       menu={[
         <button onClick={handleMenuOne}>Menu 1</button>,
