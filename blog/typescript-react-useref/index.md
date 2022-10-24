@@ -156,7 +156,7 @@ const App = () => {
   const [seconds, setSeconds] = React.useState<number>(0);
   const [toggle, setToggle] = React.useState<boolean>(false);
 
-  const ref = React.useRef<NodeJS.Timeout | null>(null);
+  const ref = React.useRef<number | null>(null);
 
   const toggleStopwatch = () => {
     setToggle(!toggle);
