@@ -163,7 +163,7 @@ const Headline = ({ title }) =>
   </h1>
 ```
 
-Second, I want to recommend you so-called styled components as one of many *CSS-in-JS* solutions for React. This approach is brought to you by a library called [styled-components](/react-styled-components/) (or alternatives such as [emotion](https://emotion.sh/) or [stitches](https://stitches.dev/)) which co-locates styling with JavaScript next to your React components in your component's JavaScript file or a co-located file:
+Second, I want to recommend you so-called styled components as one of many *CSS-in-JS* solutions for React. This approach is brought to you by a library called [styled-components](/react-styled-components/) (or alternatives such as [emotion](https://emotion.sh/) which co-locates styling with JavaScript next to your React components in your component's JavaScript file or a co-located file:
 
 ```javascript
 import styled from 'styled-components';
@@ -193,7 +193,7 @@ Whether you choose CSS-in-CSS, CSS-in-JS, or functional CSS is up to you. All st
 
 * CSS-in-CSS with CSS Modules
 * CSS-in-JS with Styled Components (most popular)
-  * alternatives: Emotion or Stitches
+  * alternatives: Emotion
 * Functional CSS with Tailwind CSS
 * optional: clsx for conditional CSS classes
 
