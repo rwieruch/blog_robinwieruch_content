@@ -273,5 +273,7 @@ React's cloneElement API allows us to attach props to the passed `trigger` eleme
 
 Furthermore, the high-level API allows us to close the dropdown once a menu item in a dropdown is clicked while still preserving its native implementation (here: `menuItem.props.onClick`).
 
+<ReadMore label="How to create a Material UI (MUI) Dropdown component in React" link="/react-dropdown-material-ui-mui/" />
+
 The reusable dropdown component is finished. What's missing is the implementation detail to [close the dropdown if a user clicks outside](https://www.robinwieruch.de/react-hook-detect-click-outside-component/) of it. With the linked article though you should be able to get this done as well.
 

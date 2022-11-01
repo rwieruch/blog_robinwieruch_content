@@ -14,7 +14,7 @@ author: ""
 
 Material UI for React, also called MUI, does not come with a native nested Dropdown menu. Here I want to share the nested dropdown component that I have used for several of my freelance projects when using Material UI. Before you can use it, you have to check out my implementation for a dropdown with Material UI (MUI) in React:
 
-<ReadMore label="How to create a Dropdown component in React" link="/react-dropdown-material-ui-mui/" />
+<ReadMore label="How to create a Material UI (MUI) Dropdown component in React" link="/react-dropdown-material-ui-mui/" />
 
 In the Dropdown component that we already have from the previous tutorial, we include a new nested dropdown menu and style it the same way as the native dropdown menu:
 
