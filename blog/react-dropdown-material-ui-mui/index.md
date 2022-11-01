@@ -190,6 +190,6 @@ If you want to get to know a bit of the underlying implementation details:
 
 If you want to get a nested dropdown menu for this dropdown component:
 
-<ReadMore label="How to create a Dropdown component in React" link="/react-nested-dropdown-material-ui-mui/" />
+<ReadMore label="How to create a nested Dropdown component in React" link="/react-nested-dropdown-material-ui-mui/" />
 
 Optionally you can use the `keepOpen` property to not close the dropdown if one of its menu item's is clicked and the `minWidth` property to define a width for the dropdown's menu. If you want to turn the dropdown component into a [controlled component](/react-controlled-components/), you can pass it `isOpen` and `onOpen` props too.
