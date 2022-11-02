@@ -161,7 +161,7 @@ const App = () => {
 export default App;
 ```
 
-Eventually you want to move all this logic for a dropdown component into a [reusable React component](/react-reusable-components/). The new component comes with two slots. While one slot is for the trigger which opens/closes the dropdown, the other slot is for the buttons which are getting rendered in the dropdown's menu. The new dropdown component also receives the open state of the dropdown:
+Eventually you want to move all this logic for a dropdown component into a [reusable React component](/react-reusable-components/). The new component comes with two slots (see [component composition](/react-component-composition/)). While one slot is for the trigger which opens/closes the dropdown, the other slot is for the buttons which are getting rendered in the dropdown's menu. The new dropdown component also receives the open state of the dropdown:
 
 ```javascript{19-26,30-43}
 const App = () => {
