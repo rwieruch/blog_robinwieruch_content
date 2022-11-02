@@ -14,7 +14,7 @@ author: ""
 
 A short React tutorial by example for beginners about creating a dropdown in React. First of all, there is no HTML equivalent to render a dropdown in React as straight forward as a [select component](/react-select/). However, here you will learn how to create a dropdown component in React step by step.
 
-First, we need a HTML button element which will open (or close) a dropdown eventually. We are using an event handler in React to listen to the button's click event and [React's useState Hook](/react-usestate-hook/) to manage the dropdown's open state:
+First, we need a HTML button element which will open (or close) a dropdown eventually. We are using an event handler in React to listen to the [button](/react-button/)'s click event and [React's useState Hook](/react-usestate-hook/) to manage the dropdown's open state:
 
 ```javascript
 import * as React from 'react';
