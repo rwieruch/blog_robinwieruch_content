@@ -21,7 +21,7 @@ This year (2022) I bought the new **MacBook Pro** after having used the MacBook 
 * 32 GB RAM
 * 512 GB SSD
 * QWERTY = English (International)
-* macOS Monterey
+* macOS Ventura (formerly Monterey)
 
 # System Preferences
 
