@@ -241,9 +241,9 @@ The output from this command should give you a URL where you can find your appli
 
 # Solving the same problem in React
 
-In this part of the article, you are going to solve the same problem with React. It should give you a way to compare both solutions and maybe convince you why a library such as React is a fitting tool to solve such problems.
+In this part of the article, you are going to solve the same problem with React. In this way, you can compare both solutions and maybe this will convince you why a library such as React is a suitable tool to solve such problems.
 
-The project will consist again of a *index.html* and *index.js* file. Our implementation starts again with the HTML boilerplate in the *index.html* file. It requires the two necessary React and ReactDOM libraries. The latter is used to hook React into the DOM and the former for React itself. In addition, the *index.js* is included too.
+This project will consist again of two files, *index.html* and *index.js*. Our implementation starts again with the HTML boilerplate in the *index.html* file. It points to the two necessary React and ReactDOM libraries. The latter is used to hook React into the DOM and the former for React itself. In addition, the *index.js* is pointed to as well.
 
 ```html
 <!DOCTYPE html>
@@ -259,7 +259,7 @@ The project will consist again of a *index.html* and *index.js* file. Our implem
 </html>
 ```
 
-Second, add Babel to transpile your JavaScript code to vanilla JavaScript, because the following code in your *index.js* file will use non vanilla JavaScript functionalities such as [JavaScript ES6 classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes). Thus you have to add Babel to transpile it to vanilla JavaScript to make it work in all browsers.
+Add Babel to transpile your JavaScript code to ES5 JavaScript, because the following code in your *index.js* file will use modern JavaScript functionalities such as [JavaScript ES6 classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes). Thus, you have to add Babel to transpile it to an older version of JavaScript to make it work in all browsers.
 
 ```html{7,10}
 <!DOCTYPE html>
@@ -276,7 +276,7 @@ Second, add Babel to transpile your JavaScript code to vanilla JavaScript, becau
 </html>
 ```
 
-Third, you have to define an element with an id. That's the crucial place where React can hook into the DOM. There is no need to define further HTML elements in your *index.html* file, because everything else will be defined in your React code in the *index.js* file.
+Next, you need to define an element with an `id`. That's the crucial place where React can hook into the DOM. There is no need to define further HTML elements in your *index.html* file, because everything else will be defined in your React code in the *index.js* file.
 
 ```html{10}
 <!DOCTYPE html>
@@ -294,7 +294,7 @@ Third, you have to define an element with an id. That's the crucial place where 
 </html>
 ```
 
-Let's jump into the implementation in the *index.js* file. First, you can define the search request at the top of your file as you have done before in vanilla JavaScript.
+Let's jump into the implementation in the *index.js* file. First, you can define the search request at the top of your file as you did before in the vanilla JavaScript solution above.
 
 ```javascript
 var BASE_URL = 'https://hn.algolia.com/api/v1/';
@@ -311,7 +311,7 @@ function doSearch(query) {
 }
 ```
 
-Since you have included Babel in your *index.html* file, you can refactor the last piece of code to JavaScript ES6 by using [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) and [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
+As you have included Babel in your *index.html* file, you can refactor the last piece of code to JavaScript ES6 by using [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) and [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
 
 ```javascript
 const BASE_URL = 'https://hn.algolia.com/api/v1/';
@@ -324,7 +324,7 @@ function doSearch(query) {
 }
 ```
 
-In the next part, let's hook a React component in your HTML by using ReactDOM. The HTML element with the id `app` is used to render your first root component with the name App.
+In the next part, let's hook a React component in your HTML by using ReactDOM. The HTML element with the `id="app"` is used to render your first component with the name `App`. This is called the root component.
 
 ```javascript
 class App extends React.Component {
@@ -339,7 +339,7 @@ ReactDOM.render(
 );
 ```
 
-The App component uses React's JSX syntax to display HTML. In JSX you can use JavaScript as well. Let's extend the rendered output to solve the defined problem in this article.
+The `App` component uses React's JSX syntax to display HTML. You can use JavaScript in JSX as well. Let's extend the rendered output to solve the problem defined in this article.
 
 ```javascript{4,5,6,7,8,9,10,11,12,13}
 class App extends React.Component {
@@ -352,14 +352,14 @@ class App extends React.Component {
           <button type="text">Search</button>
         </form>
 
-        {/* show the list of items */}
+        { /* placeholder to show the list of items */ }
       </div>
     );
   }
 }
 ```
 
-The component renders a form with an input element and a button element. In addition, there is a placeholder to render the list from the search request in the end. The two handlers for the input element and the form submit are missing. In the next step, you can define the handlers in a declarative way in your component as class methods.
+The component renders a form with an input element and a button element. In addition, there is a placeholder, that is `{ }`, to render the list from the search request at the end. The two handlers for the input element and the form submit are missing. In the next step, you can define the handlers in a declarative way in your component as class methods.
 
 ```javascript{2,3,4,5,6,7,8,9,10,11,12,13,14,15,21,22}
 class App extends React.Component {
@@ -387,20 +387,20 @@ class App extends React.Component {
           <button type="text">Search</button>
         </form>
 
-        {/* show the list of items */}
+        { /* placeholder to show the list of items */ }
       </div>
     );
   }
 }
 ```
 
-The last code shows the declarative power of React. You can implement what every handler in your HTML is doing based on well defined class methods. These can be used as callbacks for your handlers.
+The last code snippet shows the declarative power of React. You can implement the functionality of every handler in your HTML based on well-defined class methods. These can be used as callbacks for your handlers.
 
-Each handler has access to React's [synthetic event](https://reactjs.org/docs/events.html). For instance, it can be used to retrieve the value from the input element in the `onChange()` handler when someone types into the field. You will do this in the next step.
+Each handler has access to React's [synthetic event](https://reactjs.org/docs/events.html). For instance, it can be used to retrieve the value from the input element in the `onChange()` handler when a user types into the field. You will do this in the next step.
 
-Note that the event is already used in the 'onSubmit()' class method to prevent the native browser behavior. Normally the browser would refresh the page after a submit event. But in React you don't want to refresh the page, you just want to let React deal with it.
+Note that the event is already used in the `onSubmit()` class method to prevent the native browser behavior. Normally, the browser would refresh the page after a submit event. But you don't want to refresh the page in React, you just want to let React deal with that.
 
-Let's enter state handling in React. Your component has to manage state: the value in the input field and the list of items which is retrieved from the API eventually. It needs to know about those state in order to retrieve the value from the input field for the search request and in order to render the list eventually. Thus, you can define an initial state for the component in its constructor.
+Let's include state handling in React. Your component has to manage two states: the value in the input field and the list of items which is eventually retrieved from the API. It needs to know about these states in order to retrieve the value from the input field for the search request and eventually to render the list. Thus, you can define an initial state for the component in its constructor.
 
 ```javascript{5,6,7,8}
 class App extends React.Component {
@@ -420,7 +420,7 @@ class App extends React.Component {
 }
 ```
 
-Now, you can update the state for the value of the input field by using React's local state management. In a React component, you have access to the `setState()` class method to update the local state. It uses a shallow merge and thus you don't need to worry about the list state when you update the input state.
+Now, you can update the state for the value of the input field by using React's local state management. In a React component, you have access to the `setState()` class method to update the local state. This uses a shallow merge and you don't need to worry about the list state when you update the input state.
 
 ```javascript{17}
 class App extends React.Component {
@@ -446,7 +446,7 @@ class App extends React.Component {
 }
 ```
 
-By using `this.state` in your component you can access the state from the component again. You should provide the updated input state to your input element. This way, you take over controlling the state of the element and not the element doesn't do it itself. It becomes a so-called [controlled component](/react-controlled-components/) which is a best practice in React.
+By using `this.state` in your component, you can access the state from the component again. You should provide the updated input state to your input element. In this way, you take over controlling the state of the element, not leaving the element to do it itself. The input element becomes a so-called [controlled component](/react-controlled-components/) which is best practice in React.
 
 ```javascript{25}
 class App extends React.Component {
@@ -477,16 +477,16 @@ class App extends React.Component {
           <button type="text">Search</button>
         </form>
 
-        {/* show the list of items */}
+        { /* placeholder to show the list of items */ }
       </div>
     );
   }
 }
 ```
 
-Once the local state of a component updates in React, the `render()` method of the component runs again. Thus you have always the correct state available when rendering your elements. If you change the state again, for instance by typing something in the input field, the `render()` method will run for you again. You don't have to worry about creating or removing DOM elements when something changes.
+Once the local state of a component updates in React, the `render()` method of the component runs again. So, the correct state is always available when rendering your elements. If you change the state again, for instance by typing something in the input field, the `render()` method will run again. You don't have to worry about creating or removing DOM elements when something changes.
 
-In the next step, you will call the defined `doSearch()` function to make the request to the Hacker News API. It should happen in the `onSubmit()` class method. Once a request resolved successfully, you can set the new state for the list property.
+In the next step, you will call the `doSearch()` function to make the request to the Hacker News API. This request is made in the `onSubmit()` class method. Once the request has resolved successfully, you can set the new state for the list property.
 
 ```javascript{17,18}
 class App extends React.Component {
@@ -520,18 +520,18 @@ class App extends React.Component {
           <button type="text">Search</button>
         </form>
 
-        {/* show the list of items */}
+        { /* placeholder to show the list of items */ }
       </div>
     );
   }
 }
 ```
 
-The state gets updated once the request fulfils successfully. Once the state is updated, the `render()` method runs again and you can use the list in your state to render your elements by using JavaScript's built-in map functionality.
+The state is updated once the request is successful. Once the state is updated, the `render()` method runs again and you can use the list in your state to render your elements by using JavaScript's built-in `map()` function.
 
 <ReadMore label="How to fetch data in React" link="/react-fetching-data/" />
 
-That's the power of JSX in React, because you can use vanilla JavaScript to render multiple elements.
+That's the power of JSX in React! You can use vanilla JavaScript to render multiple elements.
 
 ```javascript{32}
 class App extends React.Component {
@@ -572,13 +572,13 @@ class App extends React.Component {
 }
 ```
 
-That's it. Both class methods update the state in synchronous or asynchronous way. After the state updated eventually, the `render()` method runs again and displays all the HTML elements by using the current state. There is no need for you to remove or append DOM elements in an imperative way. You can define in a declarative way what you want to display with your component.
+That's it. Both class methods update the state in a synchronous or asynchronous way. After the state has been eventually updated, the `render()` method runs again and displays all the HTML elements with the current state. There is no need for you to remove or append DOM elements in an imperative way. You can define in a declarative way what you want to display with your component.
 
-You can try out the application the same way as the vanilla JavaScript application. On the command line navigate into your folder and use the http-server to serve the application.
+You can test the solution in the same way as with the vanilla JavaScript solution above. On the command line, navigate into your folder and type `http-server` to serve the application.
 
-Overall both scenarios which are using vanilla JavaScript and React should have shown you a great comparison of imperative and declarative code. In imperative programming, you describe with your code *how to do something*. That's what you have done in the vanilla JavaScript scenario. In contrast, in declarative programming, you describe with your code *what you want to do*. That's the power of React and of using a library over vanilla JavaScript.
+The two scenarios, one written in vanilla JavaScript and the other in React, demonstrate the differences between imperative and declarative code. In imperative programming, you describe with your code *how to do something*. That's what you did in the vanilla JavaScript scenario. In contrast, in declarative programming, you describe with your code *what you want done*. That's the power of React and the power of using a library as compared with vanilla JavaScript.
 
-The implementation of both examples is quite small and should show you that the problem can be solved by both approaches. I would argue that the vanilla JavaScript solution is even better suited for this problem. However, once you scale your application, it becomes more complex in vanilla JavaScript to manage the DOM, DOM manipulations and the application state. There would come a point in time where you would end up with the infamous spaghetti code like it happened for lots of jQuery applications in the past. In React, you keep your code declarative and can describe a whole HTML hierarchy with components. These components manage their own state, can be reused and composed into each other. You can describe a whole component tree with them. React keeps your application readable, maintainable and scalable. It's fairly simple to split up a component into multiple components.
+The implementation of both examples is quite small, but it should be enough to highlight for you that the problem can be solved by both approaches. I would argue that the vanilla JavaScript solution is better suited for this particular problem. However, once you scale your application, it becomes more complicated in vanilla JavaScript to manage and manipulate the DOM, and manage the application state. There would come a point when you would end up with so-called spaghetti code, which happened to lots of jQuery applications in the past. In React, you keep your code declarative and you can describe a whole HTML hierarchy with components. These components manage their own state, can be reused and composed into each other. You can describe a whole component tree with them. React keeps your application readable, maintainable, and scalable. It's relatively simple to split up a component into multiple components.
 
 ```javascript{12,13,14,20,21}
 class App extends React.Component {
@@ -604,12 +604,12 @@ const Item = ({ item }) =>
   <div>{item.title}</div>
 ```
 
-The last code snippet shows how you can extract another component from the App component. This way, you can scale your component hierarchy and maintain business logic colocated to components. It would be way more difficult in vanilla JavaScript to maintain such code.
+The last code snippet shows how you can extract another component from the `App` component. In this way, you can scale your component hierarchy and maintain the business logic located in each component. It would be far more difficult in vanilla JavaScript to maintain such code.
 
 <Divider />
 
-You can find all the solutions in [this GitHub repository](https://github.com/rwieruch/why-frameworks-matter). There is also a solution for JavaScript ES6 which can be used in between of the vanilla JavaScript and React approaches. It would be great to find contributors for implementing examples for Angular, Ember and other solutions too. Feel free to contribute to it :)
+You can find all the solutions in [this GitHub repository](https://github.com/rwieruch/why-frameworks-matter). There is also a solution for JavaScript ES6, which shows how modern JavaScript is now written, and you can compare that to the vanilla JavaScript and React approaches above. It would be great to find contributors to implement this example for Angular, Ember, and other frameworks too. Feel free to contribute to it :)
 
-If you enjoyed this journey from vanilla JavaScript to React and you decided to learn React, checkout [The Road to learn React](/the-road-to-learn-react/) as your next journey to learn React. Along the way, you will transition smoothly from vanilla JavaScript to JavaScript ES6 and beyond.
+If you enjoyed this journey from vanilla JavaScript to React, and you decided to learn React, checkout [The Road to learn React](/the-road-to-learn-react/) as your next journey to learn React. Along the way, you will transition smoothly from vanilla JavaScript to JavaScript ES6 and beyond.
 
-In the end, always remember that there are people working behind the curtains to enable these solutions for you. You can do the contributors a huge favor by cheering them up on Twitter once in a while or by getting involved in open source. After all, nobody wants to build larger applications in vanilla JavaScript anymore. So cherish your library or framework that you are using every day :)
+In the end, always remember that there are people working behind the scenes to enable these solutions for you. You can do contributors a huge favor by cheering them on (for example on Twitter) once in a while or by getting involved in the open source community. After all, nobody wants to build large applications in vanilla JavaScript anymore. So cherish the library or framework that you are using every day :)
