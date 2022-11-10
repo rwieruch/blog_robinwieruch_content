@@ -55,7 +55,7 @@ You can already run your tests on the command line with `npm run test`. They sho
 
 # Vitest with React Testing Library
 
-Since React Testing Library tests React components, we need to enabled HTML in Vitest with a library like [jsdom](https://github.com/jsdom/jsdom). First, install the library on the command line:
+Since React Testing Library tests React components, we need to enable HTML in Vitest with a library like [jsdom](https://github.com/jsdom/jsdom). First, install the library on the command line:
 
 ```text
 npm install jsdom --save-dev
