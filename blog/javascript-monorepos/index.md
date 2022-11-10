@@ -34,7 +34,7 @@ When this tutorial becomes more practical, we will use React.js as framework of 
 
 # What is a Monorepo
 
-A monorepo is a project which contains smaller projects -- whereas each project can be anything from individual application to reusable package (e.g. functions, components). The practice of combining projects dates back to the early 2000 when it was called a *shared codebase*.
+A monorepo is a project which contains smaller projects -- whereas each project can be anything from individual application to reusable package (e.g. functions, components, services). The practice of combining projects dates back to the early 2000 when it was called a *shared codebase*.
 
 The name monorepo stems from the words mono (single) and repo ([repository](https://en.wikipedia.org/wiki/Repository_(version_control))). While the former is self-explanatory, the latter comes from version control systems (e.g. git) where either projects:repositories are hosted in a n:n relationship (polyrepo) or a n:1 relationship (monorepo).
 
@@ -122,7 +122,7 @@ Start off by cloning the [monorepo starter](https://github.com/bigstair-monorepo
 git clone git@github.com:bigstair-monorepo/monorepo.git
 ```
 
-We are using yarn as alternative to npm here, not only for installing the dependencies, but also for using so called workspaces later on. In the next section (see **Workspaces in Monorepos**), you will learn about workspaces and alternative workspaces tools in contrast to yarn workspaces. For now, navigate into the repository and install all the dependencies with yarn:
+We are using yarn as alternative to npm here, not only for installing the dependencies, but also for using so-called workspaces later on. In the next section (see **Workspaces in Monorepos**), you will learn about workspaces and alternative workspaces tools in contrast to yarn workspaces. For now, navigate into the repository and install all the dependencies with yarn:
 
 ```sh
 cd monorepo

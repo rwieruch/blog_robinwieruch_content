@@ -30,7 +30,7 @@ const App = () => (
 export default App;
 ```
 
-Firstly, let's implement a new React component next to the App component where you can increment (and decrement) a number. In this case, the abstract number will be the amount of US Dollar which should be converted to other currencies later on:
+First, let's implement a new React component next to the App component where you can increment (and decrement) a number. In this case, the abstract number will be the amount of US Dollar which should be converted to other currencies later on:
 
 ```javascript
 const App = () => <Amount />;
@@ -180,7 +180,7 @@ The App component turned into a stateful class component and the Amount componen
 
 ## Component composition with children prop
 
-But wait, what about component composition in React with its children prop? This should work too, shouldn't it? Let's revert the components to their old implementation and see how this would look like. The Amount component would get control over the amount state again. In addition to the previous version, it would render the children prop for the composition too.
+But wait, what about component composition in React with its children prop? This should work too, shouldn't it? Let's revert the components to their old implementation and see what this would look like. The Amount component would get control over the amount state again. In addition to the previous version, it would render the children prop for the composition too.
 
 ```javascript{30}
 class Amount extends Component {
@@ -354,7 +354,7 @@ const App = () => (
 );
 ```
 
-But why is it called render prop? Historically the pattern evolved from using a prop called render (or anything else) for it. Basically the component uses a render prop instead of a children as a function now. But it hasn't to be the name "render" prop. You can name it however you want:
+But why is it called render prop? Historically the pattern evolved from using a prop called render (or anything else) for it. Basically the component uses a render prop instead of a children as a function now. But it doesn't have to be the name "render" prop. You can name it however you want:
 
 ```javascript{3,4,5,6,7,8,27}
 const App = () => (
@@ -498,7 +498,7 @@ And finally using it in your App component:
 const App = () => <CurrenciesWithAmount />;
 ```
 
-However, in this case you would lose the possibility to render something in between. You are strictly coupled to the higher-order component's render method. If you need to add something in between of the currency components, you would have to do it in the higher-order component. It would be quite similar as you have done it previously by rendering the currency components straight away in the Amount component. If using a render prop component instead, you would be flexible in your composition. That's only one different aspect of render prop components and higher-order components.
+However, in this case you would lose the possibility to render something in between. You are strictly coupled to the higher-order component's render method. If you need to add something in between the currency components, you would have to do it in the higher-order component. It would be quite familiar as you have done it previously by rendering the currency components straight away in the Amount component. If you are using a render prop component instead, you would be flexible in your composition. That's only one different aspect of render prop components and higher-order components.
 
 <Divider />
 

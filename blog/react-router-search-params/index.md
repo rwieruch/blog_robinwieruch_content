@@ -324,59 +324,18 @@ The [use-query-params](https://github.com/pbeshai/use-query-params) library fits
 
 Follow the library's installation instructions yourself. You will need to install the library on the command line and instantiate it on a root level in your React project:
 
-```javascript{3,4,10,12}
+```javascript{3-5,11,13}
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { QueryParamProvider } from 'use-query-params';
+import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6';
 
 import App from './App';
 
 ReactDOM.render(
   <BrowserRouter>
-    <QueryParamProvider ReactRouterRoute={Route}>
-      <App />
-    </QueryParamProvider>
-  </BrowserRouter>,
-  document.getElementById('root')
-);
-```
-
-However, use-query-params didn't adapt properly to React Router 6 yet. Hence you may see the following error popping up: *"A `<Route>` is only ever to be used as the child of `<Routes>` element, never rendered directly. Please wrap your `<Route>` in a `<Routes>`."*. Therefore adjust your code on the root level by using React Router's useNavigate and useLocation Hooks:
-
-```javascript{5-6,12-28,32}
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {
-  BrowserRouter,
-  useNavigate,
-  useLocation,
-} from 'react-router-dom';
-import { QueryParamProvider } from 'use-query-params';
-
-import App from './App';
-
-const RouteAdapter = ({ children }) => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const adaptedHistory = React.useMemo(
-    () => ({
-      replace(location) {
-        navigate(location, { replace: true, state: location.state });
-      },
-      push(location) {
-        navigate(location, { replace: false, state: location.state });
-      },
-    }),
-    [navigate]
-  );
-  return children({ history: adaptedHistory, location });
-};
-
-ReactDOM.render(
-  <BrowserRouter>
-    <QueryParamProvider ReactRouterRoute={RouteAdapter}>
+    <QueryParamProvider adapter={ReactRouter6Adapter}>
       <App />
     </QueryParamProvider>
   </BrowserRouter>,

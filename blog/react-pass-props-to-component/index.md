@@ -259,7 +259,7 @@ export default App;
 
 In the last example, the App component uses a stateful value called `isShow` and a state updater function to update this state in an event handler. Depending on the boolean state of `isShow`, the parent component either renders its child component or not by using a [conditional rendering](/conditional-rendering-react/).
 
-The example shows **how state is different from props**: While props are just a vehicle to pass information down the component tree, state can be changed over time to create interactive user interfaces. The next example shows how state *can* become props when it is passed to a child component. Event though the state becomes props in the child component, it can still get modified in the parent component as state via the state updater function. Once modified, the state is passed down as "modified" props:
+The example shows **how state is different from props**: While props are just a vehicle to pass information down the component tree, state can be changed over time to create interactive user interfaces. The next example shows how state *can* become props when it is passed to a child component. Even though the state becomes props in the child component, it can still get modified in the parent component as state via the state updater function. Once modified, the state is passed down as "modified" props:
 
 ```javascript{4,11-13,21}
 import * as React from 'react';
@@ -306,7 +306,7 @@ In conclusion, every time the state changes, the rendering mechanism of the affe
 
 # How to pass Props from child to parent Component
 
-When props can only be passed from parent to child components, how can a child component communicate with its parent component? This a common question for React beginners once they learned about props in React and the answer for it is brief: there is **no way to pass props from a child to a parent component**.
+Since props can only be passed from parent to child components, how can a child component communicate with its parent component? This a common question for React beginners once they learned about props in React and the answer for it is brief: there is **no way to pass props from a child to a parent component**.
 
 Let's revisit the previous example, but this time with a new [reusable component](/react-reusable-components/) called Button for the previously implemented display/hide toggle feature:
 
@@ -445,7 +445,7 @@ const Description = ({ paragraph }) => <p>{paragraph}</p>;
 export default App;
 ```
 
-Both, the Headline and the Description components do not know whether the information originates in the Welcome or App component. The same applies if `greeting` would become a stateful value in the App component by using React's useState Hook. Then the stateful `greeting` would become just `text` -- a property in the Welcome component's props -- which passes it down to its child components.
+Both the Headline and the Description components do not know whether the information originates in the Welcome or App component. The same applies if `greeting` would become a stateful value in the App component by using React's useState Hook. Then the stateful `greeting` would become just `text` -- a property in the Welcome component's props -- which passes it down to its child components.
 
 Last but not least, have a closer look at the Welcome component from the last example. It passes a title prop to the Headline component, but doesn't use just the `text.title` but creates a new string from it. Without modifying the props, the component uses the `title` property to derive a new value from it. This principle is called [computed properties in React](/react-computed-properties/).
 
@@ -687,7 +687,7 @@ const Button = ({ label, disabled, onClick }) => (
 export default App;
 ```
 
-Over time, there will be more and more props that we want to pass to the button and therefore the Button component's function signature will grow in size. We could continue doing it this way, being explicit about every prop the Button component receives. However, could also use JavaScript's rest destructuring which collects all the remaining properties from an object which didn't get destructured:
+Over time, there will be more and more props that we want to pass to the button and therefore the Button component's function signature will grow in size. We could continue doing it this way, being explicit about every prop the Button component receives. However, we could also use JavaScript's rest destructuring which collects all the remaining properties from an object which didn't get destructured:
 
 ```javascript{1-2}
 const Button = ({ label, onClick, ...others }) => (
@@ -794,7 +794,7 @@ const Button = ({ onClick, children }) => (
 export default App;
 ```
 
-In this case, only a string is put in between of the element's tags. Then in the child component, you can make use of everything which is in between of the tags by using **React's children prop**. For instance, you can just render the content of the children prop like it is done in this example. In the following sections, you will see how the children prop can be used as a function too.
+In this case, only a string is put in between of the element's tags. Then in the child component, you can make use of everything which is in between the tags by using **React's children prop**. For instance, you can just render the content of the children prop like it is done in this example. In the following sections, you will see how the children prop can be used as a function too.
 
 # How to pass Components as Props
 
@@ -863,7 +863,7 @@ const BiographyItalic = ({ user }) => (
 );
 ```
 
-Many people refer to this as **slot pattern** in React. You can find a working minimal project on [GitHub](https://github.com/the-road-to-learn-react/react-slot-pattern-example). And again, that's how composition in React shines. You don't need to touch the Profile component. Moreover, you don't need to pass props, in this case the user, multiple levels down the component tree, but rather pass it to the slotted components.
+Many people refer to this as **slot pattern** in React. You can find a working minimal project on [GitHub](https://github.com/the-road-to-learn-react/react-slot-pattern-example). And again, that's how composition in React shines. You don't need to touch the Profile component. Moreover, you don't need to pass props - in this case the user - multiple levels down the component tree, but rather pass it to the slotted components.
 
 # Children as a Function
 

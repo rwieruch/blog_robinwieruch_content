@@ -184,7 +184,7 @@ const App = () => {
 };
 ```
 
-However, this adds unwanted redundancy to the React application. So instead of duplicating the Layout component, we will use a so called **Layout Route**, which is not an actual route, but just a way to give each Route component's `element` in a group of Routes the same surrounding style:
+However, this adds unwanted redundancy to the React application. So instead of duplicating the Layout component, we will use a so-called **Layout Route**, which is not an actual route, but just a way to give each Route component's `element` in a group of Routes the same surrounding style:
 
 ```javascript{7,10}
 const App = () => {
@@ -203,7 +203,7 @@ const App = () => {
 };
 ```
 
-As you can see, it's possible to nest Route components in another Route component -- whereas the former become so called **Nested Routes**. Now instead of using React's children in the Layout component, use React Router's Outlet component as equivalent:
+As you can see, it's possible to nest Route components in another Route component -- whereas the former become so-called **Nested Routes**. Now instead of using React's children in the Layout component, use React Router's Outlet component as equivalent:
 
 ```javascript{1,5,8}
 import { Routes, Route, Outlet, Link } from 'react-router-dom';
@@ -221,7 +221,7 @@ const Layout = () => {
 
 In essence, the Outlet component in the Layout component inserts the matching child route (here: Home or Users component) of the parent route (here: Layout component). After all, using a Layout Route helps you to give each Route component in a collective the same layout (e.g. style with CSS, structure with HTML).
 
-From here, you could go even one step further by moving all the App component's implementation details (headline, navigation) into this new Layout component. Furthermore, we can exchange the Link with a NavLink component in order to achieve so called **Active Links** -- which show a user the currently active route. Hence the new NavLink component gives us access to a `isActive` flag in its `style` (and `className`) props when using it with a function:
+From here, you could go even one step further by moving all the App component's implementation details (headline, navigation) into this new Layout component. Furthermore, we can exchange the Link with a NavLink component in order to achieve so-called **Active Links** -- which show a user the currently active route. Hence the new NavLink component gives us access to a `isActive` flag in its `style` (and `className`) props when using it with a function:
 
 ```javascript{3,18-20,23,24,26-34,39}
 import {
@@ -267,7 +267,7 @@ const Layout = () => {
 };
 ```
 
-Next you may have noticed that this React application lacks a base route. While we have a `/home` and `/users` route, there is no `/` route. You will see this as warning in your browser's developer tools too: *No routes matched location "/"*. Therefore, we will create a so called **Index Route** as fallback for the `/` route whenever a user visits it. The element for this fallback route can be a new component or any already matched route (e.g. Home should render for the routes `/` and `/home` as demonstrated in the following example):
+Next you may have noticed that this React application lacks a base route. While we have a `/home` and `/users` route, there is no `/` route. You will see this as warning in your browser's developer tools too: *No routes matched location "/"*. Therefore, we will create a so-called **Index Route** as fallback for the `/` route whenever a user visits it. The element for this fallback route can be a new component or any already matched route (e.g. Home should render for the routes `/` and `/home` as demonstrated in the following example):
 
 ```javascript{5}
 const App = () => {
@@ -283,7 +283,7 @@ const App = () => {
 };
 ```
 
-You can think of an Index Route as a default route when the parent route matches, but none of its child routes. Next, in case a user navigates to a non-matching route (e.g. `/about`), we will add a so called **No Match Route** (also called **Not Found Route**) which equals to a 404 page of a website:
+You can think of an Index Route as a default route when the parent route matches, but none of its child routes. Next, in case a user navigates to a non-matching route (e.g. `/about`), we will add a so-called **No Match Route** (also called **Not Found Route**) which equals to a 404 page of a website:
 
 ```javascript{8,14-16}
 const App = () => {
@@ -352,7 +352,7 @@ const Users = ({ users }) => {
 };
 ```
 
-By having this new dynamic yet nested route, we need to create a matching nested Route component for it in the App component. First, since it is a so called **Nested Route** (or child route) of the `/users` route, we can nest it in this respective parent Route component. In addition, since it is a so called **Dynamic Route**, it uses a dynamic route defined as `:userId` whereas a user's identifier matches dynamically (e.g. user with `id` of `'1'` would be matched to `/users/1`):
+By having this new dynamic yet nested route, we need to create a matching nested Route component for it in the App component. First, since it is a so-called **Nested Route** (or child route) of the `/users` route, we can nest it in this respective parent Route component. In addition, since it is a so-called **Dynamic Route**, it uses a dynamic route defined as `:userId` whereas a user's identifier matches dynamically (e.g. user with `id` of `'1'` would be matched to `/users/1`):
 
 ```javascript{12-14}
 const App = () => {
@@ -423,7 +423,7 @@ We have also seen how we can create dynamic routes by using the colon in a Route
 
 # Relative Links in React Router
 
-The newest version of React Router comes with so called **Relative Links**. We will examine this concept by looking at the Users component and its absolute `/users/${user.id}` path which is used for the Link component. In previous versions of React Router, it was necessary to specify the *entire path*. However, in this version you can just use the *nested path* as relative path:
+The newest version of React Router comes with so-called **Relative Links**. We will examine this concept by looking at the Users component and its absolute `/users/${user.id}` path which is used for the Link component. In previous versions of React Router, it was necessary to specify the *entire path*. However, in this version you can just use the *nested path* as relative path:
 
 ```javascript{9}
 const Users = ({ users }) => {

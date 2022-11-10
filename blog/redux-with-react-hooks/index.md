@@ -184,7 +184,7 @@ const App = () => {
 };
 ```
 
-As before, we want to have access to one global state container (`state`) and one universal dispatch function (`dispatch`). That's what our custom hook returns. As parameters our custom hook receives each returned array from our useReducer calls allocated by object keys. These keys will define our so called substates of our state container so that `const { filter, todos } = state;` will be possible later on. Also note that this custom hook looks very similar to Redux's [combineReducers](https://redux.js.org/api/combinereducers) function. Now let's implement the new hook:
+As before, we want to have access to one global state container (`state`) and one universal dispatch function (`dispatch`). That's what our custom hook returns. As parameters our custom hook receives each returned array from our useReducer calls allocated by object keys. These keys will define our so-called substates of our state container so that `const { filter, todos } = state;` will be possible later on. Also note that this custom hook looks very similar to Redux's [combineReducers](https://redux.js.org/api/combinereducers) function. Now let's implement the new hook:
 
 ```javascript{1,2,3,4,5,6,7,8,9}
 const useCombinedReducer = combinedReducers => {

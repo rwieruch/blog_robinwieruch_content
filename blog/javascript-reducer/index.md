@@ -116,7 +116,7 @@ Don't worry if you don't understand immediately what's happening in the code her
 
 * **The state processed by a reducer function is immutable.** That means the incoming state -- coming in as argument -- is never directly changed. Therefore the reducer function always has to return a new state object. If you haven't heard about immutability, you may want to check out the topic immutable data structures.
 
-* Since we know about the state being a immutable data structure, we can use the [JavaScript spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to **create a new state object from the incoming state and the part we want to change** (e.g. `count` property). This way we ensure that the other properties that aren't touch from the incoming state object are still kept intact for the new state object.
+* Since we know about the state being a immutable data structure, we can use the [JavaScript spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) to **create a new state object from the incoming state and the part we want to change** (e.g. `count` property). This way we ensure that the other properties that aren't touched from the incoming state object are still kept intact for the new state object.
 
 Let's see these two important points in code with another example where we want to change the last name of a person object with the following reducer function:
 

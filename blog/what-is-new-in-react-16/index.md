@@ -212,7 +212,7 @@ class Account extends Component {
 }
 ```
 
-You would get an error message saying: *"Cannot read property 'username' of null"*. The whole application crashes because the `username` property is destructured from the `user` object. By using `componentDidCatch` you can prevent it and display a proper error message when an error is caught in your render method. You can use the `componentDidCatch` lifecycle method directly in your Account component. However, a nicer way to keep it reusable and maintainable in your application would be to introduce a so called error boundary.
+You would get an error message saying: *"Cannot read property 'username' of null"*. The whole application crashes because the `username` property is destructured from the `user` object. By using `componentDidCatch` you can prevent it and display a proper error message when an error is caught in your render method. You can use the `componentDidCatch` lifecycle method directly in your Account component. However, a nicer way to keep it reusable and maintainable in your application would be to introduce a so-called error boundary.
 
 ```javascript
 class MyErrorBoundary extends React.Component {

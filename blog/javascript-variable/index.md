@@ -365,7 +365,7 @@ console.log(me.parents);
 // ["Heike Wieruch", "Thomas Wieruch"]
 ```
 
-This can go on and on with objects within objects, arrays within arrays -- so called multi-dimensional arrays --, arrays within objects, and objects within arrays. All permutations of data types are possible in this more complex data structures.
+This can go on and on with objects within objects, arrays within arrays -- so-called multi-dimensional arrays --, arrays within objects, and objects within arrays. All permutations of data types are possible in this more complex data structures.
 
 Last but not, there are functions. Same as objects and arrays, I will not go into too much detail here. Rather I want to give you an introduction to elaborate more on these JavaScript data structures later. Functions are used as mini programs to run in your JavaScript application.
 

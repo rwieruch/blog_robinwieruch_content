@@ -16,7 +16,7 @@ A React Router tutorial which teaches you how to use **Authentication in React R
 
 <ReadMore label="React Router 6 Introduction" link="/react-router/" />
 
-We will start off with a minimal React project that uses React Router to navigate a user from one page to another page. In the following [function component](/react-function-component/), we have matching Link and Route components from React Router for the `home/` and `dashboard/` routes. Furthermore, we have a so called Index Route loaded with the Home component and a so called No Match Route loaded with the NoMatch component. Both act as fallback routes:
+We will start off with a minimal React project that uses React Router to navigate a user from one page to another page. In the following [function component](/react-function-component/), we have matching Link and Route components from React Router for the `home/` and `dashboard/` routes. Furthermore, we have a so-called Index Route loaded with the Home component and a so-called No Match Route loaded with the NoMatch component. Both act as fallback routes:
 
 ```javascript
 import { Routes, Route, Link } from 'react-router-dom';
@@ -81,7 +81,7 @@ const Dashboard = () => {
 };
 ```
 
-While the public Home component should be accessible by everyone, the protected Dashboard component should only be accessible for authenticated users. At the moment, you can navigate to both components and we will implemented the protection of the Dashboard component by using a so called Private Route later on.
+While the public Home component should be accessible by everyone, the protected Dashboard component should only be accessible for authenticated users. At the moment, you can navigate to both components and we will implemented the protection of the Dashboard component by using a so-called Private Route later on.
 
 Now we will focus on the authentication of a user first by implementing a button with a [callback handler](/react-event-handler/) to sign in a user. We are using the "Home page" here, but you can also use a dedicated "Login page" if you want to:
 
@@ -401,7 +401,7 @@ const AuthProvider = ({ children }) => {
 };
 ```
 
-We handled the [redirect programmatically via React Router's useNavigate Hook](/react-router-redirect/) here. However, the explicit redirect only applied for the sign in. For the sign out in contrast, we will use an implicit redirect by creating a so called protected route for sensitive pages (read: components) that are prohibited to be accessed from unauthenticated users.
+We handled the [redirect programmatically via React Router's useNavigate Hook](/react-router-redirect/) here. However, the explicit redirect only applied for the sign in. For the sign out in contrast, we will use an implicit redirect by creating a so-called protected route for sensitive pages (read: components) that are prohibited to be accessed from unauthenticated users.
 
 # Protected Routes in React Router
 

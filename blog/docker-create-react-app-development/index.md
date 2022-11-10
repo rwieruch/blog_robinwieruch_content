@@ -18,7 +18,7 @@ Just recently I had to use Docker for my create-react-app web application develo
 
 *Note: If you are using a custom React setup (e.g. React with Webpack) and not create-react-app, check out this [Docker with React](/docker-react-development/) tutorial instead.*
 
-After you have set up your create-react-app project, visit it on `http://localhost:3000` to see the rendered React app. Everything should work as expected. Now, we will ship this React application in a **Docker container** by using **Docker image**. First of all, create a so called **Dockerfile**:
+After you have set up your create-react-app project, visit it on `http://localhost:3000` to see the rendered React app. Everything should work as expected. Now, we will ship this React application in a **Docker container** by using **Docker image**. First of all, create a so-called **Dockerfile**:
 
 ```text
 touch Dockerfile

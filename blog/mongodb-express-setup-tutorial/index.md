@@ -160,7 +160,7 @@ const Message = mongoose.model('Message', messageSchema);
 export default Message;
 ```
 
-Now, in case a user is deleted, we may want to perform a so called cascade delete for all messages in relation to the user. That's why you can extend schemas with hooks. In this case, we add a pre hook to our user schema to remove all messages of this user on its deletion:
+Now, in case a user is deleted, we may want to perform a so-called cascade delete for all messages in relation to the user. That's why you can extend schemas with hooks. In this case, we add a pre hook to our user schema to remove all messages of this user on its deletion:
 
 ```javascript{26-28}
 import mongoose from 'mongoose';

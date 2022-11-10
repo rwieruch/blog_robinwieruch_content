@@ -2,7 +2,7 @@
 title: "TypeScript: React useRef Hook"
 description: "How to use React's useRef Hook with TypeScript for using a ref ..."
 date: "2022-07-19T06:52:46+02:00"
-categories: ["React", "React Hooks"]
+categories: ["React", "React Hooks", "TypeScript"]
 keywords: ["useRef typescript", "react ref typescript"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

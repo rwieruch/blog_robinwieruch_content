@@ -290,7 +290,7 @@ Both examples have used React's useEffect Hook to do something with the ref obje
 
 # React Callback Ref
 
-A better approach to the previous examples is using a so called **callback ref** instead. With a callback ref, you don't have to use useEffect and useRef hooks anymore, because the callback ref gives you access to the DOM node on every render:
+A better approach to the previous examples is using a so-called **callback ref** instead. With a callback ref, you don't have to use useEffect and useRef hooks anymore, because the callback ref gives you access to the DOM node on every render:
 
 ```javascript{8-14}
 function ComponentWithRefRead() {

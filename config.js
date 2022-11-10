@@ -386,7 +386,7 @@ module.exports = {
       {
         label: 'Christian Nwamba',
         sublabel: 'JS Dev, Organizer of Concatenate',
-        description: `You can tell how much time Robin has put into a teaching piece when you consume his content.  I have partnered with Robin and he sets the bar high for other teachers and content creators – this results to a quality learning ecosystem for his students regardless if a content or course was thought by him or not.`,
+        description: "You can tell how much time Robin has put into a teaching piece when you consume his content. I have partnered with Robin and he sets the bar high for other teachers and content creators – this results to a quality learning ecosystem for his students regardless if a content or course was thought by him or not.",
         url: 'https://twitter.com/codebeast',
       },
       {
@@ -402,6 +402,13 @@ module.exports = {
         description:
           "If it's anything to do with React and it's written by Robin, you can trust that it'll be world-class. His books are some of the best content you'll find on the web for learning React.",
         url: 'https://twitter.com/iam_preethi',
+      },
+      {
+        label: 'Kamran Ahmed',
+        sublabel: 'Founder & CEO of roadmap.sh',
+        description:
+          "I have known Robin through his content for 5+ years; I have read his books and several of his blog posts. Robin is an excellent teacher and content creator. I can guarantee that you'll be hard pressed to find anyone knowing React and the ecosystem more than Robin.",
+        url: 'https://roadmap.sh/',
       },
     ],
   },

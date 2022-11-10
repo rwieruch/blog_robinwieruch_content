@@ -18,7 +18,7 @@ This is a React Router tutorial which teaches you how to use **Private Routes wi
 
 <ReadMore label="React Router 6 Introduction" link="/react-router/" />
 
-We will start off with a minimal React project that uses React Router to navigate a user from one page to another page. In the following [function component](/react-function-component/), we have matching Link and Route components from React Router for various routes. Furthermore, we have a so called Index Route loaded with the Landing component and a so called No Match Route loaded with inline JSX. Both act as fallback routes:
+We will start off with a minimal React project that uses React Router to navigate a user from one page to another page. In the following [function component](/react-function-component/), we have matching Link and Route components from React Router for various routes. Furthermore, we have a so-called Index Route loaded with the Landing component and a so-called No Match Route loaded with inline JSX. Both act as fallback routes:
 
 ```javascript
 import { Routes, Route, Link } from 'react-router-dom';

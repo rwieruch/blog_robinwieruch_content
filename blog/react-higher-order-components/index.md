@@ -396,7 +396,7 @@ const TodoList = compose(
 )(BaseTodoList);
 ```
 
-Essentially the `compose()` function takes all the passed arguments (must be functions) as an array of functions and applies them from right to left onto the argument of the returned function. It's worth to note that the `compose()` function comes as function with many utility libraries (e.g. Lodash) too. However, the shown implementation suffices for this use case.
+Essentially the `compose()` function takes all the passed arguments (must be functions) as an array of functions and applies them from right to left onto the argument of the returned function. It's worth noting that the `compose()` function comes as function with many utility libraries (e.g. Lodash) too. However, the shown implementation suffices for this use case.
 
 Last but not least, we want to bring back the configuration of out Higher-Order Components from before. First, adapt the atomic Higher-Order Components to use a configuration again, but this time just a string rather than an object, because we want to only configure it with a feedback message (which is not optional this time):
 

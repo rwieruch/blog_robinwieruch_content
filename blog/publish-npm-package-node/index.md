@@ -234,7 +234,7 @@ module.exports = {
 };
 ```
 
-Then, a so called loader for Babel which is used in our Webpack configuration needs to be installed:
+Then, a so-called loader for Babel which is used in our Webpack configuration needs to be installed:
 
 ```javascript
 npm install babel-loader --save-dev

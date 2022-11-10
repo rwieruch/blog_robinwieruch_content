@@ -277,7 +277,7 @@ class App extends Component {
 }
 ```
 
-A render prop component would have to be used in the App component to manage the state on behalf of the App component. So let's say the App component becomes a functional component again and uses a so called State render prop component:
+A render prop component would have to be used in the App component to manage the state on behalf of the App component. So let's say the App component becomes a functional component again and uses a so-called State render prop component:
 
 ```javascript{2,3,6,7,9,11,12}
 const App = () => (

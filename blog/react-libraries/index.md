@@ -163,7 +163,7 @@ const Headline = ({ title }) =>
   </h1>
 ```
 
-Second, I want to recommend you so called styled components as one of many *CSS-in-JS* solutions for React. This approach is brought to you by a library called [styled-components](/react-styled-components/) (or alternatives such as [emotion](https://emotion.sh/) or [stitches](https://stitches.dev/)) which co-locates styling with JavaScript next to your React components in your component's JavaScript file or a co-located file:
+Second, I want to recommend you so-called styled components as one of many *CSS-in-JS* solutions for React. This approach is brought to you by a library called [styled-components](/react-styled-components/) (or alternatives such as [emotion](https://emotion.sh/) which co-locates styling with JavaScript next to your React components in your component's JavaScript file or a co-located file:
 
 ```javascript
 import styled from 'styled-components';
@@ -193,7 +193,7 @@ Whether you choose CSS-in-CSS, CSS-in-JS, or functional CSS is up to you. All st
 
 * CSS-in-CSS with CSS Modules
 * CSS-in-JS with Styled Components (most popular)
-  * alternatives: Emotion or Stitches
+  * alternatives: Emotion
 * Functional CSS with Tailwind CSS
 * optional: clsx for conditional CSS classes
 
@@ -204,15 +204,19 @@ As a beginner, it is a great and recommended learning experience to build reusab
 However, at some point you want to use a UI library which gives you access to lots of pre-built components which share the same design system. All of the following UI libraries come with essential components like Buttons, Dropdowns, Dialogs and Lists:
 
 * [Material UI (MUI)](https://material-ui.com/) (most popular)
-* [Mantine](https://mantine.dev/) (most recommended)
+* [Mantine UI](https://mantine.dev/) (most recommended)
 * [Chakra UI](https://chakra-ui.com/) (most recommended)
 * [Ant Design](https://ant.design/)
-* [Radix](https://www.radix-ui.com/)
-* [Primer](https://primer.style/react/)
-* [NextUI](https://nextui.org/)
-* [Tailwind UI](https://www.tailwindui.com/) (not free)
 * [Semantic UI](/react-semantic-ui-tutorial)
 * [React Bootstrap](https://react-bootstrap.github.io/)
+* [Reactstrap](https://reactstrap.github.io/)
+* [Radix](https://www.radix-ui.com/)
+* [NextUI](https://nextui.org/)
+* [Primer](https://primer.style/react/)
+* Tailwind
+  * [Headless UI](https://headlessui.com/)
+  * [Daisy UI](https://daisyui.com/)
+  * [Tailwind UI](https://www.tailwindui.com/) (not free)
 
 Even though all of these UI libraries come with lots in-house components, they cannot make each component as powerful as libraries which focus only on one UI component. For example, [react-table-library](https://react-table-library.com/) allows you to create powerful table components in React while also offering you themes (e.g. Material UI) for blending nicely into popular UI component libraries.
 
@@ -238,13 +242,14 @@ If you really want to build charts from the ground up yourself, there is no way 
 
 # Form Libraries in React
 
-The most popular library for forms in React is [React Hook Form](https://react-hook-form.com/). It comes with everything needed from validation (most popular integrations are [yup](https://github.com/jquense/yup) and [zod](https://github.com/colinhacks/zod)) over submission to form state management. An alternative, which has been more popular in the past, is [Formik](https://github.com/jaredpalmer/). Both are valid solutions for your React application. Yet another alternative in this space would be [React Final Form](https://final-form.org/react). After all, if you are already using a React UI library, you could also check out their built-in form solution.
+The most popular library for [forms in React](/react-form/) is [React Hook Form](https://react-hook-form.com/). It comes with everything needed from validation (most popular integrations are [zod](https://github.com/colinhacks/zod) and [yup](https://github.com/jquense/yup)) over submission to form state management. As alternative there are [Formik](https://github.com/jaredpalmer/)and [React Final Form](https://final-form.org/react). If you are already using a React UI library, you could also check out their built-in form solution.
 
 **Recommendations:**
 
 * React Hook Form
-  * with either yup or zod integration for validation
+  * with either zod or yup integration for validation
 * If you use a UI library, check whether built-in form supports all your requirements
+  * React Hook Form comes with a clean API for a UI library integration
 
 # React Type Checking
 
@@ -326,7 +331,7 @@ You can deploy and host a React application like any other web application. If y
 
 If you want to get a deep dive about testing in React, read this: [How to test components in React](/react-testing-tutorial/). Here comes the gist: The backbone of testing a React application is [Jest](https://github.com/facebook/jest). It gives you test runner, assertion library and spying/mocking/stubbing functionalities. Everything that's needed from a comprehensive test framework.
 
-At the minimum, you can render React components in your Jest tests with [react-test-renderer](https://reactjs.org/docs/test-renderer.html). This is already sufficient to perform so called [Snapshot Tests with Jest](/react-testing-jest/). A snapshot test works the following way: Once you run your tests, a snapshot of your rendered DOM elements of the React component is created. When you run your tests again at some point in time, another snapshot is created which is used as diff for the previous snapshot. If the diff is not identical, Jest will complain and you either have to accept the snapshot or change the implementation of your component.
+At the minimum, you can render React components in your Jest tests with [react-test-renderer](https://reactjs.org/docs/test-renderer.html). This is already sufficient to perform so-called [Snapshot Tests with Jest](/react-testing-jest/). A snapshot test works the following way: Once you run your tests, a snapshot of your rendered DOM elements of the React component is created. When you run your tests again at some point in time, another snapshot is created which is used as diff for the previous snapshot. If the diff is not identical, Jest will complain and you either have to accept the snapshot or change the implementation of your component.
 
 Eventually you will find yourself using the popular [React Testing Library (RTL)](/react-testing-library/) -- which is used within the Jest testing environment -- for a more elaborate testing library for React. RTL makes it possible to render your components and to simulate events on HTML elements. Afterward, Jest is used for the assertions on the DOM nodes.
 
@@ -379,6 +384,11 @@ JavaScript itself got pretty awesome dealing with dates and times over the recen
 * [Tauri](https://github.com/tauri-apps/tauri) (fairly new)
 * [NW.js](https://nwjs.io/)
 * [Neutralino.js](https://github.com/neutralinojs/neutralinojs)
+
+# File Upload in React
+
+* [react-dropzone](https://react-dropzone.js.org/)
+* [filepond](https://pqina.nl/filepond/)
 
 # Mobile Development with React
 

@@ -362,7 +362,7 @@ Now we have our lever to pseudo authenticate a user in our React Native app. If 
 
 ![](./images/5.png)
 
-What's missing is giving the user access to the protected area. Therefore, we will implement a so called switch navigation with React Navigation by just using a [conditional rendering in React](/conditional-rendering-react/):
+What's missing is giving the user access to the protected area. Therefore, we will implement a so-called switch navigation with React Navigation by just using a [conditional rendering in React](/conditional-rendering-react/):
 
 ```javascript{15,17,29}
 ...

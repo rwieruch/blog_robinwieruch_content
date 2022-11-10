@@ -146,7 +146,7 @@ In our example, the App and Book components sit in the same file. This means tha
 
 # Stateful Context in React with useContext
 
-In the previous example, the context has been a static (or unstateful) value. In most use cases though, context will be used to pass a stateful value. We will address this issue now, because a user may wants to change the currency and thus wants to see the respective symbol.
+In the previous example, the context has been a static (or unstateful) value. In most use cases though, context will be used to pass a stateful value. We will address this issue now, because a user may want to change the currency and thus wants to see the respective symbol.
 
 ```javascript{2,5,6-11}
 const App = () => {

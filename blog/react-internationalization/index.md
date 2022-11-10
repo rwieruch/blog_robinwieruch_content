@@ -171,7 +171,7 @@ const App = () => {
 export default App;
 ```
 
-The [React Hook](/react-hooks/) gives us a function called `t` for translation the texts in our React components. Whereas its first mandatory parameter is the translation key (see *public/locales/en/translation.json*), the second optional parameter is the so called *working text*. Whenever there is no translation, it defaults to the working text or to the translation key, if there is no working text in the first place.
+The [React Hook](/react-hooks/) gives us a function called `t` for translation the texts in our React components. Whereas its first mandatory parameter is the translation key (see *public/locales/en/translation.json*), the second optional parameter is the so-called *working text*. Whenever there is no translation, it defaults to the working text or to the translation key, if there is no working text in the first place.
 
 # React with react-i18next: Multiple Files (Namespaces)
 

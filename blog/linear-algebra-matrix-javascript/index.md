@@ -167,7 +167,7 @@ const matrixI3 = math.eye(3);
 
 Identity matrices are used later on for more sophisticated matrix operations. Used with another matrix in a matrix operation, identity matrices are a special case because they are commutative: A x I == I x A.
 
-Another type of matrix is the transposed matrix. It is a matrix where the dimensions are flipped. Basically the rows become columns and the columns become rows. In the following example, the vector becomes a so called row vector.
+Another type of matrix is the transposed matrix. It is a matrix where the dimensions are flipped. Basically the rows become columns and the columns become rows. In the following example, the vector becomes a so-called row vector.
 
 ```javascript
 const matrixV = math.matrix([[0], [1], [2]]);

@@ -36,7 +36,7 @@ JavaScript is evolving with a rapid speed. It is applied in several domains by n
 
 ![javascript domains](./images/javascript-domains.jpg)
 
-**But what about the performance?** Machine learning algorithms are highly dependent on performance. Often they are using so called vectorized implementations to stay computational efficient. Graphical computations performed by the GPU are similarly used (see image; taken from webgltutorials.org). That's what makes C++ as a programming language so interesting for machine learning. Therefore, one would assume that JavaScript itself is not the best suited programming language. However, with [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) becoming popular for GPU accelerates executions in the browser, it is utilized for recent machine learning libraries in JavaScript too.
+**But what about the performance?** Machine learning algorithms are highly dependent on performance. Often they are using so-called vectorized implementations to stay computational efficient. Graphical computations performed by the GPU are similarly used (see image; taken from webgltutorials.org). That's what makes C++ as a programming language so interesting for machine learning. Therefore, one would assume that JavaScript itself is not the best suited programming language. However, with [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) becoming popular for GPU accelerates executions in the browser, it is utilized for recent machine learning libraries in JavaScript too.
 
 ![vectorization implementation](./images/webgl-pipeline.png)
 
