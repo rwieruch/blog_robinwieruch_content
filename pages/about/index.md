@@ -138,13 +138,13 @@ I have a couple of technical gadgets I heavily rely on:
   * Apple M1 Pro mit 10‑Core CPU, 16‑Core GPU und 16‑Core Neural Engine
   * 32 GB RAM
   * 512 GB SSD
-  * QWERTY = Englisch (International)
+  * QWERTY = English (International)
 * Backup MacBook Pro 2015
   * 13-inch
   * 2,7 GHz Intel Core i5
   * 16 GB RAM
   * 256 GB SSD
-  * QWERTY = Englisch (International)
+  * QWERTY = English (International)
 * [Laptop Stand](https://amzn.to/2SOhYGn) (the best thing to work in co-working spaces when not having an external display)
 * [Trackpad](https://amzn.to/2RwCPwg) and [Keyboard](https://amzn.to/2SPqZ1K)
 * [Headphones](https://amzn.to/2SPghIE)
