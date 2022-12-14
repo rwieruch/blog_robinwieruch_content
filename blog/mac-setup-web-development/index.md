@@ -147,6 +147,7 @@ brew install --cask \
   figma \
   imageoptim \
   maccy \
+  protonvpn \
   zoom
 ```
 
