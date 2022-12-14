@@ -14,7 +14,7 @@ author: ""
 
 Material UI for React, also called MUI, does not come with a native CrossFade component for transitioning with a cross fade animation between two or more components. Here I want to share the cross fade component that I have used for several of my freelance projects when using Material UI:
 
-```typescript
+```tsx
 import * as React from 'react';
 
 import Box from '@mui/material/Box';
@@ -58,7 +58,7 @@ export { CrossFade };
 
 And the usage of this CrossFade component appears as follows:
 
-```typescript
+```tsx
 <CrossFade
   components={[
     {
