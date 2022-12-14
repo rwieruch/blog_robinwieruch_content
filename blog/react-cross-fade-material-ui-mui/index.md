@@ -66,7 +66,7 @@ And the usage of this CrossFade component appears as follows:
       component: <div>A</div>,
     },
     {
-      in: true,
+      in: false,
       component: <div>B</div>,
     },
   ]}
