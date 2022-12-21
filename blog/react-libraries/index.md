@@ -203,7 +203,7 @@ As a beginner, it is a great and recommended learning experience to build reusab
 
 However, at some point you want to use a UI library which gives you access to lots of pre-built components which share the same design system. All of the following UI libraries come with essential components like Buttons, Dropdowns, Dialogs and Lists:
 
-* [Material UI (MUI)](https://material-ui.com/) (most popular)
+* [Material UI (by MUI)](https://material-ui.com/) (most popular)
 * [Mantine UI](https://mantine.dev/) (most recommended)
 * [Chakra UI](https://chakra-ui.com/) (most recommended)
 * [Ant Design](https://ant.design/)
