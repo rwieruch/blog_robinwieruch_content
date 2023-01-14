@@ -138,7 +138,7 @@ Since we encapsulated everything in one React component, it's difficult to tear 
 
 # React Component Composition
 
-There is one property ([React prop](/react-pass-props-to-component/)) that helps us out with this dilemma for our React component: **the React children prop**. It's one special prop provided by React to render something within a component whereas the component isn't aware ahead of time what it will be. A basic example may be the following:
+There is one property ([React prop](/react-pass-props-to-component/)) that helps us out with this dilemma for our React component: **the React children prop**. It's one special prop provided by React to render something within a component whereas the component isn't aware of it ahead of time. A basic example may be the following:
 
 ```javascript
 const Button = ({ onClick, type = 'button', children }) => (
