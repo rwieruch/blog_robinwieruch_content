@@ -439,7 +439,7 @@ module.exports = {
       'Access Tutorials, eBooks and Courses',
       'Personal Development as a Software Engineer',
     ],
-    url: 'https://www.getrevue.co/profile/rwieruch',
+    url: 'https://rwieruch.substack.com/',
   },
   subfooter: {
     enabled: true,

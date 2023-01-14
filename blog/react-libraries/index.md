@@ -234,20 +234,21 @@ Any animation in a web application starts with CSS. Eventually you will notice t
 
 If you really want to build charts from the ground up yourself, there is no way around [D3](https://d3js.org/). It's a low level visualization library that gives you everything you need to create amazing charts. However, learning D3 is a whole other adventure, thus many developers just pick a React charting library which does everything for them in exchange for flexibility. These are some popular solutions:
 
-* [Recharts](http://recharts.org)
-* [react-chartjs](https://github.com/reactchartjs/react-chartjs-2)
-* [nivo](https://nivo.rocks/)
-* [visx](https://github.com/airbnb/visx)
-* [Victory](https://formidable.com/open-source/victory/)
+* Recommendation: [Recharts](http://recharts.org) (great composability) (comes with customization due to opt-in composability)
+* [visx](https://github.com/airbnb/visx) (leaning more towards low-level D3 than high-level abstraction, therefore steeper learning curve)
+* off the shelf charts, more difficult to customize
+  * [Victory](https://formidable.com/open-source/victory/)
+  * [nivo](https://nivo.rocks/)
+  * [react-chartjs](https://github.com/reactchartjs/react-chartjs-2)
 
 # Form Libraries in React
 
-The most popular library for [forms in React](/react-form/) is [React Hook Form](https://react-hook-form.com/). It comes with everything needed from validation (most popular integrations are [zod](https://github.com/colinhacks/zod) and [yup](https://github.com/jquense/yup)) over submission to form state management. As alternative there are [Formik](https://github.com/jaredpalmer/)and [React Final Form](https://final-form.org/react). If you are already using a React UI library, you could also check out their built-in form solution.
+The most popular library for [forms in React](/react-form/) is [React Hook Form](https://react-hook-form.com/). It comes with everything needed from validation (most popular integrations is [zod](https://github.com/colinhacks/zod)) over submission to form state management. As alternative there are [Formik](https://github.com/jaredpalmer/)and [React Final Form](https://final-form.org/react). If you are already using a React UI library, you could also check out their built-in form solution.
 
 **Recommendations:**
 
 * React Hook Form
-  * with either zod or yup integration for validation
+  * with zod integration for validation
 * If you use a UI library, check whether built-in form supports all your requirements
   * React Hook Form comes with a clean API for a UI library integration
 

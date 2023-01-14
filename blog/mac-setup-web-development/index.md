@@ -148,7 +148,8 @@ brew install --cask \
   imageoptim \
   maccy \
   protonvpn \
-  zoom
+  zoom \
+  skype
 ```
 
 Install terminal applications (read more about these in Terminal Applications):
@@ -432,6 +433,7 @@ The look and feel we want to achieve from our IDE:
   "editor.renderWhitespace": "none",
   "editor.scrollBeyondLastLine": true,
   "editor.minimap.enabled": false,
+  "editor.lineNumbers": "off",
   "editor.find.seedSearchStringFromSelection": "never",
   // syntax highlighting
   "files.associations": {
@@ -472,6 +474,7 @@ The look and feel we want to achieve from our IDE:
   "editor.formatOnType": true,
   "extensions.ignoreRecommendations": true
 }
+
 ```
 
 # Sublime

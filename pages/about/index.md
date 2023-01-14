@@ -84,7 +84,7 @@ If you appreciate what I am doing, there are several ways to support me. It keep
 
 ### Follow Me
 
-First, you can encourage me by following me on my social media channels: [Twitter](https://twitter.com/rwieruch), [Facebook](https://www.facebook.com/rwieruch). There you will get only quality updates about my content. You can follow me as well on [GitHub](https://github.com/rwieruch) for trending, useful, or educational projects. In addition, you can [subscribe to my Newsletter](https://www.getrevue.co/profile/rwieruch) where many people already receive quality updates from me.
+First, you can encourage me by following me on my social media channels: [Twitter](https://twitter.com/rwieruch), [Facebook](https://www.facebook.com/rwieruch). There you will get only quality updates about my content. You can follow me as well on [GitHub](https://github.com/rwieruch) for trending, useful, or educational projects. In addition, you can [subscribe to my Newsletter](https://rwieruch.substack.com/) where many people already receive quality updates from me.
 
 ### Leave a Review
 
@@ -183,13 +183,7 @@ If you are looking for top quality people to help you with your online business,
 
 ### Newsletter
 
-[Revue](https://www.getrevue.co/referrals/adNOMX8eMpOQ5ndAIyXovw) is perfect for my needs to setup a Newsletter for my website. It has everything I need even though I relied heavily on MailChimp before. Revue has the following great features:
-
-* permalinks to newsletters
-* powerful integrations for fetching content automatically
-* simple and intuitive UI/UX
-* great pricing model for a larger audience
-* statistics and analytics
+[Substack](https://substack.com/refer/robinwieruch) is perfect for my needs to setup a Newsletter for my website. It has everything I need even though I relied heavily on Revue and MailChimp before.
 
 ### Email Marketing
 
