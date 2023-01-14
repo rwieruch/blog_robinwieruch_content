@@ -96,7 +96,7 @@ export default App;
 
 *Note: The Form component uses React Hooks that are not released yet. If you want, you can learn more about [React Hooks](/react-hooks/). Essentially they enable you to have function components with state and side-effects.*
 
-Now, wherever we use the Form component, we can capture the username of a user. It's identical to the HTML form from before, isn't it? Not really. At the moment, the Form is only capable of doing one thing. We did loose all the benefits from the HTML element composition from before, because we ended up with a specialized Form component. It can be reused anywhere in our React application, but it handles only one case. To make it effortless to see the difference, we would have to rename the Form component:
+Now, wherever we use the Form component, we can capture the username of a user. It's identical to the HTML form from before, isn't it? Not really. At the moment, the Form is only capable of doing one thing. We did lose all the benefits from the HTML element composition from before, because we ended up with a specialized Form component. It can be reused anywhere in our React application, but it handles only one case. To make it effortless to see the difference, we would have to rename the Form component:
 
 ```javascript{6,9}
 import React, { useState } from 'react';
@@ -138,7 +138,7 @@ Since we encapsulated everything in one React component, it's difficult to tear 
 
 # React Component Composition
 
-There is one property ([React prop](/react-pass-props-to-component/)) that helps us out with this dilemma for our React component: **the React children prop**. It's one special prop provided by React to render something within a component whereas the component isn't aware ahead of time what it will be. A basic example may be the following:
+There is one property ([React prop](/react-pass-props-to-component/)) that helps us out with this dilemma for our React component: **the React children prop**. It's one special prop provided by React to render something within a component whereas the component isn't aware of it ahead of time. A basic example may be the following:
 
 ```javascript
 const Button = ({ onClick, type = 'button', children }) => (
