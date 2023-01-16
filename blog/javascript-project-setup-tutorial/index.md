@@ -42,10 +42,10 @@ Now, since you have used npm to initialize it, your project should have a *packa
 ```javascript
 npm config list
 
-npm set init.author.name "<Your Name>"
-npm set init.author.email "you@example.com"
-npm set init.author.url "example.com"
-npm set init.license "MIT"
+npm set init-author-name "<Your Name>"
+npm set init-author-email "you@example.com"
+npm set init-author-url "https://example.com"
+npm set init-license "MIT"
 ```
 
 After setting up your npm project, you can install libraries (alias: node packages) to your project with npm (node package manager). Once you have installed your first library via npm to your project, it should show up in your *package.json* file as dependency. Also you will see a *node_modules/* folder showing up, where all your installed libraries will be kept as actual source code. More about this later.
