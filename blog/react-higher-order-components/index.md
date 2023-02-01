@@ -153,7 +153,7 @@ console.log(product);
 // 12
 ```
 
-While it's totally fine to go with the none HOF version by just taking both arguments in just one function:
+While it's totally fine to go without the HOF version by just taking both arguments in just one function:
 
 ```javascript{1,4}
 const multiply = (multiplier, multiplicand) =>
@@ -175,7 +175,7 @@ const subtract = (minuend) => (subtrahend) =>
   subtrahend - minuend;
 
 const result = compose(
-  subtraction(2),
+  subtract(2),
   multiply(4),
 )(3);
 
@@ -269,7 +269,7 @@ const TodoList = withConditionalFeedback(BaseTodoList);
 
 The last refactoring moved all implementation logic of the conditional rendering from the App component into the Higher-Order Component. It's the perfect place, because this way the App component nor its child component are bothered with this detail.
 
-You can imagine how this is might not be the perfect fit for React Hooks. First, usually a React Hook does not return conditional JSX. And secondly, a React Hook is not guarding a component from the outside but rather adds implementation details in the inside.
+You can imagine how this might not be the perfect fit for React Hooks. First, usually a React Hook does not return conditional JSX. And secondly, a React Hook is not guarding a component from the outside but rather adds implementation details in the inside.
 
 That's everything you need to know about the fundamentals of HOCs. You can start using them or take it even further by adding configuration or composition to your Higher-Order Components.
 
