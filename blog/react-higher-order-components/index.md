@@ -175,7 +175,7 @@ const subtract = (minuend) => (subtrahend) =>
   subtrahend - minuend;
 
 const result = compose(
-  subtraction(2),
+  subtract(2),
   multiply(4),
 )(3);
 
