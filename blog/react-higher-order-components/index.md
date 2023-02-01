@@ -153,7 +153,7 @@ console.log(product);
 // 12
 ```
 
-While it's totally fine to go with the none HOF version by just taking both arguments in just one function:
+While it's totally fine to go without the HOF version by just taking both arguments in just one function:
 
 ```javascript{1,4}
 const multiply = (multiplier, multiplicand) =>
