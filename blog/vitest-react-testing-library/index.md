@@ -2,7 +2,7 @@
 title: "Vitest with React Testing Library"
 description: "Learn how to use React Testing Library with Vitest in Vite. React Testing Library is a popular testing library for writing tests in React applications ..."
 date: "2022-10-03T09:52:46+02:00"
-categories: ["React"]
+categories: ["React", "Vite"]
 keywords: ["vitest react testing library", "vite react testing library"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
