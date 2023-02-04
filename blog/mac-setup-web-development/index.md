@@ -1,7 +1,7 @@
 ---
-title: "Mac Setup for Web Development [2022]"
+title: "Mac Setup for Web Development [2023]"
 description: "How I set up my new M1 MacBook Pro as a web developer for professional web development ..."
-date: "2022-02-21T06:50:46+02:00"
+date: "2023-02-04T06:50:46+02:00"
 categories: ["Web Development"]
 keywords: ["mac setup web development", "mac setup web developer", "mac setup javascript"]
 hashtags: ["#JavaScript"]
@@ -12,7 +12,8 @@ author: ""
 
 <Sponsorship />
 
-This year (2022) I bought the new **MacBook Pro** after having used the MacBook Pro 2015 for the last years. This first month has been super exciting and I am up running working efficiently on my personal and professional web development projects as a **freelance JavaScript developer**. Here I want to share with you my **Mac setup for web development** that I have used which got inspired by [Swyx's Mac Setup](https://www.swyx.io/new-mac-setup-2021).
+
+I bought the **MacBook Pro** from 2022 after having used the MacBook Pro 2015 for the last years. The last months have been super exciting and I am up running working efficiently on my personal and professional web development projects as a **freelance web developer**. Here I want to share with you my **Mac setup for web development** which I update all the time and which got inspired by [Swyx's Mac Setup](https://www.swyx.io/new-mac-setup-2021).
 
 # MacBook Pro Specification
 
@@ -463,7 +464,7 @@ The look and feel we want to achieve from our IDE:
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "eslint.validate": ["javascript"],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "javascript.validate.enable": false,
   "javascript.updateImportsOnFileMove.enabled": "never",
   "typescript.updateImportsOnFileMove.enabled": "never",
