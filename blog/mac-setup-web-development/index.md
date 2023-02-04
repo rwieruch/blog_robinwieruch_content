@@ -12,7 +12,6 @@ author: ""
 
 <Sponsorship />
 
-
 I bought the **MacBook Pro** from 2022 after having used the MacBook Pro 2015 for the last years. The last months have been super exciting and I am up running working efficiently on my personal and professional web development projects as a **freelance web developer**. Here I want to share with you my **Mac setup for web development** which I update all the time and which got inspired by [Swyx's Mac Setup](https://www.swyx.io/new-mac-setup-2021).
 
 # MacBook Pro Specification
