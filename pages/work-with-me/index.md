@@ -64,7 +64,7 @@ I always found it meaningful to give something back to less blessed people. When
 
 **Your opportunities to work with me:**
 
-* **Are you from a developing country and want to get into tech?** You are learning about JavaScript and React but cannot effort to pay for the education? You can enrol in my courses for free. Create an account on [my website](https://courses.robinwieruch.de/) and reach out to me with your email address which you have used on the platform. I will unlock all the content for you.
+* **Are you from a developing country and want to get into tech?** You are learning about JavaScript and React but cannot afford to pay for the education? You can enrol in my courses for free. Create an account on [my website](https://courses.robinwieruch.de/) and reach out to me with your email address which you have used on the platform. I will unlock all the content for you.
 
 * **Do you have a platform where you sell educational content?** You should consider not only the western market as your target group. Think about the people who are left out because the prices for the content are too high for them. That's why I built this [Purchasing Parity Power](https://github.com/rwieruch/purchasing-power-parity) API for JavaScript. You can use it as opt-in functionality on your course platform to make things affordable for others around the world.
 
