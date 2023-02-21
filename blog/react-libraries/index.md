@@ -1,9 +1,9 @@
 ---
-title: "React Libraries for 2022"
-description: "A comprehensive list of all React libraries used in 2022. If you are new to React, its ecosystem of libraries may be overwhelming. However, all these React libraries offer everything you need to build large scale applications with React ..."
-date: "2022-03-24T13:50:46+02:00"
+title: "React Libraries for 2023"
+description: "A comprehensive list of all React libraries used in 2023. If you are new to React, its ecosystem of libraries may be overwhelming. However, all these React libraries offer everything you need to build large scale applications with React ..."
+date: "2023-02-21T08:50:46+02:00"
 categories: ["React"]
-keywords: ["react libraries 2022"]
+keywords: ["react libraries 2023"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
@@ -24,45 +24,40 @@ The following article will give you guidance on **how to choose libraries for bu
 
 # How to create a React project
 
-There is this unknown for every React beginner on how to set up a React project when joining the React world. There are many frameworks to choose from. The *well-established status quo* in the React community is [create-react-app (CRA)](https://github.com/facebookincubator/create-react-app) by Facebook. It comes with a zero-configuration setup and gives you a minimalistic up and running React application out of the box. All the tooling is hidden from you, but it's up to you to alter the tools (e.g. `eject` or [craco](https://github.com/gsoft-inc/craco)) later in time.
+There is this unknown for every React beginner on how to set up a React project when joining the React world. There are many frameworks to choose from. The most popular choice in the React community is [Vite](https://vitejs.dev/) which allows you to create projects with various library (e.g. React) + opt-in TypeScript combinations. It comes with [incredible performance](https://twitter.com/rwieruch/status/1491093471490412547).
 
 <ReadMore label="Learn why frameworks like React matter" link="/why-frameworks-matter/" />
 
-These days CRA builds up on dated tooling though -- which results in a slower development experience. One of the *popular new kids on the block* is [Vite](https://vitejs.dev/) which comes with [incredible speed](https://twitter.com/rwieruch/status/1491093471490412547) for development and production and a handful of templates (e.g. React, React + TypeScript) to choose from.
-
-If you are already familiar with React, you can choose one of its most popular (meta) frameworks as alternative: [Next.js](https://nextjs.org/) and [Gatsby.js](https://www.gatsbyjs.org/). Both frameworks build up on top of React, hence you should already be familiar with [React's fundamentals](https://www.roadtoreact.com/). Another popular yet newer framework in this arena is [Remix](https://remix.run/) which in 2022 is definitely worth checking out.
+If you are already familiar with React, you can choose one of its most popular (meta) frameworks as alternative: [Next.js](https://nextjs.org/) which builds up on top of React, hence you should already be familiar with [React's fundamentals](https://www.roadtoreact.com/). Another popular yet newer framework in this arena is [Remix](https://remix.run/).
 
 <ReadMore label="Learn more about websites and web applications" link="/web-applications/" />
 
-While Next.js has been initially used for server-side rendering (e.g. dynamic web applications), Gatsby.js has been mainly used for static site generation (e.g. static websites such as blogs and landing pages). However, over the last years the line between both frameworks got blurry, because Next.js allows you to opt-in static sites and Gatsby allows to you opt-in server-side rendering. At this stage, I'd say Next.js won the popularity battle for most use cases.
+While Next.js has been initially used for server-side rendering (web applications), it can also be used for static site generation (e.g. websites). However, if you are looking for a framework with the best performance in mind for static content, you need to check out [Astro](https://astro.build/) which is framework agnostic and therefore can be used with React.
 
 <ReadMore label="How to create a modern JavaScript project" link="/javascript-project-setup-tutorial/" />
 
-If you just want to understand how tools like create-react-app work under the hood, try to [set up a React project](/minimal-react-webpack-babel-setup/) from scratch yourself. You will start with a bare bones HTML with JavaScript project and add React with its supportive tools (e.g. Webpack, Babel) yourself. It's not something you will have to deal with in your day to day work, but it's a great learning experience to get to know the underlying tooling.
+If you just want to understand how tools like Vite work under the hood, try to [set up a React project](/minimal-react-webpack-babel-setup/) yourself. You will start with a bare bones HTML with JavaScript project and add React with its supportive tools (e.g. Webpack, Babel) yourself. It's not something you will have to deal with in your day to day work, but it's a great learning experience to get to know the underlying tooling.
 
 **Recommendations:**
 
 * Vite for client-side React applications
-  * fallback CRA
-* Next.js for mainly server-side rendered React applications
-  * bleeding edge: Remix
-  * fallback Gatsby for static site generation
-* optional learning experience: create a React project from scratch
+* Next.js server-side rendered React applications
+* Astro for static-side generated React applications
+* optional learning experience: [create a React project](/minimal-react-webpack-babel-setup/)
 
 # Package Manager for React
 
-The default and most widely used package manager in the JavaScript ecosystem (and therefore React) is [npm](https://www.npmjs.com/) (which comes with a Node.js installation). When installing dependencies (read: libraries) in a React application, you will usually use it. However, the last years [yarn](https://yarnpkg.com/) has been a successful alternative. Personally I have never really used yarn except for a few projects. Last but not least, [pnpm](https://pnpm.io/) is the newest kid on the block which comes with a great performance boost.
+The default and most widely used package manager in the JavaScript ecosystem (and therefore React) is [npm](https://www.npmjs.com/) (which comes with a Node.js installation). When installing dependencies (read: libraries) in a React application, you will usually use it. However, for the last years [yarn](https://yarnpkg.com/) has been a successful alternative. Last but not least, [pnpm](https://pnpm.io/) is the newest kid on the block which comes with a great performance boost.
 
-<ReadMore label="Installing a Package Manager with Homebrew" link="/mac-setup-web-development/" />
+<ReadMore label="Installing a Package Manager" link="/mac-setup-web-development/" />
 
-If you happen to create multiple React applications which depend on each other or which shared a common set of custom UI components, you may want to check out the concept of a [monorepo](https://en.wikipedia.org/wiki/Monorepo). All previously mentioned package managers allow you to create monorepos by using their in-house workspaces feature, however, I had the best developer experience using pnpm. In combination with build pipeline tools such as [Turborepo](https://turborepo.org/) the performance boost is just overwhelming.
+If you happen to create multiple React applications which depend on each other or which share a common set of custom UI components, you may want to check out the concept of a [monorepo](/javascript-monorepos/). All previously mentioned package managers allow you to create monorepos by using their in-house workspaces feature, however, I had the best developer experience using yarn/pnpm. In combination with monorepo pipeline tools such as [Turborepo](https://turborepo.org/) the monorepo experience becomes perfect.
 
 **Recommendations:**
 
 * choose one package manager and stick to it
   * default and most widely used -> npm
-  * pnpm -> the new cool kid
-* if monorepo, use pnpm with Turborepo
+* if monorepo, check out Turborepo
 
 # React State Management
 
@@ -80,37 +75,39 @@ If you find yourself using React's Context too often for shared/global state, yo
 
 If you happen to use Redux, you should definitely check out [Redux Toolkit](https://redux-toolkit.js.org/) as well. It improves the developer experience of using Redux tremendously by being a great API on top of Redux's core.
 
-As alternatives, if you like the general idea of a global store but do not like how Redux approaches it, check out other popular local state management solutions such as [Zustand](https://github.com/pmndrs/zustand), [Jotai](https://github.com/pmndrs/jotai), [XState](https://github.com/statelyai/xstate), or [Recoil](https://github.com/facebookexperimental/Recoil).
+As alternatives, if you like the general idea of a global store but do not like how Redux approaches it, check out other popular local state management solutions such as [Zustand](https://github.com/pmndrs/zustand), [Recoil](https://github.com/facebookexperimental/Recoil), [XState](https://github.com/statelyai/xstate), or [Jotai](https://github.com/pmndrs/jotai).
 
 **Recommendations:**
 
 * useState/useReducer for co-located or shared state
-* opt-in useContext for enabling *some* global state
+* opt-in useContext for enabling *little* global state
   * optional learning experience: learn how to combine useState/useReducer with useContext
 * Redux (or an alternative) for *lots of* global state
 
 # React Data Fetching
 
-React's built-in hooks are great for UI state, but when it comes to state management of remote data (and therefore data fetching), I would recommend using a dedicated data fetching library such as [React Query](https://react-query.tanstack.com/) which comes with its own built-in state management under the hood. While React Query itself is not seen as a state management library, because it is primarily used to fetch your remote data from APIs, it takes care of all the state management (e.g. caching, optimistic updates) of this remote data for you.
+React's built-in hooks are great for UI state, but when it comes to state management of remote data (and therefore data fetching), I would recommend using a dedicated data fetching library such as [TanStack Query](https://tanstack.com/query) (formerly React Query). While TanStack Query itself is not seen as a state management library, because it is primarily used to fetch your remote data from APIs, it takes care of all the state management (e.g. caching, optimistic updates) of this remote data for you.
 
-<ReadMore label="Learn how React Query works under the hood" link="/react-hooks-fetch-data/" />
+<ReadMore label="Learn how TanStack Query works under the hood" link="/react-hooks-fetch-data/" />
 
-React Query was designed for consuming [REST APIs](/node-express-server-rest-api/). However, these days it supports [GraphQL](https://www.roadtographql.com/) too. But if you are looking for a dedicated GraphQL library for your React frontend, check out either [Apollo Client](https://www.apollographql.com/docs/react/) (popular), [urql](https://formidable.com/open-source/urql/) (lightweight), or [Relay](https://github.com/facebook/relay) (by Facebook).
+TanStack Query was designed for consuming [REST APIs](/node-express-server-rest-api/). However, these days it supports [GraphQL](https://www.roadtographql.com/) too. But if you are looking for a dedicated GraphQL library for your React frontend, check out either [Apollo Client](https://www.apollographql.com/docs/react/) (popular), [urql](https://formidable.com/open-source/urql/) (lightweight), or [Relay](https://github.com/facebook/relay) (by Facebook).
 
 <ReadMore label="Everything about State in React for Local and Remote Data" link="/react-state/" />
 
-If you are already using Redux and want to add data fetching with integrated state management in Redux, instead of adding React Query, you may want to check out [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) which integrates data fetching neatly into Redux.
+If you are already using Redux and want to add data fetching with integrated state management in Redux, instead of adding TanStack Query, you may want to check out [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) which integrates data fetching neatly into Redux.
+
+Last but not least, check out [tRPC](https://trpc.io/) for end-to-end type typesafe APIs if you are in control of your TypeScript written backend.
 
 **Recommendations:**
 
-* React Query (REST APIs, GraphQL APIs)
+* TanStack Query (REST APIs, GraphQL APIs)
   * with axios as fetching library
 * Apollo Client (GraphQL APIs)
-* optional learning experience: learn how React Query works under the hood
+* optional learning experience: learn how TanStack Query works under the hood
 
 # Routing with React Router
 
-If you are using a React framework like Next.js or Gatsby.js, routing is already taken care of for you. However, if you are using React without a framework and only for client-side rendering (e.g. CRA), the most powerful and popular routing library out there is [React Router](https://reactrouter.com/).
+If you are using a React framework like Next.js, routing is already taken care of for you. However, if you are using React without a framework and only for client-side rendering (e.g. Vite without SSR), the most powerful and popular routing library out there is [React Router](https://reactrouter.com/). A new alternative with full TypeScript support in mind is [TanStack Router](https://tanstack.com/router).
 
 <ReadMore label="Learn to use React Router" link="/react-router/" />
 
@@ -123,16 +120,15 @@ Before you introduce a router in your React project, when you are just about to 
 **Recommendations:**
 
 * React Router
-  * optional learning experience: learn to use React Router
-  * optional optimization: code splitting with React.lazy or a substitute library
+* fairly new, but check out TanStack Router if you like TypeScript and TanStack Query
 
 # CSS Styling in React
 
-There are many options and even more opinions about styling/CSS in React out there, so putting everything in one section here does not sufficie. If you want to get deeper into this topic and get to know all the options, check out the following guide.
+There are many options and even more opinions about styling/CSS in React out there, so putting everything in one section here does not suffice. If you want to get deeper into this topic and get to know all the options, check out the following guide.
 
 <ReadMore label="React CSS Styling" link="/react-css-styling/" />
 
-But let's give you a brief started with a brief overview. As a React beginner, it is just fine to start with inline style and bare bones CSS by using a style object with all the CSS properties as key/value pairs for an HTML style attribute:
+But let's give you a brief overview. As a React beginner, it is just fine to start with inline styles and bare bones CSS by using a style object in JSX:
 
 ```javascript
 const Headline = ({ title }) =>
@@ -141,7 +137,7 @@ const Headline = ({ title }) =>
   </h1>
 ```
 
-Whereas inline style can be used to add style dynamically and programmatically with JavaScript in React, an external CSS file can have all the remaining style for your React application:
+Whereas inline style can be used to add style dynamically with JavaScript in React's JSX, an external CSS file can hold all the remaining style for your React application:
 
 ```javascript{1,4}
 import './Headline.css';
@@ -152,7 +148,7 @@ const Headline = ({ title }) =>
   </h1>
 ```
 
-Once your application grows, there are many other styling options though. First, I would recommend you to have a look into CSS Modules as one of many *CSS-in-CSS* solutions. CSS Modules are supported by CRA and give you a way to encapsulate your CSS into component scoped modules. This way, it doesn't leak accidentally into the styling of others React components. Whereas some parts of your application can still share style, other parts don't have to get access to it. In React, CSS Modules are most often co-located CSS files to your React component files:
+Once your application grows, there are many other styling options though. First, I would recommend you to have a look into CSS Modules as one of many *CSS-in-CSS* solutions. CSS Modules are supported by Vite and give you a way to encapsulate your CSS into component scoped modules. This way, it doesn't leak accidentally into the styling of other React components. Whereas some parts of your application can still share style, other parts don't have to get access to it. In React, CSS Modules are most often co-located CSS files to your React component files:
 
 ```javascript{1,4}
 import styles from './style.module.css';
@@ -163,7 +159,7 @@ const Headline = ({ title }) =>
   </h1>
 ```
 
-Second, I want to recommend you so-called styled components as one of many *CSS-in-JS* solutions for React. This approach is brought to you by a library called [styled-components](/react-styled-components/) (or alternatives such as [emotion](https://emotion.sh/) which co-locates styling with JavaScript next to your React components in your component's JavaScript file or a co-located file:
+Second, I want to recommend you so-called Styled Components as one of many *CSS-in-JS* solutions for React. This approach is brought to you by a library called [styled-components](/react-styled-components/) (or alternatives such as [emotion](https://emotion.sh/) which co-locates styling with JavaScript next to your React components in your component's JavaScript file or a co-located file:
 
 ```javascript
 import styled from 'styled-components';
@@ -178,7 +174,7 @@ const Headline = ({ title }) =>
   </BlueHeadline>
 ```
 
-And third, I want to recommend [Tailwind CSS](https://tailwindcss.com/) as the most popular *Utility-First-CSS* solution. It comes with pre-defined CSS classes that you can use without defining them yourself in your React components. This makes you more efficient as a developer and aligns the design system of your React application, but comes with the tradeoff of getting to know all the classes:
+And third, I want to recommend [Tailwind CSS](https://tailwindcss.com/) as the most popular *Utility-First-CSS* solution. It comes with pre-defined CSS classes that you can use without defining them yourself. This makes you more efficient as a developer and streamlines the design system of your React application, but comes with the tradeoff of getting to know all the classes and verbose inlining of many CSS classes:
 
 ```javascript
 const Headline = ({ title }) =>
@@ -187,36 +183,36 @@ const Headline = ({ title }) =>
   </h1>
 ```
 
-Whether you choose CSS-in-CSS, CSS-in-JS, or functional CSS is up to you. All strategies scale well for larger React applications. One last hint: if you want to apply a className conditionally in React, use a utility like [clsx](https://github.com/lukeed/clsx).
+Whether you choose CSS-in-CSS, CSS-in-JS, or Utility-First-CSS is up to you. All strategies scale well for larger React applications. One last hint: If you want to apply a className conditionally in React, use a utility like [clsx](https://github.com/lukeed/clsx).
 
 **Recommendations:**
 
 * CSS-in-CSS with CSS Modules
+* Utility-First-CSS with Tailwind CSS
 * CSS-in-JS with Styled Components (most popular)
   * alternatives: Emotion
-* Functional CSS with Tailwind CSS
 * optional: clsx for conditional CSS classes
 
 # React UI Libraries
 
-As a beginner, it is a great and recommended learning experience to build reusable components from scratch. Whether it is a [dropdown](/react-dropdown/), a [radio button](/react-radio-button/), or a [checkbox](/react-checkbox/), you should know how to create these UI components eventually.
+As a beginner, it is a great and recommended learning experience to build reusable components from scratch. Whether it is a [dropdown](/react-dropdown/), a [select](/react-select/), a [radio button](/react-radio-button/), or a [checkbox](/react-checkbox/), you should know how to create these UI components yourself eventually.
 
-However, at some point you want to use a UI library which gives you access to lots of pre-built components which share the same design system. All of the following UI libraries come with essential components like Buttons, Dropdowns, Dialogs and Lists:
+However, if you don't have the resources to come up with all the components yourself at your company, you want to use a UI library which gives you access to lots of pre-built components which share the same design system. All of the following UI libraries come with essential components like Buttons, Dropdowns, Dialogs and Lists:
 
 * [Material UI (by MUI)](https://material-ui.com/) (most popular)
 * [Mantine UI](https://mantine.dev/) (most recommended)
 * [Chakra UI](https://chakra-ui.com/) (most recommended)
-* [Ant Design](https://ant.design/)
-* [Semantic UI](/react-semantic-ui-tutorial)
-* [React Bootstrap](https://react-bootstrap.github.io/)
-* [Reactstrap](https://reactstrap.github.io/)
-* [Radix](https://www.radix-ui.com/)
-* [NextUI](https://nextui.org/)
-* [Primer](https://primer.style/react/)
+* [Radix](https://www.radix-ui.com/) (unstyled design system)
 * Tailwind
   * [Headless UI](https://headlessui.com/)
   * [Daisy UI](https://daisyui.com/)
   * [Tailwind UI](https://www.tailwindui.com/) (not free)
+* [Ant Design](https://ant.design/)
+* [Semantic UI](/react-semantic-ui-tutorial)
+* [React Bootstrap](https://react-bootstrap.github.io/)
+* [Reactstrap](https://reactstrap.github.io/)
+* [NextUI](https://nextui.org/)
+* [Primer](https://primer.style/react/)
 
 Even though all of these UI libraries come with lots in-house components, they cannot make each component as powerful as libraries which focus only on one UI component. For example, [react-table-library](https://react-table-library.com/) allows you to create powerful table components in React while also offering you themes (e.g. Material UI) for blending nicely into popular UI component libraries.
 
@@ -287,7 +283,7 @@ const List: React.FC<ListProps> = ({ list }) =>
   </div>
 ```
 
-If you truly want to embrace types in React, [TypeScript](https://www.typescriptlang.org/) is the way to go these days.
+If you truly want to embrace types in React, [TypeScript](https://www.typescriptlang.org/) is the way to go these days. If you want to go beyond TypeScript for typed form validation, API input/output validation and more, check out [Zod](https://github.com/colinhacks/zod).
 
 **Recommendations:**
 
@@ -315,34 +311,35 @@ In a React application, you may want to introduce authentication with functional
 
 The best learning experience would be implementing a backend application with authentication (e.g. [GraphQL backend](/graphql-apollo-server-tutorial/)) yourself. However, since authentication comes with lots of security risks and nitty gritty details not everyone knows about, I advice to use one of many authentication/backend-as-a-service solutions that are out there:
 
-* [Firebase](/complete-firebase-authentication-react-tutorial/)
+* [Firebase Auth](/complete-firebase-authentication-react-tutorial/)
+* [Supabase Auth](https://supabase.com/docs/guides/auth/overview)
 * [Auth0](https://auth0.com/)
 * [AWS Cognito](https://aws.amazon.com/cognito/)
 
 **Recommendations:**
 
-* choose an authentication service or BaaS (e.g. Firebase)
+* choose an authentication service or BaaS (e.g. Firebase/Supabase)
 * optional learning experience: Custom Backend
 
 # React Hosting
 
-You can deploy and host a React application like any other web application. If you want to have full control, choose something like [Digital Ocean](https://m.do.co/c/fb27c90322f3). If you want to have someone taking care of everything, [Cloudflare Workers](https://workers.cloudflare.com/), [Netlify](https://www.netlify.com/), or [Vercel](https://vercel.com/) (especially for Next.js) are popular solutions. If you are already using a third-party backend as a service like Firebase, you can check whether they offer hosting (e.g. [Firebase Hosting](https://firebase.google.com/docs/hosting)) as well.
+You can deploy and host a React application like any other web application. If you want to have full control, choose something like [Digital Ocean](https://m.do.co/c/fb27c90322f3). If you want to have someone taking care of everything, [Netlify](https://www.netlify.com/) or [Vercel](https://vercel.com/) (especially for Next.js) are popular solutions. If you are already using a third-party backend as a service like Firebase/Supabase, you can check whether they offer hosting as well. Other popular hosting providers are [Render](https://render.com/), [Fly.io](https://fly.io/), or [Railway](https://railway.app/).
 
 # Testing in React
 
-If you want to get a deep dive about testing in React, read this: [How to test components in React](/react-testing-tutorial/). Here comes the gist: The backbone of testing a React application is [Jest](https://github.com/facebook/jest). It gives you test runner, assertion library and spying/mocking/stubbing functionalities. Everything that's needed from a comprehensive test framework.
+If you want to get a deep dive about testing in React, read this: [How to test components in React](/react-testing-tutorial/). Here comes the gist: The backbone of testing a React application is a test framework like [Jest](https://github.com/facebook/jest). It gives you test runner, assertion library and spying/mocking/stubbing functionalities. Everything that's needed from a comprehensive test framework. If you are a fan of Vite, you should check out [Vitest](https://vitest.dev/) as viable Jest alternative thoguh.
 
-At the minimum, you can render React components in your Jest tests with [react-test-renderer](https://reactjs.org/docs/test-renderer.html). This is already sufficient to perform so-called [Snapshot Tests with Jest](/react-testing-jest/). A snapshot test works the following way: Once you run your tests, a snapshot of your rendered DOM elements of the React component is created. When you run your tests again at some point in time, another snapshot is created which is used as diff for the previous snapshot. If the diff is not identical, Jest will complain and you either have to accept the snapshot or change the implementation of your component.
+At the minimum, you can render React components in your testing framework with [react-test-renderer](https://www.npmjs.com/package/react-test-renderer). This is already sufficient to perform so-called [Snapshot Tests with Jest](/react-testing-jest/) or Vitest. A snapshot test works the following way: Once you run your tests, a snapshot of your rendered DOM elements of the React component is created. When you run your tests again at some point in time, another snapshot is created which is used as diff for the previous snapshot. If the diff is not identical, the test framework will complain and you either have to accept the snapshot or change the implementation of your component.
 
-Eventually you will find yourself using the popular [React Testing Library (RTL)](/react-testing-library/) -- which is used within the Jest testing environment -- for a more elaborate testing library for React. RTL makes it possible to render your components and to simulate events on HTML elements. Afterward, Jest is used for the assertions on the DOM nodes.
+Eventually you will find yourself using the popular [React Testing Library (RTL)](/react-testing-library/) -- which is used within your testing framework's environment -- for a more elaborate testing library for React. RTL makes it possible to render your components and to simulate events on HTML elements. Afterward, your test framework (e.g. Jest/Vitest) is used for the assertions on the DOM nodes.
 
-If you are looking for a testing tool for React end-to-end (E2E) tests, [Cypress](/react-testing-cypress/) is the most popular choice. Though another one gaining popularity is [Playwright](https://playwright.dev/).
+If you are looking for a testing tool for React end-to-end (E2E) tests, [Playwright](https://playwright.dev/) and [Cypress](/react-testing-cypress/) are the most popular choices.
 
 **Recommendations:**
 
-* Unit/Integration: Jest + React Testing Library (most popular)
-* Snapshot Tests: Jest
-* E2E Tests: Cypress
+* Unit/Integration: Jest/Vitest + React Testing Library (most popular)
+* Snapshot Tests: Jest/Vitest
+* E2E Tests: Playwright or Cypress
 
 # React and Immutable Data Structures
 
@@ -380,11 +377,11 @@ JavaScript itself got pretty awesome dealing with dates and times over the recen
 
 # React Desktop Applications
 
-[Electron](https://www.electronjs.org/) is the go to framework for cross-platform desktop applications. However, there exist alternatives such as:
+[Electron](https://www.electronjs.org/) is still the go to framework for cross-platform desktop applications. However, there exist alternatives such as:
 
-* [Tauri](https://github.com/tauri-apps/tauri) (fairly new)
-* [NW.js](https://nwjs.io/)
+* [Tauri](https://github.com/tauri-apps/tauri) (great alternative, very popular)
 * [Neutralino.js](https://github.com/neutralinojs/neutralinojs)
+* [NW.js](https://nwjs.io/)
 
 # File Upload in React
 
@@ -393,7 +390,7 @@ JavaScript itself got pretty awesome dealing with dates and times over the recen
 
 # Mobile Development with React
 
-I guess the go-to solution for bringing React from the web to mobile is still [React Native](https://facebook.github.io/react-native/). If you want to help a framework for creating React Native applications, check out [Expo](/react-native-expo/).
+The go-to solution for bringing React from the web to mobile is still [React Native](https://facebook.github.io/react-native/). If you want to help a framework for creating React Native applications, check out [Expo](/react-native-expo/).
 
 <ReadMore label="Learn Navigation in React Native" link="/react-native-navigation/" />
 
@@ -407,7 +404,7 @@ It's possible to dive into virtual reality or augmented reality with React. To b
 
 # Design Prototyping for React
 
-If you are coming from a UI/UX background, you may want to use a tool for fast prototyping for new React components, layouts, or UI/UX concepts. I used [Sketch](https://www.sketch.com) in the past, but switched to [Figma](https://www.figma.com/). Even though I like both, I don't regret using Figma now. [Zeplin](https://zeplin.io/) is another alternative. For rough yet lightweight sketches, I like to use [Excalidraw](https://excalidraw.com/). If you are looking for interactive UI/UX designs, check out [InVision](https://www.invisionapp.com/).
+If you are coming from a UI/UX background, you may want to use a tool for fast prototyping for new React components, layouts, or UI/UX concepts. I used [Sketch](https://www.sketch.com) in the past, but switched to [Figma](https://www.figma.com/). [Zeplin](https://zeplin.io/) is another alternative. For rough yet lightweight sketches, I like to use [Excalidraw](https://excalidraw.com/). If you are looking for interactive UI/UX designs, check out [InVision](https://www.invisionapp.com/).
 
 # React Component Documenation
 

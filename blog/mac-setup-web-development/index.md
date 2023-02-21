@@ -435,6 +435,11 @@ The look and feel we want to achieve from our IDE:
   "editor.minimap.enabled": false,
   "editor.lineNumbers": "off",
   "editor.find.seedSearchStringFromSelection": "never",
+  // line highlight
+  "editor.renderLineHighlight": "all",
+  "workbench.colorCustomizations": {
+    "editor.lineHighlightBackground": "#223851",
+  },
   // syntax highlighting
   "files.associations": {
     ".env*": "makefile"
@@ -442,7 +447,7 @@ The look and feel we want to achieve from our IDE:
   // prettier
   "prettier.singleQuote": true,
   "prettier.printWidth": 70,
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "[javascript]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -474,7 +479,6 @@ The look and feel we want to achieve from our IDE:
   "editor.formatOnType": true,
   "extensions.ignoreRecommendations": true
 }
-
 ```
 
 # Sublime
