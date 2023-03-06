@@ -406,7 +406,7 @@ It's possible to dive into virtual reality or augmented reality with React. To b
 
 If you are coming from a UI/UX background, you may want to use a tool for fast prototyping for new React components, layouts, or UI/UX concepts. I used [Sketch](https://www.sketch.com) in the past, but switched to [Figma](https://www.figma.com/). [Zeplin](https://zeplin.io/) is another alternative. For rough yet lightweight sketches, I like to use [Excalidraw](https://excalidraw.com/). If you are looking for interactive UI/UX designs, check out [InVision](https://www.invisionapp.com/).
 
-# React Component Documenation
+# React Component Documentation
 
 If you are in charge of writing the documentation for your components, there are various neat React documentation tools out there. I have used [Storybook](https://storybook.js.org/) in many projects and can only recommend, but I have heard good things about these other solutions too:
 

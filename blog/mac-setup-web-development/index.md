@@ -223,8 +223,10 @@ brew install \
 * Apple Mail
   * set up all email accounts
   * show most recent message at top
+  * undo send delay set to off
 * Notes
   * New notes start with: Body
+  * Settings -> Disable: Group notes by date
 * Quick Time Player
   * save to Desktop
 
