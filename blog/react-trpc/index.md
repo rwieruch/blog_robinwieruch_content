@@ -242,7 +242,7 @@ Vite takes care of creating a minimal frontend application with React and TypeSc
 ```text
 cd client
 npm install
-npm start
+npm run dev
 ```
 
 From here we will start the tRPC specific implementation for this React/TypeScript application. Therefore, you have to install these two dependencies to your frontend project. First, the tRPC client which helps us to make requests to the tRPC server. And second, the tRPC server, which we will not use directly as dependency in the frontend, but which is a necessary peer dependency of the tRPC client:

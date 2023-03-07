@@ -388,6 +388,7 @@ The look and feel we want to achieve from our IDE:
 
 **Extensions:**
 
+* [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) (AI Support)
 * [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) (Theme)
 * [Auto Hide](https://marketplace.visualstudio.com/items?itemName=sirmspencer.vscode-autohide) (Hides Sidebar)
 * [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) (Shared Config)
