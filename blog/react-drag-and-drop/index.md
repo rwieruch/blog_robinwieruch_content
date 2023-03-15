@@ -237,7 +237,9 @@ const List = ({ list, onDragEnd }) => (
 );
 ```
 
-The Draggable component, identical to the Droppable component, is a [render prop component](/react-render-props/) which surfaces internal information from the library to us. While the information coming from the Droppable component is used for the drag and drop list element, the information coming from the Droppable component component is used on every drag and drop item. Your vertical drag and drop list should work now. If it does not work, try removing React's StrictMode and check again.
+The Draggable component, identical to the Droppable component, is a [render prop component](/react-render-props/) which surfaces internal information from the library to us. While the information coming from the Droppable component is used for the drag and drop list element, the information coming from the Droppable component component is used on every drag and drop item. Your vertical drag and drop list should work now.
+
+If it does not work, try removing React's StrictMode and check again. If you want to continue using StrictMode, replace react-beautiful-dnd with [@hello-pangea/dnd](https://github.com/hello-pangea/dnd) -- which is a fork of react-beautiful-dnd which isn't maintained for React 18 and beyond anymore.
 
 <Divider />
 
