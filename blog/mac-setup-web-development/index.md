@@ -25,6 +25,8 @@ I bought the **MacBook Pro** from 2022 after having used the MacBook Pro 2015 fo
 
 # System Preferences
 
+* Appearance
+ * Show Scroll Bars -> "Always"
 * Dock
   * Remove most applications from Dock
   * Automatic Hide
@@ -407,6 +409,7 @@ The look and feel we want to achieve from our IDE:
 * [Vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=styled-components.vscode-styled-components)
 * [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
 * [Color Picker](https://marketplace.visualstudio.com/items?itemName=anseki.vscode-color)
+* [Prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma)
 
 **Manual:**
 
