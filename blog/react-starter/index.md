@@ -16,11 +16,13 @@ Here I want to give you a brief overview of starter kits for a new React project
 
 **A bit of context on why I write this guide now:** The new React documentation has been released, which [sunsets create-react-app (CRA)](https://github.com/reactjs/react.dev/pull/5487) as the recommended way to start a React application, and instead recommends several [starter kits](https://react.dev/learn/start-a-new-react-project) which in their sum were not perfectly well received by the React community ([A](https://www.reddit.com/r/reactjs/comments/11t3a63/introducing_reactdev_the_new_react_docs_site/), [B](https://www.reddit.com/r/reactjs/comments/11u1r3w/new_react_docs_pretend_spas_dont_exist_anymore/), [C](https://www.reddit.com/r/reactjs/comments/11unjpq/will_typescript_nextjs_become_necessary_or_even/), [D](https://www.reddit.com/r/reactjs/comments/11vjhf9/react_is_still_the_library_you_used_to_know/), [E](https://www.reddit.com/r/reactjs/comments/11uop56/the_new_docs_confused_me_a_little_please_help/), [F](https://news.ycombinator.com/item?id=35186812), [G](https://news.ycombinator.com/item?id=35201848)). For many it seemed too much influenced by politics [0], too heavy on (meta) framework lock-ins [1], too focused on SSR [2], and too far away from the problems a normal tech worker faces in their daily work outside of the bleeding edge Twitter bubble [3].
 
-<ReadMore label="Why [1] and [2] matter as recent web development trends" link="/web-development-trends/" />
+<ReadMore label="Why [1] and [2] matter as recent web development trends." link="/web-development-trends/" />
 
 More about this below, but first my list of recommended React starter projects ...
 
-**Disclaimer:** I am a fan of React/Next, its team and community. Otherwise I wouldn't be in this space for many years now. Most of the time though, I am not good at being publicly critical about certain directions React is taking. So by writing this article, I hope I don't tip on anyone's toes. Rather I want to offer the opinion of someone who has been working as educating/consulting/freelancing React developer for many years.
+**Disclaimer:** I am a fan of React/Next, its team and community. Otherwise I wouldn't be in this space for many years now. Most of the time though, I am not good at being publicly critical. So by writing this article, I hope I don't tip on anyone's toes. Rather I want to offer the opinion of someone who has been working as educating, consulting, and freelancing React developer for many years.
+
+**Disclaimer:** From an individual developer's perspective, I am all-in with the framework/SSR agenda which the React team pushes here. However, I feel like this recent announcement puts React beginners (from my educational perspective) and companies who want to adopt React (from my freelance perspective) in a bad position. Hence I want to give them more diverse options as escape hatch here.
 
 # React with Vite
 
