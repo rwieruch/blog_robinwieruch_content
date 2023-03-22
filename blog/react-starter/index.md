@@ -20,9 +20,7 @@ Here I want to give you a brief overview of starter kits for a new React project
 
 More about this below, but first my list of recommended React starter projects ...
 
-**Disclaimer:** I am a fan of React/Next, its team and community. Otherwise I wouldn't be in this space for many years now. Most of the time though, I am not good at being publicly critical. So by writing this article, I hope I don't tip on anyone's toes. Rather I want to offer the opinion of someone who has been working as educating, consulting, and freelancing React developer for many years.
-
-**Disclaimer:** From an individual developer's perspective, I am all-in with the framework/SSR agenda which the React team pushes here. However, I feel like this recent announcement puts React beginners (from my educational perspective) and companies who want to adopt React (from my freelance perspective) in a bad position. Hence I want to give them more diverse options as escape hatch here.
+**Disclaimer:** From an individual developer's perspective, I am all-in with the framework/SSR agenda which the React team pushes in their new documentation. However, I feel like this recent announcement puts React beginners (from my educational perspective) and companies who want to adopt React (from my freelance perspective) in a bad position. Hence I want to give them more diverse options as escape hatch here.
 
 # React with Vite
 
@@ -52,20 +50,30 @@ Last but not least, Vite encourages beginners to learn React and its fundamental
 * still SPA/CSR friendly, but SSR is opt-in
 * no framework/company lock-in
 * lightweight
-* does not get in the way of React's core
+* does not mingle with React on a feature level
+  * therefore focus on React itself and not a framework
 * gentle learning curve for getting to know React's fundamentals
 
 **React with Vite Disadvantages:**
 
 * prioritizes SPA/CSR
 * no framework support
+* no access to architectural features provided by React for integrated frameworks
+  * e.g. React Server Components (RSC)
 
 **Why it may not be the default in React's documentation:**
 
-* framework (here: React) agnostic (React is not its poster child)
-  * from [Evan You](https://twitter.com/youyuxi) the creator of Vue
-* not contributing to the vision of having a React framework
 * uses SPA/CSR over SSR
+* technical lock-in prevents developers from using all React features
+  * e.g. React Server Components (RSC)
+* not contributing to the vision
+  * of having a React framework
+  * of enabling diverse rendering techniques
+  * of enabling all available React features
+    * e.g. React Server Components (RSC)
+* framework (here: React) agnostic
+  * React is not Vite's priority
+  * from [Evan You](https://twitter.com/youyuxi) the creator of Vue
 
 # React with Next
 
@@ -105,6 +113,8 @@ In conclusion, while Next.js comes with many batteries included (e.g. file-based
 
 * most mature framework which fits React's framework agenda
 * SSR as first-class citizen which fits React's SSR agenda
+* uses all of React's primitives
+  * e.g. React Server Components (RSC)
 * not prioritizing "old fashioned" SPA/CSR
 * close relationship to React and its core team
 * implementation of new features in Next in collaboration with React's core team
@@ -124,7 +134,9 @@ Astro is a framework (here: React) agnostic solution. Thus you can use Astro's b
 
 Astro is seen as competitor to [Gatsby](https://www.gatsbyjs.com/) for content-focused websites. Over the last years, in my personal opinion, but also when seeing polls, Gatsby lost the direct competition against Next. During this competition, there may have been too much focus on feature parity (e.g. SSR) with Next and therefore less focus on what really matters DX and performance-wise for content-focused websites. This gave Astro an opportunity to step in as viable alternative.
 
-In conclusion, even though Next (with either SSR/SSG/ISR) or Gatsby would be a fit for content-focused websites too, Astro, even though relatively new as competitor, seems to fit the specific requirements here. The only fact that speaks for using Next: It mixes rendering techniques and therefore a performance optimized marketing page can be implemented in the same application as the actual application hidden behind a login. But it still comes with less performance according to Astro's benchmark and therefore I'd rather mix Next and Astro in a [modern Monorepo Setup](/javascript-monorepos/) for having a web application and website side by side.
+In conclusion, even though Next (with either SSR/SSG/ISR) or Gatsby would be a fit for content-focused websites too, Astro, even though relatively new as competitor, seems to fit the more specific requirements (performance, focus on content production (e.g. MDX)) of having a content-focused website here.
+
+In contrast, the only fact that speaks for using Next: It mixes rendering techniques and therefore a performance optimized marketing page can be implemented in the same application as the actual application hidden behind a login. But it still comes with less performance (not taking RSC into account, because not stable yet) according to Astro's benchmark and therefore I'd rather mix Next and Astro in a [modern Monorepo Setup](/javascript-monorepos/) for having a web application and website side by side.
 
 **React with Astro Advantages:**
 
@@ -139,10 +151,17 @@ In conclusion, even though Next (with either SSR/SSG/ISR) or Gatsby would be a f
 
 **Why it may not be the default in React's documentation:**
 
-* framework agnostic (React is not its poster child)
-* not aligning with React's new features (e.g. React Server Components)
-* Gatsby may have been chosen as
+* framework agnostic
+  * React is not Astro's priority
+* not aligning with React's new features
+  * e.g. React Server Components
+    * uses island architecture with selective hydration instead
+* full page reloads on every link click
+  * therefore not the best UX for navigation
+  * which would be solved better in Next with RSC eventually
+* instead Gatsby made it on the list of recommended starters
   * first-class React solution
+  * which integrates with React's features on an architectural level
   * with closer bonds to the React core team
 
 ## More options to start a React project ...
@@ -166,14 +185,16 @@ In conclusion, even though Next (with either SSR/SSG/ISR) or Gatsby would be a f
   * If Next.js does not fit your needs but you are still looking for an all batteries included SSR framework, check out **Remix with React**.
 * If you want to have a content-focused website, check out **Astro with React**.
 
+**Disclaimer:** Writing this blog post in 2023 may be totally different from writing it in 2024 when Next's app/ directory and RSC become stable and therefore the status quo when creating server-side React applications. This is the tipping point in my personal opinion which may push Next as a all-in one solution for all previously listed cases.
+
 <Divider />
 
 [0]
 
 - many React core team members working for Vercel (and therefore on Next.js) now
 - Vercel's close relationship with React to implement new features (e.g. RSC)
-- unwanted: framework (here: React) agnostic solutions (e.g. Vite, Astro)
-- there cannot be only one framework (here: Next) which holds the monopoly on React
+- maybe unwanted framework (here: React) agnostic solutions (e.g. Vite, Astro)
+- no desire to push Next as monopoly though
   - therefore there are other first-class React frameworks recommended
 
 [1]
@@ -201,8 +222,8 @@ From personal experience as a freelance React developer working with many "non-d
 - no desire to use opt-in abstractions (e.g. Next.js) until they become the default
 - SPAs just work and feel like being finally stable
 - companies are tired of reinventing the wheel
-  - but they have to stick to trends, otherwise developers work somewhere else
-- no immediate need for SSR (yet), until the DX surpasses SPAs
+  - but they have to stick to trends, otherwise hiring issue
+- no immediate need for SSR (yet), until the DX surpasses SPAs (perhaps with stable RSC)
 - bleeding edge tech solves many problems ...
   - which day to day tech workers working on internal B2B do not face
   - which forces more educational content on non-web dev first companies
@@ -214,13 +235,13 @@ From personal experience as a freelance React developer working with many "non-d
 
 # Final Thoughts on React Starter Projects
 
-Many educators closed the gap of teaching modern React for many years. While the old documentation still taught React Class Components as first-class citizen, other learning materials such as books, videos or courses had to fill the gap for years (2019 - 2023).
-
-Whereas many educators would probably endorse an easier starting point for React beginners, the new "Start a New React Project" section in the React documentation instead throws lots of React beginners under the bus.
+Many educators closed the gap of teaching modern React for many years. While the old documentation still taught React Class Components as first-class citizen, other learning materials such as books, videos or courses had to fill the gap for years (2019 - 2023). Whereas many educators would probably endorse an easier starting point for React beginners (until there is more stability with RSC/Next and a more streamlined/integrated learning experience), the new "Start a New React Project" section in the React documentation instead places lots of React beginners in a difficult position.
 
 * What happened: Beginners asking about React in the past where pointed towards the old documentation; but told to use Function Components with Hooks instead.
 * What may happen: Beginners asking about React are pointed towards the new documentation; but will be told to use Vite instead of Next.
 
-Personally, as an educator in the space since 2017, I have been caught by surprise too, because I always stuck to the principal of *teaching one thing and teaching it well*. Even though Vite was advocated by many as the simplest starting point, which would fit to staying true to React's core, the final recommendation feels more like pushing the framework and SSR agenda to its limits.
+In conclusion though, I am happy for the React team shipping the new documentation. It was about time, but seeing this tremendous effort made it worth waiting for it. However, it came with lots of discussions specifically around the choices of React starter projects.
 
-In conclusion though, I am happy for the React team shipping the new documentation. It was about time, but seeing this tremendous effort made it worth waiting for it. However, it came with lots of discussions specifically around the choices of React starter projects and the long term vision of where React (and Next) is(/are) headed. Even though everyone knew implictly that SSR and frameworks are getting more relevant for modern React, it was still a surprise for many not seeing Vite as the simplest way to create a React project from the ground; which would help after all more React beginners to enter this great community.
+Even though everyone knew implictly that SSR and frameworks are becoming the priority for modern React, it was still a surprise for many not seeing Vite as the simplest way to create a React project from the ground (at least in 2023). It may have been a different story in 2024, when all fundamentals (availability of an interagted React/Next tutorial for beginners, stability of Next13/RSX, focus on RSC-first applications) would be there, but shipping this shift in "how to create a new React applicacation" with the new documentation seemed rushed.
+
+Form a solo developer perspective, I am hyped where this server-side adventure takes us. However, I feel with the beginners starting to learn React right now, hence this blog post for giving a more diverse set of options to start a new React project.
