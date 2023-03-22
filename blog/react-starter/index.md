@@ -185,7 +185,7 @@ In contrast, the only fact that speaks for using Next: It mixes rendering techni
   * If Next.js does not fit your needs but you are still looking for an all batteries included SSR framework, check out **Remix with React**.
 * If you want to have a content-focused website, check out **Astro with React**.
 
-**Disclaimer:** Writing this blog post in 2023 may be totally different from writing it in 2024 when Next's app/ directory and RSC become stable and therefore the status quo when creating server-side React applications. This is the tipping point in my personal opinion which may push Next as a all-in one solution for all previously listed cases.
+**Disclaimer:** Writing this blog post in 2023 may be totally different from writing it in 2024 when Next's App Router and RSC become stable and therefore the status quo when creating server-side React applications. This is the tipping point in my personal opinion which may push Next as a all-in one solution for all previously listed cases.
 
 <Divider />
 
@@ -242,6 +242,6 @@ Many educators closed the gap of teaching modern React for many years. While the
 
 In conclusion though, I am happy for the React team shipping the new documentation. It was about time, but seeing this tremendous effort made it worth waiting for it. However, it came with lots of discussions specifically around the choices of React starter projects.
 
-Even though everyone knew implictly that SSR and frameworks are becoming the priority for modern React, it was still a surprise for many not seeing Vite as the simplest way to create a React project from the ground (at least in 2023). It may have been a different story in 2024, when all fundamentals (availability of an interagted React/Next tutorial for beginners, stability of Next13/RSX, focus on RSC-first applications) would be there, but shipping this shift in "how to create a new React applicacation" with the new documentation seemed rushed.
+Even though everyone knew implictly that SSR and frameworks are becoming the priority for modern React, it was still a surprise for many not seeing Vite as the simplest way to create a React project from the ground (at least in 2023). It may have been a different story in 2024, when all fundamentals (availability of an interagted React/Next tutorial for beginners, stability of Next13/RSX, focus on RSC-first applications) would be there, but shipping this shift in "how to create a new React applicacation" now, with the new documentation, seemed rushed.
 
-Form a solo developer perspective, I am hyped where this server-side adventure takes us. However, I feel with the beginners starting to learn React right now, hence this blog post for giving a more diverse set of options to start a new React project.
+Form a solo developer perspective, I am hyped where this server-side adventure takes us. However, I feel with the beginners starting to learn React right now, the same as they did when React Hooks were announced, hence this blog post for giving a more diverse set of options to start a new React project.
