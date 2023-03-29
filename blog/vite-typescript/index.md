@@ -89,4 +89,22 @@ And in your *index.html* file, reference the new TypeScript file instead of a Ja
 </html>
 ```
 
+You may also need a new vite-env.d.ts file in your project's root with the following content:
+
+```javascript
+/// <reference types="vite/client" />
+```
+
+Optionally if you want to resolve absolute paths from your tsconfig.json file, use the following [vite-tsconfig-paths](https://www.npmjs.com/package/vite-tsconfig-paths) plugin:
+
+```javascript
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import viteTsconfigPaths from 'vite-tsconfig-paths';
+
+export default defineConfig({
+  plugins: [react(), viteTsconfigPaths()],
+});
+```
+
 Restart your development server on the command line. You may encounter compile errors in the browser and editor/IDE. If you don't see any errors in your editor/IDE when opening the renamed TypeScript files (e.g. *src/App.tsx*), try installing a TypeScript plugin for your editor or a TypeScript extension for your IDE. Usually you should see red lines under all the values where TypeScript definitions are missing. That's it. You should have a running TypeScript in Vite project now.
