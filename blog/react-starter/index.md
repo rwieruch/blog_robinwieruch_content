@@ -34,7 +34,7 @@ Identical to create-react-app (CRA) though, Vite still favors creating a single-
 
 ![](./images/vite-awards.jpg)
 
-When coming from a create-react-app (CRA), it is a straightforward migration to Vite. Opt-in features like [TypeScript](/vite-typescript/), [ESLint](/vite-eslint/), SVG, and SSR are only a few configurations away with Vite's *vite.config.js* file, in addition to feature specific files (e.g. *tsconfig*).
+When coming from a create-react-app (CRA), it is a straightforward [migration to Vite](/vite-create-react-app/). Opt-in features like [TypeScript](/vite-typescript/), [ESLint](/vite-eslint/), SVG, and SSR are only a few configurations away with Vite's *vite.config.js* file, in addition to feature specific files (e.g. *tsconfig*).
 
 ![](./images/vite-happiness.jpg)
 
