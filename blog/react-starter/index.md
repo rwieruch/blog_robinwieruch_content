@@ -185,6 +185,8 @@ In contrast, the only fact that speaks for using Next: It mixes rendering techni
   * If Next.js does not fit your needs but you are still looking for an all batteries included SSR framework, check out **Remix with React**.
 * If you want to have a content-focused website, check out **Astro with React**.
 
+<ReadMore label="How to learn React" link="/learning-react/" />
+
 **Disclaimer:** Writing this blog post in 2023 may be totally different from writing it in 2024 when Next's App Router and RSC become stable and therefore the status quo when creating server-side React applications. This is the tipping point in my personal opinion which may push Next as a all-in one solution for all previously listed cases.
 
 <Divider />
