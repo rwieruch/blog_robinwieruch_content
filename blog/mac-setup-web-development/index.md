@@ -410,6 +410,7 @@ The look and feel we want to achieve from our IDE:
 * [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
 * [Color Picker](https://marketplace.visualstudio.com/items?itemName=anseki.vscode-color)
 * [Prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma)
+* [MUI Snippets](https://marketplace.visualstudio.com/items?itemName=vscodeshift.mui-snippets)
 
 **Manual:**
 
@@ -419,7 +420,6 @@ The look and feel we want to achieve from our IDE:
 
 ```json
 {
-  "breadcrumbs.enabled": false,
   "files.trimTrailingWhitespace": true,
   "explorer.confirmDelete": false,
   "explorer.compactFolders": false,
@@ -472,7 +472,8 @@ The look and feel we want to achieve from our IDE:
   },
   // eslint
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+    "source.addMissingImports": true
   },
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "javascript.validate.enable": false,
@@ -483,7 +484,9 @@ The look and feel we want to achieve from our IDE:
   "js/ts.implicitProjectConfig.checkJs": true,
   "editor.formatOnPaste": true,
   "editor.formatOnType": true,
-  "extensions.ignoreRecommendations": true
+  "extensions.ignoreRecommendations": true,
+  "editor.inlineSuggest.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": false
 }
 ```
 

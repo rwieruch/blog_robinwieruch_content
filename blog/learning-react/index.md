@@ -1,5 +1,5 @@
 ---
-title: "Learning React from two Angles in 2023"
+title: "How to learn React as a Library or Framework [2023]"
 description: "Learning React in 2023 as a library or framework is not an easy decision. Whether to learn React with Next.js as a framework ..."
 date: "2023-04-04T07:52:46+02:00"
 categories: ["React"]
