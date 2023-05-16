@@ -203,7 +203,7 @@ export default App;
   <BubblingMultiple />
 </Box>
 
-In other words, events bubble up the whole document from their origin. Verify this bevavior yourself by adding an event listener on the document via [React's useEffect Hook](/react-useeffect-hook/):
+In other words, events bubble up the whole document from their origin. Verify this behavior yourself by adding an event listener on the document via [React's useEffect Hook](/react-useeffect-hook/):
 
 ```javascript{17-27}
 import * as React from 'react';
