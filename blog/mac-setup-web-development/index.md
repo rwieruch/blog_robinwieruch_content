@@ -189,6 +189,7 @@ brew install \
     * [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en)
     * [Bitwarden](https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb/related?hl=en)
     * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+    * [GraphQL Network Inspector](https://chrome.google.com/webstore/detail/graphql-network-inspector/ndlbedplllcgconngcnfmkadhokfaaln?hl=en)
     * [Pocket](https://chrome.google.com/webstore/detail/save-to-pocket/niloccemoadcdkdjlinkgdfekeahmflj?hl=en)
     * [MetaMask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn)
 * [Firefox](https://www.google.com/chrome/) (web development)
@@ -410,7 +411,7 @@ The look and feel we want to achieve from our IDE:
 * [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
 * [Color Picker](https://marketplace.visualstudio.com/items?itemName=anseki.vscode-color)
 * [Prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma)
-* [MUI Snippets](https://marketplace.visualstudio.com/items?itemName=vscodeshift.mui-snippets)
+* [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
 
 **Manual:**
 
@@ -468,6 +469,9 @@ The look and feel we want to achieve from our IDE:
   },
   "[typescriptreact]": {
     "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // eslint

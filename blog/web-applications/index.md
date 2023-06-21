@@ -107,7 +107,7 @@ A modern website consists of HTML (structure), CSS (style), and JavaScript (logi
 ```html
 <link href="/media/examples/link-element-example.css" rel="stylesheet">
 
-<h1>Home at /home route</p>
+<h1>Home at /home route</h1>
 
 <p class="danger">Red text as defined in the external CSS file.</p>
 ```
