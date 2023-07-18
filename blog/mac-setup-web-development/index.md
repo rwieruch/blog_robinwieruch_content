@@ -52,6 +52,7 @@ I bought the **MacBook Pro** from 2022 after having used the MacBook Pro 2015 fo
     * disable "Use smart quotes and dashes"
     * use `"` for double quotes
     * use `'` for single quotes
+  * Keyboard -> Mission Control -> disable all
 * Spotlight
   * Disable Spotlight except for Applications and System Preferences
 * Mission Control
@@ -192,6 +193,7 @@ brew install \
     * [GraphQL Network Inspector](https://chrome.google.com/webstore/detail/graphql-network-inspector/ndlbedplllcgconngcnfmkadhokfaaln?hl=en)
     * [Pocket](https://chrome.google.com/webstore/detail/save-to-pocket/niloccemoadcdkdjlinkgdfekeahmflj?hl=en)
     * [MetaMask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn)
+    * [GraphQL Network Inspector](https://chrome.google.com/webstore/detail/graphql-network-inspector/ndlbedplllcgconngcnfmkadhokfaaln?hl=en-GB)
 * [Firefox](https://www.google.com/chrome/) (web development)
 * [Brave](https://brave.com/) (web browsing, wallet)
 * [Tor](https://brave.com/) (secret web browsing)
@@ -492,6 +494,34 @@ The look and feel we want to achieve from our IDE:
   "editor.inlineSuggest.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false
 }
+```
+
+**JSON keybindings (keybindings.json):**
+
+```json
+[
+  {
+    "key": "ctrl+up",
+    "command": "cursorMove",
+    "args": {
+        "to": "up",
+        "by": "line",
+        "value": 10
+      },
+      "when": "editorTextFocus"
+  },
+  {
+      "key": "ctrl+down",
+      "command": "cursorMove",
+      "args": {
+          "to": "down",
+          "by": "line",
+          "value": 10
+      },
+      "when": "editorTextFocus"
+  },
+
+]
 ```
 
 # Sublime
