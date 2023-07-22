@@ -702,7 +702,7 @@ source ~/.zshrc
 Now install the latest LTS version on the command line:
 
 ```text
-nvm install <latest LTS version from https://nodejs.org/en/>
+nvm install --lts
 ```
 
 Afterward, check whether the installation was successful and whether the [node package manager (npm)](https://www.npmjs.com/) got installed along the way:
