@@ -45,6 +45,7 @@ I bought the **MacBook Pro** from 2022 after having used the MacBook Pro 2015 fo
 * Trackpad
   * Tap to Click
   * Point & Click -> Look up & data detectors off
+  * More Gestures -> Notification Centre off
 * Keyboard
   * Text
     * disable "Capitalise word automatically"
@@ -374,6 +375,8 @@ alias gitc="cz commit"
 
 # type sublime . to open current folder in Sublime Text
 alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl --new-window $@"
+
+alias loc="npx sloc --format cli-table --format-option head --exclude 'build|\.svg$\.xml' ./"
 
 # load zsh-completions
 autoload -U compinit && compinit
