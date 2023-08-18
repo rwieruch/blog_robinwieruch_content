@@ -50,7 +50,7 @@ Last but not least, explore and socialize on GitHub. You can explore different r
 
 In order to socialize, you can follow people who start interesting projects or discussions on GitHub. Try it out [by following my account to have your first social connection](https://github.com/rwieruch). I would be keen to see you using it.
 
-If you have no clue about the workflow with Pull Requests and Issues when working with GitHub, checkout the [official GitHub Learning Lab](https://lab.github.com/). It should offer everything to get you up to speed. It's a great way to get started with GitHub itself.
+If you have no clue about the workflow with Pull Requests and Issues when working with GitHub, checkout the [this Git guide](https://www.git-tower.com/learn/git/faq/git-pull-request). It should offer everything to get you up to speed. It's a great way to [get started with GitHub](https://www.git-tower.com/learn/git/ebook) itself.
 
 # Initialize a repository with Git and GitHub
 
