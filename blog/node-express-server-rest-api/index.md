@@ -402,7 +402,7 @@ app.use(express.urlencoded({ extended: true }));
 ...
 ```
 
-This extracts the entire body portion of an incoming request stream and makes it accessible on `req.body`. Now the body with the message's text is accessible in the request whether it is send by a regular POST request or a POST request from a HTML form. Both options should work, because all data should be received and send as JSON payload now. That's another aspect of REST, which itself is no opinionated about the payload format (JSON, XML), but once you have chosen a format (here JSON), you should stick to it for your entire API.
+This extracts the entire body portion of an incoming request stream and makes it accessible on `req.body`. Now the body with the message's text is accessible in the request whether it is send by a regular POST request or a POST request from a HTML form. Both options should work, because all data should be received and send as JSON payload now. That's another aspect of REST, which itself is not opinionated about the payload format (JSON, XML), but once you have chosen a format (here JSON), you should stick to it for your entire API.
 
 Note that all data that comes with the request object's body tag isn't typed yet. Everything comes as a JSON string. In the case of the message's `text`, we are doing fine with just keeping it as a string. However, for other types you would have to convert the JSON string:
 
