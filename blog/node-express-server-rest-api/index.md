@@ -776,26 +776,7 @@ Every of our modular routes from Express Router is mounted to our Express applic
   * Confirm your [changes from the last section](https://github.com/rwieruch/node-express-server-rest-api/compare/modular-models...modular-routing?expand=1).
 * Read more about [advanced routing in Express](https://expressjs.com/en/guide/routing.html).
 
-<LinkCollection
-  label="This tutorial is part 3 of 4 in this series."
-  links={[
-    {
-      prefix: "Part 1:",
-      label: "The minimal Node.js with Babel Setup",
-      url: "/minimal-node-js-babel-setup/"
-    },
-    {
-      prefix: "Part 2:",
-      label: "How to setup Express.js in Node.js",
-      url: "/node-js-express-tutorial/"
-    },
-    {
-      prefix: "Part 4:",
-      label: "Setup PostgreSQL with Sequelize in Express Tutorial",
-      url: "/postgres-express-setup-tutorial/"
-    }
-  ]}
-/>
+
 
 <LinkCollection
   label="This tutorial is part 3 of 4 in this series."
