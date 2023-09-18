@@ -236,7 +236,7 @@ Whereas it's important to notice that the REST API belongs to the server applica
 Client -> (REST API -> Server) -> Database
 ```
 
-You can take this always one step further by having multiple server applications offering REST APIs. Often they come with the name microservices or web services whereas each server application offers a well-encapsulated functionality. The servers even don't have to use the same programming language, because they are communicating over a programming language agnostic interface (HTTP with REST). Although the interfaces (APIs) don't have to be necessary REST APIs.
+You can take this always one step further by having multiple server applications offering REST APIs. Often they come with the name microservices or web services whereas each server application offers a well-encapsulated functionality. The servers even don't have to use the same programming language, because they are communicating over a programming language agnostic interface (HTTP with REST). Although the interfaces (APIs) don't have to be necessarily REST APIs.
 
 ```text
        -> (GraphQL API -> Server) -> Database
