@@ -153,7 +153,8 @@ brew install --cask \
   maccy \
   protonvpn \
   zoom \
-  skype
+  skype \
+  sequel-ace
 ```
 
 Install terminal applications (read more about these in Terminal Applications):
