@@ -20,6 +20,10 @@ At its core, React enables one to create component-driven user interfaces with [
 
 Let's dive into the libraries that you could use for your next React application.
 
+# Table of Contents
+
+<TableOfContents {...props} />
+
 # Starting a new React Project
 
 The first question that comes to mind for a React beginner: how to set up a React project. There are many tools to choose from. The most popular choice in the React community is [Vite](https://vitejs.dev/) which allows you to create projects with various library (e.g. React) + opt-in TypeScript combinations. It comes with [incredible performance](https://twitter.com/rwieruch/status/1491093471490412547).
