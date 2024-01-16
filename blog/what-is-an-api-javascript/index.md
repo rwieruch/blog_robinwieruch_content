@@ -18,7 +18,7 @@ Not everyone is fully aware of it, but APIs follow us through a multitude of pro
 
 However, there is a knowledge gap when it comes to APIs. It starts when teaching programming. Teachers assume that APIs are common knowledge. The abbreviation pops up in tutorials, courses and books without any introduction. But it isn't common ground that teachers try to build on. Everyone is referring to this mysterious API, but nobody explains what it really is. My own  articles about learning programming are not excluded from this flaw. That's why I want to take you on this journey of mine when I got to know APIs.
 
-The article is my attempt to take you on a journey by giving you an introduction to APIs. Rather than giving you a technical Wikipedia reference, this journey attempts to wrap the subject of APIs into a story that I experienced myself when I studied computer science. The journey shows how a multitude of concrete fragments, like APIs in different programming contexts, can become something abstract, like interoperability between entities, in the end. If you are curious how to convey this information in JavaScript afterward, checkout the great blog post by Tania Rascia: [How to Connect to an API with JavaScript](https://www.taniarascia.com/how-to-connect-to-an-api-with-javascript/).
+The article is my attempt to take you on a journey by giving you an introduction to APIs. Rather than giving you a technical Wikipedia reference, this journey attempts to wrap the subject of APIs into a story that I experienced myself when I studied computer science. The journey shows how a multitude of concrete fragments, like APIs in different programming contexts, can become something abstract, like interoperability between entities, in the end.
 
 Apart from the introduction to APIs, the journey might also give you insights into other topics: studying computer science, the general struggle and clumsiness when learning programming and the experience of perceiving the bigger picture eventually.
 
@@ -44,7 +44,7 @@ I was taught to be wrong with my assumption. The documentation only describes th
 
 In a future course, I learned that a documentation of an API is not mandatory. Often, you can only read the source code that is behind an API to understand its functionalities. In one course, we collaborated with a Spanish university. We had to translate the documentation for a library from Spanish to English before we were able to use it. Even the source code of the library we had to use was in Spanish.
 
-# Packages, Libraries, Modules - Woot?
+# Packages, Libraries, Modules, Dependencies - What?
 
 Eventually, I found out that these functionalities, that I used to control the robot, are somewhere hidden inside packages. The word package was used in a range of synonyms. They would have been referred as modules or libraries. It was difficult to untangle this abstract mess.
 
@@ -64,7 +64,7 @@ The course went straight into jQuery to manipulate DOM nodes without using the n
 
 Again, similar like the Java packages, I didn't perceive these functionalities of a library like jQuery or the native DOM as APIs at this point in time. But they would end up as two more concrete fragments to the greater picture of APIs.
 
-# One Course to rule them all: Distributed Systems
+# Distributed Systems
 
 After two years of computer science, I was still not convinced that I wanted to continue studying. I learned different theoretical and practical things but never got hooked. I was missing the bigger picture of it. Instead, I devoted most of my time to video and [audio](https://soundcloud.com/schlenkermitturnbeutel) things.
 
