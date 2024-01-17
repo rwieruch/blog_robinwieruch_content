@@ -1,7 +1,7 @@
 ---
 title: "Web Development Setup for Beginners"
 description: "A minimal web developmment setup for beginners who want to start their career as web developers ..."
-date: "2022-04-01T13:50:46+02:00"
+date: "2024-01-01T13:50:46+02:00"
 categories: ["Web Development"]
 keywords: ["setup web development", "setup web developer", "setup javascript"]
 hashtags: ["#JavaScript"]

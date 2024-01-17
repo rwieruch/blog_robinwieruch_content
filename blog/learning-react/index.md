@@ -1,7 +1,7 @@
 ---
 title: "How to learn React in 2024"
 description: "Learning React in 2024 as a library or framework is not an easy decision. Whether to learn React with Next.js as a framework ..."
-date: "2024-01-04T07:52:46+02:00"
+date: "2024-01-01T07:52:46+02:00"
 categories: ["React"]
 keywords: ["learn react"]
 hashtags: ["#ReactJs"]
