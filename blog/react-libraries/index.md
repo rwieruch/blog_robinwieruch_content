@@ -179,7 +179,7 @@ const Headline = ({ title }) =>
   </h1>
 ```
 
-Second, I want to recommend you Styled Components as one of many *CSS-in-JS* solutions for React. This approach is brought to you by a library called [styled-components](/react-styled-components/) (or alternatives such as [emotion](https://emotion.sh/)) which co-locates styling created with JavaScript next to your React components in the same file or a co-located file:
+Second, I want to show (not recommend anymore) you Styled Components as one of many *CSS-in-JS* solutions for React. This approach is brought to you by a library called [styled-components](/react-styled-components/) (or alternatives such as [emotion](https://emotion.sh/)) which co-locates styling created with JavaScript next to your React components in the same file or a co-located file:
 
 ```javascript
 import styled from 'styled-components';
@@ -205,7 +205,7 @@ const Headline = ({ title }) =>
   </h1>
 ```
 
-Whether you choose CSS-in-CSS, CSS-in-JS, or Utility-First-CSS is up to you. The trend goes towards Utility-First-CSS with Tailwind CSS. One last hint: If you want to apply a className conditionally in React, use a utility library like [clsx](https://github.com/lukeed/clsx).
+Whether you choose CSS-in-CSS or Utility-First-CSS is up to you. The trend goes towards Utility-First-CSS with Tailwind CSS. CSS-in-JS solutions are not as popular anymore because of their problems with server-side environments. One last hint: If you want to apply a className conditionally in React, use a utility library like [clsx](https://github.com/lukeed/clsx).
 
 **Recommendations:**
 
@@ -213,7 +213,7 @@ Whether you choose CSS-in-CSS, CSS-in-JS, or Utility-First-CSS is up to you. The
   * e.g. Tailwind CSS
 * CSS-in-CSS
   * e.g. CSS Modules
-* CSS-in-JS (personally I would not recommended runtime CSS-in-JS anymore due to performance and other problems in server-side environments)
+* CSS-in-JS (personally I'd not recommended runtime CSS-in-JS anymore due to performance and other problems in server-side environments)
   * e.g. Styled Components or [StyleX](https://stylexjs.com/) by Facebook
 * [CSS-in-TS](https://github.com/andreipfeiffer/css-in-js) (which support TypeScript and server-side-rendering)
 
@@ -475,7 +475,7 @@ It's possible to dive into virtual reality or augmented reality with React. To b
 
 # Design Prototyping for React
 
-If you are coming from a UI/UX background, you may want to use a tool for fast prototyping for new React components, layouts, or UI/UX concepts. Personally I use [Figma](https://www.figma.com/). For rough yet lightweight sketches, I like to use [Excalidraw](https://excalidraw.com/), others prefer [tldraw](https://www.tldraw.com/). If you are looking for interactive UI/UX designs, check out [InVision](https://www.invisionapp.com/).
+If you are coming from a UI/UX background, you may want to use a tool for fast prototyping for new React components, layouts, or UI/UX concepts. Personally I use [Figma](https://www.figma.com/). For rough yet lightweight sketches, I like to use [Excalidraw](https://excalidraw.com/), others prefer [tldraw](https://www.tldraw.com/).
 
 # React Component Documentation
 
