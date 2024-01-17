@@ -120,7 +120,7 @@ Learn and understand React. In the end, it doesn't take much to create a React c
 
 # React Setup for Beginners
 
-How do you get started with coding a React project? If you don't have an editor/terminal or IDE installed and want to check out what React feels like in a code environment, you can use the go-to online code editor [StackBlitz](https://stackblitz.com/). Play around with React. If you want to learn how to develop React applications on your local machine, check out these guides:
+How do you get started with coding a React project? If you don't have an editor/terminal or IDE installed and want to check out what React feels like in a code environment, you can use the go-to online code editor [CodeSandbox](https://codesandbox.io/). Play around with React. If you want to learn how to develop React applications on your local machine, check out these guides:
 
 * [Set up React on MacOS](/react-js-macos-setup/)
 * [Set up React on Windows](/react-js-windows-setup/)
