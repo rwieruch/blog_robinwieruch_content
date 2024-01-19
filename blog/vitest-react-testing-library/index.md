@@ -85,11 +85,12 @@ npm install @testing-library/react @testing-library/jest-dom --save-dev
 Fourth, add a test setup file in *tests/setup.js* and give it the following implementation:
 
 ```javascript
-import { afterEach } from 'vitest';
+import { expect, afterEach } from 'vitest';
 import { cleanup } from '@testing-library/react';
-import '@testing-library/jest-dom/vitest';
+import * as matchers from "@testing-library/jest-dom/matchers";
 
-// runs a cleanup after each test case (e.g. clearing jsdom)
+expect.extend(matchers);
+
 afterEach(() => {
   cleanup();
 });
