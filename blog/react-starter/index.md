@@ -143,5 +143,3 @@ In conclusion, even though Next (with either SSR/SSG/ISR) would be a fit for con
 * If you want to have a content-focused website, check out **Astro with React**.
 
 <ReadMore label="How to learn React in 2024" link="/learning-react/" />
-
-asd
