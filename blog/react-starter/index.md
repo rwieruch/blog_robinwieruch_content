@@ -14,6 +14,8 @@ author: ""
 
 Every year I want to give you a brief overview of how to start a new React project. I want to reflect on advantages and disadvantages, on the skill-level needed as a developer, and on what features each starter project has to offer for you as a React developer. At the end you will know about 3 solutions for different requirements.
 
+*Note: The screenshots are taken from last years [State of JavaScript](https://stateofjs.com/), because the newest results are not online yet.*
+
 # React with Vite
 
 [Vite](https://vitejs.dev/) is the clear successor of the most popular (now deprecated) React starter called create-react-app (CRA), because it does not much deviate from it. Compared to CRA (which used Webpack) it is much faster, because it uses [esbuild](https://esbuild.github.io/) under the hood.
