@@ -213,9 +213,11 @@ Whether you choose CSS-in-CSS or Utility-First-CSS is up to you. The trend goes 
   * e.g. Tailwind CSS
 * CSS-in-CSS
   * e.g. CSS Modules
-* CSS-in-JS (personally I'd not recommended runtime CSS-in-JS anymore due to performance and other problems in server-side environments)
-  * e.g. Styled Components or [StyleX](https://stylexjs.com/) by Facebook
+* CSS-in-JS
+  * e.g. [StyleX](https://stylexjs.com/) by Facebook (compiles to utility-first CSS)
+  * e.g. Styled Components (personally I'd not recommended runtime CSS-in-JS anymore due to performance and other problems in server-side environments)
 * [CSS-in-TS](https://github.com/andreipfeiffer/css-in-js) (which support TypeScript and server-side-rendering)
+  
 
 # React UI Libraries
 
