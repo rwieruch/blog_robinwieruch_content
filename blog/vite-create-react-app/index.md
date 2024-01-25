@@ -42,6 +42,13 @@ Fourth, rename all extensions of files which are using JSX from ".js" to ".jsx",
 mv src/App.js src/App.jsx
 mv src/index.js src/index.jsx
 ```
+Or 
+
+to renames all ".js" files into "jsx" at once you can use this command. This will change all ".js" extensions into ".jsx": 
+
+```sh
+find ./src -name "*.js" -exec sh -c 'mv "$0" "${0%.js}.jsx"' {} \;
+```
 
 If you are not renaming all your React/JSX related files this way, essentially all files that are using angle brackets, you may get the following or a similar error:
 
