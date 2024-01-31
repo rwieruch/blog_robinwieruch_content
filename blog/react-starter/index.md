@@ -62,7 +62,7 @@ In contrast, when learning React in the environment of a framework, React almost
 
 ![](./images/next-happiness.jpg)
 
-Next.js prioritizes server-side rendering (SSR) as rendering technique. However, it can be used with static-site generation (SSG) and client-side rendering (CSR, see React with Vite) too. On top there are a several more bleeding edge rendering techniques like incremental static regeneration (ISR) and React Server Components (RSC) available.
+Next.js prioritizes server-side rendering (SSR) as rendering technique. However, it can be used with static-site generation (SSG), incremental static regeneration (ISR), and client-side rendering (CSR, see React with Vite) too. On top there are a several more bleeding edge rendering techniques like React Server Components (RSC) available.
 
 What makes this more mind blowing: You can mix and match rendering techniques in a Next.js application. While a marketing page can use SSG, the actual application behind the sign in/up uses SSR.
 
@@ -91,8 +91,7 @@ In conclusion, while Next.js comes with many batteries included (e.g. file-based
 * overhead/stability/maintainability compared to only React with Vite
 * steeper learning curve compared to React with Vite
   * more focus on framework specifics, less on React itself
-* framework (and infrastructure, e.g. deploy on Vercel) lock-in
-  * the latter perhaps solved by [OpenNext](https://open-next.js.org/)
+* fewer options [self-hosting](https://nextjs.org/docs/app/building-your-application/deploying#self-hosting) (Node.js, Docker, static files)
 
 # React with Astro
 
