@@ -15,7 +15,7 @@ author: ""
 A brief walkthrough on how to upgrade Vite from JavaScript to TypeScript. The tutorial assumes that you have already created a React project with [Vite](https://vitejs.dev/) in JavaScript. To use TypeScript in React (with Vite), install TypeScript and its dependencies into your application using the command line:
 
 ```text
-npm install typescript --save-dev
+npm install typescript @types/react @types/react-dom --save-dev
 npm install @typescript-eslint/eslint-plugin --save-dev
 npm install @typescript-eslint/parser --save-dev
 ```
