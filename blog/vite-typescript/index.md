@@ -1,7 +1,7 @@
 ---
 title: "Vite with TypeScript"
 description: "How to upgrade Vite to TypeScript from JavaScript ..."
-date: "2022-10-14T09:52:46+02:00"
+date: "2024-01-01T09:52:46+02:00"
 categories: ["React", "Vite"]
 keywords: ["vite typescript"]
 hashtags: ["#ReactJs"]

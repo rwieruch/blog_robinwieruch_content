@@ -1,7 +1,7 @@
 ---
-title: "Mac Setup for Web Development [2023]"
-description: "How I set up my new M1 MacBook Pro as a web developer for professional web development ..."
-date: "2023-02-04T06:50:46+02:00"
+title: "Mac Setup for Web Development [2024]"
+description: "How I set up my new M1 MacBook Pro as a web developer in 2024 for web development ..."
+date: "2024-02-05T06:50:46+02:00"
 categories: ["Web Development"]
 keywords: ["mac setup web development", "mac setup web developer", "mac setup javascript"]
 hashtags: ["#JavaScript"]
@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-I bought the **MacBook Pro** from 2022 after having used the MacBook Pro 2015 for the last years. The last months have been super exciting and I am up running working efficiently on my personal and professional web development projects as a **freelance web developer**. Here I want to share with you my **Mac setup for web development** which I update all the time and which got inspired by [Swyx's Mac Setup](https://www.swyx.io/new-mac-setup-2021).
+After using the MacBook Pro 2015 for several years, I upgraded to a MacBook Pro 2022 a while ago. The years with my previous Mac were fantastic, and now, with the newer MacBook Pro, I continue to work efficiently on my freelance web development projects. My goal is to keep this MacOS setup for web development up-to-date for you. This is everything I got in 2024:
 
 # MacBook Pro Specification
 
@@ -21,18 +21,18 @@ I bought the **MacBook Pro** from 2022 after having used the MacBook Pro 2015 fo
 * 32 GB RAM
 * 512 GB SSD
 * QWERTY = English (International)
-* macOS Ventura (formerly Monterey)
+* macOS Sonoma (formerly Ventura)
 
 # System Preferences
 
 * Appearance
- * Show Scroll Bars -> "Always"
+  * Show Scroll Bars -> "Always"
 * Dock
   * Remove most applications from Dock
   * Automatic Hide
   * Smaller Dock
-  * "Show recent applications in Dock" off
-  * "Show indicators for open applications" on
+  * "Show recent applications in Dock" -> off
+  * "Show indicators for open applications" -> on
   * Battery -> "Show Percentage"
 * Display
   * Nightshift
@@ -41,7 +41,7 @@ I bought the **MacBook Pro** from 2022 after having used the MacBook Pro 2015 fo
 * Notifications
   * Off, except for Calendar
 * Siri
-  * Disable
+  * Disabled
 * Trackpad
   * Tap to Click
   * Point & Click -> Look up & data detectors off
