@@ -167,7 +167,7 @@ brew install \
   nvm \
   pnpm \
   graphicsmagick \
-  commitzen \
+  commitizen \
   cmatrix \
   vips
 ```
