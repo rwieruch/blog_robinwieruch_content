@@ -62,7 +62,7 @@ Highlighting this aspect of RSCs is important, because it shows how React's ecos
 
 Single Page Applications (SPAs) are not dead (yet). That's how Tanner Linsley positions himself in all the React Server Components hype. Why does this matter though? He is one of the driving forces behind the most popular React libraries such as react-query and react-table. And just recently he published a new library: [TanStack Router](https://github.com/tanstack/router).
 
-TanStack Router comes at the perfect time to fill an important gap in the React ecosystem. While many developers adopt meta frameworks like Next.js and Remix (which uses the most popular [React Router](https://reactrouter.com/) under the hood and has its focus on the [implementation of RCSs](https://twitter.com/ryanflorence/status/1729274387671760936) too) with their built-in router, no one yet created a type safe router for React in the first place.
+TanStack Router comes at the perfect time to fill an important gap in the React ecosystem. While many developers adopt meta frameworks like Next.js and Remix (which uses the most popular [React Router](https://reactrouter.com/) under the hood and has its focus on the [implementation of RSCs](https://twitter.com/ryanflorence/status/1729274387671760936) too) with their built-in router, no one yet created a type safe router for React in the first place.
 
 Since TypeScript became the industry standard over the last years, I am excited for a new router in the React ecosystem which comes with first-class TypeScript support. For example, it will allow developers to read and write to URL state in a type safe manner. Perhaps this new router may also push other established routers raising to these TS first standards.
 
