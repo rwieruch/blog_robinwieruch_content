@@ -140,7 +140,6 @@ brew install --cask \
   tor \
   iterm2 \
   visual-studio-code \
-  sublime-text \
   docker \
   rectangle \
   slack \
@@ -154,7 +153,8 @@ brew install --cask \
   protonvpn \
   zoom \
   skype \
-  sequel-ace
+  sequel-ace \
+  ngrok
 ```
 
 Install terminal applications (read more about these in Terminal Applications):
@@ -201,7 +201,6 @@ brew install \
 * [Tor](https://brave.com/) (secret web browsing)
 * [iterm2](https://iterm2.com/) (terminal)
 * [Visual Studio Code](https://code.visualstudio.com/) (web development IDE)
-* [Sublime Text](https://www.sublimetext.com/) (editor)
 * [Docker](https://www.docker.com/products/docker-desktop) (Docker, see [setup](/docker-macos/))
   * used for running databases (e.g. PostgreSQL, MongoDB) in container without cluttering the Mac
   * Preferences
@@ -314,7 +313,7 @@ Make it the default theme for Oh My ZSH from the terminal:
 echo 'eval "$(starship init zsh)"' >> ~/.zshrc
 ```
 
-As font we will be using Hack Nerd Font in iTerm2, VS Code, and Sublime Text. Install it via:
+As font we will be using Hack Nerd Font in iTerm2 and VS Code. Install it via:
 
 ```text
 brew tap homebrew/cask-fonts
@@ -374,9 +373,6 @@ alias gitl="git lg"
 alias gita="git add ."
 alias gitc="cz commit"
 
-# type sublime . to open current folder in Sublime Text
-alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl --new-window $@"
-
 alias loc="npx sloc --format cli-table --format-option head --exclude 'build|\.svg$\.xml' ./"
 
 # load zsh-completions
@@ -418,6 +414,9 @@ The look and feel we want to achieve from our IDE:
 * [Color Picker](https://marketplace.visualstudio.com/items?itemName=anseki.vscode-color)
 * [Prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma)
 * [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
+* [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+* [Tailwind Fold](https://marketplace.visualstudio.com/items?itemName=stivo.tailwind-fold)
+* [Tailwind Documentation](https://marketplace.visualstudio.com/items?itemName=austenc.tailwind-docs)
 
 **Manual:**
 
@@ -526,69 +525,6 @@ The look and feel we want to achieve from our IDE:
   },
 
 ]
-```
-
-# Sublime
-
-Not used for web development anymore. Primarily used for writing this blog.
-
-**General:**
-
-* use License
-
-**Extensions:**
-
-* [Agila Theme](https://packagecontrol.io/packages/Agila%20Theme) (Theme)
-* [Predawn](https://packagecontrol.io/packages/Predawn) (Theme)
-* [SideBarEnhancements](https://packagecontrol.io/packages/SideBarEnhancements) (Folder/File Features)
-* [TrailingSpaces](https://packagecontrol.io/packages/TrailingSpaces) (Deletes Trailing Spaces)
-
-JSON Settings:
-
-```json
-{
-  "caret_style": "solid",
-  "folder_exclude_patterns":
-  [
-    ".git",
-    "node_modules"
-  ],
-  "font_size": 14,
-  "font_face": "Hack Nerd Font",
-  "gutter": true,
-  "highlight_line": true,
-  "highlight_modified_tabs": true,
-  "ignored_packages":
-  [
-    "TypeScript",
-    "Vintage"
-  ],
-  "line_padding_bottom": 1,
-  "line_padding_top": 1,
-  "predawn_findreplace_small": true,
-  "predawn_sidebar_arrows": true,
-  "predawn_sidebar_narrow": true,
-  "predawn_sidebar_xsmall": true,
-  "predawn_tabs_small": true,
-  "rulers":
-  [
-    120
-  ],
-  "scroll_past_end": true,
-  "show_line_numbers": true,
-  "spell_check": false,
-  "tab_size": 2,
-  "theme": "Agila Origin.sublime-theme",
-  "theme_agila_compact_sidebar": true,
-  "theme_agila_compact_tab": true,
-  "theme_agila_horizontal_scrollbar_thinnest": true,
-  "theme_agila_sidebar_font_xsmall": true,
-  "theme_agila_sidebar_mini": true,
-  "theme_agila_vertical_scrollbar_thinnest": true,
-  "translate_tabs_to_spaces": true,
-  "trim_trailing_white_space_on_save": true,
-  "color_scheme": "Packages/Agila Theme/Agila Origin Oceanic Next.tmTheme",
-}
 ```
 
 # Git
