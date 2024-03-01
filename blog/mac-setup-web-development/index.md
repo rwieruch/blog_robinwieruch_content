@@ -1,13 +1,18 @@
 ---
-title: "Mac Setup for Web Development [2024]"
-description: "How I set up my new M1 MacBook Pro as a web developer in 2024 for web development ..."
-date: "2024-02-05T06:50:46+02:00"
-categories: ["Web Development"]
-keywords: ["mac setup web development", "mac setup web developer", "mac setup javascript"]
-hashtags: ["#JavaScript"]
-banner: "./images/banner.jpg"
-contribute: ""
-author: ""
+title: 'Mac Setup for Web Development [2024]'
+description: 'How I set up my new M1 MacBook Pro as a web developer in 2024 for web development ...'
+date: '2024-02-05T06:50:46+02:00'
+categories: ['Web Development']
+keywords:
+  [
+    'mac setup web development',
+    'mac setup web developer',
+    'mac setup javascript',
+  ]
+hashtags: ['#JavaScript']
+banner: './images/banner.jpg'
+contribute: ''
+author: ''
 ---
 
 <Sponsorship />
@@ -16,73 +21,87 @@ After using the MacBook Pro 2015 for several years, I upgraded to a MacBook Pro 
 
 # MacBook Pro Specification
 
-* 14-inch
-* Apple M1 Pro mit 10‑Core CPU, 16‑Core GPU und 16‑Core Neural Engine
-* 32 GB RAM
-* 512 GB SSD
-* QWERTY = English (International)
-* macOS Sonoma (formerly Ventura)
+- 14-inch
+- Apple M1 Pro mit 10‑Core CPU, 16‑Core GPU und 16‑Core Neural Engine
+- 32 GB RAM
+- 512 GB SSD
+- QWERTY = English (International)
+- macOS Sonoma (formerly Ventura)
 
 # System Preferences
 
-* Appearance
-  * Show Scroll Bars -> "Always"
-* Dock
-  * Remove most applications from Dock
-  * Automatic Hide
-  * Smaller Dock
-  * "Show recent applications in Dock" -> off
-  * "Show indicators for open applications" -> on
-  * Battery -> "Show Percentage"
-* Display
-  * Nightshift
-* Security
-  * Touch ID
-* Notifications
-  * Off, except for Calendar
-* Siri
-  * Disabled
-* Trackpad
-  * Tap to Click
-  * Point & Click -> Look up & data detectors off
-  * More Gestures -> Notification Centre off
-* Keyboard
-  * Text
-    * disable "Capitalise word automatically"
-    * disable "Add full stop with double-space"
-    * disable "Use smart quotes and dashes"
-    * use `"` for double quotes
-    * use `'` for single quotes
-  * Keyboard -> Mission Control -> disable all
-* Spotlight
-  * Disable Spotlight except for Applications and System Preferences
-* Mission Control
-  * Hot Corners: disable all
-* Finder
-  * Sidebar:
-    * activate all Favorites
-    * move Library to Favorites
-  * Hide all Tags
-  * Show all Filename Extensions
-  * Remove Items from Bin after 30 Days
-  * View -> Show Preview (e.g. image files)
-* Sharing
-  * "Change computer name"
-    * Also terminal:
-      * sudo scutil --set ComputerName "newname"
-      * sudo scutil --set LocalHostName "newname"
-      * sudo scutil --set HostName "newname"
-  * "Make sure all file sharing is disabled"
-* Security and Privacy
-  * Turn on FileVault
-  * Add Browser to "Screen Recording"
-* Storage
-  * Remove Garage Band & Sound Library
-  * Remove iMovie
-* Trackpad
-  * Speed: 9/10
-* Accessibility
-  * Scroll Speed: 6/8
+- Appearance
+  - Dark Mode
+  - Show Scroll Bars -> "Always"
+    - Ugly, but better for web development
+- Dock
+  - Remove most applications from Dock
+  - Automatic Hide
+  - Smaller Dock
+  - "Show recent applications in Dock" -> off
+  - "Show indicators for open applications" -> on
+  - Battery -> "Show Percentage"
+- Display
+  - Nightshift
+- Security
+  - Touch ID
+- Notifications
+  - Off, except for Calendar
+- Siri
+  - Disabled
+- Trackpad
+  - Tap to Click
+  - Point & Click -> Look up & data detectors off
+  - More Gestures -> Notification Centre off
+- Keyboard
+  - Text
+    - disable "Capitalise word automatically"
+    - disable "Add full stop with double-space"
+    - disable "Use smart quotes and dashes"
+    - use `"` for double quotes
+    - use `'` for single quotes
+  - Keyboard -> Mission Control -> disable all
+  - Press FN to -> "Do Nothing"
+  - Keyboard Shortcuts -> Spotlight -> CMD + Space disable
+    - We will be using Raycast instead
+- Mission Control
+  - Hot Corners: disable all
+- Finder
+  - General
+    - New Finder windows show: [Downloads]
+    - Show these items on the desktop: disable all
+  - Sidebar:
+    - activate all Favorites
+    - move Library to Favorites
+  - Show only:
+    - Desktop
+    - Downloads
+    - Documents
+    - [User]
+    - Library
+  - Tags
+    - disable all
+  - Advanced
+    - Show all Filename Extensions
+    - Remove Items from Bin after 30 Days
+    - View -> Show Preview (e.g. image files)
+- Sharing
+  - "Change computer name"
+    - Also terminal:
+      - sudo scutil --set ComputerName "newname"
+      - sudo scutil --set LocalHostName "newname"
+      - sudo scutil --set HostName "newname"
+  - "Make sure all file sharing is disabled"
+- Security and Privacy
+  - Turn on FileVault
+  - Add Browser to "Screen Recording"
+- Storage
+  - Remove Garage Band & Sound Library
+  - Remove iMovie
+- Trackpad
+  - Speed: 9/10
+- Accessibility
+  - Scroll Speed: 6/8
 
 # System Preferences (Terminal)
 
@@ -112,7 +131,7 @@ killall Finder;
 
 # Files
 
-* If files from previous machine are needed, transfer via external drive instead of cloud
+- If files from previous machine are needed, transfer via external drive instead of cloud
 
 # Homebrew
 
@@ -133,6 +152,7 @@ Install GUI applications (read more about these in GUI Applications):
 
 ```text
 brew install --cask \
+  raycast \
   bitwarden \
   google-chrome  \
   firefox \
@@ -174,82 +194,89 @@ brew install \
 
 # GUI Applications
 
-* [Bitwarden](https://bitwarden.com/) (password manager)
-  * Preferences:
-    * enable dark mode
-    * enable Touch ID
-* [Google Chrome](https://www.google.com/chrome/) (web development, web browsing)
-  * Preferences
-    * set default browser
-    * enable dark mode
-    * never save passwords
-    * always show bookmarks
-    * import bookmarks from previous machine
-  * Chrome Developer Tools
-    * enable dark mode
-    * Network -> only "Fetch/XHR"
-  * Chrome Extensions
-    * [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en)
-    * [Bitwarden](https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb/related?hl=en)
-    * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
-    * [GraphQL Network Inspector](https://chrome.google.com/webstore/detail/graphql-network-inspector/ndlbedplllcgconngcnfmkadhokfaaln?hl=en)
-    * [Pocket](https://chrome.google.com/webstore/detail/save-to-pocket/niloccemoadcdkdjlinkgdfekeahmflj?hl=en)
-    * [MetaMask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn)
-    * [GraphQL Network Inspector](https://chrome.google.com/webstore/detail/graphql-network-inspector/ndlbedplllcgconngcnfmkadhokfaaln?hl=en-GB)
-* [Firefox](https://www.google.com/chrome/) (web development)
-* [Brave](https://brave.com/) (web browsing, wallet)
-* [Tor](https://brave.com/) (secret web browsing)
-* [iterm2](https://iterm2.com/) (terminal)
-* [Visual Studio Code](https://code.visualstudio.com/) (web development IDE)
-* [Docker](https://www.docker.com/products/docker-desktop) (Docker, see [setup](/docker-macos/))
-  * used for running databases (e.g. PostgreSQL, MongoDB) in container without cluttering the Mac
-  * Preferences
-    * enable "Use Docker Compose"
-* [Rectangle](https://rectangleapp.com//) (window manager)
-  * use Rectangle settings, not Spectacle
-* [Slack](https://slack.com/) (team messenger)
-* [Discord](https://discord.com/) (community messenger)
-* [Signal](https://signal.org/en/) (messenger)
-* [VLC](https://www.videolan.org/vlc/) (video player)
-  * use as default for video files
-* [Calibre](https://calibre-ebook.com/) (epub/ebook editor)
-* [Figma](https://www.figma.com/) (design)
-* [ImageOptim](https://imageoptim.com/mac) (performance)
-* [Maccy](https://maccy.app/) (clipboard manager)
-  * enable "Launch at Login"
+- [Raycast](https://www.raycast.com/) (spotlight replacement)
+  - enabled
+    - File Search
+    - Snippets
+    - System
+  - shortcuts
+    - CMD + Space
+- [Bitwarden](https://bitwarden.com/) (password manager)
+  - Preferences:
+    - enable dark mode
+    - enable Touch ID
+- [Google Chrome](https://www.google.com/chrome/) (web development, web browsing)
+  - Preferences
+    - set default browser
+    - enable dark mode
+    - never save passwords
+    - always show bookmarks
+    - import bookmarks from previous machine
+  - Chrome Developer Tools
+    - enable dark mode
+    - Network -> only "Fetch/XHR"
+  - Chrome Extensions
+    - [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en)
+    - [Bitwarden](https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb/related?hl=en)
+    - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+    - [GraphQL Network Inspector](https://chrome.google.com/webstore/detail/graphql-network-inspector/ndlbedplllcgconngcnfmkadhokfaaln?hl=en)
+    - [Pocket](https://chrome.google.com/webstore/detail/save-to-pocket/niloccemoadcdkdjlinkgdfekeahmflj?hl=en)
+    - [MetaMask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn)
+    - [GraphQL Network Inspector](https://chrome.google.com/webstore/detail/graphql-network-inspector/ndlbedplllcgconngcnfmkadhokfaaln?hl=en-GB)
+- [Firefox](https://www.google.com/chrome/) (web development)
+- [Brave](https://brave.com/) (web browsing, wallet)
+- [Tor](https://brave.com/) (secret web browsing)
+- [iterm2](https://iterm2.com/) (terminal)
+- [Visual Studio Code](https://code.visualstudio.com/) (web development IDE)
+- [Docker](https://www.docker.com/products/docker-desktop) (Docker, see [setup](/docker-macos/))
+  - used for running databases (e.g. PostgreSQL, MongoDB) in container without cluttering the Mac
+  - Preferences
+    - enable "Use Docker Compose"
+- [Rectangle](https://rectangleapp.com//) (window manager)
+  - use Rectangle settings, not Spectacle
+- [Slack](https://slack.com/) (team messenger)
+- [Discord](https://discord.com/) (community messenger)
+- [Signal](https://signal.org/en/) (messenger)
+- [VLC](https://www.videolan.org/vlc/) (video player)
+  - use as default for video files
+- [Calibre](https://calibre-ebook.com/) (epub/ebook editor)
+- [Figma](https://www.figma.com/) (design)
+- [ImageOptim](https://imageoptim.com/mac) (performance)
+- [Maccy](https://maccy.app/) (clipboard manager)
+  - enable "Launch at Login"
 
 # Built-in MacOS Applications
 
-* iMessage
-  * sync iCloud for iMessages just for the sake of syncing, then disable iCloud again
-  * sync contacts on iCloud
-  * iPhone: activate message forwarding to new Mac
-* Pages
-  * show word count
-* Apple Mail
-  * set up all email accounts
-  * show most recent message at top
-  * undo send delay set to off
-* Notes
-  * New notes start with: Body
-  * Settings -> Disable: Group notes by date
-* Quick Time Player
-  * save to Desktop
+- iMessage
+  - sync iCloud for iMessages just for the sake of syncing, then disable iCloud again
+  - sync contacts on iCloud
+  - iPhone: activate message forwarding to new Mac
+- Pages
+  - show word count
+- Apple Mail
+  - set up all email accounts
+  - show most recent message at top
+  - undo send delay set to off
+- Notes
+  - New notes start with: Body
+  - Settings -> Disable: Group notes by date
+- Quick Time Player
+  - save to Desktop
 
 # Terminal Applications
 
-* [wget](https://www.gnu.org/software/wget/) (curl replacement)
-* [exa](https://the.exa.website/install/macos) (ls replacement)
-  * `exa`
-  * `exa -a` (include hidden files)
-  * `exa -l` (include additional information)
-* [git](https://git-scm.com/) (version control)
-* [nvm](https://github.com/nvm-sh/nvm) (node version manager)
-* [pnpm](https://pnpm.io/) (node package manager)
-* [graphicsmagick](http://www.graphicsmagick.org/) ([screenshot/visual regression testing](https://loki.js.org/))
-* [commitzen](https://commitizen-tools.github.io/commitizen/)
-* [cmatrix](https://github.com/abishekvashok/cmatrix) (terminal screensaver)
-* vips ([support for old Gatsby.js version on M1](https://github.com/lovell/sharp/issues/2460#issuecomment-751491241))
+- [wget](https://www.gnu.org/software/wget/) (curl replacement)
+- [exa](https://the.exa.website/install/macos) (ls replacement)
+  - `exa`
+  - `exa -a` (include hidden files)
+  - `exa -l` (include additional information)
+- [git](https://git-scm.com/) (version control)
+- [nvm](https://github.com/nvm-sh/nvm) (node version manager)
+- [pnpm](https://pnpm.io/) (node package manager)
+- [graphicsmagick](http://www.graphicsmagick.org/) ([screenshot/visual regression testing](https://loki.js.org/))
+- [commitzen](https://commitizen-tools.github.io/commitizen/)
+- [cmatrix](https://github.com/abishekvashok/cmatrix) (terminal screensaver)
+- vips ([support for old Gatsby.js version on M1](https://github.com/lovell/sharp/issues/2460#issuecomment-751491241))
 
 # iTerm2
 
@@ -257,27 +284,27 @@ The look and feel we want to achieve from our terminal:
 
 ![](./images/terminal.png)
 
-* Make iterm2 Default Term
-* Preferences ->
-  * General -> Window
-    * unselect "Native full screen windows"
-    * select "close windows when closing an app"
-  * Appearance ->
-    * Windows
-      * select "Hide scrollbars"
-    * Tabs
-      * unselect "Show tab bar in fullscreen"
-    * Dimming
-      * Unselect all dimming
-  * Profiles -> Window
-    * Transparency: 30
-    * Style: Full Screen
-    * Screen: Main Screen
-  * Profiles -> Advanced
-    * Semantic History -> Open with editor ... -> VS Code
-  * [Open new split pane with current directory](https://apple.stackexchange.com/a/337386)
-  * [Natural Text Editing](https://apple.stackexchange.com/a/293988)
-* Bring it to fullscreen Command + Enters
+- Make iterm2 Default Term
+- Preferences ->
+  - General -> Window
+    - unselect "Native full screen windows"
+    - select "close windows when closing an app"
+  - Appearance ->
+    - Windows
+      - select "Hide scrollbars"
+    - Tabs
+      - unselect "Show tab bar in fullscreen"
+    - Dimming
+      - Unselect all dimming
+  - Profiles -> Window
+    - Transparency: 30
+    - Style: Full Screen
+    - Screen: Main Screen
+  - Profiles -> Advanced
+    - Semantic History -> Open with editor ... -> VS Code
+  - [Open new split pane with current directory](https://apple.stackexchange.com/a/337386)
+  - [Natural Text Editing](https://apple.stackexchange.com/a/293988)
+- Bring it to fullscreen Command + Enters
 
 # Oh My Zsh
 
@@ -293,7 +320,7 @@ Update everything (e.g. plugins) in Oh My Zsh to recent version:
 omz update
 ```
 
-Important: If you change something in your Zsh configuration (*.zshrc*), force a reload:
+Important: If you change something in your Zsh configuration (_.zshrc_), force a reload:
 
 ```text
 source ~/.zshrc
@@ -322,15 +349,15 @@ brew install --cask font-hack-nerd-font
 
 Use the new font in iTerm2: Preferences -> Profile -> Text -> Font: font-hack-nerd-font.
 
-If the theme and font changes do not apply, reload your zsh configuration (*.zshrc*) or close/open iTerm2.
+If the theme and font changes do not apply, reload your zsh configuration (_.zshrc_) or close/open iTerm2.
 
 **Oh My Zsh Plugins**
 
-* [zsh-completions](https://github.com/zsh-users/zsh-completions)
-* [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-* [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+- [zsh-completions](https://github.com/zsh-users/zsh-completions)
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
-**ZSH Configuration File (*.zshrc*):**
+**ZSH Configuration File (_.zshrc_):**
 
 ```markdown
 # Path to your oh-my-zsh installation.
@@ -393,32 +420,35 @@ The look and feel we want to achieve from our IDE:
 
 **Extensions:**
 
-* [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) (AI Support)
-* [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) (Theme)
-* [Auto Hide](https://marketplace.visualstudio.com/items?itemName=sirmspencer.vscode-autohide) (Hides Sidebar)
-* [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) (Shared Config)
-* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) ([Code Style](/vscode-eslint/))
-* [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) ([Code Format](/how-to-use-prettier-vscode/))
-  * Prettier: [Formatting Toggle](https://marketplace.visualstudio.com/items?itemName=tombonnike.vscode-status-bar-format-toggle) (Toggle Prettier)
-* [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) (Visualize Git)
-* [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments) (Comment Highlighting)
-* [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost)
-* [Highlight Matching Tag](https://marketplace.visualstudio.com/items?itemName=vincaslt.highlight-matching-tag)
-* [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
-* [Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag)
-* [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
-* [Vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=styled-components.vscode-styled-components)
-* [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
-* [Color Picker](https://marketplace.visualstudio.com/items?itemName=anseki.vscode-color)
-* [Prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma)
-* [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
-* [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
-* [Tailwind Fold](https://marketplace.visualstudio.com/items?itemName=stivo.tailwind-fold)
-* [Tailwind Documentation](https://marketplace.visualstudio.com/items?itemName=austenc.tailwind-docs)
+- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) (AI Support)
+- [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl) (Theme)
+- [Auto Hide](https://marketplace.visualstudio.com/items?itemName=sirmspencer.vscode-autohide) (Hides Sidebar)
+- [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) (Shared Config)
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) ([Code Style](/vscode-eslint/))
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) ([Code Format](/how-to-use-prettier-vscode/))
+  - Prettier: [Formatting Toggle](https://marketplace.visualstudio.com/items?itemName=tombonnike.vscode-status-bar-format-toggle) (Toggle Prettier)
+- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) (Visualize Git)
+- [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments) (Comment Highlighting)
+- [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost)
+- [Highlight Matching Tag](https://marketplace.visualstudio.com/items?itemName=vincaslt.highlight-matching-tag)
+- [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
+- [Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag)
+- [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
+- [Vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=styled-components.vscode-styled-components)
+- [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight)
+- [Color Picker](https://marketplace.visualstudio.com/items?itemName=anseki.vscode-color)
+- [Prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma)
+- [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
+- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- [Tailwind Fold](https://marketplace.visualstudio.com/items?itemName=stivo.tailwind-fold)
+- [Tailwind Documentation](https://marketplace.visualstudio.com/items?itemName=austenc.tailwind-docs)
+- [FontSize Shortcuts](https://marketplace.visualstudio.com/items?itemName=fosshaas.fontsize-shortcuts)
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+- [Pretty TypeScript Errors](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors)
 
 **Manual:**
 
-* move Search feature from Activity Bar to Panel
+- move Search feature from Activity Bar to Panel
 
 **JSON Settings:**
 
@@ -448,7 +478,7 @@ The look and feel we want to achieve from our IDE:
   // line highlight
   "editor.renderLineHighlight": "all",
   "workbench.colorCustomizations": {
-    "editor.lineHighlightBackground": "#223851",
+    "editor.lineHighlightBackground": "#223851"
   },
   // syntax highlighting
   "files.associations": {
@@ -482,7 +512,12 @@ The look and feel we want to achieve from our IDE:
     "source.fixAll.eslint": true,
     "source.addMissingImports": true
   },
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
   "javascript.validate.enable": false,
   "javascript.updateImportsOnFileMove.enabled": "never",
   "typescript.updateImportsOnFileMove.enabled": "never",
@@ -505,23 +540,22 @@ The look and feel we want to achieve from our IDE:
     "key": "ctrl+up",
     "command": "cursorMove",
     "args": {
-        "to": "up",
-        "by": "line",
-        "value": 10
-      },
-      "when": "editorTextFocus"
+      "to": "up",
+      "by": "line",
+      "value": 10
+    },
+    "when": "editorTextFocus"
   },
   {
-      "key": "ctrl+down",
-      "command": "cursorMove",
-      "args": {
-          "to": "down",
-          "by": "line",
-          "value": 10
-      },
-      "when": "editorTextFocus"
-  },
-
+    "key": "ctrl+down",
+    "command": "cursorMove",
+    "args": {
+      "to": "down",
+      "by": "line",
+      "value": 10
+    },
+    "when": "editorTextFocus"
+  }
 ]
 ```
 
@@ -564,7 +598,7 @@ git config --list
 
 There are two common strategies for SSH keys: one SSH key to rule them all or one SSH key per service. I use the latter one and will here run yout through it by [connecting to GitHub via SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
-First, create a new SSH key in the *~/.ssh* folder:
+First, create a new SSH key in the _~/.ssh_ folder:
 
 ```text
 # in case the folder is not there yet
@@ -594,7 +628,7 @@ Create the SSH configuration file if it doesn't exist yet:
 touch ~/.ssh/config
 ```
 
-In your *~/.ssh/config* file, add the new SSH key, so that it can get picked up for every terminal session automatically:
+In your _~/.ssh/config_ file, add the new SSH key, so that it can get picked up for every terminal session automatically:
 
 ```text
 Host *
@@ -658,9 +692,9 @@ npm install -g npm@latest
 And set defaults for npm:
 
 ```text
-npm set init.author.name "your name"
-npm set init.author.email "you@example.com"
-npm set init.author.url "example.com"
+npm set init-author-name="your name"
+npm set init-author-email="you@example.com"
+npm set init-author-url="example.com"
 ```
 
 If you are a library author, log in to npm too:
