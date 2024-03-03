@@ -1,5 +1,5 @@
 ---
-title: "How to start a React Project in 2024"
+title: "Starting a React Project in 2024"
 description: "A list of React starter kits (Vite, Next, Astro) which help developers to start a React project in 2024 ..."
 date: "2024-01-23T07:52:46+02:00"
 categories: ["React"]
