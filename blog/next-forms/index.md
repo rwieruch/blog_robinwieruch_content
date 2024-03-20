@@ -1,5 +1,5 @@
 ---
-title: "Exploring Next.js Forms with Server Actions"
+title: "Next.js Forms with Server Actions"
 description: "How to use Forms in Next.js with React Server Components (RSC), Server Actions in Next's App Router by using useFormState and useFormStatus. Learn about form validation, form reset, form feedback (field errors and toast messages) while using progressive enhancement and caching ..."
 date: "2024-02-27T08:50:46+02:00"
 categories: ["Next"]
@@ -16,7 +16,7 @@ I delved deep into exploring Forms in Next.js 14 using Next's App Router, React 
 
 The tutorial also provides detailed insights into form validation using Zod, error handling on a fine- and coarse-grained level, offering user feedback through field-level errors and toast messages while also staying functional without JavaScript in the browser by leveraging the web's capabilties of progressive enhancement.
 
-*Currently I am working on a new course called **"The Road to Next"** which will hopefully match the popularity of **The Road to React**. We will create a full-stack Next application which goes all the way from fundamental React knowledge to accessing a serverless database. I am more than excited to share all my knowledge about Next.js with you. **If you are interested**, feel free to sign up on my Newsletter for getting updates about it.*
+*Currently I am working on a new course called **["The Road to Next"](https://www.road-to-next.com/)** which will hopefully match the popularity of **The Road to React**. We will create a full-stack Next application which goes all the way from fundamental React knowledge to accessing a serverless database. I am more than excited to share all my knowledge about Next.js with you. **If you are interested**, check out the website and join the waitlist.*
 
 # Remarks about the State of Forms in Next.js
 
@@ -1051,4 +1051,4 @@ I hope you liked this extensive tutorial about forms in Next with server actions
 
 We see what's possible in a web native world with progressive enhancement where no JavaScript is needed. However, when using the barebone building blocks that Next and React are providing us, we have to do a lot of work to get to a result. There are many things that could be provided by default by the framework. In the end, it just shows how much potential and opportunity there is for open source to provide a better DX for developers. Just think about a new useAction hook provided by the framework which would be a combination of `useFormState`, `useToastMessage`, and `useFormReset` and would take care of all the things we did manually in this tutorial.
 
-Anyway, I am hyped about Next, React Server Components and Server Actions. If you are too, subscribe to my Newsletter and stay tuned for more content about it and my new **The Road to Next** course!
+You can find the repository for this tutorial over [here](https://github.com/rwieruch/next-forms). Anyway, I am hyped about Next, React Server Components and Server Actions. If you are too, get on the waitlist for the **["The Road to Next"](https://www.road-to-next.com/)**!

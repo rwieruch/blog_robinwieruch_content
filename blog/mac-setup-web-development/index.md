@@ -445,6 +445,7 @@ The look and feel we want to achieve from our IDE:
 - [FontSize Shortcuts](https://marketplace.visualstudio.com/items?itemName=fosshaas.fontsize-shortcuts)
 - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - [Pretty TypeScript Errors](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors)
+- [Increment Selection](https://marketplace.visualstudio.com/items?itemName=albymor.increment-selection)
 
 **Manual:**
 
