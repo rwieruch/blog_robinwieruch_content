@@ -188,3 +188,6 @@ export default Home;
 
 That's it. If you have done the database seeding in between, you should see the seeded data in your Next.js application.
 
+<Divider />
+
+You can find the repository for this tutorial over [here](https://github.com/rwieruch/next-prisma-sqlite). If you want to go beyond this, check out **["The Road to Next"](https://www.road-to-next.com/)** and get on the waitlist!
