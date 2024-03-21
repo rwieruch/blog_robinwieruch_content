@@ -104,7 +104,7 @@ Essentially this file is the SQLite database.
 
 # Prisma Migrations
 
-Prisma Migrations are a great way to keep track of changes in the database. You can create a migration with the following command:
+Prisma Migrations are needed to introduce new data in the database. For example, when you want to add a new table to the database, you can create it in the Prisma schema file. We will have a `Post` table in this example, but you can choose a different name or properties if you like:
 
 ```bash
 model Post {
