@@ -174,7 +174,8 @@ brew install --cask \
   zoom \
   skype \
   sequel-ace \
-  ngrok
+  ngrok \
+  obs
 ```
 
 Install terminal applications (read more about these in Terminal Applications):
