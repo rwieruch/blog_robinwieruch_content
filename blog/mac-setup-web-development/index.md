@@ -430,7 +430,6 @@ The look and feel we want to achieve from our IDE:
   - Prettier: [Formatting Toggle](https://marketplace.visualstudio.com/items?itemName=tombonnike.vscode-status-bar-format-toggle) (Toggle Prettier)
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) (Visualize Git)
 - [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments) (Comment Highlighting)
-- [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost)
 - [Highlight Matching Tag](https://marketplace.visualstudio.com/items?itemName=vincaslt.highlight-matching-tag)
 - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
 - [Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag)
@@ -447,6 +446,7 @@ The look and feel we want to achieve from our IDE:
 - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
 - [Pretty TypeScript Errors](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors)
 - [Increment Selection](https://marketplace.visualstudio.com/items?itemName=albymor.increment-selection)
+- [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme)
 
 **Manual:**
 
@@ -456,9 +456,12 @@ The look and feel we want to achieve from our IDE:
 
 ```json
 {
+  "window.customTitleBarVisibility": "never",
+  "window.titleBarStyle": "native",
   "files.trimTrailingWhitespace": true,
   "explorer.confirmDelete": false,
   "explorer.compactFolders": false,
+  "workbench.colorTheme": "GitHub Dark Default",
   "workbench.colorTheme": "Night Owl",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
@@ -467,6 +470,7 @@ The look and feel we want to achieve from our IDE:
   "workbench.activityBar.visible": false,
   "workbench.editor.restoreViewState": true,
   "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+  "editor.stickyScroll.enabled": false,
   "editor.fontFamily": "Hack Nerd Font Mono",
   "editor.fontSize": 14,
   "editor.tabSize": 2,
@@ -475,8 +479,9 @@ The look and feel we want to achieve from our IDE:
   "editor.renderWhitespace": "none",
   "editor.scrollBeyondLastLine": true,
   "editor.minimap.enabled": false,
-  "editor.lineNumbers": "off",
+  "editor.lineNumbers": "on",
   "editor.find.seedSearchStringFromSelection": "never",
+  "breadcrumbs.enabled": false,
   // line highlight
   "editor.renderLineHighlight": "all",
   "workbench.colorCustomizations": {
