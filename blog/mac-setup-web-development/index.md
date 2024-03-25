@@ -175,7 +175,8 @@ brew install --cask \
   skype \
   sequel-ace \
   ngrok \
-  obs
+  obs \
+  keycastr
 ```
 
 Install terminal applications (read more about these in Terminal Applications):
@@ -221,7 +222,6 @@ brew install \
     - [Bitwarden](https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb/related?hl=en)
     - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
     - [GraphQL Network Inspector](https://chrome.google.com/webstore/detail/graphql-network-inspector/ndlbedplllcgconngcnfmkadhokfaaln?hl=en)
-    - [Pocket](https://chrome.google.com/webstore/detail/save-to-pocket/niloccemoadcdkdjlinkgdfekeahmflj?hl=en)
     - [MetaMask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn)
     - [GraphQL Network Inspector](https://chrome.google.com/webstore/detail/graphql-network-inspector/ndlbedplllcgconngcnfmkadhokfaaln?hl=en-GB)
 - [Firefox](https://www.google.com/chrome/) (web development)
@@ -456,24 +456,24 @@ The look and feel we want to achieve from our IDE:
 
 ```json
 {
-  "window.customTitleBarVisibility": "never",
   "window.titleBarStyle": "native",
+  "window.customTitleBarVisibility": "never",
+  "window.title": "${activeEditorMedium}",
   "files.trimTrailingWhitespace": true,
   "explorer.confirmDelete": false,
   "explorer.compactFolders": false,
   "workbench.colorTheme": "GitHub Dark Default",
-  "workbench.colorTheme": "Night Owl",
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
   "workbench.statusBar.visible": true,
   "workbench.editor.enablePreview": false,
-  "workbench.activityBar.visible": false,
   "workbench.editor.restoreViewState": true,
   "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
   "editor.stickyScroll.enabled": false,
   "editor.fontFamily": "Hack Nerd Font Mono",
   "editor.fontSize": 14,
   "editor.tabSize": 2,
+  "editor.lineHeight": 0,
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
   "editor.renderWhitespace": "none",
@@ -494,7 +494,10 @@ The look and feel we want to achieve from our IDE:
   // prettier
   "prettier.singleQuote": true,
   "prettier.printWidth": 70,
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
   "[javascript]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -511,13 +514,17 @@ The look and feel we want to achieve from our IDE:
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "prettier.documentSelectors": ["**/*.astro"],
   "[astro]": {
+    "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // eslint
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.addMissingImports": true
+    "source.fixAll": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.tslint": "explicit",
+    "source.addMissingImports": "explicit"
   },
   "eslint.validate": [
     "javascript",
@@ -526,16 +533,66 @@ The look and feel we want to achieve from our IDE:
     "typescriptreact"
   ],
   "javascript.validate.enable": false,
-  "javascript.updateImportsOnFileMove.enabled": "never",
+  "javascript.updateImportsOnFileMove.enabled": "prompt",
   "typescript.updateImportsOnFileMove.enabled": "never",
-  // auto generated
   "explorer.confirmDragAndDrop": false,
   "js/ts.implicitProjectConfig.checkJs": true,
   "editor.formatOnPaste": true,
   "editor.formatOnType": true,
-  "extensions.ignoreRecommendations": true,
   "editor.inlineSuggest.enabled": true,
-  "diffEditor.ignoreTrimWhitespace": false
+  "mui-snippets.importPaths": "second level",
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": true
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "workbench.activityBar.location": "hidden",
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "@radix-ui"
+  ],
+  "cSpell.enableFiletypes": [
+    "!asciidoc",
+    "!c",
+    "!cpp",
+    "!csharp",
+    "!css",
+    "!elixir",
+    "!erlang",
+    "!git-commit",
+    "!go",
+    "!graphql",
+    "!handlebars",
+    "!haskell",
+    "!html",
+    "!jade",
+    "!java",
+    "!javascript",
+    "!javascriptreact",
+    "!json",
+    "!jsonc",
+    "!jupyter",
+    "!less",
+    "!php",
+    "!pug",
+    "!python",
+    "!restructuredtext",
+    "!rust",
+    "!scala",
+    "!scminput",
+    "!scss",
+    "!swift",
+    "!typescript",
+    "!typescriptreact",
+    "!vue",
+    "!yaml",
+    "!yml",
+    "mdx"
+  ]
 }
 ```
 
