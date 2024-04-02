@@ -469,6 +469,8 @@ The look and feel we want to achieve from our IDE:
   "workbench.editor.enablePreview": false,
   "workbench.editor.restoreViewState": true,
   "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+  "editor.padding.top": 36,
+  "editor.find.addExtraSpaceOnTop": true,
   "editor.stickyScroll.enabled": false,
   "editor.fontFamily": "Hack Nerd Font Mono",
   "editor.fontSize": 14,
