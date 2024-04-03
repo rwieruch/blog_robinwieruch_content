@@ -99,9 +99,9 @@ After using the MacBook Pro 2015 for several years, I upgraded to a MacBook Pro 
   - Remove Garage Band & Sound Library
   - Remove iMovie
 - Trackpad
-  - Speed: 9/10
+  - Speed: Max
 - Accessibility
-  - Scroll Speed: 6/8
+  - Scroll Speed: Max
 
 # System Preferences (Terminal)
 
@@ -447,6 +447,7 @@ The look and feel we want to achieve from our IDE:
 - [Pretty TypeScript Errors](https://marketplace.visualstudio.com/items?itemName=yoavbls.pretty-ts-errors)
 - [Increment Selection](https://marketplace.visualstudio.com/items?itemName=albymor.increment-selection)
 - [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme)
+- [Relative Goto](https://marketplace.visualstudio.com/items?itemName=DanielBreiner.go-to-relative)
 
 **Manual:**
 
@@ -456,6 +457,8 @@ The look and feel we want to achieve from our IDE:
 
 ```json
 {
+  "editor.cursorBlinking": "solid",
+  "editor.cursorStyle": "block",
   "window.titleBarStyle": "native",
   "window.customTitleBarVisibility": "never",
   "window.title": "${activeEditorMedium}",
@@ -469,8 +472,8 @@ The look and feel we want to achieve from our IDE:
   "workbench.editor.enablePreview": false,
   "workbench.editor.restoreViewState": true,
   "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
-  "editor.padding.top": 36,
   "editor.find.addExtraSpaceOnTop": true,
+  "editor.padding.top": 36,
   "editor.stickyScroll.enabled": false,
   "editor.fontFamily": "Hack Nerd Font Mono",
   "editor.fontSize": 14,
@@ -481,7 +484,7 @@ The look and feel we want to achieve from our IDE:
   "editor.renderWhitespace": "none",
   "editor.scrollBeyondLastLine": true,
   "editor.minimap.enabled": false,
-  "editor.lineNumbers": "on",
+  "editor.lineNumbers": "relative",
   "editor.find.seedSearchStringFromSelection": "never",
   "breadcrumbs.enabled": false,
   // line highlight
