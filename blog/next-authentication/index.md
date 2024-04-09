@@ -1,5 +1,5 @@
 ---
-title: "Exploring Authentication in Next.js"
+title: "Authentication in Next.js"
 description: "Learn how to add authentication to your Next.js application with Lucia Auth for sign up, sign in, sign out and protected routes ..."
 date: "2024-04-02T08:50:46+02:00"
 categories: ["Next"]
