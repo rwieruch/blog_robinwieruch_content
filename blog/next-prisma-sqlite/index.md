@@ -76,7 +76,9 @@ npx prisma init --datasource-provider sqlite
 
 The *prisma/schema.prisma* file in the project should look similar to this one:
 
-```bash
+```prisma
+// prisma/schema.prisma
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -106,7 +108,18 @@ Essentially this file is the SQLite database.
 
 Prisma Migrations are needed to introduce new data in the database. For example, when you want to add a new table to the database, you can create it in the Prisma schema file. We will have a `Post` table in this example, but you can choose a different name or properties if you like:
 
-```bash
+```prisma
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
 model Post {
   id      String   @id @default(cuid())
   name    String
@@ -142,6 +155,8 @@ export const prisma = new PrismaClient();
 When working with a framework like Next.js, it is important to use a singleton pattern for the Prisma Client instance. Otherwise, you may run into issues with hot reloading and multiple instances of the Prisma Client in development mode. Use the following code snippet to create a singleton for the Prisma Client instance:
 
 ```ts
+// src/lib/prisma.ts
+
 import { PrismaClient } from '@prisma/client';
 
 const prismaClientSingleton = () => {
@@ -183,6 +198,8 @@ const Home = async () => {
     </div>
   );
 };
+
+export default Home;
 ```
 
 That's it. If you have done the database seeding in between, you should see the seeded data in your Next.js application.
