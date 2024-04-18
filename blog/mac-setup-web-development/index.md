@@ -187,6 +187,7 @@ brew install \
   exa \
   git \
   nvm \
+  yarn \
   pnpm \
   graphicsmagick \
   commitizen \
@@ -784,13 +785,6 @@ If you want to install a newer Node.js version, then type:
 nvm install <version> --reinstall-packages-from=$(nvm current)
 nvm use <version>
 nvm alias default <version>
-```
-
-Optionally install [yarn](https://yarnpkg.com/) if you use it as alternative to npm:
-
-```text
-npm install -g yarn
-yarn -v
 ```
 
 If you want to list all globally installed packages, run this command:
