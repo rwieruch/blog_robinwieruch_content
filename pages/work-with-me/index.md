@@ -10,17 +10,17 @@ author: ""
 contribute: ""
 ---
 
-Hi there, I am a Freelance React Developer from Berlin, Germany. With more than a decade of web development expertise, I have ventured into the realm of freelance React development in 2017. Since then I have worked with various companies on their products. I am fluent in German and English and I offer consulting and freelancing for web development in React.js with TypeScript or JavaScript.
+Hi there, my name is Robin Wieruch and I am a Freelance React Developer from Berlin, Germany. With more than a decade of web development expertise, I have ventured into the realm of freelance React development in 2017. Since then I have worked with various companies on their products. I am fluent in German and English and I offer consulting and freelancing for web development in React.js with TypeScript or JavaScript.
 
-While I am highly specialized in frontend development with React, I gained lots of experience over the years as T-shaped developer who is also proficient in backend development with Next.js and Node.js. I shipped my own full-stack products to market (e.g. CloudCamping), wrote various best-selling books about JavaScript and React, and created a popular blog about web development. You can hire me for:
+While I am highly specialized in frontend development with React, I gained lots of experience over the years as T-shaped developer who is also proficient in backend development with Next.js and Node.js. I shipped my own full-stack products to market (e.g. CloudCamping), wrote various best-selling books about JavaScript and React, and created a popular blog about web development. You can hire me as/for:
 
-* Product Development as Solo Developer or in a Team
+* Product Development (Solo/Team)
 * Consulting and Development
 * Team Lead and Mentor
 * MVPs & Prototypes
-* Interactive Frontend Applications
-* Full-Stack Applications
-* Tech Stack Migrations
+* Interactive Frontend Applications with React
+* Full-Stack Applications from UI to Database with Next.js
+* Tech Stack Migrations to React
 * Code Audits & Reviews
 * Workshops & Training
 
