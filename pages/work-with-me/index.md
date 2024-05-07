@@ -4,7 +4,7 @@ description: "Freelance React Developer for React and Next.js in JavaScript/Type
 date: "2024-01-01T13:50:46+02:00"
 categories: ["JavaScript", "Web Development"]
 keywords: ["react freelance", "react freelancer", "react freelance developer"]
-hashtags: ["#JavaScript"]
+hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 author: ""
 contribute: ""
