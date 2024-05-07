@@ -28,6 +28,4 @@ Over the years, I worked with various companies from startups to enterprises in 
 
 Beyond my freelance work, I'm passionate about sharing my knowledge and empowering others in the React community. Through my blog posts, tutorials, and contributions to [open-source projects](https://github.com/rwieruch), I aim to simplify complex concepts and inspire fellow developers to embark on their own React journey.
 
-As the demand for hiring React developers continues to grow, I remain committed to driving innovation and shaping the future of web development. With my skills, dedication, and a relentless pursuit of excellence, I'm determined to leave a lasting impact on the industry, one project at a time.
-
-If your company is keen to work with me, reach out to me. Looking forward to [hearing](mailto:hello@rwieruch.com) from you :-)
+As the demand for hiring React developers continues to grow, I remain committed to driving innovation and shaping the future of web development. With my skills, dedication, and a relentless pursuit of excellence, I'm determined to leave a lasting impact on the industry, one project at a time. If your company is keen to work with me, reach out to me. Looking forward to [hearing](mailto:hello@rwieruch.com) from you :-)
