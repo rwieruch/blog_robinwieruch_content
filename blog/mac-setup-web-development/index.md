@@ -176,7 +176,8 @@ brew install --cask \
   sequel-ace \
   ngrok \
   obs \
-  keycastr
+  keycastr \
+  shotcut
 ```
 
 Install terminal applications (read more about these in Terminal Applications):
