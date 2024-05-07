@@ -140,9 +140,9 @@ module.exports = {
     enabled: true,
     hasLogo: true,
     links: [
-      { to: '/about/', label: 'About' },
       { to: '/work-with-me/', label: 'Hire' },
       { to: '/blog/', label: 'Blog' },
+      { to: '/about/', label: 'About' },
       { to: 'https://courses.robinwieruch.de', label: 'Courses' },
       { to: '/index.xml', label: 'RSS' },
     ],
