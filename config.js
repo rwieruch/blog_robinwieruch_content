@@ -4,7 +4,7 @@ module.exports = {
 
   // manifest
   manifest: {
-    name: 'Robin Wieruch',
+    name: 'Robin Wieruch - Freelance Web Developer',
     short_name: 'RW',
     start_url: '/',
     background_color: '#fff',
@@ -56,10 +56,10 @@ module.exports = {
   rssUrl: 'index.xml',
 
   // can be specified in frontmatter
-  title: 'RWieruch',
+  title: 'Robin Wieruch - Freelance Web Developer',
   // can be specified in frontmatter
   description:
-    'Freelance Developer for React.js and JavaScript. Based in Berlin, German/English speaking. Consulting/Freelancing for Web Development project: Code Audits/Reviews, Workshops, Training, Implementation ...',
+    'Freelance Web Developer for React.js, Next.js and Node.js. Based in Berlin, German/English speaking. Consulting/Freelancing for Web Development project: Code Audits/Reviews, Workshops, Training, Implementation ...',
 
   // can be specified in frontmatter
   author: 'Robin Wieruch',
@@ -160,10 +160,10 @@ module.exports = {
     'Vita',
     'Testimonial',
   ],
-
   hero: {
     header: 'Robin Wieruch',
-    subheader: 'German Software Engineer for React.js, Node.js and GraphQL',
+    subheader:
+      'Freelance Web Developer for React.js, Next.js in TypeScript and JavaScript',
   },
   bait: {
     header: '',
@@ -386,7 +386,8 @@ module.exports = {
       {
         label: 'Christian Nwamba',
         sublabel: 'JS Dev, Organizer of Concatenate',
-        description: "You can tell how much time Robin has put into a teaching piece when you consume his content. I have partnered with Robin and he sets the bar high for other teachers and content creators – this results to a quality learning ecosystem for his students regardless if a content or course was thought by him or not.",
+        description:
+          'You can tell how much time Robin has put into a teaching piece when you consume his content. I have partnered with Robin and he sets the bar high for other teachers and content creators – this results to a quality learning ecosystem for his students regardless if a content or course was thought by him or not.',
         url: 'https://twitter.com/codebeast',
       },
       {
