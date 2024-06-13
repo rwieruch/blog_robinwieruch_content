@@ -450,6 +450,7 @@ The look and feel we want to achieve from our IDE:
 - [Increment Selection](https://marketplace.visualstudio.com/items?itemName=albymor.increment-selection)
 - [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme)
 - [Relative Goto](https://marketplace.visualstudio.com/items?itemName=DanielBreiner.go-to-relative)
+- [Cloak](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-cloak)
 
 **Manual:**
 
