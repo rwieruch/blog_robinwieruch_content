@@ -35,7 +35,7 @@ const App = () => {
 };
 ```
 
-In the above code snippet, the `sendMessage` function is called when the form is submitted. The form action receives the raw form data as an argument and can extra the data from it. But what if you want to show a loading spinner while the form is submitting? How can you achieve this?
+In the above code snippet, the `sendMessage` function is called when the form is submitted. The form action receives the raw form data as an argument and can extra the data from it. But what if you want to show a loading spinner while the form is submitting?
 
 ```tsx{2,7-8,13,20-21}
 const App = () => {
