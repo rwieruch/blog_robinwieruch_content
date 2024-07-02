@@ -1,5 +1,5 @@
 ---
-title: "Pass Extra Arguments to Server Actions in React Forms"
+title: "Extra Arguments for Server Actions in React Forms"
 description: "Learn how to pass extra arguments to server actions in React forms (or Next.js forms) using hidden form fields or binding the arguments to the server action ..."
 date: "2024-07-02T07:50:46+02:00"
 categories: ["React"]
