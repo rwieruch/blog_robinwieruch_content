@@ -88,10 +88,8 @@ In conclusion, while Next.js comes with many batteries included (e.g. file-based
 **Next.js Disadvantages:**
 
 * working on the bleeding edge
-* overhead/stability/maintainability compared to only React with Vite
 * steeper learning curve compared to React with Vite
   * more focus on framework specifics, less on React itself
-* fewer options [self-hosting](https://nextjs.org/docs/app/building-your-application/deploying#self-hosting) (Node.js, Docker, static files)
 
 # React with Astro
 
