@@ -1,5 +1,5 @@
 ---
-title: "Exploring Server Actions with Next.js"
+title: "Server Actions in Next.js"
 description: "Learn how to use Server Actions in Next.js in React Server Components to create a full-stack application ..."
 date: "2024-04-09T08:50:46+02:00"
 categories: ["Next"]

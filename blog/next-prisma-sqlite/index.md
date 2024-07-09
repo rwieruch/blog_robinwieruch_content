@@ -16,6 +16,38 @@ A short tutorial about setting up a Next.js application with Prisma and SQLite. 
 
 *Currently I am working on a new course called **["The Road to Next"](https://www.road-to-next.com/)** which will hopefully match the popularity of **The Road to React**. We will create a full-stack Next application which goes all the way from fundamental React knowledge to accessing a serverless database. I am more than excited to share all my knowledge about Next.js with you. **If you are interested**, check out the website and join the waitlist.*
 
+<LinkCollection
+  label="This tutorial is part 1 of 2 in this series."
+  links={[
+    {
+      prefix: "Part 1:",
+      label: "Next.js with Prisma and SQLite",
+      url: "/next-prisma-sqlite/"
+    },
+    {
+      prefix: "Part 2:",
+      label: "Server Actions with Next.js",
+      url: "/next-server-actions/"
+    },
+  ]}
+/>
+
+<LinkCollection
+  label="This tutorial is part 1 of 2 in this series."
+  links={[
+    {
+      prefix: "Part 1:",
+      label: "Next.js with Prisma and SQLite",
+      url: "/next-prisma-sqlite/"
+    },
+    {
+      prefix: "Part 2:",
+      label: "Authentication in Next.js",
+      url: "/next-authentication/"
+    },
+  ]}
+/>
+
 # Next.js: Setup
 
 If you don't have a Next.js application yet, you can create one on the command line:
@@ -207,3 +239,35 @@ That's it. If you have done the database seeding in between, you should see the 
 <Divider />
 
 You can find the repository for this tutorial over [here](https://github.com/rwieruch/next-prisma-sqlite). If you want to go beyond this, check out **["The Road to Next"](https://www.road-to-next.com/)** and get on the waitlist!
+
+<LinkCollection
+  label="This tutorial is part 1 of 2 in this series."
+  links={[
+    {
+      prefix: "Part 1:",
+      label: "Next.js with Prisma and SQLite",
+      url: "/next-prisma-sqlite/"
+    },
+    {
+      prefix: "Part 2:",
+      label: "Server Actions with Next.js",
+      url: "/next-server-actions/"
+    },
+  ]}
+/>
+
+<LinkCollection
+  label="This tutorial is part 1 of 2 in this series."
+  links={[
+    {
+      prefix: "Part 1:",
+      label: "Next.js with Prisma and SQLite",
+      url: "/next-prisma-sqlite/"
+    },
+    {
+      prefix: "Part 2:",
+      label: "Authentication in Next.js",
+      url: "/next-authentication/"
+    },
+  ]}
+/>
