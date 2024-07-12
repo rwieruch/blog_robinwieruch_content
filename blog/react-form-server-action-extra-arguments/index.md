@@ -85,7 +85,7 @@ One way to pass extra arguments to server actions in React forms is by using hid
 
 ```tsx{3,6,15}
 const ProfileForm = ({ user }: ProfileFormProps) => {
-  const updateProfile = (formData: FormData) => {
+  const updateProfile = async (formData: FormData) => {
     "use server";
 
     const data = {
@@ -117,7 +117,7 @@ Another way to pass extra arguments to server actions in React forms is by bindi
 
 ```tsx{2-3,6,14}
 const ProfileForm = ({ user }: ProfileFormProps) => {
-  const updateProfile = (id: string, formData: FormData) => {
+  const updateProfile = async (id: string, formData: FormData) => {
     "use server";
 
     const data = {
@@ -144,3 +144,5 @@ In the above code snippet, we used the `updateProfile.bind(null, user.id)` to [b
 <Divider />
 
 Now you know how to pass extra arguments to server actions in React forms. You can use hidden form fields or bind the extra arguments to the server action. Choose the method that best fits your use case and requirements.
+
+*Currently I am working on a new course called **["The Road to Next"](https://www.road-to-next.com/)** which will hopefully match the popularity of **The Road to React**. We will create a full-stack Next application which goes all the way from fundamental React knowledge to accessing a serverless database. I am more than excited to share all my knowledge about Next.js with you. **If you are interested**, check out the website and join the waitlist.*
