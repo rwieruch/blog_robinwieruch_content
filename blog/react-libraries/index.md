@@ -217,7 +217,7 @@ Whether you choose CSS-in-CSS or Utility-First-CSS is up to you. The trend goes 
   * e.g. [StyleX](https://stylexjs.com/) by Facebook (compiles to utility-first CSS)
   * e.g. Styled Components (personally I'd not recommended runtime CSS-in-JS anymore due to performance and other problems in server-side environments)
 * [CSS-in-TS](https://github.com/andreipfeiffer/css-in-js) (which support TypeScript and server-side-rendering)
-  
+
 
 # React UI Libraries
 
@@ -378,7 +378,7 @@ If you can't use a full-stack framework due to various reasons (while still bein
 
 # React Database
 
-Not tied to React, but since full-stack React applications are getting popular these days, React is closer than ever to the database layer. While developing any Next.js application, you will most likely deal with a database ORM. The most popular ORM choice these days is [Prisma](https://www.prisma.io/). A trending alternative is [Drizzle ORM](https://orm.drizzle.team/). More alternatives are [Kysely](https://kysely.dev/) and [database-js](https://github.com/planetscale/database-js) (only PlanetScale).
+Not tied to React, but since full-stack React applications are getting popular these days, React is closer than ever to the database layer. While developing any Next.js application, you will most likely deal with a database ORM. The most popular ORM choice these days is [Prisma](https://www.prisma.io/?via=rwieruch). A trending alternative is [Drizzle ORM](https://orm.drizzle.team/). More alternatives are [Kysely](https://kysely.dev/) and [database-js](https://github.com/planetscale/database-js) (only PlanetScale).
 
 When it comes to choosing a database, Supabase (or Firebase) are valid database providers. Supabase with its PostgreSQL can be self-hosted or used as a paid service. Popular alternatives which offer serverless databases are [PlanetScale](https://planetscale.com/) (personal recommendation), [Neon](https://neon.tech/), and [Xata](https://xata.io/).
 

@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-I delved deep into exploring Server Actions in Next.js 14 using Next's App Router and React Server Components (RSC). This comprehensive tutorial shows how to use Server Actions to create, read, update, and delete (CRUD) entities.
+I explored Server Actions in Next.js 14 using Next's App Router and React Server Components (RSC). This comprehensive tutorial shows how to use Server Actions to create, read, update, and delete (CRUD) entities.
 
 *Currently I am working on a new course called **["The Road to Next"](https://www.road-to-next.com/)** which will hopefully match the popularity of **The Road to React**. We will create a full-stack Next application which goes all the way from fundamental React knowledge to accessing a serverless database. I am more than excited to share all my knowledge about Next.js with you. **If you are interested**, check out the website and join the waitlist.*
 

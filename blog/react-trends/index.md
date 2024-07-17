@@ -40,7 +40,7 @@ Last but not least [Lucia](https://github.com/lucia-auth/lucia), which became po
 
 # tRPC for Full-Stack React Applications
 
-[tRPC](https://trpc.io/) has become my favorite last year for [type safe full-stack](https://www.robinwieruch.de/react-trpc/) applications. In my last solo project (80k LoC), I used tRPC (and [Prisma](https://www.prisma.io/) as database ORM) to get type safety with TypeScript types across database, server application and client application.
+[tRPC](https://trpc.io/) has become my favorite last year for [type safe full-stack](https://www.robinwieruch.de/react-trpc/) applications. In my last solo project (80k LoC), I used tRPC (and [Prisma](https://www.prisma.io/?via=rwieruch) as database ORM) to get type safety with TypeScript types across database, server application and client application.
 
 How does it work in a  nutshell? While Prisma generates the types from the database models for the backend application, tRPC maintains type safety from the backend across the API layer for the frontend. That said, the types for the API must not be the same types that come from the database models in a growing full-stack application.
 
