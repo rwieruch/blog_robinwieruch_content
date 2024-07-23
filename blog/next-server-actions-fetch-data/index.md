@@ -206,6 +206,10 @@ So far I did not have any problems with these restrictions, because using a Serv
 
 <Divider />
 
-I certainly know that React's [use](https://react.dev/reference/react/use) will be the next game changer for data fetching in Client Components perhaps followed by [Async Client Components](https://github.com/acdlite/rfcs/blob/first-class-promises/text/0000-first-class-support-for-promises.md#why-cant-client-components-be-async-functions). However, we are not there (yet) and personally I find the current data fetching story in Client Components (without Server Actions) not as compelling as the one in Server Components or the one in Client Components with Server Actions. What's your take on this topic? Feel free to join the discussion!
+But I know that this is not the end of the story. There is a reason why the React and Next teams are not recommending Server Actions for data fetching. In the future there will be better ways to fetch data in Client Components, they are just not here yet.
+
+For example, I certainly know that React's [use](https://react.dev/reference/react/use) will be the next game changer for data fetching in Client Components. Perhaps this gets followed by [Async Client Components](https://github.com/acdlite/rfcs/blob/first-class-promises/text/0000-first-class-support-for-promises.md#why-cant-client-components-be-async-functions). And who knows how we will be using client-side data fetching like React Query in the future.
+
+However, we are not there (yet) and personally I find the current data fetching story in Client Components (without Server Actions) not as compelling as the one in Server Components or the one in Client Components with Server Actions. What's your take on this topic? Feel free to join the discussion!
 
 *Currently I am working on a new course called **["The Road to Next"](https://www.road-to-next.com/)** which will hopefully match the popularity of **The Road to React**. We will create a full-stack Next application which goes all the way from fundamental React knowledge to accessing a serverless database. I am more than excited to share all my knowledge about Next.js with you. **If you are interested**, check out the website and join the waitlist.*
