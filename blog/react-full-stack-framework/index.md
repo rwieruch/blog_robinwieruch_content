@@ -1,5 +1,5 @@
 ---
-title: "React is a Full-Stack Framework"
+title: "React is (becoming) a Full-Stack Framework"
 description: "React with Server Components and Server Actions is becoming a full-stack framework. This article reflects on the evolution of React and its impact on full-stack development ..."
 date: "2024-08-20T08:50:46+02:00"
 categories: ["React"]
