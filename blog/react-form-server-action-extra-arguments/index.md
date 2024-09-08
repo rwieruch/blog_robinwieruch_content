@@ -145,4 +145,4 @@ In the above code snippet, we used the `updatePost.bind(null, post.id)` to [bind
 
 Now you know how to pass extra arguments to server actions in React forms. You can use hidden form fields or bind the extra arguments to the server action. Choose the method that best fits your use case and requirements.
 
-*Currently I am working on a new course called **["The Road to Next"](https://www.road-to-next.com/)** which will hopefully match the popularity of **The Road to React**. We will create a full-stack Next application which goes all the way from fundamental React knowledge to accessing a serverless database. I am more than excited to share all my knowledge about Next.js with you. **If you are interested**, check out the website and join the waitlist.*
+You can find the repository for this tutorial over [here](https://github.com/rwieruch/examples/tree/main/react-form-server-action-extra-arguments). If you want to go beyond this, check out **["The Road to Next"](https://www.road-to-next.com/)** and get on the waitlist!

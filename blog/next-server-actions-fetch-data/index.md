@@ -212,4 +212,4 @@ For example, I certainly know that React's [use](https://react.dev/reference/rea
 
 However, we are not there (yet) and personally I find the current data fetching story in Client Components (without Server Actions) not as compelling as the one in Server Components or the one in Client Components with Server Actions. What's your take on this topic? Feel free to join the discussion!
 
-*Currently I am working on a new course called **["The Road to Next"](https://www.road-to-next.com/)** which will hopefully match the popularity of **The Road to React**. We will create a full-stack Next application which goes all the way from fundamental React knowledge to accessing a serverless database. I am more than excited to share all my knowledge about Next.js with you. **If you are interested**, check out the website and join the waitlist.*
+You can find the repository for this tutorial over [here](https://github.com/rwieruch/examples/tree/main/next-server-actions-fetch-data). If you want to go beyond this, check out **["The Road to Next"](https://www.road-to-next.com/)** and get on the waitlist!
