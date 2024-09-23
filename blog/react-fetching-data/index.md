@@ -1,9 +1,9 @@
 ---
-title: "How to fetch data in React"
-description: "Do you want to go beyond a static React application? Then it's about time to fetch data from a third party API. This guide explains you all the basics and tricks to request data in React.js. You will reuse functionalities in higher-order components and implement error handling for a more robust application ..."
-date: "2018-07-06T13:50:46+02:00"
+title: "How to fetch data in React [2024]"
+description: "There are different ways to fetch data in React from a remote API. In this guide we want to explore all the options available for data fetching in React ..."
+date: "2024-09-23T13:50:46+02:00"
 categories: ["React"]
-keywords: ["react fetching data", "react fetch API"]
+keywords: ["react fetch data", "react data fetching", "react data API"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
@@ -12,876 +12,384 @@ author: ""
 
 <Sponsorship />
 
-Newcomers to React often start with applications that don't need data fetching at all. Usually they are confronted with Counter, Todo or TicTacToe applications. That's good, because data fetching adds another layer of complexity to your application while taking the first steps in React.
+There are multiple ways to fetch data in React from a remote API. Here we want to explore all the options available for data fetching in React that were introduced over the years and are still in use today. While some of them are newer and recommended, others are less recommended and should be avoided in most cases. Let's jump right in.
 
-However, at some point you want to request real world data from an own or a third-party [API](/what-is-an-api-javascript/). The article gives you a walkthrough on how to fetch data in React. There is no external state management solution, such as [Redux or MobX](/redux-mobx/), involved to store your fetched data. Instead you will use React's local state management.
-
-# Table of Contents
-
-<TableOfContents {...props} />
-
-# Where to fetch in React's component tree?
-
-Imagine you already have a component tree that has several levels of components in its hierarchy. Now you are about to fetch a list of items from a third-party API. Which level in your component hierarchy, to be more precise, which specific component, should fetch the data now? Basically it depends on three criteria:
-
-**1. Who is interested in this data?** The fetching component should be a common parent component for all these components.
-
-```javascript
-                      +---------------+
-                      |               |
-                      |               |
-                      |               |
-                      |               |
-                      +------+--------+
-                             |
-                   +---------+------------+
-                   |                      |
-                   |                      |
-           +-------+-------+     +--------+------+
-           |               |     |               |
-           |               |     |               |
-           |  Fetch here!  |     |               |
-           |               |     |               |
-           +-------+-------+     +---------------+
-                   |
-       +-----------+----------+---------------------+
-       |                      |                     |
-       |                      |                     |
-+------+--------+     +-------+-------+     +-------+-------+
-|               |     |               |     |               |
-|               |     |               |     |               |
-|    I am!      |     |               |     |     I am!     |
-|               |     |               |     |               |
-+---------------+     +-------+-------+     +---------------+
-                              |
-                              |
-                              |
-                              |
-                      +-------+-------+
-                      |               |
-                      |               |
-                      |     I am!     |
-                      |               |
-                      +---------------+
-```
-
-**2. Where do you want to show a conditional loading indicator (e.g. loading spinner, progress bar) when the fetched data from the asynchronous request is pending?** The loading indicator could be shown in the common parent component from the first criteria. Then the common parent component would still be the component to fetch the data.
-
-```javascript
-                      +---------------+
-                      |               |
-                      |               |
-                      |               |
-                      |               |
-                      +------+--------+
-                             |
-                   +---------+------------+
-                   |                      |
-                   |                      |
-           +-------+-------+     +--------+------+
-           |               |     |               |
-           |               |     |               |
-           |  Fetch here!  |     |               |
-           |  Loading ...  |     |               |
-           +-------+-------+     +---------------+
-                   |
-       +-----------+----------+---------------------+
-       |                      |                     |
-       |                      |                     |
-+------+--------+     +-------+-------+     +-------+-------+
-|               |     |               |     |               |
-|               |     |               |     |               |
-|    I am!      |     |               |     |     I am!     |
-|               |     |               |     |               |
-+---------------+     +-------+-------+     +---------------+
-                              |
-                              |
-                              |
-                              |
-                      +-------+-------+
-                      |               |
-                      |               |
-                      |     I am!     |
-                      |               |
-                      +---------------+
-```
-
-**2.1.** But when the loading indicator should be shown in a more top level component, the data fetching needs to be lifted up to this component.
-
-```javascript
-                      +---------------+
-                      |               |
-                      |               |
-                      |  Fetch here!  |
-                      |  Loading ...  |
-                      +------+--------+
-                             |
-                   +---------+------------+
-                   |                      |
-                   |                      |
-           +-------+-------+     +--------+------+
-           |               |     |               |
-           |               |     |               |
-           |               |     |               |
-           |               |     |               |
-           +-------+-------+     +---------------+
-                   |
-       +-----------+----------+---------------------+
-       |                      |                     |
-       |                      |                     |
-+------+--------+     +-------+-------+     +-------+-------+
-|               |     |               |     |               |
-|               |     |               |     |               |
-|    I am!      |     |               |     |     I am!     |
-|               |     |               |     |               |
-+---------------+     +-------+-------+     +---------------+
-                              |
-                              |
-                              |
-                              |
-                      +-------+-------+
-                      |               |
-                      |               |
-                      |     I am!     |
-                      |               |
-                      +---------------+
-```
-
-**2.2.** When the loading indicator should be shown in child components of the common parent component, not necessarily the components that need the data, the common parent component would still be the component to fetch the data. The loading indicator state could then be passed down to all child components that would be interested to show a loading indicator.
-
-```javascript
-                      +---------------+
-                      |               |
-                      |               |
-                      |               |
-                      |               |
-                      +------+--------+
-                             |
-                   +---------+------------+
-                   |                      |
-                   |                      |
-           +-------+-------+     +--------+------+
-           |               |     |               |
-           |               |     |               |
-           |  Fetch here!  |     |               |
-           |               |     |               |
-           +-------+-------+     +---------------+
-                   |
-       +-----------+----------+---------------------+
-       |                      |                     |
-       |                      |                     |
-+------+--------+     +-------+-------+     +-------+-------+
-|               |     |               |     |               |
-|               |     |               |     |               |
-|    I am!      |     |               |     |     I am!     |
-|  Loading ...  |     |  Loading ...  |     |  Loading ...  |
-+---------------+     +-------+-------+     +---------------+
-                              |
-                              |
-                              |
-                              |
-                      +-------+-------+
-                      |               |
-                      |               |
-                      |     I am!     |
-                      |               |
-                      +---------------+
-```
-
-**3. Where do you want to show an optional error message when the request fails?** Here the same rules from the second criteria for the loading indicator apply.
-
-That's basically everything on **where to fetch the data** in your React component hierarchy. But when should the data be fetched and how should it be fetched once the common parent component is agreed on?
-
-# How to fetch data in React?
-
-React's ES6 class components have [lifecycle methods](https://facebook.github.io/react/docs/react-component.html). The `render()` lifecycle method is mandatory to output a React element, because after all you may want to display the fetched data at some point.
-
-There is another lifecycle method that is a perfect match to fetch data: `componentDidMount()`. When this method runs, the component was already rendered once with the `render()` method, but it would render again when the fetched data would be stored in the local state of the component with `setState()`. Afterward, the local state could be used in the `render()` method to display it or to pass it down as props.
-
-The `componentDidMount()` lifecycle method is the best place to fetch data. But how to fetch the data after all? [React's ecosystem is a flexible framework](/react-libraries/), thus you can choose your own solution to fetch data. For the sake of simplicity, the article will showcase it with the [native fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) that comes with the browser. It uses [JavaScript promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) to resolve the asynchronous response. The most minimal example to fetch data would be the following:
-
-```javascript
-import React, { Component } from 'react';
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      data: null,
-    };
-  }
-
-  componentDidMount() {
-    fetch('https://api.mydomain.com')
-      .then(response => response.json())
-      .then(data => this.setState({ data }));
-  }
-
-  ...
-}
-
-export default App;
-```
-
-That's the most basic React.js fetch API example. It shows you how to get JSON in React from an API. However, the article is going to demonstrate it with a real world third-party API:
-
-```javascript{3,4,11,16,18}
-import React, { Component } from 'react';
-
-const API = 'https://hn.algolia.com/api/v1/search?query=';
-const DEFAULT_QUERY = 'redux';
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      hits: [],
-    };
-  }
-
-  componentDidMount() {
-    fetch(API + DEFAULT_QUERY)
-      .then(response => response.json())
-      .then(data => this.setState({ hits: data.hits }));
-  }
-
-  ...
-}
-
-export default App;
-```
-
-The example uses the [Hacker News API](https://hn.algolia.com/api) but feel free to use your own API endpoints. When the data is fetched successfully, it will be stored in the local state with React's `this.setState()` method. Then the `render()` method will trigger again and you can display the fetched data.
-
-```javascript
-...
-
-class App extends Component {
- ...
-
-  render() {
-    const { hits } = this.state;
-
-    return (
-      <ul>
-        {hits.map(hit =>
-          <li key={hit.objectID}>
-            <a href={hit.url}>{hit.title}</a>
-          </li>
-        )}
-      </ul>
-    );
-  }
-}
-
-export default App;
-```
-
-Even though the `render()` method already ran once before the `componentDidMount()` method, you don't run into any null pointer exceptions because you have initialized the `hits` property in the local state with an empty array.
-
-**Note:** If you want to get to know data fetching with a feature called React Hooks, checkout this comprehensive tutorial: [How to fetch data with React Hooks?](/react-hooks-fetch-data/)
-
-# What about loading spinner and error handling?
-
-Of course you need the fetched data in your local state. But what else? There are two more properties that you could store in the state: loading state and error state. Both will improve your user experience for end-users of your application.
-
-The loading state should be used to indicated that an asynchronous request is happening. Between both `render()` methods the fetched data is pending due to arriving asynchronously. Thus you can add a loading indicator during the time of waiting. In your fetching lifecycle method, you would have to toggle the property from false to true and when the data is resolved from true to false.
-
-```javascript{9,14,18}
-...
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      hits: [],
-      isLoading: false,
-    };
-  }
-
-  componentDidMount() {
-    this.setState({ isLoading: true });
-
-    fetch(API + DEFAULT_QUERY)
-      .then(response => response.json())
-      .then(data => this.setState({ hits: data.hits, isLoading: false }));
-  }
-
-  ...
-}
-
-export default App;
-```
-
-In your `render()` method you can use [React's conditional rendering](/conditional-rendering-react/) to display either a loading indicator or the resolved data.
-
-```javascript{7,9,10,11}
-...
-
-class App extends Component {
-  ...
-
-  render() {
-    const { hits, isLoading } = this.state;
-
-    if (isLoading) {
-      return <p>Loading ...</p>;
-    }
-
-    return (
-      <ul>
-        {hits.map(hit =>
-          <li key={hit.objectID}>
-            <a href={hit.url}>{hit.title}</a>
-          </li>
-        )}
-      </ul>
-    );
-  }
-}
-```
-
-A loading indicator can be as simple as a Loading... message, but you can also use third-party libraries to show a spinner or [pending content component](https://github.com/danilowoz/react-content-loader). It is up to you to signalize your end-user that the data fetching is pending.
-
-The second state that you could keep in your local state would be an error state. When an error occurs in your application, nothing is worse than giving your end-user no indication about the error.
-
-```javascript{10}
-...
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      hits: [],
-      isLoading: false,
-      error: null,
-    };
-  }
-
-  ...
-
-}
-```
-
-When using promises, the `catch()` block is usually used after the `then()` block to handle errors. That's why it can be used for the native fetch API.
-
-```javascript{13}
-...
-
-class App extends Component {
-
-  ...
-
-  componentDidMount() {
-    this.setState({ isLoading: true });
-
-    fetch(API + DEFAULT_QUERY)
-      .then(response => response.json())
-      .then(data => this.setState({ hits: data.hits, isLoading: false }))
-      .catch(error => this.setState({ error, isLoading: false }));
-  }
-
-  ...
-
-}
-```
-
-Unfortunately, the native fetch API doesn't use its catch block for every erroneous status code. For instance, when a HTTP 404 happens, it wouldn't run into the catch block. But you can force it to run into the catch block by throwing an error when your response doesn't match your expected data.
-
-```javascript{11,12,13,14,15,16,17}
-...
-
-class App extends Component {
-
-  ...
-
-  componentDidMount() {
-    this.setState({ isLoading: true });
-
-    fetch(API + DEFAULT_QUERY)
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('Something went wrong ...');
-        }
-      })
-      .then(data => this.setState({ hits: data.hits, isLoading: false }))
-      .catch(error => this.setState({ error, isLoading: false }));
-  }
-
-  ...
-
-}
-```
-
-Last but not least, you can show the error message in your `render()` method as conditional rendering again.
-
-```javascript{8,10,11,12}
-...
-
-class App extends Component {
-
-  ...
-
-  render() {
-    const { hits, isLoading, error } = this.state;
-
-    if (error) {
-      return <p>{error.message}</p>;
-    }
-
-    if (isLoading) {
-      return <p>Loading ...</p>;
-    }
-
-    return (
-      <ul>
-        {hits.map(hit =>
-          <li key={hit.objectID}>
-            <a href={hit.url}>{hit.title}</a>
-          </li>
-        )}
-      </ul>
-    );
-  }
-}
-```
-
-That's all about the basics in data fetching with plain React. You can read more about managing the fetched data in React's local state or libraries such as Redux in [The Road to Redux](https://roadtoredux.com/).
-
-# How to fetch data with Axios in React
-
-As already mentioned, you can substitute the native fetch API with another library. For instance, another library might run for every erroneous requests into the catch block on its own without you having to throw an error in the first place. A great candidate as a library for fetching data is [axios](https://github.com/axios/axios). You can install axios in your project with `npm install axios` and then use it instead of the native fetch API in your project. Let's refactor the previous project for using axios instead of the native fetch API for requesting data in React.
-
-```javascript{2,21,22,23}
-import React, { Component } from 'react';
-import axios from 'axios';
-
-const API = 'https://hn.algolia.com/api/v1/search?query=';
-const DEFAULT_QUERY = 'redux';
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      hits: [],
-      isLoading: false,
-      error: null,
-    };
-  }
-
-  componentDidMount() {
-    this.setState({ isLoading: true });
-
-    axios.get(API + DEFAULT_QUERY)
-      .then(result => this.setState({
-        hits: result.data.hits,
-        isLoading: false
-      }))
-      .catch(error => this.setState({
-        error,
-        isLoading: false
-      }));
-  }
-
-  ...
-}
-
-export default App;
-```
-
-As you can see, axios returns a JavaScript promise as well. But this time you don't have to resolve the promise two times, because axios already returns a JSON response for you. Furthermore, when using axios you can be sure that all errors are caught in the `catch()` block. In addition, you need to adjust the data structure slightly for the returned axios data.
-
-The previous example has only shown you how to get data in React from an API with a HTTP GET method in React's componentDidMount lifecycle method. However, you can also actively request data with a button click. Then you wouldn't use a lifecycle method, but your own class method.
-
-```javascript{18}
-import React, { Component } from 'react';
-import axios from 'axios';
-
-const API = 'https://hn.algolia.com/api/v1/search?query=';
-const DEFAULT_QUERY = 'redux';
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      hits: [],
-      isLoading: false,
-      error: null,
-    };
-  }
-
-  getStories() {
-    this.setState({ isLoading: true });
-
-    axios.get(API + DEFAULT_QUERY)
-      .then(result => this.setState({
-        hits: result.data.hits,
-        isLoading: false
-      }))
-      .catch(error => this.setState({
-        error,
-        isLoading: false
-      }));
-  }
-
-  ...
-}
-
-export default App;
-```
-
-But that's only the GET method in React. What about writing data to an API? When having axios in place, you can do a post request in React as well. You only need to swap the `axios.get()` with a `axios.post()`.
-
-# How to test data fetching in React?
-
-So what about testing your data request from a React component? There exists an [extensive React testing tutorial](/react-testing-tutorial/) about this topic, but here it comes in a nutshell. When you have setup your application with [create-react-app](https://github.com/facebook/create-react-app), it already comes with [Jest](https://jestjs.io/) as test runner and assertion library. Otherwise you could use [Mocha](https://mochajs.org/) (test runner) and [Chai](http://www.chaijs.com/) (assertion library) for these purposes as well (keep in mind that the functions for the test runner and assertions vary then).
-
-When testing React components, I often rely [Enzyme](https://github.com/airbnb/enzyme) for rendering the components in my test cases. Furthermore, when it comes to testing asynchronous data fetching, [Sinon](http://sinonjs.org/) is helpful for spying and mocking data.
-
-```javascript
-npm install enzyme enzyme-adapter-react-16 sinon --save-dev
-```
-
-Once you have your test setup, you can write your first test suite for the data request in React scenario.
-
-```javascript
-import React from 'react';
-import axios from 'axios';
-
-import sinon from 'sinon';
-import { mount, configure} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-
-import App from './';
-
-configure({ adapter: new Adapter() });
-
-describe('App', () => {
-  beforeAll(() => {
-
-  });
-
-  afterAll(() => {
-
-  });
-
-  it('renders data when it fetched data successfully', (done) => {
-
-  });
-
-  it('stores data in local state', (done) => {
-
-  });
-});
-```
-
-Whereas one test case should show that the data is rendered in the React component successfully after the data fetching, the other test verifies that the data is stored in the local state. Perhaps it is redundant to test both cases, because when the data is rendered it should be stored in the local state as well, but just for the sake of demonstrating it you will see both use cases.
-
-Before all tests you want to stub your axios request with mocked data. You can create your own JavaScript promise for it and use it later to have fine-grained control over its resolve functionality.
-
-```javascript{5,6,7,8,9,10,11,13,16,17,18,19,23}
-...
-
-describe('App', () => {
-  const result = {
-    data: {
-      hits: [
-        { objectID: '1', url: 'https://blog.com/hello', title: 'hello', },
-        { objectID: '2', url: 'https://blog.com/there', title: 'there', },
-      ],
-    }
-  };
-
-  const promise = Promise.resolve(result);
-
-  beforeAll(() => {
-    sinon
-      .stub(axios, 'get')
-      .withArgs('https://hn.algolia.com/api/v1/search?query=redux')
-      .returns(promise);
-  });
-
-  afterAll(() => {
-    axios.get.restore();
-  });
-
-  ...
-});
-```
-
-After all tests you should have sure to remove the stub from axios again. That's it for the asynchronous data fetching test setups. Now let's implement the first test:
-
-```javascript
-...
-
-describe('App', () => {
-  ...
-
-  it('stores data in local state', (done) => {
-    const wrapper = mount(<App />);
-
-    expect(wrapper.state().hits).toEqual([]);
-
-    promise.then(() => {
-      wrapper.update();
-
-      expect(wrapper.state().hits).toEqual(result.data.hits);
-
-      done();
-    });
-  });
-
-  ...
-});
-```
-
-In the test, you start to render the React component with Enzyme's `mount()` function which makes sure that all lifecycle methods are executed and all child components are rendered. Initially you can have an assertion for your hits being an empty array in the local state of the component. That should be true, because you initialze your local state with an empty array for the hits property. Once you resolve the promise and trigger your component's rendering manually, the state should have changed after the data fetching.
-
-Next you can test whether everything renders accordingly. The test is similar to the previous test:
-
-```javascript
-...
-
-describe('App', () => {
-  ...
-
-  it('renders data when it fetched data successfully', (done) => {
-    const wrapper = mount(<App />);
-
-    expect(wrapper.find('p').text()).toEqual('Loading ...');
-
-    promise.then(() => {
-      wrapper.update();
-
-      expect(wrapper.find('li')).toHaveLength(2);
-
-      done();
-    });
-  });
-});
-```
-
-In the beginning of the test, the loading indicator should be rendered. Again, once you resolve the promise and trigger your component's rendering manually, there should be two list elements for the requested data.
-
-That's essentially what you need to know about testing data fetching in React. It doesn't need to be complicated. By having a promise on your own, you have fine-grained control over when to resolve the promise and when to update the component. Afterward you can conduct your assertions. The previous shown testing scenarios are only one way of doing it. For instance, regarding the test tooling you don't necessarily need to use Sinon and Enzyme.
-
-# How to fetch data with Async/Await in React?
-
-So far, you have only used the common way for dealing with JavaScript promises by using their `then()` and `catch()` blocks. What about the next generation of asynchronous requests in JavaScript? Let's refactor the previous data fetching example in React to async/await.
-
-```javascript{10,13,14,20,25}
-import React, { Component } from 'react';
-import axios from 'axios';
-
-const API = 'https://hn.algolia.com/api/v1/search?query=';
-const DEFAULT_QUERY = 'redux';
-
-class App extends Component {
-  ...
-
-  async componentDidMount() {
-    this.setState({ isLoading: true });
-
-    try {
-      const result = await axios.get(API + DEFAULT_QUERY);
-
-      this.setState({
-        hits: result.data.hits,
-        isLoading: false
-      });
-    } catch (error) {
-      this.setState({
-        error,
-        isLoading: false
-      });
-    }
-  }
-
-  ...
-}
-
-export default App;
-```
-
-Instead of `then()` you can use the async/await statements when fetching data in React. The async statement is used to signalize that a function is executed asynchronously. It can be used on a (React) class component's method too. The await statement is used within the async function whenever something is executed asynchronously. So the next line is not executed before the awaited request resolves. Furthermore, a try and catch block can be used to catch the error in case the request fails.
-
-# How to fetch data in Higher-Order Components?
-
-The previously shown ways to fetch data can be repetitive when using it in a lot of components. Once a component mounted, you want to fetch data and show conditional loading or error indicators. The component so far can be split up into two responsibilities: showing the fetched data with conditional renderings and fetching the remote data with storing it in local state afterward. Whereas the former is only there for rendering purposes, the latter could be made reusable by a [higher-order component](/react-higher-order-components/).
-
-Note: When you are going to read the linked article, you will also see how you could abstract away the conditional renderings in higher-order components. After that, your component would only be concerned displaying the fetched data without any conditional renderings.
-
-So how would you introduce such abstract higher-order component which deals with the data fetching in React for you. First, you would have to separate all the fetching and state logic into a higher-order component.
-
-```javascript
-const withFetching = (url) => (Component) =>
-  class WithFetching extends React.Component {
-    constructor(props) {
-      super(props);
-
-      this.state = {
-        data: null,
-        isLoading: false,
-        error: null,
-      };
-    }
-
-    componentDidMount() {
-      this.setState({ isLoading: true });
-
-      axios.get(url)
-        .then(result => this.setState({
-          data: result.data,
-          isLoading: false
-        }))
-        .catch(error => this.setState({
-          error,
-          isLoading: false
-        }));
-    }
-
-    render() {
-      return <Component { ...this.props } { ...this.state } />;
-    }
-  }
-```
-
-Except for the rendering, everything else within the higher-order component is taken from the previous component where the data fetching happened right in the component. In addition, the higher-order component receives an url that will be used to request the data. If you need to pass more query parameters to your higher-order component later on, you always can extend the arguments in the function signature.
-
-```javascript
-const withFetching = (url, query) => (Comp) =>
-  ...
-```
-
-In addition, the higher-order component uses a generic data container in the local state called `data`. It is not aware anymore of the specific property naming (e.g. hits) as before.
-
-In the second step, you can dispose all of the fetching and state logic from your `App` component. Because it has no local state or lifecycle methods anymore, you can refactor it to a functional stateless component. The incoming property changes from the specific `hits` to the generic `data` property.
-
-```javascript
-const App = ({ data, isLoading, error }) => {
-  if (!data) {
-    return <p>No data yet ...</p>;
-  }
-
-  if (error) {
-    return <p>{error.message}</p>;
-  }
-
-  if (isLoading) {
-    return <p>Loading ...</p>;
-  }
-
-  return (
-    <ul>
-      {data.hits.map(hit =>
-        <li key={hit.objectID}>
-          <a href={hit.url}>{hit.title}</a>
-        </li>
-      )}
-    </ul>
-  );
-}
-```
-
-Last but not least, you can use the higher-order component to wrap your `App` component.
-
-```javascript
-const API = 'https://hn.algolia.com/api/v1/search?query=';
-const DEFAULT_QUERY = 'redux';
-
-...
-
-const AppWithFetch = withFetching(API + DEFAULT_QUERY)(App);
-```
-
-Basically that's it to abstract away the data fetching in React. By using higher-order components to fetch the data, you can easily opt-in this feature for any component with any endpoint API url. In addition, you can extend it with query parameters as shown before.
-
-# How to fetch data in Render Props?
-
-The alternative way of higher-order components are render prop components in React. It is possible to use a render prop component for declarative data fetching in React as well.
-
-```javascript
-class Fetcher extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      data: null,
-      isLoading: false,
-      error: null,
-    };
-  }
-
-  componentDidMount() {
-    this.setState({ isLoading: true });
-
-    axios.get(this.props.url)
-      .then(result => this.setState({
-        data: result.data,
-        isLoading: false
-      }))
-      .catch(error => this.setState({
-        error,
-        isLoading: false
-      }));
-  }
-
-  render() {
-    return this.props.children(this.state);
-  }
-}
-```
-
-Then again you would be able to use the render prop component the following way in your App component:
-
-```javascript
-const API = 'https://hn.algolia.com/api/v1/search?query=';
-const DEFAULT_QUERY = 'redux';
-
-...
-
-const RenderPropApproach = () =>
-  <Fetcher url={API + DEFAULT_QUERY}>
-    {({ data, isLoading, error }) => {
-      if (!data) {
-        return <p>No data yet ...</p>;
-      }
-
-      if (error) {
-        return <p>{error.message}</p>;
-      }
-
-      if (isLoading) {
-        return <p>Loading ...</p>;
-      }
-
-      return (
-        <ul>
-          {data.hits.map(hit =>
-            <li key={hit.objectID}>
-              <a href={hit.url}>{hit.title}</a>
-            </li>
-          )}
-        </ul>
-      );
-    }}
-  </Fetcher>
-```
-
-By using React's children property as render prop, you are able to pass all the local state from the Fetcher component. That's how you can make all the conditional rendering and the final rendering within your render prop component.
-
-# How to fetch data from a GraphQL API in React?
-
-Last but not least, the article should shortly mention GraphQL APIs for React. How would you fetch data from a GraphQL API instead of a REST API (which you have used so far) from a React component? Basically it can be achieved the same way, because GraphQL is not opinionated about the network layer. Most GraphQL APIs are exposed over HTTP whether it is possible to query them with the native fetch API or axios too. If you are interested in how you would fetch data from a GraphQL API in React, head over to this article: [A complete React with GraphQL Tutorial](/react-with-graphql-tutorial/).
+We will start with a simple example of a component where we want to fetch a list of `posts` from a remote API to display them as a list of items. We will use a fake DB and a fake API to simulate the data fetching process, because the goal is to show you how to fetch data in React with different methods, not how to set up a real API.
 
 <Divider />
 
-You can find the finished project in this [GitHub repository](https://github.com/rwieruch/react-data-fetching). Do you have any other suggestions for data fetching in React? Please reach out to me. It would mean lots to me if you would share the article to others for learning about data fetching in React.
+First of all, we have a `Post` type that represents a post for the sake of this example:
+
+```ts
+export type Post = {
+  id: string;
+  title: string;
+};
+```
+
+Second, we have a fake database with some posts in memory:
+
+```ts
+import { Post } from "./types";
+
+export const POSTS: Post[] = [
+  {
+    id: "1",
+    title: "Post 1",
+  },
+  {
+    id: "2",
+    title: "Post 2",
+  },
+];
+```
+
+And third, we have a data fetching function which returns a promise with the posts. Depending on the case we are discussing later, the implementation details of this function may vary. But more about this later:
+
+```ts
+import { POSTS } from "../db";
+
+export const getPosts = async () => {
+  // artificial delay
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
+  return POSTS;
+};
+```
+
+Finally, we have a component where we want to fetch the posts:
+
+```tsx
+import { Post } from "@/features/post/types";
+
+const PostsPage = () => {
+  const posts: Post[] = [];
+  // TODO: fetch posts from the API
+
+  return (
+    <div>
+      <h1>Posts</h1>
+
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default PostsPage;
+```
+
+From here we will explore different ways to fetch data in React.
+
+# React Server Components for Data Fetching
+
+If you are using a framework on top of React (e.g. Next.js) which implements React Server Components (RSC), you could perform **server-side data fetching**, because Server Components execute on the server before they return the HTML to the client:
+
+```tsx{1,3-4}
+import { getPosts } from "@/features/post/queries/get-posts";
+
+const PostsPage = async () => {
+  const posts = await getPosts();
+
+  return (
+    <div>
+      <h1>React Server Component</h1>
+
+      <ul>
+        {posts?.map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default PostsPage;
+```
+
+The async component would pause their execution until the asynchronous operation is done. Once the awaited promise is resolved, the component will continue rendering with the fetched data. In the case of a RSC, only the HTML will be returned to the client.
+
+<ReadMore label="Server Actions in Next" link="/next-server-actions/" />
+
+Because of the nature of Server Components, the data fetching is done on the server-side, which means that `getPosts` can directly read data from the database without the need for an API. You would just use your ORM or database client to retrieve the data:
+
+```ts
+export const getPosts = async () => {
+  return await db.query("SELECT * FROM posts");
+};
+```
+
+If you are using a framework that supports React Server Components (e.g. Next.js), I'd recommend to fetch data on the server, because you are avoiding the client-server communication roundtrip and you can directly access your server-side data source.
+
+<ReadMore label="The Road to Next" link="https://www.road-to-next.com/" />
+
+From here you can enhance the UX by adding error handling or a loading state to the component. The latter can be achieved by using the [Suspense](https://react.dev/reference/react/Suspense) component from React.
+
+# React Query for Data Fetching
+
+When it comes to client-side rendered (CSR) React applications (i.e. SPAs), the most recommended way to fetch data is by using a library like React Query. It's a powerful library that provides hooks to fetch, cache, and update data in your React applications:
+
+```tsx{1,3-4,7-10}
+"use client";
+
+import { getPosts } from "@/features/post/queries/get-posts";
+import { useQuery } from "@tanstack/react-query";
+
+const PostsPage = () => {
+  const { data: posts } = useQuery({
+    queryKey: ["posts"],
+    queryFn: getPosts,
+  });
+
+  return (
+    <div>
+      <h1>React Query</h1>
+
+      <ul>
+        {posts?.map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default PostsPage;
+```
+
+In this example, we are using the `useQuery` hook from React Query to fetch the posts with **client-side data fetching**. The `useQuery` hook takes an object with a `queryKey` and a `queryFn`. The `queryKey` is an array that identifies the query (i.e. used for cache management) and the `queryFn` is the function that fetches the data.
+
+In the case of client-side data fetching, the `getPosts` function cannot access backend code (e.g. ORM, database) and therefore needs to communicate with a remote API over HTTP (e.g. [REST](/node-express-server-rest-api/)). This is usually done with the [native fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) or a library like [axios](https://www.npmjs.com/package/axios). You also have to decide whether you want to use [async/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function) or the [Promise API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) (i.e. `then`). All permutations are possible while async/await with fetch is the most popular:
+
+```ts
+export const getPosts = async () => {
+  const response = await fetch("/api/posts");
+  return response.json();
+};
+```
+
+In contrast to server-side data fetching with Server Components, your result from `fetch` or `axios` is not automatically typed. You would have to introduce a typed schema generation by something like OpenAPI.
+
+Moreover, by the nature of client-side data fetching, you have to deal with network errors, loading states, and caching yourself. Fortunately React Query helps you with all of these aspects, so you don't have to reinvent the wheel.
+
+<ReadMore label="Web Applications 101" link="/web-applications/" />
+
+Whenever you are performing client-side data fetching, React Query is the way to go. For example, it handles caching, race conditions, and stale data out of the box. If you would want to add error handling or a loading state to the component, you could already destructure the `isLoading` and `error` properties from the `useQuery` hook's result.
+
+An alternative to React Query is [SWR](https://swr.vercel.app/). If you are using GraphQL instead of REST as your API layer, there are also [Relay](https://relay.dev/) and [Apollo Client](https://www.apollographql.com/docs/react/), even though React Query can also be used with GraphQL.
+
+# Server Components + React Query
+
+You have seen both server-side data fetching with React Server Components (built-in) and client-side data fetching with React Query (library). But what if you want to combine them?
+
+For example, you want to fetch initial data on the server-side with React Server Components (if supported by your [React framework](/react-full-stack-framework/)) and then use React Query for continued client-side data fetching (e.g. infinite scrolling).
+
+For this advanced data fetching example, you would need a Server Component that fetches the initial data on the server and then [passes it down](/react-pass-props-to-component/) to a Client Component that uses React Query for continued data fetching on the client:
+
+```tsx{1-2,4-5,11}
+import { getPosts } from "@/features/post/queries/get-posts";
+import { PostList } from "./_components/post-list";
+
+const PostsPage = async () => {
+  const posts = await getPosts();
+
+  return (
+    <div>
+      <h1>React Server Component + React Query</h1>
+
+      <PostList initialPosts={posts} />
+    </div>
+  );
+};
+
+export default PostsPage;
+```
+
+Essentially the Server Component has the same implementation details as we had it in a previous example, however, instead of rendering the list of posts directly, we are passing them to a Client Component which further processes them as initial data:
+
+```tsx{1,3-5,8,11-16}
+"use client";
+
+import { getPosts } from "@/features/post/queries/get-posts";
+import { Post } from "@/features/post/types";
+import { useQuery } from "@tanstack/react-query";
+
+type PostListProps = {
+  initialPosts: Post[];
+};
+
+const PostList = ({ initialPosts }: PostListProps) => {
+  const { data: posts } = useQuery({
+    queryKey: ["posts"],
+    queryFn: getPosts,
+    initialData: initialPosts,
+  });
+
+  return (
+    <ul>
+      {posts?.map((post) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  );
+};
+
+export { PostList };
+```
+
+The Client Component uses the props from the Server Component as `initialData` in the `useQuery` hook. From there React Query takes over for caching, refetching, and updating the data. This way you can combine the best of both worlds: server-side data fetching with React Server Components and client-side data fetching with React Query.
+
+The implementation details of the `getPosts` function are debatable: Whereas you would be able to access the data source (i.e. server) directly when executing it in the Server Component (see *React Server Components for Data Fetching*), you would have to use a remote API when executing it in the Client Component (see *React Query for Data Fetching*).
+
+At the time of writing, you would have to implement two `getPosts` function here. Fortunately there is a little workaround (i.e. [Server Actions for data fetching](/next-server-actions-fetch-data/)) where you could use the same `getPosts` function for both Server and Client Components.
+
+# React's use() API
+
+React's `use` API is still in experimental mode. It allows you to pass a Promise from a Server Component to a Client Component and resolve it in the Client Component. This way you can avoid blocking the rendering of the Server Component with `await`:
+
+```tsx{1-3,6,12-14}
+import { Suspense } from "react";
+import { getPosts } from "@/features/post/queries/get-posts";
+import { PostList } from "./_components/post-list";
+
+const PostsPage = () => {
+  const postsPromise = getPosts();
+
+  return (
+    <div>
+      <h1>use(Promise)</h1>
+
+      <Suspense>
+        <PostList promisedPosts={postsPromise} />
+      </Suspense>
+    </div>
+  );
+};
+
+export default PostsPage;
+```
+
+This approach stays close to the Server Component example, but uses React's `use` API to pass the promise to the Client Component instead of resolving it directly in the RSC.
+
+```tsx{1,3-4,7,10-11}
+"use client";
+
+import { use } from "react";
+import { Post } from "@/features/post/types";
+
+type PostListProps = {
+  promisedPosts: Promise<Post[]>;
+};
+
+const PostList = ({ promisedPosts }: PostListProps) => {
+  const posts = use(promisedPosts);
+
+  return (
+    <ul>
+      {posts?.map((post) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  );
+};
+
+export { PostList };
+```
+
+Personally this feels a bit like a stepping stone towards asynchronous Client Components which are not available yet. Only Server Components, at the time of writing, can have the `async` keyword in their function signature. Once there are Async Client Components, we could omit the `use` API and just await the result from `getPosts` directly in the Client Component.
+
+# Hooks for Data Fetching
+
+Instead of using a dedicated client-side data fetching library like React Query, one could implement their own data fetching logic with hooks. This is not recommended for production use, but it's a good way to learn the basics of data fetching in React:
+
+```tsx{1,3-5,8,10-17}
+"use client";
+
+import { getPosts } from "@/features/post/queries/get-posts";
+import { Post } from "@/features/post/types";
+import { useEffect, useState } from "react";
+
+const PostsPage = () => {
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const posts = await getPosts();
+      setPosts(posts);
+    };
+
+    fetchPosts();
+  }, []);
+
+  return (
+    <div>
+      <h1>Hooks</h1>
+
+      <ul>
+        {posts?.map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default PostsPage;
+```
+
+Before we had data fetching libraries like React Query, developers would use `useEffect` and `useState` to fetch data in React. But the implementation shows only the tip of the iceberg, because you would have to [handle everything](https://tkdodo.eu/blog/why-you-want-react-query) from loading state over to caching and race conditions yourself.
+
+But in any way, React beginners learn about this approach in The Road to React, because it's a good way to understand how data fetching works under the hood in a sophisticated library like React Query.
+
+# tRPC for typed data fetching
+
+Typically data fetching is happening in a client-server architecture via REST. On the client-side, this would be achieved with React Query as we have seen before. But this solution lacks type safety across the network, because you would have to use a third-party like OpenAPI to generate a typed schema.
+
+Entering remote procedure calls (RPC) like [tRPC](https://trpc.io/). It's a library that provides a type-safe API layer for your React applications. Here is how you would fetch posts with tRPC:
+
+```tsx{1,3,6}
+"use client";
+
+import { trpc } from '~/trpc/client';
+
+const PostsPage = () => {
+  const posts = trpc.posts.getPosts.useQuery();
+
+  return (
+    <div>
+      <h1>tRPC</h1>
+
+      <ul>
+        {posts?.map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default PostsPage;
+```
+
+The benefit of tRPC is that everything from data fetching functions to the data itself is typed. This way you can avoid runtime errors and have a better developer experience. But keep in mind that tRPC is a full-stack solution, so you would need a Node.js with TypeScript backend to use it.
+
+<ReadMore label="Full-Stack TypeScript with tRPC" link="/react-trpc/" />
+
+<Divider />
+
+So what's the recommended way for data fetching in React? It depends on your tech stack. If you are using a framework that supports React Server Components, I'd **strongly recommend** to fetch data on the server-side with RSC. If you are building a client-side rendered React application, you should use React Query for data fetching instead.
+
+If you are going the client-side data fetching approach in single page applications (SPAs), **React Query** is the way to go these days. There is no way around it, even in advanced server-side React applications (see below), because it handles lots of things (i.e. race conditions, caching, refetching, infinite scroll) for you.
+
+If you have RSC enabled *and* want to support more **advanced data fetching patterns** such as infinite scrolling, you *can* combine React Server Components with React Query. This way you can fetch initial data on the server-side and then use React Query for continued data fetching on the client-side.
+
+APIs like React's `use` API are still experimental and not recommended for production use (yet). In my optional, they are perhaps more like a stepping stone towards asynchronous Client Components which are only discussed at the time of writing.
+
+As a beginner, if you just want to learn about data fetching and how everything works under the hood in a sophisticated library like React Query, you could **implement your own data fetching logic with hooks** (useEffect + useState).
+
+But **in a real-world application**, you should use a library like React Query for client-side data fetching or React Server Components for server-side data fetching.
+
+If you cannot use React Server Components, but you want to have **type-safe data fetching**, you could use tRPC. It's a library that provides a type-safe API layer for your React applications. This only works if you have a Node.js with TypeScript backend, because tRPC is a full-stack solution.
