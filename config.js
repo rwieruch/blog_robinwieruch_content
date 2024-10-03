@@ -428,6 +428,14 @@ module.exports = {
     subheader: '',
     courseUrl: '',
     courseId: '',
+    bundles: [
+      {
+        header: '',
+        price: '',
+        benefits: [''],
+        url: '',
+      },
+    ],
   },
   newsletter: {
     enabled: true,
