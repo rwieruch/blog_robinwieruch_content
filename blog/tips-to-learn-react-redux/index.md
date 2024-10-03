@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-For quite some time now, I have been implementing applications in React and Redux. Over the last few years, I have written two ebooks about it and released a [course platform](https://courses.robinwieruch.de) for learning React and its ecosystem. The course platform is even [built in React and Redux](/how-to-build-your-own-course-platform/). My personal learnings are subjective, but I thought they may help people to learn or advance in React and Redux as well. Redux is not strictly coupled to React, but it happens to be that a lot of people are using both libraries in combination.
+For quite some time now, I have been implementing applications in React and Redux. Over the last few years, I have written two ebooks about it and released a course platform for learning React and its ecosystem. The course platform is even [built in React and Redux](/how-to-build-your-own-course-platform/). My personal learnings are subjective, but I thought they may help people to learn or advance in React and Redux as well. Redux is not strictly coupled to React, but it happens to be that a lot of people are using both libraries in combination.
 
 The article gives you recommendations to get started in React (and Redux) in 2018. I had written the article last year and a lot of people saw it as a helpful resource to get started with React and Redux. Now, I have updated it for you to dive into React this year.
 

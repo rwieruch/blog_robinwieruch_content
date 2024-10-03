@@ -130,7 +130,7 @@ module.exports = {
     text: 'Learn React by building real world applications. No setup configuration. No tooling. Plain React in 200+ pages of learning material. Learn React like <strong>50.000+ readers</strong>.',
     cta: 'Get the Book',
     ctaSecondary: 'Get it on Amazon.',
-    url: 'https://courses.robinwieruch.de',
+    url: 'https://www.roadtoreact.com/',
     urlSecondary: 'https://amzn.to/2LHjxRB',
   },
 
@@ -251,7 +251,7 @@ module.exports = {
       {
         label: 'Online Courses',
         description: 'My in-depth content ...',
-        url: 'https://courses.robinwieruch.de',
+        url: 'https://www.roadtoreact.com/',
       },
       {
         label: 'Open Source',
