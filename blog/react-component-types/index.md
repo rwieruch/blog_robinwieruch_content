@@ -526,3 +526,4 @@ In the future, it's likely that React will support async components for Client C
 All React Components share the common sense of how to use [React Props](/react-pass-props-to-component/), because they are just used to pass information down the component tree. However, the usage of state and side-effects varies for Class Components and Function Components.
 
 This guide has shown you all the different Types of React Components, how they are used, and how they are put into a historical context. Here you can find [all the examples](https://github.com/rwieruch/examples/tree/main/react-component-types).
+

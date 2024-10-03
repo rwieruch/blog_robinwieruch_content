@@ -143,8 +143,7 @@ module.exports = {
       { to: '/work-with-me/', label: 'Hire' },
       { to: '/blog/', label: 'Blog' },
       { to: '/about/', label: 'About' },
-      { to: 'https://courses.robinwieruch.de', label: 'Courses' },
-      { to: '/index.xml', label: 'RSS' },
+      { to: 'https://www.roadtoreact.com/', label: 'Learn React' },
     ],
   },
 
@@ -457,16 +456,20 @@ module.exports = {
         label: 'Portfolio',
         items: [
           {
-            label: 'Online Courses',
-            url: 'https://courses.robinwieruch.de',
+            label: 'The Road to Next',
+            url: 'https://www.road-to-next.com/',
+          },
+          {
+            label: 'The Road to React',
+            url: 'https://www.roadtoreact.com/',
+          },
+          {
+            label: 'Free Tutorials',
+            url: '/blog/',
           },
           {
             label: 'Open Source',
             url: 'https://github.com/rwieruch',
-          },
-          {
-            label: 'Tutorials',
-            url: '/blog/',
           },
         ],
       },
@@ -480,14 +483,6 @@ module.exports = {
           {
             label: 'How to work with me',
             url: '/work-with-me/',
-          },
-          {
-            label: 'What I use',
-            url: '/about#what-i-use',
-          },
-          {
-            label: 'How to support me',
-            url: '/about#support-me',
           },
         ],
       },
