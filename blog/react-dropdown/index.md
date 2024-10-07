@@ -1,7 +1,7 @@
 ---
 title: "How to create a React Dropdown"
 description: "How create a React Dropdown component by example. The HTML select element displays a menu ..."
-date: "2022-10-17T13:56:46+02:00"
+date: "2024-10-07T13:56:46+02:00"
 categories: ["React", "React Component"]
 keywords: ["react dropdown", "react dropdown component", "react dropdown menu", "react dropdown select"]
 hashtags: ["#ReactJs"]
@@ -12,12 +12,14 @@ author: ""
 
 <Sponsorship />
 
-A short React tutorial by example for beginners about creating a dropdown in React. First of all, there is no HTML equivalent to render a dropdown in React as straight forward as a [select component](/react-select/). However, here you will learn how to create a dropdown component in React step by step.
+A beginner-friendly React tutorial that walks you through creating a dropdown component by example. In this guide, you'll learn step by step how to build a dropdown in React. While HTML offers a built-in select element for similar functionality, React doesn't have such native primitives for dropdown components.
+
+<ReadMore label="How to create a React Select" link="/react-select/" />
 
 First, we need a HTML button element which will open (or close) a dropdown eventually. We are using an event handler in React to listen to the [button](/react-button/)'s click event and [React's useState Hook](/react-usestate-hook/) to manage the dropdown's open state:
 
 ```javascript
-import * as React from 'react';
+import * as React from "react";
 
 const App = () => {
   const [open, setOpen] = React.useState(false);
@@ -37,12 +39,16 @@ const App = () => {
 export default App;
 ```
 
-Since a dropdown comes with a menu which gets visible upon clicking the dropdown (and invisible once it gets closed), we will render this dropdown menu as a list of buttons. Respectively to the open state, the dropdown menu is either displayed or not by using a [conditional rendering](/conditional-rendering-react/):
+Since a dropdown features a menu that appears when the dropdown is clicked and disappears when closed, we will render this dropdown menu as a list of buttons.
+
+<ReadMore label="Conditional Rendering in React Select" link="/conditional-rendering-react/" />
+
+Respectively to the open state, the dropdown menu is either displayed or not:
 
 ```javascript{3,15-24}
-import * as React from 'react';
+import * as React from "react";
 
-import './App.css';
+import "./App.css";
 
 const App = () => {
   const [open, setOpen] = React.useState(false);
@@ -74,7 +80,9 @@ export default App;
 
 When clicking the dropdown button, you can see the list of buttons showing up. However, the menu pushes the "Is Open"/"Is Closed" text further to the bottom. In contrast, a real dropdown menu should float above the other HTML elements.
 
-Therefore, the dropdown needs to be positioned absolutely to its container. While the last code snippet already introduced CSS classes in JSX, the next code snippet gives the dropdown its [styles in React](/react-css-styling/):
+<ReadMore label="How to start a React project" link="/react-starter/" />
+
+Therefore, the dropdown needs to be positioned absolutely to its container. While the last code snippet already introduced CSS classes in JSX, the next code snippet gives the dropdown its [styles in React](/react-css-styling/). We are using straight CSS for the dropdown's menu, but feel free to use an alternative like Tailwind CSS:
 
 ```css
 .dropdown {
@@ -214,6 +222,8 @@ Internally, the dropdown renders the trigger and the menu [as a list](/react-lis
 <ReadMore label="Why is there a key property in a React list?" link="/react-list-key/" />
 
 However, there is still logic (e.g. open state) of the dropdown component sitting in its parent component. When [instantiating](/react-element-component/) multiple dropdown components, this will become repetitive logic in each parent component.
+
+<ReadMore label="Learn about React Libraries" link="/react-libraries/" />
 
 Therefore, the next step shows how to elegantly move all repetitive implementation details into the dropdown component by using React's cloneElement API:
 
