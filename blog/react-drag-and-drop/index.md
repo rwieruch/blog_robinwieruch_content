@@ -1,7 +1,7 @@
 ---
 title: "How to Drag and Drop in React"
-description: "A tutorial about using Drag and Drop in React by example for a vertical list (later horizontal list) with react-beautiful-dnd as DnD library  ..."
-date: "2023-03-14T06:56:46+02:00"
+description: "A tutorial about using Drag and Drop in React by example for a vertical list (later horizontal list) with @hello-pangea/dnd as DnD library  ..."
+date: "2024-10-10T06:56:46+02:00"
 categories: ["React", "React Component"]
 keywords: ["react drag and drop", "react dnd"]
 hashtags: ["#ReactJs"]
@@ -12,12 +12,12 @@ author: ""
 
 <Sponsorship />
 
-A React tutorial by example about how to use drag and drop in React. Here you will learn how to create a DnD component in React step by step. First, you will implement it as vertical list, later as horizontal list, and in between with lots of customizations as examples. We will be using react-beautiful-dnd for this React tutorial.
+A React tutorial by example about how to use drag and drop in React. Here you will learn how to create a DnD component in React step by step. First, you will implement it as vertical list, later as horizontal list, and in between with lots of customizations as examples. We will be using @hello-pangea/dnd for this React tutorial.
 
 We will start the React project with the App component and a stateful list of items (here: users). At the start, we only initialize the stateful list with [React's useState Hook](/react-usestate-hook/):
 
 ```javascript
-import * as React from 'react';
+import { useState } from 'react';
 
 const INITIAL_LIST = [
   {
@@ -38,7 +38,7 @@ const INITIAL_LIST = [
 ];
 
 const App = () => {
-  const [list, setList] = React.useState(INITIAL_LIST);
+  const [list, setList] = useState(INITIAL_LIST);
 
   return <div>{/* render my drag and drop list */}</div>;
 };
@@ -50,7 +50,7 @@ Next we will render the [list of items in JSX](/react-list-component/) to displa
 
 ```javascript{6-10}
 const App = () => {
-  const [list, setList] = React.useState(INITIAL_LIST);
+  const [list, setList] = useState(INITIAL_LIST);
 
   return (
     <div>
@@ -78,23 +78,23 @@ const List = ({ list }) => (
 );
 
 const App = () => {
-  const [list, setList] = React.useState(INITIAL_LIST);
+  const [list, setList] = useState(INITIAL_LIST);
 
   return <List list={list} />;
 };
 ```
 
-Next install [react-beautiful-dnd](https://www.npmjs.com/package/react-beautiful-dnd) from the npm registry on the command line:
+Next install [@hello-pangea/dnd](https://github.com/hello-pangea/dnd) from the npm registry on the command line:
 
-```text
-npm install react-beautiful-dnd
+```sh
+npm install @hello-pangea/dnd
 ```
 
 We will be using the provided DragDropContext as container for the drag and drop list:
 
 ```javascript{2,7,15}
-import * as React from 'react';
-import { DragDropContext } from 'react-beautiful-dnd';
+import { useState } from 'react';
+import { DragDropContext } from '@hello-pangea/dnd';
 
 const INITIAL_LIST = [ ... ];
 
@@ -111,11 +111,11 @@ const List = ({ list }) => (
 );
 ```
 
-Next we will add the Droppable component from react-beautiful-dnd which comes as a [render prop component](/react-render-props/) -- also known as children as function component -- which surfaces a few properties from react-beautiful-dnd which can be used on the list:
+Next we will add the Droppable component from @hello-pangea/dnd which comes as a [render prop component](/react-render-props/) -- also known as children as function component -- which surfaces a few properties from @hello-pangea/dnd which can be used on the list:
 
 ```javascript{2,8-10,16-18}
-import * as React from 'react';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import { useState } from 'react';
+import { DragDropContext, Droppable } from '@hello-pangea/dnd';
 
 const INITIAL_LIST = [ ... ];
 
@@ -162,7 +162,7 @@ Then the App component implements the actual event handler and passes it to the 
 
 ```javascript{4-6,8}
 const App = () => {
-  const [list, setList] = React.useState(INITIAL_LIST);
+  const [list, setList] = useState(INITIAL_LIST);
 
   const handleDragEnd = ({ destination, source }) => {
     // reorder list
@@ -184,7 +184,7 @@ const reorder = (list, startIndex, endIndex) => {
 };
 
 const App = () => {
-  const [list, setList] = React.useState(INITIAL_LIST);
+  const [list, setList] = useState(INITIAL_LIST);
 
   const handleDragEnd = ({ destination, source }) => {
     if (!destination) return;
@@ -199,12 +199,12 @@ const App = () => {
 Furthermore we will need the `index` of each list item, however, we will not use it as key. Instead, we will use the index as index prop required by the Draggable component. This way, it can keep track of the dragged items. In addition, the Draggable component needs the [required key for a list](/react-list-key/) as stable identifier next to the other `draggableId`:
 
 ```javascript{5,16-21,23-25,29-30}
-import * as React from 'react';
+import { useState } from 'react';
 import {
   DragDropContext,
   Droppable,
   Draggable,
-} from 'react-beautiful-dnd';
+} from '@hello-pangea/dnd';
 
 const INITIAL_LIST = [ ... ];
 
@@ -238,8 +238,6 @@ const List = ({ list, onDragEnd }) => (
 ```
 
 The Draggable component, identical to the Droppable component, is a [render prop component](/react-render-props/) which surfaces internal information from the library to us. While the information coming from the Droppable component is used for the drag and drop list element, the information coming from the Droppable component component is used on every drag and drop item. Your vertical drag and drop list should work now.
-
-If it does not work, try removing React's StrictMode and check again. If you want to continue using StrictMode, replace react-beautiful-dnd with [@hello-pangea/dnd](https://github.com/hello-pangea/dnd) -- which is a fork of react-beautiful-dnd which isn't maintained for React 18 and beyond anymore.
 
 <Divider />
 
@@ -307,7 +305,7 @@ Instead of defining the custom drag style in the component, we can make provide 
 
 ```javascript{14-17}
 const App = () => {
-  const [list, setList] = React.useState(INITIAL_LIST);
+  const [list, setList] = useState(INITIAL_LIST);
 
   const handleDragEnd = ({ destination, source }) => {
     if (!destination) return;
@@ -436,7 +434,7 @@ We provided custom drag styles to the List and Item components. This way, you ca
 
 <Divider />
 
-We've used two render prop components coming from the react-beautiful-dnd library. Let's implement a render prop component ourselves by using children as a function:
+We've used two render prop components coming from the @hello-pangea/dnd library. Let's implement a render prop component ourselves by using children as a function:
 
 ```javascript{1,17}
 const Item = ({ index, item, dragItemStyle = {}, children }) => (
@@ -563,4 +561,4 @@ const List = ({ list, onDragEnd, ...props }) => (
 );
 ```
 
-That's it. You have learned how to create a vertical/horizontal drag and drop list in React by using react-beautiful-dnd. In addition, you learned how to use the render prop pattern in React to give the developer of a component more control from the outside. Hopefully this React tutorial was a great experience for using different patterns in React.
+That's it. You have learned how to create a vertical/horizontal drag and drop list in React by using @hello-pangea/dnd. In addition, you learned how to use the render prop pattern in React to give the developer of a component more control from the outside. Hopefully this React tutorial was a great experience for using different patterns in React.

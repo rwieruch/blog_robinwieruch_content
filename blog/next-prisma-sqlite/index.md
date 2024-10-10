@@ -14,8 +14,6 @@ author: ""
 
 A short tutorial about setting up a Next.js application with Prisma and SQLite. I decided to write this tutorial, because many of my other Next.js tutorials depend on a database and I want to reference it. Why this ORM and database? Prisma is a great tool to interact with databases and SQLite is a simple database to get started with.
 
-*Currently I am working on a new course called **["The Road to Next"](https://www.road-to-next.com/)** which will hopefully match the popularity of **The Road to React**. We will create a full-stack Next application which goes all the way from fundamental React knowledge to accessing a serverless database. I am more than excited to share all my knowledge about Next.js with you. **If you are interested**, check out the website and join the waitlist.*
-
 <LinkCollection
   label="This tutorial is part 1 of 2 in this series."
   links={[
@@ -108,7 +106,7 @@ npx prisma init --datasource-provider sqlite
 
 The *prisma/schema.prisma* file in the project should look similar to this one:
 
-```prisma
+```tsx
 // prisma/schema.prisma
 
 generator client {
@@ -140,7 +138,7 @@ Essentially this file is the SQLite database.
 
 Prisma Migrations are needed to introduce new data in the database. For example, when you want to add a new table to the database, you can create it in the Prisma schema file. We will have a `Post` table in this example, but you can choose a different name or properties if you like:
 
-```prisma
+```tsx{12-15}
 // prisma/schema.prisma
 
 generator client {
@@ -189,19 +187,19 @@ When working with a framework like Next.js, it is important to use a singleton p
 ```ts
 // src/lib/prisma.ts
 
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 
 const prismaClientSingleton = () => {
   return new PrismaClient();
 };
 
-declare global {
-  var prisma: undefined | ReturnType<typeof prismaClientSingleton>;
-}
+declare const globalThis: {
+  prismaGlobal: ReturnType<typeof prismaClientSingleton>;
+} & typeof global;
 
-export const prisma = globalThis.prisma ?? prismaClientSingleton();
+export const prisma = globalThis.prismaGlobal ?? prismaClientSingleton();
 
-if (process.env.NODE_ENV !== 'production') globalThis.prisma = prisma;
+if (process.env.NODE_ENV !== "production") globalThis.prismaGlobal = prisma;
 ```
 
 There are more considerations to take into account when using Prisma in a serverless environment. You can find them in the official Prisma documentation.
