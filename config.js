@@ -484,6 +484,10 @@ module.exports = {
             label: 'How to work with me',
             url: '/work-with-me/',
           },
+          {
+            label: 'RSS Feed',
+            url: '/index.xml',
+          },
         ],
       },
     ],
