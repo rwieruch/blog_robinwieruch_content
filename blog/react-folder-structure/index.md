@@ -1,7 +1,7 @@
 ---
-title: "React Folder Structure in 5 Steps [2022]"
-description: "React Folder Structure in 2022 for large React projects. The guide walks you through a file structure from small to large project  ..."
-date: "2022-04-11T07:52:46+02:00"
+title: "React Folder Structure in 5 Steps [2024]"
+description: "React Folder Structure in 2024 for large React projects. The guide walks you through a file structure from small to large project  ..."
+date: "2024-10-14T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react project structure", "react folder structure", "react file structure"]
 hashtags: ["#ReactJs"]
@@ -12,19 +12,19 @@ author: ""
 
 <Sponsorship />
 
-How to structure large React applications into folders and files is a highly opinionated topic. I struggled for a while writing about this topic, because there is no right way to do it. However, every other week people ask me about how I structure my React projects -- with folder structures from small to large React projects.
+Organizing large React applications into folders and files is a topic that often sparks strong opinions. I found it challenging to write about this, as there isn't a definitive "correct" approach. However, I frequently get asked how I structure my React projects, from small to large, and I'm happy to share my approach.
 
-After implementing React applications for a few years now, I want to give you a breakdown on how I approach this matter for my personal projects, for my [freelance projects](/freelance-react-developer/), and for my React workshops. It only takes 5 steps, and you decide what makes sense to you and how far you want to push it. So let's get started.
-
-*For anyone who says "I move files around until it feels right": This may be alright as a solo developer, but is that really something you would do in a cross-functional team of 4 developers with a total of 5 cross-functional teams in a company? At a higher scale of teams, it becomes tricky to "just move files around without a clear vision". In addition, this is nothing I could tell my consulting clients when they ask me about this matter. Hence, take this walkthrough as reference guide for anyone who is looking for clarity about this subject.*
+After implementing React applications for several years now, I want to give you a breakdown on how I approach this matter for my personal projects, for my [freelance projects](/freelance-react-developer/), and for my React workshops. It only takes 5 steps, and you decide what makes sense to you and how far you want to push it. So let's get started.
 
 # Single React file
 
-The first step follows the rule: One file to rule them all. Most React projects start with a *src/* folder and one *src/App.js* file with an App component. At least that's what you get when you are using [create-react-app](/react-js-macos-setup/). It's a [function component](/react-function-component/) which just renders JSX:
+The first step follows the sentiment: One file to rule them all. Most React projects start with a *src/* folder and one *src/[name].(js|ts|jsx|tsx)* file where you will find something like an App component. At least that's what you get when you are using [Vite](/react-starter/) for creating a client-side React application. If you are using a framework like [Next.js](https://www.road-to-next.com/) for server-driven React, you will start with a *src/app/page.js* file.
 
-```javascript
-import * as React from 'react';
+<ReadMore label="How to start a React project" link="/react-starter/" />
 
+Here we see an example of a [function component](/react-function-component/) which just renders JSX in a single file:
+
+```tsx
 const App = () => {
   const title = 'React';
 
@@ -38,27 +38,26 @@ const App = () => {
 export default App;
 ```
 
-Eventually this component adds more features, it naturally grows in size, and needs to extract parts of it as standalone React components. Here we are extracting a [React list component](/react-list-component/) with another child component from the App component:
+As this component evolves with additional features, it naturally increases in size, making it necessary to break it down into smaller, independent React components. In this case, we are extracting a [React list component](/react-list-component/) along with another child component from the App component, where we need to [pass data down through props](/react-pass-props-to-component/):
 
-```javascript
-import * as React from 'react';
-
+```tsx
 const list = [
   {
-    id: 'a',
-    firstname: 'Robin',
-    lastname: 'Wieruch',
-    year: 1988,
+    id: '1',
+    name: 'Robin Wieruch',
   },
   {
-    id: 'b',
-    firstname: 'Dave',
-    lastname: 'Davidds',
-    year: 1990,
+    id: '2',
+    name: 'Dave Davidds',
   },
 ];
 
-const App = () => <List list={list} />;
+const ListItem = ({ item }) => (
+  <li>
+    <span>{item.id}</span>
+    <span>{item.name}</span>
+  </li>
+);
 
 const List = ({ list }) => (
   <ul>
@@ -68,275 +67,304 @@ const List = ({ list }) => (
   </ul>
 );
 
-const ListItem = ({ item }) => (
-  <li>
-    <div>{item.id}</div>
-    <div>{item.firstname}</div>
-    <div>{item.lastname}</div>
-    <div>{item.year}</div>
-  </li>
-);
+const App = () => <List list={list} />;
 ```
 
-Whenever you start with a new React project, I tell people it's fine to have multiple components in one file. It's even tolerable in a larger React application, whenever one component is strictly tight to another one. However, in this scenario, eventually this one file will not be sufficient anymore for your React project. That's when we transition to step two.
+When starting a new React project, it's acceptable to have multiple components in one file. In larger applications, this can still be tolerable if the components are closely related. However, as your project grows, a single file will eventually become insufficient. At that point, you'll need to transition to using multiple files.
 
 # Multiple React files
 
-The second step follows the rule: Multiple files to rule them all. Take for instance our previous App component with its List and ListItem components: Rather than having everything in one *src/App.js* file, we can split these components up into multiple files. You decide how far you want to take it here. For example, I would go with the following folder structure:
+The second step follows the sentiment: Multiple files to rule them all. Take for example our previous `List` and `ListItem` components: Rather than having everything in one file, we can split these components up into multiple files. You decide how far you want to take it here. For example, I would go with the following folder structure:
 
 ```text
 - src/
---- App.js
---- List.js
+--- app.js
+--- list.js
 ```
 
-While the *src/List.js* file would have the implementation details of the List and ListItem components, it would only [export](/javascript-import-export/) the List component from the file as public API of this file:
+While the *list.js* file would have the implementation details of the `List` and `ListItem`  components, it would only export the List component from the file as API:
 
-```javascript{18}
+```tsx{16}
+const ListItem = ({ item }) => (
+  <li>
+    <span>{item.id}</span>
+    <span>{item.name}</span>
+  </li>
+);
+
 const List = ({ list }) => (
   <ul>
     {list.map(item => (
       <ListItem key={item.id} item={item} />
     ))}
   </ul>
-);
-
-const ListItem = ({ item }) => (
-  <li>
-    <div>{item.id}</div>
-    <div>{item.firstname}</div>
-    <div>{item.lastname}</div>
-    <div>{item.year}</div>
-  </li>
 );
 
 export { List };
 ```
 
-Next the *src/App.js* file can [import](/javascript-import-export/) the List component and use it:
+Next the *app.js* file can import the List component and continue using it:
 
-```javascript{3,7}
-import * as React from 'react';
-
-import { List } from './List';
+```tsx{1,5}
+import { List } from './list';
 
 const list = [ ... ];
 
 const App = () => <List list={list} />;
 ```
 
-If you would take this one step further, you could also extract the ListItem component into its own file and let the List component import the ListItem component:
+If you would take this one step further, you could also extract the `ListItem` component into its own file and let the `List` component import the `ListItem` component:
 
 ```text{4}
 - src/
---- App.js
---- List.js
---- ListItem.js
+--- app.js
+--- list.js
+--- list-item.js
 ```
 
-However, as said before, this may take it too far, because at this point in time the ListItem component is tightly coupled to the List component and therefore it would be okay to leave it in the *src/List.js* file. I follow the rule of thumb that whenever a React component becomes a [reusable React component](/react-reusable-components/), I split it out as a standalone file, like we did with the List component, to make it accessible for other React components.
+However, as said before, this may take it too far, because at this point in time the `ListItem` component is tightly coupled to the `List` component and not reused anywhere else. Therefore it would be better to leave it in the *src/list.js* file.
 
-# From React files to React folders
+<ReadMore label="Why kebab-case instead of PascalCase for files" link="https://x.com/rwieruch/status/1836434009041035635" />
 
-From here, it becomes more interesting yet also more opinionated. Every React component grows in complexity eventually. Not only because more logic is added (e.g. more JSX with [conditional rendering](/conditional-rendering-react/) or logic with [React Hooks](/react-hooks/) and [event handlers](/react-event-handler/)), but also because there are more technical concerns like styles and tests. A naive approach would be to add more files next to each React component. For example, let's say every React component has a test and a style file:
+I follow the rule of thumb that whenever a React component becomes a [reusable React component](/react-reusable-components/), I split it out as a standalone file, like we did with the `List` component, to make it accessible for other React components.
+
+Also note that I used for the sake of simplicity a JavaScript file extension. If you are using explicit JSX file extensions and/or TypeScript, you would use the *.jsx*, *.ts* or *.tsx* file extensions instead.
+
+# From files to folders in React
+
+From here, it becomes more interesting yet also more opinionated. Every React component grows in complexity eventually. Not only because more logic is added (e.g. more JSX with [conditional rendering](/conditional-rendering-react/) or logic with [React Hooks](/react-hooks/) and [event handlers](/react-event-handler/)), but also because there are more technical concerns like styles, tests, constants, utilities, types. All of these things could potentially be extracted into their own files.
+
+A naive approach would be to add more files next to each React component. For example, let's say every React component has a test and a style file:
 
 ```text{3-4,6-7}
 - src/
---- App.js
---- App.test.js
---- App.css
---- List.js
---- List.test.js
---- List.css
+--- app.js
+--- app.test.js
+--- app.css
+--- app.css
+--- list.js
+--- list.test.js
+--- list.css
 ```
 
-One can already see that this doesn't scale well, because with every additional component in the *src/* folder we will lose more sight of every individual component. That's why I like to have one folder for each React component:
+One can already see that this doesn't scale well, because with every additional React component in the *src/* folder we will lose more sight of every individual component. That's why I like to have one folder for each React component:
 
 ```text{2-11}
 - src/
---- App/
+--- app/
 ----- index.js
 ----- component.js
 ----- test.js
 ----- style.css
---- List/
+--- list/
 ----- index.js
 ----- component.js
 ----- test.js
 ----- style.css
 ```
 
-While the new style and test files implement styling and testing for each local component respectively, the new *component.js* file holds the actual implementation logic of the component. What's missing is the new *index.js* file which represents the public interface of the folder where everything gets exported that's relevant to the outside world. For example, for the List component it most often looks like this:
+While the new style and test files implement styling and testing for each local component respectively, the new *component.js* file holds the actual implementation logic of the component.
 
-```javascript
-export * from './List';
+<Divider />
+
+What's missing an explanation is the new (yet optional) *index.js* file which represents the public interface (i.e. public API) of the folder (i.e. module) where everything gets exported that's relevant to the outside world. Many know this file under the term barrel file, which is usually not recommended in JavaScript, because it makes tree shaking harder for bundlers.
+
+However, if you don't just re-export everything from the folder, but only the public API, then it can be a good practice, because you don't leak implementation details (e.g. styles) to the outside world. In other words, you would only be allowed to import from the *index.js* file and not from the *component.js* or *style.css* file.
+
+For example, for the `List` component, the *src/list/index.js* file would look like this:
+
+```tsx
+export * from './list';
+```
+
+If you want to be more specific to avoid leaking implementation details, you can also export the List component directly:
+
+```tsx
+import { List } from './list';
+
+export { List };
 ```
 
 The App component in its *component.js* file can still import the List component the following way:
 
-```javascript
-import { List } from '../List/index.js';
+```tsx
+import { List } from '../list/index.js';
 ```
 
-In JavaScript, we can omit the */index.js* for the imports, because it's the default:
+We can also omit the */index.js*, because it's the default for most bundlers in JavaScript:
 
-```javascript{1}
-import { List } from '../List';
+```tsx{1}
+import { List } from '../list';
 ```
 
-The naming of these files is already opinionated: For example, *test.js* can become *spec.js* or *style.css* can become *styles.css* if a pluralization of files is desired. Moreover, if you are not using CSS but something like [Styled Components](/styled-components/), your file extension may change from *style.css* to *style.js* too.
+Anyway, barrel files are getting out of fashion in JavaScript, because they make tree shaking harder for bundlers. So you can also just import the `List` component directly from the *src/list/list.js* file and omit the *src/list/index.js* file.
 
-Once you get used to this naming convention of folders and files, you can just search for "List component" or "App test" in your IDE for opening each file. Here I admit, in contrast to my personal taste of concise file names, that people often prefer to be more verbose with their file names:
+<Divider />
+
+On another note, the naming convention of the presented files is opinionated as well: For example, *test.js* can become *spec.js* or *style.css* can become *styles.css* if a pluralization of files is desired. Moreover, if you are not using CSS but something like CSS modules, your file extension may change from *style.css* to *style.module.css* too.
+
+<ReadMore label="Learn more about CSS Style in React" link="/react-css-styling/" />
+
+Once you get used to this naming convention of folders and files, you can just fuzzy search for list component" or "app test" in your IDE for opening each file.
+
+But here I admit, in contrast to my personal taste of concise file names, that people often prefer to be more redundant with their folder/file names:
 
 ```text{4-6,9-11}
 - src/
---- App/
+--- app/
 ----- index.js
------ App.js
------ App.test.js
------ App.style.css
---- List/
+----- app.js
+----- app.test.js
+----- app.style.css
+--- list/
 ----- index.js
------ List.js
------ List.test.js
------ List.style.css
+----- list.js
+----- list.test.js
+----- list.style.css
 ```
 
-Anway, if you collapse all component folders, regardless of the file names, you have a very concise and clear folder structure:
+Anyway, if you collapse all component folders, regardless of the file names, you have a concise folder structure with all the hidden implementation details of your components:
 
 ```text
 - src/
---- App/
---- List/
+--- app/
+--- list/
 ```
 
-If there are more technical concerns for a component, for example you may want to extract [custom hooks](/react-custom-hook/), types (e.g. TypeScript defined types), stories (e.g. Storybook), utilities (e.g. helper functions), or constants (e.g. JavaScript constants) into dedicated files, you can scale this approach horizontally within the component folder:
+If there are more technical concerns for a component, for example you may want to extract custom React hooks, types (e.g. TypeScript definitions), stories (e.g. Storybook), utilities (e.g. helper functions), or constants (e.g. JavaScript constants) into dedicated files, you can scale this approach horizontally within the component folder:
 
-```text{7,12-16}
+```text{7,13-17}
 - src/
---- App/
------ index.js
------ component.js
------ test.js
+--- app/
+----- index.ts
+----- component.ts
+----- test.ts
 ----- style.css
------ types.js
---- List/
------ index.js
------ component.js
------ test.js
+----- type.ts
+--- list/
+----- index.ts
+----- component.ts
+----- test.ts
 ----- style.css
------ hooks.js
------ story.js
------ types.js
------ utils.js
------ constants.js
+----- hooks.ts
+----- story.ts
+----- type.ts
+----- utils.ts
+----- constants.ts
 ```
 
-If you decide to keep your *List/component.js* more lightweight by extracting the ListItem component in its own file, then you may want to try the following folder structure:
+If you decide to keep your `List` component smaller by extracting the `ListItem` component into its own file, then you may want to try the following folder structure:
 
 ```text{12}
 - src/
---- App/
+--- app/
 ----- index.js
 ----- component.js
 ----- test.js
 ----- style.css
---- List/
+--- list/
 ----- index.js
 ----- component.js
 ----- test.js
 ----- style.css
------ ListItem.js
+----- list-item.js
 ```
 
-Here again, you can go one step further by giving the component its own nested folder with all other technical concerns like tests and styles:
+Once the `ListItem` component grows in size and complexity, you can go one step further by giving the component its own nested folder with all other technical concerns:
 
 ```text{12-16}
 - src/
---- App/
+--- app/
 ----- index.js
 ----- component.js
 ----- test.js
 ----- style.css
---- List/
+--- list/
 ----- index.js
 ----- component.js
 ----- test.js
 ----- style.css
------ ListItem/
+----- list-item/
 ------- index.js
 ------- component.js
 ------- test.js
 ------- style.css
 ```
 
-Important: From here on you need to be careful not to nest too deeply your components into each other. My rule of thumb is that I am never nesting components more than two levels, so the List and ListItem folders as they are right now would be alright, but the ListItem's folder shouldn't have another nested folder. Exceptions prove the rule though.
+From now on, it's important to be cautious about nesting your components too deeply. My rule of thumb is to avoid nesting more than two levels. For instance, the `list` and `list-item` folders are fine as they are, but there shouldn't be another nested folder inside the `list-item` folder. That said, there can always be exceptions to this rule.
 
-After all, if you are not going beyond midsize React projects, this is in my opinion the way to go to structure your React components. In my experience as a React freelancer many React projects follow this organization of a React application.
+<ReadMore label="Learn more about Libraries in React" link="/react-libraries/" />
 
-# Technical Folders
+After all, if you are not going beyond small React projects, this is in my opinion the way to go to structure your React components.
 
-The next step will help you to structure midsize to large React applications. It separates React components from reusable React utilities such as hooks and context, but also none React related utilities like helper functions (here *services/*). Take the following baseline of a folder structure as example:
+# Technical Folders in React
+
+The next step will help you to structure midsize React applications, because it separates React components from reusable React features such as custom hooks and context, but also none React related features like helper functions (here *services/*, read: utilities).
+
+Take the following folder structure with another separating folder as a baseline:
 
 ```text{2}
 - src/
 --- components/
------ App/
+----- app/
 ------- index.js
 ------- component.js
 ------- test.js
 ------- style.css
------ List/
+----- list/
 ------- index.js
 ------- component.js
 ------- test.js
 ------- style.css
 ```
 
-All previous React components got grouped into a new *components/* folder. This gives us another vertical layer for creating folders for other technical categories. For example, at some point you may have reusable React Hooks that can be used by more than one component. So instead of coupling a custom hook tightly to a component, you can put the implementation of it in a dedicated folder which can be used by all React components:
+All previous React components got grouped into a new *components/* folder. This gives us another vertical layer for creating folders for other technical categories.
+
+<ReadMore label="Learn more about Custom React Hooks" link="/react-custom-hook/" />
+
+For example, at some point you may have reusable React Hooks that can be used by more than one component. So instead of coupling a hook tightly to a component, you can put the implementation of it in a dedicated folder to share it with all components:
 
 ```text{13-15}
 - src/
 --- components/
------ App/
+----- app/
 ------- index.js
 ------- component.js
 ------- test.js
 ------- style.css
------ List/
+----- list/
 ------- index.js
 ------- component.js
 ------- test.js
 ------- style.css
 --- hooks/
------ useClickOutside.js
------ useScrollDetect.js
+----- use-click-outside.js
+----- use-scroll-detect.js
 ```
 
-This doesn't mean that all hooks should end up in this folder though. React Hooks which are still only used by one component should remain in the component's file or a *hooks.js* file next to the component in the component's folder. Only reusable hooks end up in the new *hooks/* folder. If there are more files needed for one hook, you can change it into a folder again:
+This doesn't mean that all hooks should end up in this folder though. React Hooks which are still only used by one component should remain in the component's file or a *hooks.js* file next to the component in the component's folder. Only reusable hooks end up in the new *hooks/* folder.
 
-```text{14-21}
+If there are more files needed for one hook, you can change it into a folder again. You can also mix and match folder/file structures (not only applicable for the hooks folder), because whereas one hook may only need a file, another hook may need a folder:
+
+```text{14-18}
 - src/
 --- components/
------ App/
+----- app/
 ------- index.js
 ------- component.js
 ------- test.js
 ------- style.css
------ List/
+----- list/
 ------- index.js
 ------- component.js
 ------- test.js
 ------- style.css
 --- hooks/
------ useClickOutside/
+----- use-click-outside/
 ------- index.js
 ------- hook.js
 ------- test.js
------ useScrollDetect/
-------- index.js
-------- hook.js
-------- test.js
+----- use-scroll-detect.js
 ```
 
 The same strategy may apply if you are using [React Context](/react-usecontext-hook/) in your React project. Because context needs to get instantiated somewhere, a dedicated folder/file for it is a best practice, because it needs to be accessible by many React components eventually:
@@ -344,62 +372,56 @@ The same strategy may apply if you are using [React Context](/react-usecontext-h
 ```text{16-17}
 - src/
 --- components/
------ App/
+----- app/
 ------- index.js
 ------- component.js
 ------- test.js
 ------- style.css
------ List/
+----- list/
 ------- index.js
 ------- component.js
 ------- test.js
 ------- style.css
 --- hooks/
------ useClickOutside.js
------ useScrollDetect.js
+----- use-click-outside.js
+----- use-scroll-detect.js
 --- context/
------ Session.js
+----- session.js
 ```
 
-From here, there may be other utilities which need to be accessible from your *components/* folder, but also from the other new folders such as *hooks/* and *context/*. For miscellaneous utilities, I usually create a *services/* folder. The name is up to you (e.g. *utils/* is another folder name I see quite often, but services makes more sense for the following import strategy). But again, it's the principal of making logic available to other code in our project which drives this technical separation:
+From here, there may be other utilities which need to be accessible from your *components/* folder, but also from the other new folders such as *hooks/* and *context/*.
 
-```text{18-31}
+For miscellaneous utilities, I usually create a *services/* folder. The name is up to you (e.g. *utils/*, *lib/*, *misc/* are other folder name I see quite often). Again it's the principal of making logic available to other code in the project which drives this technical divide:
+
+```text{10-23}
 - src/
 --- components/
------ App/
-------- index.js
-------- component.js
-------- test.js
-------- style.css
------ List/
-------- index.js
-------- component.js
-------- test.js
-------- style.css
+----- app/
+----- list/
 --- hooks/
------ useClickOutside.js
------ useScrollDetect.js
+----- use-click-outside.js
+----- use-scroll-detect.js
 --- context/
------ Session.js
+----- session.js
 --- services/
------ ErrorTracking/
+----- error-tracking/
 ------- index.js
 ------- service.js
 ------- test.js
------ Format/
-------- Date/
+----- format/
+------- date-time/
 --------- index.js
 --------- service.js
 --------- test.js
-------- Currency/
+------- currency/
 --------- index.js
 --------- service.js
 --------- test.js
 ```
 
-Take for instance the *Date/index.js* file. The implementation details may look like the following:
+Take for instance the *date-time/index.js* file's  implementation details as an example:
 
-```javascript
+```tsx
 export const formatDateTime = (date) =>
   new Intl.DateTimeFormat('en-US', {
     year: 'numeric',
@@ -417,136 +439,92 @@ export const formatMonth = (date) =>
   }).format(date);
 ```
 
-Fortunately [JavaScript's Intl API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) gives us excellent tools for date conversions. However, instead of using the API directly in my React components, I like to have a service for it, because only this way I can guarantee that my components have only a little set of actively used date formatting options available for my application.
+Fortunately [JavaScript's Intl API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) gives us methods for date conversions. However, instead of using the API directly in my React components, I like to have a service for it, because only this way I can guarantee that my components have only a little set of actively used date formatting options available for my application.
 
-Now it's possible to not only import each date formatting function individually:
+Now it's possible to import each date formatting function individually:
 
-```javascript
-import { formatMonth } from '../../services/format/date';
+```tsx
+import { formatMonth } from '../../services/format/date-time';
 
 const month = formatMonth(new Date());
 ```
 
-But also as a service, as an encapsulated module in other words, what I usually like to do:
+But I prefer it as a "service", in other words as an encapsulated module with a public API, which follows the following import strategy:
 
-```javascript{1,3}
-import * as dateService from '../../services/format/date';
+```tsx{1,3}
+import * as dateTimeService from '../../services/format/date-time';
 
-const month = dateService.formatMonth(new Date());
+const month = dateTimeService.formatMonth(new Date());
 ```
 
-It may become difficult to import things with relative paths now. Therefore I always would opt-in [Babel's Module Resolver](/babel-module-resolver/) for aliases. Afterward, your import may look like the following:
+It may become difficult to import things with relative paths. Therefore I'd always opt-in  into aliases with absolute imports. Afterward, your import may look like the following:
 
-```javascript{1}
-import * as dateService from 'format/date';
+```tsx{1}
+import * as dateTimeService from '@/services/format/date-time';
 
-const month = dateService.formatMonth(new Date());
+const month = dateTimeService.formatMonth(new Date());
 ```
 
-After all, I like this technical separation of concerns, because it gives every folder a dedicated purpose and it encourages sharing functionality across the React application.
+Opponents of barrel files may argue that this is a barrel file, because it re-exports everything from the folder. However, I see it as a public API for the folder, because it only exports the public API of the folder and not all the implementation details.
 
-# Feature Folders
+After all, I like this technical separation of concerns, because it gives every folder a dedicated purpose and it encourages sharing functionality across the React application. You can always adapt this structure to your needs, for example making the service structure more fine-grained compared to the one from above:
 
-The last step will help you to structure large React applications, because it separates specific feature related components from generic UI components. While the former are often only used once in a React project, the latter are UI components which are used by more than one component.
-
-I'll focus on components here, for the sake of keeping the example small, however, the same learnings can be applied to other technical folders from the previous section. Take the following folder structure as example, which may not show the full extent of the problem, but I hope you get the point:
-
-```text
-- src/
---- components/
------ App/
------ List/
------ Input/
------ Button/
------ Checkbox/
------ Radio/
------ Dropdown/
------ Profile/
------ Avatar/
------ MessageItem/
------ MessageList/
------ PaymentForm/
------ PaymentWizard/
------ ErrorMessage/
------ ErrorBoundary/
-```
-
-The point: There will be too many components in your *components/* eventually. While some of them are reusable (e.g. Button), others are more feature related (e.g. Message).
-
-From here, I would use the *components/* folder only for reusable components (e.g. UI components). Every other component should move to a respective feature folder. The names of the folders are again up to you:
-
-```text{2-14}
-- src/
---- feature/
------ User/
-------- Profile/
-------- Avatar/
------ Message/
-------- MessageItem/
-------- MessageList/
------ Payment/
-------- PaymentForm/
-------- PaymentWizard/
------ Error/
-------- ErrorMessage/
-------- ErrorBoundary/
---- components/
------ App/
------ List/
------ Input/
------ Button/
------ Checkbox/
------ Radio/
------ Dropdown/
-```
-
-If one of the feature components (e.g. MessageItem, PaymentForm) need access to shared [Checkbox](/react-checkbox/), [Radio](/react-radio-button/) or [Dropdown](/react-dropdown/) component, it imports it from the reusable UI components folder. If a domain specific MessageList component needs an abstract List component, it imports it as well.
-
-Furthermore, if a service from the previous section is tightly coupled to a feature, then move the service to the specific feature folder. The same may apply to other folders which were previously separated by technical concern:
-
-```text{12-16,20-24,26-33}
-- src/
---- feature/
------ User/
-------- Profile/
-------- Avatar/
------ Message/
-------- MessageItem/
-------- MessageList/
------ Payment/
-------- PaymentForm/
-------- PaymentWizard/
-------- services/
---------- Currency/
------------ index.js
------------ service.js
------------ test.js
------ Error/
-------- ErrorMessage/
-------- ErrorBoundary/
-------- services/
---------- ErrorTracking/
------------ index.js
------------ service.js
------------ test.js
---- components/
---- hooks/
---- context/
+```text{8-19}
 --- services/
------ Format/
-------- Date/
+----- error-tracking/
+------- index.js
+------- service.js
+------- test.js
+----- format/
+------- date-time/
+--------- date-time/
+----------- index.js
+----------- service.js
+----------- test.js
+--------- date/
+----------- index.js
+----------- service.js
+----------- test.js
+--------- time/
+----------- index.js
+----------- service.js
+----------- test.js
+------- currency/
 --------- index.js
 --------- service.js
 --------- test.js
 ```
 
-Whether there should be an intermediate *services/* folder in each feature folder is up to you. You could also leave out the folder and put the *ErrorTracking/* folder directly into *Error/*. However, this may be confusing, because ErrorTracking should be marked somehow as a service and not as a React component.
+Please see the proposed folder structure as a structural guideline and not a naming convention. The naming of the folders and files is up to you.
 
-There is lots of room for your personal touch here. After all, this step is just about bringing the features together which allows teams in your company to work on specific features without having to touch files across the project.
+# Feature Folders in React
 
-# Bonus: Folder/File Naming Conventions
+The last step will help you to structure large React applications, because it separates specific feature related components from generic UI components. While the former are often only used once in a React project, the latter are UI components which are used by more than one component.
 
-Before we had [component-based UI libraries](/why-frameworks-matter/) like React.js, we were used to name all of our folders and files with a kebab-case naming convention. In a Node.js world, this is still the status quo naming conventions. However, on the frontend with component-based UI libraries, this naming convention changed to PascalCase for folders/files containing components, because when declaring a component it follows a PascalCase naming convention as well.
+I'll focus on components to keep the example concise, but the same principles can be applied to all the technical folders mentioned earlier. Consider the following folder structure as an example. While it may not fully illustrate the scope of the issue, I trust the point will be clear:
+
+```text
+- src/
+--- components/
+----- list/
+----- input/
+----- button/
+----- checkbox/
+----- radio-button/
+----- dropdown/
+----- profile/
+----- avatar/
+----- post-item/
+----- post-list/
+----- payment-form/
+----- payment-wizard/
+----- error-message/
+----- error-boundary/
+```
+
+The point: There will be too many components in your *components/* folder (or any other technical folder) eventually. While some of them are reusable (e.g. Button), others are more feature related (e.g. Message).
+
+From here, I'd use the *components/* folder only for reusable components (e.g. UI components). Every other component should move to a respective feature folder. The names of the folders are up to you, but I like to use the feature name as the folder name:
 
 ```text{2-14}
 - src/
@@ -554,9 +532,9 @@ Before we had [component-based UI libraries](/why-frameworks-matter/) like React
 ----- user/
 ------- profile/
 ------- avatar/
------ message/
-------- message-item/
-------- message-list/
+----- post/
+------- post-item/
+------- post-list/
 ----- payment/
 ------- payment-form/
 ------- payment-wizard/
@@ -564,40 +542,140 @@ Before we had [component-based UI libraries](/why-frameworks-matter/) like React
 ------- error-message/
 ------- error-boundary/
 --- components/
------ app/
 ----- list/
 ----- input/
 ----- button/
 ----- checkbox/
------ radio/
+----- radio-button/
 ----- dropdown/
 ```
 
-Like in the example above, in a perfect world, we would be using a [kebab-case naming convention](/javascript-naming-conventions/) for all folders and files, because PascalCase named folders/files are handled differently in the diversity of operating systems which may lead to bugs when working with teams using different OSs.
+If one of the feature components (e.g. `PostItem`, `PaymentForm`) need access to a shared [Checkbox](/react-checkbox/), [Radio](/react-radio-button/) or [Dropdown](/react-dropdown/) component, it imports it from the reusable UI components folder. If a domain specific `PostList` component needs an abstracted `List` component, it imports it as well.
 
-# Bonus: Next.js Project Structure
+Furthermore, if a service from the previous section is tightly coupled to a feature, then move the service to the specific feature folder. The same may apply to other folders (e.g. hooks, context) which were previously separated by technical concern:
 
-A Next.js project starts with a *pages/* folder. A common question here: Where to put the *src/* folder?
-
-```text{3-5}
-- api/
-- pages/
+```text{12-16,20-24,26-33}
 - src/
 --- feature/
+----- user/
+------- profile/
+------- avatar/
+----- post/
+------- post-item/
+------- post-list/
+----- payment/
+------- payment-form/
+------- payment-wizard/
+------- services/
+--------- currency/
+----------- index.js
+----------- service.js
+----------- test.js
+----- error/
+------- error-message/
+------- error-boundary/
+------- services/
+--------- error-tracking/
+----------- index.js
+----------- service.js
+----------- test.js
 --- components/
+--- hooks/
+--- context/
+--- services/
+----- format/
+------- date-time/
+--------- index.js
+--------- service.js
+--------- test.js
 ```
 
-Usually the source folder gets created next to the pages folder. From there, you can follow the previously discussed folder/file structure within the *src/* folder. I heard about an escape hatch in Next.js where you can put the *pages/* folder in the *src/* folder too:
+Whether there should be an intermediate *services/* folder in each feature folder is up to you. You could also leave out the folder and put the *error-tracking/* folder directly into *error/*. However, this may be confusing, because error-tracking should be marked somehow as a service and not as a React component. So you could also go further with this structure for single feature folders by adding technical folders to them:
 
-```text{3}
-- api/
+```text{2}
+----- error/
+------- components/
+--------- error-message/
+--------- error-boundary/
+------- services/
+--------- error-tracking/
+----------- index.js
+----------- service.js
+```
+
+There is lots of room for your or your team's personal touch here. After all, this step is just about bringing the features together which allows teams in your company to work on specific features without having to touch files across the project. How far you nest folders and where you separate technical concerns is up to you.
+
+```text
+- src/
+--- feature/
+----- feature-one/
+------- technical-concern-one/
+------- technical-concern-two/
+------- ... // <--- maybe more technical concerns
+----- feature-two/
+------- technical-concern-one/
+------- technical-concern-two/
+------- ... // <--- maybe more technical concerns
+--- components/
+--- hooks/
+--- context/
+--- services/
+... // <--- maybe more globally shared technical folders
+```
+
+The big picture from above is to separate feature related components from reusable components and to separate technical concerns from feature related components.
+
+# Bonus: Page driven Project Structure
+
+Eventually you will have multiple pages in your React application. If you are using a framework like Next.js, you will have a *app/* folder where you put your *page.tsx* files for file based routing. However, if you are using a client-driven React application (e.g. React + Vite), you may want to structure your project around a *pages/* folder as well, because pages are the entry points for users to interact with your application:
+
+```text{2}
 - src/
 --- pages/
 --- feature/
 --- components/
+--- hooks/
+--- context/
+--- services/
 ```
 
-However, in this case it's not allowed to have a *pages/* folder anymore.
+In a Next.js project, the app folder is the pages folder. The following structure shows an example of how you could structure it for a CRUD application around the a post feature:
+
+```text{2-7}
+- src/
+--- app/
+----- page.tsx
+----- posts/
+------- page.tsx
+------- [postId]
+--------- page.tsx
+--- feature/
+----- post/
+------- post-list/
+----- comment/
+------- comment-list/
+--- components/
+----- list/
+--- hooks/
+--- context/
+--- services/
+```
+
+In this example, the user would be able to go to a */posts* page to see a list of posts and to a */posts/[postId]* page to see a single post with comments. Whereas the `PostList` would be used on the */posts* page, the `CommentList` would be used on the */posts/[postId]* page. Both of these list components would reuse the `List` component from the *components/* folder.
+
+One could make a whole discussion about the above folder structure, because there are various things to consider. Don't take the following things as granted, but as a starting point for a discussion:
+
+* Should the comment feature folder be nested in the post feature folder?
+  * Yes, it could be nested if the comment feature is only used by the post feature.
+  * No, it shouldn't be nested if the comment feature is used by multiple features.
+    * For example, if there are more features like a *goals/* or *achievements/* where users can leave comments, the comments feature would be a shared feature across multiple features.
+* Should the list component be nested in the post feature folder?
+  * Yes, it could if the post feature is the only feature using the list component.
+  * No, it shouldn't if the list component is used by multiple features.
+    * In our example above, the list component is used by the post feature and the comment feature. Therefore it should be a shared component across multiple features.
+* There are React frameworks which allow private folders in the *pages/* (in Next.js *app/*) folders. If this is the case, should the *post/* feature be moved as private folder into the *pages/posts/* folder?
+  * Yes, it could be moved if the post feature is only used by the */posts* page.
+    * But I'd always advice against it, because it makes 1) the feature folder structure inconsistent. If you have a feature folder structure, then keep it consistent across the project. And 2) it makes the feature folder structure less flexible. If you want to reuse the post feature in another page later, you would have to move it out of the private folder again.
 
 <Divider />
 
