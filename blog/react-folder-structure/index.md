@@ -141,7 +141,6 @@ A naive approach would be to add more files next to each React component. For ex
 --- app.js
 --- app.test.js
 --- app.css
---- app.css
 --- list.js
 --- list.test.js
 --- list.css
