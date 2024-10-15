@@ -176,7 +176,6 @@ We will need a Prisma Client instance in the application eventually to read and 
 
 ```ts
 // src/lib/prisma.ts
-
 import { PrismaClient } from '@prisma/client';
 
 export const prisma = new PrismaClient();
@@ -186,7 +185,6 @@ When working with a framework like Next.js, it is important to use a singleton p
 
 ```ts
 // src/lib/prisma.ts
-
 import { PrismaClient } from "@prisma/client";
 
 const prismaClientSingleton = () => {
