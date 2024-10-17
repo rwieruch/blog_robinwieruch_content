@@ -1,9 +1,9 @@
 ---
-title: "How to fetch data in React (with Hooks)"
-description: "Do you want to go beyond a static React application? Then it's about time to fetch data from a third party API. This guide explains you all the basics and tricks to request data in React.js. You will reuse functionalities in higher-order components and implement error handling for a more robust application ..."
+title: "How to fetch data with React Class Components"
+description: "Learn the fundamentals about data fetching in client-side React with React Class Components ..."
 date: "2018-07-06T13:50:46+02:00"
 categories: ["React"]
-keywords: ["react fetching data", "react fetch API"]
+keywords: ["react fetch data class components", "react data fetching class components"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
@@ -12,9 +12,9 @@ author: ""
 
 <Sponsorship />
 
-Newcomers to React often start with applications that don't need data fetching at all. Usually they are confronted with Counter, Todo or TicTacToe applications. That's good, because data fetching adds another layer of complexity to your application while taking the first steps in React.
+Newcomers to React often start with applications that don't need data fetching at all. Usually they are confronted with simple applications. That's good, because data fetching adds another layer of complexity to your application while taking the first steps in React.
 
-However, at some point you want to request real world data from an own or a third-party [API](/what-is-an-api-javascript/). The article gives you a walkthrough on how to fetch data in React. There is no external state management solution, such as [Redux or MobX](/redux-mobx/), involved to store your fetched data. Instead you will use React's local state management.
+However, at some point you want to request real world data from an own or a third-party [API](/what-is-an-api-javascript/). The article gives you a walkthrough on how to fetch data in React with Class Components. There is no external state management solution, such as [Redux or MobX](/redux-mobx/), involved to store your fetched data. Instead you will use React's local state management for the sake of simplicity.
 
 # Table of Contents
 

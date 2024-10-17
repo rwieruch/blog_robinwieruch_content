@@ -342,6 +342,8 @@ export default PostsPage;
 
 Before we had data fetching libraries like React Query, developers would use `useEffect` and `useState` to fetch data in React. But the implementation shows only the tip of the iceberg, because you would have to [handle everything](https://tkdodo.eu/blog/why-you-want-react-query) from loading state over to caching and race conditions yourself.
 
+<ReadMore label="How to fetch data with React Hooks" link="/react-hooks-fetch-data/" />
+
 But in any way, React beginners learn about this approach in The Road to React, because it's a good way to understand how data fetching works under the hood in a sophisticated library like React Query.
 
 # tRPC for typed data fetching
