@@ -346,6 +346,8 @@ Before we had data fetching libraries like React Query, developers would use `us
 
 But in any way, React beginners learn about this approach in The Road to React, because it's a good way to understand how data fetching works under the hood in a sophisticated library like React Query.
 
+<ReadMore label="Legacy: How to fetch data with React Class Components" link="/react-fetch-data-class-components/" />
+
 # tRPC for typed data fetching
 
 Typically data fetching is happening in a client-server architecture via REST. On the client-side, this would be achieved with React Query as we have seen before. But this solution lacks type safety across the network, because you would have to use a third-party like OpenAPI to generate a typed schema.
