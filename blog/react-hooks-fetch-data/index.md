@@ -1,7 +1,7 @@
 ---
 title: "How to fetch data with React Hooks"
-description: "A tutorial on how to fetch data in React with Hooks from third-party APIs. You will use state and effect hooks for the data request from a real API ..."
-date: "2019-03-07T13:50:46+02:00"
+description: "Learn the fundamentals about data fetching in client-side React with React Hooks ..."
+date: "2024-10-16T13:50:46+02:00"
 categories: ["React", "React Hooks"]
 keywords: ["react fetch data hooks"]
 hashtags: ["#ReactJs"]
@@ -12,450 +12,347 @@ author: ""
 
 <Sponsorship />
 
-In this tutorial, I want to show you **how to fetch data in React with Hooks** by using the [state](https://reactjs.org/docs/hooks-state.html) and [effect](https://reactjs.org/docs/hooks-effect.html) hooks. We will use the widely known [Hacker News API](https://hn.algolia.com/api) to fetch popular articles from the tech world. You will also implement your custom hook for the data fetching that can be reused anywhere in your application or published on npm as standalone node package.
+In the world of client-side React, React Query is the industry standard for data fetching. However, in this tutorial, you'll learn how to fetch data using React Hooks without any third-party libraries. This approach helps beginners grasp the fundamentals of state and effect management in React, and understand how to build custom hooks.
 
-If you don't know anything about this new React feature, checkout this [introduction to React Hooks](/react-hooks/). If you want to checkout the finished project for the showcased examples that show how to fetch data in React with Hooks, checkout this [GitHub repository](https://github.com/the-road-to-learn-react/react-hooks-introduction).
+<ReadMore label="How to fetch data in React" link="/react-fetching-data/" />
 
-If you just want to have a ready to go React Hook for data fetching: `npm install use-data-api` and follow the [documentation](https://github.com/the-road-to-learn-react/use-data-api). Don't forget to star it if you use it :-)
+We'll be using the [Hacker News API](https://hn.algolia.com/api) to fetch popular tech stories. By the end of this tutorial, you'll have created a reusable custom hook for data fetching that can be applied throughout your application.
 
-**Note:** In the future, React Hooks are not be intended for data fetching in React. Instead, a feature called Suspense will be in charge for it. The following walkthrough is nonetheless a great way to learn more about state and effect hooks in React.
+Our custom hook will replicate some of React Query's functionality but with a focus on mastering the basics of React Hooks. Once you've built it, you can easily swap in React Query if you wish.
 
 # Data Fetching with React Hooks
 
-If you are not familiar with data fetching in React, checkout my [extensive data fetching in React article](/react-fetching-data/). It walks you through data fetching with React class components, how it can be made reusable with [Render Prop Components](/react-render-props/) and [Higher-Order Components](/react-higher-order-components/), and how it deals with error handling and loading spinners. In this article, I want to show you all of it with React Hooks in function components.
+Let's start with our example of data fetching with React Hooks. We will mainly use React's built-in `useState` and `useEffect` hooks to manage the state of the data fetching process. React's useState Hook is used to manage the local state of the data that we are going to fetch while React's useEffect Hook is used to fetch the data from the API once the component mounts. But one step at a time.
 
-```javascript
-import React, { useState } from 'react';
+<ReadMore label="React's useState Hook" link="/react-usestate-hook/" />
 
-function App() {
-  const [data, setData] = useState({ hits: [] });
+<ReadMore label="React's useEffect Hook" link="/react-useeffect-hook/" />
+
+Let's start with the initial setup of a function component that renders a list:
+
+```tsx
+import { useState } from "react";
+
+type Story = {
+  objectID: string;
+  title: string;
+  url: string;
+};
+
+const App = () => {
+  const [data, setData] = useState<Story[]>([]);
 
   return (
     <ul>
-      {data.hits.map(item => (
+      {data.map((item) => (
         <li key={item.objectID}>
           <a href={item.url}>{item.title}</a>
         </li>
       ))}
     </ul>
   );
-}
+};
 
 export default App;
 ```
 
-The App component shows a list of items (hits = Hacker News articles). The state and state update function come from the state hook called `useState` that is responsible to manage the local state for the data that we are going to fetch for the App component. The initial state is an empty list of hits in an object that represents the data. No one is setting any state for this data yet.
+The App component renders an empty list of items. The state and state update function come from the state hook called `useState` that is responsible to manage the local state for the data that we are going to fetch for the App component. The initial state is an empty list that represents the data. No one is setting any state for this data yet.
 
-We are going to use [axios](https://github.com/axios/axios) to fetch data, but it is up to you to use another data fetching library or the native fetch API of the browser. If you haven't installed axios yet, you can do so by on the command line with `npm install axios`. Then implement your effect hook for the data fetching:
+<ReadMore label="Function Components in React" link="/react-function-component/" />
 
-```javascript{1,2,7,8,9,10,11,12,13}
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+<ReadMore label="How to render lists in React" link="/react-list-component/" />
 
-function App() {
-  const [data, setData] = useState({ hits: [] });
+We are going to use [axios](https://github.com/axios/axios) to fetch data, but it is up to you to use another data fetching library or [the native fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) of the browser. If you haven't installed axios yet, you can do so by on the command line with `npm install axios`. Then implement your effect hook for the data fetching which runs when the component renders:
+
+```tsx{1-2,4,11-15}
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+const API = "https://hn.algolia.com/api/v1/search";
+
+...
+
+const App = () => {
+  const [data, setData] = useState<Story[]>([]);
 
   useEffect(async () => {
-    const result = await axios(
-      'https://hn.algolia.com/api/v1/search?query=redux',
-    );
+    const result = await axios(`${API}?query=react`);
 
-    setData(result.data);
+    setData(result.data.hits);
   });
 
   return (
     <ul>
-      {data.hits.map(item => (
+      {data.map((item) => (
         <li key={item.objectID}>
           <a href={item.url}>{item.title}</a>
         </li>
       ))}
     </ul>
   );
-}
+};
 
 export default App;
 ```
 
-The effect hook called useEffect is used to fetch the data with axios from the API and to set the data in the local state of the component with the state hook's update function. The promise resolving happens with async/await.
+You may get the following error saying: "Uncaught TypeError: destroy is not a function". That's because the effect hook doesn't return a cleanup function. The effect hook should return a cleanup function or nothing. Promises and `useEffect(async () => ...)` are not supported. You can call an async function inside an effect to fix this:
 
-However, when you run your application, you should stumble into a nasty loop. The effect hook runs when the component mounts but also when the component updates. Because we are setting the state after every data fetch, the component updates and the effect runs again. It fetches the data again and again. That's a bug and needs to be avoided. **We only want to fetch data when the component mounts.** That's why you can provide an empty array as second argument to the effect hook to avoid activating it on component updates but only for the mounting of the component.
+```tsx{1-2,6,8}
+useEffect(() => {
+  const fetchData = async () => {
+    const result = await axios(`${API}?query=react`);
 
-```javascript{13}
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+    setData(result.data.hits);
+  };
 
-function App() {
-  const [data, setData] = useState({ hits: [] });
+  fetchData();
+});
+```
 
-  useEffect(async () => {
-    const result = await axios(
-      'https://hn.algolia.com/api/v1/search?query=redux',
-    );
+The effect hook called useEffect is used to fetch the data with axios from the API and to set the data in the local state of the component with the state hook's update function. The promise resolving happens with [async/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function).
 
-    setData(result.data);
-  }, []);
+However, when you run your application, you should stumble into a nasty loop. The effect hook runs when the component mounts but also when the component updates. Because we are setting the state after every data fetch, the component updates and the effect runs again. It fetches the data again and again. That's a bug and needs to be avoided. **We only want to fetch data when the component mounts.** That's why you can provide an empty array as second argument to the effect hook to avoid activating it on component updates but only for the mounting of the component:
 
-  return (
-    <ul>
-      {data.hits.map(item => (
-        <li key={item.objectID}>
-          <a href={item.url}>{item.title}</a>
-        </li>
-      ))}
-    </ul>
-  );
-}
+```tsx{9}
+useEffect(() => {
+  const fetchData = async () => {
+    const result = await axios(`${API}?query=react`);
 
-export default App;
+    setData(result.data.hits);
+  };
+
+  fetchData();
+}, []);
 ```
 
 The second argument can be used to define all the variables (allocated in this array) on which the hook depends. If one of the variables changes, the hook runs again. If the array with the variables is empty, the hook doesn't run when updating the component at all, because it doesn't have to watch any variables.
 
-There is one last catch. In the code, we are using async/await to fetch data from a third-party API. According to the documentation every function annotated with async returns an implicit promise: *"The async function declaration defines an asynchronous function, which returns an AsyncFunction object. An asynchronous function is a function which operates asynchronously via the event loop, using an implicit Promise to return its result. "*. However, an effect hook should return nothing or a clean up function. That's why you may see the following warning in your developer console log: **07:41:22.910 index.js:1452 Warning: useEffect function must return a cleanup function or nothing. Promises and useEffect(async () => ...) are not supported, but you can call an async function inside an effect.**. That's why using async directly in the `useEffect` function isn't allowed. Let's implement a workaround for it, by using the async function inside the effect.
+<ReadMore label="How to run React's useEffect only Update" link="/react-useeffect-only-on-update/" />
 
-```javascript{8,9,10,11,12,13,14,16}
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+<ReadMore label="How to run React's useEffect only Once" link="/react-useeffect-only-once/" />
 
-function App() {
-  const [data, setData] = useState({ hits: [] });
+That's data fetching with React hooks in a nutshell. But continue reading if you are interested in refetching data, error handling, loading indicators, how to trigger the data fetching from a form, and how to implement a reusable custom data fetching hook.
+
+# How to refetch data with React Hooks
+
+Great, we are fetching data once the component mounts. But what about using an input field to tell the API in which topic we are interested in? "React" is taken as default query. But what about topics related to "Next"?
+
+<ReadMore label="The Road to Next" link="https://www.road-to-next.com/" />
+
+Let's implement an input element to enable someone to fetch other stories than "React" stories. Therefore, introduce a new state and an [event handler](/react-event-handler/) for a new input field:
+
+```tsx{3,15-17,20-21,30}
+const App = () => {
+  const [data, setData] = useState<Story[]>([]);
+  const [search, setSearch] = useState("react");
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(
-        'https://hn.algolia.com/api/v1/search?query=redux',
-      );
+      const result = await axios(`${API}?query=react`);
 
-      setData(result.data);
+      setData(result.data.hits);
     };
 
     fetchData();
   }, []);
 
-  return (
-    <ul>
-      {data.hits.map(item => (
-        <li key={item.objectID}>
-          <a href={item.url}>{item.title}</a>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-export default App;
-```
-
-That's data fetching with React hooks in a nutshell. But continue reading if you are interested about error handling, loading indicators, how to trigger the data fetching from a form, and how to implement a reusable data fetching hook.
-
-# How to trigger a hook programmatically / manually?
-
-Great, we are fetching data once the component mounts. But what about using an input field to tell the API in which topic we are interested in? "Redux" is taken as default query. But what about topics about "React"? Let's implement an input element to enable someone to fetch other stories than "Redux" stories. Therefore, introduce a new state for the input element.
-
-```javascript{6,22,23,24,25,26}
-import React, { Fragment, useState, useEffect } from 'react';
-import axios from 'axios';
-
-function App() {
-  const [data, setData] = useState({ hits: [] });
-  const [query, setQuery] = useState('redux');
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(
-        'https://hn.algolia.com/api/v1/search?query=redux',
-      );
-
-      setData(result.data);
-    };
-
-    fetchData();
-  }, []);
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+  };
 
   return (
-    <Fragment>
-      <input
-        type="text"
-        value={query}
-        onChange={event => setQuery(event.target.value)}
-      />
+    <>
+      <input type="text" value={search} onChange={handleSearchChange} />
+
       <ul>
-        {data.hits.map(item => (
+        {data.map((item) => (
           <li key={item.objectID}>
             <a href={item.url}>{item.title}</a>
           </li>
         ))}
       </ul>
-    </Fragment>
+    </>
   );
-}
-
-export default App;
+};
 ```
 
-At the moment, both states are independent from each other, but now you want to couple them to only fetch articles that are specified by the query in the input field. With the following change, the component should fetch all articles by query term once it mounted.
+At the moment, both the `search` state is not used to fetch the `data` state. We only implemented a controlled input field that sets the `search` state and renders the value of the `search` state (in a controlled manner) in the input field again.
 
-```javascript{10}
-...
+<ReadMore label="Controlled Components in React" link="/react-controlled-components/" />
 
-function App() {
-  const [data, setData] = useState({ hits: [] });
-  const [query, setQuery] = useState('redux');
+But we want to fetch data based on the `search` state. With the following change, the component should fetch all stories by search term once it mounted:
+
+```tsx{3}
+useEffect(() => {
+  const fetchData = async () => {
+    const result = await axios(`${API}?query=${search}`);
+
+    setData(result.data.hits);
+  };
+
+  fetchData();
+}, []);
+```
+
+One piece is missing: When you type something into the input field, there is no other data fetching after the mounting triggered from the effect. That's because you have provided the empty array as second argument to React's useEffect.
+
+You mal also see the following warning with ESLint, because the effect runs on a stale closure: *"React Hook useEffect has a missing dependency: 'search'. Either include it or remove the dependency array"*.
+
+The effect "depends" on no outside variables (even though this is not true), so it is only triggered once when the component mounts. However, now the effect should depend on the search, because once the search term changes, the data should be refetched:
+
+```tsx{9}
+useEffect(() => {
+  const fetchData = async () => {
+    const result = await axios(`${API}?query=${search}`);
+
+    setData(result.data.hits);
+  };
+
+  fetchData();
+}, [search]);
+```
+
+The refetching of the data should work once you change the value in the input field. But that opens up another problem: On every character you type into the input field, the effect is triggered and executes another data fetching request.
+
+There are two solutions for this problem: Debouncing the input field or providing a button to trigger the data fetching manually. We will implement the latter here:
+
+```tsx{3-4,8,14,20-23,28-30}
+const App = () => {
+  const [data, setData] = useState<Story[]>([]);
+  const [search, setSearch] = useState("");
+  const [activeSearch, setActiveSearch] = useState("react");
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(
-        `http://hn.algolia.com/api/v1/search?query=${query}`,
-      );
+      const result = await axios(`${API}?query=${activeSearch}`);
 
-      setData(result.data);
+      setData(result.data.hits);
     };
 
     fetchData();
-  }, []);
+  }, [activeSearch]);
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+  };
+
+  const handleSearchSubmit = () => {
+    setActiveSearch(search);
+    setSearch("");
+  };
 
   return (
-    ...
-  );
-}
-
-export default App;
-```
-
-One piece is missing: When you try to type something into the input field, there is no other data fetching after the mounting triggered from the effect. That's because you have provided the empty array as second argument to the effect. The effect depends on no variables, so it is only triggered when the component mounts. However, now the effect should depend on the query. Once the query changes, the data request should fire again.
-
-```javascript{17}
-...
-
-function App() {
-  const [data, setData] = useState({ hits: [] });
-  const [query, setQuery] = useState('redux');
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(
-        `http://hn.algolia.com/api/v1/search?query=${query}`,
-      );
-
-      setData(result.data);
-    };
-
-    fetchData();
-  }, [query]);
-
-  return (
-    ...
-  );
-}
-
-export default App;
-```
-
-The refetching of the data should work once you change the value in the input field. But that opens up another problem: On every character you type into the input field, the effect is triggered and executes another data fetching request. How about providing a button that triggers the request and therefore the hook manually?
-
-```javascript{4,25,26,27}
-function App() {
-  const [data, setData] = useState({ hits: [] });
-  const [query, setQuery] = useState('redux');
-  const [search, setSearch] = useState('');
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(
-        `http://hn.algolia.com/api/v1/search?query=${query}`,
-      );
-
-      setData(result.data);
-    };
-
-    fetchData();
-  }, [query]);
-
-  return (
-    <Fragment>
-      <input
-        type="text"
-        value={query}
-        onChange={event => setQuery(event.target.value)}
-      />
-      <button type="button" onClick={() => setSearch(query)}>
+    <>
+      <input type="text" value={search} onChange={handleSearchChange} />
+      <button type="button" onClick={handleSearchSubmit}>
         Search
       </button>
 
-      <ul>
-        {data.hits.map(item => (
-          <li key={item.objectID}>
-            <a href={item.url}>{item.title}</a>
-          </li>
-        ))}
-      </ul>
-    </Fragment>
+      <ul>...</ul>
+    </>
   );
-}
+};
 ```
 
-Now, make the effect dependant on the search state rather than the fluctuant query state that changes with every key stroke in the input field. Once the user clicks the button, the new search state is set and should trigger the effect hook kinda manually.
+We made the effect dependant on the active search state rather than the fluctuant search state that changes with every key stroke in the input field. Once the user clicks the button, the new active search state is set and should re-trigger the effect hook while resetting the search state for the controlled input field to an empty string.
 
-```javascript{6,11,18}
-...
+<ReadMore label="React Batching" link="/react-batching/" />
 
-function App() {
-  const [data, setData] = useState({ hits: [] });
-  const [query, setQuery] = useState('redux');
-  const [search, setSearch] = useState('redux');
+That's if for the implicit programmatic data fetching with the effect hook. You can decide on which state the effect depends. Once you set this state on a click or in another side-effect, this effect will run again. In this case, if the active search state changes, the effect runs again to fetch stories from the API.
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(
-        `http://hn.algolia.com/api/v1/search?query=${search}`,
-      );
+# Fetching Data with Forms and React
 
-      setData(result.data);
-    };
+What about a form to fetch data? At the moment, we have only a combination of input field and button to fetch the data. Once you introduce more form elements though, you may want to wrap them with a native HTML form element:
 
-    fetchData();
-  }, [search]);
+```tsx{4,8,13,15-16}
+const App = () => {
+  ...
+
+  const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    setActiveSearch(search);
+    setSearch("");
+
+    event.preventDefault();
+  };
 
   return (
-    ...
-  );
-}
+    <>
+      <form onSubmit={handleSearchSubmit}>
+        <input type="text" value={search} onChange={handleSearchChange} />
+        <button type="submit">Search</button>
+      </form>
 
-export default App;
+      <ul>...</ul>
+    </>
+  );
+};
 ```
 
-Also the initial state of the search state is set to the same state as the query state, because the component fetches data also on mount and therefore the result should mirror the value in the input field. However, having a similar query and search state is kinda confusing. Why not set the actual URL as state instead of the search state?
+<ReadMore label="What is preventDefault() in React" link="/react-preventdefault/" />
 
-```javascript{4,5,6,10,16,28}
-function App() {
-  const [data, setData] = useState({ hits: [] });
-  const [query, setQuery] = useState('redux');
-  const [url, setUrl] = useState(
-    'https://hn.algolia.com/api/v1/search?query=redux',
-  );
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios(url);
-
-      setData(result.data);
-    };
-
-    fetchData();
-  }, [url]);
-
-  return (
-    <Fragment>
-      <input
-        type="text"
-        value={query}
-        onChange={event => setQuery(event.target.value)}
-      />
-      <button
-        type="button"
-        onClick={() =>
-          setUrl(`http://hn.algolia.com/api/v1/search?query=${query}`)
-        }
-      >
-        Search
-      </button>
-
-      <ul>
-        {data.hits.map(item => (
-          <li key={item.objectID}>
-            <a href={item.url}>{item.title}</a>
-          </li>
-        ))}
-      </ul>
-    </Fragment>
-  );
-}
-```
-
-That's if for the implicit programmatic data fetching with the effect hook. You can decide on which state the effect depends. Once you set this state on a click or in another side-effect, this effect will run again. In this case, if the URL state changes, the effect runs again to fetch stories from the API.
+Now the data fetching works as before, but this time with a form instead of the naive input field and button combination. You can press the "Enter" key on your keyboard too.
 
 # Loading Indicator with React Hooks
 
 Let's introduce a loading indicator to the data fetching. It's just another state that is managed by a state hook. The loading flag is used to render a loading indicator in the App component.
 
-```javascript{10,14,19,41,42,43,51}
-import React, { Fragment, useState, useEffect } from 'react';
-import axios from 'axios';
-
-function App() {
-  const [data, setData] = useState({ hits: [] });
-  const [query, setQuery] = useState('redux');
-  const [url, setUrl] = useState(
-    'https://hn.algolia.com/api/v1/search?query=redux',
-  );
+```tsx{3,10,15}
+const App = () => {
+  const [data, setData] = useState<Story[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const [search, setSearch] = useState("");
+  const [activeSearch, setActiveSearch] = useState("react");
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
 
-      const result = await axios(url);
+      const result = await axios(`${API}?query=${activeSearch}`);
 
-      setData(result.data);
+      setData(result.data.hits);
       setIsLoading(false);
     };
 
     fetchData();
-  }, [url]);
+  }, [activeSearch]);
 
-  return (
-    <Fragment>
-      <input
-        type="text"
-        value={query}
-        onChange={event => setQuery(event.target.value)}
-      />
-      <button
-        type="button"
-        onClick={() =>
-          setUrl(`http://hn.algolia.com/api/v1/search?query=${query}`)
-        }
-      >
-        Search
-      </button>
-
-      {isLoading ? (
-        <div>Loading ...</div>
-      ) : (
-        <ul>
-          {data.hits.map(item => (
-            <li key={item.objectID}>
-              <a href={item.url}>{item.title}</a>
-            </li>
-          ))}
-        </ul>
-      )}
-    </Fragment>
-  );
-}
-
-export default App;
+  ...
+};
 ```
 
-Once the effect is called for data fetching, which happens when the component mounts or the URL state changes, the loading state is set to true. Once the request resolves, the loading state is set to false again.
+Once the effect is called for data fetching, which happens when the component mounts or the active search state changes, the loading state is set to true. Once the request resolves, the loading state is set to false again.
+
+```tsx{2-4,10}
+<ul>
+  {isLoading ? (
+    <div>Loading ...</div>
+  ) : (
+    data.map((item) => (
+      <li key={item.objectID}>
+        <a href={item.url}>{item.title}</a>
+      </li>
+    ))
+  )}
+</ul>
+```
+
+With a conditional rendering we can now show either a loading indicator or the list of stories. The loading indicator is therefore only shown when the loading state is true.
+
+<ReadMore label="Conditional Rendering in React" link="/conditional-rendering-react/" />
 
 # Error Handling with React Hooks
 
-What about error handling for data fetching with a React hook? The error is just another state initialized with a state hook. Once there is an error state, the App component can render feedback for the user. When using async/await, it is common to use try/catch blocks for error handling. You can do it within the effect:
+What about error handling for data fetching with a React hook? The error is just another state. Once there is an error state, the App component can render feedback for the user. When using async/await, it is common to use try/catch blocks for error handling:
 
-```javascript{11,15,18,22,23,24,48}
-import React, { Fragment, useState, useEffect } from 'react';
-import axios from 'axios';
-
-function App() {
-  const [data, setData] = useState({ hits: [] });
-  const [query, setQuery] = useState('redux');
-  const [url, setUrl] = useState(
-    'https://hn.algolia.com/api/v1/search?query=redux',
-  );
+```tsx{4,11,14,18-20}
+const App = () => {
+  const [data, setData] = useState<Story[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+
+  const [search, setSearch] = useState("");
+  const [activeSearch, setActiveSearch] = useState("react");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -463,9 +360,9 @@ function App() {
       setIsLoading(true);
 
       try {
-        const result = await axios(url);
+        const result = await axios(`${API}?query=${activeSearch}`);
 
-        setData(result.data);
+        setData(result.data.hits);
       } catch (error) {
         setIsError(true);
       }
@@ -474,118 +371,48 @@ function App() {
     };
 
     fetchData();
-  }, [url]);
+  }, [activeSearch]);
 
-  return (
-    <Fragment>
-      <input
-        type="text"
-        value={query}
-        onChange={event => setQuery(event.target.value)}
-      />
-      <button
-        type="button"
-        onClick={() =>
-          setUrl(`http://hn.algolia.com/api/v1/search?query=${query}`)
-        }
-      >
-        Search
-      </button>
-
-      {isError && <div>Something went wrong ...</div>}
-
-      {isLoading ? (
-        <div>Loading ...</div>
-      ) : (
-        <ul>
-          {data.hits.map(item => (
-            <li key={item.objectID}>
-              <a href={item.url}>{item.title}</a>
-            </li>
-          ))}
-        </ul>
-      )}
-    </Fragment>
-  );
-}
-
-export default App;
+  ...
+};
 ```
 
-The error state is reset every time the hook runs again. That's useful because after a failed request the user may want to try it again which should reset the error. In order to enforce an error yourself, you can alter the URL into something invalid. Then check whether the error message shows up.
+The error state is reset every time the hook runs again. That's useful because after a failed request the user may want to try it again which should reset the error.
 
-# Fetching Data with Forms and React
-
-What about a proper form to fetch data? So far, we have only a combination of input field and button. Once you introduce more input elements, you may want to wrap them with a form element. In addition, a form makes it possible to trigger the button with "Enter" on the keyboard too.
-
-```javascript{6,7,8,9,10,16,17}
-function App() {
+```tsx{11}
+const App = () => {
   ...
 
   return (
-    <Fragment>
-      <form
-        onSubmit={() =>
-          setUrl(`http://hn.algolia.com/api/v1/search?query=${query}`)
-        }
-      >
-        <input
-          type="text"
-          value={query}
-          onChange={event => setQuery(event.target.value)}
-        />
+    <>
+      <form onSubmit={handleSearchSubmit}>
+        <input type="text" value={search} onChange={handleSearchChange} />
         <button type="submit">Search</button>
       </form>
 
       {isError && <div>Something went wrong ...</div>}
 
-      ...
-    </Fragment>
+      <ul>...</ul>
+    </>
   );
-}
+};
 ```
 
-But now the browser reloads when clicking the submit button, because that's the native behavior of the browser when submitting a form. In order to prevent the default behavior, we can invoke a function on the React event. That's how you do it in React class components too.
+In order to enforce an error yourself, you can alter the URL into something invalid. Then check whether the error message shows up.
 
-```javascript{6,9,10}
-function App() {
-  ...
+At this stage, you may want to look into replacing React's useState Hook with React's useReducer Hook, which would allow you to group all related states (i.e. data, loading, error) into one actionable state object with defined transitions.
 
-  return (
-    <Fragment>
-      <form onSubmit={event => {
-        setUrl(`http://hn.algolia.com/api/v1/search?query=${query}`);
+<ReadMore label="React's useReducer Hook" link="/react-usereducer-hook/" />
 
-        event.preventDefault();
-      }}>
-        <input
-          type="text"
-          value={query}
-          onChange={event => setQuery(event.target.value)}
-        />
-        <button type="submit">Search</button>
-      </form>
+<ReadMore label="useState vs useReducer" link="/react-usereducer-vs-usestate/" />
 
-      {isError && <div>Something went wrong ...</div>}
+# Data Fetching with Custom Hook
 
-      ...
-    </Fragment>
-  );
-}
-```
+In order to extract a custom hook for data fetching, move everything that belongs to the data fetching to its own function, also called custom hook. Also make sure you return all the necessary variables from the function that are used in the App component.
 
-Now the browser shouldn't reload anymore when you click the submit button. It works as before, but this time with a form instead of the naive input field and button combination. You can press the "Enter" key on your keyboard too.
-
-# Custom Data Fetching Hook
-
-In order to extract a custom hook for data fetching, move everything that belongs to the data fetching, except for the query state that belongs to the input field, but including the loading indicator and error handling, to its own function. Also make sure you return all the necessary variables from the function that are used in the App component.
-
-```javascript{1,28,29}
-const useHackerNewsApi = () => {
-  const [data, setData] = useState({ hits: [] });
-  const [url, setUrl] = useState(
-    'https://hn.algolia.com/api/v1/search?query=redux',
-  );
+```tsx{1,25-26}
+const useQuery = (activeSearch: string) => {
+  const [data, setData] = useState<Story[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -595,9 +422,9 @@ const useHackerNewsApi = () => {
       setIsLoading(true);
 
       try {
-        const result = await axios(url);
+        const result = await axios(`${API}?query=${activeSearch}`);
 
-        setData(result.data);
+        setData(result.data.hits);
       } catch (error) {
         setIsError(true);
       }
@@ -606,292 +433,126 @@ const useHackerNewsApi = () => {
     };
 
     fetchData();
-  }, [url]);
+  }, [activeSearch]);
 
-  return [{ data, isLoading, isError }, setUrl];
-}
+  return { data, isLoading, isError };
+};
 ```
 
-Now, your new hook can be used in the App component again:
+Now, your custom React hook can be used in the App component again:
 
-```javascript{3,8}
-function App() {
-  const [query, setQuery] = useState('redux');
-  const [{ data, isLoading, isError }, doFetch] = useHackerNewsApi();
+```tsx{5}
+const App = () => {
+  const [search, setSearch] = useState("");
+  const [activeSearch, setActiveSearch] = useState("react");
 
-  return (
-    <Fragment>
-      <form onSubmit={event => {
-        doFetch(`http://hn.algolia.com/api/v1/search?query=${query}`);
+  const { data, isLoading, isError } = useQuery(activeSearch);
 
-        event.preventDefault();
-      }}>
-        <input
-          type="text"
-          value={query}
-          onChange={event => setQuery(event.target.value)}
-        />
-        <button type="submit">Search</button>
-      </form>
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+  };
 
-      ...
-    </Fragment>
-  );
-}
+  const handleSearchSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    setActiveSearch(search);
+    setSearch("");
+
+    event.preventDefault();
+  };
+
+  return ( ... );
+};
 ```
 
-The initial state can be made generic too. Pass it simply to the new custom hook:
+But we want to make the hook more generic, because it depends on too many domain specific things (i.e. the API URL, the data structure of the result, the `Story` type).
 
-```javascript{4,5,6,34,35,36,37}
-import React, { Fragment, useState, useEffect } from 'react';
-import axios from 'axios';
+<ReadMore label="TypeScript Generics" link="/typescript-generics/" />
 
-const useDataApi = (initialUrl, initialData) => {
-  const [data, setData] = useState(initialData);
-  const [url, setUrl] = useState(initialUrl);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+Let's make the custom hook more generic, in a way that it can be used for any data fetching similar to React Query where we can pass a query key and a query function to the hook:
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsError(false);
-      setIsLoading(true);
-
-      try {
-        const result = await axios(url);
-
-        setData(result.data);
-      } catch (error) {
-        setIsError(true);
-      }
-
-      setIsLoading(false);
-    };
-
-    fetchData();
-  }, [url]);
-
-  return [{ data, isLoading, isError }, setUrl];
+```tsx{1-5,7-8,18,20,29}
+type UseQueryArgs<T> = {
+  queryKey: string[];
+  queryFn: () => Promise<T>;
+  initialData: T;
 };
 
-function App() {
-  const [query, setQuery] = useState('redux');
-  const [{ data, isLoading, isError }, doFetch] = useDataApi(
-    'https://hn.algolia.com/api/v1/search?query=redux',
-    { hits: [] },
-  );
+const useQuery = <T>({ queryFn, queryKey, initialData }: UseQueryArgs<T>) => {
+  const [data, setData] = useState<T>(initialData);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  return (
-    <Fragment>
-      <form
-        onSubmit={event => {
-          doFetch(
-            `http://hn.algolia.com/api/v1/search?query=${query}`,
-          );
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsError(false);
+      setIsLoading(true);
 
-          event.preventDefault();
-        }}
-      >
-        <input
-          type="text"
-          value={query}
-          onChange={event => setQuery(event.target.value)}
-        />
-        <button type="submit">Search</button>
-      </form>
+      try {
+        const result = await queryFn();
 
-      {isError && <div>Something went wrong ...</div>}
+        setData(result);
+      } catch (error) {
+        setIsError(true);
+      }
 
-      {isLoading ? (
-        <div>Loading ...</div>
-      ) : (
-        <ul>
-          {data.hits.map(item => (
-            <li key={item.objectID}>
-              <a href={item.url}>{item.title}</a>
-            </li>
-          ))}
-        </ul>
-      )}
-    </Fragment>
-  );
-}
+      setIsLoading(false);
+    };
 
-export default App;
+    fetchData();
+  }, [...queryKey]);
+
+  return { data, isLoading, isError };
+};
+```
+
+Now we can adjust the usage of the custom hook in the App component:
+
+```tsx{5-13}
+const App = () => {
+  const [search, setSearch] = useState("");
+  const [activeSearch, setActiveSearch] = useState("react");
+
+  const { data, isLoading, isError } = useQuery<Story[]>({
+    queryKey: [activeSearch],
+    queryFn: async () => {
+      const result = await axios(`${API}?query=${activeSearch}`);
+
+      return result.data.hits;
+    },
+    initialData: [],
+  });
+
+  ...
+};
 ```
 
 That's it for the data fetching with a custom hook. The hook itself doesn't know anything about the API. It receives all parameters from the outside and only manages necessary states such as the data, loading and error state. It executes the request and returns the data to the component using it as custom data fetching hook.
 
-# Reducer Hook for Data Fetching
+<ReadMore label="How to create a custom hook in React" link="/react-custom-hook/" />
 
-So far, we have used various state hooks to manage our data fetching state for the data, loading and error state. However, somehow all these states, [managed with their own state hook, belong together because they care about the same cause](/react-usereducer-vs-usestate/). As you can see, they are all used within the data fetching function. A good indicator that they belong together is that they are used one after another (e.g. `setIsError`, `setIsLoading`). Let's combine all three of them with a [Reducer Hook](/react-usereducer-hook/) instead.
+# Abort Data Fetching with React Hooks
 
-A Reducer Hook returns us a state object and a function to alter the state object. The function -- called dispatch function -- takes an action which has a type and an optional payload. All this information is used in the actual reducer function to distill a new state from the previous state, the action's optional payload and type. Let's see how this works in code:
+It's a common problem in React that component state is set even though the component got already unmounted (e.g. due to navigating away with React Router). Let's see how we can prevent to set state in our custom hook for the data fetching:
 
-```javascript{5,9,10,11,16,17,18,19,20}
-import React, {
-  Fragment,
-  useState,
-  useEffect,
-  useReducer,
-} from 'react';
-import axios from 'axios';
-
-const dataFetchReducer = (state, action) => {
+```tsx{5,14,16,24-26}
+const useQuery = <T>(...) => {
   ...
-};
-
-const useDataApi = (initialUrl, initialData) => {
-  const [url, setUrl] = useState(initialUrl);
-
-  const [state, dispatch] = useReducer(dataFetchReducer, {
-    isLoading: false,
-    isError: false,
-    data: initialData,
-  });
-
-  ...
-};
-```
-
-The Reducer Hook takes the reducer function and an initial state object as parameters. In our case, the arguments of the initial states for the data, loading and error state didn't change, but they have been aggregated to one state object managed by one reducer hook instead of single state hooks.
-
-```javascript{16,21,23}
-const dataFetchReducer = (state, action) => {
-  ...
-};
-
-const useDataApi = (initialUrl, initialData) => {
-  const [url, setUrl] = useState(initialUrl);
-
-  const [state, dispatch] = useReducer(dataFetchReducer, {
-    isLoading: false,
-    isError: false,
-    data: initialData,
-  });
-
-  useEffect(() => {
-    const fetchData = async () => {
-      dispatch({ type: 'FETCH_INIT' });
-
-      try {
-        const result = await axios(url);
-
-        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
-      } catch (error) {
-        dispatch({ type: 'FETCH_FAILURE' });
-      }
-    };
-
-    fetchData();
-  }, [url]);
-
-  ...
-};
-```
-
-Now, when fetching data, the dispatch function can be used to send information to the reducer function. The object being send with the dispatch function has a mandatory `type` property and an optional `payload` property. The type tells the reducer function which state transition needs to be applied and the payload can additionally be used by the reducer to distill the new state. After all, we only have three state transitions: initializing the fetching process, notifying about a successful data fetching result, and notifying about an erroneous data fetching result.
-
-In the end of the custom hook, the state is returned as before, but because we have a state object and not the standalone states anymore. This way, the one who calls the `useDataApi` custom hook still gets access to `data`, `isLoading` and `isError`:
-
-```javascript{12}
-const useDataApi = (initialUrl, initialData) => {
-  const [url, setUrl] = useState(initialUrl);
-
-  const [state, dispatch] = useReducer(dataFetchReducer, {
-    isLoading: false,
-    isError: false,
-    data: initialData,
-  });
-
-  ...
-
-  return [state, setUrl];
-};
-```
-
-Last but not least, the implementation of the reducer function is missing. It needs to act on three different state transitions called `FETCH_INIT`, `FETCH_SUCCESS` and `FETCH_FAILURE`. Each state transition needs to return a new state object. Let's see how this can be implemented with a switch case statement:
-
-```javascript{2,3,4,5,6,7,8,9,10,11}
-const dataFetchReducer = (state, action) => {
-  switch (action.type) {
-    case 'FETCH_INIT':
-      return { ...state };
-    case 'FETCH_SUCCESS':
-      return { ...state };
-    case 'FETCH_FAILURE':
-      return { ...state };
-    default:
-      throw new Error();
-  }
-};
-```
-
-A reducer function has access to the current state and the incoming action via its arguments. So far, in out switch case statement each state transition only returns the previous state. A destructuring statement is used to keep the state object immutable -- meaning the state is never directly mutated -- to enforce best practices. Now let's override a few of the current's state returned properties to alter the state with each state transition:
-
-```javascript{6,7,12,13,14,19,20}
-const dataFetchReducer = (state, action) => {
-  switch (action.type) {
-    case 'FETCH_INIT':
-      return {
-        ...state,
-        isLoading: true,
-        isError: false
-      };
-    case 'FETCH_SUCCESS':
-      return {
-        ...state,
-        isLoading: false,
-        isError: false,
-        data: action.payload,
-      };
-    case 'FETCH_FAILURE':
-      return {
-        ...state,
-        isLoading: false,
-        isError: true,
-      };
-    default:
-      throw new Error();
-  }
-};
-```
-
-Now every state transition, decided by the action's type, returns a new state based on the previous state and the optional payload. For instance, in the case of a successful request, the payload is used to set the data of the new state object.
-
-In conclusion, the Reducer Hook makes sure that this portion of the state management is encapsulated with its own logic. By providing action types and optional payloads, you will always end up with a predicatbale state change. In addition, you will never run into invalid states. For instance, previously it would have been possible to accidently set the `isLoading` and `isError` states to true. What should be displayed in the UI for this case? Now, each state transition defined by the reducer function leads to a valid state object.
-
-# Abort Data Fetching in Effect Hook
-
-It's a common problem in React that component state is set even though the component got already unmounted (e.g. due to navigating away with React Router). I have written about this issue previously over here which describes [how to prevent setting state for unmounted components](/react-warning-cant-call-setstate-on-an-unmounted-component/) in various scenarios. Let's see how we can prevent to set state in our custom hook for the data fetching:
-
-```javascript{11,19,21,23,25,31,32,33}
-const useDataApi = (initialUrl, initialData) => {
-  const [url, setUrl] = useState(initialUrl);
-
-  const [state, dispatch] = useReducer(dataFetchReducer, {
-    isLoading: false,
-    isError: false,
-    data: initialData,
-  });
 
   useEffect(() => {
     let didCancel = false;
 
     const fetchData = async () => {
-      dispatch({ type: 'FETCH_INIT' });
+      setIsError(false);
+      setIsLoading(true);
 
       try {
-        const result = await axios(url);
+        const result = await queryFn();
 
-        if (!didCancel) {
-          dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
-        }
+        if (!didCancel) setData(result);
       } catch (error) {
-        if (!didCancel) {
-          dispatch({ type: 'FETCH_FAILURE' });
-        }
+        if (!didCancel) setIsError(true);
       }
+
+      setIsLoading(false);
     };
 
     fetchData();
@@ -899,9 +560,9 @@ const useDataApi = (initialUrl, initialData) => {
     return () => {
       didCancel = true;
     };
-  }, [url]);
+  }, [...queryKey]);
 
-  return [state, setUrl];
+  return { data, isLoading, isError };
 };
 ```
 
@@ -909,6 +570,19 @@ Every Effect Hook comes with a clean up function which runs when a component unm
 
 *Note: Actually not the data fetching is aborted -- which could be achieved with [Axios Cancellation](https://github.com/axios/axios#cancellation) -- but the state transition is not performed anymore for the unmounted component. Since Axios Cancellation has not the best API in my eyes, this boolean flag to prevent setting state does the job as well.*
 
+# React Query
+
+Enter [React Query](https://tanstack.com/query) which is the most popular library for data fetching in React and is used by many developers and companies. In essence, React Query is a data fetching and state management library for React that provides a set of hooks for fetching, caching, and updating asynchronous data in your application.
+
+Let's replace our current custom hook with React Query. First, install React Query with `npm install @tanstack/react-query`. After setting up the `QueryClientProvider` with a `QueryClient` instance, replace the custom hook with the `useQuery` hook from React Query:
+
+```tsx{1-2}
+// import { useQuery } from "./use-query";
+import { useQuery } from "@tanstack/react-query";
+```
+
+Et voilà, you have replaced your custom hook with React Query. The `useQuery` hook from React Query is used in the same way as our custom hook, but it comes with many more features such as caching, polling, race condition prevention, and more.
+
 <Divider />
 
-You have learned how the React hooks for state and effects can be used in React for data fetching. If you are curious about data fetching in class components (and function components) with render props and higher-order components, checkout out my other article from the beginning. Otherwise, I hope this article was useful to you for learning about React Hooks and how to use them in a real world scenario.
+You can find the repository for this tutorial over [here](https://github.com/rwieruch/react-hooks-fetch-data). In this tutorial, you have learned how to use React hooks for managing state and effects to perform data fetching in React. Additionally, you've gained knowledge on building a custom hook for data fetching which you lastly replaced with React Query.
