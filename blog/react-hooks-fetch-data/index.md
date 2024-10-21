@@ -1,7 +1,7 @@
 ---
 title: "How to fetch data with React Hooks"
 description: "Learn the fundamentals about data fetching in client-side React with React Hooks ..."
-date: "2024-10-16T13:50:46+02:00"
+date: "2024-10-21T13:50:46+02:00"
 categories: ["React", "React Hooks"]
 keywords: ["react fetch data hooks"]
 hashtags: ["#ReactJs"]
@@ -16,9 +16,9 @@ In the world of client-side React, React Query is the industry standard for data
 
 <ReadMore label="How to fetch data in React" link="/react-fetching-data/" />
 
-We'll be using the [Hacker News API](https://hn.algolia.com/api) to fetch popular tech stories. By the end of this tutorial, you'll have created a reusable custom hook for data fetching that can be applied throughout your application.
+The custom hook that we are implementing here will eventually replicate some of React Query's functionality but with a focus on mastering the basics of React Hooks. Once you've built it, you can easily swap in React Query if you wish.
 
-Our custom hook will replicate some of React Query's functionality but with a focus on mastering the basics of React Hooks. Once you've built it, you can easily swap in React Query if you wish.
+We'll be using the [Hacker News API](https://hn.algolia.com/api) to fetch popular tech stories. By the end of this tutorial, you'll have created a reusable custom hook for data fetching that can be applied throughout your application.
 
 # Data Fetching with React Hooks
 
