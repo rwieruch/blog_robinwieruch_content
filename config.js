@@ -143,7 +143,7 @@ module.exports = {
       { to: '/work-with-me/', label: 'Hire' },
       { to: '/blog/', label: 'Blog' },
       { to: '/about/', label: 'About' },
-      { to: 'https://www.roadtoreact.com/', label: 'Learn React' },
+      { to: 'https://www.roadtoreact.com/', label: 'Learn' },
     ],
   },
 
