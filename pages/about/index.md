@@ -55,11 +55,11 @@ The following is a selection of my tools that I use for my professional work. Th
   * 16 GB RAM
   * 256 GB SSD
   * QWERTY = English (International)
-* [Laptop Stand](https://amzn.to/2SOhYGn) (the best thing to work in co-working spaces when not having an external display)
-* [Trackpad](https://amzn.to/2RwCPwg) and [Keyboard](https://amzn.to/2SPqZ1K)
-* [Headphones](https://amzn.to/2SPghIE)
-* [Display](https://amzn.to/2RChPEq)
-* [Microphone](https://amzn.to/2RAEu4g)
+* [Mobile Laptop Stand](https://amzn.to/40rR7VR)
+* [Trackpad](https://amzn.to/3UvgYZo) and [Keyboard](https://amzn.to/3UzaAA7)
+* Headphones: [Sennheiser Pro Audio Professional HD 25](https://amzn.to/3NPNYrr)
+* Display: [Dell UltraSharp 32 4k UHD](https://amzn.to/4hGfnKf)
+* Microphone: [Blue Yeti USB Microphone](https://amzn.to/4earBYg)
 
 ### Software
 

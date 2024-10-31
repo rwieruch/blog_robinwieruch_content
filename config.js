@@ -131,7 +131,7 @@ module.exports = {
     cta: 'Get the Book',
     ctaSecondary: 'Get it on Amazon.',
     url: 'https://www.roadtoreact.com/',
-    urlSecondary: 'https://amzn.to/2LHjxRB',
+    urlSecondary: 'https://amzn.to/4f3aPeV',
   },
 
   // Navigation
