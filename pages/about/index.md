@@ -37,13 +37,11 @@ In another life, I wanted to [do music](https://soundcloud.com/schlenkermitturnb
 
 The following is a selection of my tools that I use for my professional work. The links to the resources can be affiliate links or referral links. The former give me some provision, the latter provides you and me with a discount to a service or product. So most of the time it's a win-win situation and these affiliate links are one way to support me being self-employed. However, most importantly I hope that these resources help you to build your business.
 
-### Mac Setup
+### Web Development Setup
 
 * [Mac Setup for Web Development](/mac-setup-web-development/)
 
-### Technical Gear
-
-I have a couple of technical gadgets I heavily rely on:
+### Hardware
 
 * MacBook Pro 2021
   * 14-inch
@@ -63,23 +61,10 @@ I have a couple of technical gadgets I heavily rely on:
 * [Display](https://amzn.to/2RChPEq)
 * [Microphone](https://amzn.to/2RAEu4g)
 
-### Freelancers
+### Software
 
-If you are looking for top quality people to help you with your online business, checkout these people I worked with in the past. I highly recommend their skills and abilities to provide value to your company. Let them know that you heard about them from me :-)
-
-* **Online Marketing and Social Media:** [Liesa Wieruch](https://iamliesa.com/) helps individuals and companies growing their businesses regarding social media, influencer marketing, content production and distribution. Do you play with the idea to start a blog? Do you want to publish your own ebook? Or do you want to reach people on social social media? If you are looking for a person to help you in marketing and content, don't hesitate to contact her.
-
-* **Proofreader/Editor:** [Emmanuel Stalling](https://www.upwork.com/freelancers/~01a077db59edadc6c5) double checks all my tutorials, how-to guides and ebooks. I want to deliver high quality of educational content and Emmanuel makes sure that everything is well proofread and edited.
-
-* **Logo Design:** I worked with [Ahmad Foysal](https://www.upwork.com/freelancers/~0170e67141ec1ff11c) on my website's logo. His creative work and thought process are well suited to meet your needs if you are looking for a new logo or corporative brand design. If you want to see his previous work, ask him to send you his Behance account.
-
-### Digital Ocean
-
-When I revamped my website, I decided to use [Digital Ocean](https://m.do.co/c/fb27c90322f3) to host it. I don't regret it and can highly recommend it. It powers all my websites, APIs and applications by using only 3 Droplets (each $5 month). I believe one droplet would be sufficient, but I like to separate them by domain.
-
-### Email
-
-In order to use my own domain for my E-Mails, but also to keep my E-Mails private, secure and ad-free, I use [Fastmail](https://join.fastmail.com/9219c0b0).
+* [Fastmail](https://join.fastmail.com/9219c0b0) for E-Mail
+* [Digital Ocean](https://m.do.co/c/fb27c90322f3) for Hosting
 
 <Divider />
 
