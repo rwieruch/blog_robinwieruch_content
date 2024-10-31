@@ -17,7 +17,7 @@ author: ''
 
 <Sponsorship />
 
-After using the MacBook Pro 2015 for several years, I upgraded to a MacBook Pro 2022 a while ago. The years with my previous Mac were fantastic, and now, with the newer MacBook Pro, I continue to work efficiently on my freelance web development projects. My goal is to keep this MacOS setup for web development up-to-date for you. This is everything I got in 2024:
+After using the MacBook Pro 2015 for several years, I upgraded to a MacBook Pro 2021 a while ago. The years with my previous Mac were fantastic, and now, with the newer MacBook Pro, I continue to work efficiently on my freelance web development projects. My goal is to keep this MacOS setup for web development up-to-date for you. This is everything I got in 2024:
 
 # MacBook Pro Specification
 
@@ -799,4 +799,4 @@ That's it. You have a running version of Node.js and its package manager.
 
 <Divider />
 
-I hope my setup helps other developers to get their Mac up and running. If you have any additional ideas or want to share your setup, let me know!
+I hope my setup helps other developers to get their Mac up and running. If you have any additional ideas or want to share your setup, let me know! If you want to know more about my setup, check out my [about page](/about/).

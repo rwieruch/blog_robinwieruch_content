@@ -1,5 +1,5 @@
 ---
-date: "2024-01-01T13:35:13.234Z"
+date: "2024-10-30T13:35:13.234Z"
 title: "About Me"
 description: "Freelance React Developer for React and Next.js in JavaScript/TypeScript from Berlin (German/English). Consulting & Freelancing for Web Development: Full-Stack Applications, Code Audits & Reviews, Workshops, Training, MVPs ..."
 keywords: ["react freelance", "react freelancer", "react freelance developer"]
@@ -25,11 +25,11 @@ I try my best to have a positive impact on the world. 99% of my code is open sou
 
 Even though I do a lot of programming in my professional and spare time, there are other things I treasure too. I am an [avid reader](https://www.goodreads.com/author/show/16218990.Robin_Wieruch), but I’m always struggling to memorize my learnings. I guess, that's why I started to write down my notes of books I enjoyed to read. But it's difficult to keep up with all the books. Nowadays I often encourage people to read more, because it's such a fulfilling and meaningful activity. Some of my favorite pieces:
 
-* [Flow](http://amzn.to/2inl3w8) by Mihaly Csikszentmihalyi and [Deep Work](http://amzn.to/2AvNLTG) by Cal Newport ([notes](/lessons-learned-deep-work-flow/))
-* [Give and Take](http://amzn.to/2olhgRv) by Adam Grant ([notes](/lessons-learned-give-and-take/))
-* [The One Thing](http://amzn.to/2jR19Kj) by Gary Keller
-* [The Power of Habit](http://amzn.to/2AsuCUP) by Charles Duhigg
-* [On Writing Well](http://amzn.to/2AsoDzh) by William Zinsser [notes](https://www.robinwieruch.de/lessons-learned-on-writing-well/)
+* [Flow](https://amzn.to/4f4wTpH) by Mihaly Csikszentmihalyi and [Deep Work](https://amzn.to/3Aj4nS6) by Cal Newport ([notes](/lessons-learned-deep-work-flow/))
+* [Give and Take](https://amzn.to/4fhGMAc) by Adam Grant ([notes](/lessons-learned-give-and-take/))
+* [The One Thing](https://amzn.to/3C4v0L0) by Gary Keller
+* [The Power of Habit](https://amzn.to/3AlmRRO) by Charles Duhigg
+* [On Writing Well](https://amzn.to/48shEEy) by William Zinsser ([notes](https://www.robinwieruch.de/lessons-learned-on-writing-well/))
 
 In another life, I wanted to [do music](https://soundcloud.com/schlenkermitturnbeutel). But I avoided the stage at nightclubs when I got the first requests in my inbox. I preferred the anonymous internet over any stage. That's why I never revealed my identity back in the days and maybe that's why I never tried public speaking for conferences. Eventually, I decided to code and started to enjoy it too. Still, music is one reason why I am staying partly in Berlin. Nowhere else, I believe, will you find such a great selection of electronic music.
 
