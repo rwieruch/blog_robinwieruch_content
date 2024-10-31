@@ -68,4 +68,4 @@ The following is a selection of my tools that I use for my professional work. Th
 
 <Divider />
 
-Now you know a bit more about me :) Maybe some of the resources are useful for you as well. I hope to see you again on my website!
+Now you know a bit more about me! I hope that some of the resources, insights, and stories I've shared here can be useful or inspiring for you as well. My goal is to make this website a place where you feel welcome and find content that speaks to you. Thank you for visiting, and I hope to see you again soon – feel free to reach out or explore more while you're here!

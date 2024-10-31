@@ -257,7 +257,7 @@ brew install \
 - Pages
   - show word count
 - Apple Mail
-  - set up all email accounts
+  - set up all email accounts with [Fastmail](https://join.fastmail.com/9219c0b0) as provider of choice
   - show most recent message at top
   - undo send delay set to off
 - Notes
