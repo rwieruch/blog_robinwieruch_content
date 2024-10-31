@@ -79,7 +79,7 @@ When I revamped my website, I decided to use [Digital Ocean](https://m.do.co/c/f
 
 ### Email
 
-In order to use my own domain for my E-Mails, but also to keep my E-Mails private, secure and ad-free, I use [Fastmail](https://www.fastmail.com/?STKI=15690994).
+In order to use my own domain for my E-Mails, but also to keep my E-Mails private, secure and ad-free, I use [Fastmail](https://join.fastmail.com/9219c0b0).
 
 <Divider />
 
