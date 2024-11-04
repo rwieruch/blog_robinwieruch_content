@@ -65,7 +65,7 @@ But if the form submission fails, due to a validation or database error, the use
 
 Usually you would use React's [useActionState](https://react.dev/reference/react/useActionState) Hook to handle the server error and display a message to the user. But this does not (yet) prevent the form from being reset:
 
-```tsx{1,3,7-9,12,22}
+```tsx{1,3,7-9,12,21}
 "use client";
 
 import { useActionState } from "react";
