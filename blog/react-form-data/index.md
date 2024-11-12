@@ -17,8 +17,6 @@ When submitting a form in React with a form action, you may be confronted with t
 Let's start with a straight forward example where a user can create a invoice by using a form. When a user submits the form, the data is sent to the server with a form action:
 
 ```tsx
-"use client";
-
 import { createInvoice } from "../actions/create-invoice";
 
 const InvoiceCreateForm = () => {
