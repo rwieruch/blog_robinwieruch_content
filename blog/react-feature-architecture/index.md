@@ -100,7 +100,11 @@ const getPost = async (postId: string) => {
 
 Here again we want to keep the data fetching functions focused on their domain, so we might split the `getPost` function into two functions: a `getPost` function that fetches the post itself, and a `getComments` function that fetches the comments.
 
-This way we don't end up with permutations of nested relations in our data fetching functions (e.g. `getPostWithComments`, `getPostWithAuthor`) in a growing codebase. Let's start with the focused `getPost` function:
+This way we don't end up with permutations of nested relations in our data fetching functions (e.g. `getPostWithComments`) in a growing codebase.
+
+*Note: These kind of queries with joins will certainly become a part of your larger application, sometimes they are just necessary to improve the performance on complex pages, but if possible, I'd recommend to keep these query functions single purpose, lightweight, and descriptive as long as possible.*
+
+Let's start with the focused `getPost` function:
 
 ```ts{1,5}
 // src/features/post/queries/get-post.ts
@@ -127,7 +131,7 @@ const getComments = async (postId: string) => {
 }
 ```
 
-By not mixing features in components and data fetching functions, we will not have the problem of endless variations of nested relations in our data fetching functions. But now we have the disadvantage of having two focused requests instead of one request:
+By not mixing features in components and data fetching functions, we will not have the problem of endless variations (e.g. `getPostWithAuthor`) of nested relations in our data fetching functions. But now we have the disadvantage of having two focused requests instead of one request:
 
 ```tsx{5,11}
 import { Comments } from '@/features/comment/components/comments';
@@ -146,7 +150,7 @@ const Post = async ({ postId }: { postId: string }) => {
 }
 ```
 
-Now to improve performance, we could apply parallel instead of sequential data fetching for `post` and `comments` by using `Promise.all`. We will do this later in the article, for now we will focus on keeping the components and their data fetching functions focused on their feature.
+Now to improve performance, we could apply parallel (to be 100% correct: concurrent) instead of sequential data fetching for `post` and `comments` by using `Promise.all`. We will do this later in the article, for now we will focus on keeping the components and their data fetching functions focused on their feature.
 
 To decouple the post feature from the comment feature even more, we could initiate the data fetching in the Comments component itself. This way the Post component doesn't need to know about the comments at all and would only need to pass the `postId`:
 
@@ -214,6 +218,8 @@ const PostPage = async ({ postId }: { postId: string }) => {
 }
 ```
 
+In the case of the `comments` property, we could also use React's children prop, but I like to keep my props descriptive with a name that tells me what it is.
+
 Now we can go from sequential data fetching to parallel data fetching in the component:
 
 ```tsx{2-3,5-8}
@@ -278,4 +284,9 @@ We get the best of both worlds: a feature-based architecture that is easy to mai
 
 In addition, component composition allows us to make either the `Post` or the `Comments` component a Client Component without the other component suffering (i.e. becoming a Client Component too) from it.
 
-In a smaller React project, these steps might not be essential. However, in larger projects, it’s crucial to ensure that components and their associated logic (such as data fetching) remain focused on their specific domain. This approach helps prevent components within a vertical feature from becoming cluttered with unrelated logic.
+In a smaller React project, these steps might not be essential. However, in larger projects, it's crucial to ensure that components and their associated logic (such as data fetching) remain focused on their specific domain. This approach helps prevent components within a vertical feature from becoming cluttered with unrelated logic.
+
+There are exceptions though, as noted in the article, where you have to have query functions with joins to improve the performance on complex pages.
+
+In addition, this article should not encourage anyone to introduce the N+1 problem. While we are in this example on the individual PostPage where we only make one post request and one comments request, we do not want to go on the PostsPage to make a request for all posts and then a request for all comments of *each* post (read: N+1 problem). This is where the query functions with joins come into play. However, first it makes sense to evaluate whether fetching all comments for each post on this page is really necessary. Perhaps fetching the comments lazily with a hidden pane is a better solution.
+
