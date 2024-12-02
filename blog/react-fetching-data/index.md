@@ -128,6 +128,43 @@ If you are using a framework that supports React Server Components (e.g. Next.js
 
 From here you can enhance the UX by adding error handling or a loading state to the component. The latter can be achieved by using the [Suspense](https://react.dev/reference/react/Suspense) component from React.
 
+# React Suspense for Data Fetching
+
+React Suspense is a feature that allows you to suspend the rendering of a component until some asynchronous operation is done. It's a powerful feature that can be used for data fetching, code splitting, and more. Let's see how you can use Suspense for data fetching by enhancing the previous example:
+
+```tsx{1,4,9-11,16-26}
+import { Suspense } from "react";
+import { getPosts } from "@/features/post/queries/get-posts";
+
+const PostsPage = () => {
+  return (
+    <div>
+      <h1>React Server Component</h1>
+
+      <Suspense fallback={<div>Loading...</div>}>
+        <PostList />
+      </Suspense>
+    </div>
+  );
+};
+
+const PostList = async () => {
+  const posts = await getPosts();
+
+  return (
+    <ul>
+      {posts?.map((post) => (
+        <li key={post.id}>{post.title}</li>
+      ))}
+    </ul>
+  );
+}
+
+export default PostsPage;
+```
+
+Now the `Suspense` component will show the fallback UI (i.e. "Loading...") until the posts are fetched. This way you can enhance the user experience by showing a loading state while the data is being fetched in the PostList component which is wrapped by the `Suspense` component.
+
 # React Query for Data Fetching
 
 When it comes to client-side rendered (CSR) React applications (i.e. SPAs), the most recommended way to fetch data is by using a library like React Query. It's a powerful library that provides hooks to fetch, cache, and update data in your React applications:
@@ -346,7 +383,7 @@ Before we had data fetching libraries like React Query, developers would use `us
 
 But in any way, React beginners learn about this approach in The Road to React, because it's a good way to understand how data fetching works under the hood in a sophisticated library like React Query.
 
-<ReadMore label="Legacy: How to fetch data with React Class Components" link="/react-fetch-data-class-components/" />
+<ReadMore label="How to fetch data with React Class Components (Legacy)" link="/react-fetch-data-class-components/" />
 
 # tRPC for typed data fetching
 
