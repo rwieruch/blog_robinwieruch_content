@@ -338,7 +338,7 @@ export { PostList };
 
 Personally this feels a bit like a stepping stone towards asynchronous Client Components which are not available yet. Only Server Components, at the time of writing, can have the `async` keyword in their function signature. Once there are Async Client Components, we could omit the `use` API and just await the result from `getPosts` directly in the Client Component.
 
-# Hooks for Data Fetching
+# React Hooks for Data Fetching
 
 Instead of using a dedicated client-side data fetching library like React Query, one could implement their own data fetching logic with hooks. This is not recommended for production use, but it's a good way to learn the basics of data fetching in React:
 
