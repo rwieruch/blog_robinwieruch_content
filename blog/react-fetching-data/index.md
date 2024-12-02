@@ -423,6 +423,8 @@ The benefit of tRPC is that everything from data fetching functions to the data 
 
 So what's the recommended way for data fetching in React? It depends on your tech stack. If you are using a framework that supports React Server Components, I'd **strongly recommend** to fetch data on the server-side with RSC. If you are building a client-side rendered React application, you should use React Query for data fetching instead.
 
+<ReadMore label="Data Fetching Patterns in React" link="/react-data-fetching-patterns/" />
+
 If you are going the client-side data fetching approach in single page applications (SPAs), **React Query** is the way to go these days. There is no way around it, even in advanced server-side React applications (see below), because it handles lots of things (i.e. race conditions, caching, refetching, infinite scroll) for you.
 
 If you have RSC enabled *and* want to support more **advanced data fetching patterns** such as infinite scrolling, you *can* combine React Server Components with React Query. This way you can fetch initial data on the server-side and then use React Query for continued data fetching on the client-side.
