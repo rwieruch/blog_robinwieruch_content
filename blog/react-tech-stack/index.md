@@ -77,7 +77,9 @@ Let's dive into the short but comprehensive list.
 
 **Vercel (Hosting)**: I have been using Vercel for several years. Back then it was called Zeit and their service was called Now. They offer a great solution for hosting full-stack applications, however, I can also see why people are hesitant to use it. If you are looking for self-hosted alternative, I would recommend using [Hetzner](https://www.hetzner.com/)/[DigitalOcean](https://m.do.co/c/fb27c90322f3) with [Coolify](https://coolify.io/).
 
-**Domain**: I used different providers over the years, but I am pretty happy with CloudFlare to manage all of my domains these days. They offer a great UI and you can attach extra information to your DNS records which makes it easier to track your services.
+**CloudFlare (Domain)**: I used different providers over the years, but I am pretty happy with CloudFlare to manage all of my domains these days. They offer a great UI and you can attach extra information to your DNS records which makes it easier to track your services.
+
+**Stripe (Payment Gateway)**: I don't have a hard recommendation for a payment gateway. I have used Stripe for several years and I am happy with it. However, I can see why people are hesitant to use it, because even though they have a great documentation and a great API, they also increase their API and feature surface which can be overwhelming.
 
 **Testing & Tooling**: I don't have any hard recommendations for testing and tooling. I'd say these days a mix of React Testing Library and Cypress/Playwright is a good choice for testing. For tooling, I would recommend using ESLint (perhaps Biome in the future) and Prettier. Even though I'd hope for a good Storybook alternative, it is still my go-to solution for UI documentation. In addition I am using [tsx](https://www.npmjs.com/package/tsx) for executing TypeScript (e.g. database seeding) from the terminal.
 
