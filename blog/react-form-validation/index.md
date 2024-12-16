@@ -330,7 +330,7 @@ return (
 
 From here you can optionally install your favorite UI library and replace the Label, Input, and Button components with your UI library components.
 
-Essentially you have built a form with server-side validation in React without a form library. If you don't have lots of load on your server and you are okay for your users to have the validation roundtrip to the server, this is a minimal setup for form validation in React.
+Essentially you have built a form with server-side validation in React without a form library. If you don't have lots of load on your server and you are okay for your users to have the validation roundtrip to the server, this is a minimal setup for form validation in a server-driven React application.
 
 You can extend it with client-side validation to improve the user experience and to decrease the server load, which we will cover next.
 
@@ -356,7 +356,7 @@ We will extend the form component with client-side validation. In its simplest f
 
 Unfortunately, the native HTML validation gives not much control over customizations. If you need more control with client-side JavaScript, remove the native HTML validation.
 
-Next extract the schema from the server-side validation into a separate file away from the server action, because it cannot be exported from there. Later we can reuse it this way for the client-side validation:
+Now we will extract the schema from the server-side validation into a separate file away from the server action, because it cannot be exported from there. Later we can reuse the schema this way for the client-side validation:
 
 ```ts
 import { z } from "zod";
@@ -370,7 +370,7 @@ export const createInvoiceSchema = zfd.formData({
 });
 ```
 
-Now we will introduce an event handler on the form component to validate the form data with the schema on the client-side before sending the form data to the server action:
+Next we will introduce an event handler on the form component to validate the form data with the schema on the client-side before sending the form data to the server action:
 
 ```tsx{1}
 <form action={formAction} onSubmit={handleSubmit}>
@@ -412,7 +412,7 @@ const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 };
 ```
 
-No we can display the client-side validation errors next to the form fields if there are any. Otherwise we check for the server-side validation errors:
+Now we can display the client-side validation errors next to the form fields if there are any. Otherwise we check for the server-side validation errors:
 
 ```tsx{3,7}
 <label htmlFor="title">Title:</label>
@@ -438,57 +438,3 @@ This is client-side form validation without a form library in a nutshell. You ca
 <Divider />
 
 In the end I am not saying you shouldn't use a form library for client-side (or server-side) form validation, however, I just wanted to make a point against premature abstractions that are not needed for many React applications out there. Start simple and always re-evaluate if you need a form library in your React application.
-
-
-🌶️ React Take
-
-You might not need a form library 🫠 It's surprising to me how many developers see a form library as essential. [see 0 in replies]
-
-Yes, they're useful for complex form related needs, but they don't need to be the default for every project.
-
-There are different stages of a product and it depends on the resources (i.e. time, money, developers) you have when launching it and the final scope (i.e. small sized vs large scale product).
-
-This would be my rough outline:
-
-1️⃣ The MVP: Go with server actions and server-side validation.
-
-Negative impacts (which should not matter for a MVP):
-
-- Higher server load.
-- Delayed user feedback.
-
-See screenshot 👇
-
-2️⃣ The MVE: Add client-side validation with native HTML attributes.
-
-Negative impacts (which should not matter for a small user base):
-
-- Not much control over customization (i.e. style).
-- Not much API surface for native HTML validation.
-
-3️⃣ The MVE+: Add client-side validation with JavaScript without a form library.
-
-Negative impacts:
-
-- You create your own little abstraction ...
-- ... but you have control over what you actually need.
-- And when you have the right abstractions in place ...
-- ... you can swap it any time with a form library later.
-
-See tutorial [1] in replies 👇
-
-4️⃣ The Product:
-
-If your forms are complex, not because they have many fields, but because you genuinely need the advanced features a form library provides, then using a form library is the right choice.
-
-❗ If you are working in a team of developers, they should not be required to learn a custom abstraction. Here a form library, whether you use all of its features or not, is a common ground for everyone.
-
-💰 If you have sufficient resources when launching a new product, then go with a form library from the beginning.
-
-Essentially this reflects a debate between founder and developer. The founder wants to get the product off the ground as soon as possible, while the developer wants to build a solid foundation for the future. Both are right, but it depends on the context.
-
-As a freelance developer I see too many products not getting market fit, because developers who don't have any stake in the company over-engineer the product. It's a common pitfall in software development.
-
-So I am not arguing against form libraries here, they definitely have their place. But I think there is this misconception that you need a form library for every React project as the default requirement.
-
-You don't. Start simple and get your product off the ground 🚀
