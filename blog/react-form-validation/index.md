@@ -23,7 +23,7 @@ Once the server-side feedback is in place, you can be assured that all the happy
 
 **DX/UX**: You create an end-to-end implementation which allows you to provide the user with feedback beyond forms (e.g. 401, 404 status codes). Often feedback from erroneous operations is an afterthought, but it is crucial for the user experience.
 
-**Public APIs**: Structured and thought-out feedback (field errors, authorization errors, ...) from the server allows you to provide a consistent public API for any client to interact with your application.
+**Public APIs**: Structured feedback (field errors, authorization errors, ...) from the server allows you to provide a consistent public API for any client to interact with your application.
 
 **Reusability**: You can use the same schema validation for the server and the client. This way you can ensure that the validation rules are consistent across the stack and for other clients like mobile or desktop applications.
 
@@ -33,11 +33,11 @@ Once the server-side feedback is in place, you can be assured that all the happy
 
 **Performance**: Client-side validation reduces the server load by preventing unnecessary requests to the server.
 
-## Why you should opt-in a form library later?
+## Why you may want to opt-in a form library?
 
 **Do not reinvent the wheel**: Form libraries provide a lot of features out of the box without the need to create a custom solution. If you need these features, you should go with a form library. But it's important to note that a form library does not help you with the general feedback from the server, so we already established a foundation for it.
 
-**Common ground**: If you are working in a team, it is crucial to have a common ground for form handling with a form library. Be it robustness, documentation, or features, a form library can provide a common ground for the team.
+**Common ground**: When working in a team, it's essential to establish a common ground for form handling, and a form library can serve as the foundation. Whether it's for robustness, comprehensive documentation, or advanced features, a form library ensures consistency and provides a shared framework that the entire team can rely on.
 
 **UX**: Form libraries often provide a better user experience out of the box. They can handle form validation on change, on blur, or on submit. They can provide feedback in real-time, which is a great user experience.
 
