@@ -15,7 +15,7 @@ author: ""
 
 When I have written about my [React tech stack](/react-tech-stack/) for next year, lots of developers [[0](https://x.com/rwieruch/status/1866525030948929833), [1](https://www.linkedin.com/posts/robin-wieruch-971933a6_the-tech-stack-id-use-in-2025-nextjs-activity-7272290225891028993-VZol)] were almost confused by my suggestion that you might not need a form library in React.
 
-In my experience, developers have often overcomplicated form handling (in React). Many immediately install a form library alongside their initial React setup. However, I believe most forms can be effectively managed in React without a form library, at least until they reach a certain level of complexity or a certain number of users where client-side validation is needed to mitigate the server load and to improve the user experience.
+In my experience, developers have often overcomplicated form handling (in React). Many immediately install a form library alongside their initial React setup. However, I believe most forms can be effectively managed in React without a form library, at least until they reach a certain level of complexity.
 
 Let's dive into it here. We will start with a baseline of a React Form and a React Server Action. Let's start with the React Form Component:
 
