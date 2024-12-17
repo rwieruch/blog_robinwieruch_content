@@ -165,7 +165,7 @@ export const createInvoice = async (formData: FormData) => {
 };
 ```
 
-Whether we  follow the happy or unhappy path, we are returning an object which has a message and fieldErrors property.
+Whether we  follow the happy or unhappy path, we are returning an object which has a message and fieldErrors property. This object can be extended as needed (e.g. `data`, `status`), but it ensures that the API always returns the same structure.
 
 The `message` property is a general message for the user (which could be displayed as a toast message), while the `fieldErrors` property is a dictionary of the form field names and their respective error messages (which could be displayed next to the form fields).
 
