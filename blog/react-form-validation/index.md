@@ -13,9 +13,35 @@ author: ""
 
 <Sponsorship />
 
-When I have written about my [React tech stack](/react-tech-stack/) for next year, lots of developers [[0](https://x.com/rwieruch/status/1866525030948929833), [1](https://www.linkedin.com/posts/robin-wieruch-971933a6_the-tech-stack-id-use-in-2025-nextjs-activity-7272290225891028993-VZol)] were almost confused by my suggestion that you might not need a form library in React.
+In a server-driven React world with Server Components and Server Actions, the frontend is seamlessly and type-safely connected to the backend. Since providing server-side feedback is inevitable, whether for authorization, authentication, or other business logic, it makes sense to extend this approach to form validation too.
 
-In my experience, developers have often overcomplicated form handling (in React). Many immediately install a form library alongside their initial React setup. However, I believe most forms can be effectively managed in React without a form library, at least until they reach a certain level of complexity or until there needs to be a common ground for form handling across a team.
+That's why my approach to form validation in full-stack React applications is server-side first, removing the need for a form library at the start. When extending validation to the client-side, you have the flexibility to opt-in a form library.
+
+Once the server-side feedback is in place, you can be assured that all the happy and unhappy paths where a user interacts with the backend are covered from an architectural perspective. This is a great foundation to build upon and to extend with client-side validation.
+
+## What are the benefits of server-side form validation first?
+
+**DX/UX**: You create an end-to-end implementation which allows you to provide the user with feedback beyond forms (e.g. 401, 404 status codes). Often feedback from erroneous operations is an afterthought, but it is crucial for the user experience.
+
+**Public APIs**: Structured and thought-out feedback (field errors, authorization errors, ...) from the server allows you to provide a consistent public API for any client to interact with your application.
+
+**Reusability**: You can use the same schema validation for the server and the client. This way you can ensure that the validation rules are consistent across the stack and for other clients like mobile or desktop applications.
+
+## Why do we need client-side form validation?
+
+**UX**: Due to the missing roundtrip to the server, client-side validation provides instant feedback to the user.
+
+**Performance**: Client-side validation reduces the server load by preventing unnecessary requests to the server.
+
+## Why you should opt-in a form library later?
+
+**Do not reinvent the wheel**: Form libraries provide a lot of features out of the box without the need to create a custom solution. If you need these features, you should go with a form library. But it's important to note that a form library does not help you with the general feedback from the server, so we already established a foundation for it.
+
+**Common ground**: If you are working in a team, it is crucial to have a common ground for form handling with a form library. Be it robustness, documentation, or features, a form library can provide a common ground for the team.
+
+**UX**: Form libraries often provide a better user experience out of the box. They can handle form validation on change, on blur, or on submit. They can provide feedback in real-time, which is a great user experience.
+
+<Divider />
 
 Let's dive into it here. We will start with a baseline of a React Form and a React Server Action. Let's start with the React Form Component:
 
@@ -77,7 +103,7 @@ We are already extracting the form data from the form and validating it with a s
 
 <ReadMore label="Read more about Form Data in React" link="/react-form-data/" />
 
-Let's start with server-side validation followed by optional client-side validation in React.
+Let's start with server-side validation followed by client-side form validation in React.
 
 # Server-Side Form Validation in React
 
@@ -330,9 +356,7 @@ return (
 
 From here you can optionally install your favorite UI library and replace the Label, Input, and Button components with your UI library components.
 
-Essentially you have built a form with server-side validation in React without a form library. If you don't have lots of load on your server and you are okay for your users to have the validation roundtrip to the server, this is a minimal setup for form validation in a server-driven React application.
-
-You can extend it with client-side validation to improve the user experience and to decrease the server load, which we will cover next.
+Essentially you have built a form with server-side validation in React without a form library. You can extend it with client-side validation to improve the user experience and to decrease the server load, which we will cover next.
 
 # Client-Side Form Validation in React
 
@@ -433,8 +457,10 @@ And for the general message, that could be shown as a toast feedback, or below t
 {validation ? validation.message : actionState.message}
 ```
 
-This is client-side form validation without a form library in a nutshell. You can extend it with more complex validation rules, custom error messages, and more sophisticated error handling. But for most forms, this is already a good starting point. With this foundation, you could also replace the form validation on submission with form validation on change or on blur.
+This is client-side form validation without a form library in a nutshell. You can extend it with more complex validation rules, custom error messages, and more sophisticated error handling. With this foundation, you could also replace the form validation on submission with form validation on change or on blur.
+
+I'd recommend to use a form library when you need more complex form validation rules, custom error messages, or a better user experience out of the box. But for simple forms, you might not need a form library at all.
 
 <Divider />
 
-In the end I am not saying you shouldn't use a form library for client-side (or server-side) form validation, however, I just wanted to make a point against premature abstractions that are not needed for many React applications out there. Start simple and always re-evaluate if you need a form library in your React application.
+Server-side feedback is essential in a full-stack application. It offers consistent feedback to users and provides a structured API for any client interacting with your application. Starting with server-side validation ensures that all user interactions with the backend, both successful and error-prone, are properly handled from an architectural standpoint. This creates a solid foundation that can be easily extended with client-side validation.
