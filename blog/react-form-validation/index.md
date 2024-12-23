@@ -1,6 +1,5 @@
 ---
-# title: "React Form Validation"
-title: "You might not need a React Form Library"
+title: "React Form Validation"
 description: "How to validate forms in React without a form library on the server and the client ..."
 date: "2024-12-16T07:50:46+02:00"
 categories: ["React"]
