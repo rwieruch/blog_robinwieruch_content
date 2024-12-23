@@ -1,7 +1,7 @@
 ---
 title: "React Function Components"
-description: "Everything you need to know about React Function Components -- also known as React Functional Components. Here you will learn React Function Components by example with step by step ..."
-date: "2019-03-18T07:50:46+02:00"
+description: "Everything you need to know about React Function Components, also known as React Functional Components. Here you will learn React Function Components by example with step by step ..."
+date: "2024-12-23T07:50:46+02:00"
 categories: ["React"]
 keywords: ["react function component", "react functional component", "react arrow function component", "react js function component"]
 hashtags: ["#ReactJs"]
@@ -12,19 +12,15 @@ author: ""
 
 <Sponsorship />
 
-React Function Components -- also known as React Functional Components -- are the status quo of writing modern React applications. In the past, there have been various [React Component Types](/react-component-types/), but with the introduction of [React Hooks](/react-hooks/) it's possible to write your entire application with just functions as React components.
+React Function Components, also known as **React Functional Components**, are the status quo for writing modern React applications. In the past, there have been various [React Component Types](/react-component-types/), but with the introduction of React Hooks it's possible to write your entire application with just functions as React components.
 
-This in-depth guide shows you everything about React Function Components -- which are basically **just JavaScript Functions being React Components** which return JSX (React's Syntax) -- so that after you have read this tutorial you should be well prepared to implement modern React applications with them.
+<ReadMore label="Introduction to React Hooks" link="/react-hooks/" />
 
-*Note: There are several synonyms for this kind of component in React. You may have seen different variations such as "React Function only Component" or "React Component as Function".*
-
-# Table of Contents
-
-<TableOfContents {...props} />
+This in-depth guide shows you everything about React Function Components, which are basically **just JavaScript Functions being React Components** which return JSX (React's Template Syntax), so that after you have read this tutorial you should be well prepared to implement modern React applications with them.
 
 # React Function Component Example
 
-Let's start with a simple example of a Functional Component in React defined as App which returns JSX:
+Let's start with a simple example of a Functional Component in React defined as App component which returns JSX:
 
 ```javascript
 import React from 'react';
@@ -38,11 +34,11 @@ function App() {
 export default App;
 ```
 
-That's already the essential React Function Component Syntax. The definition of the component happens with just a JavaScript Function which has to return JSX -- React's syntax for defining a mix of HTML and JavaScript whereas the JavaScript is used with curly braces within the HTML. In our case, we render a variable called *greeting*, which is defined in the component's function body, and is returned as HTML headline in JSX.
+That's already the essential **React Function Component syntax**. The definition of the component happens with just a JavaScript function which returns JSX, React's syntax for defining a mix of HTML and JavaScript whereas the JavaScript is used with curly braces within the HTML. In our case, we render a variable called *greeting*, which is defined in the component's function body, and is returned as HTML headline in JSX.
 
-*Note: If you are familiar with React Class Components, you may have noticed that a Functional Component is a React Component without render function. Everything defined in the function's body is the render function which returns JSX in the end.*
+<ReadMore label="React Component vs React Element" link="/react-element-component/" />
 
-Now, if you want to render a React Component inside a Function Component, you define another component and render it as HTML element with JSX within the other component's body:
+Now, if you want to render a React Component inside a Function Component, you define another component and render it as React element with JSX:
 
 ```javascript{4,7,8,9,10,11}
 import React from 'react';
@@ -60,11 +56,13 @@ function Headline() {
 export default App;
 ```
 
-Basically you have a function as Child Component now. Defining React Components and rendering them within each other makes [Composition in React](/react-component-composition/) possible. You can decide where to render a component and how to render it.
+Basically you have a function as a Child Component now. Defining React Components and rendering them within each other makes composition in React possible. You can decide where to render a component and how to render it.
+
+<ReadMore label="React Component Composition" link="/react-component-composition/" />
 
 # React Function Component: props
 
-Let's learn about a React Function Component with props. In React, [props are used to pass information from component to component](/react-pass-props-to-component/). If you don't know about props in React, cross-read the linked article. Essentially props in React are always passed down the component tree:
+Let's learn about a React Function Component with props. In React, props are used to pass information from component to component. If you don't know about props in React, cross-read the linked article. Essentially props in React are always passed down the component tree:
 
 ```javascript{4,6,9,10}
 import React from 'react';
@@ -83,6 +81,8 @@ export default App;
 ```
 
 Props are the React Function Component's parameters. Whereas the component can stay generic, we decide from the outside what it should render (or how it should behave). When rendering a component (e.g. Headline in App component), you can pass props as HTML attributes to the component. Then in the Function Component the props object is available as argument in the function signature.
+
+<ReadMore label="How to pass props in React Components" link="/react-pass-props-to-component/" />
 
 Since props are always coming as object, and most often you need to extract the information from the props anyway, [JavaScript object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Object_destructuring) comes in handy. You can directly use it in the function signature for the props object:
 
@@ -108,7 +108,11 @@ If you want to learn more tricks and tips about React props, again check out the
 
 # React Arrow Function Component
 
-With the introduction of JavaScript ES6, [new coding concepts were introduced to JavaScript and therefore to React](/javascript-fundamentals-react-requirements/). For instance, a JavaScript function can be expressed as lambda ([arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)). That's why a Function Component is sometimes called Arrow Function Components (or maybe also Lambda Function Component). Let's see our refactored React Component with an Arrow Function:
+With the introduction of JavaScript ES6, [new coding concepts were introduced to JavaScript and therefore to React](/javascript-fundamentals-react-requirements/). For instance, a JavaScript function can be expressed as lambda ([arrow function](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions)).
+
+That's why a Function Component is sometimes called **Arrow Function Component** or **Arrow Function Expression Component** (or rarely Lambda Function Component).
+
+Let's see our refactored React Component with an Arrow Function Expression:
 
 ```javascript{3,9}
 import React from 'react';
@@ -126,7 +130,7 @@ const Headline = ({ value }) => {
 export default App;
 ```
 
-Both React Arrow Function Components use a function block body now. However, the second component can be made more lightweight with a concise body for the function, because it only returns the output of the component without doing something else in between. When leaving away the curly braces, the explicit return becomes an implicit return and can be left out as well:
+Both React Arrow Function Components use a function block body now. However, the second component can optionally be made more lightweight with a concise body for the function, because it only returns the output of the component without doing something else in between. When leaving away the curly braces, the explicit return becomes an implicit return and can be left out as well:
 
 ```javascript{9,10}
 import React from 'react';
@@ -145,15 +149,19 @@ export default App;
 
 When using arrow functions for React components, nothing changes for the props. They are still accessible as arguments as before. It's a React Function Component with ES6 Functions expressed as arrows instead of ES5 Functions which are the more default way of expressing functions in JS.
 
-*Note: If you run into a "React Component Arrow Function Unexpected Token" error, make sure that JavaScript ES6 is available for your React application. Normally when using create-react-app this should be given, otherwise, if you set up the project yourself, [Babel is enabling ES6 and beyond features for your React application](/minimal-react-webpack-babel-setup/).*
+<ReadMore label="Modern React Starters" link="/react-starter/" />
+
+*Note: If you run into a "React Component Arrow Function Unexpected Token" error, make sure that JavaScript ES6 is available for your React application. Normally when using modern tooling this should be given, otherwise, if you set up the project yourself, [Babel is enabling ES6 and beyond features for your React application](/minimal-react-webpack-babel-setup/).*
 
 # React Stateless Function Component
 
-Every component we have seen so far can be called Stateless Function Component. They just receive an input as props and return an output as JSX: `(props) => JSX`. The input, only if available in form of props, shapes the rendered output. These kind of components don't manage state and don't have any side-effects (e.g. accessing the browser's local storage). People call them Functional Stateless Components, because they are stateless and expressed by a function. However, React Hooks made it possible to have state in Function Components.
+Every component we have seen so far can be called **Stateless Function Component**. They just receive an input as props and return an output as JSX: `(props) => JSX`. The input, only if available in form of props, shapes the rendered output. These kind of components don't manage state and don't have any side-effects (e.g. accessing the browser's local storage).
+
+People call them **Functional Stateless Components**, because they are stateless and expressed by a function. However, React Hooks made it possible to have state in Function Components.
 
 # React Function Component: state
 
-[React Hooks](/react-hooks/) made it possible to use state (and side-effects) in Function Components. Finally we can create a React Function Component with state! Let's say we moved all logic to our other Function Component and don't pass any props to it:
+React Hooks made it possible to use state (and side-effects) in Function Components. Finally we can create a React Function Component with state! Let's say we moved all logic to our other Function Component and don't pass any props to it:
 
 ```javascript
 import React from 'react';
@@ -191,7 +199,7 @@ const Headline = () => {
 export default App;
 ```
 
-The useState hook takes an initial state as parameter and returns an array which holds the current state as first item and a function to change the state as second item. We are using [JavaScript array destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to access both items with a shorthand expression. In addition, the destructuring lets us name the variables ourselves.
+The [useState](/react-usestate-hook/) hook takes an initial state as parameter and returns an array which holds the current state as first item and a function to change the state as second item. We are using [JavaScript array destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to access both items with a shorthand expression. In addition, the destructuring lets us name the variables ourselves.
 
 Let's add an input field to change the state with the `setGreeting()` function:
 
@@ -214,7 +222,7 @@ const Headline = () => {
       <input
         type="text"
         value={greeting}
-        onChange={event => setGreeting(event.target.value)}
+        onChange={(event) => setGreeting(event.target.value)}
       />
     </div>
   );
@@ -227,13 +235,13 @@ By providing an event handler to the input field, we are able to do something wi
 
 *Note: The input field receives the value of the component state too, because you want to control the state (value) of the input field and don't let the native HTML element's internal state take over. Doing it this way, the component has become a [controlled component](/react-controlled-components/).*
 
-As you have seen, React Hooks enable us to use state in React (Arrow) Function Components. Whereas you would have used a setState method to write state in a Class Component, you can use the useState hook to write state in a Function Component.
-
 *Note: If you want to use [React's Context](/react-context/) in Function Components, check out [React's Context Hook called useContext](/react-usecontext-hook/) for reading from React's Context in a component.*
 
 # React Function Component: Event Handler
 
-In the previous example you have used an *onChange* event handler for the input field. That's appropriate, because you want to be notified every time the internal value of the input field has changed. In the case of other HTML form elements, you have several other [React event handlers](https://reactjs.org/docs/handling-events.html) at your disposal such as onClick, onMouseDown, and onBlur.
+In the previous example you have used an *onChange* event handler for the input field. That's appropriate, because you want to be notified every time the internal value of the input field has changed. In the case of other HTML form elements, you have several other React event handlers at your disposal such as onClick, onMouseDown, and onBlur.
+
+<ReadMore label="Event Handler in React" link="/react-event-handler/" />
 
 *Note: The onChange event handler is only one of the handlers for HTML form elements. For instance, a button would offer an onClick event handler to react on click events.*
 
@@ -384,30 +392,6 @@ const Button = ({ handleClick = () => console.log('Default') }) => (
 export default App;
 ```
 
-You can also give a React Function Component default props -- which is another alternative:
-
-```javascript{15,16,17}
-import React from 'react';
-
-const App = () => {
-  const sayHello = () => console.log('Hello');
-
-  return <Button handleClick={sayHello} />;
-};
-
-const Button = ({ handleClick }) => (
-  <button type="button" onClick={handleClick}>
-    Button
-  </button>
-);
-
-Button.defaultProps = {
-  handleClick: () => console.log('Default'),
-};
-
-export default App;
-```
-
 All of these approaches can be used to define default props (in this case a default function), to be able to override it later from the outside by passing an explicit prop (e.g. function) to the component.
 
 ## Async Function in Component with React
@@ -476,11 +460,11 @@ Also note that we are using a callback function within the `setCount` state func
 
 *Experiment: If you wouldn't use the callback function within the State Hook, but rather act upon the count variable directly (e.g. `setCount(count + 1)`), you wouldn't be able to increase the value from 0 to 2 with a quick double click, because both times the function would be executed on a count state of 0.*
 
-Read more about [how to fetch data with Function Components with React Hooks](/react-hooks-fetch-data/).
+<ReadMore label="How to fetch data in React" link="/react-fetching-data/" />
 
 # React Function Component: Lifecycle
 
-If you have used React Class Components before, you may be used to lifecycle methods such as componentDidMount, componentWillUnmount and shouldComponentUpdate. You don't have these in Function Components, so let's see how you can implement them instead.
+*Note: If you have used React Class Components before, you may be used to lifecycle methods such as componentDidMount, componentWillUnmount and shouldComponentUpdate. You don't have these in Function Components, so let's see how you can implement them instead.*
 
 First of all, you have no constructor in a Function Component. Usually the constructor would have been used in a React Class Component to allocate initial state. As you have seen, you don't need it in a Function Component, because you allocate initial state with the useState hook and set up functions within the Function Component for further business logic:
 
@@ -671,8 +655,6 @@ By using the second argument of the [Effect Hook with care](https://reactjs.org/
 * only on mount and unmount (`[]` argument)
 * only when a certain variable changes (e.g. `[count]` argument)
 
-*Note: A React Function Component force update can be done by using this [neat trick](https://reactjs.org/docs/hooks-faq.html#is-there-something-like-forceupdate). However, you should be careful when applying this pattern, because maybe you can solve the problem a different way.*
-
 # Pure React Function Component
 
 React Class Components offered the possibility to decide whether a component has to rerender or not. It was achieved by using the PureComponent or shouldComponentUpdate to [avoid performance bottlenecks in React by preventing rerenders](/react-prevent-rerender-component/). Let's take the following extended example:
@@ -796,6 +778,8 @@ export default App;
 ```
 
 *Note: If a Function Component is not defined, console log your exports and imports to get a better understanding of where you made a mistake. Maybe you used a named export and expected it to be a default export.*
+
+<ReadMore label="React Folder Structure" link="/react-folder-structure/" />
 
 If you don't care about the component name by defining the variable, you can keep it as Anonymous Function Component when using a default export on the Function Component:
 
@@ -958,9 +942,9 @@ Headline.propTypes = {
 export default App;
 ```
 
-*Note that you have to install the standalone [React prop-types](https://github.com/facebook/prop-types), because it has been removed from the React core library a while ago. If you want to learn more about PropTypes in React, check out the [official documentation](https://reactjs.org/docs/typechecking-with-proptypes.html).*
+*Note that you have to install the standalone [React prop-types](https://github.com/facebook/prop-types), because it has been removed from the React core library a while ago. If you want to learn more about PropTypes in React, check out the [official documentation](https://reactjs.org/docs/typechecking-with-proptypes.html). These days I'd recommend using TypeScript instead of prop-types.*
 
-In addition, previously you have seen the usage of default props for a Function Component. For the sake of completeness, this is another one:
+In addition, there are default props for a Function Component. Even though these are legacy, here an example for the sake of completeness:
 
 ```javascript{13,14,15}
 import React from 'react';
@@ -981,8 +965,6 @@ Headline.defaultProps = {
 
 export default App;
 ```
-
-*Note that you can also use the default assignment when destructuring the value from the props in the function signature (e.g. `const Headline = ({ headline = 'Hello Component' }) =>`) or the `||` operator within the Function Component's body (e.g. `return <h1>{headline || 'Hello Component'}</h1>;`).*
 
 However, if you really want to go all-in with strongly typed components in React, you have to check out TypeScript which is briefly shown in the next section.
 
