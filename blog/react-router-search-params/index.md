@@ -1,9 +1,9 @@
 ---
-title: "React Router 6: Search Params (alias Query Params)"
-description: "How to: Search Params in React Router 6. A example on Search Params (also called Query Params) with React Router ..."
-date: "2021-12-05T07:52:46+02:00"
-categories: ["React", "React Router 6"]
-keywords: ["react router search params", "react router query params", "react router params", "react router 6"]
+title: "React Router 7: Search Params (alias Query Params)"
+description: "How to: Search Params in React Router 7. A example on Search Params (also called Query Params) with React Router ..."
+date: "2025-01-06T07:52:54+02:00"
+categories: ["React", "React Router 7"]
+keywords: ["react router search params", "react router query params", "react router params", "react router 7"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
@@ -12,9 +12,9 @@ author: ""
 
 <Sponsorship />
 
-A React Router tutorial which teaches you how to use **Search Params with React Router 6**. The code for this React Router v6 tutorial can be found over [here](https://github.com/the-road-to-learn-react/react-router-6-examples). In order to get you started, create a new React project (e.g. [create-react-app](https://github.com/facebook/create-react-app)). Afterward, [install React Router](https://reactrouter.com/docs/en/v6/getting-started/installation#basic-installation) and read the following React Router tutorial to get yourself aligned to what follows next.
+A React Router tutorial which teaches you how to use **Search Params with React Router 7**. The code for this React Router v7 tutorial can be found over [here](https://github.com/rwieruch/examples/tree/main/react-router-search-params).
 
-<ReadMore label="React Router 6 Introduction" link="/react-router/" />
+<ReadMore label="React Router 7 Introduction" link="/react-router/" />
 
 Search Params (also called **Query Params**) are a powerful feature, because they enable you to capture state in a URL. By having state in a URL, you can share it with other people. For example, if an application shows a catalog of products, a developer will enable a user to search it. In React this would translate into a list of items (here: products) and a HTML input field for filtering them.
 
@@ -28,20 +28,19 @@ Therefore a best practice would be managing this search state in a URL, because 
 
 To get things started, we will implement the previous image where we have a list of items and search it via a HTML input field. We will not be using React's useState Hook to capture the search state, but a shareable URL by using React Router. The App component will be the following -- which is similar to the App component from the previously mentioned React Router tutorial:
 
-```javascript
+```tsx
 const App = () => {
   return (
     <>
       <h1>React Router</h1>
 
       <nav>
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/bookshelf">Bookshelf</Link>
       </nav>
 
       <Routes>
         <Route index element={<Home />} />
-        <Route path="home" element={<Home />} />
         <Route path="bookshelf" element={<Bookshelf />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
@@ -52,11 +51,16 @@ const App = () => {
 
 While the Home and NoMatch components are just placeholder components with any implementation, we will focus on the Bookshelf component  which shows books as a [list component](/react-list-component/). These books are just sample data here, but they could be fetched from a [remote API](/node-express-server-rest-api/) (or [mock API](/react-mock-data/)) too:
 
-```javascript
+```tsx
+type Book = {
+  title: string;
+  isCompleted: boolean;
+};
+
 const Bookshelf = () => {
   const books = [
     {
-      title: 'The Road to Rust',
+      title: 'The Road to Next',
       isCompleted: false,
     },
     {
@@ -81,16 +85,16 @@ const Bookshelf = () => {
 
 A straightforward implementation of enabling a user to filter this list by a case insensitive title matching would be using [React's useState Hook](/react-usestate-hook/) and an HTML input field. Finally an [event handler](/react-event-handler/) would read the value from the input field and write it as state:
 
-```javascript{1-2,7,9-11,17,20}
-const byTitle = (title) => (book) =>
+```tsx{1-2,7,9-11,17,20}
+const byTitle = (title: string) => (book: Book) =>
   book.title.toLowerCase().includes((title || '').toLowerCase());
 
 const Bookshelf = () => {
   const books = [...];
 
-  const [title, setTitle] = React.useState('');
+  const [title, setTitle] = useState("");
 
-  const handleTitle = (event) => {
+  const handleTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
   };
 
@@ -112,14 +116,13 @@ const Bookshelf = () => {
 
 That's the "using state in React" version. Next we want to use React Router to capture this state in a URL instead. Fortunately, React Router offers us the **useSearchParams** hook which can be used almost as replacement for React's useState Hook:
 
-```javascript{6,14,17,26,31}
-import * as React from 'react';
+```tsx{5,13,16,25,30}
 import {
   Routes,
   Route,
   Link,
   useSearchParams,
-} from 'react-router-dom';
+} from 'react-router';
 
 ...
 
@@ -128,7 +131,7 @@ const Bookshelf = () => {
 
   const [search, setSearch] = useSearchParams();
 
-  const handleTitle = (event) => {
+  const handleTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch({ title: event.target.value });
   };
 
@@ -138,12 +141,12 @@ const Bookshelf = () => {
 
       <input
         type="text"
-        value={search.get('title')}
+        value={search.get("title") as string}
         onChange={handleTitle}
       />
 
       <ul>
-        {books.filter(byTitle(search.get('title'))).map((book) => (
+        {books.filter(byTitle(search.get("title") as string)).map((book) => (
           <li key={book.title}>{book.title}</li>
         ))}
       </ul>
@@ -156,8 +159,8 @@ Because of two things, it cannot be used a direct replacement for React's useSta
 
 Essentially it would have been similar to our previous implementation if we would have been using React's useState Hook with an object instead of a string:
 
-```javascript
-const [search, setSearch] = React.useState({ title: '' });
+```tsx
+const [search, setSearch] = useState({ title: '' });
 ```
 
 However, even though the stateful value returned by `useSearchParams` is of type object (`typeof search === 'object'`), it is still not accessible like a mere JavaScript object data structure because it is an instance of [URLSearchParams](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams). Hence we need to call its getter method (e.g. `search.get('title')`) instead.
@@ -170,14 +173,14 @@ That's it for using a URL for state instead of using one of [React's state manag
 
 If you do not want to use URLSearchParams when dealing with React Router's useSearchParams Hook, you can write a custom hook which returns a  JavaScript object instead of an instance of URLSearchParams:
 
-```javascript{1-8,13,25,30}
+```tsx{1-8,13,25,30}
 const useCustomSearchParams = () => {
   const [search, setSearch] = useSearchParams();
   const searchAsObject = Object.fromEntries(
     new URLSearchParams(search)
   );
 
-  return [searchAsObject, setSearch];
+  return [searchAsObject, setSearch] as const;
 };
 
 const Bookshelf = () => {
@@ -185,7 +188,7 @@ const Bookshelf = () => {
 
   const [search, setSearch] = useCustomSearchParams();
 
-  const handleTitle = (event) => {
+  const handleTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch({ title: event.target.value });
   };
 
@@ -221,11 +224,14 @@ Not all state consist of only strings. In the previous example of using search p
 
 To explore this caveat, we will continue our example from the previous section by implementing a checkbox. We will use this checkbox component and wire it up to React Router's search params:
 
-```javascript{1-5,16-18,30-34,37}
-const bySearch = (search) => (book) =>
-  book.title
-    .toLowerCase()
-    .includes((search.title || '').toLowerCase()) &&
+```tsx{1-4,6-8,19-21,33-37,40}
+type Search = {
+  title: string;
+  isCompleted: boolean;
+};
+
+const bySearch = (search: Search) => (book: Book) =>
+  book.title.toLowerCase().includes((search.title || "").toLowerCase()) &&
   book.isCompleted === search.isCompleted;
 
 const Bookshelf = () => {
@@ -233,11 +239,11 @@ const Bookshelf = () => {
 
   const [search, setSearch] = useCustomSearchParams();
 
-  const handleTitle = (event) => {
+  const handleTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch({ title: event.target.value });
   };
 
-  const handleIsCompleted = (event) => {
+  const handleIsCompleted = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch({ isCompleted: event.target.checked });
   };
 
@@ -251,9 +257,9 @@ const Bookshelf = () => {
         onChange={handleTitle}
       />
 
-      <Checkbox
-        label="Is Completed?"
-        value={search.isCompleted}
+      <input
+        type="checkbox"
+        checked={search.isCompleted}
         onChange={handleIsCompleted}
       />
 
@@ -269,12 +275,10 @@ const Bookshelf = () => {
 
 Try it in your browser. You will see that the searching for the `isCompleted` boolean does not work, because `isCompleted` coming from our `search` object gets represented as a string as either `'true'` or `'false'`. We could circumvent this by enhancing our custom hook:
 
-```javascript{1,7-13,15,18-20,26}
+```tsx{1,5-11,13,16-18,24}
 const useCustomSearchParams = (param = {}) => {
   const [search, setSearch] = useSearchParams();
-  const searchAsObject = Object.fromEntries(
-    new URLSearchParams(search)
-  );
+  const searchAsObject = Object.fromEntries(new URLSearchParams(search));
 
   const transformedSearch = Object.keys(param).reduce(
     (acc, key) => ({
@@ -284,7 +288,7 @@ const useCustomSearchParams = (param = {}) => {
     searchAsObject
   );
 
-  return [transformedSearch, setSearch];
+  return [transformedSearch, setSearch] as const;
 };
 
 const PARAMS = {
@@ -308,7 +312,7 @@ Essential the new version of the custom hook takes an object with optional trans
 
 By having the implementation details for the custom hook in place, we could also create other transformer functions (e.g. `NumberParam`) and therefore fill the gaps for the missing data type conversions (e.g. `number`):
 
-```javascript
+```tsx
 const PARAMS = {
   BooleanParam: (string = '') => string === 'true',
   NumberParam: (string = '') => (string ? Number(string) : null),
@@ -316,52 +320,46 @@ const PARAMS = {
 };
 ```
 
-Anyway, when I started to implement this myself I figured there must be already a library for this problem. And yes, there is: entering use-query-params.
+Anyway, when I started to implement this myself I figured there must be already a library for this problem. And yes, there is ...
 
 # React Router: Use Search Params
 
-The [use-query-params](https://github.com/pbeshai/use-query-params) library fits perfectly the use case of working with sophisticated URLs as state that go beyond mere strings. In this section, we will explore the use-query-params library and therefore get rid of our custom useSearchParams hook.
+The [nuqs](https://nuqs.47ng.com/) library fits perfectly the use case of working with sophisticated URLs as state that go beyond mere strings. In this section, we will explore the nuqs library and therefore get rid of our custom useSearchParams hook.
+
+```sh
+npm install nuqs
+```
 
 Follow the library's installation instructions yourself. You will need to install the library on the command line and instantiate it on a root level in your React project:
 
-```javascript{3-5,11,13}
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
-import { QueryParamProvider } from 'use-query-params';
-import { ReactRouter6Adapter } from 'use-query-params/adapters/react-router-6';
+```tsx{3,7,11}
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router";
+import { NuqsAdapter } from "nuqs/adapters/react-router/v7";
+import App from "./App.tsx";
 
-import App from './App';
-
-ReactDOM.render(
-  <BrowserRouter>
-    <QueryParamProvider adapter={ReactRouter6Adapter}>
+createRoot(document.getElementById("root")!).render(
+  <NuqsAdapter>
+    <BrowserRouter>
       <App />
-    </QueryParamProvider>
-  </BrowserRouter>,
-  document.getElementById('root')
+    </BrowserRouter>
+  </NuqsAdapter>
 );
 ```
 
-Now you are good to go to use use-query-params for powerful URL state management in React. All you have to do is using the new `useQueryParams` hook instead of our custom hook from before to get the query params. Also notice that compared to our custom hook, you need to "transform" a string search param too:
+Now you are good to go to use nuqs for powerful URL state management in React. All you have to do is using the new `useQueryStates` hook instead of our custom hook from before to get the query params. Also notice that compared to our custom hook, you need to "transform" a string search param too:
 
-```javascript{2-7,14-17}
-import * as React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
-import {
-  useQueryParams,
-  StringParam,
-  BooleanParam,
-} from 'use-query-params';
+```tsx{1,8-11}
+import { parseAsBoolean, parseAsString, useQueryStates } from "nuqs";
 
 ...
 
 const Bookshelf = () => {
   const books = [...];
 
-  const [search, setSearch] = useQueryParams({
-    title: StringParam,
-    isCompleted: BooleanParam,
+  const [search, setSearch] = useQueryStates({
+    title: parseAsString
+    isCompleted: parseAsBoolean
   });
 
   ...
@@ -370,56 +368,17 @@ const Bookshelf = () => {
 };
 ```
 
-You can also provide sensible defaults. For example, at this time when navigating to `/bookshelf` without search params, `title` and `isComplete` would be undefined. However, if you expect them to be at least an empty string for `title` and `false` for `isComplete`, you can provide these defaults if you want to:
+You can also provide sensible defaults. For example, at this time when navigating to `/bookshelf` without search params, `title` and `isComplete` would be undefined. However, if you expect them to be at least an empty string for `title` and `false` for `isCompleted`, you can provide these defaults if you want to:
 
-```javascript{7,16-17}
-import * as React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
-import {
-  useQueryParams,
-  StringParam,
-  BooleanParam,
-  withDefault
-} from 'use-query-params';
-
-...
-
-const Bookshelf = () => {
-  const books = [...];
-
-  const [search, setSearch] = useQueryParams({
-    title: withDefault(StringParam, ''),
-    isCompleted: withDefault(BooleanParam, false),
-  });
-
-  ...
-
-  return (...);
-};
+```tsx{2-3}
+const [search, setSearch] = useQueryStates({
+  title: parseAsString.withDefault(""),
+  isCompleted: parseAsBoolean.withDefault(false),
+});
 ```
 
-There is one other noteworthy thing to mention: At the moment, use-query-params uses the default 'pushin' mode which means that every time a search params gets appended it will not override the other search params. Hence you preserve all search params while changing one of them. However, if that's not your desired behavior, you could also change the mode (e.g. to 'push') which will not preserve previous search params anymore (which does not make sense in our scenario though):
-
-```javascript{5,9}
-const Bookshelf = () => {
-  ...
-
-  const handleTitle = (event) => {
-    setSearch({ title: event.target.value }, 'push');
-  };
-
-  const handleIsCompleted = (event) => {
-    setSearch({ isCompleted: event.target.checked }, 'push');
-  };
-
-  ...
-
-  return (...);
-};
-```
-
-That's it. Besides the two data type conversions that we used here, there are also conversions for numbers, arrays, objects and others. For example, if you would want to have a [selectable table in React](/react-table-select/), you may want to have each selected row in a table represented as identifier in an array (in use-query-params' it's the `ArrayParam` conversion) mapped to an actual URL. Then you could share this URL with another user which would start off with the selected rows by reading the params from the URL.
+That's it. Besides the two data type conversions that we used here, there are also conversions for numbers, arrays, objects and others.
 
 <Divider />
 
-Using URLs as state is a powerful combination for an improved user experience. React Router's search params give you a great start when dealing with single or multiple string states. However, once you want to preserve the data types that you mapped onto the URL, you may want to use a library such as use-query-params on top for sophisticated URL state management in React.
+Using URLs as state is a powerful combination for an improved user experience. React Router's search params give you a great start when dealing with single or multiple string states. However, once you want to preserve the data types that you mapped onto the URL, you may want to use a library such as nuqs on top for sophisticated URL state management in React.

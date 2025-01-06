@@ -1,9 +1,9 @@
 ---
-title: "React Router 6: Descendant Routes"
-description: "How to: Descendant Routes in React Router 6. A step by step example on Descendant Routes with React Router ..."
-date: "2022-02-09T07:52:46+02:00"
-categories: ["React", "React Router 6"]
-keywords: ["react router descendant routes", "react router 6"]
+title: "React Router 7: Descendant Routes"
+description: "How to: Descendant Routes in React Router 7. A step by step example on Descendant Routes with React Router ..."
+date: "2025-01-06T07:52:53+02:00"
+categories: ["React", "React Router 7"]
+keywords: ["react router descendant routes", "react router 7"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-A React Router tutorial which teaches you how to use **Descendant Routes with React Router 6**. The code for this React Router v6 tutorial can be found over [here](https://github.com/the-road-to-learn-react/react-router-6-examples).
+A React Router tutorial which teaches you how to use **Descendant Routes with React Router 7**. The code for this React Router v7 tutorial can be found over [here](https://github.com/rwieruch/examples/tree/main/react-router-descendant-routes).
 
 <LinkCollection label="This tutorial is part 3 of 3 in the series." links={[{ prefix: "Part 1:", label: "React Router", url: "/react-router/" }, { prefix: "Part 2:", label: "Nested Routes with React Router", url: "/react-router-nested-routes/" }]} />
 
@@ -20,7 +20,7 @@ The previous tutorial of Nested Routes has shown you how to replace a part of a 
 
 However, sometimes you do not want to nest the routes, but rather want to introduce a switch between them. For example, contrary to the previous example, you may want to show *either* a list of users (e.g. UserList component) or the details of a user (e.g. UserItem component), but never both on the same route. However, both routes should operate under the umbrella `/users` route. A straightforward way to accomplish this would be adding both as standalone routes in the App component:
 
-```javascript{20-21}
+```tsx{18-19}
 const App = () => {
   const users = [
     { id: '1', firstName: 'Robin', lastName: 'Wieruch' },
@@ -32,18 +32,15 @@ const App = () => {
       <h1>React Router</h1>
 
       <nav>
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/users">Users</Link>
       </nav>
 
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="home" element={<Home />} />
-          <Route path="users" element={<UserList users={users} />} />
-          <Route path="users/:userId" element={<UserItem  />} />
-          <Route path="*" element={<NoMatch />} />
-        </Route>
+        <Route index element={<Home />} />
+        <Route path="users" element={<UserList users={users} />} />
+        <Route path="users/:userId" element={<UserItem  />} />
+        <Route path="*" element={<NoMatch />} />
       </Routes>
     </>
   );
@@ -52,8 +49,18 @@ const App = () => {
 
 For the sake of completeness, these could be the UserList and UserItem components which are used to link back and forth between both components:
 
-```javascript
-const UserList = ({ users }) => {
+```tsx
+type User = {
+  id: string;
+  firstName: string;
+  lastName: string;
+};
+
+type UserListProps = {
+  users: User[];
+};
+
+const UserList = ({ users }: UserListProps) => {
   return (
     <>
       <h2>Users</h2>
@@ -92,7 +99,7 @@ Both routes share one specific domain (here: user) and maybe shouldn't show up t
 
 Descendant Routes are routes that are not defined in the top-level collection of Route components, but somewhere down the component tree. We will explore this concept by adapting the App component from before to the following version:
 
-```javascript{20}
+```tsx{18}
 const App = () => {
   const users = [
     { id: '1', firstName: 'Robin', lastName: 'Wieruch' },
@@ -104,17 +111,14 @@ const App = () => {
       <h1>React Router</h1>
 
       <nav>
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/users">Users</Link>
       </nav>
 
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="home" element={<Home />} />
-          <Route path="users/*" element={<Users users={users} />} />
-          <Route path="*" element={<NoMatch />} />
-        </Route>
+        <Route index element={<Home />} />
+        <Route path="users/*" element={<Users users={users} />} />
+        <Route path="*" element={<NoMatch />} />
       </Routes>
     </>
   );
@@ -123,15 +127,17 @@ const App = () => {
 
 As you can see, there is only one top-level users related route now. What's new is the trailing asterisk (`*`) which indicates that this Route and its component (here: Users component) render descendant routes. Let's check the new Users component:
 
-```javascript
-const Users = ({ users }) => {
+```tsx
+type UsersProps = {
+  users: User[];
+};
+
+const Users = ({ users }: UsersProps) => {
   return (
     <>
-      <h2>Users</h2>
-
       <Routes>
         <Route index element={<UserList users={users} />} />
-        <Route path=":userId" element={<UserItem users={users} />} />
+        <Route path=":userId" element={<UserItem />} />
       </Routes>
 
       <Outlet />

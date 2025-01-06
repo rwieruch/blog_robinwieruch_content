@@ -1,9 +1,9 @@
 ---
-title: "React Router 6 Tutorial"
-description: "React Router 6 tutorial: setup, hooks, nested routes, dynamic routes, programmatic navigation, active links, layout routes, index routes and more. A step by step React tutorial for beginners ..."
-date: "2021-11-09T07:52:46+02:00"
-categories: ["React", "React Router 6"]
-keywords: ["react router tutorial", "react router 6"]
+title: "React Router 7 Tutorial"
+description: "React Router 7 tutorial: setup, hooks, nested routes, dynamic routes, programmatic navigation, active links, layout routes, index routes and more. A step by step React tutorial for beginners ..."
+date: "2025-01-06T07:52:46+02:00"
+categories: ["React", "React Router 7"]
+keywords: ["react router tutorial", "react router 7"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
@@ -12,33 +12,34 @@ author: ""
 
 <Sponsorship />
 
-A React Router tutorial which teaches you how to use **React Router 6**. The code for this React Router v6 tutorial can be found over [here](https://github.com/the-road-to-learn-react/react-router-6-examples). In order to get you started, create a new React project (e.g. [create-react-app](https://github.com/facebook/create-react-app)). Afterward, [install React Router](https://reactrouter.com/docs/en/v6/getting-started/installation#basic-installation) by following the official instructions from their documentation.
+A React Router tutorial which teaches you how to use **React Router 7**. The code for this React Router v7 tutorial can be found over [here](https://github.com/rwieruch/examples/tree/main/react-router). In order to get you started, create a new React project (e.g. [Vite](https://vite.dev/guide/)). Afterward, [install React Router](https://reactrouter.com/):
+
+```sh
+npm install react-router
+```
 
 The first implementation detail will be telling our React application that we want to use React Router. Hence, import the Router component in your React project's top-level file (e.g. *index.js*) where React hooks into HTML by using the ReactDOM API:
 
-```javascript{3,8,10}
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+```tsx{2,6,8}
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router";
+import App from "./App.tsx";
 
-import App from './App';
-
-ReactDOM.render(
+createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <App />
-  </BrowserRouter>,
-  document.getElementById('root')
+  </BrowserRouter>
 );
 ```
 
-From here, we will continue our implementation in the *App.js* file. Feel free to extract components when needed into their own folders and files by coming up with a project structure yourself or by following [this guide about a common React project structure](/react-folder-structure/).
+From here, we will continue our implementation in the *App.tsx* file. Feel free to extract components when needed into their own folders and files by coming up with a project structure yourself or by following [this guide about a common React project structure](/react-folder-structure/).
 
-# React Router: Matching Routes
+# Routing & Navigating
 
 First, we will implement the navigation in our App component by using React Router's Link component to facilitate **routing in React**. I don't recommend to use inline style like I do, so feel free to choose an appropriate [styling strategy and styling approach for your React project](/react-css-styling/):
 
-```javascript{1,8,13-25}
-import { Link } from 'react-router-dom';
+```tsx{1,8,13-25}
+import { Link } from "react-router";
 
 const App = () => {
   return (
@@ -54,8 +55,8 @@ const Navigation = () => {
   return (
     <nav
       style={{
-        borderBottom: 'solid 1px',
-        paddingBottom: '1rem',
+        borderBottom: "solid 1px",
+        paddingBottom: "1rem",
       }}
     >
       <Link to="/home">Home</Link>
@@ -63,12 +64,14 @@ const Navigation = () => {
     </nav>
   );
 };
+
+export default App;
 ```
 
 When you start your React application in the browser, you should be able to click both Link components which should navigate you to their respective routes. Confirm this by checking the browser's current URL when clicking these links. Next, we need to map the routes to an actual rendering by using React Router's Route component:
 
-```javascript{1,10-13}
-import { Routes, Route, Link } from 'react-router-dom';
+```tsx{1,10-13}
+import { Routes, Route, Link } from 'react-router';
 
 const App = () => {
   return (
@@ -84,25 +87,11 @@ const App = () => {
     </>
   );
 };
-
-const Navigation = () => {
-  return (
-    <nav
-      style={{
-        borderBottom: 'solid 1px',
-        paddingBottom: '1rem',
-      }}
-    >
-      <Link to="/home">Home</Link>
-      <Link to="/users">Users</Link>
-    </nav>
-  );
-};
 ```
 
 You can see the direct match between Link and Route component by checking their respective `to` and `path` attributes. Each Route component renders a React element when the route matches. Since we are rendering a React element here, we could pass [React props](/react-pass-props-to-component/) as well. What's missing is the declaration of the corresponding [function components](/react-function-component/):
 
-```javascript
+```tsx
 const Home = () => {
   return (
     <main style={{ padding: '1rem 0' }}>
@@ -122,11 +111,13 @@ const Users = () => {
 
 When going back to the browser, you should be able to navigate from page to page (here: from `/home` to `/users` route) while seeing the Home and Users component. Basically that's the essence of React Router: setting up Link components and matching them with Route components. Links have a many to one relationship to Routes, so that there can be multiple Links in your application linking to the same Route.
 
-# Layout Routes, Index Routes, No Match Routes
+# Layout Routes
 
-Next you see how the new Home and Users component share the same layout. As React developers, intuitively we would extract a new component with the stylings from the Home and Users component to avoid duplication. In this new component, we would use React's children prop to [compose components](/react-component-composition/) into each other. As first step, extract the styling into its own component:
+Next you see how the new Home and Users component share the same layout. As React developers, intuitively we would extract a new component with the stylings from the Home and Users component to avoid duplication. In this new component, we would use React's children prop to [compose components](/react-component-composition/) into each other.
 
-```javascript{3,5,11,13,17-19}
+As first step, extract the styling into its own component:
+
+```tsx{3,5,11,13,17-19}
 const Home = () => {
   return (
     <>
@@ -143,6 +134,10 @@ const Users = () => {
   );
 };
 
+type LayoutProps = {
+  children: React.ReactNode;
+};
+
 const Layout = ({ children }) => {
   return <main style={{ padding: '1rem 0' }}>{children}</main>;
 };
@@ -150,7 +145,7 @@ const Layout = ({ children }) => {
 
 Second, render it in the App component. By using React's children, the Layout component should render the matched enclosing child route:
 
-```javascript{7,10}
+```tsx{7,10}
 const App = () => {
   return (
     <>
@@ -167,9 +162,11 @@ const App = () => {
 };
 ```
 
-But you will see that this is not allowed in React Router and you will get an exception saying: *All component children of `<Routes>` must be a `<Route>` or `<React.Fragment>`*. A common way around this would be using the Layout component in each component individually (similar to what we had before) or in each Route component (like in the following example):
+But you will see that this is not allowed in React Router and you will get an exception saying: *Uncaught Error: `[Layout]` is not a `<Route>` component. All component children of `<Routes>` must be a `<Route>` or `<React.Fragment>`*.
 
-```javascript{7-8}
+A common way around this would be using the Layout component in each component individually (similar to what we had before) or in each Route component (like in the following example):
+
+```tsx{7-8}
 const App = () => {
   return (
     <>
@@ -186,7 +183,7 @@ const App = () => {
 
 However, this adds unwanted redundancy to the React application. So instead of duplicating the Layout component, we will use a so-called **Layout Route**, which is not an actual route, but just a way to give each Route component's `element` in a group of Routes the same surrounding style:
 
-```javascript{7,10}
+```tsx{7,10}
 const App = () => {
   return (
     <>
@@ -205,8 +202,8 @@ const App = () => {
 
 As you can see, it's possible to nest Route components in another Route component -- whereas the former become so-called **Nested Routes**. Now instead of using React's children in the Layout component, use React Router's Outlet component as equivalent:
 
-```javascript{1,5,8}
-import { Routes, Route, Outlet, Link } from 'react-router-dom';
+```tsx{1,5,8}
+import { Routes, Route, Outlet, Link } from 'react-router';
 
 ...
 
@@ -221,13 +218,15 @@ const Layout = () => {
 
 In essence, the Outlet component in the Layout component inserts the matching child route (here: Home or Users component) of the parent route (here: Layout component). After all, using a Layout Route helps you to give each Route component in a collective the same layout (e.g. style with CSS, structure with HTML).
 
+# Active Links in React Router
+
 From here, you could go even one step further by moving all the App component's implementation details (headline, navigation) into this new Layout component. Furthermore, we can exchange the Link with a NavLink component in order to achieve so-called **Active Links** -- which show a user the currently active route. Hence the new NavLink component gives us access to a `isActive` flag in its `style` (and `className`) props when using it with a function:
 
-```javascript{3,18-20,23,24,26-34,39}
+```tsx
 import {
   ...
   NavLink,
-} from 'react-router-dom';
+} from 'react-router';
 
 const App = () => {
   return (
@@ -241,8 +240,8 @@ const App = () => {
 };
 
 const Layout = () => {
-  const style = ({ isActive }) => ({
-    fontWeight: isActive ? 'bold' : 'normal',
+  const style = ({ isActive }: NavLinkRenderProps) => ({
+    fontWeight: isActive ? "bold" : "normal",
   });
 
   return (
@@ -251,15 +250,15 @@ const Layout = () => {
 
       <nav
         style={{
-          borderBottom: 'solid 1px',
-          paddingBottom: '1rem',
+          borderBottom: "solid 1px",
+          paddingBottom: "1rem",
         }}
       >
         <NavLink to="/home" style={style}>Home</NavLink>
         <NavLink to="/users" style={style}>Users</NavLink>
       </nav>
 
-      <main style={{ padding: '1rem 0' }}>
+      <main style={{ padding: "1rem 0" }}>
         <Outlet />
       </main>
     </>
@@ -267,15 +266,18 @@ const Layout = () => {
 };
 ```
 
-Next you may have noticed that this React application lacks a base route. While we have a `/home` and `/users` route, there is no `/` route. You will see this as warning in your browser's developer tools too: *No routes matched location "/"*. Therefore, we will create a so-called **Index Route** as fallback for the `/` route whenever a user visits it. The element for this fallback route can be a new component or any already matched route (e.g. Home should render for the routes `/` and `/home` as demonstrated in the following example):
+Next you may have noticed that this React application lacks a base route. While we have a `/home` and `/users` route, there is no `/` route. You will see this as warning in your browser's developer tools too: *No routes matched location "/"*.
 
-```javascript{5}
+# Index Routes
+
+Therefore, we will create a so-called **Index Route** for the `/` route whenever a user visits it. The element for this fallback route can be a new component or any already matched route (i.e. Home should render for the route `/` and not `/home` as demonstrated in the following example):
+
+```tsx{5}
 const App = () => {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="home" element={<Home />} />
         <Route path="users" element={<Users />} />
       </Route>
     </Routes>
@@ -283,15 +285,25 @@ const App = () => {
 };
 ```
 
-You can think of an Index Route as a default route when the parent route matches, but none of its child routes. Next, in case a user navigates to a non-matching route (e.g. `/about`), we will add a so-called **No Match Route** (also called **Not Found Route**) which equals to a 404 page of a website:
+Then you have to adjust the NavLink components in the Layout component to reflect the new index route:
 
-```javascript{8,14-16}
+```tsx{1}
+<NavLink to="/" style={style}>Home</NavLink>
+<NavLink to="/users" style={style}>Users</NavLink>
+```
+
+You can think of an Index Route as a default route when the parent route matches, but none of its child routes.
+
+# No Match Routes
+
+Next, in case a user navigates to a non-matching route (e.g. `/about`), we will add a so-called **No Match Route** (also called **Not Found Route**) which equals to a 404 page of a website:
+
+```tsx{7,13-14}
 const App = () => {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="home" element={<Home />} />
         <Route path="users" element={<Users />} />
         <Route path="*" element={<NoMatch />} />
       </Route>
@@ -308,9 +320,9 @@ So far, while using the Routes component as container for a collection of Route 
 
 # React Router: Dynamic and Nested Routes
 
-Next we are going to decorate the Users component with implementation details. First, we will initialize a list of items (here: `users`) in our App component. The list is just sample data, but it could be [fetched in React](/react-hooks-fetch-data/) from a remote API too. Second, we will pass the users to the Users component as props:
+Next we are going to enrich the Users component with implementation details. First, we will initialize a list of items (here: `users`) in our App component. The list is just sample data, but it could be [fetched in React](/react-hooks-fetch-data/) from a remote API too. Second, we will pass the users to the Users component as props:
 
-```javascript{2-5,12}
+```tsx{2-5,11}
 const App = () => {
   const users = [
     { id: '1', fullName: 'Robin Wieruch' },
@@ -321,7 +333,6 @@ const App = () => {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="home" element={<Home />} />
         <Route path="users" element={<Users users={users} />} />
         <Route path="*" element={<NoMatch />} />
       </Route>
@@ -332,8 +343,17 @@ const App = () => {
 
 The Users component becomes a [list component in React](/react-list-component/), because it iterates over each user and returns JSX for it. In this case, it's a bit more than a mere list, because we add a React Router's Link component to the mix. The relative path in the Link component hints to a respective dynamic (here: `/${user.id}`) yet nested (here: `/${user.id}` nested in `/users`) route:
 
-```javascript{1,6-14}
-const Users = ({ users }) => {
+```tsx
+type User = {
+  id: string;
+  fullName: string;
+};
+
+type UsersProps = {
+  users: User[];
+};
+
+const Users = ({ users }: UsersProps) => {
   return (
     <>
       <h2>Users</h2>
@@ -341,9 +361,7 @@ const Users = ({ users }) => {
       <ul>
         {users.map((user) => (
           <li key={user.id}>
-            <Link to={`/users/${user.id}`}>
-              {user.fullName}
-            </Link>
+            <Link to={`/users/${user.id}`}>{user.fullName}</Link>
           </li>
         ))}
       </ul>
@@ -354,7 +372,7 @@ const Users = ({ users }) => {
 
 By having this new dynamic yet nested route, we need to create a matching nested Route component for it in the App component. First, since it is a so-called **Nested Route** (or child route) of the `/users` route, we can nest it in this respective parent Route component. In addition, since it is a so-called **Dynamic Route**, it uses a dynamic route defined as `:userId` whereas a user's identifier matches dynamically (e.g. user with `id` of `'1'` would be matched to `/users/1`):
 
-```javascript{12-14}
+```tsx{12-14}
 const App = () => {
   const users = [
     { id: '1', fullName: 'Robin Wieruch' },
@@ -365,7 +383,7 @@ const App = () => {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="home" element={<Home />} />
+
         <Route path="users" element={<Users users={users} />}>
           <Route path=":userId" element={<User />} />
         </Route>
@@ -378,8 +396,8 @@ const App = () => {
 
 Previously we have learned about nested routes when we introduced the parent Layout Route which had the `/home` and `/users` routes as its child routes. When we made this change, we had to use the Outlet component in the parent route to render the matched child route. The same happens here again, because the Users component has to render its Nested Route too:
 
-```javascript{8}
-const Users = ({ users }) => {
+```tsx{8}
+const Users = ({ users }: UsersProps) => {
   return (
     <>
       <h2>Users</h2>
@@ -394,11 +412,11 @@ const Users = ({ users }) => {
 
 Next, we are going to declare the missing User component which gets nested via the Outlet in the Users component whenever a user's identifier matches in the URL. Therefore we can use React Router's `useParams` Hook to get the respective `userId` (which equals `:userId`) from the URL:
 
-```javascript{3,8-18}
+```tsx{3,8-18}
 import {
   ...
   useParams,
-} from 'react-router-dom';
+} from 'react-router';
 
 ...
 
@@ -425,7 +443,7 @@ We have also seen how we can create dynamic routes by using the colon in a Route
 
 The newest version of React Router comes with so-called **Relative Links**. We will examine this concept by looking at the Users component and its absolute `/users/${user.id}` path which is used for the Link component. In previous versions of React Router, it was necessary to specify the *entire path*. However, in this version you can just use the *nested path* as relative path:
 
-```javascript{9}
+```tsx{9}
 const Users = ({ users }) => {
   return (
     <>
@@ -455,17 +473,17 @@ So far, we have only used declarative navigation when using the Link or NavLink 
 
 We will start this implementation by creating a stateful `users` value with [React's useState Hook](/react-usestate-hook/) followed by implementing a event handler which deletes a user from the `users` by using an identifier:
 
-```javascript{1,5-8,10-12,22}
-import * as React from 'react';
+```tsx{1,5-8,10-12,22}
+import { useState } from "react";
 ...
 
 const App = () => {
-  const [users, setUsers] = React.useState([
+  const [users, setUsers] = useState([
     { id: '1', fullName: 'Robin Wieruch' },
     { id: '2', fullName: 'Sarah Finnley' },
   ]);
 
-  const handleRemoveUser = (userId) => {
+  const handleRemoveUser = (userId: string | undefined) => {
     setUsers((state) => state.filter((user) => user.id !== userId));
   };
 
@@ -473,7 +491,7 @@ const App = () => {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="home" element={<Home />} />
+
         <Route path="users" element={<Users users={users} />}>
           <Route
             path=":userId"
@@ -489,7 +507,11 @@ const App = () => {
 
 After we have passed the [event handler as callback handler](/react-event-handler/) to the User component, we can use it there as inline handler to remove the specific user by identifier:
 
-```javascript{1,8-10}
+```tsx{1-3,5,12-14}
+type UserProps = {
+  onRemoveUser: (userId: string | undefined) => void;
+};
+
 const User = ({ onRemoveUser }) => {
   const { userId } = useParams();
 
@@ -509,22 +531,22 @@ const User = ({ onRemoveUser }) => {
 
 Once a user got deleted, we can make use of React Router's useNavigate Hook which allows us to navigate a user programmatically to another route (here: `/users`):
 
-```javascript{4,8,18}
-import * as React from 'react';
+```tsx{4,8,18}
+import { useState } from "react";
 import {
   ...
   useNavigate,
-} from 'react-router-dom';
+} from 'react-router';
 
 const App = () => {
   const navigate = useNavigate();
 
-  const [users, setUsers] = React.useState([
+  const [users, setUsers] = useState([
     { id: '1', fullName: 'Robin Wieruch' },
     { id: '2', fullName: 'Sarah Finnley' },
   ]);
 
-  const handleRemoveUser = (userId) => {
+  const handleRemoveUser = (userId: string | undefined) => {
     setUsers((state) => state.filter((user) => user.id !== userId));
 
     navigate('/users');
@@ -540,21 +562,21 @@ In this case, the delete operation happens synchronously, because the users are 
 
 A URL in the browser does not only consist of a path (essentially pairs of segments like `users` and separators like `/`), but also of an optional query string (in React Router called **search params**) which comes in key/value pairs after a `?` separator in the URL. For example, `/users?name=robin` would be a URL with one search params pair where the key would be `name` and the value would be `robin`. The following example shows it as implementation:
 
-```javascript{4,10,12,14-22,28-32,36-40}
-import * as React from 'react';
+```tsx{4,10,12,14-22,28-32,36-40}
+import { useState } from "react";
 import {
   ...
   useSearchParams,
-} from 'react-router-dom';
+} from 'react-router';
 
 ...
 
-const Users = ({ users }) => {
+const Users = ({ users }: UsersProps) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const searchTerm = searchParams.get('name') || '';
 
-  const handleSearch = (event) => {
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const name = event.target.value;
 
     if (name) {
