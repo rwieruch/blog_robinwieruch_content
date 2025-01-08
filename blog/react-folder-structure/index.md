@@ -1,7 +1,7 @@
 ---
-title: "React Folder Structure in 5 Steps [2024]"
-description: "React Folder Structure in 2024 for large React projects. The guide walks you through a file structure from small to large project  ..."
-date: "2024-10-14T07:52:46+02:00"
+title: "React Folder Structure in 5 Steps [2025]"
+description: "React Folder Structure in 2025 for large React projects. The guide walks you through a file structure from small to large project  ..."
+date: "2025-01-08T07:52:46+02:00"
 categories: ["React"]
 keywords: ["react project structure", "react folder structure", "react file structure"]
 hashtags: ["#ReactJs"]
@@ -14,7 +14,7 @@ author: ""
 
 Organizing large React applications into folders and files is a topic that often sparks strong opinions. I found it challenging to write about this, as there isn't a definitive "correct" approach. However, I frequently get asked how I structure my React projects, from small to large, and I'm happy to share my approach.
 
-After implementing React applications for several years now, I want to give you a breakdown on how I approach this matter for my personal projects, for my [freelance projects](/freelance-react-developer/), and for my React workshops. It only takes 5 steps, and you decide what makes sense to you and how far you want to push it. So let's get started.
+After implementing React applications for several years now, I want to give you a breakdown on how I approach this matter for my personal projects, for my freelance projects, for my React courses, and for my React SaaSs. It only takes 5 steps, and you decide what makes sense to you and how far you want to push it. So let's get started.
 
 # Single React file
 
