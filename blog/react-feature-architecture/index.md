@@ -36,7 +36,7 @@ model Comment {
   id        String   @id @default(cuid())
   content   String
   post      Post     @relation(fields: [postId], references: [id])
-  postId    Int
+  postId    String
 }
 ```
 
