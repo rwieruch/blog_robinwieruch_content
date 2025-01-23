@@ -1,5 +1,5 @@
 ---
-title: "How to roll your own auth in JavaScript & TypeScript"
+title: "Authentication in JavaScript & TypeScript"
 description: "Learn how to roll your own authentication in JavaScript & TypeScript ..."
 date: "2024-10-29T12:50:46+02:00"
 categories: ["JavaScript", "TypeScript"]
@@ -12,11 +12,7 @@ author: ""
 
 <Sponsorship />
 
-Authentication is an important topic of any application. It's the gatekeeper that ensures only the right people can access the right resources. But how do you roll your own authentication in JavaScript & TypeScript? In this tutorial, we'll explore how to build a session-based authentication system.
-
-The motivation behind this tutorial is the [deprecation on Lucia](https://github.com/lucia-auth/lucia/discussions/1707). I've been using Lucia before, it was a great library, but the author decided to transform it into a [learning resource](https://lucia-auth.com/). So whenever something is unclear in this tutorial, you can refer to the official resource, because I just try to distill the essence of it into a step by step guide.
-
-Big shoutout to the author for creating such a great library and resource.
+Authentication is an important topic of any application. It's the gatekeeper that ensures only the right people can access the right resources. But **how do you roll your own authentication in JavaScript & TypeScript**? In this tutorial, we'll explore how to build a session-based authentication system where a database is used to store users and their sessions. We'll also cover how to manage cookies and passwords securely.
 
 # Why to roll your own auth?
 
