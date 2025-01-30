@@ -1,7 +1,7 @@
 ---
 title: "Vite with TypeScript"
 description: "How to upgrade Vite to TypeScript from JavaScript ..."
-date: "2024-01-01T09:52:46+02:00"
+date: "2025-01-30T09:52:46+02:00"
 categories: ["React", "Vite"]
 keywords: ["vite typescript"]
 hashtags: ["#ReactJs"]
@@ -20,17 +20,18 @@ npm install @typescript-eslint/eslint-plugin --save-dev
 npm install @typescript-eslint/parser --save-dev
 ```
 
-Add two TypeScript configuration files; one for the browser environment and one for the Node environment:
+Add three TypeScript configuration files; one for the browser environment, one for the Node environment, and one to merge both configurations:
 
 ```text
-touch tsconfig.json tsconfig.node.json
+touch tsconfig.json tsconfig.app.json tsconfig.node.json
 ```
 
-In the TypeScript file for the browser environment include the following configuration:
+In the TypeScript file for the browser environment (*tsconfig.app.json*) include the following configuration:
 
 ```javascript
 {
   "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
@@ -40,8 +41,8 @@ In the TypeScript file for the browser environment include the following configu
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
     "isolatedModules": true,
+    "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
 
@@ -49,25 +50,51 @@ In the TypeScript file for the browser environment include the following configu
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src"]
 }
 ```
 
-Then In the TypeScript file for the Node environment include some more configuration:
+Then In the TypeScript file for the Node environment (*tsconfig.node.json*) include some more configuration:
 
 ```javascript
 {
   "compilerOptions": {
-    "composite": true,
-    "skipLibCheck": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "target": "ES2022",
+    "lib": ["ES2023"],
     "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
   },
   "include": ["vite.config.ts"]
+}
+```
+
+Finally merge both configurations into the main TypeScript configuration file:
+
+```javascript
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }
 ```
 
@@ -81,13 +108,13 @@ mv src/App.jsx src/App.tsx
 And in your *index.html* file, reference the new TypeScript file instead of a JavaScript file:
 
 ```html{11}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Vite + React + TS</title>
   </head>
   <body>
     <div id="root"></div>
@@ -96,10 +123,47 @@ And in your *index.html* file, reference the new TypeScript file instead of a Ja
 </html>
 ```
 
-You may also need a new vite-env.d.ts file in your project's root with the following content:
+You may also need a new *vite-env.d.ts* file in your project's root with the following content:
 
 ```javascript
 /// <reference types="vite/client" />
+```
+
+You may also need to adjust your *eslint.config.js* file to include TypeScript:
+
+```javascript
+import js from '@eslint/js';
+import globals from 'globals';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import tseslint from 'typescript-eslint';
+
+export default tseslint.config(
+  { ignores: ['dist'] },
+  {
+    extends: [
+      js.configs.recommended,
+      ...tseslint.configs.recommended,
+    ],
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
+    plugins: {
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      'react/prop-types': 'off',
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
+    },
+  }
+);
 ```
 
 Optionally if you want to resolve absolute paths from your tsconfig.json file, use the following [vite-tsconfig-paths](https://www.npmjs.com/package/vite-tsconfig-paths) plugin:
