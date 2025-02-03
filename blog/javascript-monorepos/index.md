@@ -1,7 +1,7 @@
 ---
 title: "Monorepos in JavaScript & TypeScript"
 description: "A tutorial how to use a monorepo architecture in frontend JavaScript and TypeScript with tools like npm/yarn/pnpm workspaces, Turborepo/NX/Lerna, Git Submodules, ..."
-date: "2022-05-31T09:52:46+02:00"
+date: "2025-02-03T09:52:46+02:00"
 categories: ["JavaScript", "React", "TypeScript"]
 keywords: ["javascript monorepo", "typescript monorepo", "frontend monorepo", "monorepo tools"]
 hashtags: ["#ReactJs"]
@@ -12,21 +12,11 @@ author: ""
 
 <Sponsorship />
 
-This is a comprehensive tutorial on Monorepos in JavaScript/TypeScript --- which is using state of the art tools for these kind of architectures in frontend applications. You will learn about the following topics from this tutorial:
+This is a comprehensive tutorial on Monorepos in JavaScript and TypeScript -- which is using state of the art tools for monorepo architectures in projects. You will learn about the following topics from this tutorial.
 
-* What is a monorepo?
-* How to structure a monorepo architecture?
-* How to create a monorepo?
-* Which tools to use for a monorepo?
-* How to perform versioning in a monorepo?
-* How to create a CI pipeline for a monorepo?
-* How to run applications decoupled from the monorepo?
+I've become passionate about monorepos, as they've transformed how I approach my work as a freelance developer and contributor to open-source projects. When I first adopted monorepos for JavaScript and TypeScript, it felt like a natural way to unify applications and packages. My goal with this tutorial is to share the lessons I've learned.
 
-I myself am extremely hyped about Monorepos these days, because they help me with my work as a freelance developer and my open source projects. When I started to use monorepos in JavaScript/TypeScript I must say it just felt natural to combine applications and packages this way. With this walkthrough, I hope to pass along my learnings in this space.
-
-*Shoutout to [Lee Robinson](https://twitter.com/leeerob) who inspired and [helped](https://github.com/vercel/turborepo/tree/main/examples/design-system) me tremendously to get started in this space. Another shoutout goes to [Shawn "Swyx" Wang](https://twitter.com/swyx) who made me aware of [Turborepo](https://www.swyx.io/turborepo-why) and to [Wes Bos](https://twitter.com/wesbos) & [Scott Tolinski](https://twitter.com/stolinski) who had an [episode](https://syntax.fm/show/426/monorepos-workspaces-pnpm-turborepo-more) on SyntaxFM about Monorepos.*
-
-When this tutorial becomes more practical, we will use React.js as framework of choice for creating applications and shared packages (UI components) within this monorepo. However, feel free to use your own framework of choice (e.g. Angular or Vue).
+For the hands-on portion of this tutorial, we'll use React.js as our framework to create applications and shared packages, such as UI components. That said, you can easily adapt the concepts to your preferred framework.
 
 # Table of Contents
 
@@ -34,11 +24,11 @@ When this tutorial becomes more practical, we will use React.js as framework of 
 
 # What is a Monorepo
 
-A monorepo is a project which contains smaller projects -- whereas each project can be anything from individual application to reusable package (e.g. functions, components, services). The practice of combining projects dates back to the early 2000 when it was called a *shared codebase*.
+A monorepo is a project that contains smaller projects -- where each project can be anything from an individual application to a reusable package (e.g. functions, components, services). The practice of combining projects dates back to the early 2000s when it was referred to as a shared codebase.
 
-The name monorepo stems from the words mono (single) and repo ([repository](https://en.wikipedia.org/wiki/Repository_(version_control))). While the former is self-explanatory, the latter comes from version control systems (e.g. git) where either projects:repositories are hosted in a n:n relationship (polyrepo) or a n:1 relationship (monorepo).
+The term "monorepo" stems from the words mono (single) and repo (repository). While the former is self-explanatory, the latter originates from version control systems (e.g., Git), where projects are hosted as repositories in either an n:n relationship (Polyrepo) or an n:1 relationship (Monorepo).
 
-Often a monorepo is mistaken for a monolith. However, in a monolithic application all smaller projects are combined into one large project. In contrast, a monorepo can combine its smaller projects into multiple projects.
+A monorepo is often mistaken for a monolith, but they are fundamentally different. A monolith refers to a single, tightly integrated application where all functionality resides in one codebase. In contrast, a monorepo is a single repository that houses multiple distinct projects -- such as applications, libraries, or services -- that remain modular and independent, enabling shared resources and streamlined collaboration without forcing them into a single application.
 
 ![](./images/monorepo-monolith.png)
 
@@ -51,13 +41,15 @@ However, these days monorepos become popular for any codebase which has multiple
 
 # Why use a Monorepo
 
-There are two major advantages using a monorepo for a large scale codebase. First of all, shared packages can be used in multiple applications on a local machine without an online registry (e.g. npm). The developer experience improves tremendously here, because everything is in the same codebase without updating dependencies via third-parties. When a shared package gets updated, it gets immediately reflected in all applications which depend on it.
+Using a monorepo for a large-scale codebase offers two significant advantages.
 
-Second, it improves collaboration across codebases. Teams working on different projects can improve the codebases from other teams without working on multiple repositories. It also improves accessibility without worrying about different setups and introduces a more flexible ownership of the source code across teams. Another benefit is the refactoring of code across many projects.
+First, shared packages can be used across multiple applications locally without relying on an online registry (e.g. npm). This dramatically enhances the developer experience since everything resides within the same codebase, eliminating the need to update dependencies via third-party sources. Any updates to a shared package are instantly reflected in all dependent applications, streamlining development and reducing overhead.
+
+Second, monorepos foster better collaboration across teams and projects. Developers working on different projects can contribute to other teams' codebases without juggling multiple repositories, enabling seamless cross-team collaboration. Monorepos also simplify accessibility by providing a consistent setup and promote flexible ownership of the source code. Additionally, they make large-scale refactoring across multiple projects more efficient and manageable.
 
 # Structure of a Monorepo
 
-A monorepo can contain multiple applications (here: apps) whereas each application has access to shared set of packages. Bear in mind that this is already an opinionated monorepo structure:
+A monorepo can contain multiple applications (here: apps) whereas each application has access to shared set of packages. Bear in mind that this is already an opinionated monorepo structure, but it's a common one if you get started with monorepos:
 
 ```text
 - apps/
@@ -69,7 +61,7 @@ A monorepo can contain multiple applications (here: apps) whereas each applicati
 --- package-three
 ```
 
-A package, which is just a folder, can be anything from UI components (e.g. framework specific components) over functions (e.g. utilities) to configuration (e.g. ESLint, TypeScript):
+A package, which is just a folder, can be anything from UI components (e.g. framework specific) over functions (e.g. utilities) to configuration (e.g. ESLint, TypeScript):
 
 ```text
 - apps/
@@ -82,13 +74,13 @@ A package, which is just a folder, can be anything from UI components (e.g. fram
 --- ts-config
 ```
 
-A package can be a dependency of another package. For example, the *ui* package may use functions from the *utilities* package and therefore the *ui* package depends on the *utilities* package. Both, *ui* and *utilities* package, may use configuration from the other *\*-config* packages.
+A package can be a dependency of another package. For example, the *ui* package may use functions from the *utilities* package and therefore the *ui* package depends on the *utilities* package. Both, *ui* and *utilities* package, may use configuration from the other *[name]-config* packages.
 
 The *apps* are usually not dependent on each other, instead they only opt-in *packages*. If packages depend on each other, a monorepo pipeline (see **Monorepo Tools**) can enforce scenarios like "start *ui* build only if the *utilities* build finished successfully".
 
 ![](./images/monorepos-pipeline.png)
 
-Since we are speaking about a JavaScript/TypeScript monorepo here, an *app* can be a JavaScript or TypeScript application whereas only the TypeScript applications would make use of the shared *ts-config* package (or create their own config or use a mix of both).
+Since we are speaking about a JavaScript/TypeScript monorepo here, an *app* can be a JavaScript or TypeScript application whereas only the TS applications would make use of the shared *ts-config* package (or create their own config or use a mix of both).
 
 Applications in *apps* don't have to use shared *packages* at all. It's opt-in and they can choose to use their internal implementations of UI components, functions, and configurations. However, if an application in *apps* decides to use a package from *packages* as dependency, they have to define it in their *package.json* file:
 
@@ -102,19 +94,19 @@ Applications in *apps* don't have to use shared *packages* at all. It's opt-in a
 }
 ```
 
-Applications in *apps* are their own entity and therefore can be anything from a SSR application (e.g. [Next.js](/react-libraries/)) to a CSR application (e.g. [CRA/Vite](/react-libraries/)).
+Applications in *apps* are their own entity and therefore can be anything from a SSR application (e.g. [Next.js](https://www.road-to-next.com/)) to a CSR application (e.g. [CRA/Vite](/react-starter/)).
 
 <ReadMore label="Web Applications 101" link="/web-applications/" />
 
-In other words: applications in *apps* do not know about being an repo in a monorepo, they just define dependencies. The monorepo (see **Workspaces in Monorepos**) decides then whether the dependency is taken from the monorepo (default) or from a registry (fallback, e.g. npm registry).
+In other words: applications in *apps* do not know about being an project in a monorepo, they just define dependencies. The monorepo decides then whether the dependency is taken from the monorepo (default) or as a the natural fallback from a registry (e.g. npm registry) (see **Workspaces in Monorepos**).
 
 Reversely, this means that an application can be used without being part of the monorepo as well. The only requirement is that all its dependencies (here: *ui*, *utilities*, *eslint-config*) are published on a registry like npm, because when used as a standalone application there is no monorepo with shared dependencies anymore (see **Versioning with Monorepos**).
 
-# How to create a Monorepo
+# Monorepo Example
 
-After all these learnings in theory about monorepos, we will walk through an example of a monorepo as a proof of concept. Therefore, we will create a monorepo with React applications (*apps*) which use a shared set of components/configuration (*packages*). However, none of the tools are tied to React, so you can adapt it to your own framework of choice (e.g. Angular or Vue).
+After all these learnings in theory about monorepos, we will walk through an example of a monorepo as a proof of concept. Therefore, we will create a monorepo with React applications (*apps*) which use a shared set of code (*packages*). However, none of the tools are tied to React, so you can adapt it to your own framework of choice.
 
-We will not create a monorepo from scratch though, because it would involve too many steps that would make this whole topic difficult to follow. Instead we will be using a starter monorepo. While using it, I will walk you through all the implementation details which went into it step by step.
+We will not create a monorepo from scratch though, because it would involve too many steps that would make this whole topic difficult to follow. Instead we will be using a starter monorepo. While using it, I will walk you through all the implementation details.
 
 Start off by cloning the [monorepo starter](https://github.com/bigstair-monorepo/monorepo) to your local machine:
 
@@ -122,14 +114,14 @@ Start off by cloning the [monorepo starter](https://github.com/bigstair-monorepo
 git clone git@github.com:bigstair-monorepo/monorepo.git
 ```
 
-We are using yarn as alternative to npm here, not only for installing the dependencies, but also for using so-called workspaces later on. In the next section (see **Workspaces in Monorepos**), you will learn about workspaces and alternative workspaces tools in contrast to yarn workspaces. For now, navigate into the repository and install all the dependencies with yarn:
+We are using yarn as alternative to npm here, not only for installing the dependencies, but also for using so-called workspaces later on. In the next section (see **Workspaces in Monorepos**), you will learn about workspaces and alternative tools for workspaces. For now, navigate into the repository and install all the dependencies with yarn:
 
 ```sh
 cd monorepo
 yarn install
 ```
 
-While explaining other parts later, we will focus on the following content of the monorepo for now:
+We will focus on the following content of the monorepo for now:
 
 ```text
 - apps/
@@ -145,7 +137,9 @@ The monorepo comes with one "built-in" application called *docs* in *apps* for t
 
 In addition, there are four *packages* -- whereas two packages are shared UI components (here: *bigstair-core* and *bigstair-map*) and two packages are shared configurations (here: *eslint-config-bigstair* and *ts-config-bigstair*).
 
-We are dealing with a fake company called *bigstair* here which becomes important later (see **Versioning with Monorepos**). For now, just think away the bigstair naming which may make it more approachable. Furthermore, we will not put much focus on the ESLint and TypeScript configurations. You can check out later how they are reused in *packages* and *apps*, but what's important to us are the actual applications and the actual shared packages:
+We are dealing with a fake company called *bigstair* which becomes important later (see **Versioning with Monorepos**). For now, just think away the bigstair naming which may make it more approachable.
+
+Furthermore, we will not put much focus on the ESLint and TypeScript configurations. You can check out later how they are reused in *packages* and *apps*, but what's important to us are the actual applications and the actual shared packages:
 
 ```text
 - apps/
@@ -194,7 +188,7 @@ Furthermore, the *package.json* files of both packages define a `name` property 
 
 If both packages would be available via the npm registry, the *docs* application could install it from there. However, as mentioned earlier, since we are working in a monorepo setup with workspaces (see **Workspaces in Monorepos**), the *package.json* file of the *docs* application checks first if these packages exist in the monorepo before using the npm registry as fallback.
 
-Last, check the implementation details of the *docs* application. There you will see that it imports the packages like third-party libraries even though they are packages in the monorepo:
+Last, check the implementation details of the *docs* application. There you will see that it imports the packages like third-party dependencies even though they are packages in the monorepo:
 
 ```javascript
 import { Button } from '@bigstair/core';
@@ -204,7 +198,9 @@ This underpins again the fact that an application in *apps* doesn't know that it
 
 # Workspaces in Monorepos
 
-A monorepo, in our case, consists of multiple apps/packages working together. In the background, a tool called workspaces enables us to create a folder structure where *apps* can use *packages* as dependencies. In our case, we are using [yarn workspaces](https://yarnpkg.com/features/workspaces) to accomplish our goal. There are alternatives such as [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) and [pnpm workspaces](https://pnpm.io/workspaces) too.
+A monorepo, in our case, consists of multiple apps/packages working together. In the background, a tool called workspaces enables us to create a folder structure where *apps* can use *packages* as dependencies. In our case, we are using [yarn workspaces](https://yarnpkg.com/features/workspaces) to accomplish our goal.
+
+There are alternatives such as [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) and [pnpm workspaces](https://pnpm.io/workspaces) too.
 
 A yarn workspace gets defined the following way in the top-level *package.json* file:
 
@@ -215,7 +211,11 @@ A yarn workspace gets defined the following way in the top-level *package.json* 
 ],
 ```
 
-Since we already anticipate that we have multiple *apps* and *packages*, we can just point to the folder path and use a wildcard as subpath. This way, every folder in *apps*/*packages* with a *package.json* file gets picked up. Now, if an application from *apps* wants to include a package from *packages*, it just has to use the `name` property from the package's *package.json* file as dependency in its own *package.json* file (as we have seen before). Note that the structure of having *apps* and *packages* is already opinionated at this point.
+Since we already anticipate that we have multiple *apps* and *packages*, we can just point to the folder path and use a wildcard as subpath. This way, every folder in *apps*/*packages* with a *package.json* file gets picked up.
+
+Now, if an application from *apps* wants to include a package from *packages*, it just has to use the `name` property from the package's *package.json* file as dependency in its own *package.json* file (as we have seen before).
+
+Note that the structure of having *apps* and *packages* is already opinionated at this point.
 
 <Divider />
 
@@ -238,7 +238,7 @@ Installing all dependencies is needed here for two things:
 * First, the new applications in *apps* need to install all their dependencies -- including the *packages* which they define as dependencies as well.
 * Second, with two new nested workspaces coming in, there may be new dependencies between *apps* and *packages* that need to be resolved in order to have all workspace working together.
 
-Now when you start all *apps* with `yarn dev`, you should see the Storybook coming up in addition to two new React applications which uses the Button component from the *packages*.
+Now when you start all *apps* with `yarn dev`, you should see the Storybook coming up in addition to two new React applications which use components from the *packages*.
 
 <Divider />
 
@@ -252,7 +252,7 @@ Both cloned applications are React applications bootstrapped with [Vite](https:/
 }
 ```
 
-Afterward, they just use the shared components the same way as we did before in the *docs*:
+Afterward, they just use the shared components the same way as we did in the *docs*:
 
 ```javascript
 import { Button } from '@bigstair/core';
@@ -262,21 +262,25 @@ Because we are working in a monorepo setup, to be more specific in workspace set
 
 ![](./images/monorepos-dependencies.png)
 
-As you can see, any JavaScript or TypeScript application can be bootstrapped in the *apps* folder this way. Go ahead and create your own application, define the *packages* as dependencies, `yarn install` everything, and use the shared components from the *packages* workspaces.
+As you can see, any JavaScript or TypeScript application can be bootstrapped in the *apps* folder this way. Go ahead and create your own application, define any of the *packages* as dependency, `yarn install` everything, and use the shared components.
 
 <Divider />
 
 At this point, you already have seen the global *package.json* file in the top-level directory and local *package.json* files for each project in *apps* and *packages*. The top-level *package.json* file defines the workspaces in addition to global dependencies (e.g. eslint, prettier) which can be used in every nested workspace. In contrast, the nested *package.json* files only define dependencies which are needed in the actual project.
 
-# Monorepo Tools
+# Monorepo Tools (Turborepo)
 
-You have witnessed how workspaces already allow us to create a monorepo structure. However, while workspaces enable developers to link projects in a monorepo to each other, a dedicated monorepo tool comes with an improved developer experience. You have already seen one of these DX improvements when typing:
+You have witnessed how workspaces already allow us to create a monorepo structure. However, while workspaces enable developers to link projects in a monorepo to each other, a dedicated monorepo tool comes with an improved developer experience.
+
+You have already seen one of these DX improvements when typing:
 
 ```sh
 yarn dev
 ```
 
-Executing this command from the top-level folder starts all of the projects in the monorepo which have a `dev` script in their `package.json` file. The same goes for several other commands:
+Executing this command from the top-level folder starts all of the projects in the monorepo which have a `dev` script in their `package.json` file.
+
+The same goes for several other commands, because they are defined at a top-level:
 
 ```sh
 yarn lint
@@ -300,7 +304,7 @@ If you check the top-level *package.json* file, you will a bunch of overarching 
 }
 ```
 
-A monorepo tool called [Turborepo](https://turborepo.org/) allows us to define these scripts. Alternative monorepo tools are [Lerna](https://lerna.js.org/) and [Nx](https://nx.dev/). Turborepo comes with several configurations that allow you to execute the scripts for its nested workspaces in parallel (default), in order, or filtered:
+A monorepo tool called [Turborepo](https://turborepo.org/) allows us to define these scripts. Alternative monorepo tools are [Lerna](https://lerna.js.org/) and [Nx](https://nx.dev/). Turborepo comes with several configurations that allow you to execute the scripts for its nested workspaces in parallel, in order, or filtered:
 
 ```json
 "scripts": {
@@ -309,11 +313,11 @@ A monorepo tool called [Turborepo](https://turborepo.org/) allows us to define t
 },
 ```
 
-In addition, you can create a *turbo.json* file (open it yourself) to define a monorepo pipeline for all the scripts. For example, if one package has another package as dependency in the *packages* workspace, then one could define in the pipeline for the build script that the former package has to wait for the build of the latter package.
+In addition, you will have a *turbo.json* file to define a monorepo pipeline for all the scripts. For example, if one package has another package as dependency in the *packages* workspace, then one could define in the pipeline for the build script that the former package has to wait for the build of the latter package.
 
 ![](./images/monorepos-pipeline.png)
 
-Last but not least, Turborepo comes with advanced caching capabilities for files which work locally (default) and remotely. You can opt-out of local caching any time. You can check out Turborepo's documentation here, because this walkthrough does not go into any more detail here.
+Last but not least, Turborepo comes with advanced caching capabilities for files which work locally (default) and remotely. You can opt-in caching any time. You can check out Turborepo's documentation here, because this walkthrough does not cover it.
 
 # Documentation in Monorepos
 
@@ -321,13 +325,13 @@ Because many monorepos come with applications which access a shared set of packa
 
 ![](./images/monorepos-documentation.png)
 
-Our initial setup of the monorepo already came with a *docs* application which uses Storybook to document all of the package's UI components. However, if the shared packages are not UI components, you may want to have other tools for documenting concepts, usage, or APIs.
+Our initial setup of the monorepo already came with a *docs* application which uses Storybook to document all of the package's UI components. However, if the shared packages are not UI components, you may want to have other tools for it.
 
 From this "minimal monorepo architecture", which comes with shared packages, documentation of the shared packages, and a proof of concept that the monorepo architecture works by reusing the packages in the documentation, one can extend the structure by adding more applications or packages to it as we have done in the **Workspaces in Monorepos** section.
 
 # Monorepos vs Polyrepos in Git
 
-If nothing speaks against it, one can host a monorepo with all its workspaces in a single Git repository. That's the prime definition of a monorepo after all. However, once a monorepo scales in size with multiple workspaces, there is *maybe* (!) the need (see **Example: Monorepos as Incubators**) for separating the monorepo into multiple Git repositories. That's what we already did with the *apps* (except for *docs*) in our monorepo walkthrough.
+If nothing speaks against it, one can host a monorepo with all its workspaces in a single Git repository. That's the prime definition of a monorepo after all. However, once a monorepo scales in size with multiple workspaces, there is *maybe* (!) the need (see **Example: Monorepos as Incubators**) for separating the monorepo into multiple Git repositories. In essence that's what we already did with the *apps* (except for *docs*) in this monorepo tutorial.
 
 There may be various ways to move from a single Git repository to multiple Git repositories for a monorepo -- essentially creating a polyrepo in disguise as a monorepo. In our case, we just used a top-level *.gitignore* file which ignores two of the nested workspaces from the *apps* which should have their dedicated Git repository.
 
@@ -335,7 +339,7 @@ There may be various ways to move from a single Git repository to multiple Git r
 
 However, this way we always work on the latest version of all workspaces (here: *apps* and *packages*), because when cloning all nested workspaces into the monorepo or as standalone application, they just use the recent code. We get around this flaw when taking versioning into account next.
 
-# Versioning with Monorepos
+# Versioning with Monorepos (Changesets)
 
 Applying versions, especially to shared *packages* in a monorepo which may end up online in a package manager (e.g. npm registry) eventually, is not as straightforward as expected. There are multiple challenges like *packages* can depend on each other, there is more than one package to keep an eye on, packages are nested folders in *packages*, and each package has to have its own changelog and release process.
 
@@ -368,26 +372,26 @@ Versioning packages will include publishing them to a registry (e.g. npm). If yo
 
 * create an organization on [npm](https://www.npmjs.com/) which allows you to publish packages
 * npm login on the command line
-* use the name of your organization instead of `bigstair` everywhere in the source code
+* use the name of your organization instead of `bigstair` in the source code
 * verify with `yarn install && yarn dev` that everything still works as expected
 
 Another prerequisite before we can version a package: We need to change one of our *packages* first. Go into one of the UI packages and change the source code of the components. Afterward, the mission is to have the change reflected in the new version which gets published to npm.
 
 ![](./images/monorepos-versioning.png)
 
-* First, run `yarn changeset-create` which enables you to create a changelog for changed packages. The prompt walks you through selecting a package (use spacebar), choosing the semver increment (major, minor, patch), and writing the actual changelog. If you check your repository afterward with `git status`, you will see the changed source code in addition to a newly created changelog file. If packages depend on each other, the linked packages will get a version bump later too.
+* First, run `yarn changeset-create` which enables you to create a changelog for changed packages. The prompt walks you through selecting a package (use spacebar), choosing the semver increment (major, minor, patch), and writing the actual changelog. If you check your repository afterward with `git status`, you will see the changed source code in addition to a newly created changelog file. If packages depend on each other, the linked packages will get a version bump too.
 
 * Second, if the changelog file is okay, run `yarn changeset-apply` which applies the changelog and the version to the actual package. You can check again with `git status` and `git diff` if everything looks as desired.
 
 * Third, if everything looks okay, go ahead and release the updated packages to npm with `yarn release`. After the release, verify on npm that your new version got published there.
 
-Essentially that's everything to versioning your packages on your local machine. The next section takes it one step further by using continuous integration for the versioning (2) and publishing (3) steps.
+Essentially that's everything to versioning your packages on your local machine. The next section takes it one step further by using continuous integration for the versioning (2) and publishing (3) steps which makes it more reliable and scalable for a team.
 
 # Continuous Integration with Monorepos
 
 The complexity of the Continuous Integration (CI) of a monorepo depends on how many repositories get managed on a version control platform like [GitHub](https://github.com/rwieruch). In our case, all *packages* are in the same repository (here they are part of the monorepo itself). Hence we only need to care about CI for this one repository, because in this section it's all about the release of the *packages*.
 
-The example monorepo already uses GitHub Actions for the CI. Open the *.github/workflows.release.yml* file which presents the following content for the GitHub Action:
+Our monorepo uses GitHub Actions for CI. Open the *.github/workflows.release.yml* file which presents the following content for the GitHub Action:
 
 ```javascript
 name: Release
@@ -439,19 +443,17 @@ Monorepos are becoming more popular these days, because they allow you to split 
 
 The second enabler are the overarching monorepo tools which allow one to run scripts in a more convenient way globally, to orchestrate scripts in a monorepo (e.g. pipelines in **Turborepo**), or to cache executed scripts locally/remotely. Turborepo is one popular contender in this space. Lerna and Nx are two alternatives to it.
 
-If a monorepo is used in Git, one can optionally decide to split a single repository into multiple repositories (polyrepo in disguise as a monorepo). In our scenario we have been using a straightforward *.gitignore* file. However, there may be other solution to this problem.
+If a monorepo is used in Git, one can optionally decide to split a single repository into multiple repositories (polyrepo in disguise as a monorepo). In our scenario we have been using a straightforward *.gitignore* file. However, there may be other solution to this problem like git submodules.
 
-In the case of versioning, **Changesets** is a popular tool for creating changelogs, versions, and releases for a monorepo. It's the alternative to [semantic release](https://github.com/semantic-release/semantic-release) in the monorepo space.
+In the case of versioning, **Changesets** is a popular tool for creating changelogs, versions, and releases for a monorepo. It's the alternative to [semantic release](https://github.com/semantic-release/semantic-release) in the monorepo space. In the future it would be great to have [semantic-release behaviour in changesets](https://github.com/changesets/changesets/issues/862).
 
 In conclusion, Workspaces, Turborepo, and Changesets are the perfect composition of monorepo tools to create, manage, and scale a monorepo in JavaScript/TypeScript.
 
-# Example: Monorepos as Incubators
+# Case Story: Monorepos as Incubators
 
-In my recent job as a freelance frontend developer, I had to set up a monorepo for a company. The company is a software house which develops applications for other companies. Over the years, they have developed packages (e.g. UI components) internally.
+In my recent job as a freelance frontend developer, I had to set up a monorepo for a company. The company is a software house which develops applications for other companies. Over the years, they have created packages (e.g. UI components) internally.
 
-**The goal for the monorepo:** being able to develop applications for clients side by side while being able to use shared packages with a great DX.
-
-It mentions great DX, because that's the important point for using a monorepo (see **Why use a Monorepo**): Rather than installing the packages from npm, we can just change them within the scope of the monorepo and see the changes reflected in the applications. Otherwise we would have to go through the whole release + install cycle when adjusting a UI library.
+**The goal for the monorepo:** being able to develop applications for clients side by side while being able to use shared packages with a great DX. Rather than installing the packages from npm, we can just change them within the scope of the monorepo and see the changes reflected in the applications. Otherwise we would have to go through the whole release + install cycle when adjusting a UI library.
 
 ![](./images/monorepo-incubator.png)
 
@@ -461,10 +463,6 @@ The process for incubating and hatching an application for a company is divided 
 
 **Hatching:** Once a client gets off-boarded, we set a final version to all dependencies in their project's package.json. From there, it's their responsibility to upgrade the packages. Hence the automatically generated changelog of in-house packages on our end if a client decides to upgrade one of them.
 
-# Monorepo FAQ
+<Divider />
 
-* **Are there Monorepos for Frontend and Backend?** When working with a frontend and backend, they are are most often loosely coupled via an API. However, there are various aspects where frontend and backend can still use shared packages (type safe API interfaces, utility functions, server-side components). So it's totally possible to have a CSR React application, a SSR React application (e.g. Next.js), and an [Express application](/node-express-server-rest-api/) side by side.
-
-* **Are Monorepos the same as Monoliths?** They are not. A monorepo *can* produce one monolithic application, however there are more likely applications side by side which share the domain of the company or a set of packages but are not *one* self-contained application (definition of monolithic). In the end, there just needs to be the requirement for sharing code across multiple projects.
-
-* **Are there Monorepos for Microfrontends?** Not anything that I can reference here, however, it's absolutely possible to create a user facing application and a admin facing application side by side in a monorepo where the developer decides whether both get stitched together as one monolith or whether they are standalone applications on different (sub)domains (e.g. my-application.com and admin.my-application.com).
+Monorepos streamline large-scale development by centralizing multiple applications and packages, enabling seamless collaboration, simplified dependency management, and efficient updates. Tools like Yarn Workspaces, Turborepo, and Changesets make monorepos scalable and maintainable, offering a unified approach to building and managing complex projects. With this tutorial, you're ready to implement a robust monorepo architecture.
