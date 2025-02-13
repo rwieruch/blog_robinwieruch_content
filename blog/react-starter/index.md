@@ -61,7 +61,7 @@ In contrast, when learning React within the environment of a framework, React of
 
 # React with Next
 
-[Next.js](https://nextjs.org/) is the most mature framework and, therefore, the obvious choice when a React developer wants to use React in an opinionated framework environment. It comes with many features built-in. However, if Next.js isn't your cup of tea, check out [TanStack Start](https://tanstack.com/start) (Beta) [React Router (as a framework)](https://remix.run/) (in transition from Remix).
+[Next.js](https://nextjs.org/) is the most mature framework and, therefore, the obvious choice when a React developer wants to use React in an opinionated framework environment. It comes with many features built-in. However, if Next.js isn't your cup of tea, check out [TanStack Start](https://tanstack.com/start) (Beta) or [React Router (as a framework)](https://remix.run/) (in transition from Remix).
 
 ![](./images/next-happiness.jpg)
 

@@ -18,7 +18,7 @@ Learning React in 2024 is not the easiest endeavour. While we had lots of stabil
 
 To put things into context: The [new React documentation](https://react.dev/) has been released 2023 and does recommend React to be used in a fully integrated framework. The documentation advocates using a (meta) framework (e.g. Next.js) instead of using React as a library (or framework - however you like to call it) in a bundler like Vite or Parcel.
 
-<ReadMore label="React Starters in 2024" link="/react-starter/" />
+<ReadMore label="React Starters in 2025" link="/react-starter/" />
 
 My take on this was easing the shift a bit by still recommending a wider variation of React starters before frameworks become the actual default eventually.
 
