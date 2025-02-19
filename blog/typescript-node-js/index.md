@@ -56,20 +56,39 @@ Next, add the following configuration to your `tsconfig.json` file:
 // tsconfig.json
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "CommonJS",
+    /* Modern JavaScript & Browser Compatibility: */
+    "target": "ESNext",
+
+    /* Module System Settings: */
+    "module": "NodeNext",
     "rootDir": "src",
     "outDir": "dist",
-    "moduleResolution": "Node",
+    "sourceMap": true,
+
+    /* Module Resolution Strategy: */
+    "moduleResolution": "NodeNext",
+    "moduleDetection": "force",
+
+    /* Interoperability and File Consistency: */
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+
+    /* Strict Type-Checking: */
     "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "sourceMap": true,
     "declaration": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+
+    // Include modern ECMAScript (ES2022) and DOM APIs for frontend
+    "lib": ["ES2022", "DOM"]
+    // Uncomment this for backend code without DOM APIs
+    /* "lib": ["ES2022"] */
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
@@ -78,18 +97,57 @@ Next, add the following configuration to your `tsconfig.json` file:
 
 Let's break down what each configuration option does:
 
-- Modern JavaScript support: "target": "ES2020"
-  - ensures compatibility with the latest Node.js features
-- Cleaner project structure: "rootDir": "src" and "outDir": "dist"
-  - keep the source and compiled files separate
-- Stronger type safety: "strict": true" and "noImplicitAny": true"
-  - catch potential bugs early
-- Better cross-platform compatibility: "forceConsistentCasingInFileNames": true"
-  - prevents case-sensitive import issues.
-- JSON support: "resolveJsonModule": true"
-  - allows importing JSON files in TypeScript
-- Efficient compilation: "skipLibCheck": true"
-  - speeds up TypeScript compilation
+- target: "ESNext"
+  - Uses the latest ECMAScript features, ensuring compatibility with modern JavaScript.
+- module: "NodeNext"
+  - Configures Node.js to use ESM module system for better module handling.
+- rootDir: "src", outDir: "dist"
+  - Organizes source code in src and compiled code in dist.
+- sourceMap: true
+  - Enables source maps for easier debugging.
+- moduleResolution: "NodeNext", moduleDetection: "force"
+  - Resolves modules using Node’s ESM strategy and forces module detection.
+- esModuleInterop: true
+  - Ensures compatibility between CommonJS and ESM modules.
+- forceConsistentCasingInFileNames: true
+  - Prevents case-sensitivity issues across platforms (e.g., Windows vs. Linux).
+- strict: true, noUncheckedIndexedAccess: true, noImplicitOverride: true, noImplicitAny: true
+  - Enforces strict type-checking for fewer runtime errors and better safety.
+- skipLibCheck: true
+  - Skips type-checking of declaration files to speed up compilation.
+- resolveJsonModule: true
+  - Allows importing JSON files directly as modules.
+- declaration: true
+  - Generates .d.ts files for type definitions.
+- allowSyntheticDefaultImports: true
+  - Enables default imports for CommonJS modules.
+- allowImportingTsExtensions: true
+  - Allows importing .ts files with their extensions.
+- verbatimModuleSyntax: true
+  - Keeps the import/export syntax as-is without transformation.
+- lib: ["ES2022", "DOM"]
+  - Includes modern ECMAScript and DOM APIs for frontend projects (or just ES2022 for backend).
+
+Optionally add the following lines for JavaScript support in a TypeScript project:
+
+```json{5-6}
+// tsconfig.json
+{
+  "compilerOptions": {
+    ...
+    "allowJs": true,
+    "checkJs": true
+  }
+}
+```
+
+If we are fully committing to ESM, add this to the `package.json`:
+
+```json
+{
+  "type": "module"
+}
+```
 
 # Source Folder and Entry File
 
