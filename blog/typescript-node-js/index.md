@@ -57,76 +57,43 @@ Next, add the following configuration to your `tsconfig.json` file:
 {
   "compilerOptions": {
     /* Modern JavaScript & Browser Compatibility: */
-    "target": "ESNext",
+    "target": "ESNext", // Uses the latest ECMAScript features for modern JavaScript support
 
     /* Module System Settings: */
-    "module": "NodeNext",
-    "rootDir": "src",
-    "outDir": "dist",
-    "sourceMap": true,
+    "module": "NodeNext", // Configures Node.js to use ESM module system
+    "rootDir": "src", // Specifies the source directory for your code
+    "outDir": "dist", // Specifies the output directory for compiled files
+    "sourceMap": true, // Enables source maps for easier debugging
 
     /* Module Resolution Strategy: */
-    "moduleResolution": "NodeNext",
-    "moduleDetection": "force",
+    "moduleResolution": "NodeNext", // Resolves modules using Node’s ESM strategy
+    "moduleDetection": "force", // Forces TypeScript to treat files as modules
 
     /* Interoperability and File Consistency: */
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true, // Ensures compatibility between CommonJS and ESM modules
+    "forceConsistentCasingInFileNames": true, // Prevents case-sensitivity issues across platforms
 
     /* Strict Type-Checking: */
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "noImplicitOverride": true,
-    "noImplicitAny": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "declaration": true,
-    "allowSyntheticDefaultImports": true,
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
+    "strict": true, // Enables strict type-checking for fewer runtime errors
+    "noUncheckedIndexedAccess": true, // Enforces type safety for array/object accesses
+    "noImplicitOverride": true, // Enforces explicit use of `override` for methods overriding base class methods
+    "noImplicitAny": true, // Prevents the use of `any` type unless explicitly defined
+    "skipLibCheck": true, // Skips type-checking of declaration files for faster compilation
+    "resolveJsonModule": true, // Allows importing JSON files as modules
+    "declaration": true, // Generates `.d.ts` files for type definitions
+    "allowSyntheticDefaultImports": true, // Allows default imports for CommonJS modules
+    "allowImportingTsExtensions": true, // Allows importing `.ts` files with their extensions
+    "verbatimModuleSyntax": true, // Keeps the `import`/`export` syntax as-is without transformation
 
     // Include modern ECMAScript (ES2022) and DOM APIs for frontend
-    "lib": ["ES2022", "DOM"]
+    "lib": ["ES2022", "DOM"] // Include ES2022 features and DOM APIs for frontend development
     // Uncomment this for backend code without DOM APIs
     /* "lib": ["ES2022"] */
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src"], // Includes the `src` directory in the project
+  "exclude": ["node_modules", "dist"] // Excludes `node_modules` and `dist` directories from the project
 }
 ```
-
-Let's break down what each configuration option does:
-
-- target: "ESNext"
-  - Uses the latest ECMAScript features, ensuring compatibility with modern JavaScript.
-- module: "NodeNext"
-  - Configures Node.js to use ESM module system for better module handling.
-- rootDir: "src", outDir: "dist"
-  - Organizes source code in src and compiled code in dist.
-- sourceMap: true
-  - Enables source maps for easier debugging.
-- moduleResolution: "NodeNext", moduleDetection: "force"
-  - Resolves modules using Node’s ESM strategy and forces module detection.
-- esModuleInterop: true
-  - Ensures compatibility between CommonJS and ESM modules.
-- forceConsistentCasingInFileNames: true
-  - Prevents case-sensitivity issues across platforms (e.g., Windows vs. Linux).
-- strict: true, noUncheckedIndexedAccess: true, noImplicitOverride: true, noImplicitAny: true
-  - Enforces strict type-checking for fewer runtime errors and better safety.
-- skipLibCheck: true
-  - Skips type-checking of declaration files to speed up compilation.
-- resolveJsonModule: true
-  - Allows importing JSON files directly as modules.
-- declaration: true
-  - Generates .d.ts files for type definitions.
-- allowSyntheticDefaultImports: true
-  - Enables default imports for CommonJS modules.
-- allowImportingTsExtensions: true
-  - Allows importing .ts files with their extensions.
-- verbatimModuleSyntax: true
-  - Keeps the import/export syntax as-is without transformation.
-- lib: ["ES2022", "DOM"]
-  - Includes modern ECMAScript and DOM APIs for frontend projects (or just ES2022 for backend).
 
 Optionally add the following lines for JavaScript support in a TypeScript project:
 
