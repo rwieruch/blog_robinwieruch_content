@@ -436,6 +436,7 @@ E-Mail rendering is a pain if you are just using HTML. Fortunately, there are li
 * [react-email](https://react.email/) (recommendation)
 * [mjml](https://mjml.io/)
 * [Mailing](https://www.mailing.run/)
+* [jsx-email](https://jsx.email/)
 
 If you are looking for a email service provider, check out [Resend](https://resend.com/), [Postmark](https://postmarkapp.com/), [SendGrid](https://sendgrid.com/), or [Mailgun](https://www.mailgun.com/).
 
