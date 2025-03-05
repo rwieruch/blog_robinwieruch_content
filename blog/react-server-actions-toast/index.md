@@ -18,10 +18,6 @@ We'll create a React Server Component that fetches user data and then allow user
 
 After this tutorial, you'll have a solid understanding of how to implement toast notifications for Server Actions in React. Let's get started!
 
-# Table of Contents
-
-<TableOfContents {...props} />
-
 # React Server Component with Toast
 
 In this tutorial, we start with a basic page implemented as a React Server Component that fetches user data. To keep our code organized and maintainable, we use the [Data Access Object (DAO)](https://en.wikipedia.org/wiki/Data_access_object) pattern to separate the data access logic from the component. This approach allows us to easily manage and modify data retrieval and manipulation without affecting the component's structure.
@@ -141,7 +137,7 @@ The Toaster component will handle displaying toast notifications throughout the 
 
 <ReadMore label="React Libraries" link="/react-libraries/" />
 
-# Return Toast Message from Server Action
+# Server Action with Toast Feedback
 
 To allow users to upvote, we need to define a Server Action inside our DAO file. This function will find the user and increment their upvote count for the in-memory array. To simulate real-world conditions, we'll add a slight delay before returning a response.
 
@@ -156,6 +152,207 @@ export const upvoteUser = async (userId: number) => {
 
   const user = users.find((user) => user.id === userId);
   if (!user) {
+    return { message: "User not found" };
+  }
+
+  user.upvotes += 1;
+
+  return { message: "Vote increased" };
+};
+```
+
+Note that we are returning feedback for the happy and the unhappy path here. While we will only see the happy path in this case, the implementation of the unhappy path is important for a complete Server Action. Later you could also add a returned status to the object to differ between different types of feedback (e.g. success, error, warning).
+
+Since this function runs on the server, we need to mark the file with the "use server" directive. This tells React that the functions inside this file should execute on the server.
+
+```ts{2}
+// src/daos/user-dao.ts
+"use server";
+```
+
+Now that the Server Action is ready, we need to trigger it from the client-side. This will be done inside our User component, because there we will receive the returned object and display the toast message in an imperative way.
+
+```tsx{3,5-15,20-22}
+// src/components/user.tsx
+const User = ({ user }: UserProps) => {
+  const { toast } = useToast();
+
+  const handleUpvote = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const result = await upvoteUser(user.id);
+
+    if (result.message) {
+      toast({
+        description: result.message,
+      });
+    }
+  };
+
+  return (
+    <div className="flex gap-x-2">
+      {user.name} ({user.upvotes})
+      <form onSubmit={handleUpvote}>
+        <button type="submit">Upvote</button>
+      </form>
+    </div>
+  );
+};
+```
+
+The action is triggered by submitting the form, which calls the `handleUpvote` function. This function awaits the result of the Server Action and displays the returned message in a toast notification.
+
+This could also be done with only a button and an `onClick` event without using the [preventDefault](/react-preventdefault/), but using a form allows for better accessibility and keyboard navigation.
+
+Do not forget the imports at the top of the file:
+
+```tsx{4-5}
+// src/components/user.tsx
+"use client";
+
+import { upvoteUser } from "@/daos/user-dao";
+import { useToast } from "@/hooks/use-toast";
+```
+
+As a bonus, you could also add a [loading state](/react-form-loading-pending-action/) to the button with [React's useTransition Hook](https://react.dev/reference/react/useTransition) to indicate that the action is being processed and prevent multiple submissions:
+
+```tsx{5,10,18,25-26}
+// src/components/user.tsx
+const User = ({ user }: UserProps) => {
+  const { toast } = useToast();
+
+  const [isPending, startTransition] = useTransition();
+
+  const handleUpvote = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    startTransition(async () => {
+      const result = await upvoteUser(user.id);
+
+      if (result.message) {
+        toast({
+          description: result.message,
+        });
+      }
+    });
+  };
+
+  return (
+    <div className="flex gap-x-2">
+      {user.name} ({user.upvotes})
+      <form onSubmit={handleUpvote}>
+        <button type="submit" disabled={isPending}>
+          {isPending ? "Upvoting" : "Upvote"}
+        </button>
+      </form>
+    </div>
+  );
+};
+```
+
+You can also show a loading toast message while the action is being processed. This can be done by adding a toast message before the Server Action is called and removing it after the action is completed:
+
+```tsx{5-7,12}
+// src/components/user.tsx
+const handleUpvote = async (event: React.FormEvent<HTMLFormElement>) => {
+  event.preventDefault();
+
+  const loadingToast = toast({
+    description: "Upvoting...",
+  });
+
+  startTransition(async () => {
+    const result = await upvoteUser(user.id);
+
+    loadingToast.dismiss();
+
+    if (result.message) {
+      toast({
+        description: result.message,
+      });
+    }
+  });
+};
+```
+
+That could be already the whole implementation for a toast notification ...
+
+<Divider />
+
+... but what about **React's useActionState with toast feedback**?
+
+React's useActionState Hook is used whenever you deal with actual action state and whenever you want to have progressive enhancement without using handler functions.
+
+When using React's useActionState Hook, we would implement it the following way without showing the toast message yet. It receives a Server Action and an initial state object. The returned enhanced action can then be used in the form's action attribute:
+
+```tsx{3-6,11-13}
+// src/components/user.tsx
+const User = ({ user }: UserProps) => {
+  const [actionState, action, pending] = useActionState(
+    upvoteUser.bind(null, user.id),
+    { message: "", timestamp: Date.now() }
+  );
+
+  return (
+    <div className="flex gap-x-2">
+      {user.name} ({user.upvotes})
+      <form action={upvoteAction}>
+        <button type="submit" disabled={pending}>
+          {pending ? "Upvoting" : "Upvote"}
+        </button>
+      </form>
+    </div>
+  );
+};
+```
+
+Now we could try the same imperative approach as before to show the toast message. But we will see that it doesn't work as expected for the commented reasons below:
+
+```tsx{3,10-17,22}
+// src/components/user.tsx
+const User = ({ user }: UserProps) => {
+  const toast = useToast();
+
+  const [actionState, action, pending] = useActionState(
+    upvoteUser.bind(null, user.id),
+    { message: "", timestamp: Date.now() }
+  );
+
+  const actionHandler = async () => {
+    const result = await action();
+
+    console.log(result);
+    // undefined instead of the expected
+    // { message: "Vote increased" }
+    toast({ description: result.message }); // null pointer exception
+  };
+
+  return (
+    <div className="flex gap-x-2">
+      {user.name} ({user.upvotes})
+      <form action={actionHandler}>
+        <button type="submit" disabled={pending}>
+          {pending ? "Upvoting" : "Upvote"}
+        </button>
+      </form>
+    </div>
+  );
+};
+```
+
+We would run into the same issue when using the `onSubmit` handler instead of the form `action`. So we have to go down the road of using `useEffect` to show the toast message by leveraging the action state coming from React's useActionState Hook.
+
+# Return Toast Response from Server Action
+
+In preparation for displaying toast notifications, we need to adjust our Server Action to return a response object that includes a message and a timestamp:
+
+```ts{7,12}
+// src/daos/user-dao.ts
+export const upvoteUser = async (userId: number) => {
+  await new Promise((resolve) => setTimeout(resolve, 250));
+
+  const user = users.find((user) => user.id === userId);
+  if (!user) {
     return { message: "User not found", timestamp: Date.now() };
   }
 
@@ -165,20 +362,7 @@ export const upvoteUser = async (userId: number) => {
 };
 ```
 
-Note that we are returning feedback for the happy and the unhappy path here. While we will only see the happy path in this case, the implementation of the unhappy path is important for a complete Server Action. Later you could also add a returned status to the object to differ between different types of feedback (e.g. success, error, warning).
-
-The most critical part of the Server Action is returning a response object with a message and a timestamp. The message will be displayed in the toast notification, while the timestamp will help us track new responses from Server Actions, preventing duplicate toasts from appearing due to re-renders. More about this later.
-
-<ReadMore label="Server Actions in Next.js" link="/next-server-actions/" />
-
-Since this function runs on the server, we need to mark the file with "use server". This tells React that the functions inside this file should execute on the server side.
-
-```ts{2}
-// src/daos/user-dao.ts
-"use server";
-```
-
-Now that the Server Action is ready, we need to trigger it from the client-side. This will be done inside our User component, because there we can actually receive the returned object and display the toast message.
+The message will be displayed in the toast notification, while the timestamp will help us track new responses from Server Actions, preventing duplicate toasts from appearing due to re-renders. More about this later.
 
 # Receive Toast Feedback in Client Component
 
