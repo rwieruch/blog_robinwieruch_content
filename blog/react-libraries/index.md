@@ -2,7 +2,7 @@
 title: "React Libraries for 2025"
 description: "Discover the essential React libraries for 2025! Navigate the vast ecosystem effortlessly with this curated list. Empower your React projects with these powerful tools for seamless development of large-scale applications ..."
 date: "2025-02-17T08:50:46+02:00"
-categories: ["React"]
+categories: ["Starter", "React"]
 keywords: ["react libraries 2025"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

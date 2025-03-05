@@ -2,7 +2,7 @@
 title: "How to setup Express.js in Node.js"
 description: "A Node.js with Express tutorial to learn how to setup a Node.js application step by step from scratch ..."
 date: "2020-04-23T07:50:46+02:00"
-categories: ["Starter", "Node"]
+categories: ["Node"]
 keywords: ["node express tutorial", "express tutorial"]
 hashtags: ["#NodeJs"]
 banner: "./images/banner.jpg"

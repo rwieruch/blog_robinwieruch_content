@@ -2,7 +2,7 @@
 title: "React Tech Stack [2025]"
 description: "Popular React Tech Stack for Full-Stack Applications in 2025 to create your product (i.e. SaaS) ..."
 date: "2024-12-09T07:50:46+02:00"
-categories: ["React"]
+categories: ["Starter", "React"]
 keywords: ["react tech stack 2025"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

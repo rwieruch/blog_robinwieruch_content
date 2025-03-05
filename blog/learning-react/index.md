@@ -2,7 +2,7 @@
 title: "How to learn React in 2025"
 description: "Learning React in 2025 as a library or framework is not an easy decision. Whether to learn React with Next.js as a framework ..."
 date: "2025-02-25T07:52:46+02:00"
-categories: ["React"]
+categories: ["Starter", "React"]
 keywords: ["learn react"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

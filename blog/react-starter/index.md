@@ -2,7 +2,7 @@
 title: "How to start a React Project [2025]"
 description: "React starter kits (Vite, Next, Astro, Remix, React Router) which help React developers to start a React project in 2025 ..."
 date: "2025-02-11T07:52:46+02:00"
-categories: ["React"]
+categories: ["Starter", "React"]
 keywords: ["react starter project", "react starter kit"]
 hashtags: ["#ReactJS"]
 banner: "./images/banner.jpg"

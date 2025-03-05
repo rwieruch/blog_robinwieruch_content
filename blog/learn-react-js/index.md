@@ -2,7 +2,7 @@
 title: "How to learn React"
 description: "How to learn React and how to become a React developer. A step by step guide on how to learn React, on how to get started, and how to commit yourself every day ..."
 date: "2024-01-01T07:52:46+02:00"
-categories: ["Starter", "React"]
+categories: ["React"]
 keywords: ["learn react js", "learn react js step by step free", "learn react js fast", "learn react js book", "learn reactjs from scratch", "learn react js online"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

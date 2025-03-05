@@ -2,7 +2,7 @@
 title: "How to learn a JavaScript Framework"
 description: "How to learn React, Vue, Angular or any other framework? For many developers this question pops up every day. The article should give actionable guidance on how to escape the analysis paralysis and how to get from consuming to producing by following a simple learning framework ..."
 date: "2024-01-01T13:50:46+02:00"
-categories: ["Starter", "React", "JavaScript"]
+categories: ["React", "JavaScript"]
 keywords: ["javascript framework"]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"

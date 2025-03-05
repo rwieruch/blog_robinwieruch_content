@@ -2,7 +2,7 @@
 title: 'Mac Setup for Web Development [2025]'
 description: 'How I set up my new M1 MacBook Pro as a web developer in 2025 for web development ...'
 date: '2025-01-07T06:50:46+02:00'
-categories: ['Web Development']
+categories: ["Starter", 'Web Development']
 keywords:
   [
     'mac setup web development',
