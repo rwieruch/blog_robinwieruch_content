@@ -1,9 +1,9 @@
 ---
-title: "React Trends in 2024"
-description: "React Trends in 2024 which should be on your watchlist. A walkthrough of the state of React ..."
-date: "2024-02-20T08:50:46+02:00"
+title: "React Trends in 2025"
+description: "React Trends in 2025 which should be on your watchlist. A walkthrough of the state of React ..."
+date: "2025-03-18T08:50:46+02:00"
 categories: ["React"]
-keywords: ["react trends 2024"]
+keywords: ["react trends 2025"]
 hashtags: ["#ReactJS"]
 banner: "./images/banner.jpg"
 contribute: ""
@@ -12,104 +12,189 @@ author: ""
 
 <Sponsorship />
 
-The year 2024 got me excited about React's ecosystem again. Despite the various challenges and dramas (the biggest one of them moving React to the server with React Server Components) we had last year, there are emerging React trends that everyone should have on their watchlist. Here is my list of exciting React trends for 2024.
+Every year I discuss the most important trends in the world of React. In this article, we will explore the React trends in 2025 that you should be aware of. Whether you are a beginner or an experienced developer, these trends will help you stay up-to-date with the latest developments in the React ecosystem.
 
-# Astro (with React)
+# React Server Components
 
-Last year [Astro](https://astro.build/) stepped in as the successor of [Gatsby](https://www.gatsbyjs.com/). While it became mainly known for static websites, its growing popularity pushed Astro to explore web applications and API endpoints too. So while it is perfectly positioned for highly performant websites, web developers start considering it for use cases beyond its original idea.
+We've come a long way with **React Server Components (RSC)**. The first announcement was made on December 21, 2020, in a [conference talk](https://www.youtube.com/watch?v=TQQPAU21ZUw) titled "Introducing Zero-Bundle-Size React Server Components". The announcement followed an [Request for Comments](https://github.com/reactjs/rfcs/pull/188), providing technical details and discussion.
 
-![](./images/astro.jpg)
+The first implementation of the React Server Components specification was introduced in Next.js 13, which was announced at Next.js Conf on October 25, 2022. This release marked the beginning of the App Router (*app/* directory), which fully embraced RSC.
 
-Websites built with Astro are performant by default, because they start with zero JavaScript and move all the expensive rendering to the server. While static site generation (SSG) is the default, you can also opt-in into server-side rendering (SSR).
+While Next.js 13 (2022) and 14 (2023) have been the main catalysts for RSC adoption (and have received the most negative feedback due to their bold spearheading of the technology), Next.js 15 (2024) brings a more stable vision of RSC to the masses.
 
-Astro is not strictly tied to React. You can use Astro without any UI framework, using their native way of creating UI components in a ".astro" file. However, Astro enables you to opt-in your favorite component framework (e.g. React) where you already have all the experience to create a landscape of well-designed and functional UI components.
+Most likely 2025 will be the year when React Server Components become a standard primitive of the React ecosystem, because React Router (previously Remix) and TanStack Start are also expected to adopt RSC in their upcoming releases.
 
-When Astro is used with a component framework like React, it still comes with zero JavaScript and only ships HTML and CSS to the browser. Only in the case of components becoming interactive, the server provides the necessary JavaScript to the client. All of this is tied to Astro's "fast-by-default performance"-story which is driven by its rendering paradigm called [Island Architecture](https://docs.astro.build/en/concepts/islands/).
+```tsx{4}
+import { db } from '@/lib/db';
 
-Personally I want to explore Astro more in 2024 for my projects. Last year it already helped me to bootstrap the [website](https://www.cloud-camping.com/) for a new startup which comes with perfect performance/SEO scores, a beautiful theme and a drop-in documentation powered by [Astro Starlight](https://starlight.astro.build/de/). I guess it's only a matter of time until all websites come with this as default. In a new project I would like to try its web application capabilities with authentication, API endpoints, and server-rendered content.
+const PostsPage = async () => {
+  const posts = await db.post.findMany();
 
-# Authentication (in React)
+  return (
+    <div className="p-4 flex flex-col gap-y-4">
+      <h2>Posts Page</h2>
 
-Auth in React became exciting again too, because multiple startups and open source projects started to stir up dust in this area. While Firebase Authentication, Auth0, Passport.js, and NextAuth were the defaults for a long time, we are finally able to explore new frontiers with inexpensive and UI driven alternatives for authentication.
+      <ul className="flex flex-col gap-y-2">
+        {posts.map((post) => (
+          <li key={post.id}>{post.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+```
 
-[Supabase](https://supabase.com/) is the open source alternative to Google's Firebase. It does not only come with auth, but also a PostgreSQL database, realtime subscriptions, storage, serverless functions and more. A Supabase instance can either be self-hosted or be used as a hosted (yet paid) service. Many developers though use it for its authentication while choosing other services (e.g. [PlanetScale](https://planetscale.com/) as a serverless DB) for the remaining areas.
+In a nutshell, React Server Components (RSC) are components that execute once on the server and send only the rendered output (not JavaScript) to the client. This reduces the client-side JavaScript bundle size while allowing direct access to databases, APIs, and backend logic without exposing it to the browser.
 
-[Clerk](https://clerk.com/) is another contender in the space which solely focuses on authentication. With its drop-in components for React, you can easily sign up and later sign in users to your application. Beyond that, it is also possible to manage users and their roles within one or multiple organizations. Personally I found Clerk to be the perfect solution when it comes to bootstrapping a new MVP for a startup.
+They work alongside Client Components, letting developers optimize performance by keeping heavy logic on the server while still enabling interactivity where needed.
 
-Last but not least [Lucia](https://github.com/lucia-auth/lucia), which became popular in combination with Astro, but can be used in other frameworks too. Here I am especially excited about its open source nature, the community effort, and the clear abstraction layer that they provide between your application and your database. The latter makes it possible to manage the users in your own database which is a huge win in contrast to other authentication services.
+<ReadMore label="React is (becoming) a Full-Stack Framework" link="/react-full-stack-framework/" />
 
-# tRPC for Full-Stack React Applications
+# React Sever Functions
 
-[tRPC](https://trpc.io/) has become my favorite last year for [type safe full-stack](https://www.robinwieruch.de/react-trpc/) applications. In my last solo project (80k LoC), I used tRPC (and [Prisma](https://www.prisma.io/?via=rwieruch) as database ORM) to get type safety with TypeScript types across database, server application and client application.
+**React Server Actions (RSA)** were introduced as an evolution of React Server Components to simplify mutations (e.g. form submissions, database updates) by allowing components to call server functions, providing a developer experience similar to a remote procedure call (RPC), without manually defining an API route.
 
-How does it work in a  nutshell? While Prisma generates the types from the database models for the backend application, tRPC maintains type safety from the backend across the API layer for the frontend. That said, the types for the API must not be the same types that come from the database models in a growing full-stack application.
+```tsx{3-13,22-25}
+import { db } from '@/lib/db';
 
-With all this setup and tRPC's underlying nature of remote procedure calls, the client application can call the backend's API by invoking plain functions. Under the hood, tRPC uses [JSON-RPC](https://www.jsonrpc.org/specification) as specification and HTTP as transport layer. What makes this even better: tRPC can be combined with [react-query](https://www.npmjs.com/package/@tanstack/react-query) for caching and batching requests efficiently besides all the other upgrades that come from using a query library.
+const createPost = async (formData: FormData) => {
+  'use server';
 
-I am excited where this year takes tRPC and how their official React Server Component integration will shape over time. Speaking of React Server Components ...
+  const name = formData.get('name') as string;
 
-# React Server Components and Next.js
+  await db.post.create({
+    data: {
+      name,
+    },
+  });
+};
 
-React Server Components (RSC) were released as specification (including the underlying implementations) by React and found their implementation and first adoption by the community last year with Next 13.4. All the drama and challenges aside, React Server Components push web development towards a big paradigm shift.
+const PostsPage = async () => {
+  const posts = await db.post.findMany();
 
-RSCs may be a greater shift than React Hooks, because they make us rethink how to use React components in a larger application. In Next.js and its new App Router, RSCs become the default for every React developer. While more frameworks (even beyond React) are looking into the adoption (and implementation) of Server Components, there are new emerging smaller frameworks like [Waku](https://github.com/dai-shi/waku) which already implemented them.
+  return (
+    <div className="p-4 flex flex-col gap-y-4">
+      <h2>Posts Page</h2>
 
-There are many benefits that come with this new architecture, and while it is difficult to highlight all of them here, I want to give an example: RSCs enable us to perform data fetching on a component level on the server before the component is sent (or streamed) to the browser. The benefit: The dreaded waterfall requests over the network from client to server become a thing of the past. Now the waterfall happens on the server much faster, if any, which will bring us towards improved performance.
+      <form action={createPost} className="flex flex-col gap-y-2">
+        <input type="text" name="name" placeholder="Name" />
+        <button type="submit">Create</button>
+      </form>
 
-Highlighting this aspect of RSCs is important, because it shows how React's ecosystem needs to adapt to them. tRPC and react-query are used for client-server communication, so the question becomes what role they will play in an API-less world where RSCs do most (?) the data fetching on the server. There are proof-of-concepts out there already, so we can be excited how all of it turns out in 2024.
+      <ul className="flex flex-col gap-y-2">
+        ...
+      </ul>
+    </div>
+  );
+};
+```
 
-# TanStack Router for SPA React
+However, while RSC improved the developer experience (DX) for data fetching and RSA simplified mutations, fetching data in Client Components still felt cumbersome. For example, in Next.js, developers have to define custom API routes to fetch data for a Client Component, which didn’t align with the improved DX of RSC and RSA.
 
-Single Page Applications (SPAs) are not dead (yet). That's how Tanner Linsley positions himself in all the React Server Components hype. Why does this matter though? He is one of the driving forces behind the most popular React libraries such as react-query and react-table. And just recently he published a new library: [TanStack Router](https://github.com/tanstack/router).
+A temporary workaround has been using [React Server Actions for data fetching](/next-server-actions-fetch-data/) in Client Components, though this approach comes with some drawbacks.
 
-TanStack Router comes at the perfect time to fill an important gap in the React ecosystem. While many developers adopt meta frameworks like Next.js and Remix (which uses the most popular [React Router](https://reactrouter.com/) under the hood and has its focus on the [implementation of RSCs](https://twitter.com/ryanflorence/status/1729274387671760936) too) with their built-in router, no one yet created a type safe router for React in the first place.
+Finally in September 2024 the React team announced **React Server Functions (RSF)** as umbrella term for both fetching and mutating data in Server Components and Client Components whereas RSA are only the subset of RSF that are used for mutating data.
 
-Since TypeScript became the industry standard over the last years, I am excited for a new router in the React ecosystem which comes with first-class TypeScript support. For example, it will allow developers to read and write to URL state in a type safe manner. Perhaps this new router may also push other established routers raising to these TS first standards.
+None of the React (meta) frameworks did implement React Server Functions (without being in beta) yet, but it can be expected that they will get implemented in Next.js, TanStack Start, and React Router.
 
-# Vercel pushing React on the Edge
+<ReadMore label="Web Applications 101" link="/web-applications/" />
 
-Vercel is the company behind Next.js which is hugely involved in the whole React Server Components movement. Since several core developers were hired by Vercel, many developers think Vercel is also the driving force behind React. But all this conspiracy aside, it is great that someone took the reins to push React's boundaries.
+# React Forms
 
-Vercel is not only pushing React's boundaries with React Server Components, but also how React applications get efficiently deployed and delivered to users with Next.js. Having a Next application on Vercel comes with the benefit of opt-in streaming React components with their Edge Runtime.
+React 19 has been released end of 2024 and brought a lot of improvements to the React ecosystem. While React Server Components and React Server Functions were the main focus of the release, React Forms have also been significantly improved.
 
-The performance implications serving an application from the edge are huge, because the application is not hosted at a for your users remote place anymore (e.g. US East), but as a serverless function as close as possible to your application's users. Paired with a serverless DB like PlanetScale which has read replicas all over the world, this becomes an interesting trend on how (or better where) we host applications in the future.
+The biggest change is the `action` attribute on the `<form>` element. This attribute allows developers to specify a (Server) Action that should be called when the form is submitted. In a previous example, you have seen how it is used to make a server request to create a new post. Here is another example for a client-side search:
 
-# Bundlers for React: Turbopack vs Vite
+```tsx
+const Search = () => {
+  const search = (formData: FormData) => {
+    const query = formData.get("query");
+    alert(`You searched for '${query}'`);
+  };
 
-[Turbopack](https://turbo.build/pack) (built by Vercel and the creator of Webpack) is the successor of Webpack. It is not production ready yet, but can be enabled for local development in Next.js applications. Turbopack takes all the lessons learned from the most popular JavaScript bundler (Webpack) and puts them in a new Rust powered bundler. For example, while tree shaking and caching were afterthoughts in Webpack, they got first-class support in Turbopack.
+  return (
+    <form action={search}>
+      <input name="query" />
+      <button type="submit">Search</button>
+    </form>
+  );
+}
+```
 
-In the past, bundlers already had many responsibilities. However, with the emerging trend of interweaving client and server components (e.g. RCSs) in development and production environments, caching at various entry points of the application, and the need to know about data fetching at a component level, bundlers have to level up. Therefore the need for a new kind of bundler was born at Vercel.
+React 19 also introduced new hooks such as `useFormStatus`, `useOptimistic` and `useActionState` (previously [useFormState](https://github.com/facebook/react/pull/28491)), which are primarily focused on managing forms and their client-side interactions.
 
-Personally I would have liked to see [Vite](https://vitejs.dev/) and its server-side capabilities being used by Nextjs. However, while many other meta frameworks (also [Remix](https://remix.run/blog/remix-heart-vite)) and single page applications aligned on Vite as their bundler over the last year, Vercel/Next decided for the time being against it and started their work on Turbopack.
+While React has introduced many form related features, you can still rely on popular form libraries like React Hook Form. However, form handling in React has become more powerful and flexible with these new features.
 
-# React Compiler (known as React Forget)
+<ReadMore label="Explore React Libraries" link="/react-libraries/" />
 
-Who isn't frustrated about `useCallback`, `useMemo` and `memo` as a React developer. Where React stuck to be explicit for quite a while now, other frameworks do not need these utilities to improve performance. They are fast by default.
+# Library vs Framework
 
-But the React team is working (relatively quiet) on a compiler called [React Compiler](https://www.youtube.com/watch?v=lGEMwh32soc) which will automate all memoizations in a React application. What has been a manual process of memoizing functions (`useCallback`), values (`useMemo`) and components (`memo`) will hopefully go away in the future. React will take care about memoizing all these things for us, so that not everything needs to compute again on the next render.
+Starting a React project has become more diverse and complex with the rise of (meta) frameworks and server-driven React features. This topic will gain even more significance in 2025 as the React ecosystem evolves and new solutions emerge. The choice of underlying framework will become increasingly important in the coming year.
 
-Recently, there have been news and rumors circulating about React 19 and the potential release of its new compiler. It's quite probable that this release will coincide with [React Conf 2024](https://conf.react.dev/).
+<ReadMore label="How to start a React project" link="/react-starter/" />
+
+While React started out as a library for client-side rendered/routed applications (SPAs), it has evolved into an ecosystem that supports multiple rendering modes (CSR, SSR, SSG, ISR) and routing strategies (client-side, server-side, hybrid).
+
+<ReadMore label="Learn React as Library or Framework" link="/learning-react/" />
+
+When using React as a library, you can focus solely on React without being tied to a specific framework. However, by doing so, you'll miss out on features like RSC and RSF, which are only supported in frameworks that offer bundling and routing solutions.
+
+So making the right choice for your project depends on your requirements and preferences. While the good news is that you have plenty of options to choose from, the bad news is that it's getting harder to keep up with the latest solutions.
+
+# React Frameworks
+
+While **Next.js** is the most popular React framework, there are other frameworks that will certainly gain traction in 2025. The two main contenders that are expected to make a big impact in the React ecosystem: **TanStack Start** and **React Router**.
+
+<ReadMore label="The Road to Next" link="https://www.road-to-next.com/" />
+
+While TanStack Start, which heavily builds on top of TanStack Router, is new to the scene, React Router is a well-established library that is now evolving into a full-fledged framework after putting Remix into hibernation for a while.
+
+Both frameworks are still in their early stages regarding React Server Component and Server Function support , but they have the potential to become (repeatedly) major players in the React ecosystem and offer an alternative to Next.js.
+
+# Full-Stack React
+
+The rise of server-driven React features like React Server Components and React Server Functions has paved the way for full-stack web applications with React. This trend is expected to continue as more developers adopt server-driven React solutions.
+
+But accessing the database in RSC and RSF is only the beginning. Full-stack web applications require a complete backend infrastructure which includes authentication, authorization, and other server-side features such as architectural layers and caching. In addition, there will be third-parties like message queues, email services, and more.
+
+<ReadMore label="Full-Stack React Tech Stack" link="/react-tech-stack/" />
+
+While backend services are essential for full-stack applications, client-server communication remains crucial, even with remote procedure calls (RPC) like React Server Functions. With the evolving tools available, I believe that 2025 will see a more streamlined user experience for validation and HTTP status code handling.
+
+<ReadMore label="Form Validation in React" link="/react-form-validation/" />
+
+# React's "Shadcnification"
+
+In recent years, Shadcn UI has become the default for React projects, much like Tailwind CSS. Its pre-styled yet customizable components offer a balance between convenience and flexibility, making it the go-to choice for developers who want well-designed UI elements without the constraints of traditional libraries.
+
+This trend standardized modern React styling, but as every project starts to look alike, the search for the next big UI library may be inevitable. Sooner or later, a new approach will emerge to challenge the familiar aesthetic. Let's see if 2025 will bring a fresh take on React styling.
+
+# React and AI
+
+The intersection of AI and React is significant on two fronts. First, as the most popular frontend library, React code is extensively used in training AI models. Consequently, AI tools like v0 are generating React code, which can be simply integrated into projects.
+
+Second, with React's evolution into a full-stack framework through Server Components and Server Actions, it is becoming an ideal choice for building AI-powered applications. Libraries such as Vercel's AI SDK and LangChain further enhance React's capabilities in developing sophisticated AI solutions.
 
 # Biome
 
-ESLint and Prettier are not the most favorite utilities when it comes to their setup and especially interplay (if the setup wasn't correct). But they are necessary in every web developer's daily work. [Biome](https://biomejs.dev/) (formerly Rome) wants to be an alternative in this space by providing a fast and all-in-one toolchain solution. An alternative all-in-one toolchain which looks very promising is [oxc](https://oxc-project.github.io/).
+Setting up ESLint and Prettier can be challenging, especially when ensuring they work well together. However, they remain essential tools for web developers. [Biome](https://biomejs.dev/) (formerly Rome) aims to simplify this with a fast, all-in-one toolchain solution.
 
-Biome claimed the [$20.000 bounty from Prettier](https://prettier.io/blog/2023/11/27/20k-bounty-was-claimed) to create a more performant formatter in Rust. Now only time will tell if developers will adopt it. There are ongoing discussions at various places (e.g. Next.js GitHub discussion) to lose the strict dependency to ESLint and allow developers to use other linters.
+Another promising alternative is [oxc](https://oxc-project.github.io/).
 
-Personally I am excited about this project, because it *could* be the one toolchain that powers all the necessities for a modern web application in a very fast way.
+Biome claimed the [$20,000 bounty from Prettier](https://prettier.io/blog/2023/11/27/20k-bounty-was-claimed) for creating a more performant formatter in Rust. It remains to be seen if developers will widely adopt it. Discussions are ongoing in various forums, such as [the Next.js GitHub discussion](https://github.com/vercel/next.js/discussions/59347), about reducing the strict dependency on ESLint and allowing other linters.
 
-# Headless UI Libraries for React
+I am personally excited about Biome, as it has the potential to become the go-to toolchain for modern web applications, offering speed and comprehensive features.
 
-React developers like to change their favorite UI library annually. What has been Material UI a couple of years ago transitioned over to Semantic UI/Ant Design, then Chakra UI, then Mantine UI and settled (?) last year on shadcn/UI. While all the previous choices were mainly driven by a desire for design and usability, several things have changed with shadcn/UI.
+# React Compiler
 
-shadcn/UI is the first popular UI library which fully embraces Tailwind as first-class citizen (next to CSS Variables) for theming their components to achieve custom design. Following Tailwind in its footsteps, shadcn/UI is not installed as a node package, but rather copy and pasted into a project where one can freely adapt the components.
+As React developers, many of us have experienced frustration with `useCallback`, `useMemo`, and `memo`. While React has required explicit performance optimizations, other frameworks achieve speed by default.
 
-The trend for Headless UI libraries that only provide the bare bone component as a skeleton (functionality, accessibility, ...) without design was not started by shadcn/UI. It stemmed from a deeper desire where it has always been difficult to provide a unique design and therefore a unique user experience while relying on a popular UI library.
+The React team is developing a [React Compiler](https://www.youtube.com/watch?v=lGEMwh32soc) to automate all memoizations in a React application. This compiler aims to eliminate the need for manually memoizing functions (`useCallback`), values (`useMemo`), and components (`memo`). React will handle these optimizations, reducing the need for recomputation on each render.
 
-In addition, the trend towards rendering components on the server for an improved performance and user experience halted the usage of CSS-in-JS solutions like Styled Components and Emotion, because they put all the performance burden on the client/browser by executing JavaScript to output CSS. Emerging CSS-in-JS solutions like [StyleX](https://stylexjs.com/) mitigate this problem by compiling to utility-first CSS.
-
-One can be curious what new UI libraries and CSS paradigms will come out of this trend. We have seen the rise of headless UI libraries (e.g. Radix with shadcn/UI) and utility-first CSS (e.g. Tailwind), but we wouldn't be web developers if there weren't already alternatives (e.g. [vanilla-extract](https://vanilla-extract.style/), [PandaCSS](https://panda-css.com/), [CVA](https://cva.style/)) on the horizon.
+As of today, you can try out the [React Compiler](https://react.dev/learn/react-compiler) which is in beta.
 
 <Divider />
 
-I trust you share my enthusiasm as we embark on the journey into 2024, embracing the exciting trends in web dev. With a prevailing focus on performance, it is evident that we are moving towards a future coined by remarkable user experiences in the browser.
+Last but least, I have one more hopeful prediction for 2025: React developers will embrace [better naming conventions](https://x.com/rwieruch/status/1836434009041035635) for their component files.
+
+I hope you enjoyed this article about the React trends in 2025. If you have any questions or feedback, feel free to reach out to me. I am always happy to help.
