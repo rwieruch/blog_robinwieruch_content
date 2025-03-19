@@ -12,7 +12,9 @@ author: ""
 
 <Sponsorship />
 
-A React Router tutorial which teaches you how to use **React Router 7**. The code for this React Router v7 tutorial can be found over [here](https://github.com/rwieruch/examples/tree/main/react-router). In order to get you started, create a new React project (e.g. [Vite](https://vite.dev/guide/)). Afterward, [install React Router](https://reactrouter.com/):
+A React Router tutorial which teaches you how to use **React Router 7**. The code for this React Router v7 tutorial can be found over [here](https://github.com/rwieruch/examples/tree/main/react-router). In order to get you started, create a new React project (e.g. [Vite](https://vite.dev/guide/)) starting from a basic React template. Avoid using a React Router template, which will likely already include the routing features that this tutorial will teach you how to build.
+
+Afterward, [install React Router](https://reactrouter.com/):
 
 ```sh
 npm install react-router
