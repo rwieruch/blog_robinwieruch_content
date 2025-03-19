@@ -50,7 +50,7 @@ They work alongside Client Components, letting developers optimize performance b
 
 <ReadMore label="React is (becoming) a Full-Stack Framework" link="/react-full-stack-framework/" />
 
-# React Sever Functions
+# React Server Functions
 
 **React Server Actions (RSA)** were introduced as an evolution of React Server Components to simplify mutations (e.g. form submissions, database updates) by allowing components to call server functions, providing a developer experience similar to a remote procedure call (RPC), without manually defining an API route.
 
