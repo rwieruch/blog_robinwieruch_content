@@ -12,7 +12,7 @@ author: ""
 
 <Sponsorship />
 
-[React Testing Library (RTL)](https://github.com/testing-library/react-testing-library) by Kent C. Dodds got released as alternative to Airbnb's [Enzyme](/react-testing-jest-enzyme/). While Enzyme gives React developers utilities to test internals of React components, React Testing Library takes a step back and questions us "how to test React components to get full confidence in our React components": Rather than testing a component's implementation details, React Testing Library puts the developer in the shoes of an end user of an React application.
+[React Testing Library (RTL)](https://github.com/testing-library/react-testing-library) by Kent C. Dodds got released as alternative to Airbnb's [Enzyme](/react-testing-jest-enzyme/). While Enzyme gives React developers utilities to test internals of React components, React Testing Library takes a step back and questions us "how to test React components to get full confidence in our React components": Rather than testing a component's implementation details, React Testing Library puts the developer in the shoes of an end user of a React application.
 
 In this **React Testing Library tutorial**, we will go through all the steps necessary to unit test and integration test your React components with confidence.
 
