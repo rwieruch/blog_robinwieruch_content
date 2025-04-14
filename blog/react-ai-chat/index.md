@@ -1,6 +1,6 @@
 ---
-title: "React.js AI Chat with OpenAI API"
-description: "Build a simple AI chat app using React.js on Next.js and the OpenAI API ..."
+title: "Full-Stack React.js AI Chat with OpenAI API"
+description: "Build a full-stack AI chat app using React.js on Next.js and the OpenAI API ..."
 date: "2025-04-14T13:50:46+02:00"
 categories: ["React"]
 keywords: ["react.js openai", "react.js ai", "react.js ai chat"]
@@ -15,6 +15,8 @@ In this tutorial, you'll build a simple AI chat app using React.js on Next.js an
 In addition, we will also learn how to stream responses from OpenAI, making the chat feel more interactive and responsive. This is a great way to enhance user experience and make your application feel more alive.
 
 In this tutorial we will implement everything from scratch, but later we will make a case for using AI SDK that simplifies the process of building AI applications in JavaScript.
+
+<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "Full-Stack React.js Chat with AI SDK", url: "/react-ai-sdk-chat/" }]} />
 
 Before diving into the code, you need to set up your development environment with Next.js, the React-based framework we're using for this project. Follow the official [Next.js installation](https://nextjs.org/docs/app/getting-started/installation) guide to get started. This will ensure that you can write backend code with Next.js for your React application
 
@@ -311,3 +313,5 @@ That's it, you now have full real-time streaming from OpenAI working in your app
 It works well, but it's a lot of moving parts.
 
 Want a cleaner, simpler approach? In the next section, we'll explore how using a helper library like the [AI SDK](https://sdk.vercel.ai/) can drastically reduce the amount of code needed to achieve the same functionality, without giving up flexibility or performance.
+
+<LinkCollection label="This tutorial is part 1 of 2 in the series." links={[{ prefix: "Part 2:", label: "Full-Stack React.js Chat with AI SDK", url: "/react-ai-sdk-chat/" }]} />
