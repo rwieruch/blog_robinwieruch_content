@@ -22,6 +22,8 @@ What You'll Learn
 - How to simplify the frontend using useChat from @ai-sdk/react
 - Why using the SDK can improve maintainability and developer experience
 
+<ReadMore label="Learn Next.js" link="https://www.road-to-next.com/" />
+
 Let's start by installing the packages you'll need: one for working with OpenAI and another for the core AI SDK functionality:
 
 ```sh
@@ -104,3 +106,7 @@ With just a few lines, your component now supports full streaming chat behavior,
 That's it! With the AI SDK, we've cut down the code dramatically, from dozens of lines across multiple files to just a few clean abstractions. Even better, we didn't lose any functionality, we gained maintainability, readability, and reusability.
 
 This approach is great if you want to move fast, keep your codebase clean, and focus on the parts of your app that make it unique. In the next section, we'll look at ways to customize the behavior even further, like adding system prompts, handling errors, or styling the UI for production.
+
+<LinkCollection label="This tutorial is part 2 of 3 in the series." links={[{ prefix: "Part 1:", label: "Full-Stack React.js AI Chat with OpenAI API", url: "/react-ai-chat/" }, { prefix: "Part 3:", label: "Selecting from Multiple Models (LLMs) with AI SDK in React.js", url: "/react-ai-sdk-multiple-models/" }]} />
+
+<LinkCollection label="This tutorial is part 2 of 3 in the series." links={[{ prefix: "Part 1:", label: "Full-Stack React.js AI Chat with OpenAI API", url: "/react-ai-chat/" }, { prefix: "Part 3:", label: "Streaming Multiple AI Models in Parallel with React.js and AI SDK", url: "/react-ai-sdk-multiple-streams/" }]} />
