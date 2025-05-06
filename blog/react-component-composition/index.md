@@ -3,7 +3,13 @@ title: "React Component Composition"
 description: "React Component Composition step by step explained with examples. Learn the React Composition Pattern by example which helps you to render components within each other ..."
 date: "2019-01-30T13:50:46+02:00"
 categories: ["React"]
-keywords: ["react component composition", "react component composition example", "react dynamic component composition", "react component composition pattern"]
+keywords:
+  [
+    "react component composition",
+    "react component composition example",
+    "react dynamic component composition",
+    "react component composition pattern",
+  ]
 hashtags: ["#ReactJs"]
 banner: "./images/banner.jpg"
 contribute: ""
@@ -27,12 +33,13 @@ const convertCurrency = (amount, fromCurrency, toCurrency) => {
 };
 ```
 
-In functional programming, the composition of functions is ubiquitous:
+In functional programming, the composition of functions is commonplace:
 
 ```javascript
-const convertCurrency = (amount, fromCurrency, toCurrency) => compose(
+const convertCurrency = (amount, fromCurrency, toCurrency) =>
+  compose(
     applyConversionRate(amount),
-    getConversionRate(fromCurrency, toCurrency),
+    getConversionRate(fromCurrency, toCurrency)
   );
 ```
 
@@ -44,31 +51,29 @@ You have seen how multiple functions can be composed together to achieve somethi
 
 ```html
 <form action="javascript:onSubmit();">
-  <label>
-    Your name: <input type="text" value="">
-  </label>
+  <label> Your name: <input type="text" value="" /> </label>
 
   <button type="submit">Send</button>
 </form>
 ```
 
-However, it's not only the form element but all of its other ingredients and their arrangement as well. It's the input field, the button, and the form that contribute to a greater goal: submit data. The example is taken a bit out of context, because the JavaScript function is missing, but not so the following React example. In React, a Form as React component which is rendered within a App component could look like the following:
+However, it's not only the form element but all of its other ingredients and their arrangement as well. It's the input field, the button, and the form that contribute to a greater goal: submit data. The example is taken a bit out of context, because the JavaScript function is missing, but not so in the following React example. In React, a Form as React component which is rendered within an App component could look like the following:
 
 ```javascript
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const App = () => {
-  const onSubmit = username => console.log(username);
+  const onSubmit = (username) => console.log(username);
 
   return <Form onSubmit={onSubmit} />;
 };
 
 const Form = ({ onSubmit }) => {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
 
   return (
     <form
-      onSubmit={event => {
+      onSubmit={(event) => {
         onSubmit(username);
 
         // prevents browser from reloading
@@ -82,7 +87,7 @@ const Form = ({ onSubmit }) => {
         <input
           type="text"
           value={username}
-          onChange={event => setUsername(event.target.value)}
+          onChange={(event) => setUsername(event.target.value)}
         />
       </label>
 
@@ -94,7 +99,7 @@ const Form = ({ onSubmit }) => {
 export default App;
 ```
 
-*Note: The Form component uses React Hooks that are not released yet. If you want, you can learn more about [React Hooks](/react-hooks/). Essentially they enable you to have function components with state and side-effects.*
+_Note: The Form component uses React Hooks. Essentially they enable you to have function components with state and side-effects. You can check the [React docs page on Hooks](https://react.dev/reference/react/hooks) or if you want to, you can learn more about React Hooks in [this article](/react-hooks/)._
 
 Now, wherever we use the Form component, we can capture the username of a user. It's identical to the HTML form from before, isn't it? Not really. At the moment, the Form is only capable of doing one thing. We did lose all the benefits from the HTML element composition from before, because we ended up with a specialized Form component. It can be reused anywhere in our React application, but it handles only one case. To make it effortless to see the difference, we would have to rename the Form component:
 
@@ -141,7 +146,7 @@ Since we encapsulated everything in one React component, it's difficult to tear 
 There is one property ([React prop](/react-pass-props-to-component/)) that helps us out with this dilemma for our React component: **the React children prop**. It's one special prop provided by React to render something within a component whereas the component isn't aware of it ahead of time. A basic example may be the following:
 
 ```javascript
-const Button = ({ onClick, type = 'button', children }) => (
+const Button = ({ onClick, type = "button", children }) => (
   <button type={type} onClick={onClick}>
     {children}
   </button>
@@ -343,7 +348,7 @@ const UsernameForm = ({ onSubmit }) => {
 ...
 ```
 
-From there it really depends on your React application on whether you want to use the generic Form component (e.g. Form) or specialize it as standalone Form component with a special use case (e.g. UsernameForm). My recommendation: Do the latter only if you catch yourself copying and pasting the same generic Form component from A to B to reuse it somewhere else. Then I would advice to implement this specialized Form component which encapsulates all the logic and can be reused anywhere in your application. In addition, it's beneficial for [testing your React component](/react-testing-tutorial/) in isolation.
+From there it really depends on your React application on whether you want to use the generic Form component (e.g. Form) or specialize it as a standalone Form component with a special use case (e.g. UsernameForm). My recommendation: Do the latter only if you catch yourself copying and pasting the same generic Form component from A to B to reuse it somewhere else. Then I would advice to implement this specialized Form component which encapsulates all the logic and can be reused anywhere in your application. In addition, it's beneficial for [testing your React component](/react-testing-tutorial/) in isolation.
 
 # Fine-grained Props Control
 
@@ -432,7 +437,7 @@ const Form = ({ buttonColor, onSubmit }) => {
 };
 ```
 
-However, the Form component shouldn't care about any props for the button element. In order to generalize the shown non composed Form component even more, it would also have to take other props as arguments (e.g. "Your name"-label, "Send"-button label):
+However, the Form component shouldn't care about any props for the button element. In order to generalize the shown non-composed Form component even more, it would also have to take other props as arguments (e.g. "Your name"-label, "Send"-button label):
 
 ```javascript{1,2,7,12,15,16,24}
 const Form = ({ label, buttonLabel, buttonColor, onSubmit }) => {
@@ -465,19 +470,19 @@ const Form = ({ label, buttonLabel, buttonColor, onSubmit }) => {
 };
 ```
 
-Suddenly you would end up with a cluttered component API for the Form component whereas the Form component takes care of everything rendered within itself. That can be avoided and that's why component compositions are such powerful pattern in React. Every component takes care about itself yet contributes to a greater goal in the component hierarchy of a React application.
+Suddenly you would end up with a cluttered component API for the Form component whereas the Form component takes care of everything rendered within itself. That can be avoided and that's why component compositions are such powerful patterns in React. Every component takes care about itself yet contributes to a greater goal in the component hierarchy of a React application.
 
 ```javascript
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const App = () => {
-  const onSubmit = username => console.log(username);
+  const onSubmit = (username) => console.log(username);
 
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
 
   return (
     <Form
-      onSubmit={event => {
+      onSubmit={(event) => {
         onSubmit(username);
         event.preventDefault();
       }}
@@ -497,17 +502,8 @@ const Form = ({ onSubmit, children }) => (
   <form onSubmit={onSubmit}>{children}</form>
 );
 
-const Button = ({
-  color = 'white',
-  onClick,
-  type = 'button',
-  children,
-}) => (
-  <button
-    style={{ backgroundColor: color }}
-    type={type}
-    onClick={onClick}
-  >
+const Button = ({ color = "white", onClick, type = "button", children }) => (
+  <button style={{ backgroundColor: color }} type={type} onClick={onClick}>
     {children}
   </button>
 );
@@ -518,7 +514,7 @@ const InputField = ({ value, onChange, children }) => (
     <input
       type="text"
       value={value}
-      onChange={event => onChange(event.target.value)}
+      onChange={(event) => onChange(event.target.value)}
     />
   </label>
 );
@@ -574,16 +570,13 @@ This pattern, not widely known under the synonym [slot pattern](/react-pass-prop
 Often you see something like the following App component whereas React Router is used to compose dynamic components, depending on the selected route (URL), into the Route components:
 
 ```javascript
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-} from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Navigation from './Navigation';
-import LandingPage from './Landing';
-import SignUpPage from './SignUp';
-import SignInPage from './SignIn';
+import Navigation from "./Navigation";
+import LandingPage from "./Landing";
+import SignUpPage from "./SignUp";
+import SignInPage from "./SignIn";
 
 const App = () => (
   <Router>
@@ -592,9 +585,9 @@ const App = () => (
 
       <hr />
 
-      <Route exact path='/' component={LandingPage} />
-      <Route path='/register' component={SignUpPage} />
-      <Route path='/login' component={SignInPage} />
+      <Route exact path="/" component={LandingPage} />
+      <Route path="/register" component={SignUpPage} />
+      <Route path="/login" component={SignInPage} />
 
       <Footer />
     </div>
@@ -610,8 +603,8 @@ In the end, React Component composition is possible foremost due to React's chil
 
 Composing React Components doesn't end here. There are two other advanced React patterns that are used for component compositions as well:
 
-* Render Prop Components
-* Higher-Order Components
+- Render Prop Components
+- Higher-Order Components
 
 [React's Render Prop Components](/react-render-props/) can be seen as extension of the shown slot pattern. However, in these slots you wouldn't pass directly what you want to render like in the slot pattern, but rather a function that returns the thing you want to render. By having this function at your disposal, you are able to pass information from the inner component that uses the slot pattern to the components that are used within these slots.
 
