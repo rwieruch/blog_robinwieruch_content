@@ -108,7 +108,7 @@ export default App;
 
 Our Radio Button component is a [reusable component](/react-reusable-components/) now. For example, if you would give your input field some [CSS style in React](/react-css-styling/), every Radio Button component which is used in your React project would use the same style.
 
-If you would want to create a radio button group now, you could just use multiple Radio Button components side by side and maybe style them with some border and some alignment, so that a user perceives them as a group of radio buttons:
+If you would want to create a radio button group now, you could just use multiple Radio Button components side by side inside a fieldset element, with a legend so that the user (and more importantly, screen readers) perceive them as a group of options.:
 
 ```javascript
 import * as React from 'react';
@@ -126,7 +126,8 @@ const App = () => {
   };
 
   return (
-    <div>
+    <fieldset>
+      <legend>What sort of pet person are you?</legend>
       <RadioButton
         label="Cat"
         value={catPerson}
@@ -137,7 +138,7 @@ const App = () => {
         value={dogPerson}
         onChange={handleDogChange}
       />
-    </div>
+    </fieldset>
   );
 };
 
