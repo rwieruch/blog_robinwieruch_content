@@ -18,7 +18,7 @@ A brief walkthrough on how to set up React Testing Library in Vitest when using 
 npm install vitest --save-dev
 ```
 
-Then in your package.json file, add another script which will run the tests eventually:
+Then in your package.json file, add another *test* script with the value of "vitest" which will be eventually used to run the tests:
 
 ```javascript{6}
 {
@@ -33,7 +33,7 @@ Then in your package.json file, add another script which will run the tests even
 }
 ```
 
-Create a test file somewhere in your project with the suffix *test*, e.g. *App.test.jsx*, and give it the following content:
+Create a test file in the root directory of your project with the suffix *test*, e.g. *App.test.jsx*, and give it the following content:
 
 ```javascript
 import { describe, it, expect } from 'vitest';
@@ -49,9 +49,10 @@ describe('something truthy and falsy', () => {
 });
 ```
 
-You can see that Vitest comes with test suites (here: `describe`), test cases (here: `it`) and assertions (here: `expect().toBe()`). If you have been using Jest before, you should be familiar with it, because Vitest acts as replacement for it.
+Vitest includes test suites (describe), test cases (it), and assertions (expect().toBe()). If you've used Jest before, Vitest will feel familiar—it's designed as a drop-in replacement.
 
-You can already run your tests on the command line with `npm run test`. They should turn out green.
+
+You can already run your tests on the command line with `npm run test`. They should turn out green. If they are red, refer to the console to fixing any errors. 
 
 # Vitest with React Testing Library
 
