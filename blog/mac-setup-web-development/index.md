@@ -179,7 +179,8 @@ brew install --cask \
   ngrok \
   obs \
   keycastr \
-  shotcut
+  shotcut \
+  claude-code
 ```
 
 Install terminal applications (read more about these in Terminal Applications):
@@ -195,7 +196,8 @@ brew install \
   graphicsmagick \
   commitizen \
   cmatrix \
-  vips
+  vips \
+  eza
 ```
 
 # GUI Applications
@@ -413,6 +415,8 @@ alias gitl="git lg"
 alias gita="git add ."
 alias gitc="cz commit"
 
+alias cc="claude"
+
 alias loc="npx sloc --format cli-table --format-option head --exclude 'build|\.svg$\.xml' ./"
 
 # load zsh-completions
@@ -439,10 +443,7 @@ The look and feel we want to achieve from our IDE:
 - [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments) (Comment Highlighting)
 - [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker) (Spell Checker for Text)
 - [Color Highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight) (Highlight Colors)
-- [EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig) (Shared Config)
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) ([Code Style](/vscode-eslint/))
-- [FontSize ShortCuts](https://marketplace.visualstudio.com/items?itemName=fosshaas.fontsize-shortcuts) (Font Size Increase/Decrease)
-- [Formatting Toggle](https://marketplace.visualstudio.com/items?itemName=tombonnike.vscode-status-bar-format-toggle) (Toggle Prettier)
 - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) (AI Support)
 - [GitHub Copilot Chat](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat) (AI Support)
 - [GitHub Dark Default](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme) (Theme)
@@ -458,7 +459,6 @@ The look and feel we want to achieve from our IDE:
 - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) (Tailwind CSS)
 - [Tailwind Docs](https://marketplace.visualstudio.com/items?itemName=austenc.tailwind-docs) (Tailwind CSS)
 - [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight) (Highlight TODOs)
-- [Vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=styled-components.vscode-styled-components) (Styled Components)
 - [Auto Hide](https://marketplace.visualstudio.com/items?itemName=sirmspencer.vscode-autohide) (Hides Sidebar)
 - [Tailwind Fold](https://marketplace.visualstudio.com/items?itemName=stivo.tailwind-fold) (Tailwind CSS)
 
@@ -470,239 +470,205 @@ The look and feel we want to achieve from our IDE:
 
 ```json
 {
-  "editor.lightbulb.enabled": "off",
-  "editor.cursorBlinking": "solid",
-  "editor.cursorStyle": "line",
-  "editor.cursorWidth": 2,
-  "window.titleBarStyle": "native",
-  "window.customTitleBarVisibility": "never",
-  "window.title": "${activeEditorMedium}",
-  "files.trimTrailingWhitespace": true,
-  "explorer.confirmDelete": false,
-  "explorer.compactFolders": false,
-  "workbench.sideBar.location": "right",
-  "workbench.startupEditor": "none",
-  "workbench.statusBar.visible": true,
-  "workbench.editor.enablePreview": false,
-  "workbench.editor.restoreViewState": true,
-  "workbench.activityBar.location": "hidden",
-  "workbench.colorTheme": "GitHub Dark Default",
-  "terminal.integrated.fontSize": 14,
-  "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
-  "editor.find.addExtraSpaceOnTop": true,
-  "editor.padding.top": 36,
-  "editor.stickyScroll.enabled": false,
-  "editor.fontFamily": "Hack Nerd Font Mono",
-  "editor.fontSize": 14,
-  "editor.tabSize": 2,
-  "editor.lineHeight": 0,
-  "editor.insertSpaces": true,
-  "editor.detectIndentation": false,
-  "editor.renderWhitespace": "none",
-  "editor.scrollBeyondLastLine": true,
-  "editor.minimap.enabled": false,
-  "editor.lineNumbers": "on",
-  "editor.find.seedSearchStringFromSelection": "never",
-  // line highlight
-  "editor.renderLineHighlight": "all",
-  "workbench.colorCustomizations": {
-    "editor.lineHighlightBackground": "#102032",
-    "editorCursor.foreground": "#ffffff",
-    "terminalCursor.foreground": "#ffffff"
-  },
-  // syntax highlighting
-  "files.associations": {
-    ".env*": "makefile"
-  },
-  // prettier
-  "editor.formatOnSave": true,
-  "[markdown]": {
-    "editor.formatOnSave": false
-  },
-  "[javascript]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "prettier.documentSelectors": ["**/*.astro"],
-  "[astro]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  // eslint
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit",
-    "source.fixAll.eslint": "explicit",
-    "source.fixAll.tslint": "explicit",
-    "source.addMissingImports": "explicit"
-  },
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
-  "javascript.validate.enable": false,
-  "javascript.updateImportsOnFileMove.enabled": "prompt",
-  "typescript.preferences.autoImportFileExcludePatterns": ["@radix-ui"],
-  "typescript.updateImportsOnFileMove.enabled": "never",
-  "debug.javascript.codelens.npmScripts": "never",
-  "explorer.confirmDragAndDrop": false,
-  "js/ts.implicitProjectConfig.checkJs": true,
-  "editor.formatOnPaste": true,
-  "editor.formatOnType": true,
-  "editor.inlineSuggest.enabled": true,
-  "gitlens.advanced.messages": {
-    "suppressCommitHasNoPreviousCommitWarning": true
-  },
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": false,
-    "markdown": true,
-    "scminput": false
-  },
-  "github.copilot.advanced": {},
-  "github.copilot.editor.enableAutoCompletions": true,
-  "git.openRepositoryInParentFolders": "never",
-  "todohighlight.isEnable": true,
-  "todohighlight.isCaseSensitive": true,
-  "todohighlight.keywords": [
-    {
-      "text": "ctx.prisma.stripeIntegration",
-      "color": "red",
-      "border": "1px solid red",
-      "borderRadius": "4px",
-      "backgroundColor": "rgba(0,0,0,.2)",
-      "isWholeLine": false
+    "editor.lightbulb.enabled": "off",
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "line",
+    "editor.cursorWidth": 2,
+    "editor.wordWrap": "off",
+    "window.titleBarStyle": "native",
+    "window.customTitleBarVisibility": "never",
+    "window.title": "${activeEditorMedium}",
+    "files.trimTrailingWhitespace": true,
+    "explorer.confirmDelete": false,
+    "explorer.compactFolders": false,
+    "workbench.editor.showTabs": "none",
+    "workbench.startupEditor": "none",
+    "workbench.statusBar.visible": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.restoreViewState": true,
+    "workbench.activityBar.location": "hidden",
+    "workbench.colorTheme": "GitHub Dark Default",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "editor.find.addExtraSpaceOnTop": true,
+    "editor.padding.top": 36,
+    "editor.stickyScroll.enabled": false,
+    "editor.fontFamily": "Hack Nerd Font Mono",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.renderWhitespace": "none",
+    "editor.scrollBeyondLastLine": true,
+    "editor.minimap.enabled": false,
+    "editor.lineNumbers": "on",
+    "editor.find.seedSearchStringFromSelection": "never",
+    // line highlight
+    "editor.renderLineHighlight": "all",
+    "workbench.colorCustomizations": {
+        "editor.lineHighlightBackground": "#102032",
+        "editorCursor.foreground": "#ffffff",
+        "terminalCursor.foreground": "#ffffff"
     },
-    {
-      "text": "adminProcedure",
-      "color": "red",
-      "border": "1px solid red",
-      "borderRadius": "4px",
-      "backgroundColor": "rgba(0,0,0,.2)",
-      "isWholeLine": false
+    // syntax highlighting
+    "files.associations": {
+        ".env*": "makefile"
     },
-    {
-      "text": "authProcedure",
-      "color": "red",
-      "border": "1px solid red",
-      "borderRadius": "4px",
-      "backgroundColor": "rgba(0,0,0,.2)",
-      "isWholeLine": false
+    // prettier
+    "editor.formatOnSave": false,
+    "[markdown]": {
+        "editor.formatOnSave": false
     },
-    {
-      "text": "publicProcedure",
-      "color": "green",
-      "border": "1px solid green",
-      "borderRadius": "4px",
-      "backgroundColor": "rgba(0,0,0,.2)",
-      "isWholeLine": false
-    }
-  ],
-  "cSpell.enableFiletypes": [
-    "!asciidoc",
-    "!c",
-    "!cpp",
-    "!csharp",
-    "!css",
-    "!elixir",
-    "!erlang",
-    "!git-commit",
-    "!go",
-    "!graphql",
-    "!handlebars",
-    "!haskell",
-    "!html",
-    "!jade",
-    "!java",
-    "!javascript",
-    "!javascriptreact",
-    "!json",
-    "!jsonc",
-    "!jupyter",
-    "!less",
-    "!prisma",
-    "!php",
-    "!pug",
-    "!python",
-    "!restructuredtext",
-    "!rust",
-    "!scala",
-    "!scminput",
-    "!scss",
-    "!swift",
-    "!typescript",
-    "!typescriptreact",
-    "!vue",
-    "!yaml",
-    "!yml",
-    "mdx"
-  ],
-  "editor.tokenColorCustomizations": {
-    "textMateRules": [
-      {
-        "name": "envKeys",
-        "scope": "string.quoted.single.ini,constant.numeric.ini,string.quoted.double.ini",
-        "settings": {
-          "foreground": "#19354900"
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.documentSelectors": [
+        "**/*.astro"
+    ],
+    "[astro]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // eslint
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.fixAll.eslint": "explicit",
+        "source.fixAll.tslint": "explicit",
+        "source.addMissingImports": "explicit"
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "javascript.validate.enable": false,
+    "javascript.updateImportsOnFileMove.enabled": "prompt",
+    "typescript.updateImportsOnFileMove.enabled": "never",
+    "typescript.preferences.autoImportFileExcludePatterns": [
+        "@radix-ui",
+        "react-day-picker"
+    ],
+    "debug.javascript.codelens.npmScripts": "never",
+    "explorer.confirmDragAndDrop": false,
+    "js/ts.implicitProjectConfig.checkJs": true,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    "editor.inlineSuggest.enabled": true,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": true
+    },
+    "github.copilot.advanced": {},
+    "github.copilot.editor.enableAutoCompletions": true,
+    "git.openRepositoryInParentFolders": "never",
+    // highlights
+    "todohighlight.isEnable": true,
+    "todohighlight.isCaseSensitive": true,
+    "todohighlight.keywords": [
+        {
+            "text": "ctx.prisma.stripeIntegration",
+            "color": "red",
+            "border": "1px solid red",
+            "borderRadius": "4px",
+            "backgroundColor": "rgba(0,0,0,.2)",
+            "isWholeLine": false
+        },
+        {
+            "text": "adminProcedure",
+            "color": "red",
+            "border": "1px solid red",
+            "borderRadius": "4px",
+            "backgroundColor": "rgba(0,0,0,.2)",
+            "isWholeLine": false
+        },
+        {
+            "text": "authProcedure",
+            "color": "red",
+            "border": "1px solid red",
+            "borderRadius": "4px",
+            "backgroundColor": "rgba(0,0,0,.2)",
+            "isWholeLine": false
+        },
+        {
+            "text": "publicProcedure",
+            "color": "green",
+            "border": "1px solid green",
+            "borderRadius": "4px",
+            "backgroundColor": "rgba(0,0,0,.2)",
+            "isWholeLine": false
         }
-      },
-      {
-        "name": "envKeys",
-        "scope": "string.quoted.single.ini,constant.numeric.ini,string.quoted.double.ini",
-        "settings": {
-          "foreground": "#19354900"
-        }
-      },
-      {
-        "name": "envKeys",
-        "scope": "string.quoted.single.ini,constant.numeric.ini,string.quoted.double.ini",
-        "settings": {
-          "foreground": "#19354900"
-        }
-      }
-    ]
-  }
+    ],
+    "cSpell.enableFiletypes": [
+        "!asciidoc",
+        "!c",
+        "!cpp",
+        "!csharp",
+        "!css",
+        "!elixir",
+        "!erlang",
+        "!git-commit",
+        "!go",
+        "!graphql",
+        "!handlebars",
+        "!haskell",
+        "!html",
+        "!jade",
+        "!java",
+        "!javascript",
+        "!javascriptreact",
+        "!json",
+        "!jsonc",
+        "!jupyter",
+        "!less",
+        "!prisma",
+        "!php",
+        "!pug",
+        "!python",
+        "!restructuredtext",
+        "!rust",
+        "!scala",
+        "!scminput",
+        "!scss",
+        "!swift",
+        "!typescript",
+        "!typescriptreact",
+        "!vue",
+        "!yaml",
+        "!yml",
+        "mdx"
+    ],
+    "editor.tokenColorCustomizations": {
+      "textMateRules": []
+    },
+    "github.copilot.enable": {
+      "*": false,
+      "plaintext": false,
+      "markdown": true,
+      "scminput": false
+    },
+    "cursor.cpp.disabledLanguages": [
+      "plaintext",
+      "scminput"
+    ],
+    "extensions.ignoreRecommendations": true,
+    "tailwind-fold.autoFold": false,
+    "editor.lineHeight": 0,
+    "editor.fontSize": 15,
+    "cursor.composer.usageSummaryDisplay": "always",
+    "workbench.sideBar.location": "right"
 }
-```
-
-**JSON keybindings (keybindings.json):**
-
-```json
-[
-  {
-    "key": "ctrl+up",
-    "command": "cursorMove",
-    "args": {
-        "to": "up",
-        "by": "line",
-        "value": 10
-      },
-      "when": "editorTextFocus"
-  },
-  {
-    "key": "ctrl+down",
-    "command": "cursorMove",
-    "args": {
-      "to": "down",
-      "by": "line",
-      "value": 10
-    },
-    "when": "editorTextFocus"
-  }
-]
 ```
 
 # Git
