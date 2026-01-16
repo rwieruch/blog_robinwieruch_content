@@ -414,6 +414,12 @@ alias gitd="git diff"
 alias gitl="git lg"
 alias gita="git add ."
 alias gitc="cz commit"
+alias gitb="git branch --sort=-committerdate"
+
+gitwta() { git worktree add -b "$1" ../"$1"; }
+gitwtl() { git worktree list; }
+gitwtd() { git worktree remove ../"$1"; }
+gitwtdb() { git worktree remove ../"$1" && git branch -D "$1"; }
 
 alias cc="claude"
 
