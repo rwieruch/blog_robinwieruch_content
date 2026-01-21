@@ -191,7 +191,7 @@ const getUser = (id) =>
   });
 
 // usage
-const doGetUsers = async (id) => {
+const doGetUser = async (id) => {
   try {
     const result = await getUser(id);
     console.log(result);
@@ -200,7 +200,7 @@ const doGetUsers = async (id) => {
   }
 };
 
-doGetUsers('1');
+doGetUser('1');
 ```
 
 Next, creating an item. If not all information is provided for the new item, the API will throw an error. Otherwise a new identifier for the item is generated and used to store the new item in the pseudo database:
