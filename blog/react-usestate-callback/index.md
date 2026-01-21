@@ -52,7 +52,7 @@ const App = () => {
 export default App;
 ```
 
-The function you pass to the useEffect hook is your callback function which runs after the provided state changes from the useState hook's second argument. If you perform changes in this callback function that should be reflected in your component's rendered output, you may want to use [useLayoutEffect instead of useEffect](/react-useeffect-vs-uselayouteffect/).
+The function you pass to the useEffect hook is your callback function which runs after the provided state changes from the useState hook's second argument. If you perform changes in this callback function that should be reflected in your component's rendered output, you may want to use [useLayoutEffect instead of useEffect](https://beta.reactjs.org/reference/react/useLayoutEffect).
 
 If you are looking for an out of the box solution, check out [this custom hook](https://github.com/the-road-to-learn-react/use-state-with-callback) that works like useState but accepts as second parameter as callback function:
 
