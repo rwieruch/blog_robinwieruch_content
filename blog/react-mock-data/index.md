@@ -80,7 +80,7 @@ const App = () => {
 
           return (
             <li key={user.id}>
-              {user.firstName} {user.lastName} {isDeveloperText}
+              {user.firstName} {user.lastName} {developerText}
             </li>
           );
         })}
@@ -136,12 +136,12 @@ const App = () => {
       <form onSubmit={handleCreate}>
         <label>
           First Name:
-          <input type="input" onChange={handleChangeFirstName} />
+          <input type="input" value={firstName} onChange={handleChangeFirstName} />
         </label>
 
         <label>
           Last Name:
-          <input type="input" onChange={handleChangeLastName} />
+          <input type="input" value={lastName} onChange={handleChangeLastName} />
         </label>
 
         <button type="submit">Create</button>
