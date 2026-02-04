@@ -232,7 +232,7 @@ brew install \
     - [GraphQL Network Inspector](https://chrome.google.com/webstore/detail/graphql-network-inspector/ndlbedplllcgconngcnfmkadhokfaaln?hl=en-GB)
 - [Firefox](https://www.google.com/chrome/) (web development)
 - [Brave](https://brave.com/) (web browsing, wallet)
-- [Tor](https://brave.com/) (secret web browsing)
+- [Tor](https://torproject.org/) (secret web browsing)
 - [iterm2](https://iterm2.com/) (terminal)
 - [Visual Studio Code](https://code.visualstudio.com/) (web development IDE)
 - [Docker](https://www.docker.com/products/docker-desktop) (Docker, see [setup](/docker-macos/))
